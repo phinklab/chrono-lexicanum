@@ -1,135 +1,62 @@
 /**
  * apply-override.ts — first active DB-write path of the Brief-058+ pipeline.
  *
- * Brief 060 (2026-05-11): the 10 books in `ssot-w40k-001` (W40K-0001..W40K-0010)
- * are written into Postgres using a Cowork-curated override file as authority for
- * the soft fields (synopsis, facetIds, factions, locations, characters, flags),
- * and `book-roster.json` (the SSOT-Excel mirror) as authority for the hard fields
+ * Brief 060 (2026-05-11): the books in a `ssot-*` batch are written into
+ * Postgres using a Cowork-curated override file as authority for the soft
+ * fields (synopsis, facetIds, factions, locations, characters, flags), and
+ * `book-roster.json` (the SSOT-Excel mirror) as authority for the hard fields
  * (title, releaseYear, format, seriesHint).
  *
+ * Brief 170 (2026-06-28): the per-book apply logic — the validators, the notes
+ * composition, the per-work writer (`applyBook`), `ensurePersonsExist`, and
+ * `applyCollections` — moved VERBATIM into `./book-apply-shared` so the new
+ * targeted `apply:book` (per-book SSOT) materializes a book through the SAME
+ * code path. This file is now a thin CLI/orchestration shell over that shared
+ * core: it loads a batch + roster, projects them into the shared `OverrideBook`
+ * / `RosterBook` shapes, and drives the shared writer. Legacy behavior is
+ * unchanged — same batches, same DB shape, same per-batch transaction model.
+ *
  * What the script does:
- *   1. Loads `manual-overrides-<batch>.json` and `book-roster.json` from
- *      `scripts/seed-data/`.
- *   2. Pre-pass: collects every distinct roster author + editor across the
- *      batch, slugifies each to a persons.id, INSERTs missing persons rows
- *      in a single block. Newly created entries are tracked for the final
- *      persons.json write.
- *   3. For each book in the batch, opens its own transaction:
- *      - UPSERT works (idempotent on `external_book_id` UNIQUE).
- *      - UPSERT bookDetails.
- *      - DELETE-then-INSERT junctions (work_facets, work_persons, work_factions,
- *        work_locations) — gives us per-row idempotency without per-row diff.
- *      - work_persons rows derived from roster.authors[]/roster.editors[]
- *        with role=author/editor and 0-based displayOrder.
- *      - Anthology edge case (authors=[] + editorialNote="various") emits a
- *        `---authorship---` marker into book_details.notes; resolver-brief
- *        will pick those up later.
- *      - Persist non-canonical surface forms (factions/locations/characters that
- *        do not resolve to reference IDs, plus any `data_conflict` flags) into
- *        `book_details.notes` between `---surfaceForms---` delimiters.
- *   4. After all books: a second pass writes `work_collections` rows. They
- *      need the works.id UUIDs of every book in the batch, so they are deferred
- *      until the per-book pass has produced an externalBookId → UUID map.
- *   5. Final atomic write of scripts/seed-data/persons.json if any persons
- *      were auto-created.
- *
- * Authority-vs-source split:
- *   - `works.synopsis`        ← override
- *   - `works.title`           ← roster
- *   - `works.releaseYear`     ← roster
- *   - `works.externalBookId`  ← roster (idempotency anchor)
- *   - `works.sourceKind`      ← const "ssot"
- *   - `works.confidence`      ← const "1.00"
- *   - `bookDetails.format`    ← roster (or override `data_conflict.suggestion`)
- *   - `bookDetails.notes`     ← surfaceForms + optional authorship JSON blocks
- *   - `bookDetails.primaryEraId` ← const "time_ending" (M41 — Platzhalter,
- *     keine Kuration; siehe Warnkommentar an M41_ERA_ID)
- *   - `bookDetails.seriesId`/`seriesIndex` ← seriesHint→reference mapping
- *   - `work_persons.*`        ← roster.authors[]/roster.editors[] (slugified)
- *
- * Anything not in the override file stays NULL. No fallback to LLM diffs.
+ *   1. Loads `manual-overrides-<batch>.json` and `book-roster.json`.
+ *   2. Validates facets / roles / synopses / ratings (halt before mutation).
+ *   3. Pre-pass `ensurePersonsExist` — INSERTs missing author/editor persons.
+ *   4. Per book: `applyBook` in its own transaction (idempotent on
+ *      `external_book_id`; delete-then-insert junctions).
+ *   5. Second pass: `applyCollections` writes `work_collections`.
+ *   6. Final atomic append to scripts/seed-data/persons.json for auto-created.
  *
  * CLI:
  *   npm run db:apply-override -- --batch=ssot-w40k-001
  */
-import { readFile, writeFile } from "node:fs/promises";
-import { parseArgs } from "node:util";
+import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
+import { parseArgs } from "node:util";
 
-import { and, count, eq, inArray, or } from "drizzle-orm";
+import {
+  appendAutoCreatedPersons,
+  applyBook,
+  applyCollections,
+  countJunctions,
+  ensurePersonsExist,
+  loadLocationSkipContext,
+  loadRoster,
+  loadSkipContext,
+  validateEntityRoles,
+  validateFacetIds,
+  validateRatingOverrides,
+  validateSynopses,
+  type BookApplyResult,
+  type OverrideBook,
+  type SeriesAnchor,
+  SEED_DIR,
+} from "./book-apply-shared";
 
-import { db } from "@/db/client";
-import {
-  bookDetails,
-  facetValues,
-  persons,
-  works,
-  workCharacters,
-  workCollections,
-  workFacets,
-  workFactions,
-  workLocations,
-  workPersons,
-} from "@/db/schema";
-import { deriveNameSort, slugifyPerson } from "@/lib/seed/persons";
-import {
-  normalizeCharacterRole,
-  normalizeFactionRole,
-  normalizeLocationRole,
-} from "@/lib/resolver/roles";
-import {
-  type Alignment,
-  normalizeAlignment,
-} from "@/lib/seed/alignment";
-import {
-  resolveBookEdges,
-  unresolvedCharacters,
-  unresolvedFactions,
-  unresolvedLocations,
-} from "./resolve-book-edges";
-import {
-  formatLintError,
-  lintSynopsis,
-  loadBannedPatterns,
-  type BannedPattern,
-  type SynopsisLintResult,
-} from "./apply-override-synopsis-lint";
-import {
-  formatRatingWrite,
-  normalizeRatingOverride,
-  ratingBookDetailsPatch,
-  type OverrideRating,
-} from "./apply-override-rating";
-
-const SEED_DIR = resolve(process.cwd(), "scripts", "seed-data");
-const ROSTER_PATH = resolve(SEED_DIR, "book-roster.json");
-const PERSONS_PATH = resolve(SEED_DIR, "persons.json");
-const FACTIONS_PATH = resolve(SEED_DIR, "factions.json");
-const FACTION_POLICY_PATH = resolve(SEED_DIR, "faction-policy.json");
-const LOCATION_POLICY_PATH = resolve(SEED_DIR, "location-policy.json");
-const LOCATIONS_PATH = resolve(SEED_DIR, "locations.json");
-const LOCATION_ALIASES_PATH = resolve(SEED_DIR, "location-aliases.json");
 const OVERRIDE_FILENAME_PREFIX = "manual-overrides-";
-
-// ⚠ Platzhalter, KEINE Kuration (Befund Brief 137): dieser konstante Stempel
-// landet bei JEDEM Upsert in `book_details.primary_era_id` — Insert wie Update.
-// Praktisch der ganze SSOT-Korpus trägt deshalb 'time_ending'; das Feld ist als
-// Era-Anker editorial wertlos, und jede künftige per-Buch-Kuration würde von der
-// nächsten Welle / dem nächsten Refresh wieder überstempelt. Bevor ein Consumer
-// primary_era_id ernsthaft nutzt: echten Wert ableiten (naheliegend: aus den
-// Setting-Dates `works.startY/setting*` aus Brief 137 bucketen) und dieses
-// Überschreiben hier entfernen.
-const M41_ERA_ID = "time_ending";
 const BATCH_NAME_PATTERN = /^ssot-(w40k|hh)-\d{3}$/;
-
-// Public-Synopsis-Forward-Guard (Brief 080): banned-pattern list loaded once
-// at module init. The real apply throws hard on any hit (gate semantics); the
-// dry-runner imports the same helper but collects hits report-only.
-const BANNED_SYNOPSIS_PATTERNS: readonly BannedPattern[] = loadBannedPatterns(SEED_DIR);
 
 // Eisenhorn/Ravenor are seeded series; Bequin and The Magos have no series row
 // and stay NULL until a future brief decides whether to add one.
-const SERIES_BY_EXTERNAL_ID: Record<string, { id: string; index: number | null }> = {
+const SERIES_BY_EXTERNAL_ID: Record<string, SeriesAnchor> = {
   "W40K-0001": { id: "eisenhorn", index: 1 },
   "W40K-0002": { id: "eisenhorn", index: 2 },
   "W40K-0003": { id: "eisenhorn", index: 3 },
@@ -140,38 +67,6 @@ const SERIES_BY_EXTERNAL_ID: Record<string, { id: string; index: number | null }
   "W40K-0008": { id: "ravenor", index: null },
 };
 
-// =============================================================================
-// Types
-// =============================================================================
-
-interface OverrideFlag {
-  kind: string;
-  field?: string;
-  current?: string;
-  suggestion?: string;
-  sources?: string[];
-  reasoning?: string;
-}
-
-interface OverrideEntity {
-  name: string;
-  role: string;
-}
-
-interface OverrideBook {
-  externalBookId: string;
-  slug: string;
-  overrides: {
-    synopsis: string;
-    facetIds: string[];
-    factions: OverrideEntity[];
-    locations: OverrideEntity[];
-    characters: OverrideEntity[];
-    flags: OverrideFlag[];
-    rating?: OverrideRating;
-  };
-}
-
 interface OverrideFile {
   $schema: string;
   batch: string;
@@ -180,77 +75,6 @@ interface OverrideFile {
   model: string;
   rationale: string;
   books: OverrideBook[];
-}
-
-interface RosterBook {
-  externalBookId: string;
-  slug: string;
-  title: string;
-  authors: string[];
-  editors: string[];
-  editorialNote: string | null;
-  releaseYear: number | null;
-  format: string | null;
-  seriesHint: string | null;
-  sourceUrl: string | null;
-  notes: string | null;
-  sourceRow: number;
-}
-
-interface RosterCollection {
-  contentExternalId: string;
-  collectionExternalId: string;
-  displayOrder: number;
-  confidence: number | null;
-  basis: string | null;
-}
-
-interface RosterFile {
-  schemaVersion: string;
-  sourceFile: string;
-  books: RosterBook[];
-  collections: RosterCollection[];
-}
-
-type ApplyPath = "insert" | "update";
-
-interface BookApplyResult {
-  externalBookId: string;
-  slug: string;
-  workId: string;
-  path: ApplyPath;
-  facetCount: number;
-  factionCount: number;
-  locationCount: number;
-  characterCount: number;
-  authorCount: number;
-  editorCount: number;
-  unresolvedAuthorship: boolean;
-  ratingSummary: string;
-}
-
-interface AutoCreatedPerson {
-  id: string;
-  name: string;
-  nameSort: string;
-}
-
-// Marker emitted into bookDetails.notes for anthologies where the roster says
-// authors=[] + editorialNote="various". Lets the future Resolver-Brief regex-
-// extract these books without scanning work_persons absences.
-interface AuthorshipMarker {
-  kind: "various";
-  editorialNote: "various";
-}
-
-interface PersonsJsonEntry {
-  id: string;
-  name: string;
-  nameSort: string;
-  bio?: string;
-  birthYear?: number;
-  lexicanumUrl?: string;
-  wikipediaUrl?: string;
 }
 
 // =============================================================================
@@ -296,99 +120,11 @@ Behaviour:
   - Surface forms that do not resolve to reference IDs land in book_details.notes
     between ---surfaceForms--- delimiters for later resolver consumption.
   - work_collections is populated as a second pass after the per-book loop.
+
+  Per-book apply logic is shared with \`apply:book\` (Brief 170) via
+  scripts/book-apply-shared.ts.
 `);
 }
-
-// =============================================================================
-// Helpers
-// =============================================================================
-
-// `slugifyPerson` + `deriveNameSort` moved to `@/lib/seed/persons` (Brief 105)
-// so the audiobook-credit apply path can slugify narrator names identically.
-// Imported at the top of this file; bodies are unchanged.
-
-function buildAuthorshipBlock(marker: AuthorshipMarker): string {
-  return `---authorship---\n${JSON.stringify(marker, null, 2)}\n---/authorship---`;
-}
-
-function pickFinalFormat(roster: RosterBook, override: OverrideBook): {
-  format: string | null;
-  formatOverride: { from: string | null; to: string; reason: string } | null;
-} {
-  const dataConflict = override.overrides.flags.find(
-    (f) => f.kind === "data_conflict" && f.field === "format" && f.suggestion,
-  );
-  if (dataConflict) {
-    return {
-      format: dataConflict.suggestion ?? null,
-      formatOverride: {
-        from: dataConflict.current ?? roster.format ?? null,
-        to: dataConflict.suggestion!,
-        reason: dataConflict.reasoning ?? "data_conflict flag in override file",
-      },
-    };
-  }
-  return { format: roster.format ?? null, formatOverride: null };
-}
-
-// Brief 154: the per-axis resolve+normalize+collapse wrappers
-// (`resolveFactions` / `resolveLocations` / `resolveCharacters`) and the
-// `unresolved*` drop helpers moved to `./resolve-book-edges` so the apply path
-// and the B11 book-reviewer projection crystallize edges through ONE shared,
-// parity-tested code path. They are composed here via `resolveBookEdges`.
-
-function buildSurfaceFormsBlock(
-  override: OverrideBook,
-  formatOverride: { from: string | null; to: string; reason: string } | null,
-  skippedSurfaceForms: string[] = [],
-  skippedLocationSurfaceForms: string[] = [],
-): string {
-  const factionsUnresolved = unresolvedFactions(override.overrides.factions);
-  // Brief 084: surface forms that the location-skip helper already classified
-  // as redundant umbrella tags do not double-up in `locationsUnresolved`.
-  // Case-insensitive trim-match keeps `IMPERIUM` / `Imperium of MAN` aligned
-  // with the skip set.
-  const locationSkipSet = new Set(
-    skippedLocationSurfaceForms.map((s) => s.trim().toLowerCase()),
-  );
-  const locationsUnresolved = unresolvedLocations(
-    override.overrides.locations,
-  ).filter((l) => !locationSkipSet.has(l.name.trim().toLowerCase()));
-  const charactersUnresolved = unresolvedCharacters(
-    override.overrides.characters,
-  );
-  const payload: Record<string, unknown> = {
-    factionsUnresolved,
-    locationsUnresolved,
-    charactersUnresolved,
-    flags: override.overrides.flags,
-  };
-  if (skippedSurfaceForms.length > 0) {
-    payload.factionsSkippedRedundant = skippedSurfaceForms;
-  }
-  if (skippedLocationSurfaceForms.length > 0) {
-    payload.locationsSkippedRedundant = skippedLocationSurfaceForms;
-  }
-  if (formatOverride) payload.formatOverride = formatOverride;
-  const json = JSON.stringify(payload, null, 2);
-  return `---surfaceForms---\n${json}\n---/surfaceForms---`;
-}
-
-function composeNotes(
-  rosterNotes: string | null,
-  surfaceFormsBlock: string,
-  authorshipBlock: string | null,
-): string {
-  const head = (rosterNotes ?? "").trim();
-  const tail = authorshipBlock
-    ? `${surfaceFormsBlock}\n\n${authorshipBlock}`
-    : surfaceFormsBlock;
-  return head ? `${head}\n\n${tail}` : tail;
-}
-
-// =============================================================================
-// Apply pipeline
-// =============================================================================
 
 async function loadOverride(batch: string): Promise<OverrideFile> {
   const path = resolve(SEED_DIR, `${OVERRIDE_FILENAME_PREFIX}${batch}.json`);
@@ -400,631 +136,6 @@ async function loadOverride(batch: string): Promise<OverrideFile> {
     );
   }
   return parsed;
-}
-
-async function loadRoster(): Promise<RosterFile> {
-  const raw = await readFile(ROSTER_PATH, "utf8");
-  return JSON.parse(raw) as RosterFile;
-}
-
-interface FactionPolicyFile {
-  browseRoots?: string[];
-  knownTopLevelExceptions?: string[];
-  redundantWhenSubPresent?: string[];
-  specialCases?: Record<string, string>;
-}
-
-interface SeedFactionRow {
-  id: string;
-  name: string;
-  parent?: string | null;
-  alignment?: string | null;
-  tone?: string | null;
-}
-
-/**
- * Skip-context for Brief 077: the policy-driven set of grand-alignment IDs
- * that get suppressed in `work_factions` when an alignment-peer sub-faction
- * is resolved in the same block, plus the lookup of every faction's
- * normalized alignment used to test the peer condition.
- */
-interface SkipContext {
-  redundantIds: Set<string>;
-  alignmentById: Map<string, Alignment>;
-}
-
-async function loadSkipContext(): Promise<SkipContext> {
-  const [policyRaw, factionsRaw] = await Promise.all([
-    readFile(FACTION_POLICY_PATH, "utf8"),
-    readFile(FACTIONS_PATH, "utf8"),
-  ]);
-  const policy = JSON.parse(policyRaw) as FactionPolicyFile;
-  const seedFactions = JSON.parse(factionsRaw) as SeedFactionRow[];
-
-  const redundantIds = new Set<string>(policy.redundantWhenSubPresent ?? []);
-  const alignmentById = new Map<string, Alignment>();
-  for (const f of seedFactions) {
-    alignmentById.set(f.id, normalizeAlignment(f));
-  }
-
-  for (const id of redundantIds) {
-    const alignment = alignmentById.get(id);
-    if (alignment === undefined) {
-      throw new Error(
-        `faction-policy.redundantWhenSubPresent contains '${id}' but factions.json has no row with that id.`,
-      );
-    }
-    if (alignment === "neutral") {
-      throw new Error(
-        `faction-policy.redundantWhenSubPresent contains '${id}' but its normalized alignment is 'neutral' — the skip rule needs a discriminating alignment.`,
-      );
-    }
-  }
-
-  return { redundantIds, alignmentById };
-}
-
-interface LocationPolicyFile {
-  redundantSurfaceForms?: unknown;
-  specialCases?: Record<string, string>;
-}
-
-interface SeedLocationRow {
-  id: string;
-  name: string;
-}
-
-/**
- * Skip-context for Brief 084: the policy-driven set of umbrella surface forms
- * (case-insensitive, trimmed) that get routed from `locationsUnresolved` into
- * the `locationsSkippedRedundant` audit-bucket when at least one other location
- * in the same override block resolves to a real `locations.json` row.
- *
- * Validation triggers (Brief 084 § Constraints): (a) JSON not parsable;
- * (b) `redundantSurfaceForms` missing or not a string array; (c) any entry
- * case-insensitively matches an existing `locations.json` name or
- * `location-aliases.json` key (self-foot-shooting — the maintainer accidentally
- * put a real location on the skip list).
- */
-interface LocationSkipContext {
-  redundantSurfaceForms: ReadonlySet<string>;
-}
-
-async function loadLocationSkipContext(): Promise<LocationSkipContext> {
-  const [policyRaw, locationsRaw, aliasesRaw] = await Promise.all([
-    readFile(LOCATION_POLICY_PATH, "utf8"),
-    readFile(LOCATIONS_PATH, "utf8"),
-    readFile(LOCATION_ALIASES_PATH, "utf8"),
-  ]);
-
-  let policy: LocationPolicyFile;
-  try {
-    policy = JSON.parse(policyRaw) as LocationPolicyFile;
-  } catch (err) {
-    throw new Error(
-      `location-policy.json is not parsable JSON: ${(err as Error).message}`,
-    );
-  }
-
-  if (!Array.isArray(policy.redundantSurfaceForms)) {
-    throw new Error(
-      `location-policy.json: 'redundantSurfaceForms' must be a string array.`,
-    );
-  }
-
-  const list: string[] = [];
-  for (const item of policy.redundantSurfaceForms) {
-    if (typeof item !== "string") {
-      throw new Error(
-        `location-policy.redundantSurfaceForms contains a non-string entry: ${JSON.stringify(item)}`,
-      );
-    }
-    list.push(item);
-  }
-
-  const seedLocations = JSON.parse(locationsRaw) as SeedLocationRow[];
-  const aliases = JSON.parse(aliasesRaw) as Record<string, string>;
-  const canonicalLowercased = new Set<string>([
-    ...seedLocations.map((l) => l.name.trim().toLowerCase()),
-    ...Object.keys(aliases).map((k) => k.trim().toLowerCase()),
-  ]);
-  for (const entry of list) {
-    const key = entry.trim().toLowerCase();
-    if (canonicalLowercased.has(key)) {
-      throw new Error(
-        `location-policy.redundantSurfaceForms contains '${entry}' but it ` +
-          `case-insensitively matches a locations.json name or location-aliases.json key — ` +
-          `the skip rule would suppress a real location. Remove the entry or rename the row.`,
-      );
-    }
-  }
-
-  const redundantSurfaceForms = new Set<string>(
-    list.map((s) => s.trim().toLowerCase()),
-  );
-  return { redundantSurfaceForms };
-}
-
-async function validateFacetIds(allFacetIds: Set<string>): Promise<void> {
-  if (allFacetIds.size === 0) return;
-  const rows = (await db
-    .select({ id: facetValues.id })
-    .from(facetValues)
-    .where(inArray(facetValues.id, [...allFacetIds]))) as Array<{ id: string }>;
-  const found = new Set(rows.map((r) => r.id));
-  const missing = [...allFacetIds].filter((id) => !found.has(id));
-  if (missing.length > 0) {
-    throw new Error(
-      `Override references unknown facet_value ids: ${missing.join(", ")}. ` +
-        `Halt before mutation.`,
-    );
-  }
-}
-
-/**
- * Public-Synopsis-Forward-Guard (Brief 080): hard-throw pre-pass that runs
- * `lintSynopsis` against every book's overrides.synopsis. Throws once with
- * every offending book listed (and every banned-pattern hit per book), so the
- * maintainer fixes everything in one round rather than book-by-book.
- *
- * Sits next to `validateFacetIds` / `validateEntityRoles`: same pre-pass
- * shape, same halt-before-mutation discipline. Per Brief 080 the dry-run
- * caller imports `lintSynopsis` directly with report-only semantics —
- * `validateSynopses` is the gate-semantics wrapper for the real apply only.
- */
-function validateSynopses(overrideBooks: OverrideBook[], batch: string): void {
-  const polluted: SynopsisLintResult[] = [];
-  for (const book of overrideBooks) {
-    const result = lintSynopsis(
-      book.externalBookId,
-      book.slug,
-      book.overrides.synopsis,
-      BANNED_SYNOPSIS_PATTERNS,
-    );
-    if (result.hits.length > 0) polluted.push(result);
-  }
-  if (polluted.length === 0) return;
-
-  const totalHits = polluted.reduce((sum, r) => sum + r.hits.length, 0);
-  const blocks = polluted.map((r) => formatLintError(r, batch));
-  throw new Error(
-    `Public-Synopsis-Forward-Guard (Brief 080): ${polluted.length} of ` +
-      `${overrideBooks.length} book(s) in batch ${batch} carry banned ` +
-      `patterns in overrides.synopsis (${totalHits} hit(s) total). ` +
-      `Halt before mutation.\n` +
-      blocks.join("\n\n"),
-  );
-}
-
-function validateRatingOverrides(overrideBooks: OverrideBook[]): void {
-  const invalid: string[] = [];
-  for (const book of overrideBooks) {
-    try {
-      normalizeRatingOverride(book.overrides.rating, book.externalBookId);
-    } catch (err) {
-      invalid.push(err instanceof Error ? err.message : String(err));
-    }
-  }
-
-  if (invalid.length > 0) {
-    throw new Error(
-      `Override carries invalid overrides.rating entries: ${invalid.join("; ")}. ` +
-        `Halt before mutation.`,
-    );
-  }
-}
-
-function validateEntityRoles(overrideBooks: OverrideBook[]): void {
-  const invalid: string[] = [];
-  for (const book of overrideBooks) {
-    for (const entity of book.overrides.factions) {
-      try {
-        normalizeFactionRole(entity.role);
-      } catch {
-        invalid.push(`${book.externalBookId} faction '${entity.name}' role='${entity.role}'`);
-      }
-    }
-    for (const entity of book.overrides.locations) {
-      try {
-        normalizeLocationRole(entity.role);
-      } catch {
-        invalid.push(`${book.externalBookId} location '${entity.name}' role='${entity.role}'`);
-      }
-    }
-    for (const entity of book.overrides.characters) {
-      try {
-        normalizeCharacterRole(entity.role);
-      } catch {
-        invalid.push(`${book.externalBookId} character '${entity.name}' role='${entity.role}'`);
-      }
-    }
-  }
-
-  if (invalid.length > 0) {
-    throw new Error(
-      `Override references unsupported entity roles after normalization: ${invalid.join("; ")}. ` +
-        `Halt before mutation.`,
-    );
-  }
-}
-
-/**
- * Pre-pass over the whole batch: collect every distinct author + editor name
- * string from the rosters of all books in the override, slugify each to a
- * persons.id, look up which ones already exist in DB, and INSERT the missing
- * rows as a single block.
- *
- * Returns the list of newly inserted entries (in DB insertion order) so
- * main() can append them atomically to scripts/seed-data/persons.json once
- * the per-book apply pass is done.
- *
- * Runs OUTSIDE the per-book transactions so applyBook() can rely on FK-safe
- * persons.id values when inserting work_persons rows.
- */
-async function ensurePersonsExist(
-  overrideBooks: OverrideBook[],
-  rosterByExternalId: Map<string, RosterBook>,
-): Promise<{ autoCreated: AutoCreatedPerson[]; distinct: number }> {
-  // 1. Walk override books, resolve roster entry, collect author+editor names.
-  // 2. Dedupe by slug — first occurrence's display string drives nameSort.
-  const desiredBySlug = new Map<string, string>();
-  for (const ob of overrideBooks) {
-    const rb = rosterByExternalId.get(ob.externalBookId);
-    if (!rb) continue; // surfaced as a hard error later in main()
-    for (const author of rb.authors) {
-      const slug = slugifyPerson(author);
-      if (slug && !desiredBySlug.has(slug)) desiredBySlug.set(slug, author);
-    }
-    for (const editor of rb.editors) {
-      const slug = slugifyPerson(editor);
-      if (slug && !desiredBySlug.has(slug)) desiredBySlug.set(slug, editor);
-    }
-  }
-
-  const wantedSlugs = [...desiredBySlug.keys()];
-  if (wantedSlugs.length === 0) {
-    return { autoCreated: [], distinct: 0 };
-  }
-
-  // 3. SELECT existing → compute missing.
-  const existingRows = (await db
-    .select({ id: persons.id })
-    .from(persons)
-    .where(inArray(persons.id, wantedSlugs))) as Array<{ id: string }>;
-  const existing = new Set(existingRows.map((r) => r.id));
-  const missing = wantedSlugs.filter((s) => !existing.has(s));
-
-  if (missing.length === 0) {
-    return { autoCreated: [], distinct: wantedSlugs.length };
-  }
-
-  // 4. INSERT missing as one block. nameSort is NOT NULL in the schema, so
-  // single-token fallback returns the original token rather than null.
-  const rows = missing.map((slug) => {
-    const name = desiredBySlug.get(slug)!;
-    return { id: slug, name, nameSort: deriveNameSort(name) };
-  });
-  await db.insert(persons).values(rows).onConflictDoNothing();
-
-  return {
-    autoCreated: rows.map((r) => ({ id: r.id, name: r.name, nameSort: r.nameSort })),
-    distinct: wantedSlugs.length,
-  };
-}
-
-async function applyBook(
-  override: OverrideBook,
-  roster: RosterBook,
-  skipCtx: SkipContext,
-  locationSkipCtx: LocationSkipContext,
-): Promise<BookApplyResult> {
-  return await db.transaction(async (tx) => {
-    const { format, formatOverride } = pickFinalFormat(roster, override);
-
-    // Brief 154: `resolveBookEdges` is the shared crystallizer the B11 reviewer
-    // projection also calls, so the apply path and the review projection cannot
-    // drift. It runs resolveFactions → decideFactionSkips (Brief 077 — the
-    // skip-decision drops a grand-alignment junction redundant given an
-    // alignment-peer sub-faction; skipped surface forms get audited in the
-    // surfaceForms block), resolveLocations + decideLocationSkips (Brief 084,
-    // audit-only — work_locations is unaffected because umbrellas resolve to
-    // null), and resolveCharacters — all in one place.
-    const edges = resolveBookEdges(override.overrides, skipCtx, locationSkipCtx);
-    const keepFactions = edges.keepFactions;
-    const skipDecision = edges.factionSkip;
-    const resolvedLocations = edges.resolvedLocations;
-    const locationSkipDecision = edges.locationSkip;
-    const resolvedCharacters = edges.resolvedCharacters;
-
-    const surfaceFormsBlock = buildSurfaceFormsBlock(
-      override,
-      formatOverride,
-      skipDecision.skippedSurfaceForms,
-      locationSkipDecision.skippedSurfaceForms,
-    );
-    const ratingPatch = ratingBookDetailsPatch(
-      override.overrides.rating,
-      override.externalBookId,
-    );
-    const ratingSummary = formatRatingWrite(
-      normalizeRatingOverride(override.overrides.rating, override.externalBookId),
-    );
-
-    // Authorship resolution from roster (not override). The override carries
-    // soft-content authority (synopsis, facets, factions, …) but the persons
-    // axis is mechanically taken from the SSOT-Excel roster mirror.
-    let authorshipMarker: AuthorshipMarker | null = null;
-    let unresolvedAuthorship = false;
-    if (roster.authors.length === 0) {
-      if (roster.editorialNote === "various") {
-        authorshipMarker = { kind: "various", editorialNote: "various" };
-      } else if (roster.editors.length === 0) {
-        unresolvedAuthorship = true;
-        console.warn(
-          `[apply-override] unresolved_authorship: ${roster.externalBookId} ` +
-            `(slug=${roster.slug}, row=${roster.sourceRow}, ` +
-            `authors=[], editors=[], editorialNote=null)`,
-        );
-      }
-      // else: editors-only book (curated anthology with named editors) →
-      // fall through; the editor rows below carry authorship by virtue of
-      // role="editor", no authorship marker emitted in this branch.
-    }
-
-    const authorshipBlock = authorshipMarker
-      ? buildAuthorshipBlock(authorshipMarker)
-      : null;
-    const notes = composeNotes(roster.notes, surfaceFormsBlock, authorshipBlock);
-
-    const existing = (await tx
-      .select({ id: works.id })
-      .from(works)
-      .where(eq(works.externalBookId, override.externalBookId))) as Array<{ id: string }>;
-    const path: ApplyPath = existing.length > 0 ? "update" : "insert";
-
-    let workId: string;
-    if (path === "update") {
-      workId = existing[0].id;
-      await tx
-        .update(works)
-        .set({
-          synopsis: override.overrides.synopsis,
-          // Title and slug stay frozen on update — externalBookId is the only
-          // identity anchor; renames live in the SSOT-Excel and require an
-          // explicit re-import path that brief 060 does not implement.
-          updatedAt: new Date(),
-        })
-        .where(eq(works.id, workId));
-    } else {
-      const inserted = (await tx
-        .insert(works)
-        .values({
-          kind: "book",
-          canonicity: "official",
-          slug: override.slug,
-          title: roster.title,
-          synopsis: override.overrides.synopsis,
-          releaseYear: roster.releaseYear ?? null,
-          externalBookId: override.externalBookId,
-          sourceKind: "ssot",
-          confidence: "1.00",
-        })
-        .returning({ id: works.id })) as Array<{ id: string }>;
-      workId = inserted[0].id;
-    }
-
-    const series = SERIES_BY_EXTERNAL_ID[override.externalBookId] ?? null;
-
-    // book_details upsert via primaryKey conflict (workId is PK).
-    await tx
-      .insert(bookDetails)
-      .values({
-        workId,
-        format: format as never,
-        notes,
-        primaryEraId: M41_ERA_ID,
-        seriesId: series?.id ?? null,
-        seriesIndex: series?.index ?? null,
-        ...ratingPatch,
-      })
-      .onConflictDoUpdate({
-        target: bookDetails.workId,
-        set: {
-          format: format as never,
-          notes,
-          primaryEraId: M41_ERA_ID,
-          seriesId: series?.id ?? null,
-          seriesIndex: series?.index ?? null,
-          ...ratingPatch,
-        },
-      });
-
-    // Junctions: delete-then-insert. work_collections is handled in a second
-    // pass once every book in the batch has a UUID.
-    await tx.delete(workFacets).where(eq(workFacets.workId, workId));
-    if (override.overrides.facetIds.length > 0) {
-      await tx.insert(workFacets).values(
-        override.overrides.facetIds.map((facetValueId) => ({
-          workId,
-          facetValueId,
-        })),
-      );
-    }
-
-    // Compose work_persons rows from roster.authors + roster.editors. The
-    // ensurePersonsExist() pre-pass already guaranteed every slug below has a
-    // matching persons.id row in the DB.
-    const personRows: Array<{
-      workId: string;
-      personId: string;
-      role: "author" | "editor";
-      displayOrder: number;
-    }> = [];
-    for (const [i, authorName] of roster.authors.entries()) {
-      personRows.push({
-        workId,
-        personId: slugifyPerson(authorName),
-        role: "author",
-        displayOrder: i,
-      });
-    }
-    for (const [i, editorName] of roster.editors.entries()) {
-      personRows.push({
-        workId,
-        personId: slugifyPerson(editorName),
-        role: "editor",
-        displayOrder: i,
-      });
-    }
-    // Brief 105: scope the delete to author/editor — the roles this apply path
-    // OWNS. Audio credits (narrator/co_narrator/full_cast) are written from a
-    // committed sidecar by scripts/apply-audiobook-narrators.ts and must
-    // survive every SSOT/resolver re-apply, so they are intentionally left
-    // untouched here. (Before this scope, a re-apply wiped all work_persons and
-    // re-inserted only author/editor, silently clobbering narrator credits.)
-    await tx
-      .delete(workPersons)
-      .where(
-        and(
-          eq(workPersons.workId, workId),
-          inArray(workPersons.role, ["author", "editor"]),
-        ),
-      );
-    if (personRows.length > 0) {
-      await tx.insert(workPersons).values(personRows);
-    }
-
-    await tx.delete(workFactions).where(eq(workFactions.workId, workId));
-    if (keepFactions.length > 0) {
-      await tx.insert(workFactions).values(
-        keepFactions.map((f) => ({
-          workId,
-          factionId: f.id,
-          role: f.role,
-          rawName: f.rawName,
-        })),
-      );
-    }
-
-    await tx.delete(workLocations).where(eq(workLocations.workId, workId));
-    if (resolvedLocations.length > 0) {
-      await tx.insert(workLocations).values(
-        resolvedLocations.map((l) => ({
-          workId,
-          locationId: l.id,
-          role: l.role,
-          rawName: l.rawName,
-        })),
-      );
-    }
-
-    // Brief 063 (2026-05-12): work_characters now written. Until this brief
-    // the table stayed empty because no resolver existed for the character
-    // axis; the resolver module + characters.json seed + character-aliases
-    // unlock this insert path. Same delete-then-insert pattern as factions.
-    await tx.delete(workCharacters).where(eq(workCharacters.workId, workId));
-    if (resolvedCharacters.length > 0) {
-      await tx.insert(workCharacters).values(
-        resolvedCharacters.map((c) => ({
-          workId,
-          characterId: c.id,
-          role: c.role,
-          rawName: c.rawName,
-        })),
-      );
-    }
-
-    return {
-      externalBookId: override.externalBookId,
-      slug: override.slug,
-      workId,
-      path,
-      facetCount: override.overrides.facetIds.length,
-      factionCount: keepFactions.length,
-      locationCount: resolvedLocations.length,
-      characterCount: resolvedCharacters.length,
-      authorCount: roster.authors.length,
-      editorCount: roster.editors.length,
-      unresolvedAuthorship,
-      ratingSummary,
-    };
-  });
-}
-
-async function applyCollections(
-  externalIdToUuid: Map<string, string>,
-  roster: RosterFile,
-  batchName: string,
-): Promise<number> {
-  const batchExternalIds = new Set(externalIdToUuid.keys());
-  // A collection row is in scope iff at least one endpoint is inside the
-  // override batch. The other endpoint may have been applied in an earlier
-  // batch, so resolve misses through works.external_book_id below.
-  const inScope = roster.collections.filter(
-    (c) =>
-      batchExternalIds.has(c.collectionExternalId) ||
-      batchExternalIds.has(c.contentExternalId),
-  );
-
-  const batchUuids = [...externalIdToUuid.values()];
-  // Idempotency: clear out any rows whose collection-side OR content-side UUID
-  // belongs to this batch, then re-insert.
-  if (batchUuids.length > 0) {
-    await db
-      .delete(workCollections)
-      .where(inArray(workCollections.collectionWorkId, batchUuids));
-    await db
-      .delete(workCollections)
-      .where(inArray(workCollections.contentWorkId, batchUuids));
-  }
-
-  if (inScope.length === 0) return 0;
-
-  const resolvedExternalIds = new Map(externalIdToUuid);
-  const resolveWorkId = async (externalBookId: string): Promise<string | null> => {
-    const cached = resolvedExternalIds.get(externalBookId);
-    if (cached !== undefined) return cached;
-    const row = (await db
-      .select({ id: works.id })
-      .from(works)
-      .where(eq(works.externalBookId, externalBookId))
-      .limit(1)) as Array<{ id: string }>;
-    const resolved = row[0]?.id ?? null;
-    if (resolved !== null) resolvedExternalIds.set(externalBookId, resolved);
-    return resolved;
-  };
-
-  const rows: Array<{
-    collectionWorkId: string;
-    contentWorkId: string;
-    displayOrder: number;
-    confidence: string | null;
-    basis: string | null;
-  }> = [];
-  for (const c of inScope) {
-    const collectionWorkId = await resolveWorkId(c.collectionExternalId);
-    const contentWorkId = await resolveWorkId(c.contentExternalId);
-    if (collectionWorkId === null || contentWorkId === null) {
-      const missing = [
-        collectionWorkId === null ? c.collectionExternalId : null,
-        contentWorkId === null ? c.contentExternalId : null,
-      ].filter((value): value is string => value !== null);
-      console.warn(
-        `[applyCollections] skipping unresolved external_book_id=${missing.join(",")} in batch=${batchName}`,
-      );
-      continue;
-    }
-    rows.push({
-      collectionWorkId,
-      contentWorkId,
-      displayOrder: c.displayOrder,
-      confidence: c.confidence !== null ? c.confidence.toFixed(2) : null,
-      basis: c.basis,
-    });
-  }
-  if (rows.length === 0) return 0;
-  await db.insert(workCollections).values(rows);
-  return rows.length;
 }
 
 // =============================================================================
@@ -1073,15 +184,11 @@ async function main() {
   console.log("[apply-override] validated entity roles after normalization");
   validateSynopses(override.books, args.batch);
   console.log(
-    `[apply-override] validated ${override.books.length} synopses against ` +
-      `${BANNED_SYNOPSIS_PATTERNS.length} banned patterns (Brief 080 guard)`,
+    `[apply-override] validated ${override.books.length} synopses (Brief 080 guard)`,
   );
   validateRatingOverrides(override.books);
   console.log("[apply-override] validated optional Goodreads rating overrides");
 
-  // Pre-pass: ensure every roster author + editor exists as a persons row.
-  // Runs OUTSIDE the per-book transactions so FK targets are stable when
-  // applyBook() inserts work_persons.
   const { autoCreated, distinct } = await ensurePersonsExist(
     override.books,
     rosterByExternalId,
@@ -1105,7 +212,14 @@ async function main() {
         `Override book ${overrideBook.externalBookId} has no matching row in book-roster.json`,
       );
     }
-    const result = await applyBook(overrideBook, rosterBook, skipCtx, locationSkipCtx);
+    const series = SERIES_BY_EXTERNAL_ID[overrideBook.externalBookId] ?? null;
+    const result = await applyBook(
+      overrideBook,
+      rosterBook,
+      series,
+      skipCtx,
+      locationSkipCtx,
+    );
     externalIdToUuid.set(result.externalBookId, result.workId);
     results.push(result);
     console.log(
@@ -1116,64 +230,19 @@ async function main() {
   const collectionsCount = await applyCollections(externalIdToUuid, roster, args.batch);
   console.log(`[apply-override] work_collections written: ${collectionsCount} rows`);
 
-  // Summary counts straight from the DB so the report has authoritative numbers.
-  const batchUuidList = [...externalIdToUuid.values()];
-  const countOf = async (
-    table:
-      | typeof workFacets
-      | typeof workPersons
-      | typeof workFactions
-      | typeof workLocations
-      | typeof workCharacters,
-  ): Promise<number> => {
-    if (batchUuidList.length === 0) return 0;
-    const r = await db
-      .select({ n: count() })
-      .from(table)
-      .where(inArray(table.workId, batchUuidList));
-    return r[0]?.n ?? 0;
-  };
   const summary = {
     works: results.length,
-    work_facets: await countOf(workFacets),
-    work_persons: await countOf(workPersons),
-    work_factions: await countOf(workFactions),
-    work_locations: await countOf(workLocations),
-    work_characters: await countOf(workCharacters),
-    work_collections:
-      batchUuidList.length === 0
-        ? 0
-        : (
-            await db
-              .select({ n: count() })
-              .from(workCollections)
-              .where(
-                or(
-                  inArray(workCollections.collectionWorkId, batchUuidList),
-                  inArray(workCollections.contentWorkId, batchUuidList),
-                ),
-              )
-          )[0]?.n ?? 0,
+    ...(await countJunctions([...externalIdToUuid.values()])),
   };
   console.log(`[apply-override] DB-side counts:`, summary);
 
-  // Atomic persons.json write: one append at the end of the run so the JSON
-  // mirror stays in sync with the DB. If the run aborted mid-way, the DB has
-  // more persons rows than the JSON and a maintainer can re-sync manually.
   if (autoCreated.length > 0) {
-    const rawPersons = await readFile(PERSONS_PATH, "utf8");
-    const existing = JSON.parse(rawPersons) as PersonsJsonEntry[];
-    const merged = [
-      ...existing,
-      ...autoCreated.map((p) => ({ id: p.id, name: p.name, nameSort: p.nameSort })),
-    ];
-    await writeFile(PERSONS_PATH, JSON.stringify(merged, null, 2) + "\n", "utf8");
+    const total = await appendAutoCreatedPersons(autoCreated);
     console.log(
-      `[apply-override] appended ${autoCreated.length} new entries to persons.json (total now ${merged.length})`,
+      `[apply-override] appended ${autoCreated.length} new entries to persons.json (total now ${total})`,
     );
   }
 
-  // Unresolved-authorship summary (loud, separately from the per-book log).
   const unresolved = results.filter((r) => r.unresolvedAuthorship);
   if (unresolved.length > 0) {
     console.warn(

@@ -45,6 +45,7 @@ import { ignoredSlugSet, loadBookIgnore } from "./refresh/book-ignore";
 import { loadBookSeen, seenSlugSet } from "./refresh/book-seen";
 import { detectMissingBooks } from "./refresh/book-source";
 import { loadRefreshSources } from "./refresh/config";
+import { loadEffectiveCorpusBooks } from "./refresh/effective-corpus";
 import { floorIsoForShow, loadCurationState } from "./refresh/curation-state";
 import {
   buildReportMarkdown,
@@ -104,9 +105,24 @@ async function main(): Promise<void> {
   const includeSeen = argv.includes("--include-seen");
 
   // --- Books (fail-soft) ---
+  // Effective corpus = Legacy roster + per-book SSOT folder (Brief 170 Teil A).
+  // A book promoted via scripts/seed-data/books/<slug>.json must classify
+  // `exact` (never re-proposed) AND seed the id allocator's per-prefix maxima
+  // (so the next W40K-/HH- id can't collide). Both consumers read only
+  // `roster.books`, so merge the projection in once, here, at the chokepoint.
   const roster = loadRoster();
-  const index = buildRosterIndex(roster);
-  const allocator = makeIdAllocator(roster);
+  const folderBooks = loadEffectiveCorpusBooks();
+  const effectiveRoster: RosterFile = {
+    ...roster,
+    books: [...roster.books, ...folderBooks],
+  };
+  if (folderBooks.length > 0) {
+    console.error(
+      `[books] effective-corpus: +${folderBooks.length} per-book file(s) merged (Legacy ${roster.books.length} → ${effectiveRoster.books.length})`,
+    );
+  }
+  const index = buildRosterIndex(effectiveRoster);
+  const allocator = makeIdAllocator(effectiveRoster);
   const sources = loadRefreshSources();
   // Maintainer "book cutoff": title-slugs dismissed in `book-ignore.json` are
   // dropped before bucketing, so a duplicate / unwanted edition is not re-proposed.

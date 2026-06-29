@@ -10,9 +10,9 @@
 #
 # db:rebuild == db:sync + a prepended, confirm-gated TRUNCATE. The destructive
 # truncate is the ONLY thing this adds over db:sync; the entire restore chain
-# (corpus + podcast + audiobook + timeline + curation, auto-derived scope) lives
-# in scripts/db-sync.sh and is shared by both paths — this orchestrator does not
-# reimplement it.
+# (corpus + per-book + podcast + audiobook + timeline + curation, auto-derived
+# scope) lives in scripts/db-sync.sh and is shared by both paths — this
+# orchestrator does not reimplement it.
 #
 #   1. db-apply-scope.ts (--check)         PREFLIGHT (read-only) — derive + validate
 #                                          the apply scope from the committed roster
@@ -26,9 +26,9 @@
 #                                          characters, locations, eras, …) are preserved.
 #   3. db:sync                             The full NON-DESTRUCTIVE restore chain:
 #                                          re-apply the auto-derived committed roster +
-#                                          podcast + audiobook + timeline + curation,
-#                                          each verify-gated. (Re-runs the preflight in
-#                                          --emit-config mode; harmless + idempotent.)
+#                                          per-book + podcast + audiobook + timeline +
+#                                          curation, each verify-gated. (Re-runs the
+#                                          preflight in --emit-config mode; harmless.)
 #
 # WHY a dedicated orchestrator and not a tail in run-phase4-apply.sh: that engine
 # runs on EVERY resolver wave; a reset/audio/timeline step there would fire
@@ -66,7 +66,7 @@ db:rebuild == db:sync + a prepended confirm-gated TRUNCATE.
 Sequence (each step gates the next; a failure aborts before later steps run):
   1. db-apply-scope (preflight)           validate the apply scope BEFORE truncate (HALTS on a hole/stray)
   2. db:reset-for-ssot --confirm          TRUNCATE works CASCADE (reference tables preserved)
-  3. db:sync                              the full non-destructive restore chain (corpus + podcast + audiobook + timeline + curation, all verify-gated)
+  3. db:sync                              the full non-destructive restore chain (corpus + per-book + podcast + audiobook + timeline + curation, all verify-gated)
 
 DESTRUCTIVE — truncates `works`. Requires explicit confirmation via either:
   --confirm                  CLI flag.
@@ -140,8 +140,8 @@ step "1/3 preflight — validate apply scope before truncate (db-apply-scope)" \
 step "2/3 TRUNCATE works domain (db:reset-for-ssot --confirm)" \
   npm run db:reset-for-ssot -- --confirm
 
-# 3. The full non-destructive restore chain — corpus + podcast + audiobook +
-#    timeline + curation, auto-derived scope, each verify-gated. Identical to a
+# 3. The full non-destructive restore chain — corpus + per-book + podcast +
+#    audiobook + timeline + curation, auto-derived scope, each verify-gated. Identical to a
 #    standalone `npm run db:sync`; the only difference from a routine sync is the
 #    truncate that ran first (step 2).
 step "3/3 restore everything (db:sync)" \

@@ -24,6 +24,7 @@ Egal welche Quelle sich ändert, der Handgriff ist **immer** `npm run db:sync`. 
 |---|---|---|
 | 1 Buch / 3 Bücher / kleine Korrektur in einer Batch | `scripts/seed-data/manual-overrides-ssot-*.json` | Quelle ändern → PR/Merge → `npm run db:sync` |
 | **Neue Batch-Range crystallized** (z. B. `ssot-w40k-061`) | neue `manual-overrides-ssot-*.json` | Datei committen → PR/Merge → `npm run db:sync` — **Scope leitet sich automatisch ab, KEIN Config-Bump** |
+| **Neues Buch (Per-Buch-SSOT, Brief 170 Teil A)** | neue `scripts/seed-data/books/<slug>.json` (`$schema: "book-v1"`) | Datei committen → PR/Merge → `npm run apply:book -- --slug <slug>` (gezielt) **oder** `npm run db:sync` (der `--all`-Per-Buch-Tail fährt mit). Voller Flow + DB-Write-Gate: `scripts/runbooks/add-book-runbook.md` |
 | Neue Reference-Entity (Fraktion, Person, Ort, Charakter …) | `scripts/seed-data/factions.json` / `persons.json` / … | Quelle ändern → PR/Merge → `npm run db:sync` |
 | Hand-Kuration (z. B. die 96 Korrekturen) | `scripts/seed-data/curation-overlay.json` | Overlay ändern → PR/Merge → `npm run db:sync` |
 | Hörbuch-Credits | `scripts/seed-data/audiobook-narrators.json` | Sidecar ändern → PR/Merge → `npm run db:sync` |
@@ -44,17 +45,18 @@ npm run db:sync
 
 Hilfe (kein DB-Zugriff): `npm run db:sync -- --help`. Fallback, falls die npm-Shell `bash` nicht auflöst (Windows): `bash scripts/db-sync.sh`.
 
-### Die Sequenz (neun Schritte, strikt sequenziell, Fail-Fast)
+### Die Sequenz (zehn Schritte, strikt sequenziell, Fail-Fast)
 
 1. **Preflight — `db-apply-scope.ts --emit-config`** (read-only). Leitet den Apply-Scope aus dem committeten Roster auf der Platte ab, prüft Lückenlosigkeit und schreibt die abgeleitete Config (`ingest/.state/db-apply.derived.config.json`, gitignored). **Hält hier laut an** (vor jedem Write), wenn eine Datei fehl-benannt ist oder eine Lücke klafft (siehe „Auto-Scope + Preflight-Guard").
 2. **`run-phase4-apply.sh <derived cfg>`** — re-applied den vollen kristallisierten Override-Roster beider Domänen (auto-abgeleitet: heute `w40k` 1..60 + `hh` 1..30 = 90 Batches) idempotent (delete-then-insert pro Junction). Seedet vorab Resolver-Extensions + Facets non-destruktiv. Stellt `author|editor`-`work_persons` wieder her.
-3. **`apply:podcast -- --all`** (Tail) — stellt die 4 committeten Podcast-Shows + Episoden wieder her. Läuft **nach** dem Korpus (die `works` existieren) und **vor** der Timeline (Schritt 6), weil die `event_works`-Hooks mit `role=podcast` gegen diese Podcast-`works` auflösen.
-4. **`apply:audiobook-narrators`** (Tail) — stellt die `narrator|co_narrator|full_cast`-`work_persons`-Rows wieder her.
-5. **`apply:audiobook-narrators --verify`** — read-only Post-Condition (exakte Sidecar-Menge, siehe unten).
-6. **`apply:timeline`** (Tail) — stellt Eras + Events (upsert), `event_works` (wholesale aus `event-works.json`) und die `works.startY/endY/setting*`-Spalten der datierten Werke wieder her; remappt `book_details.primary_era_id` und löscht die retirten Eras. Läuft **vor** der Curation, damit die Hand-Kuration bei `primary_era_id` zuletzt gewinnt.
-7. **`apply:timeline --verify`** — read-only Post-Condition (exakte Seed-Menge, siehe unten).
-8. **`apply:curation-overlay`** (Tail) — re-assertet die maintainer-entschiedenen Hand-Overrides. Läuft **zuletzt**, damit die suppress-Edges existieren (um gelöscht zu werden), die add-Edges nach der Welle gewinnen und der `primaryEraId`-Feld-Fix den Timeline-Remap überschreibt.
-9. **`apply:curation-overlay --verify`** — read-only Post-Condition (jede add-Edge präsent, jede Suppression abwesend, jedes Feld gleich).
+3. **`apply:book -- --all`** (Tail, additiv, Brief 170 Teil A) — appliziert jede committete `scripts/seed-data/books/<slug>.json` (Per-Buch-SSOT) über denselben geteilten Writer wie der Legacy-Batch-Apply (`book-apply-shared.ts`). Läuft **nach** dem Legacy-Korpus und **vor** den Podcast-/Timeline-/Curation-Tails, damit Per-Buch-`works` existieren, wenn Buch-Daten + Curation-Edges gegen `works.id` auflösen. Seedet seinen eigenen Reference-/Facet-Prolog; idempotent; ein **leerer** `books/`-Ordner ist ein sauberer No-op (Teil A liefert ihn leer aus).
+4. **`apply:podcast -- --all`** (Tail) — stellt die 4 committeten Podcast-Shows + Episoden wieder her. Läuft **nach** dem Korpus (die `works` existieren) und **vor** der Timeline (Schritt 7), weil die `event_works`-Hooks mit `role=podcast` gegen diese Podcast-`works` auflösen.
+5. **`apply:audiobook-narrators`** (Tail) — stellt die `narrator|co_narrator|full_cast`-`work_persons`-Rows wieder her.
+6. **`apply:audiobook-narrators --verify`** — read-only Post-Condition (exakte Sidecar-Menge, siehe unten).
+7. **`apply:timeline`** (Tail) — stellt Eras + Events (upsert), `event_works` (wholesale aus `event-works.json`) und die `works.startY/endY/setting*`-Spalten der datierten Werke wieder her; remappt `book_details.primary_era_id` und löscht die retirten Eras. Läuft **vor** der Curation, damit die Hand-Kuration bei `primary_era_id` zuletzt gewinnt.
+8. **`apply:timeline --verify`** — read-only Post-Condition (exakte Seed-Menge, siehe unten).
+9. **`apply:curation-overlay`** (Tail) — re-assertet die maintainer-entschiedenen Hand-Overrides. Läuft **zuletzt**, damit die suppress-Edges existieren (um gelöscht zu werden), die add-Edges nach der Welle gewinnen und der `primaryEraId`-Feld-Fix den Timeline-Remap überschreibt.
+10. **`apply:curation-overlay --verify`** — read-only Post-Condition (jede add-Edge präsent, jede Suppression abwesend, jedes Feld gleich).
 
 ### Was `db:sync` garantiert — und was nicht
 
@@ -96,7 +98,8 @@ Er komponiert ausschließlich **bestehende** read-only Signale (keine neue Vergl
 3. **Audiobook-Verify** — `apply:audiobook-narrators --verify` (exakte Sidecar-Menge == DB).
 4. **Timeline-Verify** — `apply:timeline --verify` (exakter Timeline-Seed-Zustand == DB).
 5. **Curation-Verify** — `apply:curation-overlay --verify` (jede Hand-Override-Edge/Feld == DB).
-6. **Podcast-Artifact-Drift** — `refresh:audit-artifacts` (committete Podcast-Artefakte ↔ DB-Episode-Guids pro Show).
+6. **Per-Buch-Verify** — `apply:book --verify` (jede `scripts/seed-data/books/*.json` in `works` präsent: Slug + `book_details`-Row; leerer Ordner = Pass, Brief 170 Teil A).
+7. **Podcast-Artifact-Drift** — `refresh:audit-artifacts` (committete Podcast-Artefakte ↔ DB-Episode-Guids pro Show).
 
 **Was `db:drift` bewusst NICHT tut** (Brief 157): einen exakten „DB == der KOMPLETTE SSOT"-Deep-Diff. Die Tail-`--verify`s beweisen ihre **eigenen Slices** (Audio / Timeline / Curation) exakt, und die Contiguity beweist, dass der Apply-Scope vollständig ist — aber eine **stale Korpus-Junction innerhalb einer applizierten Batch** fängt der Health-Check **nicht**. Ein voller DB==SSOT-Vergleich ist ein vertagter Follow-up. Ist ein Check rot: erst `npm run db:sync` (nicht-destruktiv); bleibt er rot, untersuchen / ggf. Rebuild.
 
@@ -166,7 +169,7 @@ VERIFY OK — all 88 sidecar audio credits present as exact (work, person, role)
 
 Bestätigt, dass die DB **exakt** den aus den vier Timeline-Seed-JSONs abgeleiteten Zustand trägt. Pure Vergleichslogik in `scripts/timeline-state.ts` (`diffTimelineState`), DB-frei via `npm run test:timeline` getestet. Grün **genau dann**, wenn: die Era-ID-Menge `== eras.json` (retirte `age_rebirth`/`long_war` abwesend); die Event-ID-Menge `== events.json`; die `event_works`-Menge `==` der aufgelösten Hook-Menge und **nonzero** (Identität `(eventId, targetType, targetId, role)` + `displayLabel`/`position`); jeder benannte Buch-Slug exakt seine Setting-Felder; **keine** `book_details`-Row auf einer retirten Era.
 
-> **Podcast-Hooks.** `event-works.json` trägt Hooks mit `role=podcast`, die per `(showSlug, episodeGuid)` gegen Podcast-`works` auflösen. Solange die Podcast-Shows **nicht** in der DB sind (z. B. nach einem Truncate), bleiben diese Hooks **unauflösbar** und fehlen in `event_works` → der Timeline-Verify ist rot. Genau deshalb steht `apply:podcast -- --all` als Schritt 3 **vor** der Timeline (Schritt 6): nach dem Podcast-Restore lösen die 4 Shows auf und die Hooks materialisieren.
+> **Podcast-Hooks.** `event-works.json` trägt Hooks mit `role=podcast`, die per `(showSlug, episodeGuid)` gegen Podcast-`works` auflösen. Solange die Podcast-Shows **nicht** in der DB sind (z. B. nach einem Truncate), bleiben diese Hooks **unauflösbar** und fehlen in `event_works` → der Timeline-Verify ist rot. Genau deshalb steht `apply:podcast -- --all` als Schritt 4 **vor** der Timeline (Schritt 7): nach dem Podcast-Restore lösen die 4 Shows auf und die Hooks materialisieren.
 
 ### Curation-Verify (`apply:curation-overlay --verify`)
 
