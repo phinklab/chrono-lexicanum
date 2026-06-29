@@ -1,0 +1,94 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0551",
+  "slug": "ruin",
+  "title": "Ruin",
+  "authors": [
+    "Nate Crowley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "novel",
+  "seriesHint": "The Twice-Dead King",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Exiled to the rotting jungle world of Sedh for crimes against his own court, the necron lord Oltyx commands a dwindling garrison against an endless tide of ork invaders, gnawed by bitterness over the dynasty he once stood to inherit. When the orks' assaults take on a desperate cast and a far worse predator begins to drift through the canopy, Oltyx realises Sedh is only the first stone falling. Returning to the Ithakas crownworld means crossing the brother who exiled him, a court rotted through with denial, and a horror tangled with the buried origin of the necrons themselves. Nate Crowley's debut Necron novel reads as a tragedy of memory: an immortal warrior whose mind is fraying piece by piece, fighting to remember why his species ever chose this kind of life.",
+    "facetIds": [
+      "book",
+      "male",
+      "pc_xenos",
+      "xenos",
+      "sector",
+      "series_start",
+      "standard",
+      "war_story",
+      "journey",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "cosmic_horror",
+      "hubris",
+      "doubt",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Necrons",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sedh",
+        "role": "primary"
+      },
+      {
+        "name": "Antikef",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Oltyx",
+        "role": "pov"
+      },
+      {
+        "name": "Djoseras",
+        "role": "supporting"
+      },
+      {
+        "name": "Yenekh",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.3,
+      "count": 1963,
+      "evidenceUrl": "https://www.goodreads.com/book/show/59156350-the-twice-dead-king"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

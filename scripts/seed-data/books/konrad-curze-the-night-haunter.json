@@ -1,0 +1,80 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0094",
+  "slug": "konrad-curze-the-night-haunter",
+  "title": "Konrad Curze: The Night Haunter",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novel",
+  "seriesHint": "The Primarchs",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Born into the freezing dark of Nostramo, raised by no one, Konrad Curze pulled a planet of murderers into something like order through fear — and never recovered from what it cost him. The novel braids three strands of his life: the boyhood on Nostramo, his recovery after weeks adrift in deep space, and the final hours before his foretold death. In each, Curze relives the choices that turned a primarch into the Night Haunter, arguing with the absent father who let him become this and justifying the horrors he committed in the Emperor's name and after it. A study of a brother who saw too clearly and chose the dark.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "requires_context",
+      "short",
+      "character_study",
+      "grimdark",
+      "somber",
+      "cosmic_horror",
+      "philosophical",
+      "doubt",
+      "hubris",
+      "betrayal",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_mental_health",
+      "cw_abuse",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Night Lords",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Nostramo",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Konrad Curze",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.23,
+      "count": 1515,
+      "evidenceUrl": "https://www.goodreads.com/book/show/42944439-konrad-curze"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

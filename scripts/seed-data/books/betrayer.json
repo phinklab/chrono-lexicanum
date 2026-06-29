@@ -1,0 +1,121 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0024",
+  "slug": "betrayer",
+  "title": "Betrayer",
+  "authors": [
+    "Aaron Dembski-Bowden"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Lorgar's Word Bearers and Angron's World Eaters carve a shadow crusade through Roboute Guilliman's Five Hundred Worlds in the wake of Calth, gutting one Ultramar planet after another while Guilliman scrambles to hold what remains of his realm. Through First Captain Khârn, fleetmaster Lotara Sarrin of the Conqueror, and the Word Bearer Argel Tal, the novel watches Lorgar try to save his brother — Angron is being killed by the Butcher's Nails buried in his skull — by raising him into a daemon prince on the slaver world that broke him, Nuceria. Khârn fights to keep his primarch human; Lorgar fights to keep him alive at any price; and the rest of Ultramar burns to give them the time to finish what they started.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "sector",
+      "requires_context",
+      "standard",
+      "war_story",
+      "character_study",
+      "action_heavy",
+      "betrayal",
+      "brotherhood",
+      "sacrifice",
+      "grimdark",
+      "somber",
+      "hubris",
+      "loyalty",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "World Eaters",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Armatura",
+        "role": "primary"
+      },
+      {
+        "name": "Nuceria",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramar",
+        "role": "supporting"
+      },
+      {
+        "name": "Calth",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Khârn",
+        "role": "pov"
+      },
+      {
+        "name": "Lotara Sarrin",
+        "role": "pov"
+      },
+      {
+        "name": "Argel Tal",
+        "role": "pov"
+      },
+      {
+        "name": "Angron",
+        "role": "supporting"
+      },
+      {
+        "name": "Lorgar",
+        "role": "supporting"
+      },
+      {
+        "name": "Erebus",
+        "role": "supporting"
+      },
+      {
+        "name": "Roboute Guilliman",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.4,
+      "count": 6149,
+      "evidenceUrl": "https://www.goodreads.com/book/show/13632835-betrayer"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

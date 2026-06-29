@@ -1,0 +1,110 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0474",
+  "slug": "the-devastation-of-baal",
+  "title": "The Devastation of Baal",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "Space Marine Conquests",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Hive Fleet Leviathan has been winnowed but never stopped, and now it bears down on Baal itself. Commander Dante recalls every Blood Angel and every successor Chapter he can reach — Flesh Tearers, Blood Drinkers, Lamenters and more — and prepares a defence that no one truly believes will hold. Petitions to Terra return with silence. The Tyranid swarm grinds through void engagements, breaches the fortress-monastery, and threatens to consume the chapter's birthworld for ever. Only when all hope has been spent does another fleet break translation at the system's edge, bearing a banner thought lost for ten thousand years.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "series_start",
+      "doorstopper",
+      "war_story",
+      "siege",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "sacrifice",
+      "brotherhood",
+      "faith",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Flesh Tearers",
+        "role": "supporting"
+      },
+      {
+        "name": "Blood Drinkers",
+        "role": "supporting"
+      },
+      {
+        "name": "Lamenters",
+        "role": "supporting"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "supporting"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Baal",
+        "role": "primary"
+      },
+      {
+        "name": "Cryptus System",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Dante",
+        "role": "pov"
+      },
+      {
+        "name": "Roboute Guilliman",
+        "role": "supporting"
+      },
+      {
+        "name": "Gabriel Seth",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.17,
+      "count": 3081,
+      "evidenceUrl": "https://www.goodreads.com/book/show/34466779-the-devastation-of-baal"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

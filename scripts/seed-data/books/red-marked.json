@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0276",
+  "slug": "red-marked",
+  "title": "Red-Marked",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Sergeant Aeonid Thiel wears the red helm of censure with stubborn pride. Stranded on the garrison world of Oran on his way home to Macragge, he can see what his superiors will not — listening posts have fallen silent on the rim of Ultramar, traitor warbands are growing bolder by the week, and something the few survivors only call 'Nightfane' is moving in the dark between the stars. With a handful of fellow censured veterans, Thiel sets out to do what command will not authorise — hunt the threat down himself, before it has time to ripen into a second Calth. A blunt, brisk piece about the kind of soldier who is most dangerous to the enemy precisely because his own legion has already given up on him.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "requires_context",
+      "novella",
+      "war_story",
+      "mystery",
+      "somber",
+      "action_heavy",
+      "grimdark",
+      "loyalty",
+      "doubt",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Oran",
+        "role": "primary"
+      },
+      {
+        "name": "Macragge",
+        "role": "supporting"
+      },
+      {
+        "name": "Ultramar",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Aeonid Thiel",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.45,
+      "count": 146,
+      "evidenceUrl": "https://www.goodreads.com/book/show/23492347"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

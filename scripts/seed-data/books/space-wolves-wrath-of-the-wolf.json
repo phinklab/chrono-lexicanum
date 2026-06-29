@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0433",
+  "slug": "space-wolves-wrath-of-the-wolf",
+  "title": "Space Wolves: Wrath of the Wolf",
+  "authors": [
+    "C.L. Werner"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "short_story",
+  "seriesHint": "Legends of the Dark Millennium",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The trail of the missing Logan Grimnar leads Ulrik the Slayer and Krom Dragongaze to a corrupted world deep within the Eye of Terror. Beset by the forces of Chaos and the warped, ever-shifting landscape itself, the Space Wolves must master their own gnawing doubts as much as the horrors arrayed against them. When at last they reach their goal, the enemy waiting there is so overwhelming that the entire quest to recover the Great Wolf seems to have been in vain, until help arrives from a source none of them could have foreseen. This is the final chapter of the Wolves' long hunt, where every thread of their journey is drawn together for one last, apocalyptic stand.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "requires_context",
+      "war_story",
+      "journey",
+      "last_stand",
+      "action_heavy",
+      "grimdark",
+      "loyalty",
+      "brotherhood",
+      "faith",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Eye of Terror",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ulrik the Slayer",
+        "role": "pov"
+      },
+      {
+        "name": "Krom Dragongaze",
+        "role": "supporting"
+      },
+      {
+        "name": "Logan Grimnar",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.94,
+      "count": 33,
+      "evidenceUrl": "https://www.goodreads.com/book/show/28822455-wrath-of-the-wolf"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

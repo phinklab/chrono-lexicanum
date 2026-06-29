@@ -1,0 +1,129 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0364",
+  "slug": "the-macharian-crusade-omnibus",
+  "title": "The Macharian Crusade Omnibus",
+  "authors": [
+    "William King"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "omnibus",
+  "seriesHint": "The Macharian Crusade",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The complete Macharian Crusade trilogy in one volume — Angel of Fire, Fist of Demetrius, and Fall of Macharius. Across three novels, Sergeant Leo Lemuel of the Imperial Guard narrates the rise and fall of Lord Solar Macharius, the greatest conqueror of his age, whose crusade reclaims a thousand rebel worlds for the Imperium. From a brutal planetary war against a fire-worshipping cult, through the prophecy-driven hunt for a primarch's relic with dark eldar raiders in pursuit, to the plague-ridden trenches of Loki and the betrayal that brings the whole campaign crashing down. A sweeping, ground-level saga of glory, conquest, betrayal, and the bitter cost of legend.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "sector",
+      "series_start",
+      "doorstopper",
+      "war_story",
+      "journey",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "war",
+      "loyalty",
+      "betrayal",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "Dark Eldar",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Demetrius",
+        "role": "supporting"
+      },
+      {
+        "name": "Loki",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Leo Lemuel",
+        "role": "pov"
+      },
+      {
+        "name": "Lord Solar Macharius",
+        "role": "supporting"
+      },
+      {
+        "name": "Anton",
+        "role": "supporting"
+      },
+      {
+        "name": "Ivan",
+        "role": "supporting"
+      },
+      {
+        "name": "Inquisitor Drake",
+        "role": "supporting"
+      },
+      {
+        "name": "Richter",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.31,
+      "count": 137,
+      "evidenceUrl": "https://www.goodreads.com/book/show/30753546-the-macharian-crusade-omnibus"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0361",
+        "displayOrder": 0,
+        "confidence": 0.95,
+        "basis": "Macharian Crusade omnibus follows the trilogy"
+      },
+      {
+        "externalBookId": "W40K-0362",
+        "displayOrder": 1,
+        "confidence": 0.95,
+        "basis": "Macharian Crusade omnibus follows the trilogy"
+      },
+      {
+        "externalBookId": "W40K-0363",
+        "displayOrder": 2,
+        "confidence": 0.95,
+        "basis": "Macharian Crusade omnibus follows the trilogy"
+      }
+    ]
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0068",
+  "slug": "daemon-world",
+  "title": "Daemon World",
+  "authors": [
+    "Ben Counter"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2003,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Torvendis is a daemon world deep inside the Maelstrom, ruled openly by Lady Charybdia in the name of Slaanesh from a hedonistic mega-city built atop strata of millennia of battle and death. A Word Bearers warband under Captain Amakyre arrives hunting one of their own — the traitor Karnulon, an Astartes who broke from the Legion's faith for purposes of his own. As Amakyre's hunt threads through Charybdia's court, the young tribal warlord Golgoth pushes from the wastes to seize his own holding, and the fugitive sorcerer Kron crosses every faction with motives all his own. Beneath all of them lurks a true horror bound deep in Torvendis's bones, whose escape would unmake the planet and threaten the wider Maelstrom. Strictly chaos-side: no significant Imperial presence on stage, the Violators (Charybdia's pet Heretic Astartes warband) function as her enforcers, and the four-way chaos politics across Slaanesh / Khorne / Tzeentch / Nurgle drift across the book's surface. Ben Counter's most baroque early novel and the loud Slaaneshi entry in the Black Library catalogue.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "multi",
+      "chaos",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "court_intrigue",
+      "mystery",
+      "siege",
+      "grimdark",
+      "cosmic_horror",
+      "somber",
+      "hubris",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_sex",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Chaos",
+        "role": "primary"
+      },
+      {
+        "name": "Slaanesh",
+        "role": "primary"
+      },
+      {
+        "name": "Khorne",
+        "role": "supporting"
+      },
+      {
+        "name": "Tzeentch",
+        "role": "supporting"
+      },
+      {
+        "name": "Nurgle",
+        "role": "supporting"
+      },
+      {
+        "name": "Daemons",
+        "role": "primary"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "primary"
+      },
+      {
+        "name": "Violators",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Torvendis",
+        "role": "primary"
+      },
+      {
+        "name": "Maelstrom",
+        "role": "secondary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lady Charybdia",
+        "role": "pov"
+      },
+      {
+        "name": "Golgoth",
+        "role": "pov"
+      },
+      {
+        "name": "Kron",
+        "role": "pov"
+      },
+      {
+        "name": "Amakyre",
+        "role": "pov"
+      },
+      {
+        "name": "Karnulon",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

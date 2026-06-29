@@ -1,0 +1,95 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0421",
+  "slug": "the-beast-must-die",
+  "title": "The Beast Must Die",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "The Beast Arises",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "An ork invasion of unimaginable scale has battered the Imperium to the brink of collapse. For every greenskin fleet the defenders destroy, five more descend from the void, and it becomes clear that the only way to end the war is to find and kill the alien warlord at its heart — the colossal creature the Imperium has come to call the Beast. Lord Commander Koorland, last surviving son of Rogal Dorn's Imperial Fists, gathers a vast crusade fleet and leads it to the ork home world to decapitate the horde. But when the assault breaks upon the surface, the Imperium discovers it has catastrophically misjudged the cunning and sheer power of its enemy, and even the return of a primarch may not be enough to spare the army from disaster.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "requires_context",
+      "short",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "sacrifice",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Salamanders",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Ullanor",
+        "role": "primary"
+      },
+      {
+        "name": "Terra",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Koorland",
+        "role": "pov"
+      },
+      {
+        "name": "Vulkan",
+        "role": "supporting"
+      },
+      {
+        "name": "The Beast",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.79,
+      "count": 562,
+      "evidenceUrl": "https://www.goodreads.com/book/show/27276162-the-beast-must-die"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

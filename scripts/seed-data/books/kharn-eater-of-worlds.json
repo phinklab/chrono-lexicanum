@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0387",
+  "slug": "kharn-eater-of-worlds",
+  "title": "Khârn: Eater of Worlds",
+  "authors": [
+    "Anthony Reynolds"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novel",
+  "seriesHint": "Black Crusade",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Horus Heresy is broken, and the traitor legions scatter before a vengeful Imperium. The World Eaters are leaderless — their primarch Angron vanished, their greatest champion Kharn lost in a coma — and the Butcher's Nails drive the survivors to ever more savage slaughter. Desperate for fresh blood and a place to rebuild, the Legion fleet descends on a world near the Eye of Terror, only to find the remnants of the Emperor's Children already there. Told largely through Captain Dreagher of the Ninth and Skoral, a human medicae thrall, Anthony Reynolds charts the bloody decline of a Legion devouring itself in the days before the infamous battle of Skalathrax.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "space_marine",
+      "chaos",
+      "company",
+      "standalone",
+      "short",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "betrayal",
+      "brotherhood",
+      "hubris",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "World Eaters",
+        "role": "primary"
+      },
+      {
+        "name": "Emperor's Children",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Eye of Terror",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Dreagher",
+        "role": "pov"
+      },
+      {
+        "name": "Skoral",
+        "role": "pov"
+      },
+      {
+        "name": "Kharn",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.96,
+      "count": 649,
+      "evidenceUrl": "https://www.goodreads.com/book/show/23768412-kh-rn"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0019",
+  "slug": "the-last-ditch",
+  "title": "The Last Ditch",
+  "authors": [
+    "Sandy Mitchell"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "novel",
+  "seriesHint": "Ciaphas Cain",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Cain and the 597th return to the frozen world of Nusquam Fundumentibus to break an Ork campaign that has already bled three Guard regiments before them. A daemon-possessed servitor wrecks their ship's bridge in transit; the controlled crash that follows hammers a wide crater into the permafrost and disturbs something far worse than Orks. Beneath the ice has lain a Tyranid hive ship dormant for some seven thousand years — older than Imperial presence on the world, older than the comet-strike folklore that supposedly formed the local geology. The remainder of the campaign becomes a three-way war with the slowly waking hive at its centre, and the closing chapters force Cain to confront the strategic implication: if Nusquam's hive predates first contact with the Tyranids by a millennium, the galaxy is far more infested than the Magos Biologis has ever admitted. The eighth Cain memoir.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "siege",
+      "mystery",
+      "satirical",
+      "action_heavy",
+      "loyalty",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "background"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Nusquam Fundumentibus",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ciaphas Cain",
+        "role": "pov"
+      },
+      {
+        "name": "Jurgen",
+        "role": "supporting"
+      },
+      {
+        "name": "Amberley Vail",
+        "role": "supporting"
+      },
+      {
+        "name": "Regina Kasteen",
+        "role": "supporting"
+      },
+      {
+        "name": "Ruput Broklaw",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

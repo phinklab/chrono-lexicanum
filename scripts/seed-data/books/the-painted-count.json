@@ -1,0 +1,77 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0212",
+  "slug": "the-painted-count",
+  "title": "The Painted Count",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Aboard the Night Lords flagship Nightfall, Gendor Skraivok — the painted count, marked by ancestry and warpaint — broods on the catastrophe at Sotha and the dimming of the Pharos' light. His allies distrust him, his rivals despise him, and Captain Shang has all but seized command of the Legion in his absence. Worse, the daemon-bound blade Skraivok dragged off Sotha will not be still: it whispers, weighs on his thoughts, and slowly tightens its grip. If he is to outmaneuver Shang and claw his way back to the Legion's helm, he will have to make terms with whatever rides inside that weapon. Every alliance now is a trade, and the only currency he has left to spend is the part of himself the blade has not yet taken.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "squad",
+      "mid_series",
+      "novella",
+      "character_study",
+      "grimdark",
+      "betrayal",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Night Lords",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sotha",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Gendor Skraivok",
+        "role": "pov"
+      },
+      {
+        "name": "Captain Shang",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.73,
+      "count": 160,
+      "evidenceUrl": "https://www.goodreads.com/book/show/33378200-the-painted-count"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

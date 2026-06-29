@@ -1,0 +1,107 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0090",
+  "slug": "lucius-the-faultless-blade",
+  "title": "Lucius: The Faultless Blade",
+  "authors": [
+    "Ian St. Martin"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Series-start Lucius novel. Lucius the Eternal — Soulthief, Champion of Slaanesh, doomed to reincarnate in any opponent who kills him without exulting — finds his Emperor's Children warband exhausted after ten millennia of pursuit of new sensation, his retainers turning on each other and his own body breaking down. He reaches out to an estranged brother of the legion, and three pressures converge: a feud with a Khornate World Eaters champion; the cabal of Emperor's Children loyal to Fabius Bile, the legion's flesh-artist primogenitor; and a Dark Eldar Kabal tracking him into the Webway. Servitor-POV intervals let the reader see Lucius from outside his own narcissism. Decay, addiction, and the impossibility of mortal escape for someone who cannot die.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "galactic",
+      "series_start",
+      "standard",
+      "war_story",
+      "character_study",
+      "journey",
+      "political_thriller",
+      "grimdark",
+      "somber",
+      "cosmic_horror",
+      "philosophical",
+      "hubris",
+      "doubt",
+      "betrayal",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_abuse",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Emperor's Children",
+        "role": "primary"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "primary"
+      },
+      {
+        "name": "Slaanesh",
+        "role": "primary"
+      },
+      {
+        "name": "World Eaters",
+        "role": "antagonist"
+      },
+      {
+        "name": "Khorne",
+        "role": "antagonist"
+      },
+      {
+        "name": "Dark Eldar",
+        "role": "antagonist"
+      },
+      {
+        "name": "Fabius Bile's Coterie",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Webway",
+        "role": "secondary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lucius the Eternal",
+        "role": "pov"
+      },
+      {
+        "name": "Fabius Bile",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

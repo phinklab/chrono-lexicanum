@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0336",
+  "slug": "arjac-rockfist-anvil-of-fenris",
+  "title": "Arjac Rockfist: Anvil of Fenris",
+  "authors": [
+    "Ben Counter"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novella",
+  "seriesHint": "Lords of the Space Marines",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Told as a Fenrisian saga by a human thrall of the Fang, this is the making of Arjac Rockfist, the Anvil of Fenris and champion of Logan Grimnar. When a tyranid splinter fleet descends on Asaheim itself and the spawn of the great devourer claw their way toward the mountain-fortress of the Space Wolves, it falls to one warrior to hold the line. Between the battles, the saga reaches back through Arjac's humble origins to show how a smith became a legend. As the swarms break against the Fang, Arjac answers the call of destiny with hammer and shield, defending his home world against an enemy that exists only to consume.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "siege",
+      "last_stand",
+      "war_story",
+      "action_heavy",
+      "grimdark",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Fenris",
+        "role": "primary"
+      },
+      {
+        "name": "The Fang",
+        "role": "supporting"
+      },
+      {
+        "name": "Asaheim",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Arjac Rockfist",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.03,
+      "count": 65,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/21860723"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

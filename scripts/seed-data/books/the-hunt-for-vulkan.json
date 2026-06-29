@@ -1,0 +1,97 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0420",
+  "slug": "the-hunt-for-vulkan",
+  "title": "The Hunt for Vulkan",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "The Beast Arises",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "At last the Imperium learns where the Beast makes its lair: the ancient ork world of Ullanor, where centuries before a Crusade once triumphed. Koorland resolves to gather an army great enough to strike at its heart and end the war, but Inquisitor Veritus counsels him that such a force needs a living legend to lead it, and points him toward the lost world of Caldera, where one of the Emperor's own sons may yet survive. The hunt carries the Sons of Dorn, a war fleet and the tech-priests of Mars to a planet groaning beneath its own ork moon. There, amid desolation and apocalyptic fire, the Salamanders' primarch Vulkan strides back into the war, and for the first time an ork invasion is hurled back from a world he swore long ago to protect. The seventh novel of the Beast Arises series.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "mid_series",
+      "standard",
+      "war_story",
+      "journey",
+      "siege",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "faith",
+      "sacrifice",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Caldera",
+        "role": "primary"
+      },
+      {
+        "name": "Ullanor",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Koorland",
+        "role": "pov"
+      },
+      {
+        "name": "Vulkan",
+        "role": "supporting"
+      },
+      {
+        "name": "Inquisitor Veritus",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.75,
+      "count": 612,
+      "evidenceUrl": "https://www.goodreads.com/book/show/27276164-the-hunt-for-vulkan"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0475",
+  "slug": "the-ashes-of-prospero",
+  "title": "The Ashes of Prospero",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novel",
+  "seriesHint": "Space Marine Conquests",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "With his Chapter's numbers dwindling and a long-dead Thousand Sons sorcerer whispering in his mind, High Rune Priest Njal Stormcaller assembles a hand-picked warband of Space Wolves for a journey no living son of Russ has dared. The shade of Izaak claims that warriors of the lost Thirteenth Company are still trapped in the ruined city of Tizca, on the burned world of Prospero — and that freeing them will end his torment. To cross the Great Rift and walk the ashes of an old crime is risky enough; to reckon with what the Thousand Sons left behind, and with the truth of who first sent the Wolves to Prospero, may cost more than Njal can pay.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "standard",
+      "war_story",
+      "journey",
+      "grimdark",
+      "action_heavy",
+      "philosophical",
+      "brotherhood",
+      "hubris",
+      "faith",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Thousand Sons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Prospero",
+        "role": "primary"
+      },
+      {
+        "name": "Tizca",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Njal Stormcaller",
+        "role": "pov"
+      },
+      {
+        "name": "Logan Grimnar",
+        "role": "supporting"
+      },
+      {
+        "name": "Izaak",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.92,
+      "count": 389,
+      "evidenceUrl": "https://www.goodreads.com/book/show/35297659-the-ashes-of-prospero"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

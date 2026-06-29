@@ -1,0 +1,102 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0283",
+  "slug": "battle-of-the-fang",
+  "title": "Battle of the Fang",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2011,
+  "format": "novel",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A thousand years after the Horus Heresy, the daemon primarch Magnus the Red leads his Thousand Sons in a vengeful assault on Fenris, home world of the Space Wolves. While Great Wolf Harek Ironhelm hunts his ancient enemy far across the stars, the great mountain fortress of the Fang is left defended by only a skeleton garrison under Wolf Lord Vaer Greyloss. The Thousand Sons descend in overwhelming numbers, and the Space Wolves must fight a desperate holding action through the fortress's endless halls and ice-locked depths. With their home, their relics and their future at stake, the defenders face a battle whose true cost none of them can yet imagine.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "siege",
+      "last_stand",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Thousand Sons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Fenris",
+        "role": "primary"
+      },
+      {
+        "name": "The Fang",
+        "role": "supporting"
+      },
+      {
+        "name": "Gangava Prime",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Vaer Greyloss",
+        "role": "pov"
+      },
+      {
+        "name": "Harek Ironhelm",
+        "role": "supporting"
+      },
+      {
+        "name": "Bjorn the Fell-Handed",
+        "role": "supporting"
+      },
+      {
+        "name": "Magnus the Red",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.14,
+      "count": 1242,
+      "evidenceUrl": "https://www.goodreads.com/book/show/10138471-battle-of-the-fang"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

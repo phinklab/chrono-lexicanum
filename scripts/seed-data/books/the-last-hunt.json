@@ -1,0 +1,103 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0092",
+  "slug": "the-last-hunt",
+  "title": "The Last Hunt",
+  "authors": [
+    "Robbie MacNiven"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the steppe honour-world Darkand, the Great Rift has broken the skies and Hive Fleet Leviathan is already inside the gates: genestealer cultists have hollowed out the PDF and nobility before the Tyranids strike. Joghaten Khan leads the White Scars 4th Company to defend a world bound to the chapter by oath and blood. Then Aeldari and Drukhari forces offer help for reasons of their own, forcing the Khan to choose between old hatred, warrior honour, and a xenos bargain that may be the only way Darkand lives. A fast White Scars war story about trust at the edge of extinction.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "siege",
+      "political_thriller",
+      "character_study",
+      "mystery",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "brotherhood",
+      "doubt",
+      "betrayal",
+      "loyalty",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "White Scars",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      },
+      {
+        "name": "Hive Fleet Leviathan",
+        "role": "antagonist"
+      },
+      {
+        "name": "Genestealer Cults",
+        "role": "antagonist"
+      },
+      {
+        "name": "Aeldari",
+        "role": "supporting"
+      },
+      {
+        "name": "Drukhari",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Darkand",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Joghaten Khan",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0140",
+  "slug": "fulgrim-the-perfect-son",
+  "title": "Fulgrim: The Perfect Son",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Fulgrim, Daemon Primarch of the Emperor's Children, challenges his scattered warriors to conquer the Imperial world Crucible and bring him the Black Templar defending it. What should be a perfect slaughter becomes a grinding siege, while the III Legion's champions scheme for the Phoenician's favor and chase their own private definitions of excellence. Fulgrim watches, tempts, and shapes them all, turning war into performance and ambition into a weapon. A Slaaneshi character study of perfection, treachery, and zealotry answering excess across the walls.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "planetary",
+      "standalone",
+      "standard",
+      "siege",
+      "war_story",
+      "political_thriller",
+      "character_study",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "cosmic_horror",
+      "hubris",
+      "betrayal",
+      "brotherhood",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Emperor's Children",
+        "role": "primary"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos Space Marines",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "primary"
+      },
+      {
+        "name": "Slaanesh",
+        "role": "primary"
+      },
+      {
+        "name": "Black Templars",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "antagonist"
+      },
+      {
+        "name": "Space Marines",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperium",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Crucible",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Fulgrim",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "authors",
+        "suggestion": [
+          "Jude Reid"
+        ],
+        "reason": "Roster authors[] empty; canonical author confirmed by Black Library + Lexicanum + Goodreads + Amazon + Warhammer-Community + Frontline-Gaming"
+      }
+    ]
+  },
+  "collections": {
+    "collects": []
+  }
+}

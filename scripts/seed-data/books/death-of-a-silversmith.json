@@ -1,0 +1,83 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0170",
+  "slug": "death-of-a-silversmith",
+  "title": "Death of a Silversmith",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A silversmith lies dying on the floor of his workshop aboard the Warmaster's flagship Vengeful Spirit, and in the long minutes it takes him to bleed out, he counts his commissions. The Iron Hands gauntlet-case that made his name. The four silver rings he was asked to craft for the Mournival, after Ullanor — moons in waxing and waning, ordered by Captain Hastur Sejanus, and never collected because the Crusade kept moving. And then, much later, a captain he had not seen before, asking for a crude mould of wolves' heads. The captain had inspected the work, pronounced it perfect, and closed his hand on the silversmith's throat. As the world narrows to a strip of light beneath a workbench, the silversmith hears familiar footsteps coming back through the door — a friend he had thought lost — and a boot crushes one of the moons into the floorboards.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "civilian",
+      "chaos",
+      "squad",
+      "requires_context",
+      "mystery",
+      "character_study",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "betrayal",
+      "doubt",
+      "hubris",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Sons of Horus",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Vengeful Spirit",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Hastur Sejanus",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "Silversmith POV and the Luna Wolf captain who kills him are unnamed in available coverage; only Sejanus is identified by name."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.79,
+      "count": 410,
+      "evidenceUrl": "https://www.goodreads.com/book/show/18221435-death-of-a-silversmith"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

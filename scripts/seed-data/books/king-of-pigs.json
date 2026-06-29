@@ -1,0 +1,77 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0521",
+  "slug": "king-of-pigs",
+  "title": "King of Pigs",
+  "authors": [
+    "J. H. Archer"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A diary recovered from the ruins of Hive Blackbracken records the last weeks of a slaughterhouse labourer as the great hive falls to the Plague God. Page by page the entries drift from grim shift-routines and ration counts into something stranger and worse — pestilent dreams, a creeping rot at the meat-pits, neighbours who will not stop changing. Beyond the broken plascrete a green-skied garden grows where the manufactorum streets used to be, and a horned, swine-headed shape begins to walk among the surviving butchers. The diarist's small kindnesses sharpen the dread rather than soften it. Less a story of armies than of one ordinary mortal trying to put a shape to the end of his world.",
+    "facetIds": [
+      "book",
+      "civilian",
+      "imperium",
+      "planetary",
+      "cosmic_horror",
+      "grimdark",
+      "somber",
+      "character_study",
+      "doubt",
+      "faith",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_death",
+      "cw_mental_health",
+      "novella",
+      "standalone",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Nurgle",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Hive Blackbracken",
+        "role": "primary"
+      }
+    ],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "suggestion": "short_story",
+        "note": "Roster marks 'novel' but King of Pigs is a Black Library eShort (~31 pp), later collected in The Resting Places anthology"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.01,
+      "count": 102,
+      "evidenceUrl": "https://www.goodreads.com/book/show/63115976-king-of-pigs"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

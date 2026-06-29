@@ -1,0 +1,75 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0507",
+  "slug": "anathemas",
+  "title": "Anathemas",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2020,
+  "format": "anthology",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Fourteen stories from thirteen authors gather under the Anathemas banner — Warhammer Horror at the scale of ordinary lives, threaded through hive sumps, mist-bound Mortal Realm cities and the quiet villages between. A musician hears voices in glass; a witch hunter learns to fear the woods he was meant to clear; a hab-block locks down around a plague that does not behave; families, priests and nobles each discover, in their own small way, what it costs to look too long at the dark behind the world. Most of the pieces leave the war stories at the door and concentrate, with a kind of patient cruelty, on the small lives the war is not about.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "civilian",
+      "neutral",
+      "planetary",
+      "standalone",
+      "standard",
+      "character_study",
+      "mystery",
+      "cosmic_horror",
+      "grimdark",
+      "somber",
+      "doubt",
+      "faith",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_death",
+      "en"
+    ],
+    "factions": [],
+    "locations": [],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "Anthology with 14 stories spanning 40K hive cities and AoS Mortal Realms; per-story aggregation would need deeper coverage than this pass provides"
+      },
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "Aggregated locations span multiple unrelated 40K/AoS settings; insufficient source coverage to enumerate reliably"
+      },
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "Anthology has no continuous protagonist; aggregated cast not reliably surfaced in source coverage"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.72,
+      "count": 186,
+      "evidenceUrl": "https://www.goodreads.com/book/show/52078021-anathemas"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

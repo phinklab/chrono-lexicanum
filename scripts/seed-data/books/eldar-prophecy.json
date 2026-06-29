@@ -1,0 +1,79 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0075",
+  "slug": "eldar-prophecy",
+  "title": "Eldar Prophecy",
+  "authors": [
+    "C.S. Goto"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2007,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the isolated craftworld Kaelor — drifting through the dark reaches, its society fragmented into quasi-feudal Houses scarred by recent House Wars and its Aspect Temples withdrawn from public life — the young warrior Naois comes of age as the unwitting subject of an old prophecy that drives him to escalating violence. Farseers, Aspect Warriors, and House lords are left to decide whether the prophecy is genuine guidance or Slaaneshi manipulation. A dense interior Eldar-politics piece rather than a wider-40K war-story.",
+    "facetIds": [
+      "book",
+      "male",
+      "pc_xenos",
+      "xenos",
+      "planetary",
+      "standalone",
+      "standard",
+      "mystery",
+      "character_study",
+      "political_thriller",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "betrayal",
+      "hubris",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Eldar",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Kaelor",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Naois",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "sources": [
+          "Lexicanum Eldar Prophecy (Novel); Goodreads; Black Library product page"
+        ],
+        "reasoning": "Secondary-source coverage of Eldar Prophecy is thin and inconsistent on secondary character names (House lords, Farseers, Aspect Warrior cast, prophecy-figures) and on craftworld-internal locations beyond Kaelor itself. Per Brief 061's plot-halluzinations-disziplin, characters and locations are left tight to what summary sources consistently surface rather than invented; resolver / coverage pass later can extend if the source coverage improves."
+      }
+    ]
+  },
+  "collections": {
+    "collects": []
+  }
+}

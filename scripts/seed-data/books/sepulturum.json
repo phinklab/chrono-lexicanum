@@ -1,0 +1,85 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0508",
+  "slug": "sepulturum",
+  "title": "Sepulturum",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Morgravia Sanctus does not, at first, know that she is an inquisitor. She knows only that she is hunted, that her memory is broken in red and jagged pieces, and that the low-hive of Blackgeist is the deepest place she can hide while she works out who she has been. She means to find a memory-broker called the Broker and trade for what was taken from her — and instead a plague catches the hive first, peeling its citizens into blood-hungry things in the time it takes a shift to end. Two threads — Morgravia's and a second, parallel descent through the same dying districts — converge toward the truth of the Ordo Sepulturum and the work she had been doing before the red dreams began.",
+    "facetIds": [
+      "book",
+      "female",
+      "inquisitor",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "mystery",
+      "journey",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "cosmic_horror",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Sepulturum",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Blackgeist",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Morgravia Sanctus",
+        "role": "pov"
+      },
+      {
+        "name": "The Broker",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.4,
+      "count": 318,
+      "evidenceUrl": "https://www.goodreads.com/book/show/52078125-sepulturum"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0372",
+  "slug": "ahriman-exodus",
+  "title": "Ahriman: Exodus",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "anthology",
+  "seriesHint": "Ahriman",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A companion collection to the Ahriman trilogy, these eight tales fill the spaces between the novels and deepen the sorcerer's circle of followers. The longer sequence, The Tale of Ctesias, follows the summoner Ctesias from his uneasy recruitment into Ahriman's cause through the exodus of the Exiles from the Eye of Terror, binding daemons and bargaining with worse things to survive. The shorter pieces turn inward: the fractured, tormented mind of Helio Isidorus, the vast sorrow Ahriman carries, and the tangled pride and madness of Magnus the Red. Together they form a quieter, more intimate portrait of the Thousand Sons in exile - ambition, regret and the slow corrosion of the soul.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "galactic",
+      "requires_context",
+      "standard",
+      "character_study",
+      "journey",
+      "grimdark",
+      "philosophical",
+      "somber",
+      "hubris",
+      "doubt",
+      "redemption",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Thousand Sons",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Eye of Terror",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ctesias",
+        "role": "pov"
+      },
+      {
+        "name": "Ahzek Ahriman",
+        "role": "supporting"
+      },
+      {
+        "name": "Helio Isidorus",
+        "role": "supporting"
+      },
+      {
+        "name": "Magnus the Red",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.85,
+      "count": 107,
+      "evidenceUrl": "https://www.goodreads.com/book/show/26231867"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

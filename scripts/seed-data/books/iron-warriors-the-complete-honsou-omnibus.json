@@ -1,0 +1,181 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0062",
+  "slug": "iron-warriors-the-complete-honsou-omnibus",
+  "title": "Iron Warriors: The Complete Honsou Omnibus",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "omnibus",
+  "seriesHint": "Iron Warriors",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The 2019 repackaging of Graham McNeill's first Iron Warriors omnibus under the Complete Honsou Omnibus title — same eight constituents, same chaos-POV across the warsmith Honsou's career. Storm of Iron runs the siege of the Imperial fortress-world Hydra Cordatus under Warsmith Barban Falk, with Forrix, Kroeger and a rising Honsou tearing apart its walls to reach Magos Naicin's primarch-DNA vault. The novella Iron Warrior delivers Honsou's revenge strike on an Ultramarines star fort, and six bridging shorts thread his arc through the Eye of Terror, the Skull Harvest and the Ventris obsession. Same eight pieces under a different cover and seven extra years of cover art — same Honsou, same workmanship, same long appetite for treason.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "sector",
+      "standalone",
+      "doorstopper",
+      "war_story",
+      "siege",
+      "character_study",
+      "journey",
+      "grimdark",
+      "cosmic_horror",
+      "action_heavy",
+      "somber",
+      "hubris",
+      "brotherhood",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Warriors",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "supporting"
+      },
+      {
+        "name": "Daemons",
+        "role": "background"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Medrengard",
+        "role": "primary"
+      },
+      {
+        "name": "Hydra Cordatus",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramar",
+        "role": "secondary"
+      },
+      {
+        "name": "Calth",
+        "role": "mentioned"
+      },
+      {
+        "name": "Macragge",
+        "role": "mentioned"
+      },
+      {
+        "name": "Eye of Terror",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Honsou",
+        "role": "pov"
+      },
+      {
+        "name": "Forrix",
+        "role": "pov"
+      },
+      {
+        "name": "Kroeger",
+        "role": "supporting"
+      },
+      {
+        "name": "Barban Falk",
+        "role": "supporting"
+      },
+      {
+        "name": "Berossus",
+        "role": "supporting"
+      },
+      {
+        "name": "Magos Naicin",
+        "role": "supporting"
+      },
+      {
+        "name": "Ardaric Vaanes",
+        "role": "supporting"
+      },
+      {
+        "name": "Uriel Ventris",
+        "role": "antagonist"
+      },
+      {
+        "name": "Pasanius Lysane",
+        "role": "mentioned"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "duplicate_omnibus",
+        "current": "distinct",
+        "suggestion": "marked-as-repackaging-pair-with-W40K-0061",
+        "sources": [
+          "Black Library product listings; Lexicanum Iron Warriors (Novel Series); Kobo / Apple Books / Amazon listings"
+        ],
+        "reasoning": "Content-identical to W40K-0061 Iron Warriors: The Omnibus (2012). Both collect the same eight constituents. Roster carries both rows because they exist as distinct SKUs (different ISBNs, different cover art, seven-year publication gap). Resolver should treat them as the same logical work for recommendation purposes but keep separate book rows for catalogue completeness."
+      }
+    ]
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0060",
+        "displayOrder": 0,
+        "confidence": 0.85,
+        "basis": "Complete Honsou omnibus inferred from Honsou section membership"
+      },
+      {
+        "externalBookId": "W40K-0063",
+        "displayOrder": 1,
+        "confidence": 0.85,
+        "basis": "Complete Honsou omnibus inferred from Honsou section membership"
+      }
+    ]
+  }
+}

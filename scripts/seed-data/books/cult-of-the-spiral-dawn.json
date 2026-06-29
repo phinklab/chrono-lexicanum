@@ -1,0 +1,89 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0455",
+  "slug": "cult-of-the-spiral-dawn",
+  "title": "Cult of the Spiral Dawn",
+  "authors": [
+    "Peter Fehervari"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novel",
+  "seriesHint": "Genestealer Cults",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Spiral Dawn is one of the countless sanctioned sects of the Imperial Cult, an inward-looking faith whose Spiralytes seek introspection and the slow turn of the soul. When a pilgrimage makes the long voyage to Redemption, the sect's birthplace and a shrine world of the Imperium, the wide-eyed faithful expect a haven of contemplation. What they find is a soot-choked hellhole — a stripped, smoke-stained world where the Spiral Dawn's founders maintain a brittle peace with an Astra Militarum regiment whose paranoia has had decades to fester. As tensions between serene congregation and superstitious guardsmen mount, the new arrivals start to unravel the dark thing concealed at the heart of their faith. The pilgrimage is no accident. Redemption is no shrine. And the cycle that the Spiral Dawn turns is older and hungrier than any of them dared imagine.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "ensemble",
+      "guardsman",
+      "civilian",
+      "imperium",
+      "xenos",
+      "planetary",
+      "standalone",
+      "standard",
+      "mystery",
+      "character_study",
+      "journey",
+      "grimdark",
+      "cosmic_horror",
+      "somber",
+      "philosophical",
+      "faith",
+      "doubt",
+      "betrayal",
+      "hubris",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_death",
+      "cw_stigma",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Genestealer Cults",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Redemption",
+        "role": "primary"
+      }
+    ],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "ensemble cast of pilgrims and guardsmen; named POVs not reliably surfaced in available reviews"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.09,
+      "count": 595,
+      "evidenceUrl": "https://www.goodreads.com/book/show/35297660-cult-of-the-spiral-dawn"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

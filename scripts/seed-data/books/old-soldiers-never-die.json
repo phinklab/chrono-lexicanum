@@ -1,0 +1,85 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0023",
+  "slug": "old-soldiers-never-die",
+  "title": "Old Soldiers Never Die",
+  "authors": [
+    "Sandy Mitchell"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "novella",
+  "seriesHint": "Ciaphas Cain",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Originally a 500-copy limited-edition novella released exclusively at the 2012 Black Library Weekender (wider release in 2020), Old Soldiers Never Die drops Cain and the Valhallan 597th on Lentonia to police the aftermath of a planetary insurrection — only to find a warp-tainted infection running through the Astra Militarum ranks that kills its victims and reanimates them as flesh-eating zombies. As the contagion spreads from regiment to regiment and from the military into Lentonia's civilian population, Cain and his malodorous aide Jurgen race to find the source of the infection — and a cure — before the survivors are overwhelmed. Tonally a darker entry than the typical Cain memoir: the zombie outbreak's horror register pushes the prose toward grimdark even with Cain's first-person framing keeping the dry wit intact.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "novella",
+      "war_story",
+      "mystery",
+      "action_heavy",
+      "grimdark",
+      "satirical",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Valhallan 597th",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Lentonia",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ciaphas Cain",
+        "role": "pov"
+      },
+      {
+        "name": "Jurgen",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

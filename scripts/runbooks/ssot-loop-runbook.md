@@ -1,5 +1,7 @@
 # SSOT-Loop Runbook — eine Iteration
 
+> **⛔ RETIRED (Brief 171 Teil B).** Der batch-basierte SSOT-Loop existiert nicht mehr. Der gesamte Korpus wurde in per-Buch-SSOT-Dateien (`scripts/seed-data/books/<slug>.json`) migriert; `npm run loop:next` und `npm run db:apply-override` verweigern jetzt mit Retirement-Hinweis. Neue Bücher werden **direkt** unter `books/` angelegt — siehe [`add-book-runbook.md`](./add-book-runbook.md) + `scripts/seed-data/books/README.md`. Die 90 `manual-overrides-ssot-*.json`-Batches + `book-roster.json` bleiben als **eingefrorene Provenienz** auf der Platte (und sind das Äquivalenz-Golden). Dieses Runbook bleibt nur als historische Spec stehen; **nicht mehr ausführen.**
+
 > **Mechanischer Task, keine normale Session.** Dies ist die ausführbare Spec für **genau eine** SSOT-Loop-Iteration. Wer dieses Runbook, die Ausgabe von `npm run loop:next` und `scripts/seed-data/facet-catalog.json` gelesen hat, hat alles, was er braucht — sonst nichts. Das Design-Rationale (warum es den Loop gibt, die Architektur-Entscheidungen) steht in Brief 061; **für die Iteration nicht lesen.**
 
 ## 1. Was das ist

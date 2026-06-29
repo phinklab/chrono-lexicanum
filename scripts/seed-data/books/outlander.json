@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0167",
+  "slug": "outlander",
+  "title": "Outlander",
+  "authors": [
+    "Matt Keefe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2006,
+  "format": "novel",
+  "seriesHint": "Necromunda",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "An ash-storm seals a half-abandoned settlement deep in Hive Primus just as a quiet stranger with a talent for forgery arrives. The local House Cawdor congregation, wrapped in Redemptionist zeal and extortionate faith, sees him as a tool for its own schemes; the stranger sees something else entirely in the fanatics who think they have found easy prey. The novel keeps his identity close while it studies Cawdor's internal life and the violence of belief. A slow-burn Underhive revenge tale, atmospheric rather than bombastic.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "mystery",
+      "character_study",
+      "journey",
+      "grimdark",
+      "somber",
+      "faith",
+      "betrayal",
+      "redemption",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_crime",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "House Cawdor",
+        "role": "primary"
+      },
+      {
+        "name": "Redemptionists",
+        "role": "primary"
+      },
+      {
+        "name": "Guilders",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Necromunda",
+        "role": "primary"
+      },
+      {
+        "name": "Hive Primus",
+        "role": "primary"
+      },
+      {
+        "name": "Underhive",
+        "role": "primary"
+      }
+    ],
+    "characters": [],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

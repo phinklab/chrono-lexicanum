@@ -1,0 +1,94 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0160",
+  "slug": "krakenblood",
+  "title": "Krakenblood",
+  "authors": [
+    "Marc Collins"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "novel",
+  "seriesHint": "Space Wolves (original)",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Ivar Krakenblood, a Fenris-born Wolf Priest living in Ulrik the Slayer's shadow, is sent to recover a lost relic of the Space Wolves. The quest gives him the saga he craves: old comrades, untested allies, void-borne violence and the chance to prove that destiny can be seized by the throat. But Ivar's heroic hunger has teeth, and the same pride that makes him fearless can make him dangerous to the warriors who follow him. A fresh Space Wolves adventure outside the Ragnar line, full of boast, frost, faith and self-destructive glory.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "standalone",
+      "standard",
+      "war_story",
+      "journey",
+      "character_study",
+      "action_heavy",
+      "grimdark",
+      "philosophical",
+      "war",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "hubris",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Space Marines",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Fenris",
+        "role": "primary"
+      },
+      {
+        "name": "The Fang",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ivar Krakenblood",
+        "role": "pov"
+      },
+      {
+        "name": "Ulrik the Slayer",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

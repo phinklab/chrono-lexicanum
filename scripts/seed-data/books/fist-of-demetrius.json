@@ -1,0 +1,90 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0362",
+  "slug": "fist-of-demetrius",
+  "title": "Fist of Demetrius",
+  "authors": [
+    "William King"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "novel",
+  "seriesHint": "The Macharian Crusade",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "As the Macharian Crusade reaches its zenith, Lord Solar Macharius is drawn by prophecy toward the world of Demetrius and the relic that gives this tale its name — the Fist of Demetrius, an ancient gauntlet rumoured to have belonged to a primarch of legend. With such a weapon, Macharius believes final victory assured. But the dark eldar covet the artefact too, and their raiders strike from the shadows to claim it. Sergeant Leo Lemuel and his comrades once more find themselves at the heart of the fighting, fighting through ambush and slaughter as the hunt for the relic turns deadly. A relentless war story of conquest, plunder, and the price of obsession.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "journey",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Dark Eldar",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Demetrius",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Leo Lemuel",
+        "role": "pov"
+      },
+      {
+        "name": "Lord Solar Macharius",
+        "role": "supporting"
+      },
+      {
+        "name": "Anton",
+        "role": "supporting"
+      },
+      {
+        "name": "Ivan",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.81,
+      "count": 278,
+      "evidenceUrl": "https://www.goodreads.com/book/show/16002736-fist-of-demetrius"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

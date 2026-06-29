@@ -1,0 +1,82 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0228",
+  "slug": "desert-raiders",
+  "title": "Desert Raiders",
+  "authors": [
+    "Lucien Soulban"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2007,
+  "format": "novel",
+  "seriesHint": "Imperial Guard",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "When a remote listening station catches a garbled plea for help, a regiment of Tallarn Desert Raiders is sent to the parched world of Khadar to answer it. The regiment is freshly stitched together from two proud older formations, and the seams show: old rivalries and wounded pride keep the soldiers from fighting as one. They have little time to settle their differences. What waits on Khadar is a Tyranid swarm, and soon the Tallarn are locked in a running battle across the dunes, falling back wave after wave as the hive-creatures come on without end. A desert war of attrition in which a divided regiment must become whole or be devoured.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "regiment",
+      "standalone",
+      "standard",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "brotherhood",
+      "war",
+      "sacrifice",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Khadar",
+        "role": "primary"
+      }
+    ],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "limited source coverage on named viewpoint characters"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.51,
+      "count": 291,
+      "evidenceUrl": "https://www.goodreads.com/book/show/2204924.Desert_Raiders"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

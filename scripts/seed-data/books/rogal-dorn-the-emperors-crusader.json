@@ -1,0 +1,78 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0099",
+  "slug": "rogal-dorn-the-emperors-crusader",
+  "title": "Rogal Dorn: The Emperor's Crusader",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "The Primarchs",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Emperor sends four of his sons across the Occluda Noctis — hundreds of star systems on the far side of a great northern warp storm, beyond the reach of the Astronomican and the limit of His own psychic sight. Rogal Dorn drives the Imperial Fists straight into that blindness. The enemy waiting there moves between stars without warp travel, attacks without warning, and seems immune to every doctrine the Legion has trained on. Dorn answers the way he always does: discipline, planning, will. He yokes his Librarians to his Navigators, builds his lines in the dark, and refuses to lose a war his father cannot see.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "requires_context",
+      "short",
+      "character_study",
+      "war_story",
+      "journey",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "loyalty",
+      "war",
+      "brotherhood",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Occluda Noctis",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Rogal Dorn",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.72,
+      "count": 573,
+      "evidenceUrl": "https://www.goodreads.com/book/show/61354070-rogal-dorn"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

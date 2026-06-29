@@ -1,0 +1,94 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0130",
+  "slug": "cybernetica",
+  "title": "Cybernetica",
+  "authors": [
+    "Rob Sanders"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "novella",
+  "seriesHint": "Horus Heresy Novellas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Mars has been lost. The fall of the Forge World Principal came so fast and so cleanly that Rogal Dorn was forced to throw a blockade around the Red Planet rather than admit how deep the corruption ran. Now Malcador the Sigillite has decided that containment is not enough — Mars must be sterilised. Dravian Klayde, a Raven Guard techmarine elevated to Knight-Errant, infiltrates the planet as the Schism boils over and is left the lone survivor of a butchered loyalist enclave. With the Sigillite he conceives a final-solution weapon: free an imprisoned heretek and unleash his army of sentient cybernetica engines on every living thing on Mars. The novella turns on the rules a desperate Imperium will break to win, and on the cost of being the man Malcador chose to break them.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "novella",
+      "requires_context",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "sacrifice",
+      "doubt",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Mechanicum",
+        "role": "antagonist"
+      },
+      {
+        "name": "Raven Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Knights-Errant",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Mars",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Dravian Klayde",
+        "role": "pov"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      },
+      {
+        "name": "Rogal Dorn",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.49,
+      "count": 356,
+      "evidenceUrl": "https://www.goodreads.com/book/show/25916430-cybernetica"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

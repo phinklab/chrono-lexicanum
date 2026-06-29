@@ -1,5 +1,7 @@
 # Resolver-Pass Runbook — eine Phase
 
+> **⛔ LEGACY (Brief 171 Teil B).** Der Resolver-Pass operierte auf der Batch-Welt (`manual-overrides-ssot-*.json` via `run-phase4-apply.sh` → `db:apply-override`). Diese Batch-Welt ist jetzt eingefrorene Provenienz (der Korpus lebt in `scripts/seed-data/books/*.json`), und `db:apply-override` verweigert. Es laufen **keine neuen Resolver-Wellen** mehr; dieses Runbook bleibt nur als historische Spec stehen. Resolver-Logik selbst (`@/lib/resolver`, `resolve-book-edges.ts`) bleibt produktiv — sie crystallisiert die Edges jedes per-Buch-Applies.
+
 > **Mechanischer Task, keine normale Session.** Dies ist die ausführbare Spec für **genau eine** Phase eines axis-sliced Resolver-Passes. Wer dieses Runbook, die Pass-Config (`scripts/resolver-pass.config.json`) und das Achs-Paket der eigenen Phase gelesen hat, hat alles, was er braucht — sonst nichts. **Kein Brief** wird gelesen, weder Brief 076 noch ein per-pass Architect-Brief (existiert seit Brief 094 nicht mehr), noch der „höchste offene Brief". Die Herkunft der Rationale (Briefs 076 / 090 / 091 / 094) steht im Anhang am Ende — für eine Phase ebenfalls nicht lesen.
 
 ## 0. Bedienung

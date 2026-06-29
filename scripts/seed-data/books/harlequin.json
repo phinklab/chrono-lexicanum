@@ -1,0 +1,138 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0149",
+  "slug": "harlequin",
+  "title": "Harlequin",
+  "authors": [
+    "Ian Watson"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 1994,
+  "format": "novel",
+  "seriesHint": "The Inquisition War",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A century after Inquisitor, Jaq Draco is a renegade, hunted by the Inquisition and still chasing the Hydra conspiracy that may enslave humanity in order to save it. The trail runs through the devastated world of Stalinvast, where Eldar Harlequins prepare a Ceremony of Cataclysm on an orbital theatre and Space Marines move to purge them before their secrets escape. Harlequin brings the Black Library of Chaos and the Book of the Rhana Dandra onto the board. The middle volume is a strange chase through guilt, alien theatre, and Inquisitorial self-betrayal.",
+    "facetIds": [
+      "book",
+      "male",
+      "inquisitor",
+      "imperium",
+      "mid_series",
+      "standard",
+      "mystery",
+      "political_thriller",
+      "character_study",
+      "journey",
+      "grimdark",
+      "philosophical",
+      "somber",
+      "cosmic_horror",
+      "war",
+      "doubt",
+      "betrayal",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Malleus",
+        "role": "primary"
+      },
+      {
+        "name": "Officio Assassinorum",
+        "role": "primary"
+      },
+      {
+        "name": "Callidus Temple",
+        "role": "primary"
+      },
+      {
+        "name": "Navis Nobilite",
+        "role": "primary"
+      },
+      {
+        "name": "Squats",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      },
+      {
+        "name": "Harlequins",
+        "role": "primary"
+      },
+      {
+        "name": "Aeldari",
+        "role": "primary"
+      },
+      {
+        "name": "Eldar",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "antagonist"
+      },
+      {
+        "name": "Space Marines",
+        "role": "antagonist"
+      },
+      {
+        "name": "Hydra",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Stalinvast",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Jaq Draco",
+        "role": "pov"
+      },
+      {
+        "name": "Meh'Lindi",
+        "role": "supporting"
+      },
+      {
+        "name": "Vitali Googol",
+        "role": "supporting"
+      },
+      {
+        "name": "Grimm",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

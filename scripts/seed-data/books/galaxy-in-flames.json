@@ -1,0 +1,130 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0003",
+  "slug": "galaxy-in-flames",
+  "title": "Galaxy in Flames",
+  "authors": [
+    "Ben Counter"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2006,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Warmaster returns from Davin a different man, and the Legions he can trust go where he sends them. On the dead-grey world of Isstvan III, four Legions — Sons of Horus, World Eaters, Emperor's Children, Death Guard — deploy in force against a recalcitrant planetary governor. What they cannot know is that the deployment is the trap. From orbit their own brothers burn loyalist elements to ash with life-eater virus and atomic fire; in the ruins, Garviel Loken, Tarik Torgaddon, Saul Tarvitz and Nathaniel Garro hold cathedral and bunker as the bombardment turns the world into a graveyard. The Horus Heresy is no longer a rumour. Let the galaxy burn.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "cosmic_horror",
+      "betrayal",
+      "sacrifice",
+      "loyalty",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Sons of Horus",
+        "role": "primary"
+      },
+      {
+        "name": "Death Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "World Eaters",
+        "role": "supporting"
+      },
+      {
+        "name": "Emperor's Children",
+        "role": "supporting"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Isstvan III",
+        "role": "primary"
+      },
+      {
+        "name": "Isstvan System",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Garviel Loken",
+        "role": "pov"
+      },
+      {
+        "name": "Tarik Torgaddon",
+        "role": "pov"
+      },
+      {
+        "name": "Saul Tarvitz",
+        "role": "pov"
+      },
+      {
+        "name": "Nathaniel Garro",
+        "role": "supporting"
+      },
+      {
+        "name": "Horus",
+        "role": "antagonist"
+      },
+      {
+        "name": "Erebus",
+        "role": "antagonist"
+      },
+      {
+        "name": "Angron",
+        "role": "supporting"
+      },
+      {
+        "name": "Mortarion",
+        "role": "supporting"
+      },
+      {
+        "name": "Fulgrim",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.19,
+      "count": 24749,
+      "evidenceUrl": "https://www.goodreads.com/book/show/815091.Galaxy_in_Flames"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

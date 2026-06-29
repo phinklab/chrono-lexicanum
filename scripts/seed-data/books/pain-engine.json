@@ -1,0 +1,69 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0524",
+  "slug": "pain-engine",
+  "title": "Pain Engine",
+  "authors": [
+    "Chris Thursten"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A drukhari haemonculus — one of the sadistic flesh-shapers who pluck art from agony — sets out to trace and acquire the most legendary pain engine ever built by a now-vanished master of the coven craft. The search winds through galleries of living statuary, traps left by jealous rivals, and corridors where the line between hunter and exhibit blurs. The story turns on twists rather than scale: small reveals, paid in screams, that fold back on the seeker until the engine he came to possess has begun to possess him in return. Compact, sharp, and intentionally disorienting — a dive into the cold aesthetics of drukhari craftsmanship, where the prize is never the prize the seeker thought he was chasing.",
+    "facetIds": [
+      "book",
+      "pc_xenos",
+      "xenos",
+      "cosmic_horror",
+      "grimdark",
+      "mystery",
+      "character_study",
+      "hubris",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_death",
+      "novella",
+      "standalone",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Drukhari",
+        "role": "primary"
+      }
+    ],
+    "locations": [],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "suggestion": "short_story",
+        "note": "Roster marks 'novel' but Pain Engine is a Black Library eShort (~31 pp), later collected in The Resting Places anthology"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 2.96,
+      "count": 53,
+      "evidenceUrl": "https://www.goodreads.com/book/show/63134446-pain-engine"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

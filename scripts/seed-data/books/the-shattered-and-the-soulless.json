@@ -1,0 +1,102 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0296",
+  "slug": "the-shattered-and-the-soulless",
+  "title": "The Shattered and the Soulless",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2026,
+  "format": "omnibus",
+  "seriesHint": "Horus Heresy - The Siege of Terra",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "An omnibus collecting two novellas set during the Siege of Terra. In Sons of the Selenar, the battered crew of the Sisypheum — survivors drawn from the Iron Hands, Salamanders, and Raven Guard who forged the Shattered Legions after Isstvan — descend to the ravaged surface of Luna following garbled transmissions, only to find themselves ensnared in the ancient secrets of the Selenar genesmiths and the terrifying origins of the Space Marine. In Fury of Magnus, the Crimson King himself comes to the Imperial Palace during the Siege, pursuing a fragment of his own shattered soul into the most heavily defended sanctum on Terra and toward a final reckoning with the Emperor. Together the two novellas form a companion piece to Graham McNeill's Thousand Sons saga and close out the arc of the Sisypheum's survivors.",
+    "facetIds": [
+      "book",
+      "en",
+      "space_marine",
+      "dual",
+      "planetary",
+      "requires_context",
+      "doorstopper",
+      "siege",
+      "grimdark",
+      "war",
+      "sacrifice",
+      "brotherhood",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Thousand Sons",
+        "role": "primary"
+      },
+      {
+        "name": "Iron Hands",
+        "role": "primary"
+      },
+      {
+        "name": "Salamanders",
+        "role": "supporting"
+      },
+      {
+        "name": "Raven Guard",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Palace",
+        "role": "primary"
+      },
+      {
+        "name": "Luna",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Magnus the Red",
+        "role": "pov"
+      },
+      {
+        "name": "Branthan",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "Two distinct novellas with different foes (the Selenar/Luna horrors in one, the Palace defenders facing Magnus in the other); no single opposing Legion is pinned, so antagonist Legions are left untagged."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.23,
+      "count": 35,
+      "evidenceUrl": "https://www.goodreads.com/book/show/236668631-the-shattered-and-the-soulless"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0069",
+  "slug": "flames-of-betrayal",
+  "title": "Flames of Betrayal",
+  "authors": [
+    "James Swallow"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2026,
+  "format": "novel",
+  "seriesHint": "Siege of Terra",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In the ashes of Terra, the wounds of the Horus Heresy fester. The conflict between Horus Lupercal and the Emperor has reached its bloody end, but the cost of that ending has barely begun to be reckoned. This collected volume brings together two threads of the immediate aftermath: Nathaniel Garro's final confrontation with his former primarch Mortarion as he shields Saint Euphrati Keeler in the dying Palace, and a constellation of short fiction by Dan Abnett, Aaron Dembski-Bowden, James Swallow, John French, Guy Haley, Nick Kyme, Gav Thorpe, and Chris Wraight tracing the first stumbling steps of the shattered Imperium as it tries to put itself back together. The death throes and immediate aftermath of the Siege, gathered for the first time.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "ensemble",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "series_finale",
+      "standard",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "philosophical",
+      "war",
+      "loyalty",
+      "betrayal",
+      "faith",
+      "sacrifice",
+      "redemption",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Knights Errant",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Custodes",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      },
+      {
+        "name": "Blood Angels",
+        "role": "supporting"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "supporting"
+      },
+      {
+        "name": "Dark Angels",
+        "role": "supporting"
+      },
+      {
+        "name": "White Scars",
+        "role": "supporting"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Palace",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Nathaniel Garro",
+        "role": "pov"
+      },
+      {
+        "name": "Euphrati Keeler",
+        "role": "supporting"
+      },
+      {
+        "name": "Mortarion",
+        "role": "antagonist"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      },
+      {
+        "name": "Roboute Guilliman",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "reason": "roster lists this as a novel, but Flames of Betrayal is an omnibus pairing the Garro: Knight of Grey novella with the Era of Ruin anthology; aggregation reflects both constituent works",
+        "suggestion": "omnibus"
+      }
+    ],
+    "rating": {
+      "status": "unrated",
+      "source": "goodreads",
+      "reason": "July 2026 forward release; Goodreads page exists but no aggregated rating data yet at time of curation",
+      "evidenceUrl": "https://www.goodreads.com/book/show/9781836090212-flames-of-betrayal"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

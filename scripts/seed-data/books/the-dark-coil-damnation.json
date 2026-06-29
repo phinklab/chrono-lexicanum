@@ -1,0 +1,111 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0589",
+  "slug": "the-dark-coil-damnation",
+  "title": "The Dark Coil: Damnation",
+  "authors": [
+    "Peter Fehervari"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "omnibus",
+  "seriesHint": "40k - The Dark Coil",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "The first of two omnibus volumes collecting Peter Fehervari's interconnected Dark Coil cycle, a web of stories where space, time, and sanity bend under the Warp's corrupting influence. At its heart are two novels: Fire Caste, a Vietnam-inflected horror story set on the cursed swamp world Phaedra, where the battered 19th Arkan Confederates are ground between an Imperial stalemate and an eerily patient T'au enemy while their minds fracture around them; and Cult of the Spiral Dawn, a theological horror tracing a Genestealer infestation as it hollows out the shrine world Redemption from within, guiding its unknowing faithful toward a Tyranid fleet. Seven short stories thread through these pillars, passing characters and dread from one tale to the next, deepening the sense that the Dark Coil itself is a living thing — a Chaos-touched tangle that has wormed its way through the galaxy by way of its own constituent tendrils.",
+    "facetIds": [
+      "book",
+      "en",
+      "ensemble",
+      "multi",
+      "dual",
+      "planetary",
+      "requires_context",
+      "doorstopper",
+      "mystery",
+      "cosmic_horror",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_mental_health",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "T'au Empire",
+        "role": "antagonist"
+      },
+      {
+        "name": "Genestealer Cults",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Ministorum",
+        "role": "supporting"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Phaedra",
+        "role": "primary"
+      },
+      {
+        "name": "Redemption",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Holt Iverson",
+        "role": "pov"
+      },
+      {
+        "name": "Ensor Cutler",
+        "role": "supporting"
+      },
+      {
+        "name": "Skjoldis",
+        "role": "supporting"
+      },
+      {
+        "name": "Cross",
+        "role": "pov"
+      },
+      {
+        "name": "Ariken",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.32,
+      "count": 113,
+      "evidenceUrl": "https://www.goodreads.com/book/show/216173820-the-dark-coil"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

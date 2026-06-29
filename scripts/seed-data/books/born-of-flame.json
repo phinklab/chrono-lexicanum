@@ -1,0 +1,93 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0050",
+  "slug": "born-of-flame",
+  "title": "Born of Flame",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "anthology",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A late-Heresy collection that maps Vulkan's sons across the full sweep of the Salamanders' war. The novellas Promethean Sun and Scorched Earth set bookends around the Legion's Great Crusade and the burning of Nocturne after Isstvan. The novel Sons of the Forge picks up Artellus Numeon's lonely pilgrimage to recover his lost Primarch, leading an unlikely band of survivors through traitor space toward the home world that may already be lost. Two further short stories tighten the seams between these arcs. Together they read as a single, smoke-darkened biography of a legion that refuses to break — even after Isstvan V, even after the burning of their own world, even after their Primarch has been declared dead more than once.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "doorstopper",
+      "war_story",
+      "character_study",
+      "somber",
+      "action_heavy",
+      "brotherhood",
+      "war",
+      "loyalty",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Salamanders",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      },
+      {
+        "name": "Night Lords",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Nocturne",
+        "role": "primary"
+      },
+      {
+        "name": "One Forty Twenty",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Vulkan",
+        "role": "pov"
+      },
+      {
+        "name": "Artellus Numeon",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.42,
+      "count": 928,
+      "evidenceUrl": "https://www.goodreads.com/book/show/38747869-born-of-flame"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

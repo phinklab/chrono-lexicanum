@@ -1,0 +1,77 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0188",
+  "slug": "brotherhood-of-the-moon",
+  "title": "Brotherhood of the Moon",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In the aftermath of the rebellion within his own legion, Jaghatai Khan calls his wayward sons to account in trials that will determine whether they are kept or cut away. Torghun Khan, a Terran-born legionary who looked too long to the Luna Wolves and the warrior lodges they brought with them, stands before his accusers and tells his own story. He recounts the early campaigns when the V Legion fought for recognition, the bonds he formed with Horus's sons, and the long quiet path that almost led him into outright heresy at the side of the brothers he had loved before he ever met the Khan.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "requires_context",
+      "character_study",
+      "court_intrigue",
+      "somber",
+      "philosophical",
+      "brotherhood",
+      "loyalty",
+      "betrayal",
+      "doubt",
+      "en",
+      "cw_violence"
+    ],
+    "factions": [
+      {
+        "name": "White Scars",
+        "role": "primary"
+      },
+      {
+        "name": "Luna Wolves",
+        "role": "supporting"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Torghun Khan",
+        "role": "pov"
+      },
+      {
+        "name": "Jaghatai Khan",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.45,
+      "count": 167,
+      "evidenceUrl": "https://www.goodreads.com/book/show/23768387-brotherhood-of-the-moon"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

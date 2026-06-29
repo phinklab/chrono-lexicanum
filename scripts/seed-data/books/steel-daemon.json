@@ -1,0 +1,90 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0248",
+  "slug": "steel-daemon",
+  "title": "Steel Daemon",
+  "authors": [
+    "Ian St. Martin"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novella",
+  "seriesHint": "Imperial Guard",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "When his Marauder bomber is shot down during the 13th Black Crusade, young airman Heit Lytviak finds unlikely refuge aboard the Cadian Leman Russ battle tank Imperial Son, pressed into service as an ill-disciplined gunner under the iron eye of Lieutenant Knispel. But the Crimson Slaughter are loose upon the battlefield, and their champion Hakaron, sane only by the thinnest margin, drives his warband with terrifying lethality. Cut off from their lines and forced ever backward, the tank crew must hold their nerve against an enemy that fights for the sheer joy of slaughter. A claustrophobic story of armoured warfare and the horror that stalks the Imperium's soldiers.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "squad",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "doubt",
+      "sacrifice",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_language",
+      "en",
+      "novella",
+      "standalone"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Crimson Slaughter",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Heit Lytviak",
+        "role": "pov"
+      },
+      {
+        "name": "Lieutenant Knispel",
+        "role": "supporting"
+      },
+      {
+        "name": "Hakaron",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "13th Black Crusade setting; specific world not clearly named in available sources"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.64,
+      "count": 103,
+      "evidenceUrl": "https://www.goodreads.com/book/show/42742205-steel-daemon"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0297",
+  "slug": "dropsite-massacre",
+  "title": "Dropsite Massacre",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "novel",
+  "seriesHint": "Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "When Horus's rebellion is revealed, Rogal Dorn and Malcador the Sigillite dispatch the largest loyalist force ever assembled to crush the uprising before it can spread. Three entire Legions — the Iron Hands, Raven Guard, and Salamanders — descend on Isstvan V expecting to deliver judgement. They do not know that four more Legions wait in orbit, loyal only to the Warmaster. Through the eyes of Iron Hands warrior Castrmen Orth and the Blood Crow Kaedes Nex of the Raven Guard, witness the moment the Imperium breaks. The first wave of loyalists is shattered by treachery, cut down by the very brothers they fought beside across a hundred worlds. On the ash-fields of Isstvan V, the Great Crusade ends and a new age of darkness begins.",
+    "facetIds": [
+      "book",
+      "en",
+      "space_marine",
+      "ensemble",
+      "dual",
+      "sector",
+      "mid_series",
+      "standard",
+      "war_story",
+      "last_stand",
+      "betrayal",
+      "sacrifice",
+      "grimdark",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Iron Hands",
+        "role": "primary"
+      },
+      {
+        "name": "Raven Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Salamanders",
+        "role": "supporting"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "antagonist"
+      },
+      {
+        "name": "Night Lords",
+        "role": "antagonist"
+      },
+      {
+        "name": "Alpha Legion",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Isstvan V",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Castrmen Orth",
+        "role": "pov"
+      },
+      {
+        "name": "Kaedes Nex",
+        "role": "pov"
+      },
+      {
+        "name": "Ferrus Manus",
+        "role": "supporting"
+      },
+      {
+        "name": "Maloghurst the Twisted",
+        "role": "supporting"
+      },
+      {
+        "name": "Kharn",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.24,
+      "count": 733,
+      "evidenceUrl": "https://www.goodreads.com/book/show/240892106-dropsite-massacre"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

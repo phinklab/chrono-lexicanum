@@ -1,0 +1,100 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0193",
+  "slug": "chapter-war",
+  "title": "Chapter War",
+  "authors": [
+    "Ben Counter"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2007,
+  "format": "novel",
+  "seriesHint": "Soul Drinkers",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Excommunicate Soul Drinkers answer an Ork invasion of Vanqualis, hoping to prove their loyalty to the Imperium that cast them out. Inside the chapter, a faction is ready to abandon the renegade-loyalist creed and openly embrace Chaos; outside, the Howling Griffons arrive as Imperial reinforcements who see them not as allies but as a renegade target. Sarpedon fights on three fronts at once: the Orks, his own splinter-traitors, and his fellow Astartes.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "character_study",
+      "political_thriller",
+      "last_stand",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "cosmic_horror",
+      "betrayal",
+      "doubt",
+      "faith",
+      "hubris",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_socio_political",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Soul Drinkers",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Howling Griffons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperium",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Vanqualis",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sarpedon",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

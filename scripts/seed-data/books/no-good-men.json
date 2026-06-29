@@ -1,0 +1,69 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0539",
+  "slug": "no-good-men",
+  "title": "No Good Men",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2020,
+  "format": "anthology",
+  "seriesHint": "Warhammer Crime",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Seven stories of justice as it is actually practised on the rain-slick streets of Varangantua - a city where the law is a job, not a virtue, and most of the people doing it would rather not have to remember their day. Probators chasing inquiries that pay better than they should; sanctioners running into walls they were not warned about; ordinary citizens trying to live one more month without becoming a case file. Chris Wraight, Darius Hinks, Gareth Hanrahan, Graham McNeill, Guy Haley, Marc Collins and Nick Kyme each take a corner of the same hive and show how the Imperium's largest exports are inequality and the people willing to enforce it.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "civilian",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "mystery",
+      "character_study",
+      "grimdark",
+      "somber",
+      "betrayal",
+      "doubt",
+      "cw_violence",
+      "cw_crime",
+      "cw_death",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Enforcers",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Varangantua",
+        "role": "primary"
+      }
+    ],
+    "characters": [],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.03,
+      "count": 283,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/54861107-no-good-men"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

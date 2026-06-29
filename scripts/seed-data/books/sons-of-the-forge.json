@@ -1,0 +1,86 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0135",
+  "slug": "sons-of-the-forge",
+  "title": "Sons of the Forge",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novella",
+  "seriesHint": "Horus Heresy Novellas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Word has reached Nocturne that Vulkan, Primarch of the Salamanders, has fallen on Isstvan V. Before he left for the dropsite, Vulkan entrusted his Forgefather, T'kell, with a final and grievous duty: select the seven greatest of his hand-wrought weapons and hide them away in the secret vault known as the Wrought — and destroy the rest, that the Eighteenth Legion's relics might never fall into traitor hands. T'kell gathers a chosen escort of Firedrakes and the brothers who stayed behind, and sets out on a journey that demands hard sacrifice with every step. But the road to the Wrought is not empty, and unexpected enemies wait among the ashes. A quiet, sombre tale that plants the seed for the Salamanders' ten-thousand-year search for their Primarch's lost artefacts.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "requires_context",
+      "novella",
+      "journey",
+      "last_stand",
+      "somber",
+      "action_heavy",
+      "loyalty",
+      "brotherhood",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Salamanders",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Nocturne",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "T'kell",
+        "role": "pov"
+      },
+      {
+        "name": "Vulkan",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "Search coverage names 'unexpected foes barring their path' but does not specify the antagonist faction; left blank rather than guessed."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.49,
+      "count": 158,
+      "evidenceUrl": "https://www.goodreads.com/book/show/32470088-sons-of-the-forge"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0467",
+  "slug": "incarnation",
+  "title": "Incarnation",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novel",
+  "seriesHint": "The Horusian Wars",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Dominicus Prime is in the Season of Night, a long darkness that the shrineworld's calendars have always treated with reverence and that this time arrives wrong. At the Monastery of the Last Candle, the keepers of the Emperor's light try to keep the rites; in the Pilgrim Drift, the great orbiting shanty of penitents, hunger spreads and discord with it. Cardinals plot, bishops scheme, and beneath all of it a new cult whispers of blood. Inquisitor Covenant arrives drawn by the Emperor's Tarot, hunting agents of the Triumvirate — Horusians who believe that mankind's salvation must be embodied in an unkillable god-tyrant. As the Last Candle gutters and the Drift turns on itself, Covenant must decide what he is willing to burn to stop a worse fire.",
+    "facetIds": [
+      "book",
+      "male",
+      "inquisitor",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "mystery",
+      "political_thriller",
+      "philosophical",
+      "grimdark",
+      "faith",
+      "doubt",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Ministorum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Dominicus Prime",
+        "role": "primary"
+      },
+      {
+        "name": "Pilgrim Drift",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Inquisitor Covenant",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.87,
+      "count": 257,
+      "evidenceUrl": "https://www.goodreads.com/book/show/43253923-incarnation"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

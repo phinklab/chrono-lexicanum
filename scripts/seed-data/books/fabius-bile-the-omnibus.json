@@ -1,0 +1,117 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0441",
+  "slug": "fabius-bile-the-omnibus",
+  "title": "Fabius Bile: The Omnibus",
+  "authors": [
+    "Josh Reynolds"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "omnibus",
+  "seriesHint": "Fabius Bile",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Fabius Bile — Primogenitor, Clonelord, Manflayer — was once a loyal Apothecary of the Emperor's Children, now a renegade loathed even by the other traitor Legions. Obsessed with perfecting his New Men as the future of a humanity he despises, he pursues his grim genetic craft across the galaxy: from the Eye of Terror to the necron tomb world of Solemnace, and into the dark city of Commorragh itself. This omnibus gathers the three novels Primogenitor, Clonelord and Manflayer alongside their connecting short stories, charting Bile's running war against rival warbands, daemons and harlequins — and against his own failing flesh — as he chases the perfection that has always eluded him.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "galactic",
+      "standalone",
+      "doorstopper",
+      "journey",
+      "character_study",
+      "war_story",
+      "grimdark",
+      "philosophical",
+      "somber",
+      "hubris",
+      "doubt",
+      "betrayal",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Emperor's Children",
+        "role": "primary"
+      },
+      {
+        "name": "Drukhari",
+        "role": "supporting"
+      },
+      {
+        "name": "Necrons",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Eye of Terror",
+        "role": "primary"
+      },
+      {
+        "name": "Solemnace",
+        "role": "supporting"
+      },
+      {
+        "name": "Commorragh",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Fabius Bile",
+        "role": "pov"
+      },
+      {
+        "name": "Oleander Koh",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.49,
+      "count": 185,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/60604364"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0438",
+        "displayOrder": 0,
+        "confidence": 0.95,
+        "basis": "Fabius Bile omnibus follows the trilogy"
+      },
+      {
+        "externalBookId": "W40K-0439",
+        "displayOrder": 1,
+        "confidence": 0.95,
+        "basis": "Fabius Bile omnibus follows the trilogy"
+      },
+      {
+        "externalBookId": "W40K-0440",
+        "displayOrder": 2,
+        "confidence": 0.95,
+        "basis": "Fabius Bile omnibus follows the trilogy"
+      }
+    ]
+  }
+}

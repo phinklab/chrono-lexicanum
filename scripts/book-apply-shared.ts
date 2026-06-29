@@ -585,6 +585,147 @@ export async function appendAutoCreatedPersons(
 }
 
 // =============================================================================
+// Pure row derivation (DB-free) — the parity-by-construction surface
+// =============================================================================
+
+/**
+ * The exact column values `applyBook` writes for ONE book, derived purely (no
+ * DB, no network) from `(override, roster, series)` + the two skip contexts.
+ * Surrogate/volatile columns (`works.id`, `created_at`, `updated_at`) are NOT
+ * here — they are assigned by the DB, not by curation.
+ *
+ * This is the SINGLE place the corpus-owned row shape is decided. `applyBook`
+ * calls it and writes the result; the Brief 171 equivalence harness calls it
+ * for BOTH the legacy projection AND the per-book projection and deep-equals
+ * the two — so `apply(legacy) == apply(per-book)` is parity-by-construction at
+ * the row level (the only diff surface is the projection feeding this function),
+ * provable WITHOUT a live or scratch DB.
+ */
+export interface ComputedBookRows {
+  works: {
+    kind: "book";
+    canonicity: "official";
+    slug: string;
+    title: string;
+    synopsis: string;
+    releaseYear: number | null;
+    externalBookId: string;
+    sourceKind: "ssot";
+    confidence: "1.00";
+  };
+  /** book_details column values (workId excluded — it is the DB surrogate). */
+  bookDetails: {
+    format: string | null;
+    notes: string;
+    primaryEraId: string;
+    seriesId: string | null;
+    seriesIndex: number | null;
+    rating?: string | null;
+    ratingCount?: number | null;
+    ratingSource?: "goodreads";
+  };
+  persons: Array<{ personId: string; role: "author" | "editor"; displayOrder: number }>;
+  /** work_facets.facet_value_id values, in override order. */
+  facets: string[];
+  factions: Array<{ factionId: string; role: string; rawName: string }>;
+  locations: Array<{ locationId: string; role: string; rawName: string }>;
+  characters: Array<{ characterId: string; role: string; rawName: string }>;
+  // --- derivation metadata (not DB columns) ---------------------------------
+  formatOverride: { from: string | null; to: string; reason: string } | null;
+  ratingSummary: string;
+  unresolvedAuthorship: boolean;
+}
+
+export function computeBookRows(
+  override: OverrideBook,
+  roster: RosterBook,
+  series: SeriesAnchor | null,
+  skipCtx: SkipContext,
+  locationSkipCtx: LocationSkipContext,
+): ComputedBookRows {
+  const { format, formatOverride } = pickFinalFormat(roster, override);
+
+  // Brief 154: `resolveBookEdges` is the shared crystallizer — runs
+  // resolveFactions → decideFactionSkips (Brief 077), resolveLocations +
+  // decideLocationSkips (Brief 084, audit-only), and resolveCharacters.
+  const edges = resolveBookEdges(override.overrides, skipCtx, locationSkipCtx);
+  const keepFactions = edges.keepFactions;
+  const skipDecision = edges.factionSkip;
+  const resolvedLocations = edges.resolvedLocations;
+  const locationSkipDecision = edges.locationSkip;
+  const resolvedCharacters = edges.resolvedCharacters;
+
+  const surfaceFormsBlock = buildSurfaceFormsBlock(
+    override,
+    formatOverride,
+    skipDecision.skippedSurfaceForms,
+    locationSkipDecision.skippedSurfaceForms,
+  );
+  const ratingPatch = ratingBookDetailsPatch(
+    override.overrides.rating,
+    override.externalBookId,
+  );
+  const ratingSummary = formatRatingWrite(
+    normalizeRatingOverride(override.overrides.rating, override.externalBookId),
+  );
+
+  // Authorship resolution from roster (not override).
+  let authorshipMarker: AuthorshipMarker | null = null;
+  let unresolvedAuthorship = false;
+  if (roster.authors.length === 0) {
+    if (roster.editorialNote === "various") {
+      authorshipMarker = { kind: "various", editorialNote: "various" };
+    } else if (roster.editors.length === 0) {
+      unresolvedAuthorship = true;
+    }
+    // else: editors-only book → editor rows carry authorship, no marker.
+  }
+
+  const authorshipBlock = authorshipMarker
+    ? buildAuthorshipBlock(authorshipMarker)
+    : null;
+  const notes = composeNotes(roster.notes, surfaceFormsBlock, authorshipBlock);
+
+  const persons: ComputedBookRows["persons"] = [];
+  for (const [i, authorName] of roster.authors.entries()) {
+    persons.push({ personId: slugifyPerson(authorName), role: "author", displayOrder: i });
+  }
+  for (const [i, editorName] of roster.editors.entries()) {
+    persons.push({ personId: slugifyPerson(editorName), role: "editor", displayOrder: i });
+  }
+
+  return {
+    works: {
+      kind: "book",
+      canonicity: "official",
+      slug: override.slug,
+      title: roster.title,
+      synopsis: override.overrides.synopsis,
+      releaseYear: roster.releaseYear ?? null,
+      externalBookId: override.externalBookId,
+      sourceKind: "ssot",
+      confidence: "1.00",
+    },
+    bookDetails: {
+      format,
+      notes,
+      primaryEraId: M41_ERA_ID,
+      seriesId: series?.id ?? null,
+      seriesIndex: series?.index ?? null,
+      ...ratingPatch,
+    },
+    persons,
+    facets: [...override.overrides.facetIds],
+    factions: keepFactions.map((f) => ({ factionId: f.id, role: f.role, rawName: f.rawName })),
+    locations: resolvedLocations.map((l) => ({ locationId: l.id, role: l.role, rawName: l.rawName })),
+    characters: resolvedCharacters.map((c) => ({ characterId: c.id, role: c.role, rawName: c.rawName })),
+    formatOverride,
+    ratingSummary,
+    unresolvedAuthorship,
+  };
+}
+
+// =============================================================================
 // The per-work writer (one transaction per book)
 // =============================================================================
 
@@ -593,9 +734,10 @@ export async function appendAutoCreatedPersons(
  * `external_book_id`), UPSERT `book_details` (primary_era_id = "time_ending"),
  * delete-then-insert junctions scoped to THIS work only. Touches no other work.
  *
+ * The corpus-owned column values come from the pure `computeBookRows` above
+ * (Brief 171) — this writer only adds the DB plumbing (upsert/delete-insert).
  * `series` is supplied by the caller (legacy: `SERIES_BY_EXTERNAL_ID`; per-book:
- * the file's `series`/`seriesIndex`) — the only generalization over the original
- * private `applyBook`, so the writer carries no hard-coded id map of its own.
+ * the file's `series`/`seriesIndex`), so the writer carries no id map of its own.
  */
 export async function applyBook(
   override: OverrideBook,
@@ -605,53 +747,22 @@ export async function applyBook(
   locationSkipCtx: LocationSkipContext,
 ): Promise<BookApplyResult> {
   return await db.transaction(async (tx) => {
-    const { format, formatOverride } = pickFinalFormat(roster, override);
+    const rows = computeBookRows(override, roster, series, skipCtx, locationSkipCtx);
+    const { format } = rows.bookDetails;
+    const notes = rows.bookDetails.notes;
+    const ratingSummary = rows.ratingSummary;
+    const unresolvedAuthorship = rows.unresolvedAuthorship;
+    const keepFactions = rows.factions;
+    const resolvedLocations = rows.locations;
+    const resolvedCharacters = rows.characters;
 
-    // Brief 154: `resolveBookEdges` is the shared crystallizer — runs
-    // resolveFactions → decideFactionSkips (Brief 077), resolveLocations +
-    // decideLocationSkips (Brief 084, audit-only), and resolveCharacters.
-    const edges = resolveBookEdges(override.overrides, skipCtx, locationSkipCtx);
-    const keepFactions = edges.keepFactions;
-    const skipDecision = edges.factionSkip;
-    const resolvedLocations = edges.resolvedLocations;
-    const locationSkipDecision = edges.locationSkip;
-    const resolvedCharacters = edges.resolvedCharacters;
-
-    const surfaceFormsBlock = buildSurfaceFormsBlock(
-      override,
-      formatOverride,
-      skipDecision.skippedSurfaceForms,
-      locationSkipDecision.skippedSurfaceForms,
-    );
-    const ratingPatch = ratingBookDetailsPatch(
-      override.overrides.rating,
-      override.externalBookId,
-    );
-    const ratingSummary = formatRatingWrite(
-      normalizeRatingOverride(override.overrides.rating, override.externalBookId),
-    );
-
-    // Authorship resolution from roster (not override).
-    let authorshipMarker: AuthorshipMarker | null = null;
-    let unresolvedAuthorship = false;
-    if (roster.authors.length === 0) {
-      if (roster.editorialNote === "various") {
-        authorshipMarker = { kind: "various", editorialNote: "various" };
-      } else if (roster.editors.length === 0) {
-        unresolvedAuthorship = true;
-        console.warn(
-          `[book-apply] unresolved_authorship: ${roster.externalBookId} ` +
-            `(slug=${roster.slug}, row=${roster.sourceRow}, ` +
-            `authors=[], editors=[], editorialNote=null)`,
-        );
-      }
-      // else: editors-only book → editor rows carry authorship, no marker.
+    if (unresolvedAuthorship) {
+      console.warn(
+        `[book-apply] unresolved_authorship: ${roster.externalBookId} ` +
+          `(slug=${roster.slug}, row=${roster.sourceRow}, ` +
+          `authors=[], editors=[], editorialNote=null)`,
+      );
     }
-
-    const authorshipBlock = authorshipMarker
-      ? buildAuthorshipBlock(authorshipMarker)
-      : null;
-    const notes = composeNotes(roster.notes, surfaceFormsBlock, authorshipBlock);
 
     const existing = (await tx
       .select({ id: works.id })
@@ -665,7 +776,7 @@ export async function applyBook(
       await tx
         .update(works)
         .set({
-          synopsis: override.overrides.synopsis,
+          synopsis: rows.works.synopsis,
           // Title and slug stay frozen on update — externalBookId is the only
           // identity anchor; renames require an explicit re-import path.
           updatedAt: new Date(),
@@ -674,78 +785,33 @@ export async function applyBook(
     } else {
       const inserted = (await tx
         .insert(works)
-        .values({
-          kind: "book",
-          canonicity: "official",
-          slug: override.slug,
-          title: roster.title,
-          synopsis: override.overrides.synopsis,
-          releaseYear: roster.releaseYear ?? null,
-          externalBookId: override.externalBookId,
-          sourceKind: "ssot",
-          confidence: "1.00",
-        })
+        .values({ ...rows.works })
         .returning({ id: works.id })) as Array<{ id: string }>;
       workId = inserted[0].id;
     }
 
     // book_details upsert via primaryKey conflict (workId is PK).
+    const detailValues = { ...rows.bookDetails, format: format as never };
     await tx
       .insert(bookDetails)
-      .values({
-        workId,
-        format: format as never,
-        notes,
-        primaryEraId: M41_ERA_ID,
-        seriesId: series?.id ?? null,
-        seriesIndex: series?.index ?? null,
-        ...ratingPatch,
-      })
+      .values({ workId, ...detailValues })
       .onConflictDoUpdate({
         target: bookDetails.workId,
-        set: {
-          format: format as never,
-          notes,
-          primaryEraId: M41_ERA_ID,
-          seriesId: series?.id ?? null,
-          seriesIndex: series?.index ?? null,
-          ...ratingPatch,
-        },
+        set: { ...detailValues },
       });
 
     // Junctions: delete-then-insert. work_collections is handled separately.
     await tx.delete(workFacets).where(eq(workFacets.workId, workId));
-    if (override.overrides.facetIds.length > 0) {
+    if (rows.facets.length > 0) {
       await tx.insert(workFacets).values(
-        override.overrides.facetIds.map((facetValueId) => ({
+        rows.facets.map((facetValueId) => ({
           workId,
           facetValueId,
         })),
       );
     }
 
-    const personRows: Array<{
-      workId: string;
-      personId: string;
-      role: "author" | "editor";
-      displayOrder: number;
-    }> = [];
-    for (const [i, authorName] of roster.authors.entries()) {
-      personRows.push({
-        workId,
-        personId: slugifyPerson(authorName),
-        role: "author",
-        displayOrder: i,
-      });
-    }
-    for (const [i, editorName] of roster.editors.entries()) {
-      personRows.push({
-        workId,
-        personId: slugifyPerson(editorName),
-        role: "editor",
-        displayOrder: i,
-      });
-    }
+    const personRows = rows.persons.map((p) => ({ workId, ...p }));
     // Brief 105: scope the delete to author/editor — the roles this apply path
     // OWNS. Audio credits (narrator/co_narrator/full_cast) survive.
     await tx
@@ -765,7 +831,7 @@ export async function applyBook(
       await tx.insert(workFactions).values(
         keepFactions.map((f) => ({
           workId,
-          factionId: f.id,
+          factionId: f.factionId,
           role: f.role,
           rawName: f.rawName,
         })),
@@ -777,7 +843,7 @@ export async function applyBook(
       await tx.insert(workLocations).values(
         resolvedLocations.map((l) => ({
           workId,
-          locationId: l.id,
+          locationId: l.locationId,
           role: l.role,
           rawName: l.rawName,
         })),
@@ -789,7 +855,7 @@ export async function applyBook(
       await tx.insert(workCharacters).values(
         resolvedCharacters.map((c) => ({
           workId,
-          characterId: c.id,
+          characterId: c.characterId,
           role: c.role,
           rawName: c.rawName,
         })),

@@ -1,0 +1,87 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0392",
+  "slug": "tech-priest",
+  "title": "Tech-Priest",
+  "authors": [
+    "Rob Sanders"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "novel",
+  "seriesHint": "Adeptus Mechanicus",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The sequel to Skitarius shifts the lens upward, away from the front lines and into the orbital command of Magos Omnid Torquora. Six months into a grinding campaign to reclaim a lost forge world, Velchanos Magna, Torquora finds his armies stalled by the cunning of the Iron Warriors and their warsmith, Idriss Krendl. With Titan Legions, Kastelan robots, and battalions of battle-servitors at his command, the Magos believes conquest is within reach, until treachery from within threatens to unravel everything. As Stroika fights on the surface, his master plays a longer, colder game from above. A study of ambition, calculation, and the brittle pride of a being who has traded most of his humanity for the certainty of the machine.",
+    "facetIds": [
+      "book",
+      "male",
+      "tech_priest",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "short",
+      "war_story",
+      "siege",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "hubris",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "primary"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Velchanos Magna",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Omnid Torquora",
+        "role": "pov"
+      },
+      {
+        "name": "Idriss Krendl",
+        "role": "antagonist"
+      },
+      {
+        "name": "Haldron-44 Stroika",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.54,
+      "count": 229,
+      "evidenceUrl": "https://www.goodreads.com/book/show/25588892-tech-priest"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

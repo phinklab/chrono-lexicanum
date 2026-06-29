@@ -1,0 +1,87 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0196",
+  "slug": "twisted",
+  "title": "Twisted",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Maloghurst the Twisted, crippled equerry to the Warmaster, has been Horus's closest political mind since the Crusade began. With the Sixteenth Legion bloated on its own ambition and the daemon ever closer to the Vengeful Spirit's deckplates, Maloghurst turns to the only allies he has left who know that kind of war: the priests of Davin, the lodge-masters who first opened the door. The Davinites think they have found their leverage; that a maimed councillor at the heart of the Warmaster's court will be easy to break and easier to ride. They have misread him on every count. A short, knife-edged piece of court politics set just below the Warmaster's chamber, in which the man behind the throne reminds the people who sold him to Chaos who has the last word.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "squad",
+      "requires_context",
+      "court_intrigue",
+      "character_study",
+      "grimdark",
+      "somber",
+      "loyalty",
+      "betrayal",
+      "hubris",
+      "en",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing"
+    ],
+    "factions": [
+      {
+        "name": "Sons of Horus",
+        "role": "primary"
+      },
+      {
+        "name": "Davinite Lodge",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Vengeful Spirit",
+        "role": "primary"
+      },
+      {
+        "name": "Davin",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Maloghurst",
+        "role": "pov"
+      },
+      {
+        "name": "Horus Lupercal",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.82,
+      "count": 138,
+      "evidenceUrl": "https://www.goodreads.com/book/show/24888270-twisted"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

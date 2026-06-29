@@ -1,0 +1,110 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0047",
+  "slug": "nightbringer",
+  "title": "Nightbringer",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2002,
+  "format": "novel",
+  "seriesHint": "Ultramarines",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Ventris saga opens with newly promoted Captain Uriel Ventris of the Ultramarines 4th Company taking command after the death of his mentor Captain Idaeus. His first independent deployment is to Pavonis, a mercantile world in the Eastern Fringe whose seven Cardinal Houses — the old mercantile dynasties that effectively run the planet — are deep in conspiracy against the planetary governor and against each other. Inquisitor Ario Barzano arrives in parallel, pursuing a far older threat: a slumbering C'tan, the Nightbringer, buried beneath Pavonis by an ancient Eldar exile civilisation that built its planetary structure as a prison. Together with battle-brother Pasanius Lysane, the rest of the 4th Company under Ventris's command, and the unexpected tactical cooperation of an Eldar farseer who arrives to ensure the C'tan stays sealed, Ventris must thread the Cardinal-House intrigue, the Imperial-Navy presence, an awakening Necron tomb-complex, and his own Codex-pragmatist instincts to prevent the Nightbringer from rising. Sets up the Codex-versus-pragmatism arc that defines Ventris, the Pasanius battle-brother throughline, and the Inquisitor-Barzano partnership that recurs in Warriors of the Ultramar.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "company",
+      "series_start",
+      "standard",
+      "war_story",
+      "mystery",
+      "political_thriller",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "loyalty",
+      "brotherhood",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperial Navy",
+        "role": "supporting"
+      },
+      {
+        "name": "Eldar",
+        "role": "supporting"
+      },
+      {
+        "name": "Necrons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Pavonis",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Uriel Ventris",
+        "role": "pov"
+      },
+      {
+        "name": "Pasanius Lysane",
+        "role": "supporting"
+      },
+      {
+        "name": "Ario Barzano",
+        "role": "supporting"
+      },
+      {
+        "name": "Captain Idaeus",
+        "role": "mentioned"
+      },
+      {
+        "name": "Nightbringer",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

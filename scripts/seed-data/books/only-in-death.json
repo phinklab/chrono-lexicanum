@@ -1,0 +1,141 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0034",
+  "slug": "only-in-death",
+  "title": "Only in Death",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2008,
+  "format": "novel",
+  "seriesHint": "Gaunt's Ghosts",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Lost cycle closes on the fortress-world of Jago, where the Tanith First is rotated forward to a long-disused Imperial citadel called Hinzerhaus — a half-buried sandstone pile dug into a cliff face overlooking a chokepoint pass. Their orders are to anchor the Imperial left flank against an expected Arch-Enemy counter-attack. But Hinzerhaus itself is wrong: doors that open onto bare rock, sentries who vanish on watch, voices on the wind that whisper warnings the regiment is too dug-in to obey. The Ghosts settle into a siege-defence rhythm against waves of Blood Pact attackers while the citadel slowly reveals itself as a haunted place with its own designs. The novel deliberately reads as a horror-register war story — Hinzerhaus is closer to a haunted house than a fortification. Major regiment trauma lands by the end; the Tanith come out smaller and quieter, and The Lost cycle ends with the survivors marching off Jago as a permanently changed unit.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "regiment",
+      "mid_series",
+      "standard",
+      "war_story",
+      "siege",
+      "mystery",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "cosmic_horror",
+      "war",
+      "sacrifice",
+      "loyalty",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Tanith First-and-Only",
+        "role": "primary"
+      },
+      {
+        "name": "Verghastite Ghosts",
+        "role": "primary"
+      },
+      {
+        "name": "Belladon",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Blood Pact",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Jago",
+        "role": "primary"
+      },
+      {
+        "name": "Hinzerhaus",
+        "role": "primary"
+      },
+      {
+        "name": "Sabbat Worlds",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ibram Gaunt",
+        "role": "pov"
+      },
+      {
+        "name": "Viktor Hark",
+        "role": "supporting"
+      },
+      {
+        "name": "Elim Rawne",
+        "role": "supporting"
+      },
+      {
+        "name": "Oan Mkoll",
+        "role": "supporting"
+      },
+      {
+        "name": "Hlaine Larkin",
+        "role": "supporting"
+      },
+      {
+        "name": "Ban Daur",
+        "role": "supporting"
+      },
+      {
+        "name": "Tona Criid",
+        "role": "supporting"
+      },
+      {
+        "name": "Caffran",
+        "role": "supporting"
+      },
+      {
+        "name": "Dalin Criid",
+        "role": "supporting"
+      },
+      {
+        "name": "Ana Curth",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

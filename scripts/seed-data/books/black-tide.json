@@ -1,0 +1,97 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0220",
+  "slug": "black-tide",
+  "title": "Black Tide",
+  "authors": [
+    "James Swallow"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2010,
+  "format": "novel",
+  "seriesHint": "Blood Angels",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Having driven off the blood-maddened horrors that menaced their homeworld, the Blood Angels hunt the renegade who set them loose: the infamous Fabius Bile, who has stolen a sample of their primarch's sacred blood. The trail leads to Dynikas V, a death world crawling with Tyranids, where Bile has hidden his secret laboratory. Together with their fierce kin the Flesh Tearers, Rafen and his battle-brothers descend into a nightmare of alien swarms and grotesque experiments, racing to recover what was taken before Bile can unlock the secrets of Sanguinius's gene-line. What they find there is more terrible than anything they imagined.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "series_finale",
+      "standard",
+      "war_story",
+      "journey",
+      "grimdark",
+      "action_heavy",
+      "cosmic_horror",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Flesh Tearers",
+        "role": "supporting"
+      },
+      {
+        "name": "Emperor's Children",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Dynikas V",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Rafen",
+        "role": "pov"
+      },
+      {
+        "name": "Noxx",
+        "role": "supporting"
+      },
+      {
+        "name": "Fabius Bile",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.73,
+      "count": 332,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/6660153"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

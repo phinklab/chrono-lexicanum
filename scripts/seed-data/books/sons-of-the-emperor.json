@@ -1,0 +1,181 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0090",
+  "slug": "sons-of-the-emperor",
+  "title": "Sons of the Emperor",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2018,
+  "format": "anthology",
+  "seriesHint": "The Primarchs",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "An eight-story collection that fans out across the lives of the primarchs from the early Great Crusade to long after the Heresy is over. John French opens with Sanguinius's Blood Angels in The Passing of Angels, Aaron Dembski-Bowden brings the Night Lords to the table with The Abyssal Edge, and Nick Kyme's Mercy of the Dragon turns to Vulkan and a Salamander far from home. Gav Thorpe's Shadow of the Past, Guy Haley's The Emperor's Architect, L J Goulding's Prince of Blood, Graham McNeill's The Ancient Awaits and Dan Abnett's Misbegotten round the book out, between them touching on Angron, Horus, Magnus and others. The mode is character-piece rather than battle-piece throughout, and several of the stories sit decades or centuries apart from the rest of the collection.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "space_marine",
+      "male",
+      "ensemble",
+      "imperium",
+      "chaos",
+      "galactic",
+      "requires_context",
+      "short",
+      "war_story",
+      "character_study",
+      "court_intrigue",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "action_heavy",
+      "brotherhood",
+      "betrayal",
+      "loyalty",
+      "hubris",
+      "sacrifice",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Night Lords",
+        "role": "primary"
+      },
+      {
+        "name": "Salamanders",
+        "role": "primary"
+      },
+      {
+        "name": "Thousand Sons",
+        "role": "primary"
+      },
+      {
+        "name": "World Eaters",
+        "role": "primary"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "supporting"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "supporting"
+      },
+      {
+        "name": "Dark Angels",
+        "role": "supporting"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Sanguinius",
+        "role": "pov"
+      },
+      {
+        "name": "Konrad Curze",
+        "role": "pov"
+      },
+      {
+        "name": "Vulkan",
+        "role": "pov"
+      },
+      {
+        "name": "Magnus the Red",
+        "role": "pov"
+      },
+      {
+        "name": "Angron",
+        "role": "pov"
+      },
+      {
+        "name": "Horus",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.1,
+      "count": 599,
+      "evidenceUrl": "https://www.goodreads.com/book/show/38450891-sons-of-the-emperor"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "HH-0101",
+        "displayOrder": 0,
+        "confidence": 0.75,
+        "basis": "Sons of the Emperor anthology inferred from Primarchs short-story section block"
+      },
+      {
+        "externalBookId": "HH-0102",
+        "displayOrder": 1,
+        "confidence": 0.75,
+        "basis": "Sons of the Emperor anthology inferred from Primarchs short-story section block"
+      },
+      {
+        "externalBookId": "HH-0103",
+        "displayOrder": 2,
+        "confidence": 0.75,
+        "basis": "Sons of the Emperor anthology inferred from Primarchs short-story section block"
+      },
+      {
+        "externalBookId": "HH-0104",
+        "displayOrder": 3,
+        "confidence": 0.75,
+        "basis": "Sons of the Emperor anthology inferred from Primarchs short-story section block"
+      },
+      {
+        "externalBookId": "HH-0105",
+        "displayOrder": 4,
+        "confidence": 0.75,
+        "basis": "Sons of the Emperor anthology inferred from Primarchs short-story section block"
+      },
+      {
+        "externalBookId": "HH-0106",
+        "displayOrder": 5,
+        "confidence": 0.75,
+        "basis": "Sons of the Emperor anthology inferred from Primarchs short-story section block"
+      },
+      {
+        "externalBookId": "HH-0107",
+        "displayOrder": 6,
+        "confidence": 0.75,
+        "basis": "Sons of the Emperor anthology inferred from Primarchs short-story section block"
+      },
+      {
+        "externalBookId": "HH-0108",
+        "displayOrder": 7,
+        "confidence": 0.75,
+        "basis": "Sons of the Emperor anthology inferred from Primarchs short-story section block"
+      },
+      {
+        "externalBookId": "HH-0109",
+        "displayOrder": 8,
+        "confidence": 0.75,
+        "basis": "Sons of the Emperor anthology inferred from Primarchs short-story section block"
+      }
+    ]
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0081",
+  "slug": "fire-caste",
+  "title": "Fire Caste",
+  "authors": [
+    "Peter Fehervari"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Standalone Imperial-Guard-anchored 40K novel set on the jungle-and-swamp death-world of Phaedra, where the Imperium has been bogged down in a decade-long stalemate against a T'au expansion force backed by local secessionist insurgents. The 19th Arkan Confederates — a fresh regiment still haunted by the trauma of their home world's recent rebellion — are deployed to break the deadlock, but command sends them in piecemeal and the regiment scatters under fire. Dual Imperial POV across the campaign: Commissar Holt Iverson, who has spent so long on Phaedra that his sense of duty has corroded into private vendetta, sees in the Confederates a last chance at redemption; Colonel Ensor Cutler holds the regimental command line as the campaign disintegrates. Phaedra itself functions as an antagonist — a Heart-of-Darkness / Apocalypse-Now register where the warp leaks through the canopy, ghosts of past Imperial atrocities surface, and Tau Empire infiltrators move through the trees. Opens Fehervari's loose 'Dark Coil' continuity: weird-40K standalones that share an undercurrent of cosmic-horror taint without explicit cross-references.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "character_study",
+      "mystery",
+      "journey",
+      "grimdark",
+      "cosmic_horror",
+      "somber",
+      "philosophical",
+      "doubt",
+      "hubris",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Arkan Confederates",
+        "role": "primary"
+      },
+      {
+        "name": "Tau Empire",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Phaedra",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Holt Iverson",
+        "role": "pov"
+      },
+      {
+        "name": "Ensor Cutler",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

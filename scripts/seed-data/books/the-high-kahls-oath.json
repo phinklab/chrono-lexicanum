@@ -1,0 +1,78 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0580",
+  "slug": "the-high-kahls-oath",
+  "title": "The High Kâhl’s Oath",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "novel",
+  "seriesHint": "40k - Leagues of Votann",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "The galactic core is beset by warp storms of a fury the Leagues of Votann have not seen for ten millennia. With both the Imperium and the powers of the warp encroaching ever further onto the Kin's territories, war reigns supreme amongst the coreward stars. Myrtun Dammergot, a Hernkyn Prospect leader of the Kindred of the Eternal Starforge, is in her element, exploiting the unending conflict and living a life of adventure without the unwanted burden of responsibility. But when a messenger from her Kindred's Hold ship brings news that upends everything she knows, responsibility, challenges and opportunity all come knocking at once. Plunged into a venture beyond her wildest expectations, Myrtun and her companions find themselves set against an ancient, deadly foe guarding a mysterious but magnificent prize.",
+    "facetIds": [
+      "book",
+      "en",
+      "female",
+      "pc_xenos",
+      "xenos",
+      "series_start",
+      "standard",
+      "journey",
+      "character_study",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "doubt",
+      "loyalty",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Leagues of Votann",
+        "role": "primary"
+      },
+      {
+        "name": "Kindred of the Eternal Starforge",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Kindred of the Eternal Starforge Hold ship",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Myrtun Dammergot",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.65,
+      "count": 370,
+      "evidenceUrl": "https://www.goodreads.com/book/show/221124958-the-high-k-hl-s-oath"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0192",
+  "slug": "the-soul-drinkers-omnibus",
+  "title": "The Soul Drinkers Omnibus",
+  "authors": [
+    "Ben Counter"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2006,
+  "format": "omnibus",
+  "seriesHint": "Soul Drinkers",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Soul Drinkers' rebellion against their own Chapter Master over a stolen relic ends in Excommunicate Traitoris status and the slow chaotic mutation of every warrior in the chapter. Librarian Sarpedon — soon to grow arachnid legs as the gene-seed twists — leads them through a fugitive war against the Inquisition's Thaddeus and the daemon-prince Teturact, and at last to a reckoning with Tellos, the former brother now wholly Chaos. The complete first trilogy in a single volume: a chapter-tragedy of pride, mutation, and the cost of choosing rebellion.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "series_start",
+      "doorstopper",
+      "war_story",
+      "character_study",
+      "mystery",
+      "political_thriller",
+      "journey",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "cosmic_horror",
+      "betrayal",
+      "doubt",
+      "faith",
+      "hubris",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "redemption",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_socio_political",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Soul Drinkers",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Inquisition",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Navy",
+        "role": "antagonist"
+      },
+      {
+        "name": "Crimson Fists",
+        "role": "antagonist"
+      },
+      {
+        "name": "Dark Eldar",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperium",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Imperium",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sarpedon",
+        "role": "pov"
+      },
+      {
+        "name": "Inquisitor Thaddeus",
+        "role": "pov"
+      },
+      {
+        "name": "Tellos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Teturact",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0189",
+        "displayOrder": 0,
+        "confidence": 0.9,
+        "basis": "Soul Drinkers omnibus follows novels 1-3"
+      },
+      {
+        "externalBookId": "W40K-0190",
+        "displayOrder": 1,
+        "confidence": 0.9,
+        "basis": "Soul Drinkers omnibus follows novels 1-3"
+      },
+      {
+        "externalBookId": "W40K-0191",
+        "displayOrder": 2,
+        "confidence": 0.9,
+        "basis": "Soul Drinkers omnibus follows novels 1-3"
+      }
+    ]
+  }
+}

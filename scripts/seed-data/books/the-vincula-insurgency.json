@@ -1,0 +1,124 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0039",
+  "slug": "the-vincula-insurgency",
+  "title": "The Vincula Insurgency",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "novel",
+  "seriesHint": "Gaunt's Ghosts",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The first volume of the supplementary 'Ghost Dossier' series is a prequel novella set chronologically before the famous Sabbat-Crusade campaigns of First and Only. Fresh out of their gruelling first engagement on Voltemand, the newly raised Tanith First-and-Only is pulled off the front line and parked in an agricultural backwater — the Vincula Sub-sector capital, Vincula City — for what Crusade Command labels permanent-peace enforcement and Gaunt's regiment recognises as garrison-duty exile. The Ghosts, still figuring out who they are as a unit, must hold the city for the arrival of a new provincial governor and his administrative staff. Almost immediately the regiment becomes the target of a highly disciplined insurgency operating from inside the city itself — one that knows the Tanith's deployment cycles too well, kills with patience, and eventually reveals dark truths about the regiment's own origins that will echo through the series. Novella-length, structurally a counterinsurgency procedural with a slow-mystery spine.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "novella",
+      "war_story",
+      "mystery",
+      "political_thriller",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "doubt",
+      "loyalty",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "cw_crime",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Tanith First-and-Only",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Vincula Sub-sector",
+        "role": "primary"
+      },
+      {
+        "name": "Vincula City",
+        "role": "primary"
+      },
+      {
+        "name": "Voltemand",
+        "role": "mentioned"
+      },
+      {
+        "name": "Sabbat Worlds",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ibram Gaunt",
+        "role": "pov"
+      },
+      {
+        "name": "Colm Corbec",
+        "role": "supporting"
+      },
+      {
+        "name": "Elim Rawne",
+        "role": "supporting"
+      },
+      {
+        "name": "Hlaine Larkin",
+        "role": "supporting"
+      },
+      {
+        "name": "Oan Mkoll",
+        "role": "supporting"
+      },
+      {
+        "name": "Brin Milo",
+        "role": "supporting"
+      },
+      {
+        "name": "Tolin Dorden",
+        "role": "supporting"
+      },
+      {
+        "name": "Bragg",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

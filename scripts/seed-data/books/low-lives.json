@@ -1,0 +1,112 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0174",
+  "slug": "low-lives",
+  "title": "Low Lives",
+  "authors": [
+    "Denny Flowers"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novel",
+  "seriesHint": "Necromunda",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Caleb Cursebound, the Underhive's self-declared ninth-most-dangerous man, is hiding with Iktomi after bringing down a noble-house tyrant. Hope's End should be nowhere enough to disappear, but the mining settlement is trapped under a brutal House Orlock gang and desperate for a champion. Caleb promises more than he can safely give, while drink, paranoia and an old grudge close in around both fugitives. A rough-edged redemption novella about a braggart forced into heroism and hunted by the life he keeps outrunning.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "short",
+      "siege",
+      "war_story",
+      "journey",
+      "character_study",
+      "action_heavy",
+      "satirical",
+      "grimdark",
+      "somber",
+      "brotherhood",
+      "loyalty",
+      "doubt",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_crime",
+      "cw_mental_health",
+      "cw_risky_behaviour",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "House Orlock",
+        "role": "antagonist"
+      },
+      {
+        "name": "Ratskins",
+        "role": "supporting"
+      },
+      {
+        "name": "Guilders",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Necromunda",
+        "role": "primary"
+      },
+      {
+        "name": "Hive Primus",
+        "role": "supporting"
+      },
+      {
+        "name": "Underhive",
+        "role": "primary"
+      },
+      {
+        "name": "Hope's End",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Caleb Cursebound",
+        "role": "pov"
+      },
+      {
+        "name": "Iktomi",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "suggestion": "novella",
+        "note": "Black Library Novella Series 2 #9; SSOT-roster lists as novel"
+      }
+    ]
+  },
+  "collections": {
+    "collects": []
+  }
+}

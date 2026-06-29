@@ -1,0 +1,134 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0051",
+  "slug": "slaves-to-darkness",
+  "title": "Slaves to Darkness",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "After seven years of bitter war, the Warmaster's host approaches Terra, but the alliance Horus has forged is fracturing. With Horus himself stricken and unconscious aboard the Vengeful Spirit, his equerry Maloghurst struggles to hold the Sons of Horus together while Lorgar is dispatched to retrieve the daemon-ascended Fulgrim and Perturabo is sent to wrestle Angron back into the war. Three viewpoints carry the novel: Maloghurst's grim stewardship, the Word Bearer acolyte Zardu Layak's spiralling devotion, and the Iron Warrior Volk's single-minded pursuit of purpose. Across fleet councils, warp-corrupted rituals, and the slow gathering of a galactic host, the traitor primarchs reveal just how unstable the Heresy has become, even on the eve of its final blow against the Throneworld.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "ensemble",
+      "space_marine",
+      "chaos",
+      "galactic",
+      "mid_series",
+      "standard",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "action_heavy",
+      "cosmic_horror",
+      "betrayal",
+      "hubris",
+      "brotherhood",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Sons of Horus",
+        "role": "primary"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "primary"
+      },
+      {
+        "name": "Emperor's Children",
+        "role": "supporting"
+      },
+      {
+        "name": "World Eaters",
+        "role": "supporting"
+      },
+      {
+        "name": "Death Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Thousand Sons",
+        "role": "supporting"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Maloghurst the Twisted",
+        "role": "pov"
+      },
+      {
+        "name": "Zardu Layak",
+        "role": "pov"
+      },
+      {
+        "name": "Volk",
+        "role": "pov"
+      },
+      {
+        "name": "Horus Lupercal",
+        "role": "supporting"
+      },
+      {
+        "name": "Lorgar Aurelian",
+        "role": "supporting"
+      },
+      {
+        "name": "Perturabo",
+        "role": "supporting"
+      },
+      {
+        "name": "Fulgrim",
+        "role": "supporting"
+      },
+      {
+        "name": "Angron",
+        "role": "supporting"
+      },
+      {
+        "name": "Mortarion",
+        "role": "supporting"
+      },
+      {
+        "name": "Ekaddon",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.91,
+      "count": 2081,
+      "evidenceUrl": "https://www.goodreads.com/book/show/40542346-slaves-to-darkness"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0263",
+  "slug": "garro-shield-of-lies",
+  "title": "Garro: Shield of Lies",
+  "authors": [
+    "James Swallow"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Across the galaxy a civil war rages, but on Terra it remains a thing of rumour and ration cuts. The Administratum adept Katanoh Tallery uncovers irregular cargo manifests above the Throneworld - ships and arms quietly siphoned to the moon of Titan under the codename Othrys - and is certain she has stumbled on a Horus-backed conspiracy at the heart of the Imperium. Hunted through the Riga Orbital Plate, she falls under the protection of Nathaniel Garro, the Knight-Errant who has been seeking the Lectitio Divinitatus saint Keeler. Together they cut through assassins and rumour to reach the truth - and find Malcador the Sigillite waiting at the top of the new fortress with answers that recast the war to come.",
+    "facetIds": [
+      "audio_drama",
+      "mixed",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "mystery",
+      "political_thriller",
+      "somber",
+      "action_heavy",
+      "loyalty",
+      "doubt",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Knights Errant",
+        "role": "primary"
+      },
+      {
+        "name": "Administratum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Riga Orbital Plate",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Nathaniel Garro",
+        "role": "pov"
+      },
+      {
+        "name": "Katanoh Tallery",
+        "role": "pov"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.16,
+      "count": 193,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22609191-garro"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

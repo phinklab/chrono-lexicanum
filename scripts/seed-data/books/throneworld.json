@@ -1,0 +1,101 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0418",
+  "slug": "throneworld",
+  "title": "Throneworld",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "The Beast Arises",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Imperium has never stood closer to ruin. An ork attack moon still looms over Terra and greenskin armadas savage human space, and now eldar raiders strike at the very heart of the Imperial Palace, forcing humanity's defenders to fight on two fronts at once. Newly raised as Chapter Master of the Imperial Fists, Koorland brings the reunited successor chapters home to a throneworld in turmoil, determined to take the fight to the moon hanging above their heads. Yet the eldar incursion is no simple raid, and its true purpose may matter more than any battle. Far from Terra, Black Templar Marshal Magneric hunts the Iron Warriors of Warsmith Kalkatos across the stars, his pursuit driving him straight into the path of the oncoming orks. The fifth novel of the Beast Arises series.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "mid_series",
+      "standard",
+      "war_story",
+      "siege",
+      "political_thriller",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "loyalty",
+      "sacrifice",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Eldar",
+        "role": "supporting"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Phall",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Koorland",
+        "role": "pov"
+      },
+      {
+        "name": "Marshal Magneric",
+        "role": "supporting"
+      },
+      {
+        "name": "Drakan Vangorich",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.78,
+      "count": 720,
+      "evidenceUrl": "https://www.goodreads.com/book/show/26029276-throneworld"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

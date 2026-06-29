@@ -1,0 +1,87 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0195",
+  "slug": "daenyathos",
+  "title": "Daenyathos",
+  "authors": [
+    "Ben Counter"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2010,
+  "format": "novella",
+  "seriesHint": "Soul Drinkers",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A prequel-novella told across centuries — Chaplain Daenyathos as a sergeant at the Second Siege of Terra, then his slow rise as the Soul Drinkers' philosopher-soldier and author of their Catechisms Martial, then his interment in a dreadnought and disappearance. Daenyathos has watched the Imperium long enough to despise it, and the Catechisms are not the guidance his chapter believed — they are the long-game seed of its undoing.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "requires_context",
+      "novella",
+      "character_study",
+      "political_thriller",
+      "war_story",
+      "journey",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "cosmic_horror",
+      "betrayal",
+      "doubt",
+      "faith",
+      "hubris",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Soul Drinkers",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperium",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Imperium",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Daenyathos",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

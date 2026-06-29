@@ -1,0 +1,99 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0242",
+  "slug": "glory-imperialis-omnibus",
+  "title": "Glory Imperialis Omnibus",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2017,
+  "format": "omnibus",
+  "seriesHint": "Imperial Guard",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Three novels of the Imperial Guard collected in one volume, each following ordinary soldiers against impossible odds. In Imperial Glory, the Brimlock Dragoons fight to break a savage ork invasion on a world they have been ordered to reclaim at any cost. In Commissar, the disgraced Vostroyan 77th are sent to a prison world to root out treachery under the eye of a commissar determined to restore their name. In Iron Guard, the disciplined ranks of the Mordian Iron Guard deploy to a mining world plagued by a creeping affliction and alien raiders. Together with several shorter tales, these stories paint the Guard as humanity's countless, expendable shield, and the men and women who endure behind it.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "war_story",
+      "siege",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "loyalty",
+      "sacrifice",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "cw_language",
+      "en",
+      "doorstopper",
+      "standalone"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "omnibus spans three novels with worlds not consistently named in available sources"
+      },
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "ensemble across three constituent novels, no single sustained POV"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.24,
+      "count": 50,
+      "evidenceUrl": "https://www.goodreads.com/book/show/35682888-glory-imperialis"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0235",
+        "displayOrder": 0,
+        "confidence": 0.78,
+        "basis": "Glory Imperialis omnibus follows the Imperial Glory / Iron Guard / Commissar block"
+      },
+      {
+        "externalBookId": "W40K-0236",
+        "displayOrder": 1,
+        "confidence": 0.78,
+        "basis": "Glory Imperialis omnibus follows the Imperial Glory / Iron Guard / Commissar block"
+      },
+      {
+        "externalBookId": "W40K-0237",
+        "displayOrder": 2,
+        "confidence": 0.78,
+        "basis": "Glory Imperialis omnibus follows the Imperial Glory / Iron Guard / Commissar block"
+      }
+    ]
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0065",
+  "slug": "the-end-and-the-death-vol-1",
+  "title": "The End and The Death Vol. 1",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2023,
+  "format": "novel",
+  "seriesHint": "Siege of Terra",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "After seven brutal years of civil war, the Warmaster stands on the verge of victory. Horus Lupercal, once the Emperor's beloved son, has come to murder his father. Terra burns, the Palace lies in ruins, and the dream of a united Imperium is in tatters — but a sliver of hope remains. At the final hour of the final day, the Emperor rises. With Him come His Angel Sanguinius, His Praetorian Rogal Dorn, and His Captain-General Constantin Valdor, all bent on terrible vengeance. The novel weaves the Throneworld's last fight from many viewpoints: vignettes from the rubble of the global war, councils aboard the Vengeful Spirit where Horus and his sons reflect on what they have become, and Malcador the Sigillite's quiet counsel as the Emperor's full strategy at last begins to surface. The Siege of Terra reaches its turning point.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "ensemble",
+      "space_marine",
+      "dual",
+      "galactic",
+      "series_finale",
+      "doorstopper",
+      "war_story",
+      "siege",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "philosophical",
+      "cosmic_horror",
+      "war",
+      "betrayal",
+      "loyalty",
+      "sacrifice",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Custodes",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "antagonist"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      },
+      {
+        "name": "World Eaters",
+        "role": "antagonist"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      },
+      {
+        "name": "Thousand Sons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Daemons of Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Palace",
+        "role": "primary"
+      },
+      {
+        "name": "Vengeful Spirit",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "The Emperor",
+        "role": "pov"
+      },
+      {
+        "name": "Horus Lupercal",
+        "role": "pov"
+      },
+      {
+        "name": "Rogal Dorn",
+        "role": "pov"
+      },
+      {
+        "name": "Sanguinius",
+        "role": "pov"
+      },
+      {
+        "name": "Constantin Valdor",
+        "role": "supporting"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      },
+      {
+        "name": "Oll Persson",
+        "role": "supporting"
+      },
+      {
+        "name": "John Grammaticus",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.4,
+      "count": 2991,
+      "evidenceUrl": "https://www.goodreads.com/book/show/62609258-the-end-and-the-death"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

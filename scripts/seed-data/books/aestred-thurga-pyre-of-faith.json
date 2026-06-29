@@ -1,0 +1,82 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0571",
+  "slug": "aestred-thurga-pyre-of-faith",
+  "title": "Aestred Thurga: Pyre of Faith",
+  "authors": [
+    "Danie Ware"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2026,
+  "format": "novel",
+  "seriesHint": "40k - Character Series",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "Aestred Thurga is the Reliquant at Arms, a holy warrior of the Order Pronatus tasked with defending the sacred relics of the Imperium. While returning the legendary Sword of Saarim to its rightful place upon the necropolis world of Katerah, Aestred is ambushed by a cult of the Plague God that seizes the blade for itself. Horrified at her defeat, she plunges herself and her Adepta Sororitas companions into a brutal battle against the forces of Chaos that overwhelm the planet from within, determined to reclaim both the relic and her honour. But when the billions of heroes laid to rest on Katerah begin to rise from their graves, Aestred must choose whether it is more important to defend the Imperium's living people or to protect its history. Confronted with an awful truth, she learns that sometimes even the most devoted Sister can fail her mission, in a tale of faith and fury as the daughters of the Emperor are pitted against the rot of Nurgle.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "en",
+      "female",
+      "sister",
+      "imperium",
+      "squad",
+      "standalone",
+      "novella",
+      "war_story",
+      "grimdark",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing"
+    ],
+    "factions": [
+      {
+        "name": "Adepta Sororitas",
+        "role": "primary"
+      },
+      {
+        "name": "Order Pronatus",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Katerah",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Aestred Thurga",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "Sources name the antagonist only as a cult of Nurgle / the Plague God; no specific Heretic Astartes Legion is confirmed, so the cult is left unbound rather than mis-tagged as Death Guard."
+      }
+    ],
+    "rating": {
+      "status": "unrated",
+      "source": "goodreads",
+      "reason": "no Goodreads edition found",
+      "evidenceUrl": null
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

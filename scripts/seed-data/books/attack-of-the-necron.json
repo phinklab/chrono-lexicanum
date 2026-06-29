@@ -1,0 +1,89 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0486",
+  "slug": "attack-of-the-necron",
+  "title": "Attack of the Necron",
+  "authors": [
+    "Cavan Scott"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novel",
+  "seriesHint": "Warhammer Adventures",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the windswept plains of the hive world Targian, twelve-year-old Zelia Lor helps her mother dig for the relics of vanished civilisations. Their quiet life ends the day the sky fills with the angular ships of the Necrons. Without warning, the soulless robotic army begins to tear Targian apart. Separated from her mother in the chaos, Zelia escapes in a battered pod, clutching only a scrambled message that promises sanctuary at a place called the Emperor's Seat. She crashes far from home, on a freezing world she does not recognise, and meets an unlikely band of fellow survivors: the streetwise juve Talen, the gadget-obsessed Martian boy Mekki, and a startlingly clever alien-ape named Fleapit. Together they will have to learn to trust one another long enough to survive the galaxy that just shattered their world.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "ensemble",
+      "civilian",
+      "imperium",
+      "planetary",
+      "series_start",
+      "short",
+      "war_story",
+      "journey",
+      "action_heavy",
+      "hopepunk",
+      "loyalty",
+      "brotherhood",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_parental_guidance",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Necrons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Targian",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Zelia Lor",
+        "role": "pov"
+      },
+      {
+        "name": "Talen",
+        "role": "pov"
+      },
+      {
+        "name": "Mekki",
+        "role": "pov"
+      },
+      {
+        "name": "Fleapit",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.62,
+      "count": 316,
+      "evidenceUrl": "https://www.goodreads.com/book/show/40680054"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

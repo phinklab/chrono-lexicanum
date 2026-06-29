@@ -1,0 +1,80 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0303",
+  "slug": "tyrant-of-the-hollow-worlds",
+  "title": "Tyrant of the Hollow Worlds",
+  "authors": [
+    "Mark Clapham"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "When the renegade warlord Huron Blackheart leads his Red Corsairs against the Hollow Worlds of Lastrati, the artificial planets and their people have little hope of holding out against such a foe. By the time the Space Wolves answer the call, the raiders are already dug in deep, and neither side will withdraw or concede. What begins as a war of liberation becomes a brutal contest of wills that threatens to tear the Hollow Worlds apart entirely. Caught between two implacable enemies, the worlds and their defenders may not survive the price of their own salvation.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "siege",
+      "war_story",
+      "last_stand",
+      "action_heavy",
+      "grimdark",
+      "war",
+      "brotherhood",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "standalone",
+      "standard",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Red Corsairs",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Lastrati",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Huron Blackheart",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.46,
+      "count": 83,
+      "evidenceUrl": "https://www.goodreads.com/book/show/32471138-tyrant-of-the-hollow-worlds"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

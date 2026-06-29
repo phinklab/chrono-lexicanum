@@ -1,0 +1,119 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0026",
+  "slug": "vulkan-lives",
+  "title": "Vulkan Lives",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Believed dead at Isstvan V, Vulkan wakes in a hidden chamber as a prisoner of his brother Konrad Curze, and the Night Haunter sets out to test the Salamander primarch's reputed immortality by killing him in every way a Night Lord can devise. Across the war, Captain Artellus Numeon leads a remnant of Salamanders, Iron Hands and Raven Guard on a fading hunt for the primarch they refuse to bury, while the perpetual John Grammaticus is steered into the same path by his Cabal masters. The novel follows the long argument between Vulkan and Curze on what a primarch is for, and the slower argument among Numeon's survivors over whether faith in their gene-father is loyalty or self-deception.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "standard",
+      "character_study",
+      "journey",
+      "war_story",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "brotherhood",
+      "sacrifice",
+      "faith",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_abuse"
+    ],
+    "factions": [
+      {
+        "name": "Salamanders",
+        "role": "primary"
+      },
+      {
+        "name": "Night Lords",
+        "role": "antagonist"
+      },
+      {
+        "name": "Iron Hands",
+        "role": "supporting"
+      },
+      {
+        "name": "Raven Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Cabal",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Traoris",
+        "role": "primary"
+      },
+      {
+        "name": "Macragge",
+        "role": "supporting"
+      },
+      {
+        "name": "Nocturne",
+        "role": "supporting"
+      },
+      {
+        "name": "Isstvan V",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Vulkan",
+        "role": "pov"
+      },
+      {
+        "name": "Konrad Curze",
+        "role": "pov"
+      },
+      {
+        "name": "Artellus Numeon",
+        "role": "pov"
+      },
+      {
+        "name": "John Grammaticus",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.59,
+      "count": 3119,
+      "evidenceUrl": "https://www.goodreads.com/book/show/17571882-vulkan-lives"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

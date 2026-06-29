@@ -1,0 +1,92 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0120",
+  "slug": "witchbringer",
+  "title": "Witchbringer",
+  "authors": [
+    "Steven B. Fischer"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Glavia Aerand, once a captain of the Cadian 900th, receives a vision on the eve of becoming a sanctioned Primaris Psyker: her old regiment, a hidden psychic artefact, and disaster on the waterlogged world of Visage. Sent back to soldiers who now fear what she has become, Glavia must read omens, survive suspicion, and decide whether her new gifts are warning or weapon. The mystery around her commander and the relic tightens as Chaos presses in, while Visage itself feels eager to swallow the dead. A grim Astra Militarum psyker novel about isolation, changed identity, and the Imperium's need for what it mistrusts.",
+    "facetIds": [
+      "book",
+      "female",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "mystery",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "cosmic_horror",
+      "somber",
+      "philosophical",
+      "doubt",
+      "faith",
+      "betrayal",
+      "sacrifice",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_mental_health",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Cadian Shock Troops",
+        "role": "primary"
+      },
+      {
+        "name": "Scholastica Psykana",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Visage",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Glavia Aerand",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

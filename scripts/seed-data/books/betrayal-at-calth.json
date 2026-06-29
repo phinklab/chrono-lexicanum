@@ -1,0 +1,100 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0146",
+  "slug": "betrayal-at-calth",
+  "title": "Betrayal at Calth",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2015,
+  "format": "collection",
+  "seriesHint": "Horus Heresy Collections",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Betrayal at Calth pairs two novellas of the Underworld War, the long subterranean campaign that follows the Word Bearers' treacherous strike on the Ultramarines' parade world. Rob Sanders's \"The Honoured\" follows Steloc Aethon, captain of the Ultramarines' Honoured 19th Company, as he hunts traitors through the caverns beneath a scorched surface while his vengeance threatens to consume him. David Annandale's \"The Unburdened\" turns the same darkness around to the other side, where Dark Apostle Kurtha Sedd of the Word Bearers must set aside his doubts and embrace what he has become if his warriors are to survive an old comrade who now means to kill him. Released alongside the Betrayal at Calth wargame box, the two novellas were also published together as a limited duology.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "space_marine",
+      "multi",
+      "dual",
+      "company",
+      "planetary",
+      "requires_context",
+      "short",
+      "war_story",
+      "siege",
+      "character_study",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "betrayal",
+      "war",
+      "brotherhood",
+      "doubt",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Calth",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Steloc Aethon",
+        "role": "pov"
+      },
+      {
+        "name": "Kurtha Sedd",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.53,
+      "count": 40,
+      "evidenceUrl": "https://www.goodreads.com/book/show/27556206-betrayal-at-calth"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "HH-0132",
+        "displayOrder": 0,
+        "confidence": 0.8,
+        "basis": "Betrayal at Calth collection inferred from The Honoured / The Unburdened Calth pair"
+      },
+      {
+        "externalBookId": "HH-0133",
+        "displayOrder": 1,
+        "confidence": 0.8,
+        "basis": "Betrayal at Calth collection inferred from The Honoured / The Unburdened Calth pair"
+      }
+    ]
+  }
+}

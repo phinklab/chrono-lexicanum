@@ -1,0 +1,96 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0205",
+  "slug": "ghosts-speak-not-patience",
+  "title": "Ghosts Speak Not & Patience",
+  "authors": [
+    "James Swallow"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Two paired stories of the Knights Errant programme. In Ghosts Speak Not, Nathaniel Garro stands in for a Sigillite who will not appear in person and carries a new task to Amendera Kendel, once a Sister of Silence and now one of Malcador's quiet hands. Patience turns to the seventy loyal sons of the Death Guard that Garro carried away from Isstvan aboard the Eisenstein — a brotherhood that has spent the war so far penned on Luna, distrusted by both sides, and that is about to be given a purpose again under Helig Gallor's command. Together the two pieces sketch the moment a half-secret order of agents starts gathering its long-overlooked survivors and pointing them at the war that still has need of them.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "space_marine",
+      "imperium",
+      "squad",
+      "requires_context",
+      "character_study",
+      "mystery",
+      "somber",
+      "grimdark",
+      "loyalty",
+      "faith",
+      "doubt",
+      "redemption",
+      "brotherhood",
+      "en",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Knights Errant",
+        "role": "primary"
+      },
+      {
+        "name": "Death Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Sisters of Silence",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Luna",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Nathaniel Garro",
+        "role": "pov"
+      },
+      {
+        "name": "Amendera Kendel",
+        "role": "pov"
+      },
+      {
+        "name": "Helig Gallor",
+        "role": "supporting"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.01,
+      "count": 141,
+      "evidenceUrl": "https://www.goodreads.com/book/show/28801563-ghosts-speak-not-patience"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

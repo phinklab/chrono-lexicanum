@@ -1,0 +1,85 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0352",
+  "slug": "path-of-the-seer",
+  "title": "Path of the Seer",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2011,
+  "format": "novel",
+  "seriesHint": "Path of the Eldar",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Thirianna leaves the quiet life of a poet on the craftworld Alaitoc to walk one of the most perilous of all Eldar disciplines: the Path of the Seer. To master her psychic gift she must open her mind to the other realm where nightmares take shape, learning to wield power in battle and to read the countless threads of fate. As she grows into a farseer, her visions reveal a great danger closing on Alaitoc — a threat that will call both the living and the spirits of the dead to its defence. The second book of the Path of the Eldar trilogy retells the craftworld's ordeal through the eyes of its seer, alongside her friends Korlandril and Aradryan.",
+    "facetIds": [
+      "book",
+      "female",
+      "pc_xenos",
+      "xenos",
+      "planetary",
+      "mid_series",
+      "standard",
+      "character_study",
+      "war_story",
+      "somber",
+      "philosophical",
+      "grimdark",
+      "war",
+      "faith",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Craftworld Eldar",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Alaitoc",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Thirianna",
+        "role": "pov"
+      },
+      {
+        "name": "Korlandril",
+        "role": "supporting"
+      },
+      {
+        "name": "Aradryan",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.77,
+      "count": 632,
+      "evidenceUrl": "https://www.goodreads.com/book/show/10559660-path-of-the-seer"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0072",
+  "slug": "magisterium",
+  "title": "Magisterium",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "short_story",
+  "seriesHint": "Siege of Terra Prequels",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Days after the daemonic flood-tide of the Webway War broke the Adeptus Custodes against the lower Imperial Palace, the survivors gather their dead and count what is left of them. Samonas, one of the few who walked back out of the ruined undercrofts, watches as Constantin Valdor confronts the Lord Commander of the Imperium over what the Custodian Guard is now permitted to be. Valdor remembers Prospero, and the bitter compromises set against a primarch's will; Rogal Dorn answers as a primarch must. The argument is quiet, civil, and merciless, and Samonas understands that the role of his order at the coming siege has already been decided in this room, by men who do not need to raise their voices.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "custodes",
+      "male",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "novella",
+      "character_study",
+      "court_intrigue",
+      "philosophical",
+      "somber",
+      "grimdark",
+      "loyalty",
+      "doubt",
+      "sacrifice",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Custodes",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Palace",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Samonas",
+        "role": "pov"
+      },
+      {
+        "name": "Constantin Valdor",
+        "role": "supporting"
+      },
+      {
+        "name": "Rogal Dorn",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.86,
+      "count": 182,
+      "evidenceUrl": "https://www.goodreads.com/book/show/36987503-magisterium"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

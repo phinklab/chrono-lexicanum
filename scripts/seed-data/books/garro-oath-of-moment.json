@@ -1,0 +1,97 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0273",
+  "slug": "garro-oath-of-moment",
+  "title": "Garro: Oath of Moment",
+  "authors": [
+    "James Swallow"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Fresh from his desperate escape aboard the Eisenstein, Nathaniel Garro is set to a new task by Malcador the Sigillite — to comb the loyalist legions for warriors fit to join a clandestine band of agents. His search takes him to Calth, where the Word Bearers have just turned on their Ultramarine brothers and unleashed a holocaust of fire and warp-craft on the planet. Pinned in a railway tunnel with the survivors of the 21st Company, Garro reveals that his real target is not their dying captain but Tylos Rubio, a former Codicier silenced by the Council of Nikaea. As Chaos Terminators close in and the Ultramarines around him are pushed past breaking, Rubio must choose between an oath he was forced to swear and the powers that might still save his brothers.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "novella",
+      "war_story",
+      "character_study",
+      "somber",
+      "action_heavy",
+      "grimdark",
+      "loyalty",
+      "doubt",
+      "sacrifice",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Knights-Errant",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "supporting"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Calth",
+        "role": "primary"
+      },
+      {
+        "name": "Numinus",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Nathaniel Garro",
+        "role": "pov"
+      },
+      {
+        "name": "Tylos Rubio",
+        "role": "pov"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.91,
+      "count": 689,
+      "evidenceUrl": "https://www.goodreads.com/book/show/8697252-garro"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

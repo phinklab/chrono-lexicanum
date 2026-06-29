@@ -1,0 +1,126 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0053",
+  "slug": "the-chapters-due",
+  "title": "The Chapter's Due",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2010,
+  "format": "novel",
+  "seriesHint": "Ultramarines",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Honsou returns to repay his debt to the Ultramarines. He gathers a Skull Harvest coalition — Iron Warriors warbands, Chaos-tainted renegades, and the Khornate cultist horde called the Bloodborn — and drives deep into Ultramar, striking at Calth and the worlds adjacent to Macragge itself. Chapter Master Marneus Calgar mobilises the full chapter. Captain Cato Sicarius leads the 2nd Company; Captain Uriel Ventris fights with the 4th; Chief Librarian Tigurius reads the warp-tides; Chaplain Cassius rallies the relief force; the renegade Ardaric Vaanes is among Honsou's Astartes lieutenants. The novel runs the siege at sector scale across Calth's surface as set-piece battles. Honsou's blood-debt is paid in chapter blood and chapter mourning; the series-finale to the first Ventris six-book arc closes with Honsou wounded but missing rather than confirmed dead.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "series_finale",
+      "doorstopper",
+      "war_story",
+      "siege",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Bloodborn",
+        "role": "antagonist"
+      },
+      {
+        "name": "Khorne",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Ultramar",
+        "role": "primary"
+      },
+      {
+        "name": "Calth",
+        "role": "primary"
+      },
+      {
+        "name": "Macragge",
+        "role": "secondary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Uriel Ventris",
+        "role": "pov"
+      },
+      {
+        "name": "Pasanius Lysane",
+        "role": "supporting"
+      },
+      {
+        "name": "Marneus Calgar",
+        "role": "supporting"
+      },
+      {
+        "name": "Cato Sicarius",
+        "role": "supporting"
+      },
+      {
+        "name": "Tigurius",
+        "role": "supporting"
+      },
+      {
+        "name": "Cassius",
+        "role": "supporting"
+      },
+      {
+        "name": "Honsou",
+        "role": "supporting"
+      },
+      {
+        "name": "Ardaric Vaanes",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0134",
+  "slug": "garro-vow-of-faith",
+  "title": "Garro: Vow of Faith",
+  "authors": [
+    "James Swallow"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "novella",
+  "seriesHint": "Horus Heresy Novellas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Nathaniel Garro, once Battle-Captain of the Death Guard's Seventh Great Company and now Agentia Primus to Malcador the Sigillite, has begun to chafe at the long shadow of his master's hidden errands. Quietly setting his usual orders aside, Garro turns to a private vow: to find Saint Euphrati Keeler, the living woman whose Lectitio Divinitatus is reshaping the spirit of besieged Terra. But the Warmaster's hunters have set out on the same trail. An assassin sent at Horus's command, guided by a silent Alpha Legion operative, is closing on the remote enclave of Salvaguardia where Keeler shelters her followers. Faith, doubt and oath are weighed against one another as Garro races to reach the Saint before the knife finds her throat, and the long-awaited first novella-length outing of the wanderer in grey crystallises around a single, dangerous question.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "novella",
+      "mystery",
+      "character_study",
+      "somber",
+      "philosophical",
+      "faith",
+      "doubt",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Knights-Errant",
+        "role": "primary"
+      },
+      {
+        "name": "Alpha Legion",
+        "role": "antagonist"
+      },
+      {
+        "name": "Officio Assassinorum",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Salvaguardia",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Nathaniel Garro",
+        "role": "pov"
+      },
+      {
+        "name": "Euphrati Keeler",
+        "role": "supporting"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      },
+      {
+        "name": "Kell",
+        "role": "antagonist"
+      },
+      {
+        "name": "Haln",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.07,
+      "count": 198,
+      "evidenceUrl": "https://www.goodreads.com/book/show/28404047-garro"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

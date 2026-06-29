@@ -1,0 +1,74 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0323",
+  "slug": "sons-of-wrath",
+  "title": "Sons of Wrath",
+  "authors": [
+    "Andy Smillie"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novella",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In the bitter aftermath of the great betrayal that nearly destroyed the Imperium, the warriors who once fought as Blood Angels are broken apart and remade. Among them are the Flesh Tearers, gathered behind their grim Chapter Master Amit, struggling to accept the new name and new identity forced upon them. Still raw with grief over the loss of their primarch and barely able to master the red rage that boils in their blood, they vent their fury first upon one another and then upon a rival Chapter of newly forged Space Marines. A single mistake hardens into a blood feud that will echo for ten thousand years. At the heart of it stands Amit, wrestling with how far he is willing to go, and how much of himself he is willing to lose, in the name of duty.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "company",
+      "novella",
+      "series_start",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "somber",
+      "brotherhood",
+      "loyalty",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Flesh Tearers",
+        "role": "primary"
+      },
+      {
+        "name": "Blood Angels",
+        "role": "supporting"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Amit",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.68,
+      "count": 96,
+      "evidenceUrl": "https://www.goodreads.com/book/show/23344355-sons-of-wrath"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

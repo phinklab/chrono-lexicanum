@@ -1,0 +1,89 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0102",
+  "slug": "the-atonement-of-fire",
+  "title": "The Atonement of Fire",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "short_story",
+  "seriesHint": "Primarchs Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "With Imperium Secundus collapsed and the brotherhood of the lost triumvirate scattering for the war-front, Roboute Guilliman drives his fleet toward the heart of the rebellion. A vision granted to Sanguinius has confirmed the Emperor still lives, and the architect of Secundus carries that knowledge as a wound — convinced that, for all his good intentions, he is no less a traitor than the warriors he must now hunt. When a host of World Eaters falls on Diavanos, a world that embodies the ideals of the Imperium he meant to build, he sees the chance he has been hunting for: a clean fight, a clean enemy, a clean price for the sin he carries. What follows is a grinding boarding action in which the Ultramarines pour their grief and anger into the boltguns and blades of their primarch.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "novella",
+      "war_story",
+      "character_study",
+      "action_heavy",
+      "somber",
+      "philosophical",
+      "redemption",
+      "doubt",
+      "sacrifice",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Blood Angels",
+        "role": "supporting"
+      },
+      {
+        "name": "World Eaters",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Diavanos",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Roboute Guilliman",
+        "role": "pov"
+      },
+      {
+        "name": "Sanguinius",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.61,
+      "count": 101,
+      "evidenceUrl": "https://www.goodreads.com/book/show/43246479-the-atonement-of-fire"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

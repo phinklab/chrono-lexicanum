@@ -1,0 +1,107 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0292",
+  "slug": "pandorax",
+  "title": "Pandorax",
+  "authors": [
+    "C.Z. Dunn"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "novel",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "When the Catachan 183rd is stranded in the lethal jungles of Pythos, a plague of daemons descends from the skies and the Warmaster Abaddon himself leads the assault. With the Death Guard and Black Legion arrayed against them, the Guardsmen seem doomed — until the entire Dark Angels Chapter arrives under Supreme Grand Master Azrael. But the Dark Angels have their own reasons for coming to Pythos, and the daemon-hunting Grey Knights of Grand Master Draigo are drawn by the mystery of the Damnation Cache buried beneath the world. From desperate ground fighting to a void battle and a final confrontation deep below the surface, the fate of Pythos turns on the secret the Cache holds.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "standalone",
+      "standard",
+      "war_story",
+      "siege",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "faith",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Grey Knights",
+        "role": "supporting"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      },
+      {
+        "name": "Black Legion",
+        "role": "antagonist"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Pythos",
+        "role": "primary"
+      },
+      {
+        "name": "Pandorax System",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Azrael",
+        "role": "pov"
+      },
+      {
+        "name": "Draigo",
+        "role": "supporting"
+      },
+      {
+        "name": "Iron Hand Straken",
+        "role": "supporting"
+      },
+      {
+        "name": "Abaddon the Despoiler",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.86,
+      "count": 423,
+      "evidenceUrl": "https://www.goodreads.com/book/show/18741581-pandorax"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

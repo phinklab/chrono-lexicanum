@@ -1,0 +1,90 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0286",
+  "slug": "blackshields-the-false-war",
+  "title": "Blackshields: The False War",
+  "authors": [
+    "Josh Reynolds"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The forge-world of Xana-Tisiphone has chosen the Warmaster, and Rogal Dorn's answer is annihilation. As loyalist and traitor fleets grind one another to wreckage above the planet, a third force descends quietly beneath the cover of their battle. Endryd Haar, the former World Eater turned warlord of the Cicatrix Tyrannis, has brought his Blackshields—legionaries who swear no oath to Emperor or Warmaster—down through the firestorm to claim something specific from Xana's vaults. They are not here to win Dorn's war, nor to lose it for him; they are here to walk out richer, harder to kill, and more themselves than when they arrived. The greater conflict is, for them, only weather.",
+    "facetIds": [
+      "audio_drama",
+      "novella",
+      "neutral",
+      "space_marine",
+      "male",
+      "planetary",
+      "heist",
+      "war_story",
+      "grimdark",
+      "loyalty",
+      "doubt",
+      "brotherhood",
+      "series_start",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blackshields",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "supporting"
+      },
+      {
+        "name": "Mechanicum",
+        "role": "antagonist"
+      },
+      {
+        "name": "World Eaters",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Xana-Tisiphone",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Endryd Haar",
+        "role": "pov"
+      },
+      {
+        "name": "Rogal Dorn",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.84,
+      "count": 130,
+      "evidenceUrl": "https://www.goodreads.com/book/show/35484932-blackshields"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

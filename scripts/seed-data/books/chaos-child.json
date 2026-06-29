@@ -1,0 +1,153 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0150",
+  "slug": "chaos-child",
+  "title": "Chaos Child",
+  "authors": [
+    "Ian Watson"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 1995,
+  "format": "novel",
+  "seriesHint": "The Inquisition War",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Chaos Child closes the Inquisition War with Draco's surviving retinue fleeing through the Webway, chasing the Hydra conspiracy and the Book of the Rhana Dandra toward Sabulorb and beyond. Thousand Sons enter the hunt for the stolen lore, while the old certainties around the Emperor, the Webway, and humanity's soul keep buckling into early-40K cosmological weirdness. The ending breaks the retinue, sends some into death or madness, and leaves Draco in a final state of enlightenment that feels more like a cliff edge than closure. A haunted, unresolved finale to the setting's founding trilogy.",
+    "facetIds": [
+      "book",
+      "male",
+      "inquisitor",
+      "chaos",
+      "mid_series",
+      "standard",
+      "mystery",
+      "political_thriller",
+      "journey",
+      "character_study",
+      "grimdark",
+      "philosophical",
+      "somber",
+      "cosmic_horror",
+      "war",
+      "doubt",
+      "betrayal",
+      "sacrifice",
+      "redemption",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_socio_political",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Malleus",
+        "role": "primary"
+      },
+      {
+        "name": "Officio Assassinorum",
+        "role": "primary"
+      },
+      {
+        "name": "Callidus Temple",
+        "role": "primary"
+      },
+      {
+        "name": "Navis Nobilite",
+        "role": "primary"
+      },
+      {
+        "name": "Squats",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      },
+      {
+        "name": "Aeldari",
+        "role": "supporting"
+      },
+      {
+        "name": "Eldar",
+        "role": "supporting"
+      },
+      {
+        "name": "Harlequins",
+        "role": "supporting"
+      },
+      {
+        "name": "Thousand Sons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos Space Marines",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tzeentch",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Hydra",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sabulorb",
+        "role": "primary"
+      },
+      {
+        "name": "Webway",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Jaq Draco",
+        "role": "pov"
+      },
+      {
+        "name": "Meh'Lindi",
+        "role": "supporting"
+      },
+      {
+        "name": "Vitali Googol",
+        "role": "supporting"
+      },
+      {
+        "name": "Grimm",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0234",
+  "slug": "hammer-of-the-emperor-omnibus",
+  "title": "Hammer of the Emperor Omnibus",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2011,
+  "format": "omnibus",
+  "seriesHint": "Imperial Guard",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Three Imperial Guard novels collected as a tribute to the countless human soldiers who are the Emperor's true hammer. In Gunheads, Sergeant Wulfe and the Cadian armoured crews drive deep into the ork death world of Golgotha to recover the Fortress of Arrogance, the lost battle tank of the hero Commissar Yarrick. In Ice Guard, the Valhallan regiments fight across a frozen warzone where survival is as deadly an enemy as the foe. In Desert Raiders, the Tallarn are dropped onto a scorched world to face a relentless alien swarm. Three short stories round out the collection, ranging from icy wastes to burning sands, each following ordinary Guardsmen holding the line against impossible odds.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "standalone",
+      "doorstopper",
+      "war_story",
+      "journey",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "war",
+      "loyalty",
+      "brotherhood",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Cadian Shock Troops",
+        "role": "primary"
+      },
+      {
+        "name": "Valhallan Ice Warriors",
+        "role": "primary"
+      },
+      {
+        "name": "Tallarn Desert Raiders",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Golgotha",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sergeant Wulfe",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "omnibus tags aggregated across three novels; per-constituent enemy detail for Ice Guard and Desert Raiders is thin in available sources"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.95,
+      "count": 163,
+      "evidenceUrl": "https://www.goodreads.com/book/show/8905948-hammer-of-the-emperor"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0228",
+        "displayOrder": 0,
+        "confidence": 0.82,
+        "basis": "Hammer of the Emperor omnibus follows the next three listed Imperial Guard novels"
+      },
+      {
+        "externalBookId": "W40K-0229",
+        "displayOrder": 1,
+        "confidence": 0.82,
+        "basis": "Hammer of the Emperor omnibus follows the next three listed Imperial Guard novels"
+      },
+      {
+        "externalBookId": "W40K-0230",
+        "displayOrder": 2,
+        "confidence": 0.82,
+        "basis": "Hammer of the Emperor omnibus follows the next three listed Imperial Guard novels"
+      }
+    ]
+  }
+}

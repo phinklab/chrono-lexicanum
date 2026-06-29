@@ -1,0 +1,136 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0135",
+  "slug": "fall-of-cadia",
+  "title": "Fall of Cadia",
+  "authors": [
+    "Robert Rath"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2024,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Cadia has guarded the Eye of Terror for ten thousand years, and Ursarkar Creed knows the latest Chaos retreat is only the breath before the real blow. Abaddon the Despoiler returns with the 13th Black Crusade, driving the Black Legion and its allies into a siege that pulls Guardsmen, Navy pilots, Space Marines, Sisters of Battle, traitors, and doomed civilians into the same planetary death spiral. This is the Fall of Cadia as war epic: field command under impossible pressure, the pylons, the Blackstone Fortress, the birth-pain of the Great Rift, and the moment the Imperium learns that even its strongest gate can break while its soldiers still refuse to kneel.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "multi",
+      "imperium",
+      "planetary",
+      "standalone",
+      "doorstopper",
+      "war_story",
+      "siege",
+      "last_stand",
+      "political_thriller",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "faith",
+      "sacrifice",
+      "loyalty",
+      "brotherhood",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Cadian Shock Troops",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Navy",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "supporting"
+      },
+      {
+        "name": "Space Marines",
+        "role": "supporting"
+      },
+      {
+        "name": "Adepta Sororitas",
+        "role": "supporting"
+      },
+      {
+        "name": "Sisters of Battle",
+        "role": "supporting"
+      },
+      {
+        "name": "Black Legion",
+        "role": "antagonist"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos Space Marines",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Cadia",
+        "role": "primary"
+      },
+      {
+        "name": "Eye of Terror",
+        "role": "primary"
+      },
+      {
+        "name": "Cadian Gate",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ursarkar E. Creed",
+        "role": "pov"
+      },
+      {
+        "name": "Abaddon the Despoiler",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

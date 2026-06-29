@@ -1,0 +1,111 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0009",
+  "slug": "pariah",
+  "title": "Pariah",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "novel",
+  "seriesHint": "Inquisitor (Eisenhorn/Ravenor/Bequin)",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Beta Bequin — pariah, untouchable, and trained at the King's Wood school to be the perfect blank — discovers that the woman she was raised to become is a counterfeit of an older Alizebeth Bequin she was never meant to meet. The Eisenhorn and Ravenor arcs collide on the city-world of Sancour through a cold-war exchange between Inquisitor Gregor Eisenhorn (long radical, long believed-dead) and Inquisitor Gideon Ravenor (still rogue), each playing the other through Beta as the unwitting piece. The book opens the Bequin trilogy with the question: which side of the Inquisition is the real one, and which is using Beta — both? Cherubael is in it; Pontius Glaw is in it; everything that was buried in Hereticus is now walking.",
+    "facetIds": [
+      "book",
+      "female",
+      "civilian",
+      "imperium",
+      "planetary",
+      "series_start",
+      "standard",
+      "mystery",
+      "political_thriller",
+      "character_study",
+      "grimdark",
+      "philosophical",
+      "somber",
+      "betrayal",
+      "hubris",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Xenos",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sancour",
+        "role": "primary"
+      },
+      {
+        "name": "Queen Mab",
+        "role": "primary"
+      },
+      {
+        "name": "Scarus Sector",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Beta Bequin",
+        "role": "pov"
+      },
+      {
+        "name": "Gregor Eisenhorn",
+        "role": "supporting"
+      },
+      {
+        "name": "Gideon Ravenor",
+        "role": "supporting"
+      },
+      {
+        "name": "Cherubael",
+        "role": "supporting"
+      },
+      {
+        "name": "Pontius Glaw",
+        "role": "supporting"
+      },
+      {
+        "name": "Harlon Nayl",
+        "role": "supporting"
+      },
+      {
+        "name": "Patience Kys",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

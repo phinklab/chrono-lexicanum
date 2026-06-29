@@ -1,0 +1,105 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0071",
+  "slug": "double-eagle",
+  "title": "Double Eagle",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2004,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Sabbat Worlds Crusade companion novel to Gaunt's Ghosts, taking the Crusade to the skies above Enothis. The elite Phantine XX fighter wing — including Commander Bree Jagdea — arrives on the desert-coast war-front in a desperate hour, with Chaos air forces driving Imperial cover off the planet and threatening to wipe out the remaining human population. Dual POV across the dogfighting line: Phantine pilots flying Thunderbolt and Marauder aircraft on one side, the infamous Chaos ace Khrel Kas Obarkon and his Hell-Talon squadrons hunting the skies on the other. Cast across both sides is large (squadron-mate ensembles, ground crew, and PDF aviator allies). A 'Battle of Britain in space' register — sustained aerial combat, attrition, pilot psychology, and the strategic stakes of holding the air corridor that the Crusade's ground forces depend on. Carries the same Sabbat-Worlds geopolitics as the Gaunt's Ghosts arc but anchors on the Imperial Navy / Phantine-aviation axis rather than the Tanith First-and-Only.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "guardsman",
+      "dual",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "brotherhood",
+      "sacrifice",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Navy",
+        "role": "primary"
+      },
+      {
+        "name": "Phantine Air Corps",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "primary"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      },
+      {
+        "name": "Blood Pact",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Tanith First-and-Only",
+        "role": "mentioned"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Enothis",
+        "role": "primary"
+      },
+      {
+        "name": "Sabbat Worlds",
+        "role": "secondary"
+      },
+      {
+        "name": "Phantine",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Bree Jagdea",
+        "role": "pov"
+      },
+      {
+        "name": "Khrel Kas Obarkon",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

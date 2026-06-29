@@ -1,0 +1,87 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0268",
+  "slug": "the-watcher",
+  "title": "The Watcher",
+  "authors": [
+    "C Z Dunn"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A shuttle limps back into the Sol System carrying a single occupant - a Space Wolf, half-flayed, ravings on his lips and his memory torn to ribbons. The Knight-Errant Ison, a former Librarian of his Legion, is set to walk inside the dying man's mind and bring out whatever the Sigillite ordered him to find. The mission had been simple: watch the Night Lords, do not engage. What Ison finds instead are the visions of a brother who saw too much, the cruelties Konrad Curze's sons inflict on their captives, and the certainty that there are things abroad in the Heresy which no Astartes was built to look upon. A short, cold piece of the Knights-Errant era that leans into the cosmic horror under the war.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "requires_context",
+      "mystery",
+      "cosmic_horror",
+      "somber",
+      "grimdark",
+      "doubt",
+      "war",
+      "cw_violence",
+      "cw_mental_health",
+      "cw_disturbing",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Knights Errant",
+        "role": "primary"
+      },
+      {
+        "name": "Space Wolves",
+        "role": "supporting"
+      },
+      {
+        "name": "Night Lords",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sol System",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ison",
+        "role": "pov"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.59,
+      "count": 146,
+      "evidenceUrl": "https://www.goodreads.com/book/show/23768406-the-watcher"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

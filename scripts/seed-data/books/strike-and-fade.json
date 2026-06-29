@@ -1,0 +1,80 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0250",
+  "slug": "strike-and-fade",
+  "title": "Strike and Fade",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In the broken aftermath of the Isstvan V massacre, a battered handful of Salamanders survivors lay a trap among the mountains for a Night Lords patrol they have spotted herding a captive legionnaire into the heights. Drawing the Night Haunter's murderous sons into a kill-zone meant to even the odds for a few moments, the survivors of the Dropsite Massacre weigh how long they can keep fighting, how long they can stay hidden, and for some of them, how soon their end will come.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "standalone",
+      "novella",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "brotherhood",
+      "sacrifice",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Salamanders",
+        "role": "primary"
+      },
+      {
+        "name": "Night Lords",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Isstvan V",
+        "role": "primary"
+      }
+    ],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "limited source coverage of named POV/supporting characters"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.48,
+      "count": 234,
+      "evidenceUrl": "https://www.goodreads.com/book/show/16679677-strike-and-fade"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

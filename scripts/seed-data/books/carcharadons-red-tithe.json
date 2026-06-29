@@ -1,0 +1,93 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0442",
+  "slug": "carcharadons-red-tithe",
+  "title": "Carcharadons: Red Tithe",
+  "authors": [
+    "Robbie MacNiven"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "Carcharodons",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the prison world of Zartak, convicts toil in the adamantium mines under the watch of the Adeptus Arbites. When the Night Lords descend to harvest slaves and spread terror, another fleet runs silent from the void: the grey-skinned, black-eyed Carcharodons, void-born Space Marines as merciless as the deep-sea predators they are named for. Led by the newly raised Reaper Prime Bail Sharr and the ancient Chief Librarian Te Kahurangi, the Carcharodons hunt for a single gifted inmate whose latent psychic talent makes him worth a red tithe of blood. As two packs of ancient killers stalk Zartak's tunnels, the corridors run red.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "series_start",
+      "standard",
+      "war_story",
+      "mystery",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "war",
+      "brotherhood",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Carcharodons",
+        "role": "primary"
+      },
+      {
+        "name": "Night Lords",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Arbites",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Zartak",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Bail Sharr",
+        "role": "pov"
+      },
+      {
+        "name": "Te Kahurangi",
+        "role": "supporting"
+      },
+      {
+        "name": "Skell",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4,
+      "count": 1509,
+      "evidenceUrl": "https://www.goodreads.com/book/show/29430417-red-tithe"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

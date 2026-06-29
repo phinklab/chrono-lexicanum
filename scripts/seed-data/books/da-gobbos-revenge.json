@@ -1,0 +1,70 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0554",
+  "slug": "da-gobbos-revenge",
+  "title": "Da Gobbo's Revenge",
+  "authors": [
+    "Mike Brooks"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "novella",
+  "seriesHint": "Da Red Gobbo",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Fingwit is a grot, which is to say he sits at the bottom of ork society and is reminded of it daily by the mek who owns him and the larger orks who don't bother to. When his mek's ramshackle warband boards an Imperial vessel as part of a wider void war, Fingwit notices that down in the lower decks, away from the orks, a grot with the right idea in his head and a bit of nerve in his belly can do remarkable things. Mike Brooks' first Red Gobbo novella is short, funny, and quietly serious: a tale of how a downtrodden runt becomes the symbol the smaller greenskins have always needed, and how the legend of Da Red Gobbo — patron of grot revolution against ork tyranny — first walks into the universe wearing a battered red hat.",
+    "facetIds": [
+      "book",
+      "male",
+      "pc_xenos",
+      "xenos",
+      "squad",
+      "series_start",
+      "novella",
+      "war_story",
+      "character_study",
+      "satirical",
+      "action_heavy",
+      "hopepunk",
+      "brotherhood",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Orks",
+        "role": "primary"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Fingwit",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.19,
+      "count": 346,
+      "evidenceUrl": "https://www.goodreads.com/book/show/59557261-da-gobbo-s-revenge"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

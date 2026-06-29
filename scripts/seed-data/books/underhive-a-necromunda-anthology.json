@@ -1,0 +1,122 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0175",
+  "slug": "underhive-a-necromunda-anthology",
+  "title": "Underhive: A Necromunda Anthology",
+  "authors": [
+    "Mike Brooks"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "anthology",
+  "seriesHint": "Necromunda",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Underhive collects Wanted: Dead and nine more modern Necromunda stories, using Hive Primus as a mosaic of vendettas, guild deals, zealot crusades and dirty survival. House Escher, Goliath, Orlock, Cawdor, Delaque and Van Saar all get dragged through Guilder caravans, Redemptionist fire, Spyrer hunts, mutant settlements and the grinding economy of violence beneath Necromunda's spires. Less a single plot than a foundational sampler of the relaunch-era setting, it moves through gang noir, black comedy, hive horror and street-level war, giving the reader a tour of a city where every bargain has teeth and every shortcut has a bill.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "multi",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "character_study",
+      "mystery",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "war",
+      "loyalty",
+      "betrayal",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_crime",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "House Escher",
+        "role": "primary"
+      },
+      {
+        "name": "House Goliath",
+        "role": "primary"
+      },
+      {
+        "name": "House Orlock",
+        "role": "primary"
+      },
+      {
+        "name": "House Cawdor",
+        "role": "primary"
+      },
+      {
+        "name": "House Delaque",
+        "role": "primary"
+      },
+      {
+        "name": "House Van Saar",
+        "role": "primary"
+      },
+      {
+        "name": "Redemptionists",
+        "role": "supporting"
+      },
+      {
+        "name": "Spyrers",
+        "role": "supporting"
+      },
+      {
+        "name": "Guilders",
+        "role": "supporting"
+      },
+      {
+        "name": "Necromunda Enforcers",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Necromunda",
+        "role": "primary"
+      },
+      {
+        "name": "Hive Primus",
+        "role": "primary"
+      },
+      {
+        "name": "Underhive",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Jarene",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

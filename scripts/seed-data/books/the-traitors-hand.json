@@ -1,0 +1,106 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0014",
+  "slug": "the-traitors-hand",
+  "title": "The Traitor's Hand",
+  "authors": [
+    "Sandy Mitchell"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2005,
+  "format": "novel",
+  "seriesHint": "Ciaphas Cain",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Cain and the Valhallan 597th deploy to Adumbria — a tidally-locked world whose narrow terminator-zone is the Imperium's defensive line against an incoming Chaos raiding fleet — and find themselves brigaded with the Tallarn 229th, whose regimental commissar is Cain's old Schola Progenium rival Tomas Beije. The defence holds against the obvious threat from orbit; the real threat is internal, a Slaaneshi cult deep inside the planetary government working to crack a warp portal to bring something much worse than raiders through. Cain navigates Beije's petty sabotage, sweats out the narcotic-perfume of Slaanesh he last met on Slawkenberg, and ends the campaign by foiling both the cult and Beije's career in a single very uncomfortable afternoon. The novel is the third Cain memoir and one of the series' more openly comic entries.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "siege",
+      "political_thriller",
+      "satirical",
+      "action_heavy",
+      "loyalty",
+      "betrayal",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Slaanesh",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Adumbria",
+        "role": "primary"
+      },
+      {
+        "name": "Slawkenberg",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ciaphas Cain",
+        "role": "pov"
+      },
+      {
+        "name": "Jurgen",
+        "role": "supporting"
+      },
+      {
+        "name": "Tomas Beije",
+        "role": "antagonist"
+      },
+      {
+        "name": "Amberley Vail",
+        "role": "supporting"
+      },
+      {
+        "name": "Regina Kasteen",
+        "role": "supporting"
+      },
+      {
+        "name": "Ruput Broklaw",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

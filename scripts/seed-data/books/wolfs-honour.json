@@ -1,0 +1,111 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0157",
+  "slug": "wolfs-honour",
+  "title": "Wolf's Honour",
+  "authors": [
+    "Lee Lightner"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2008,
+  "format": "novel",
+  "seriesHint": "Space Wolves (original)",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Thousand Sons come for the Space Wolves from every side, driven by Madox and the long echo of the Spear of Russ that Ragnar cast into the warp on Garm. With the Chapter under multi-front pressure, Ragnar Blackmane and his brothers turn from defence to a lightning strike against the enemy's own base, gambling that one decisive blow can end the sorcerer's tempo. The novel closes the original Ragnar saga by binding relic, rivalry and pack-loyalty into a last Space Wolves reckoning. A hard war-story about paying for old heroic choices.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "series_finale",
+      "standard",
+      "war_story",
+      "last_stand",
+      "action_heavy",
+      "grimdark",
+      "war",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "redemption",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Space Marines",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      },
+      {
+        "name": "Thousand Sons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos Space Marines",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tzeentch",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Fenris",
+        "role": "supporting"
+      },
+      {
+        "name": "The Fang",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ragnar Blackmane",
+        "role": "pov"
+      },
+      {
+        "name": "Madox",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

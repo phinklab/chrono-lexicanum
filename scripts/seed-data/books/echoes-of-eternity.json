@@ -1,0 +1,122 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0063",
+  "slug": "echoes-of-eternity",
+  "title": "Echoes of Eternity",
+  "authors": [
+    "Aaron Dembski-Bowden"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "Siege of Terra",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Horus's host advances through the fire and ash of Terra's dying breaths, forcing the loyalists back to the Delphic Battlement — the very walls of the Sanctum Imperialis. Sanguinius, the Angel of the Ninth Legion, waits on the final battlements, rallying a desperate band of Blood Angels, refugees, and exhausted defenders for one last stand at the Eternity Gate. Above them descends Ka'Bandha, greater daemon of Khorne, the Blood Angels' ancient hunter, leading a Neverborn tide unloosed from the Warp. The legend says the Great Angel held the Eternity Gate alone against the hordes of the enemy and duelled the Daemon of the Blood God in the skies above it. This is the true story behind that myth — a confrontation of spirit as much as blade, and the Blood Angels' last hours before the final hour of the final day.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "ensemble",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "mid_series",
+      "standard",
+      "war_story",
+      "siege",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "cosmic_horror",
+      "somber",
+      "sacrifice",
+      "brotherhood",
+      "faith",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Sanguinary Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Daemons of Khorne",
+        "role": "antagonist"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "antagonist"
+      },
+      {
+        "name": "World Eaters",
+        "role": "antagonist"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Eternity Gate",
+        "role": "primary"
+      },
+      {
+        "name": "Sanctum Imperialis",
+        "role": "primary"
+      },
+      {
+        "name": "Delphic Battlement",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sanguinius",
+        "role": "pov"
+      },
+      {
+        "name": "Ka'Bandha",
+        "role": "antagonist"
+      },
+      {
+        "name": "Azkaellon",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.54,
+      "count": 2630,
+      "evidenceUrl": "https://www.goodreads.com/book/show/60484063-echoes-of-eternity"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

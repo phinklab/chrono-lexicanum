@@ -1,0 +1,137 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0031",
+  "slug": "legacies-of-betrayal",
+  "title": "Legacies of Betrayal",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2015,
+  "format": "anthology",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Eighteen tales gathered from across the warring legions of the Horus Heresy. Chris Wraight's novella Brotherhood of the Storm follows Jaghatai Khan's White Scars at Chondax, weighing duty to the Emperor against the Khan's own restless ideals. Aaron Dembski-Bowden's Butcher's Nails and Heart of the Conqueror cut into Angron and his World Eaters, while John French's Serpent, Riven and Warmaster turn to the inner circle of Horus's lieutenants. Graham McNeill returns to Ferrus Manus and Fulgrim in Kryptos, Thief of Revelations and Lucius, The Eternal Blade. Nick Kyme's Censure plants the loyalist Ultramarine Aeonid Thiel on Calth against the Word Bearers, while Guy Haley, Gav Thorpe, Anthony Reynolds and David Annandale add stories of Iron Hands, Salamanders, Dark Angels and Death Guard on fronts the main novels barely touch.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "ensemble",
+      "space_marine",
+      "multi",
+      "dual",
+      "galactic",
+      "requires_context",
+      "standard",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "betrayal",
+      "war",
+      "brotherhood",
+      "loyalty",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "White Scars",
+        "role": "primary"
+      },
+      {
+        "name": "World Eaters",
+        "role": "supporting"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "supporting"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "supporting"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "supporting"
+      },
+      {
+        "name": "Iron Hands",
+        "role": "supporting"
+      },
+      {
+        "name": "Salamanders",
+        "role": "supporting"
+      },
+      {
+        "name": "Emperor's Children",
+        "role": "supporting"
+      },
+      {
+        "name": "Death Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Dark Angels",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Chondax",
+        "role": "primary"
+      },
+      {
+        "name": "Calth",
+        "role": "supporting"
+      },
+      {
+        "name": "Isstvan V",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Jaghatai Khan",
+        "role": "pov"
+      },
+      {
+        "name": "Angron",
+        "role": "pov"
+      },
+      {
+        "name": "Aeonid Thiel",
+        "role": "pov"
+      },
+      {
+        "name": "Lucius",
+        "role": "supporting"
+      },
+      {
+        "name": "Fulgrim",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.61,
+      "count": 1730,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22609183-legacies-of-betrayal"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

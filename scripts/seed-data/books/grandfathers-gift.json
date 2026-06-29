@@ -1,0 +1,89 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0101",
+  "slug": "grandfathers-gift",
+  "title": "Grandfather's Gift",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "short_story",
+  "seriesHint": "Primarchs Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Mortarion wakes in a vast, fetid garden with no memory of how he came to be there or of who he once was. As he wanders the orchards and bone-choked ponds of this rotting realm, a great daemon called Kau'gath plays host, leading him along paths sown with old grievances. Each step strips away another layer of his pride, until the truth of his bargain with Grandfather Nurgle lies bare. The story reads as a dark fairy tale — a daemon primarch coaxed through blighted gardens, granted the slow, cruel kind of gift only that power can give. By the close, Mortarion has the revenge he has waited centuries to take, and the price of it is etched into his hands.",
+    "facetIds": [
+      "book",
+      "male",
+      "daemon",
+      "chaos",
+      "squad",
+      "standalone",
+      "novella",
+      "character_study",
+      "journey",
+      "somber",
+      "philosophical",
+      "cosmic_horror",
+      "hubris",
+      "betrayal",
+      "sacrifice",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Death Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Daemons of Nurgle",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Garden of Nurgle",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Mortarion",
+        "role": "pov"
+      },
+      {
+        "name": "Kau'gath",
+        "role": "supporting"
+      },
+      {
+        "name": "Nurgle",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.83,
+      "count": 152,
+      "evidenceUrl": "https://www.goodreads.com/book/show/36096300-grandfather-s-gift"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

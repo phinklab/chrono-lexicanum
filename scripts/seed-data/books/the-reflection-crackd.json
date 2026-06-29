@@ -1,0 +1,81 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0117",
+  "slug": "the-reflection-crackd",
+  "title": "The Reflection Crack'd",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "novella",
+  "seriesHint": "Horus Heresy Novellas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In the long shadow of the Drop Site Massacre, the Emperor's Children have stopped pretending to be the warriors they were. Their primarch Fulgrim has grown stranger by the hour, his moods unreadable, his appetites worse — and to those who knew him best, like the swordsman Lucius and the Lord Commander Eidolon, it is plain that something else is wearing the Phoenician's skin. As the Legion sinks deeper into excess and ruin, a circle of officers begins to plot the unthinkable: to cleanse their father of the daemonic thing inside him before he leads them all into oblivion. The cure they choose is worse than the disease.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "chaos",
+      "company",
+      "requires_context",
+      "novella",
+      "character_study",
+      "court_intrigue",
+      "grimdark",
+      "cosmic_horror",
+      "hubris",
+      "betrayal",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_sex",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Emperor's Children",
+        "role": "primary"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Lucius",
+        "role": "pov"
+      },
+      {
+        "name": "Eidolon",
+        "role": "supporting"
+      },
+      {
+        "name": "Fulgrim",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.65,
+      "count": 415,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22439638-the-reflection-crack-d"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

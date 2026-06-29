@@ -1,0 +1,84 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0290",
+  "slug": "blackshields-the-broken-chain",
+  "title": "Blackshields: The Broken Chain",
+  "authors": [
+    "Josh Reynolds"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Endryd Haar has been betrayed by his own second, Erud Vahn, and woken to find himself chained in the brig of a Sons of Horus warship that has been hunting his Blackshields for months. Vahn, separately interrogated and separately pragmatic, is already brokering deals with the traitor packmasters—deals that might buy the warband its life at the price of becoming something it cannot afterwards stop being. Haar has only the oath he has been carrying since the war began: to find Horus and to kill him. To keep that oath he must first break out of a cell aboard a ship designed to keep men like him from ever leaving it, and outrun a hunting force that has finally, definitively cornered him.",
+    "facetIds": [
+      "audio_drama",
+      "novella",
+      "neutral",
+      "space_marine",
+      "male",
+      "squad",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "betrayal",
+      "loyalty",
+      "brotherhood",
+      "sacrifice",
+      "series_finale",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blackshields",
+        "role": "primary"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Endryd Haar",
+        "role": "pov"
+      },
+      {
+        "name": "Erud Vahn",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "story is shipboard (Sons of Horus warship Cicatrix Tyrannis); no concrete geographic setting in source coverage"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.1,
+      "count": 89,
+      "evidenceUrl": "https://www.goodreads.com/book/show/49546322-blackshields"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

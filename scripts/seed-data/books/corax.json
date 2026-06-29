@@ -1,0 +1,109 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0040",
+  "slug": "corax",
+  "title": "Corax",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "anthology",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Six works tracing Corvus Corax and his shattered Raven Guard through the years after the Dropsite Massacre. The novellas Soulforge, Ravenlord and the concluding Weregeld follow Corax's vengeance campaigns against Horus's allies — Lorgar's Word Bearers, Perturabo's Iron Warriors, Curze's Night Lords — and his desperate effort to rebuild a Legion bled white at Isstvan V using the Emperor's own forbidden gene-tech, the Raptors. The short stories The Shadowmasters, The Value of Fear and Raptor turn to individual Raven Guard operatives carrying out the Legion's lightning-strike doctrine in smaller wars on the edges. Together the volume completes Gav Thorpe's portrait of a primarch fighting an asymmetric, increasingly bitter war while watching the cost of his own choices warp his sons into something Corax himself begins to fear.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "requires_context",
+      "standard",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "betrayal",
+      "war",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "redemption",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Raven Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "antagonist"
+      },
+      {
+        "name": "Night Lords",
+        "role": "antagonist"
+      },
+      {
+        "name": "Alpha Legion",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Deliverance",
+        "role": "supporting"
+      },
+      {
+        "name": "Isstvan V",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Corvus Corax",
+        "role": "pov"
+      },
+      {
+        "name": "Branne",
+        "role": "supporting"
+      },
+      {
+        "name": "Agapito",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.79,
+      "count": 1585,
+      "evidenceUrl": "https://www.goodreads.com/book/show/30753533-corax"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

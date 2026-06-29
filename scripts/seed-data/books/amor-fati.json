@@ -1,0 +1,85 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0230",
+  "slug": "amor-fati",
+  "title": "Amor Fati",
+  "authors": [
+    "Michael F. Haspil"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Lord Commander Eidolon used to be the finest blade of the Emperor's Children. Then Fulgrim took his head off, Fabius Bile pieced him back together, and the warrior who walks the deck now drags his own body around like a borrowed coat. Sluggish, slurred, only half-obeyed by his own muscles, Eidolon has convinced himself that a transfusion of pure unaltered geneseed from his Legion's earliest sons will return him to what he was. The hunt takes him through ruined chapter-houses and apothecaria his brothers stripped a long time ago. What he eventually finds is not a cure but a choice: cling to the perfection he used to embody, or accept the new, broken creature he has become — and, in accepting, discover that there is a kind of power in being something the Phoenician never imagined.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "squad",
+      "requires_context",
+      "novella",
+      "character_study",
+      "journey",
+      "philosophical",
+      "grimdark",
+      "cosmic_horror",
+      "hubris",
+      "doubt",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Emperor's Children",
+        "role": "primary"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Eidolon",
+        "role": "pov"
+      },
+      {
+        "name": "Fabius Bile",
+        "role": "supporting"
+      },
+      {
+        "name": "Fulgrim",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "the ruined Emperor's Children chapter-houses Eidolon visits are not named on-page in available source coverage"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.82,
+      "count": 79,
+      "evidenceUrl": "https://www.goodreads.com/book/show/59910857-amor-fati"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

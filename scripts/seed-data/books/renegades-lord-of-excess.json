@@ -1,0 +1,87 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0592",
+  "slug": "renegades-lord-of-excess",
+  "title": "Renegades: Lord of Excess",
+  "authors": [
+    "Rich McCormick"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "novel",
+  "seriesHint": "40k - Emperor's Children",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "The Emperor's Children have long since shattered into warring splinters, pillaging the galaxy to feed appetites that can never be sated. Xantine, lord of the warband known as the Adored and a self-styled son of Fulgrim, craves something grander than endless raiding. When he discovers Serrine — a wealthy planet rotting under corrupt misrule and cut off from the Imperium by warp storms — he sees not a prize to be plundered but a canvas for perfection. He will reshape this world in his image. But Serrine has its own festering secrets, treachery waits within the Adored's own ranks, and the daemon that shares Xantine's flesh has appetites of its own. As Xantine's grand vision begins to devour itself, the cruel truth at the heart of every Chaos ambition is laid bare.",
+    "facetIds": [
+      "book",
+      "en",
+      "male",
+      "space_marine",
+      "chaos",
+      "sector",
+      "mid_series",
+      "standard",
+      "character_study",
+      "grimdark",
+      "hubris",
+      "betrayal",
+      "cw_violence",
+      "cw_sex",
+      "cw_disturbing"
+    ],
+    "factions": [
+      {
+        "name": "Emperor's Children",
+        "role": "primary"
+      },
+      {
+        "name": "Genestealer Cults",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Serrine",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Xantine",
+        "role": "pov"
+      },
+      {
+        "name": "S'janth",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "No named loyalist Imperial military faction opposes the warband in available sources; only generic Imperial authorities and a Genestealer Cult are mentioned on Serrine."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.86,
+      "count": 471,
+      "evidenceUrl": "https://www.goodreads.com/book/show/210353156-lord-of-excess"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

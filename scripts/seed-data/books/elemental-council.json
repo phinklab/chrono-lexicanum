@@ -1,0 +1,108 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0137",
+  "slug": "elemental-council",
+  "title": "Elemental Council",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2024,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On Cao Quo, a newly annexed human world keeps resisting the T'au Empire with sabotage, insurgency, and stubborn memory. Ethereal Yor'i forms an Elemental Council to pacify the crisis: Fire Caste discipline, Water Caste intelligence, Air Caste speed, Earth Caste ingenuity, and the Ethereal certainty that all must serve the Greater Good. But the rebellion understands the Empire too well, and the council's own priorities start to fracture under pressure from human resistance and T'au politics alike. A T'au political spy-thriller about occupation, doctrine, caste friction, and how much compromise an empire can survive before its bright philosophy becomes rule by force.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "pc_xenos",
+      "xenos",
+      "planetary",
+      "standalone",
+      "standard",
+      "political_thriller",
+      "war_story",
+      "mystery",
+      "character_study",
+      "grimdark",
+      "philosophical",
+      "somber",
+      "war",
+      "betrayal",
+      "doubt",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "T'au Empire",
+        "role": "primary"
+      },
+      {
+        "name": "Tau Empire",
+        "role": "primary"
+      },
+      {
+        "name": "Ethereal Caste",
+        "role": "primary"
+      },
+      {
+        "name": "Fire Caste",
+        "role": "primary"
+      },
+      {
+        "name": "Water Caste",
+        "role": "primary"
+      },
+      {
+        "name": "Air Caste",
+        "role": "primary"
+      },
+      {
+        "name": "Earth Caste",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Cao Quo",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Yor'i",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "authors",
+        "suggestion": [
+          "Noah Van Nguyen"
+        ],
+        "reason": "Roster authors[] empty; canonical author confirmed by Black Library + Lexicanum + Goodreads + Warhammer-Community + Goonhammer + At-Boundary's-Edge"
+      }
+    ]
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0221",
+  "slug": "space-hulk",
+  "title": "Space Hulk",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2009,
+  "format": "novella",
+  "seriesHint": "Blood Angels",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Six centuries ago a force of Blood Angels boarded the drifting space hulk Sin of Damnation to purge a genestealer infestation, and were never seen again. Now Captain Raphael leads a Terminator kill-team back into the hulk's lightless corridors to finish the work and lift the shame from the Chapter's name. Among them is Sergeant Lorenzo, the sole survivor of that earlier disaster, who carries the failure as a personal wound. Vastly outnumbered and harried by the alien hive mind at every junction, the Blood Angels must reach the heart of the hulk before the swarm overwhelms them. A claustrophobic boarding action of flamers, storm bolters and narrow doorways, told at the pace of a mission with no margin for error.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "standalone",
+      "novella",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "cosmic_horror",
+      "redemption",
+      "brotherhood",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sin of Damnation",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sergeant Lorenzo",
+        "role": "pov"
+      },
+      {
+        "name": "Captain Raphael",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.37,
+      "count": 217,
+      "evidenceUrl": "https://www.goodreads.com/book/show/9507078-space-hulk"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

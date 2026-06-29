@@ -1,0 +1,74 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0598",
+  "slug": "the-long-and-hungry-road",
+  "title": "The Long and Hungry Road",
+  "authors": [
+    "Adrian Tchaikovsky"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2023,
+  "format": "short_story",
+  "seriesHint": "Tyranids",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "DECIDED by Philipp 2026-06-27: add as short_story. Author Tchaikovsky (Excel mis-attributed).",
+  "source": {
+    "kind": "manual",
+    "url": "https://wh40k.lexicanum.com/wiki/The_Long_and_Hungry_Road_(Short_Story)",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A rare glimpse inside the tyranid hive mind as a hive fleet's vanguard descends on the doomed world of Chertes, whose defenders mount a resistance that is ultimately consumed.",
+    "facetIds": [
+      "book",
+      "en",
+      "pc_xenos",
+      "xenos",
+      "planetary",
+      "standalone",
+      "last_stand",
+      "war_story",
+      "grimdark",
+      "cosmic_horror",
+      "war",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Tyranids",
+        "role": "primary"
+      },
+      {
+        "name": "Genestealer Cults",
+        "role": "mentioned"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Chertes",
+        "role": "primary"
+      }
+    ],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "Hive-mind-POV short story with no named individual characters in the source (Lexicanum) — zero character junctions by design, not an omission. protagonist_gender and length_tier facets are intentionally omitted: there is no individual viewpoint character, and no length bucket fits a short story."
+      }
+    ],
+    "rating": {
+      "status": "unrated",
+      "source": "goodreads",
+      "reason": "OFOB-gap addition (Brief 167) — no Goodreads rating captured in this additive pass; left explicitly unrated."
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0050",
+  "slug": "the-ultramarines-omnibus",
+  "title": "The Ultramarines Omnibus",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2006,
+  "format": "omnibus",
+  "seriesHint": "Ultramarines",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Ultramarines Omnibus collects Graham McNeill's first three Uriel Ventris novels and operates as the canonical entry point for the entire Ventris saga. Book one (Nightbringer) introduces newly promoted Captain Uriel Ventris of the Ultramarines 4th Company on Pavonis, where the seven Cardinal Houses' political conspiracies obscure a far older Eldar-exile prison structure holding the C'tan Nightbringer — and Ventris must thread Inquisitor Ario Barzano's investigation, a tactical Eldar farseer alliance and an awakening Necron tomb to keep the C'tan sealed. Book two (Warriors of the Ultramar) defends the frontier world of Tarsis Ultra against a Tyranid hive-fleet splinter, with Ventris and the Mortifactors Chapter under Chaplain Astador holding a planet-scale siege that turns on the morally fraught deployment of a Magos-engineered Vespasian biological weapon — a Codex-Astartes violation that earns Ventris a death-oath. Book three (Dead Sky, Black Sun) takes that oath into the Eye of Terror: Ventris and Pasanius are sent to Medrengard, daemon-forge-world of the Iron Warriors, to retrieve a sample from the Daemonculaba, fighting through Warsmith Honsou and a band of fallen Astartes under Ardaric Vaanes in a horror-register journey that ends with their vindicated return to Macragge and Honsou set as a permanent personal antagonist.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "series_start",
+      "doorstopper",
+      "war_story",
+      "siege",
+      "journey",
+      "mystery",
+      "cosmic_horror",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "loyalty",
+      "brotherhood",
+      "sacrifice",
+      "doubt",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Mortifactors",
+        "role": "supporting"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperial Navy",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      },
+      {
+        "name": "Eldar",
+        "role": "supporting"
+      },
+      {
+        "name": "Lords of the Unholy Host",
+        "role": "supporting"
+      },
+      {
+        "name": "Necrons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Daemons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Pavonis",
+        "role": "primary"
+      },
+      {
+        "name": "Tarsis Ultra",
+        "role": "primary"
+      },
+      {
+        "name": "Medrengard",
+        "role": "primary"
+      },
+      {
+        "name": "Eye of Terror",
+        "role": "primary"
+      },
+      {
+        "name": "Macragge",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Uriel Ventris",
+        "role": "pov"
+      },
+      {
+        "name": "Pasanius Lysane",
+        "role": "supporting"
+      },
+      {
+        "name": "Ario Barzano",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaplain Astador",
+        "role": "supporting"
+      },
+      {
+        "name": "Ardaric Vaanes",
+        "role": "supporting"
+      },
+      {
+        "name": "Captain Idaeus",
+        "role": "mentioned"
+      },
+      {
+        "name": "Nightbringer",
+        "role": "antagonist"
+      },
+      {
+        "name": "Honsou",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0047",
+        "displayOrder": 0,
+        "confidence": 0.9,
+        "basis": "Omnibus is placed after the first Ultramarines trilogy"
+      },
+      {
+        "externalBookId": "W40K-0048",
+        "displayOrder": 1,
+        "confidence": 0.9,
+        "basis": "Omnibus is placed after the first Ultramarines trilogy"
+      },
+      {
+        "externalBookId": "W40K-0049",
+        "displayOrder": 2,
+        "confidence": 0.9,
+        "basis": "Omnibus is placed after the first Ultramarines trilogy"
+      }
+    ]
+  }
+}

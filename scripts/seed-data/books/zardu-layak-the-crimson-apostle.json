@@ -1,0 +1,85 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0295",
+  "slug": "zardu-layak-the-crimson-apostle",
+  "title": "Zardu Layak: The Crimson Apostle",
+  "authors": [
+    "Rich McCormick"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2026,
+  "format": "novel",
+  "seriesHint": "Horus Heresy - Character Series",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "Zardu Layak has been chosen by the gods. Guided by visions of his primarch Lorgar, the Crimson Apostle of the Word Bearers believes he is destined to set the stage for the great rebellion and change the galaxy forever. To fulfil that destiny, he must journey to the forgotten world of Helwain and claim the Anakatis Blades — weapons of terrible and malign power. But Helwain is haunted, and as spectral echoes of his past surround him, Layak is forced to confront the question that broke his Legion's faith: what if the truth is a lie? A character study of devotion, corruption, and the cost of surrender to a dark purpose, tracing how a Space Marine remakes himself into something far more terrible in service to gods who may never be satisfied.",
+    "facetIds": [
+      "book",
+      "en",
+      "male",
+      "space_marine",
+      "chaos",
+      "planetary",
+      "mid_series",
+      "standard",
+      "character_study",
+      "philosophical",
+      "faith",
+      "betrayal",
+      "cw_violence",
+      "cw_disturbing"
+    ],
+    "factions": [
+      {
+        "name": "Word Bearers",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Helwain",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Zardu Layak",
+        "role": "pov"
+      },
+      {
+        "name": "Lorgar",
+        "role": "supporting"
+      },
+      {
+        "name": "Erebus",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "The conflict is internal and supernatural; no opposing loyalist Legion is identified in available sources, so only the Word Bearers are tagged."
+      }
+    ],
+    "rating": {
+      "status": "unrated",
+      "source": "goodreads",
+      "reason": "no Goodreads edition found",
+      "evidenceUrl": null
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

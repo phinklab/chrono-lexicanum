@@ -1,0 +1,98 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0126",
+  "slug": "the-purge",
+  "title": "The Purge",
+  "authors": [
+    "Anthony Reynolds"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novella",
+  "seriesHint": "Horus Heresy Novellas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Sor Talgron commanded the 34th Chapter of the Word Bearers on Terra, garrisoning the Emperor's palace while his Legion plotted treason in the dark. Now Lorgar has finally recalled him, and the 34th sails for Ultramar with the Shadow Crusade — Talgron's first orders as an open traitor. With the Dark Apostle Jaruleth at his side he descends on Percepton Primus and burns the world to break the Ultramarines' 17th Chapter under Aecus Decimus. What begins as a campaign turns into something Talgron does not recognise: systematic extermination, theatre for the gods his brothers serve. A soldier who has always trusted bolter and brother above all faith, Talgron must decide whether the work of the Heresy is worth the man he is making of himself, or whether the doubt itself is the last loyal thing left in him.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "novella",
+      "requires_context",
+      "male",
+      "space_marine",
+      "chaos",
+      "planetary",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "somber",
+      "doubt",
+      "betrayal",
+      "faith",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Word Bearers",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Percepton Primus",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramar",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sor Talgron",
+        "role": "pov"
+      },
+      {
+        "name": "Jaruleth",
+        "role": "supporting"
+      },
+      {
+        "name": "Aecus Decimus",
+        "role": "antagonist"
+      },
+      {
+        "name": "Lorgar",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.86,
+      "count": 333,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22816118-the-purge"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0578",
+  "slug": "saints-of-the-imperium",
+  "title": "Saints of the Imperium",
+  "authors": [
+    "David Annandale",
+    "Andy Clark",
+    "Danie Ware"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "collection",
+  "seriesHint": "40k - Sisters of Battle",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "This collection gathers three tales of the most venerated champions of the Adepta Sororitas. In Celestine, the immortal Living Saint returns again and again to the battlefields beyond the Great Rift, cut down only to be reborn; each death drags her into a realm of torment where her faith in the God-Emperor must be proven anew before she can fight on, accompanied by the short story Revelation. In Ephrael Stern: The Heretic Saint, the thrice-born Daemonifuge is stranded in the isolated reaches when a mysterious stranger and the Harlequin Kyganil lead her toward the fallen world of Severitas and a threat greater than any mankind has faced, drawing the attention of the Inquisition, the forces of Chaos and the Ynnari leader Yvraine. In The Triumph of Saint Katherine, the sacred funerary procession marches from warzone to warzone bearing the sarcophagus of the saint, and Sister Avra of the Order of Our Martyred Lady, defending the world of Kiros against the followers of Nurgle, is seized by a vision that reveals the Emperor has far greater plans for her.",
+    "facetIds": [
+      "book",
+      "en",
+      "sister",
+      "female",
+      "imperium",
+      "galactic",
+      "standalone",
+      "doorstopper",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "somber",
+      "faith",
+      "sacrifice",
+      "redemption",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Adepta Sororitas",
+        "role": "primary"
+      },
+      {
+        "name": "Order of Our Martyred Lady",
+        "role": "supporting"
+      },
+      {
+        "name": "Aeldari Harlequins",
+        "role": "supporting"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Severitas",
+        "role": "primary"
+      },
+      {
+        "name": "Kiros",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Saint Celestine",
+        "role": "pov"
+      },
+      {
+        "name": "Ephrael Stern",
+        "role": "pov"
+      },
+      {
+        "name": "Sister Avra",
+        "role": "pov"
+      },
+      {
+        "name": "Kyganil",
+        "role": "supporting"
+      },
+      {
+        "name": "Yvraine",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "unrated",
+      "source": "goodreads",
+      "reason": "no Goodreads edition found (constituent novels are rated separately)",
+      "evidenceUrl": null
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

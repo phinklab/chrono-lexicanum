@@ -1,0 +1,85 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0259",
+  "slug": "cypher-guardian-of-order",
+  "title": "Cypher: Guardian of Order",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Under orders from Luther himself, the young Librarian Zahariel accompanies the enigmatic Lord Cypher on one of his rare forays into the deep wilderness of Caliban. The pair return to the Northwilds in search of a defensible fortress and training ground for the Dark Angels Legion's swelling new recruits, but the old forest is not what it was: rumours of galactic civil war have crept back to their homeworld, and an ancient evil the Order thought long dead is stirring again under the trees. As Zahariel comes to understand who his strange guide really is, he begins to suspect the Legion's troubles are already older and deeper than the Heresy itself.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "mystery",
+      "somber",
+      "cosmic_horror",
+      "faith",
+      "doubt",
+      "brotherhood",
+      "cw_violence",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Caliban",
+        "role": "primary"
+      },
+      {
+        "name": "Northwilds",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lord Cypher",
+        "role": "pov"
+      },
+      {
+        "name": "Zahariel",
+        "role": "supporting"
+      },
+      {
+        "name": "Luther",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.15,
+      "count": 182,
+      "evidenceUrl": "https://www.goodreads.com/book/show/20317737-cypher-guardian-of-order"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

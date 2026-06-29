@@ -1,0 +1,83 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0568",
+  "slug": "world-ablaze",
+  "title": "World Ablaze",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2026,
+  "format": "anthology",
+  "seriesHint": "40k",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "Eleven stories. One burning world. World Ablaze gathers an ensemble of Black Library voices to chronicle the relentless defence of Armageddon — a war world where every hive block, ash waste, and frozen wasteland has become a killing ground. Blood Angels fight desperate rearguard actions, Black Templars drag their wounded across miles of ice, Space Wolves and Salamanders forge an unlikely brotherhood in the crucible, and Crimson Fists make their final stand against the greenskin tide. Astra Militarum troopers find salvation in the most unlikely places, while veteran ork pilots pursue one last moment of glory. Across every story, the scale of the invasion bears down on soldiers great and ordinary alike, showing the war for Armageddon as it has never been told before.",
+    "facetIds": [
+      "book",
+      "en",
+      "ensemble",
+      "multi",
+      "dual",
+      "galactic",
+      "standalone",
+      "short",
+      "war_story",
+      "grimdark",
+      "war",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Black Templars",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Crimson Fists",
+        "role": "supporting"
+      },
+      {
+        "name": "Salamanders",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Armageddon",
+        "role": "primary"
+      }
+    ],
+    "characters": [],
+    "flags": [],
+    "rating": {
+      "status": "unrated",
+      "source": "goodreads",
+      "reason": "no Goodreads edition found",
+      "evidenceUrl": null
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

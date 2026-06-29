@@ -1,0 +1,83 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0328",
+  "slug": "sanctus-reach-blood-on-the-mountain",
+  "title": "Sanctus Reach: Blood on the Mountain",
+  "authors": [
+    "Ben Counter"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novella",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Red Waaagh! has fallen upon the Knight world of Alaric Prime, and its defenders are dying in their thousands beneath the green tide. Then the sons of Fenris arrive. A lone pack of Space Wolves, led by the Rune Priest Ulli Iceclaw, is given a desperate task: scale the Sacred Mountain and destroy the Ork factory churning out the aircraft that rain death on the armies below. Cut off from his brothers, hunted across the heights by a relentless foe, and haunted by visions he cannot escape, Iceclaw must confront his own fears as surely as the greenskins if he is to see the mission done. A grim tale of duty, isolation and the long climb toward an almost certain death.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "squad",
+      "novella",
+      "requires_context",
+      "war_story",
+      "last_stand",
+      "action_heavy",
+      "grimdark",
+      "brotherhood",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Alaric Prime",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ulli Iceclaw",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.49,
+      "count": 45,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22919247-blood-on-the-mountain"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

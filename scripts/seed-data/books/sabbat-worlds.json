@@ -1,0 +1,117 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0043",
+  "slug": "sabbat-worlds",
+  "title": "Sabbat Worlds",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2010,
+  "format": "anthology",
+  "seriesHint": "Gaunt's Ghosts",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Edited by Dan Abnett, Sabbat Worlds opens the Crusade beyond the main Gaunt's Ghosts line: eight short stories moving through battlefields, occupied cities, political knives and the ordinary soldiers caught in the war's machinery. Abnett frames the volume with two Tanith First pieces, one returning to Gaunt's regiment after Necropolis and another tugging an Inquisition thread through the Crusade's hidden seams. Around them, Sisters of Battle faith, partisan resistance, Volpone pride, Sirkle intrigue and a rare lighter Imperial Guard character piece widen the war into a sector-spanning mosaic. A mid-Crusade anthology with the feel of vox-fragments from a campaign too large for one regiment to carry.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "guardsman",
+      "imperium",
+      "sector",
+      "mid_series",
+      "standard",
+      "war_story",
+      "character_study",
+      "mystery",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "faith",
+      "loyalty",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Tanith First-and-Only",
+        "role": "primary"
+      },
+      {
+        "name": "Verghastite Ghosts",
+        "role": "supporting"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Volpone Bluebloods",
+        "role": "supporting"
+      },
+      {
+        "name": "Adepta Sororitas",
+        "role": "supporting"
+      },
+      {
+        "name": "Ecclesiarchy",
+        "role": "supporting"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Blood Pact",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sabbat Worlds",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ibram Gaunt",
+        "role": "pov"
+      },
+      {
+        "name": "Colm Corbec",
+        "role": "supporting"
+      },
+      {
+        "name": "Elim Rawne",
+        "role": "supporting"
+      },
+      {
+        "name": "Hlaine Larkin",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

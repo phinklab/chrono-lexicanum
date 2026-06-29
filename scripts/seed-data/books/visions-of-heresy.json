@@ -1,0 +1,64 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0140",
+  "slug": "visions-of-heresy",
+  "title": "Visions of Heresy",
+  "authors": [
+    "Alan Merrett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "anthology",
+  "seriesHint": "Horus Heresy Collections",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "An illustrated companion to the Horus Heresy, gathering iconic art of the eighteen Space Marine Legions and their Primarchs alongside historical notes by Alan Merrett. The volume re-presents the four earlier Visions books — Visions of War, of Darkness, of Treachery and of Death — and adds new paintings by Neil Roberts together with expanded background on the long road from the Great Crusade to the Siege of Terra. Reference and reverie rather than narrative: a viewer's archive of the era's tone, livery, weapons and great betrayals, laid out in the same horizontal format that the Forge World Black Books would later make their own. For readers who want to see, rather than read, the Heresy in a single sitting.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "multi",
+      "neutral",
+      "galactic",
+      "standalone",
+      "doorstopper",
+      "war_story",
+      "somber",
+      "war",
+      "betrayal",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [],
+    "locations": [],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "Art/reference volume rather than narrative fiction; covers all eighteen Legions and the wider Imperium at panoramic scope. Entity tagging deliberately left empty rather than aggregated to a meaningless 'all of them' list."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.36,
+      "count": 248,
+      "evidenceUrl": "https://www.goodreads.com/book/show/16130681-horus-heresy"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

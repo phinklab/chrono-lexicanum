@@ -1,0 +1,96 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0181",
+  "slug": "13th-legion",
+  "title": "13th Legion",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2001,
+  "format": "novel",
+  "seriesHint": "Last Chancers",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On war-torn Typhos Prime, Colonel Schaeffer turns a thousand condemned Imperial Guardsmen into the Last Chancers, a penal strike force built by attrition and useful death. Lieutenant Kage, a former Cadian-trained soldier and Schaeffer's sharp-tongued survivor, narrates as squads are spent against an Ork incursion until only the hard core Schaeffer needs remains. A series-opener in Dirty-Dozen war-story mode: cynical first-person memoir, impossible-mission redemption, and a commander who treats salvation as another battlefield resource.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "series_start",
+      "standard",
+      "war_story",
+      "journey",
+      "character_study",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "satirical",
+      "betrayal",
+      "doubt",
+      "war",
+      "loyalty",
+      "sacrifice",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_crime",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Last Chancers",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Typhos Prime",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lieutenant Kage",
+        "role": "pov"
+      },
+      {
+        "name": "Colonel Schaeffer",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

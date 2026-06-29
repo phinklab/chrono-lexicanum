@@ -1,0 +1,87 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0325",
+  "slug": "the-eternal-crusader",
+  "title": "The Eternal Crusader",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novella",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "High Marshal Helbrecht of the Black Templars returns from the lightless reaches of the Ghoul Stars frustrated and unfulfilled, his crusade against an elusive alien horror left unfinished. Then word reaches him of a vast greenskin invasion bearing down on Armageddon, and the High Marshal turns his fleet toward a war he can win. Given command of the void battle above the besieged world, Helbrecht prepares to shatter Ghazghkull's armada as it arrives. Much of the story unfolds aboard the Eternal Crusader, the ancient flagship that is itself a relic of a bygone age, where Helbrecht's iron will collides with the doubts of those around him, not least the newly raised Reclusiarch Grimaldus. It is a portrait of a commander defined by faith, pride and an unquenchable thirst for the destruction of mankind's foes.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "novella",
+      "requires_context",
+      "war_story",
+      "faith",
+      "action_heavy",
+      "grimdark",
+      "war",
+      "brotherhood",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Black Templars",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Armageddon",
+        "role": "primary"
+      },
+      {
+        "name": "Ghoul Stars",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Helbrecht",
+        "role": "pov"
+      },
+      {
+        "name": "Grimaldus",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.64,
+      "count": 112,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22930618-the-eternal-crusader"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

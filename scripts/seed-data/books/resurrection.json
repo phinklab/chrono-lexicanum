@@ -1,0 +1,78 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0466",
+  "slug": "resurrection",
+  "title": "Resurrection",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "The Horusian Wars",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In the Caradryad Sector, worlds are burning. Whole populations rise against the Imperium in fits of madness; rumours of a cult called the Unseen pass between Inquisitorial cells. Summoned to a conclave of his peers, Inquisitor Covenant — Puritan, psyker, master swordsman — arrives meaning to denounce his colleague Talicto as a heretic. Then the gathering is attacked. Half the conclave is left dead in the wreckage, and Talicto walks away into the shadows. Covenant follows. His hunt sends him through ruined hive worlds and across the chambers of his own Ordo, where the line between Puritan and Radical, between holy and heretical, has been growing thinner for centuries — and where each step toward Talicto brings him closer to the Unseen, and to the larger horror the heretic is shepherding into the sector.",
+    "facetIds": [
+      "book",
+      "male",
+      "inquisitor",
+      "imperium",
+      "sector",
+      "series_start",
+      "standard",
+      "mystery",
+      "philosophical",
+      "grimdark",
+      "betrayal",
+      "doubt",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Caradryad Sector",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Inquisitor Covenant",
+        "role": "pov"
+      },
+      {
+        "name": "Talicto",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.82,
+      "count": 467,
+      "evidenceUrl": "https://www.goodreads.com/book/show/32861023-resurrection"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

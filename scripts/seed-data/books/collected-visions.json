@@ -1,0 +1,179 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0291",
+  "slug": "collected-visions",
+  "title": "Collected Visions",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2007,
+  "format": "artbook",
+  "seriesHint": "Other Books",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Horus Heresy: Collected Visions gathers the four original Visions volumes — Visions of War, Darkness, Treachery, and Death — alongside the exclusive short story 'The Kaban Project' by Graham McNeill. Alan Merrett's text threads concept art, illustration, and rulebook panels into a chronological reference for the civil war that breaks the Emperor's Legiones Astartes, from the Great Crusade's triumphs to Horus Lupercal's fall, the purge of Isstvan III, the Drop Site Massacre at Isstvan V, and the long road to the siege of Terra. 'The Kaban Project' shadows Mechanicum adept Pallas Ravachol on Mars as he uncovers a sentient war-machine commissioned for the Warmaster and is hunted across the Red Planet for knowing it lives.",
+    "facetIds": [
+      "book",
+      "male",
+      "mixed",
+      "multi",
+      "space_marine",
+      "tech_priest",
+      "dual",
+      "galactic",
+      "requires_context",
+      "doorstopper",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "betrayal",
+      "war",
+      "hubris",
+      "loyalty",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Sons of Horus",
+        "role": "primary"
+      },
+      {
+        "name": "Luna Wolves",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "supporting"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "supporting"
+      },
+      {
+        "name": "World Eaters",
+        "role": "supporting"
+      },
+      {
+        "name": "Death Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Emperor's Children",
+        "role": "supporting"
+      },
+      {
+        "name": "Night Lords",
+        "role": "supporting"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "supporting"
+      },
+      {
+        "name": "Alpha Legion",
+        "role": "supporting"
+      },
+      {
+        "name": "Thousand Sons",
+        "role": "supporting"
+      },
+      {
+        "name": "Raven Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Salamanders",
+        "role": "supporting"
+      },
+      {
+        "name": "Iron Hands",
+        "role": "supporting"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "supporting"
+      },
+      {
+        "name": "Space Wolves",
+        "role": "supporting"
+      },
+      {
+        "name": "Dark Angels",
+        "role": "supporting"
+      },
+      {
+        "name": "White Scars",
+        "role": "supporting"
+      },
+      {
+        "name": "Blood Angels",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Custodes",
+        "role": "supporting"
+      },
+      {
+        "name": "Mechanicum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Mars",
+        "role": "supporting"
+      },
+      {
+        "name": "Isstvan III",
+        "role": "supporting"
+      },
+      {
+        "name": "Isstvan V",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Horus Lupercal",
+        "role": "pov"
+      },
+      {
+        "name": "The Emperor",
+        "role": "supporting"
+      },
+      {
+        "name": "Pallas Ravachol",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.41,
+      "count": 581,
+      "evidenceUrl": "https://www.goodreads.com/book/show/654442"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

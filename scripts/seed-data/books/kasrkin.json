@@ -1,0 +1,106 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0125",
+  "slug": "kasrkin",
+  "title": "Kasrkin",
+  "authors": [
+    "Edoardo Albert"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the besieged desert world of Dasht i-Kevar, the T'au Empire shoots down a Valkyrie carrying an Astra Militarum general whose knowledge could doom the Imperial campaign. Captain Bharath Obeysekera leads his Kasrkin into the dunes to retrieve him, but the desert is the first enemy: heat, thirst, distance, and the slow stripping-away of certainty. When Shaper Tchek and a Kroot kinband join the hunt, the rescue becomes a chase across killing ground where something older than either army waits beneath the sand. A Cadian survivor war-story with survival-horror grit under the flak armour.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "dual",
+      "planetary",
+      "standalone",
+      "doorstopper",
+      "war_story",
+      "journey",
+      "mystery",
+      "character_study",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "brotherhood",
+      "loyalty",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Kasrkin",
+        "role": "primary"
+      },
+      {
+        "name": "Cadian Shock Troops",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      },
+      {
+        "name": "T'au Empire",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tau Empire",
+        "role": "antagonist"
+      },
+      {
+        "name": "Kroot",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Dasht i-Kevar",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Bharath Obeysekera",
+        "role": "pov"
+      },
+      {
+        "name": "Tchek",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

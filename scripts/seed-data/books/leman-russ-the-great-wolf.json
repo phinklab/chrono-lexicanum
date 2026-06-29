@@ -1,0 +1,94 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0082",
+  "slug": "leman-russ-the-great-wolf",
+  "title": "Leman Russ: The Great Wolf",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "The Primarchs",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "At the height of the Great Crusade, the Space Wolves and the Dark Angels combine to bring the rebel world of Dulan to compliance. The tyrant Durath has defied the Imperium openly, and Leman Russ has sworn to take his head. Lion El'Jonson counsels patience and method; Russ has neither to spare. As the joint campaign tightens around Dulan's fortresses, the rivalry between the two primarchs hardens into something the Legions around them cannot ignore. The story is framed by quieter scenes set long after the Heresy, when the Wolves are no longer a Legion and the old wound between Russ and the Lion is recounted by Jorin Bloodhowl, oldest of Russ's retainers, who saw it open in the first place.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "space_marine",
+      "male",
+      "imperium",
+      "planetary",
+      "standalone",
+      "short",
+      "war_story",
+      "character_study",
+      "siege",
+      "action_heavy",
+      "somber",
+      "war",
+      "brotherhood",
+      "loyalty",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Dark Angels",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Dulan",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Leman Russ",
+        "role": "pov"
+      },
+      {
+        "name": "Lion El'Jonson",
+        "role": "supporting"
+      },
+      {
+        "name": "Jorin Bloodhowl",
+        "role": "pov"
+      },
+      {
+        "name": "Durath",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.94,
+      "count": 1540,
+      "evidenceUrl": "https://www.goodreads.com/book/show/29430413-leman-russ"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

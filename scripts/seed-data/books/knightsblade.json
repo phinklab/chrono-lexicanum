@@ -1,0 +1,96 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0446",
+  "slug": "knightsblade",
+  "title": "Knightsblade",
+  "authors": [
+    "Andy Clark"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novel",
+  "seriesHint": "Imperial Knights",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Five years after House Chimaeros fell to heresy, Luk Kar Chimaeros has cast aside his name to become the Knight of Ashes, a Freeblade hunting his treacherous step-mother Alicia Kar Manticos across the stars with a band of fellow exiles. Just as the chase nears its end, catastrophe descends on his homeworld of Adrastapol — a massive ork invasion that threatens the surviving noble Houses, leaving High King Danial Tan Draconis to unite them or watch his world burn. Luk faces an agonising choice: press on with his quest for justice and honour, or return home to fight beside his former brothers and risk being branded a heretic forever.",
+    "facetIds": [
+      "book",
+      "male",
+      "imperium",
+      "planetary",
+      "series_finale",
+      "standard",
+      "war_story",
+      "journey",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "redemption",
+      "loyalty",
+      "war",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "House Chimaeros",
+        "role": "primary"
+      },
+      {
+        "name": "House Draconis",
+        "role": "supporting"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Adrastapol",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Luk Kar Chimaeros",
+        "role": "pov"
+      },
+      {
+        "name": "Danial Tan Draconis",
+        "role": "pov"
+      },
+      {
+        "name": "Alicia Kar Manticos",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.22,
+      "count": 131,
+      "evidenceUrl": "https://www.goodreads.com/book/show/38216135-knightsblade"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

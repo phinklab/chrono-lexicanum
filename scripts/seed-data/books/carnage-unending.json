@@ -1,0 +1,94 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0572",
+  "slug": "carnage-unending",
+  "title": "Carnage Unending",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2026,
+  "format": "anthology",
+  "seriesHint": "40k - TBC",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "Where the orks and the Imperium collide, there is only slaughter without end. Across a dozen battlefields, the warriors of mankind stand against the green tide and the servants of the Ruinous Powers, and few of them will live to tell of it. On the hive world of Armageddon, the Black Templars hurl themselves into the teeth of the ork hordes while the soldiers of the Astra Militarum fight simply to survive another hour. A Dreadnought of the Black Templars remembers the man he once was as he grinds through the enemy, Castellan Emeric leads his brethren to crush a world in open revolt, and an inquisitor confronts a dangerous secret buried within the ranks of the Space Wolves. Through it all looms the grim figure of Commissar Yarrick, from the desperate ork-hunting guardsmen of his early days to the moment he lies trapped and broken inside an overturned tank, refusing to die. Bringing together eleven short stories and a novella from acclaimed authors including Dan Abnett, Guy Haley, Chris Wraight and Mike Brooks, this collection delivers relentless, unflinching war in the grim darkness of the far future.",
+    "facetIds": [
+      "book",
+      "en",
+      "ensemble",
+      "multi",
+      "space_marine",
+      "guardsman",
+      "commissar",
+      "inquisitor",
+      "dual",
+      "galactic",
+      "requires_context",
+      "standard",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "sacrifice"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Black Templars",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Space Wolves",
+        "role": "supporting"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Armageddon",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Commissar Yarrick",
+        "role": "pov"
+      },
+      {
+        "name": "Castellan Emeric",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.77,
+      "count": 22,
+      "evidenceUrl": "https://www.goodreads.com/book/show/238972647-carnage-unending"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

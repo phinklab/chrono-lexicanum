@@ -1,0 +1,86 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0089",
+  "slug": "vulkan-lord-of-drakes",
+  "title": "Vulkan: Lord of Drakes",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novel",
+  "seriesHint": "The Primarchs",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Early in the Great Crusade, the XVIII Legion is still a Terran formation in search of an identity, and out in the Taras Division it is about to be annihilated. Nineteen thousand Astartes hold the line against more than a million orks with no expectation of rescue. Their salvation lies on Nocturne, where their newly-found primarch Vulkan has been quietly raising a second Legion from the volcanic-bred warriors of his homeworld and waiting, against his own impatience, for the moment his Terran sons would be ready to call him father. When the Salamanders finally move, Vulkan splits his force: half he sends round the planet as a hammer to draw the greenskin tide, half he leads personally on a strike at the heart of the enemy. Two halves of one Legion are about to meet for the first time, and the survival of both depends on it.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "space_marine",
+      "male",
+      "imperium",
+      "planetary",
+      "standalone",
+      "short",
+      "war_story",
+      "last_stand",
+      "character_study",
+      "action_heavy",
+      "somber",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Salamanders",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Taras Division",
+        "role": "primary"
+      },
+      {
+        "name": "Nocturne",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Vulkan",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.56,
+      "count": 844,
+      "evidenceUrl": "https://www.goodreads.com/book/show/38747892-vulkan"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

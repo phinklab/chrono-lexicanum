@@ -1,0 +1,103 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0107",
+  "slug": "brutal-kunnin",
+  "title": "Brutal Kunnin",
+  "authors": [
+    "Mike Brooks"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Ufthak Blackhawk, a Goff Big-Mek with more cunning than anyone wants to admit, leads an Ork assault on the forge world Hephaesto and finds Kaptin Badrukk's Freebooterz already looting the prize. Ordered into temporary cooperation by Da Biggest Big Mek, Ufthak sees a chance to make his name by crushing the Adeptus Mechanicus, stealing the best toys on the planet and surviving Badrukk's inevitable double-cross. His grot Nizkwik adds panic, loyalty and comic timing to the carnage. A rare Ork-POV war-heist that swaps solemn grimdark for loud, brutal, very kunnin' satire.",
+    "facetIds": [
+      "book",
+      "male",
+      "pc_xenos",
+      "xenos",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "heist",
+      "character_study",
+      "satirical",
+      "action_heavy",
+      "hubris",
+      "brotherhood",
+      "loyalty",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_language",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Orks",
+        "role": "primary"
+      },
+      {
+        "name": "Goffs",
+        "role": "primary"
+      },
+      {
+        "name": "Freebooterz",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "antagonist"
+      },
+      {
+        "name": "Skitarii",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Hephaesto",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ufthak Blackhawk",
+        "role": "pov"
+      },
+      {
+        "name": "Nizkwik",
+        "role": "supporting"
+      },
+      {
+        "name": "Mogrot Redtoof",
+        "role": "supporting"
+      },
+      {
+        "name": "Kaptin Badrukk",
+        "role": "antagonist"
+      },
+      {
+        "name": "Da Biggest Big Mek",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

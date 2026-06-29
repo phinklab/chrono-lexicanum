@@ -1,0 +1,79 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0596",
+  "slug": "lelith-hesperax-queen-of-knives",
+  "title": "Lelith Hesperax: Queen of Knives",
+  "authors": [
+    "Mike Brooks"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2024,
+  "format": "novel",
+  "seriesHint": "Drukhari",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Complete. OFOB title 'Lelith Hesperax' → the 2024 novel 'Queen of Knives'.",
+  "source": {
+    "kind": "manual",
+    "url": "https://www.blacklibrary.com/prod-home/new/ebook-lelith-hesperax-queen-of-knives-eng-2024.html",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Lelith Hesperax — peerless Succubus of the Cult of Strife and undisputed champion of Commorragh's arenas — takes to the road alongside the enigmatic Ynnari death cult.",
+    "facetIds": [
+      "book",
+      "en",
+      "female",
+      "pc_xenos",
+      "xenos",
+      "galactic",
+      "standalone",
+      "standard",
+      "journey",
+      "character_study",
+      "grimdark",
+      "cw_violence",
+      "cw_disturbing"
+    ],
+    "factions": [
+      {
+        "name": "Drukhari",
+        "role": "primary"
+      },
+      {
+        "name": "Ynnari",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Commorragh",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lelith Hesperax",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "Source synopsis names only Commorragh (the Succubus's home arena city) as a mentioned setting; the novel is a road-journey whose en-route worlds are not specified in available sources, so no primary location is asserted."
+      }
+    ],
+    "rating": {
+      "status": "unrated",
+      "source": "goodreads",
+      "reason": "OFOB-gap addition (Brief 167) — no Goodreads rating captured in this additive pass; left explicitly unrated."
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

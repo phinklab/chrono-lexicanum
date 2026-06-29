@@ -1,0 +1,97 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0477",
+  "slug": "of-honour-and-iron",
+  "title": "Of Honour and Iron",
+  "authors": [
+    "Ian St. Martin"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novel",
+  "seriesHint": "Space Marine Conquests",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "During the Indomitus Crusade, Chaplain Helios of the Ultramarines is dispatched on a mission Roboute Guilliman entrusts to no one else — to retrieve a relic from the ravaged world of Quradim before it can be lost. Helios takes Sergeant Theron and a handful of the strange new Primaris reinforcements he barely trusts. On Quradim the Genesis Chapter is dying in defence of the same prize, hunted by Warsmith Bolaraphon and his Iron Warriors, who buried it there during the Great Crusade and have returned to claim it back. What Helios finds will force him to weigh honour, oath, and the cost of giving any weapon, however holy, a second life.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "journey",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "brotherhood",
+      "hubris",
+      "sacrifice",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Genesis Chapter",
+        "role": "supporting"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Quradim",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Helios",
+        "role": "pov"
+      },
+      {
+        "name": "Theron",
+        "role": "supporting"
+      },
+      {
+        "name": "Bolaraphon",
+        "role": "antagonist"
+      },
+      {
+        "name": "Roboute Guilliman",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.9,
+      "count": 268,
+      "evidenceUrl": "https://www.goodreads.com/book/show/41454832-of-honour-and-iron"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0048",
+  "slug": "warriors-of-the-ultramar",
+  "title": "Warriors of the Ultramar",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2003,
+  "format": "novel",
+  "seriesHint": "Ultramarines",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Captain Uriel Ventris and the Ultramarines 4th Company are despatched to Tarsis Ultra, an industrial frontier world directly in the path of a Tyranid hive-fleet splinter pushing coreward through the Eastern Fringe. The defence is mounted jointly with the Mortifactors Chapter — an austere, death-cult-oriented Astartes brotherhood under Chaplain Astador whose doctrine of acceptable losses pulls hard against Ventris's instinctive Ultramarine pragmatism — and supported by Tarsis Ultra's local Imperial Guard militia, a substantial Adeptus Mechanicus contingent and a returning Inquisitor Ario Barzano. The campaign runs as a planet-scale siege procedural: hive-city perimeters, falling industrial belts, the slow grinding of Astartes-grade defensive lines against an enemy that cannot be deterred. The decisive choice the novel turns on is whether to deploy a Magos-engineered Vespasian-class biological weapon against the Hive Fleet — a Codex-Astartes violation the Mortifactors propose and Ventris ultimately authorises, ending the planetary defence at the cost of a death-oath that propels Dead Sky, Black Sun. Closes with Tarsis Ultra held and Ventris sentenced to a death-oath alongside Pasanius.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "siege",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "loyalty",
+      "brotherhood",
+      "sacrifice",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Mortifactors",
+        "role": "supporting"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Tarsis Ultra",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Uriel Ventris",
+        "role": "pov"
+      },
+      {
+        "name": "Pasanius Lysane",
+        "role": "supporting"
+      },
+      {
+        "name": "Ario Barzano",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaplain Astador",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

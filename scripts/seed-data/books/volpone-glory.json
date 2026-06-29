@@ -1,0 +1,101 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0111",
+  "slug": "volpone-glory",
+  "title": "Volpone Glory",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In the Sabbat Worlds Crusade, the Volpone Bluebloods arrive on Gnostes as proud aristocrats of war, certain that lineage, drill, and reputation will carry the Agria island chain back into Imperial hands. The Blood Pact turns that certainty into a meat grinder, and one unlikely rise through the ranks becomes useful to commanders who need a cleaner story than the front can provide. The regiment's hunger for glory curdles into propaganda as much as courage. A gritty Astra Militarum war story about class, command, and needing victory to look noble.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "sector",
+      "standalone",
+      "standard",
+      "war_story",
+      "political_thriller",
+      "character_study",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "loyalty",
+      "hubris",
+      "doubt",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Volpone Bluebloods",
+        "role": "primary"
+      },
+      {
+        "name": "Royal Volpone",
+        "role": "primary"
+      },
+      {
+        "name": "Sabbat Worlds Crusade",
+        "role": "secondary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Blood Pact",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Gnostes",
+        "role": "primary"
+      },
+      {
+        "name": "Agria",
+        "role": "primary"
+      },
+      {
+        "name": "Sabbat Worlds",
+        "role": "secondary"
+      }
+    ],
+    "characters": [],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

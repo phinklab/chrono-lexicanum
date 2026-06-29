@@ -1,0 +1,78 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0321",
+  "slug": "engines-of-war",
+  "title": "Engines of War",
+  "authors": [
+    "Steve Lyons"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novella",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The agri-world of Orath is dying, choked by a spreading plague, and the Ultramarines arrive in force to cut the rot out at its source. Captain Galenus of the Fifth Company leads an armoured spearhead against Fort Kerberos, a stronghold held by the Death Guard, whose corruption-ridden warriors have dug in behind walls of decay. What follows is a punishing campaign of tanks, gunships and grinding ground assault, as the Space Marines bring their full might to bear against an enemy that does not fear death. Yet for all their firepower, Galenus and his brothers must reckon with a deeper question: why have the servants of the Plague God poured such effort into a world the Imperium had all but forgotten? The answer lies buried beneath Orath, and uncovering it will be paid for in blood.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "novella",
+      "mid_series",
+      "war_story",
+      "siege",
+      "action_heavy",
+      "grimdark",
+      "war",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Orath",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Galenus",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.15,
+      "count": 41,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22071455-engines-of-war"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

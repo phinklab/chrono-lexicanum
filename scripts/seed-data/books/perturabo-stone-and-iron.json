@@ -1,0 +1,85 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0234",
+  "slug": "perturabo-stone-and-iron",
+  "title": "Perturabo: Stone and Iron",
+  "authors": [
+    "Robbie MacNiven"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "audio_drama",
+  "seriesHint": "The Primarchs Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Newly raised and still untested, the 33rd Grand Battalion of the Iron Warriors take the field for the first time with the primarch himself at their head. Perturabo means to use the campaign for more than a victory: the fight unfolds on a greenskin-held world held alongside the Imperial Fists, and the Lord of Iron is taking the measure of his fresh officers as much as he is taking the measure of his cousins under Dorn. As the orks press the lines and the VII Legion sets stone against the assault, Perturabo turns the action into an object lesson, drawing for his sons what he believes is the difference between Dorn's way and his own — a difference, he insists, that is not academic, and one that will define how the IV Legion fights for the rest of their long, grudging service.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "novella",
+      "war_story",
+      "character_study",
+      "action_heavy",
+      "grimdark",
+      "philosophical",
+      "hubris",
+      "brotherhood",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Warriors",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "supporting"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Perturabo",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "the greenskin-held world where the 33rd Grand Battalion fights beside the Imperial Fists is not named in available source coverage"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.66,
+      "count": 166,
+      "evidenceUrl": "https://www.goodreads.com/book/show/36696630"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

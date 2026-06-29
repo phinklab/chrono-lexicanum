@@ -1,0 +1,101 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0118",
+  "slug": "catachan-devil",
+  "title": "Catachan Devil",
+  "authors": [
+    "Justin Woolley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Colonel Haskell Hell Fist Aldalon brings the Catachan 57th Jungle Fighters to Gondwa VI and chooses attack over defence: retake Outpost Four from the rising Ork threat. The Catachans are saddled with Trooper Torvin, sole Skadi survivor of the outpost's fall and a man they suspect of cowardice, while the Ork kommando Nogrok gives the enemy its own savage momentum rather than scenery. Torvin has to survive jungle, greenskin cunning, and the contempt of allies who respect only proof paid in blood. A hard-edged Catachan war story about survivor shame, regimental pride, and earning a place among soldiers who may kill you first.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "dual",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "war",
+      "brotherhood",
+      "doubt",
+      "loyalty",
+      "redemption",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_abuse",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Catachan Jungle Fighters",
+        "role": "primary"
+      },
+      {
+        "name": "Skadi",
+        "role": "supporting"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Gondwa VI",
+        "role": "primary"
+      },
+      {
+        "name": "Outpost Four",
+        "role": "secondary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Haskell Aldalon",
+        "role": "pov"
+      },
+      {
+        "name": "Trooper Torvin",
+        "role": "pov"
+      },
+      {
+        "name": "Nogrok",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

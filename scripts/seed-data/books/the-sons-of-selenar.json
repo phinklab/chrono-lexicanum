@@ -1,0 +1,99 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0058",
+  "slug": "the-sons-of-selenar",
+  "title": "The Sons of Selenar",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novella",
+  "seriesHint": "Siege of Terra",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Sisypheum, the Shattered Legions strike cruiser that has spent the war hunting traitors deep behind their lines, intercepts a garbled signal from Luna and follows it to the cratered surface of a moon scarred by the bombardment of Terra. The crew is divided: some want to obey orders and rejoin their parent Legions on the Throneworld, others trust their resurrected captain's hunch and descend to the ruins. What they find in the lunar laboratories of the Selenar gene-cult is a relic of the earliest days of the Astartes project — a buried secret about the Space Marines that will outlast the Heresy itself. This novella closes the Sisypheum's long campaign and quietly answers a question that has shadowed the Horus Heresy from the start.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "ensemble",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "novella",
+      "journey",
+      "mystery",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Hands",
+        "role": "primary"
+      },
+      {
+        "name": "Salamanders",
+        "role": "supporting"
+      },
+      {
+        "name": "Raven Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Selenar Gene-Cult",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Luna",
+        "role": "primary"
+      }
+    ],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "title",
+        "currentValue": "The Sons of Selenar",
+        "suggestion": "Sons of the Selenar",
+        "evidenceUrl": "https://www.goodreads.com/book/show/52385692-sons-of-the-selenar"
+      },
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "Sisypheum crew rota across the Shattered Legions arc could not be confirmed from accessible sources; left empty rather than fabricated"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.9,
+      "count": 1070,
+      "evidenceUrl": "https://www.goodreads.com/book/show/52385692-sons-of-the-selenar"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0132",
+  "slug": "the-honoured",
+  "title": "The Honoured",
+  "authors": [
+    "Rob Sanders"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "novella",
+  "seriesHint": "Horus Heresy Novellas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In the immediate aftermath of the Word Bearers' treacherous assault on Calth, the planet's wounded star drives Ultramarine and traitor alike into the subterranean arcologies. Captain Steloc Aethon of the famed 19th Company — the Honoured — rallies what is left of his command and sets out to wage a new kind of war in the dark. The Word Bearer lines are scattered, their objectives shrouded; the underworld is a maze of dust, scarce air and stranger superstition. But Aethon knows that somewhere in those tunnels walks Kurtha Sedd, the Chaplain he once called friend, and bitter vengeance threatens to drown the discipline Roboute Guilliman taught him to keep. A subterranean companion piece to Annandale's The Unburdened, told from the loyalist side of the Calth Underworld War.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "novella",
+      "war_story",
+      "siege",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "loyalty",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Calth",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Steloc Aethon",
+        "role": "pov"
+      },
+      {
+        "name": "Kurtha Sedd",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.32,
+      "count": 353,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/27559823"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

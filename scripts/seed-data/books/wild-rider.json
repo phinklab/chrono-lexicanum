@@ -1,0 +1,97 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0482",
+  "slug": "wild-rider",
+  "title": "Wild Rider",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novel",
+  "seriesHint": "Rise of the Ynnari",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Nuadhu Fireheart, headstrong Wild Lord of the Saim-Hann craftworld, has always been first to ride toward danger. When an emissary of Yvraine seeks him out, he agrees to investigate a stirring on the world of Agarimethea, and unwittingly wakes the necrontyr from a slumber that has lasted aeons. With his ailing grandfather Naiall, chieftain of Clan Fireheart, watching from afar, Nuadhu must turn to the followers of the Whispering God for an alliance his proud kin would never normally accept. Riders, Spiritseers and Ynnari race back to Agarimethea to break the Necron tomb before its strength becomes unstoppable. But Yvraine's interest in Naiall runs deeper than diplomacy, and Nuadhu begins to suspect his clan has been brought to the brink of something far older than a single battle.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "pc_xenos",
+      "xenos",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "journey",
+      "action_heavy",
+      "grimdark",
+      "loyalty",
+      "war",
+      "sacrifice",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Saim-Hann",
+        "role": "primary"
+      },
+      {
+        "name": "Ynnari",
+        "role": "primary"
+      },
+      {
+        "name": "Necrons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Saim-Hann",
+        "role": "supporting"
+      },
+      {
+        "name": "Agarimethea",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Nuadhu Fireheart",
+        "role": "pov"
+      },
+      {
+        "name": "Yvraine",
+        "role": "supporting"
+      },
+      {
+        "name": "Naiall Fireheart",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.5,
+      "count": 115,
+      "evidenceUrl": "https://www.goodreads.com/book/show/42740946-wild-rider"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

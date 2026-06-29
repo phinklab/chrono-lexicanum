@@ -1,0 +1,106 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0484",
+  "slug": "vaults-of-obsidian",
+  "title": "Vaults of Obsidian",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2019,
+  "format": "anthology",
+  "seriesHint": "Blackstone Fortress",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The space port of Precipice clings to the edge of the Blackstone Fortress, an unfathomable construct adrift in the Western Reaches, lit by uneasy alliances and unsteady fortunes. This anthology gathers a dozen short stories from across that strange frontier. A ratling pair scheme over a salvage haul; a robot of the Mechanicus broods on its long memory; a kroot tracker tests the limits of an oath; a tech-priest hunts for relics that should never have been built. Rogue traders, hereteks and zealots brush past one another in cantinas and corridors, while inside the Fortress itself ancient mechanisms wake to the presence of those bold or foolish enough to wander deeper. The pieces sit close enough to the wider Blackstone novels to enrich them, but each stands on its own as a sketch from a haunted, half-explored world.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "multi",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "mystery",
+      "character_study",
+      "war_story",
+      "somber",
+      "cosmic_horror",
+      "brotherhood",
+      "hubris",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Rogue Traders",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Ministorum",
+        "role": "supporting"
+      },
+      {
+        "name": "Kroot",
+        "role": "supporting"
+      },
+      {
+        "name": "Ratlings",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Precipice",
+        "role": "primary"
+      },
+      {
+        "name": "Blackstone Fortress",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Janus Draik",
+        "role": "supporting"
+      },
+      {
+        "name": "Grekh",
+        "role": "supporting"
+      },
+      {
+        "name": "Rein",
+        "role": "supporting"
+      },
+      {
+        "name": "Raus",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.86,
+      "count": 106,
+      "evidenceUrl": "https://www.goodreads.com/book/show/52757645-vaults-of-obsidian"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

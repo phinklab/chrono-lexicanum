@@ -1,0 +1,120 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0087",
+  "slug": "curse-of-the-wulfen",
+  "title": "Curse of the Wulfen",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "War-Zone-Fenris tie-in. Ten thousand years after Prospero, the Wulfen — the lost 13th Company of the Space Wolves — return in scattered packs across the Fenris system, and the chapter commits its great companies to recover them. Wolf-Lord Harald Deathwolf anchors the response. At first the Wulfen read as the closest sign in millennia that Leman Russ might return, but the warp has marked them deeply, and present-day Space Wolves turn Wulfen on contact. Meanwhile cult activity across the system resolves, seen from orbit, into the glyph of Magnus the Red — the long-prepared revenge of the Thousand Sons. Grey Knights arrive demanding the Wulfen be handed to the Ordo Malleus; an uneasy truce holds the line. A tragic chapter-piece on what was lost at Prospero and what came back.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "requires_context",
+      "standard",
+      "war_story",
+      "siege",
+      "political_thriller",
+      "mystery",
+      "grimdark",
+      "cosmic_horror",
+      "somber",
+      "action_heavy",
+      "brotherhood",
+      "betrayal",
+      "doubt",
+      "sacrifice",
+      "loyalty",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Wulfen",
+        "role": "primary"
+      },
+      {
+        "name": "Thousand Sons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tzeentch",
+        "role": "antagonist"
+      },
+      {
+        "name": "Daemons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Grey Knights",
+        "role": "supporting"
+      },
+      {
+        "name": "Ordo Malleus",
+        "role": "supporting"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Fenris",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Harald Deathwolf",
+        "role": "pov"
+      },
+      {
+        "name": "Magnus the Red",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

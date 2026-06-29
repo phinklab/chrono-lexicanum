@@ -1,0 +1,84 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0239",
+  "slug": "straken",
+  "title": "Straken",
+  "authors": [
+    "Toby Frost"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novel",
+  "seriesHint": "Imperial Guard",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Pulled out of a catastrophic war against the tyranids, the legendary Colonel Iron Hand Straken and his Catachan Jungle Fighters are redeployed to the cavern world of Dulma'lin to scour it of an ork infestation. Beneath the surface, in a maze of tunnels and caverns, the Catachans are vastly outnumbered by greenskins, and the suspicious Commissar Morrell watches Straken's every move, ready to read mutiny into the colonel's hard-bitten unorthodoxy. To hold the line, Straken must master not only the alien menace but the divisions within his own ranks. A muscular, monster-hunting Imperial Guard adventure built around one of the tabletop's most iconic soldiers.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "last_stand",
+      "action_heavy",
+      "grimdark",
+      "war",
+      "loyalty",
+      "brotherhood",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Catachan Jungle Fighters",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Dulma'lin",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Colonel Iron Hand Straken",
+        "role": "pov"
+      },
+      {
+        "name": "Commissar Morrell",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.98,
+      "count": 142,
+      "evidenceUrl": "https://www.goodreads.com/book/show/20319430-straken"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

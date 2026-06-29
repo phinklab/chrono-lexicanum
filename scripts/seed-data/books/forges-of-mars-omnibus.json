@@ -1,0 +1,135 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0368",
+  "slug": "forges-of-mars-omnibus",
+  "title": "Forges of Mars Omnibus",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "omnibus",
+  "seriesHint": "Forges of Mars",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The complete Forges of Mars trilogy — Priests of Mars, Lords of Mars, and Gods of Mars. Archmagos Lexell Kotov leads a vast Explorator fleet aboard the ancient Ark Mechanicus Speranza on a crusade beyond the galactic rim, following the trail of the lost Magos Telok and the source of life itself. Joined by the rogue trader Roboute Surcouf, Cadian soldiers, Black Templars, and Titan war-engines, the expedition braves the deadly Halo Scar and the uncharted dark beyond — only to find awakening alien tombs, the scheming machine-intelligence Galatea, and a former master remade into a monster. A sweeping deep-space saga of wonder, dread, and the catastrophic price of forbidden knowledge.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "tech_priest",
+      "imperium",
+      "galactic",
+      "series_start",
+      "doorstopper",
+      "journey",
+      "war_story",
+      "philosophical",
+      "cosmic_horror",
+      "hubris",
+      "faith",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "primary"
+      },
+      {
+        "name": "Necrons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      },
+      {
+        "name": "Black Templars",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Mars",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lexell Kotov",
+        "role": "pov"
+      },
+      {
+        "name": "Roboute Surcouf",
+        "role": "pov"
+      },
+      {
+        "name": "Galatea",
+        "role": "antagonist"
+      },
+      {
+        "name": "Telok",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tarkis Blaylock",
+        "role": "supporting"
+      },
+      {
+        "name": "Linya Tychon",
+        "role": "supporting"
+      },
+      {
+        "name": "Ven Anders",
+        "role": "supporting"
+      },
+      {
+        "name": "Tanna",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.2,
+      "count": 352,
+      "evidenceUrl": "https://www.goodreads.com/book/show/30753544-forges-of-mars-omnibus"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0365",
+        "displayOrder": 0,
+        "confidence": 0.95,
+        "basis": "Forges of Mars omnibus follows the trilogy"
+      },
+      {
+        "externalBookId": "W40K-0366",
+        "displayOrder": 1,
+        "confidence": 0.95,
+        "basis": "Forges of Mars omnibus follows the trilogy"
+      },
+      {
+        "externalBookId": "W40K-0367",
+        "displayOrder": 2,
+        "confidence": 0.95,
+        "basis": "Forges of Mars omnibus follows the trilogy"
+      }
+    ]
+  }
+}

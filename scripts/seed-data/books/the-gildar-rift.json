@@ -1,0 +1,87 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0284",
+  "slug": "the-gildar-rift",
+  "title": "The Gildar Rift",
+  "authors": [
+    "Sarah Cawkwell"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2011,
+  "format": "novel",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "When a long-lost Imperial warship drifts out of the warp, boarding parties discover it overrun by the Red Corsairs, the renegade fleet of the infamous Huron Blackheart. Huron's raiders are intent on seizing the Gildar Rift and tightening their grip on the surrounding sector. Standing against them are the Silver Skulls, a proud and superstitious Space Marine Chapter led by Captain Arrun, whose every decision is guided by the omens read by his Prognosticators. As fleets clash in the void and warriors duel among the wreckage, the fate of the Rift comes down to a brutal struggle on the surface of Gildar Secundus below.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "chaos",
+      "sector",
+      "standalone",
+      "standard",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "loyalty",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Silver Skulls",
+        "role": "primary"
+      },
+      {
+        "name": "Red Corsairs",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Gildar Rift",
+        "role": "primary"
+      },
+      {
+        "name": "Gildar Secundus",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Arrun",
+        "role": "pov"
+      },
+      {
+        "name": "Huron Blackheart",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.5,
+      "count": 380,
+      "evidenceUrl": "https://www.goodreads.com/book/show/10858527-the-gildar-rift"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

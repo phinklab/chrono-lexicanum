@@ -1,0 +1,85 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0230",
+  "slug": "gunheads",
+  "title": "Gunheads",
+  "authors": [
+    "Steve Parker"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2009,
+  "format": "novel",
+  "seriesHint": "Imperial Guard",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Sergeant Wulfe and the tank crews of the 81st Cadian Armoured, the Gunheads, roll onto Golgotha as part of an Imperial battlegroup with a strange objective: recover the Fortress of Arrogance, the lost battle tank of the legendary Commissar Yarrick, and haul it home to fire the Imperium's war on Armageddon. Golgotha is a furnace world swarming with hundreds of thousands of Orks, and the salvage run quickly becomes a fighting odyssey across hostile ground. Wulfe must hold his crew together while a bitter rival, Corporal Lenck, works against him and a haunting vision gnaws at his nerve. A gritty armoured-warfare tale of tanks, dust and the cost of a symbol.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "company",
+      "standalone",
+      "standard",
+      "war_story",
+      "journey",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "loyalty",
+      "brotherhood",
+      "war",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Golgotha",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sergeant Wulfe",
+        "role": "pov"
+      },
+      {
+        "name": "Corporal Lenck",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.84,
+      "count": 594,
+      "evidenceUrl": "https://www.goodreads.com/book/show/6339079-gunheads"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

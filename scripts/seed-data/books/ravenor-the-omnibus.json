@@ -1,0 +1,134 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0008",
+  "slug": "ravenor-the-omnibus",
+  "title": "Ravenor: The Omnibus",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2009,
+  "format": "omnibus",
+  "seriesHint": "Inquisitor (Eisenhorn/Ravenor/Bequin)",
+  "series": "ravenor",
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Omnibus collecting Ravenor, Ravenor Returned and Ravenor Rogue, plus the short stories \"Thorn Wishes Talon\" and \"Playing Patience\". Together these tell the full arc of Gideon Ravenor's slow drift from sanctioned Imperial investigator to rogue Inquisitor on the run from his own order, while inside him grows the mathematical proof that the daemon Slyte was incubating in his own house. Best read after Eisenhorn: continuity threads (Cherubael, Pontius Glaw, the Pylon Saint) only resolve if both arcs are read in order. The two short stories sit between Hereticus and Ravenor and bridge the two protagonists' eras.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "inquisitor",
+      "imperium",
+      "sector",
+      "requires_context",
+      "doorstopper",
+      "mystery",
+      "political_thriller",
+      "journey",
+      "grimdark",
+      "action_heavy",
+      "philosophical",
+      "betrayal",
+      "hubris",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Xenos",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Scarus Sector",
+        "role": "primary"
+      },
+      {
+        "name": "Eustis Majoris",
+        "role": "primary"
+      },
+      {
+        "name": "Yassilli Sarum",
+        "role": "secondary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Gideon Ravenor",
+        "role": "pov"
+      },
+      {
+        "name": "Harlon Nayl",
+        "role": "supporting"
+      },
+      {
+        "name": "Kara Swole",
+        "role": "supporting"
+      },
+      {
+        "name": "Patience Kys",
+        "role": "supporting"
+      },
+      {
+        "name": "Carl Thonius",
+        "role": "supporting"
+      },
+      {
+        "name": "Wystan Frauka",
+        "role": "supporting"
+      },
+      {
+        "name": "Zygmunt Molotch",
+        "role": "supporting"
+      },
+      {
+        "name": "Gregor Eisenhorn",
+        "role": "mentioned"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0005",
+        "displayOrder": 0,
+        "confidence": 0.95,
+        "basis": "Explicit Ravenor omnibus follows the trilogy in TLBranson section order"
+      },
+      {
+        "externalBookId": "W40K-0006",
+        "displayOrder": 1,
+        "confidence": 0.95,
+        "basis": "Explicit Ravenor omnibus follows the trilogy in TLBranson section order"
+      },
+      {
+        "externalBookId": "W40K-0007",
+        "displayOrder": 2,
+        "confidence": 0.95,
+        "basis": "Explicit Ravenor omnibus follows the trilogy in TLBranson section order"
+      }
+    ]
+  }
+}

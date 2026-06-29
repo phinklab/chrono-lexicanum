@@ -1,0 +1,94 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0532",
+  "slug": "the-iron-kingdom",
+  "title": "The Iron Kingdom",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2023,
+  "format": "novel",
+  "seriesHint": "Dawn of Fire",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Battle Group Praxis arrives at Kamidar bearing the body of the Iron Queen Orlah's slain daughter, killed serving Guilliman's crusade. The mission is meant to look like alliance, but the Imperium has come to strip the Knight world's foundries bare and bind it into the Anaxian Line - the great defensive wall meant to hold the Indomitus Crusade together. Kamidar has stood alone for generations and does not bend easily. Old loyalties curdle, the funeral becomes a flashpoint, and as the Iron Queen's grief turns to fury, agents of Abaddon move in the shadows to widen every crack they can find. What was offered as homecoming hardens into siege, and the war for the Anaxian Line begins on the very planet that was meant to defend it.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "multi",
+      "imperium",
+      "sector",
+      "mid_series",
+      "standard",
+      "war_story",
+      "siege",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "betrayal",
+      "loyalty",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Knights",
+        "role": "primary"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      },
+      {
+        "name": "Black Legion",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Kamidar",
+        "role": "primary"
+      },
+      {
+        "name": "Anaxian Line",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Iron Queen Orlah",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "antagonist subfaction inferred from 'agents of Abaddon' framing; specific Black Legion identification not directly confirmed in available sources"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.57,
+      "count": 674,
+      "evidenceUrl": "https://www.goodreads.com/book/show/65640678-the-iron-kingdom"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

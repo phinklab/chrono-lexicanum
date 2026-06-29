@@ -1,0 +1,94 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0278",
+  "slug": "rynns-world",
+  "title": "Rynn's World",
+  "authors": [
+    "Steve Parker"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2010,
+  "format": "novel",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "When the ork hordes of the warlord Snagrod, the Arch-Arsonist of Charadon, sweep through the sector, the Crimson Fists are first to answer, only to be all but annihilated. Worse follows on their home world of Rynn's World, where a single errant missile obliterates the Chapter's fortress-monastery and most of its warriors in an instant. With only a handful of battle-brothers left, Chapter Master Pedro Kantor and the indomitable Captain Cortez must wage a desperate planetary war from the ruins, holding the line at New Rynn City against a green tide that vastly outnumbers them. It is a fight not only for a world, but for the very survival of a proud Chapter teetering on the edge of extinction.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "last_stand",
+      "siege",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "sacrifice",
+      "loyalty",
+      "hubris",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Crimson Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Rynn's World",
+        "role": "primary"
+      },
+      {
+        "name": "Badlanding",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Pedro Kantor",
+        "role": "pov"
+      },
+      {
+        "name": "Alessio Cortez",
+        "role": "supporting"
+      },
+      {
+        "name": "Snagrod",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.95,
+      "count": 1531,
+      "evidenceUrl": "https://www.goodreads.com/book/show/6948743-rynn-s-world"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

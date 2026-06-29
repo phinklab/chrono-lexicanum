@@ -1,0 +1,96 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0060",
+  "slug": "fury-of-magnus",
+  "title": "Fury of Magnus",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "novella",
+  "seriesHint": "Siege of Terra",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "While the Siege of Terra rages around the Imperial Palace, Magnus the Red makes a war of his own. A fragment of his shattered soul still lies hidden in the inner sanctum of the Palace, and to be whole again the Crimson King must take it back — even if that means walking into his father's stronghold and facing the Emperor of Mankind. Magnus and an inner cabal of Thousand Sons sorcerers slip past void shields and Custodian wards, threading their way through ruined corridors a knife's-width from the Throne itself. The novella is a quiet, philosophical counterweight to the larger battle: a primarch who chose his exile being asked, one last time, whether he can stand against the father who broke him.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "dual",
+      "planetary",
+      "requires_context",
+      "novella",
+      "character_study",
+      "war_story",
+      "philosophical",
+      "cosmic_horror",
+      "grimdark",
+      "somber",
+      "sacrifice",
+      "hubris",
+      "betrayal",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Thousand Sons",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Custodes",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Palace",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Magnus the Red",
+        "role": "pov"
+      },
+      {
+        "name": "Emperor of Mankind",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.18,
+      "count": 1273,
+      "evidenceUrl": "https://www.goodreads.com/book/show/54303504-fury-of-magnus"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

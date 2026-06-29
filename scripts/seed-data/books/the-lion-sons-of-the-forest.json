@@ -1,0 +1,125 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0130",
+  "slug": "the-lion-sons-of-the-forest",
+  "title": "The Lion: Sons of the Forest",
+  "authors": [
+    "Mike Brooks"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2023,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A man wakes in a vast forest with no memory, then learns the impossible truth: he is Lion El'Jonson, Primarch of the Dark Angels, returned after ten thousand years to a galaxy split by the Great Rift. The sons he finds nearby are not the Chapter he expected but Fallen knights, warriors who believe he betrayed them as fiercely as he once believed they betrayed him. Some still wait for redemption; others have gone wholly to Chaos. As the Watchers in the Dark guide by silence and omen, the Lord of Shadowed Paths gathers the loyal lost to face a traitorous son, Zabriel, and the warband around him. A mythic return journey about memory, judgement, and whether a Primarch can learn mercy.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "standalone",
+      "standard",
+      "journey",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "philosophical",
+      "hopepunk",
+      "redemption",
+      "loyalty",
+      "brotherhood",
+      "doubt",
+      "faith",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Space Marines",
+        "role": "primary"
+      },
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Fallen Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Watchers in the Dark",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Caliban",
+        "role": "primary"
+      },
+      {
+        "name": "Great Rift",
+        "role": "secondary"
+      },
+      {
+        "name": "Imperium Nihilus",
+        "role": "secondary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lion El'Jonson",
+        "role": "pov"
+      },
+      {
+        "name": "Zabriel",
+        "role": "antagonist"
+      },
+      {
+        "name": "Roboute Guilliman",
+        "role": "mentioned"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "title",
+        "suggestion": "The Lion: Son of the Forest",
+        "reason": "Roster lists 'Sons of the Forest' (plural) but canonical title across Black-Library + Lexicanum + Simon-&-Schuster + Goodreads + Warhammer-Community + Fluffenhammer + TV-Tropes is 'Son of the Forest' (singular). Roster-mistag-cleanup deferred to Maintainer Excel-SSOT workflow."
+      }
+    ]
+  },
+  "collections": {
+    "collects": []
+  }
+}

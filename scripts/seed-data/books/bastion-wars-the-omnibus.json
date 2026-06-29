@@ -1,0 +1,115 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0271",
+  "slug": "bastion-wars-the-omnibus",
+  "title": "Bastion Wars: The Omnibus",
+  "authors": [
+    "Henry Zou"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "omnibus",
+  "seriesHint": "Bastion Wars",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Three linked campaigns sweep across the embattled Medina Worlds as a tide of daemon-worshipping renegades descends on the sub-sector. Inquisitor Obadiah Roth races to recover a cache of ancient artefacts before the traitors can turn their power against the Imperium. On a drowned frontier world, the Guardsmen of the 31st Riverine are dragged into a brutal counter-insurgency that curdles into something far darker. And far from any aid, the Blood Gorgons find their own ranks rotting from within as a mysterious plague grips one of their recruiting worlds, forcing the warband toward the brink of destruction. Gathered here, these intertwined stories trace heroes and villains alike through a corner of the galaxy where mercy is the rarest commodity of all.",
+    "facetIds": [
+      "book",
+      "male",
+      "inquisitor",
+      "guardsman",
+      "space_marine",
+      "imperium",
+      "chaos",
+      "sector",
+      "doorstopper",
+      "war_story",
+      "mystery",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "faith",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      },
+      {
+        "name": "Blood Gorgons",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Medina Worlds",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Obadiah Roth",
+        "role": "pov"
+      },
+      {
+        "name": "Barsabbas",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "out-of-print omnibus with thin online coverage; secondary POV identities verified only at low confidence"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.67,
+      "count": 39,
+      "evidenceUrl": "https://www.goodreads.com/book/show/20821610-bastion-wars"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0268",
+        "displayOrder": 0,
+        "confidence": 0.95,
+        "basis": "Bastion Wars omnibus follows the trilogy"
+      },
+      {
+        "externalBookId": "W40K-0269",
+        "displayOrder": 1,
+        "confidence": 0.95,
+        "basis": "Bastion Wars omnibus follows the trilogy"
+      },
+      {
+        "externalBookId": "W40K-0270",
+        "displayOrder": 2,
+        "confidence": 0.95,
+        "basis": "Bastion Wars omnibus follows the trilogy"
+      }
+    ]
+  }
+}

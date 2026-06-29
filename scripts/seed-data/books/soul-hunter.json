@@ -1,0 +1,116 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0346",
+  "slug": "soul-hunter",
+  "title": "Soul Hunter",
+  "authors": [
+    "Aaron Dembski-Bowden"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2010,
+  "format": "novel",
+  "seriesHint": "Night Lords",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Ten thousand years after their Primarch's murder, the Night Lords endure as scattered raiders, feared and hunted across the galaxy. Talos, a battle-brother of First Claw and a reluctant prophet cursed with his gene-father's visions, fights to keep his fractured warband alive as it is drawn into one of Abaddon the Despoiler's black crusades against the forge world of Crythe. When Talos returns from a vision with a captured Navigator and new servitors, he provokes the wrath of the warband's tyrannical master — and sets First Claw on a collision course with the Mechanicus, the Black Legion, and the legion's own ruin.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "sector",
+      "series_start",
+      "standard",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "loyalty",
+      "betrayal",
+      "brotherhood",
+      "doubt",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_language",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Night Lords",
+        "role": "primary"
+      },
+      {
+        "name": "Black Legion",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Crythe",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Talos",
+        "role": "pov"
+      },
+      {
+        "name": "Cyrion",
+        "role": "supporting"
+      },
+      {
+        "name": "Xarl",
+        "role": "supporting"
+      },
+      {
+        "name": "Uzas",
+        "role": "supporting"
+      },
+      {
+        "name": "Mercutian",
+        "role": "supporting"
+      },
+      {
+        "name": "The Exalted",
+        "role": "antagonist"
+      },
+      {
+        "name": "Octavia",
+        "role": "supporting"
+      },
+      {
+        "name": "Septimus",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.36,
+      "count": 5948,
+      "evidenceUrl": "https://www.goodreads.com/book/show/52837334"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

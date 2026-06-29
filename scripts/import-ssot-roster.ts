@@ -584,6 +584,29 @@ function readExtensionRaw(): unknown | null {
 }
 
 async function main(): Promise<void> {
+  // RETIRED (Brief 171 Teil B): the Excel SSOT (Warhammer_Books_SSOT.xlsx) +
+  // book-roster.extension.json are no longer LIVE sources — the corpus lives in
+  // scripts/seed-data/books/*.json. This importer (which rebuilt book-roster.json
+  // from the Excel + extension) is neutralized as Legacy-only; the Excel +
+  // extension + roster stay on disk as frozen provenance and the import logic
+  // below is preserved for that provenance, but it refuses to run without an
+  // explicit escape hatch. A read-only Excel VIEW of the per-book corpus is
+  // `npm run books:excel` (a one-way export, NOT a source).
+  if (process.env.ALLOW_RETIRED_SSOT_IMPORT !== "1") {
+    console.error(
+      [
+        "[import-ssot-roster] RETIRED (Brief 171). Excel is no longer the SSOT.",
+        "  The corpus lives in scripts/seed-data/books/*.json; add books there",
+        "  (scripts/seed-data/books/README.md). Warhammer_Books_SSOT.xlsx +",
+        "  book-roster.extension.json remain as frozen provenance only.",
+        "  Read-only Excel view of the per-book corpus: npm run books:excel",
+        "  (Provenance re-run only: ALLOW_RETIRED_SSOT_IMPORT=1 — re-derives the",
+        "   frozen book-roster.json; not part of any live pipeline.)",
+      ].join("\n"),
+    );
+    process.exit(1);
+  }
+
   console.log(`[import-ssot-roster] reading ${SOURCE_FILE}`);
 
   // `trim: false` works around a read-excel-file 9.0.9 bug where empty

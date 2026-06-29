@@ -1,0 +1,121 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0027",
+  "slug": "the-unremembered-empire",
+  "title": "The Unremembered Empire",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "With Terra silent and the warp closing the galaxy in on itself, Roboute Guilliman gathers every loyalist primarch he can reach to Macragge and founds Imperium Secundus, naming Sanguinius regent. The Lion El'Jonson brings the surviving Dark Angels in from a void hunt; Vulkan walks out of the warp half-mad with what Curze did to him; the Blood Angels primarch consents to a throne he never wanted; and Konrad Curze, already on Macragge in the shadows, sets out to undo the new empire from inside before it can take root. Through Guilliman, his brothers, the perpetual John Grammaticus and the Sotha listening post that hears the first daemonic tide breaking on Ultramar, the novel charts a fragile half-imperium taking shape in the hours before its rightful primarch comes home.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "space_marine",
+      "imperium",
+      "sector",
+      "mid_series",
+      "standard",
+      "political_thriller",
+      "character_study",
+      "war_story",
+      "court_intrigue",
+      "grimdark",
+      "somber",
+      "loyalty",
+      "brotherhood",
+      "hubris",
+      "doubt",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Dark Angels",
+        "role": "supporting"
+      },
+      {
+        "name": "Blood Angels",
+        "role": "supporting"
+      },
+      {
+        "name": "Salamanders",
+        "role": "supporting"
+      },
+      {
+        "name": "Night Lords",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Macragge",
+        "role": "primary"
+      },
+      {
+        "name": "Sotha",
+        "role": "supporting"
+      },
+      {
+        "name": "Ultramar",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Roboute Guilliman",
+        "role": "pov"
+      },
+      {
+        "name": "Sanguinius",
+        "role": "supporting"
+      },
+      {
+        "name": "Lion El'Jonson",
+        "role": "supporting"
+      },
+      {
+        "name": "Vulkan",
+        "role": "supporting"
+      },
+      {
+        "name": "Konrad Curze",
+        "role": "antagonist"
+      },
+      {
+        "name": "John Grammaticus",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.22,
+      "count": 4493,
+      "evidenceUrl": "https://www.goodreads.com/book/show/18143885-the-unremembered-empire"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

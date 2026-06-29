@@ -1,0 +1,95 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0073",
+  "slug": "now-peals-midnight",
+  "title": "Now Peals Midnight",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "short_story",
+  "seriesHint": "Siege of Terra Prequels",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Four hours from midnight, the watchstations of Sol register a shadow in the void that should not be there. Rogal Dorn knows what it means without needing to be told, and across Terra the long-rehearsed order to stand to begins its slow, irrevocable cascade. From silent counsels among the assembled primarchs to the small, ordinary dread of soldiers checking ammunition, civilians locking doors, and astropaths weeping at what they cannot un-hear, the final hours of peace are told in a chain of short vignettes, each one moving the clock closer to the first siren. By the last stroke of midnight, the Warmaster is here, and an age of the Imperium ends in the lifting of a hundred million eyes to the sky.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "multi",
+      "ensemble",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "novella",
+      "war_story",
+      "character_study",
+      "somber",
+      "grimdark",
+      "war",
+      "loyalty",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Custodes",
+        "role": "supporting"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Sol System",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Rogal Dorn",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "Vignette-Struktur springt durch viele POVs ohne klare Haupthandlung; nur Dorn ist sicher namentlich verankert."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.99,
+      "count": 158,
+      "evidenceUrl": "https://www.goodreads.com/book/show/37120511-now-peals-midnight"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

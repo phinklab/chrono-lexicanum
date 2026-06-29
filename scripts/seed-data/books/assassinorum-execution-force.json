@@ -1,0 +1,106 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0085",
+  "slug": "assassinorum-execution-force",
+  "title": "Assassinorum: Execution Force",
+  "authors": [
+    "Joe Parrino"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Box-set tie-in novella for the Officio Assassinorum. Four operatives — a Vindicare sniper, an Eversor berserker, a Callidus shapeshifter and a Culexus pariah — are dispatched as a single Execution Force to stop Severin Drask, a Sorcerer-Lord of the Crimson Slaughter, before he completes a ritual at the Temple of Shades that would unleash a daemonic tide on the Imperium. The four temples are so doctrinally different that their cooperation is the central tension: Eversor psychosis grates against Culexus silence, Callidus shape-shifting collides with Vindicare discipline, and Crimson Slaughter cabalists hunt the team through the temple as the team hunts Drask. A heist-and-last-stand procedural at squad scale, structured around each temple's turn in the spotlight.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "multi",
+      "imperium",
+      "squad",
+      "standalone",
+      "short",
+      "heist",
+      "last_stand",
+      "war_story",
+      "mystery",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "cosmic_horror",
+      "brotherhood",
+      "sacrifice",
+      "doubt",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Officio Assassinorum",
+        "role": "primary"
+      },
+      {
+        "name": "Vindicare Temple",
+        "role": "primary"
+      },
+      {
+        "name": "Eversor Temple",
+        "role": "primary"
+      },
+      {
+        "name": "Callidus Temple",
+        "role": "primary"
+      },
+      {
+        "name": "Culexus Temple",
+        "role": "primary"
+      },
+      {
+        "name": "Crimson Slaughter",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      },
+      {
+        "name": "Daemons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Temple of Shades",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Severin Drask",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

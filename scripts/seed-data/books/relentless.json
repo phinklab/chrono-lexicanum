@@ -1,0 +1,84 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0076",
+  "slug": "relentless",
+  "title": "Relentless",
+  "authors": [
+    "Richard Williams"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2008,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Class-war thriller aboard the Imperial-Navy cruiser Relentless. First Officer Ward has spent years running the ship as de-facto captain, the crew fat on illicit tithes extracted from civilian traders. When the hardliner Captain Becket is appointed above him, a conspiracy to remove Becket escalates to an assassination attempt that drops the new captain into the Conscript decks — the human fuel of an Imperial cruiser, where the strongest survive a lifetime of labour for the chance to climb back up. Becket has to work his way to the bridge to confront Ward, until a Dark Eldar raider intercept turns the internal coup into a survival fight. Ship-as-society at full scale.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "regiment",
+      "standalone",
+      "standard",
+      "political_thriller",
+      "mystery",
+      "war_story",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "betrayal",
+      "loyalty",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_abuse",
+      "cw_crime",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Navy",
+        "role": "primary"
+      },
+      {
+        "name": "Dark Eldar",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Eastern Fringe",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Captain Becket",
+        "role": "pov"
+      },
+      {
+        "name": "First Officer Ward",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

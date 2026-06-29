@@ -1,0 +1,89 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0460",
+  "slug": "the-eye-of-medusa",
+  "title": "The Eye of Medusa",
+  "authors": [
+    "David Guymer"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "Iron Hands (newer)",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The forge world of Thennos lies under the gunmetal aegis of Medusa, homeworld of the Iron Hands, by treaty as old as the Imperium. When Thennos's population turns traitor, the treaty becomes a death warrant. The Iron Hands fall on the world with the cold, calculating brutality that has long since replaced their compassion. Brother-sergeant Kardan Stronos, newly inducted into Clan Garrsak, leads his squad into the smoke of the burning forges expecting to find the heresy his masters described to him. What he finds instead is silence: secrets the planet refuses to give up, atrocities his Clan father insists are necessary, and an answer no Iron Hand is meant to look at. Beneath the soot and the welded plate, something dark is waiting in Thennos — something that does not respect the purity of cold logic or the holy machine, and that offers Stronos a question his Chapter has spent ten thousand years training him not to ask.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "series_start",
+      "standard",
+      "war_story",
+      "mystery",
+      "character_study",
+      "grimdark",
+      "action_heavy",
+      "philosophical",
+      "war",
+      "loyalty",
+      "doubt",
+      "hubris",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Hands",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Medusa",
+        "role": "primary"
+      },
+      {
+        "name": "Thennos",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Kardan Stronos",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.59,
+      "count": 147,
+      "evidenceUrl": "https://www.goodreads.com/book/show/35175175-the-eye-of-medusa"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

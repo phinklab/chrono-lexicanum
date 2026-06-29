@@ -1,0 +1,108 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0087",
+  "slug": "ferrus-manus-the-gorgon-of-medusa",
+  "title": "Ferrus Manus: The Gorgon of Medusa",
+  "authors": [
+    "David Guymer"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novel",
+  "seriesHint": "The Primarchs",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Mid-Crusade, the Iron Hands and the Emperor's Children are running joint exercises when news reaches them that the 413th Expedition Fleet is bogged down trying to bring the Gardinaal stellar empire to compliance. Ferrus Manus does not wait for reinforcements or for Fulgrim's caution; he takes the campaign himself, to prove a point to his brothers as much as to crack the Gardinaal. The fighting is told as much through the legionary Trurakk and the Palatine Blade Akurduana as through the primarch, with brief, unsparing flashbacks to Ferrus's making on Medusa stitched in between. The Gardinaal die hard, an assassination attempt nearly does what their fleet could not, and when Guilliman finally arrives to take stock he is grateful for the victory and furious about the price the Gorgon was willing to pay for it.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "space_marine",
+      "male",
+      "imperium",
+      "planetary",
+      "standalone",
+      "short",
+      "war_story",
+      "character_study",
+      "siege",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "hubris",
+      "brotherhood",
+      "war",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Hands",
+        "role": "primary"
+      },
+      {
+        "name": "Emperor's Children",
+        "role": "supporting"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Gardinaal",
+        "role": "primary"
+      },
+      {
+        "name": "Medusa",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ferrus Manus",
+        "role": "pov"
+      },
+      {
+        "name": "Moses Trurakk",
+        "role": "pov"
+      },
+      {
+        "name": "Akurduana",
+        "role": "pov"
+      },
+      {
+        "name": "Fulgrim",
+        "role": "supporting"
+      },
+      {
+        "name": "Roboute Guilliman",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.29,
+      "count": 746,
+      "evidenceUrl": "https://www.goodreads.com/book/show/35297657-ferrus-manus"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

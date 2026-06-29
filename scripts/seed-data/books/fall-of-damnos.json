@@ -1,0 +1,85 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0282",
+  "slug": "fall-of-damnos",
+  "title": "Fall of Damnos",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2011,
+  "format": "novel",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Cataclysmic earthquakes tear across the world of Damnos, waking an ancient horror buried beneath its frozen crust. The soulless necrons rise in their legions and begin to scour the human population from the surface. With the colony on the brink of annihilation, the Ultramarines brave a punishing orbital descent to make planetfall, led by the celebrated Captain Cato Sicarius and the Chief Librarian Tigurius. They are the last hope of Damnos against a tireless, deathless foe, but pride and rivalry within their own ranks threaten the campaign. As the battle turns ever grimmer, Tigurius is haunted by a prophetic vision foretelling the death of a hero.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "brotherhood",
+      "hubris",
+      "sacrifice",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Necrons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Damnos",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Cato Sicarius",
+        "role": "pov"
+      },
+      {
+        "name": "Tigurius",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.6,
+      "count": 747,
+      "evidenceUrl": "https://www.goodreads.com/book/show/8697266-the-fall-of-damnos"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0209",
+  "slug": "myriad",
+  "title": "Myriad",
+  "authors": [
+    "Rob Sanders"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On a Mars half-fallen to Kelbor-Hal, a stranded resistance of Titan crew, surviving enginseers and a handful of still-faithful tech-adepts keeps the loyalist guerrilla campaign alive one ambush at a time. Out in the rust deserts they find what every side in this war wishes it had: an intact Kastelan robot, and inside it, a discovery that could change the balance of the fight for the Red Planet — provided the loyalists are willing to wake up the kind of weapon that a generation of Mechanicum doctrine has called heresy to even repair. A direct follow-up to Cybernetica, this short returns to the question the novella left open: how much of the enemy can a war be fought with before the war itself is lost.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "tech_priest",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "war_story",
+      "mystery",
+      "character_study",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "faith",
+      "doubt",
+      "sacrifice",
+      "hubris",
+      "en",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Mechanicum",
+        "role": "primary"
+      },
+      {
+        "name": "Dark Mechanicum",
+        "role": "antagonist"
+      },
+      {
+        "name": "Legio Cybernetica",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Mars",
+        "role": "primary"
+      }
+    ],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "no individual viewpoint adept or Titan crew member is named in accessible summaries; the resistance is presented as an ensemble carrying over from Cybernetica."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.62,
+      "count": 117,
+      "evidenceUrl": "https://www.goodreads.com/book/show/31546044-myriad"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

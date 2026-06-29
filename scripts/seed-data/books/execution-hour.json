@@ -1,0 +1,93 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0186",
+  "slug": "execution-hour",
+  "title": "Execution Hour",
+  "authors": [
+    "Gordon Rennie"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2001,
+  "format": "novel",
+  "seriesHint": "The Gothic War",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Execution Hour opens the Battlefleet Gothic novel line from the gun-decks of the Imperial Navy. As Abaddon's Twelfth Black Crusade rolls across the Gothic Sector, newly promoted Captain Leoten Sempter takes command of the cruiser Lord Solar Macharius and fights a desperate delaying war against traitor fleets, sacrificed worlds, and the Planet Killer. The action moves from engagement to engagement rather than trenchline to trenchline: signals traffic, void shields, evacuation orders, and command decisions under impossible pressure. A fleet-action war-story in grim rearguard key.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "imperium",
+      "sector",
+      "series_start",
+      "standard",
+      "war_story",
+      "siege",
+      "last_stand",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "war",
+      "sacrifice",
+      "hubris",
+      "loyalty",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Navy",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Black Legion",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Gothic Sector",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Captain Leoten Sempter",
+        "role": "pov"
+      },
+      {
+        "name": "Abaddon the Despoiler",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

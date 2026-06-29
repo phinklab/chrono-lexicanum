@@ -1,0 +1,89 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0414",
+  "slug": "i-am-slaughter",
+  "title": "I Am Slaughter",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "novel",
+  "seriesHint": "The Beast Arises",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "It is the thirty-second millennium and the Imperium of Man basks in a long, complacent peace. The traitor legions are a fading memory and the alien races that once plagued mankind are held firmly in check. Then a routine mission to exterminate a xenos breed on the world of Ardamantua spirals out of control, drawing in ever more of the enemy, until for the first time in over a thousand years the Imperial Fists abandon the walls of Terra to answer the call. What they meet there is no ordinary foe. A vast and ancient power is stirring at the edge of human space, and against it even the heroic sons of Rogal Dorn may count for nothing. Far away on Terra, Grand Master Vangorich of the Assassins watches the squabbling High Lords with mounting dread. The Beast arises, and it is mighty. The opening novel of the twelve-book Beast Arises series.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "series_start",
+      "standard",
+      "war_story",
+      "siege",
+      "political_thriller",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "hubris",
+      "loyalty",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Officio Assassinorum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Ardamantua",
+        "role": "primary"
+      },
+      {
+        "name": "Terra",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Drakan Vangorich",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.72,
+      "count": 1799,
+      "evidenceUrl": "https://www.goodreads.com/book/show/25111218-i-am-slaughter"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0288",
+  "slug": "the-siege-of-castellax",
+  "title": "The Siege of Castellax",
+  "authors": [
+    "C.L. Werner"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "novel",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the forge world of Castellax, the twisted Warsmith Andraaz drives his enslaved population mercilessly to feed the war-machine of the Iron Warriors. When a system-shattering ork Waaagh descends on the planet, Andraaz's grim legionaries must hold their fortress-walls against an endless green tide. Captain Rhodaan leads the defence with cold Iron Warriors discipline, but the greenskins are not the only threat: among the downtrodden slaves of the underworks, whispers of rebellion begin to spread. As the siege tightens and supplies dwindle, the masters of Castellax find themselves fighting on two fronts at once, against the xenos at the gates and the uprising stirring beneath their feet.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "planetary",
+      "standalone",
+      "standard",
+      "siege",
+      "last_stand",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "betrayal",
+      "hubris",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Warriors",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Castellax",
+        "role": "primary"
+      },
+      {
+        "name": "Medrengard",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Rhodaan",
+        "role": "pov"
+      },
+      {
+        "name": "Andraaz",
+        "role": "supporting"
+      },
+      {
+        "name": "Vallax",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.61,
+      "count": 370,
+      "evidenceUrl": "https://www.goodreads.com/book/show/13547406-the-siege-of-castellax"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

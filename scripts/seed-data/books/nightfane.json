@@ -1,0 +1,74 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0289",
+  "slug": "nightfane",
+  "title": "Nightfane",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The official war for Ultramar is over, but Sergeant Aenoid Thiel does not believe the enemy has actually left. With a small band of fellow veterans calling themselves the Red-Marked, he is waging a quiet, ugly campaign in the empire's back corridors, hunting the cells and saboteurs that the great battles never finished. A thread from a previous hunt drags them to the moon of Bael and an undersea rigging-station that has been hastily abandoned—stations like this do not abandon themselves. What waits in the flooded levels is the first hard outline of a conspiracy his hunters have started calling Nightfane, and the realisation that someone has been preparing the next blow against Ultramar all along.",
+    "facetIds": [
+      "audio_drama",
+      "novella",
+      "imperium",
+      "space_marine",
+      "male",
+      "squad",
+      "mystery",
+      "war_story",
+      "grimdark",
+      "loyalty",
+      "brotherhood",
+      "doubt",
+      "requires_context",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bael",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Aenoid Thiel",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.56,
+      "count": 77,
+      "evidenceUrl": "https://www.goodreads.com/book/show/42861580"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0252",
+  "slug": "the-sigillite",
+  "title": "The Sigillite",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Malcador the Sigillite — Regent of Terra in his Emperor's absence and arguably the most powerful man in the galaxy — receives a debrief in his Imperial Palace chambers from Khalid Hassan, who has just returned from a calamitous covert raid in the wastelands of Gyptus. Hassan recounts his failure in flashback while Malcador, by turns kindly, unassuming, sinister and terrifying, probes the gaps. By the end the listener understands that very little Malcador does is what it appears to be, and that the war for Terra is already being fought by men no one will ever name. A quiet, dialogue-driven study of the Heresy's most enigmatic operator.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "mixed",
+      "civilian",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "mystery",
+      "political_thriller",
+      "somber",
+      "philosophical",
+      "doubt",
+      "faith",
+      "cw_violence",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Officio Sigillite",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Army",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Palace",
+        "role": "primary"
+      },
+      {
+        "name": "Gyptus",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Malcador the Sigillite",
+        "role": "pov"
+      },
+      {
+        "name": "Khalid Hassan",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.89,
+      "count": 476,
+      "evidenceUrl": "https://www.goodreads.com/book/show/15802986-the-sigillite"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0144",
+  "slug": "blades-of-the-traitor",
+  "title": "Blades of the Traitor",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2015,
+  "format": "collection",
+  "seriesHint": "Horus Heresy Collections",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Blades of the Traitor collects five short stories from the Horus Heresy Weekender of February 2015, each turning a hard light on one of the traitor Legions. Chris Wraight's \"Daemonology\" follows Mortarion as he abandons the hunt for the White Scars and drives the Death Guard across the Prosperine systems toward an answer about his own sinister heritage on Terathalion. John French's \"Black Oculus\" is the testimony of an Iron Warriors Navigator driven half-mad after guiding the fleet through a warp anomaly on the road to Tallarn. Guy Haley's \"Twisted\" turns to Maloghurst, the broken equerry of the Sons of Horus. Nick Kyme's \"Chirurgeon\" steps into the laboratories of Fabius Bile and his experiments on the Emperor's Children. Graham McNeill's \"Wolf Mother\" picks up where the novel Vengeful Spirit left off, with the Sons of Horus reckoning with what they have unleashed.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "space_marine",
+      "multi",
+      "chaos",
+      "company",
+      "planetary",
+      "requires_context",
+      "short",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "cosmic_horror",
+      "somber",
+      "action_heavy",
+      "betrayal",
+      "hubris",
+      "war",
+      "doubt",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Death Guard",
+        "role": "primary"
+      },
+      {
+        "name": "White Scars",
+        "role": "supporting"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "primary"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "primary"
+      },
+      {
+        "name": "Emperor's Children",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terathalion",
+        "role": "primary"
+      },
+      {
+        "name": "Tallarn",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Mortarion",
+        "role": "pov"
+      },
+      {
+        "name": "Maloghurst",
+        "role": "pov"
+      },
+      {
+        "name": "Fabius Bile",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.74,
+      "count": 125,
+      "evidenceUrl": "https://www.goodreads.com/book/show/24620784-blades-of-the-traitor"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0496",
+  "slug": "the-child-foretold",
+  "title": "The Child Foretold",
+  "authors": [
+    "Nicholas Kaufmann"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novel",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the agri world of Ballard's Run, an invasive 'warrior weed' is choking the crops and blighting the farmers who have dedicated their lives to working the land. Kavel, a former planetary militiaman who lost his family to an ork incursion a decade earlier, has retreated to a quiet plot where there is nothing left for the weed to take. Then a dying woman stumbles onto his property and presses an infant into his arms, begging him to keep the child safe. As strangers move on the settlement looking for the woman and the babe, Kavel finds a fragile second chance at purpose — and a slow-burning question about where the real threat to Ballard's Run is actually coming from.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "mystery",
+      "character_study",
+      "cosmic_horror",
+      "somber",
+      "grimdark",
+      "doubt",
+      "faith",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_parental_guidance",
+      "en"
+    ],
+    "factions": [],
+    "locations": [
+      {
+        "name": "Ballard's Run",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Kavel",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "suggestion": "short_story"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.46,
+      "count": 52,
+      "evidenceUrl": "https://www.goodreads.com/book/show/49204047-the-child-foretold"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

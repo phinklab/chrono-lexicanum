@@ -1,0 +1,97 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0541",
+  "slug": "flesh-and-steel",
+  "title": "Flesh and Steel",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Warhammer Crime",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In the monolithic hive-city of Varangantua, Probator Symeon Noctis works the Nearsteel beat to atone for a noble past he refuses to claim. When a corpse is found bisected on the cobbles between Nearsteel and the Adeptus Mechanicus enclave of Steelmound, jurisdiction breaks down and the investigation drags Noctis past the cog-and-skull frontier. He is paired with Rho-1 Lux, a Collegiate Extremis tech-priest sent to look into her own kind, and the two outsiders pick their way through illegal servitor mills, smuggled augmetic parts and a quietly mechanised murder weapon. Guy Haley's procedural opens the seam between the city's Lex and the Mechanicus' own laws, and asks how much of a person you can replace before the law on either side stops caring whether they live.",
+    "facetIds": [
+      "book",
+      "male",
+      "mixed",
+      "multi",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "mystery",
+      "political_thriller",
+      "grimdark",
+      "somber",
+      "doubt",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_crime",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Arbites",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Varangantua",
+        "role": "primary"
+      },
+      {
+        "name": "Nearsteel",
+        "role": "primary"
+      },
+      {
+        "name": "Steelmound",
+        "role": "supporting"
+      },
+      {
+        "name": "Alecto",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Symeon Noctis",
+        "role": "pov"
+      },
+      {
+        "name": "Rho-1 Lux",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.19,
+      "count": 925,
+      "evidenceUrl": "https://www.goodreads.com/book/show/55509453-flesh-and-steel"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

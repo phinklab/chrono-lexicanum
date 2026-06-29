@@ -1,0 +1,91 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0439",
+  "slug": "clonelord",
+  "title": "Clonelord",
+  "authors": [
+    "Josh Reynolds"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "Fabius Bile",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Fabius Bile despises the brothers he once fought beside, but when an old comrade calls in a debt he cannot refuse, he is dragged back into the schemes of the Emperor's Children all the same. The trail leads him to the far edge of the galaxy and a world unlike any other, an abandoned eldar craftworld named Solemnace that may hold the key to his own survival. Surrounded by uneasy allies and bitter enemies, Bile must navigate a maze of plots and counterplots, where the sharpest weapons are words and every companion has a private agenda. As old rivalries resurface among the dead halls of the craftworld, the question is not only what secret waits there, but who will still be standing when it is found.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "sector",
+      "mid_series",
+      "standard",
+      "journey",
+      "court_intrigue",
+      "mystery",
+      "character_study",
+      "grimdark",
+      "philosophical",
+      "satirical",
+      "betrayal",
+      "hubris",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Emperor's Children",
+        "role": "primary"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "supporting"
+      },
+      {
+        "name": "Eldar",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Solemnace",
+        "role": "primary"
+      },
+      {
+        "name": "Eastern Fringe",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Fabius Bile",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.4,
+      "count": 1094,
+      "evidenceUrl": "https://www.goodreads.com/book/show/37120505"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

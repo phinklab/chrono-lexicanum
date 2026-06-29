@@ -1,0 +1,93 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0397",
+  "slug": "ragnar-blackmane",
+  "title": "Ragnar Blackmane",
+  "authors": [
+    "Aaron Dembski-Bowden"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "novel",
+  "seriesHint": "Space Marine Legends",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Ragnar Blackmane is the youngest warrior ever to rise to command a Great Company of the Space Wolves. As he fights the armies of Abaddon the Despoiler on the war-ravaged world of Cadia, Ragnar's mind turns back across the decades to two great sagas from his past, each setting him against Space Marines of other Chapters: the secretive Dark Angels and the savage Flesh Tearers. The novel braids these two timelines together, the seasoned Wolf Lord of the present and the headstrong young Wolf Guard of the past, until the reader sees how the rash decisions of youth ripple forward into the battles of the present. A character portrait of pride, brotherhood, and a hero learning that his choices have consequences he cannot outrun.",
+    "facetIds": [
+      "book",
+      "space_marine",
+      "male",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "last_stand",
+      "character_study",
+      "grimdark",
+      "action_heavy",
+      "brotherhood",
+      "loyalty",
+      "war",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Black Legion",
+        "role": "antagonist"
+      },
+      {
+        "name": "Dark Angels",
+        "role": "supporting"
+      },
+      {
+        "name": "Flesh Tearers",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Cadia",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ragnar Blackmane",
+        "role": "pov"
+      },
+      {
+        "name": "Abaddon the Despoiler",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.26,
+      "count": 469,
+      "evidenceUrl": "https://www.goodreads.com/book/show/26129760-ragnar-blackmane"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

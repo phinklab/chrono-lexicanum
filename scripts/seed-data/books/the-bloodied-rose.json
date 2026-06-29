@@ -1,0 +1,89 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0257",
+  "slug": "the-bloodied-rose",
+  "title": "The Bloodied Rose",
+  "authors": [
+    "Danie Ware"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novella",
+  "seriesHint": "Sisters of Battle",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Sister Superior Augusta of the Order of the Bloody Rose has barely returned to the convent to rest and induct a new recruit when fresh orders send her squad back to the fetid jungle world of Lautis. The Sisters dispatched to secure the world have fallen silent, and Augusta's earlier account of the fighting there has been called into question. Amid creeping foliage and crumbling cathedrals, a horror is rising from the deep crypts, bloodied nightmares bent on a dark purpose. Augusta must trust her Battle Sisters and lead them into the shadows beneath the ruins to uncover what truly befell the lost mission. Faith and fire are mighty weapons, but against the terror waking on Lautis they may not be enough.",
+    "facetIds": [
+      "book",
+      "female",
+      "sister",
+      "imperium",
+      "squad",
+      "war_story",
+      "mystery",
+      "siege",
+      "faith",
+      "loyalty",
+      "sacrifice",
+      "grimdark",
+      "somber",
+      "cosmic_horror",
+      "action_heavy",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "series_start",
+      "novella",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adepta Sororitas",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Lautis",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sister Superior Augusta",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "the rising crypt horror is not clearly identified as a specific faction in available sources; orks confirmed as prior/concurrent threat on Lautis"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.11,
+      "count": 303,
+      "evidenceUrl": "https://www.goodreads.com/book/show/42643269-the-bloodied-rose"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

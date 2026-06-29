@@ -1,0 +1,91 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0172",
+  "slug": "the-kaban-project",
+  "title": "The Kaban Project",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Adept Pallas Ravachol is plucked from the forge-temples of Mars to serve on a project so secret even its name is whispered: the Kaban Machine, a war-engine built in deepest violation of the Emperor's prohibition on thinking machines. The dream posting curdles fast — Ravachol discovers the engine is sentient, then learns it was commissioned by Horus Lupercal himself, and finally that his master Lukas Chrom has sent armed Protectors to silence the inconvenient questions he keeps asking. Speaking the wrong heresy aloud in front of a friend who happens to be a war machine turns out to have a very direct cost. A short, sharp prequel to the Mechanicum civil war on Mars.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "tech_priest",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "novella",
+      "mystery",
+      "somber",
+      "philosophical",
+      "betrayal",
+      "hubris",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Mechanicum",
+        "role": "primary"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Mars",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Pallas Ravachol",
+        "role": "pov"
+      },
+      {
+        "name": "Lukas Chrom",
+        "role": "antagonist"
+      },
+      {
+        "name": "Kaban Machine",
+        "role": "supporting"
+      },
+      {
+        "name": "Horus Lupercal",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.78,
+      "count": 352,
+      "evidenceUrl": "https://www.goodreads.com/book/show/17409544"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

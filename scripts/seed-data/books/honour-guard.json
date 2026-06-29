@@ -1,0 +1,122 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0027",
+  "slug": "honour-guard",
+  "title": "Honour Guard",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2001,
+  "format": "novel",
+  "seriesHint": "Gaunt's Ghosts",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the shrine world of Hagia — homeworld and final resting place of the Saint Sabbat herself, the icon for whom the entire Crusade is named — the Ghosts are tasked with escorting the relics of the Saint to safety after a sudden Chaos invasion. What begins as a static guard duty turns into a pilgrim's-way running retreat across desert and mountain country, with Gaunt's column trailed by Chaos pursuers and harried by sandstorms, treacherous Imperial allies and an internal mutiny inside the convoy. The political stakes are religious as much as military: losing Sabbat's relics would gut the Crusade's morale, and Gaunt's authority over the mixed Tanith/Verghastite regiment is tested again by Major Rawne and Commissar-Captain Vaynom Blenner. By novel's end the relics reach safety, but the cost is high enough to mark Gaunt's first full break with Lord General Lugo. Saint-tetralogy opener.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "regiment",
+      "mid_series",
+      "standard",
+      "journey",
+      "war_story",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "faith",
+      "loyalty",
+      "sacrifice",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Tanith First-and-Only",
+        "role": "primary"
+      },
+      {
+        "name": "Verghastite Ghosts",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Ecclesiarchy",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Hagia",
+        "role": "primary"
+      },
+      {
+        "name": "Sabbat Worlds",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ibram Gaunt",
+        "role": "pov"
+      },
+      {
+        "name": "Colm Corbec",
+        "role": "supporting"
+      },
+      {
+        "name": "Elim Rawne",
+        "role": "supporting"
+      },
+      {
+        "name": "Hlaine Larkin",
+        "role": "supporting"
+      },
+      {
+        "name": "Viktor Hark",
+        "role": "supporting"
+      },
+      {
+        "name": "Sanian",
+        "role": "supporting"
+      },
+      {
+        "name": "Lord General Lugo",
+        "role": "antagonist"
+      },
+      {
+        "name": "Vaynom Blenner",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

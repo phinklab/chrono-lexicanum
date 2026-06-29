@@ -1,0 +1,93 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0356",
+  "slug": "path-of-the-incubus",
+  "title": "Path of the Incubus",
+  "authors": [
+    "Andy Chambers"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "novel",
+  "seriesHint": "Dark Eldar",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A cataclysm called the Dysjunction has torn through Commorragh, flooding the dark city's streets with horrors from beyond and throwing its ruling kabals into open war. As archon turns on archon, Asdrubael Vect fights to hold his grip on a city tearing itself apart. The disgraced incubus Morr — wrongly blamed for triggering the disaster — must navigate the chaos to clear his name, and his choices may either save Commorragh or doom it for good. The second book of the Path of the Dark Eldar trilogy raises the stakes amid daemonic invasion and the deadly ambitions of the city's warring lords.",
+    "facetIds": [
+      "book",
+      "male",
+      "pc_xenos",
+      "xenos",
+      "sector",
+      "mid_series",
+      "standard",
+      "war_story",
+      "court_intrigue",
+      "grimdark",
+      "cosmic_horror",
+      "somber",
+      "redemption",
+      "betrayal",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Dark Eldar",
+        "role": "primary"
+      },
+      {
+        "name": "Incubi",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos Daemons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Commorragh",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Morr",
+        "role": "pov"
+      },
+      {
+        "name": "Asdrubael Vect",
+        "role": "antagonist"
+      },
+      {
+        "name": "Nyos Yllithian",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.96,
+      "count": 351,
+      "evidenceUrl": "https://www.goodreads.com/book/show/17399713-path-of-the-incubus"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

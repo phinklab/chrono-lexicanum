@@ -1,0 +1,98 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0443",
+  "slug": "carcharadons-outer-dark",
+  "title": "Carcharadons: Outer Dark",
+  "authors": [
+    "Robbie MacNiven"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novel",
+  "seriesHint": "Carcharodons",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "With a tendril of a tyranid hive fleet creeping toward the galactic plane, the Carcharodons resolve to make the shrine world of Piety V their bulwark and break the xenos threat before it can spread. Reaper Prime Bail Sharr leads his warriors to rally the planet's defenders, but holding the line means more than slaughtering the swarm — among the cemetery worlds and Inquisition strongholds of the region, the void-born Space Marines are forced to weigh what the lives of ordinary mortals are truly worth to them. Alongside the venerable dreadnought Itako, the Wandering Ancestor, the Carcharodons wage a brutal war of attrition against the Great Devourer.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "siege",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "war",
+      "sacrifice",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Carcharodons",
+        "role": "primary"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Piety V",
+        "role": "primary"
+      },
+      {
+        "name": "Kora",
+        "role": "supporting"
+      },
+      {
+        "name": "Hypasitis",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Bail Sharr",
+        "role": "pov"
+      },
+      {
+        "name": "Itako",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.28,
+      "count": 942,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/39396373"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0102",
+  "slug": "requiem-infernal",
+  "title": "Requiem Infernal",
+  "authors": [
+    "Peter Fehervari"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Sister-Hospitaller Asenath Hyades returns to Candleworld, the storm-lashed sanctuary she fled decades ago, escorting shattered Astra Militarum survivors who need healing after a xenos encounter. The Order of the Last Candle wants outsiders kept away; Asenath wants to test rumors of heresy and quiet the ghosts she left behind. Jonah Tythe, an itinerant preacher with too many past lives, walks the same road. As the convent's spires draw near, Fehervari turns the pilgrimage inward: malign forces are waking in Candleworld, but the worst shadows are in the souls seeking refuge there. Cosmic horror, mystery and faith in a Dark Coil key.",
+    "facetIds": [
+      "book",
+      "female",
+      "sister",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "mystery",
+      "character_study",
+      "journey",
+      "grimdark",
+      "cosmic_horror",
+      "somber",
+      "philosophical",
+      "faith",
+      "doubt",
+      "redemption",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adepta Sororitas",
+        "role": "primary"
+      },
+      {
+        "name": "Order of the Last Candle",
+        "role": "primary"
+      },
+      {
+        "name": "Ecclesiarchy",
+        "role": "secondary"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Candleworld",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Asenath Hyades",
+        "role": "pov"
+      },
+      {
+        "name": "Jonah Tythe",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0205",
+  "slug": "the-armageddon-omnibus",
+  "title": "The Armageddon Omnibus",
+  "authors": [
+    "Jonathan Green"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2011,
+  "format": "omnibus",
+  "seriesHint": "Black Templars",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Marshal Brant's crusade against the greenskins, collected in full. After orks lay waste to the Black Templars' home of Solemnus, Brant swears vengeance and carries his shattered brotherhood to Armageddon, a hive-world synonymous with endless war. In Crusade for Armageddon the Templars wage their own holy quest amid the largest ork invasion the planet has known, while in Conquest of Armageddon a search for a lost company drags them into the jungles to confront the Blood Scar tribe and a hidden plot of renegade Space Marines. Gathering both novels alongside shorter tales of the Solemnus Crusade, this omnibus follows zealous warriors for whom faith, vengeance and duty are inseparable.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "standalone",
+      "doorstopper",
+      "war_story",
+      "journey",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "faith",
+      "brotherhood",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Black Templars",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      },
+      {
+        "name": "Collegia Titanica",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Armageddon",
+        "role": "primary"
+      },
+      {
+        "name": "Solemnus",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Marshal Brant",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "unrated",
+      "source": "goodreads",
+      "reason": "Print-on-demand omnibus with only 7 Goodreads ratings; sample too small for a representative aggregate.",
+      "evidenceUrl": "https://www.goodreads.com/book/show/17288988-the-armageddon-omnibus"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0203",
+        "displayOrder": 0,
+        "confidence": 0.9,
+        "basis": "Armageddon omnibus follows the Black Templars duology"
+      },
+      {
+        "externalBookId": "W40K-0204",
+        "displayOrder": 1,
+        "confidence": 0.9,
+        "basis": "Armageddon omnibus follows the Black Templars duology"
+      }
+    ]
+  }
+}

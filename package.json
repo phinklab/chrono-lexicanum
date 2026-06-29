@@ -20,6 +20,10 @@
     "db:drift": "bash scripts/db-drift.sh",
     "db:apply-scope": "tsx scripts/db-apply-scope.ts",
     "db:apply-override": "tsx --env-file=.env.local scripts/apply-override.ts",
+    "book:preflight": "tsx scripts/book-corpus-preflight.ts",
+    "migrate:corpus-to-books": "tsx scripts/migrate-corpus-to-books.ts",
+    "equiv:diff": "tsx scripts/equivalence-diff.ts",
+    "books:excel": "tsx scripts/books-excel.ts",
     "check:eras": "tsx scripts/check-eras.ts",
     "ingest:backfill": "tsx --env-file=.env.local scripts/ingest-backfill.ts",
     "ingest:podcast": "tsx --env-file=.env.local scripts/ingest-podcast.ts",
@@ -58,6 +62,7 @@
     "test:book-file": "tsx scripts/test-book-file.ts",
     "test:apply-book": "tsx scripts/test-apply-book.ts",
     "test:book-detection-guard": "tsx scripts/test-book-detection-guard.ts",
+    "test:migration-equivalence": "tsx scripts/test-migration-equivalence.ts",
     "db:seed-resolver-extensions": "tsx --env-file=.env.local scripts/seed-resolver-extensions.ts",
     "analyze:v2-surfaces": "tsx scripts/analyze-v2-surfaces.ts",
     "audit:gap-candidates": "tsx --env-file=.env.local scripts/audit-gap-candidates.ts",
@@ -99,20 +104,21 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.2.4",
-    "cheerio": "^1.2.0",
-    "fast-xml-parser": "^5.8.0",
     "@types/node": "^22.19.17",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "cheerio": "^1.2.0",
     "dotenv": "^16.4.7",
     "drizzle-kit": "^0.31.10",
     "eslint": "^9.39.4",
     "eslint-config-next": "16.2.9",
+    "fast-xml-parser": "^5.8.0",
     "postcss": "^8.5.1",
     "read-excel-file": "^9.0.9",
     "sharp": "^0.34.5",
     "tailwindcss": "^4.2.4",
     "tsx": "^4.19.2",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "write-excel-file": "^4.1.1"
   }
 }

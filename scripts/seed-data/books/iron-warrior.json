@@ -1,0 +1,98 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0063",
+  "slug": "iron-warrior",
+  "title": "Iron Warrior",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2010,
+  "format": "novella",
+  "seriesHint": "Iron Warriors",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Warsmith Honsou's hatred of Uriel Ventris drives him to attempt the nigh-impossible: capture one of the most heavily defended star forts in the Ultramarines' holdings, an installation that conceals a secret deep at its core. The novella runs the assault strictly from the Iron Warriors' side, Honsou's hand-picked warband against interlocking fortress firepower, and tilts the saga's gravity decisively to chaos-POV. The Ventris obsession is by this point a sustained way of life rather than a phase, and the novella is its rawest articulation. A fast siege-piece carved from a long grudge.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "planetary",
+      "requires_context",
+      "novella",
+      "war_story",
+      "siege",
+      "character_study",
+      "grimdark",
+      "cosmic_horror",
+      "action_heavy",
+      "somber",
+      "hubris",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Warriors",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "antagonist"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "antagonist"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Medrengard",
+        "role": "mentioned"
+      },
+      {
+        "name": "Ultramar",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Honsou",
+        "role": "pov"
+      },
+      {
+        "name": "Uriel Ventris",
+        "role": "antagonist"
+      },
+      {
+        "name": "Ardaric Vaanes",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

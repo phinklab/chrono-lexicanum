@@ -1,0 +1,124 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0097",
+  "slug": "blood-of-the-emperor",
+  "title": "Blood of the Emperor",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2021,
+  "format": "anthology",
+  "seriesHint": "The Primarchs",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Six short stories about the men the Emperor made to be His sons. A weak Cthonian boy carves a place for himself in the underhives of the gang world and steps onto the path that becomes Horus. Tribal hunters track a beast through Fenrisian snows under a yellow-eyed leader who is more than he seems. Prosperine sorcerers reach for a secret their lord has forbidden them. The Emperor's praetorian shows the side of Rogal Dorn most do not survive. Alpharius submits to questioning over a brutal compliance and gives nothing away. And after his fall, Mortarion comes home to Terra for the first time as a daemon prince.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "requires_context",
+      "short",
+      "character_study",
+      "war_story",
+      "mystery",
+      "court_intrigue",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "cosmic_horror",
+      "hubris",
+      "brotherhood",
+      "doubt",
+      "betrayal",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Thousand Sons",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "supporting"
+      },
+      {
+        "name": "Alpha Legion",
+        "role": "supporting"
+      },
+      {
+        "name": "Death Guard",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Cthonia",
+        "role": "supporting"
+      },
+      {
+        "name": "Fenris",
+        "role": "supporting"
+      },
+      {
+        "name": "Prospero",
+        "role": "supporting"
+      },
+      {
+        "name": "Terra",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Horus",
+        "role": "supporting"
+      },
+      {
+        "name": "Leman Russ",
+        "role": "supporting"
+      },
+      {
+        "name": "Magnus the Red",
+        "role": "supporting"
+      },
+      {
+        "name": "Rogal Dorn",
+        "role": "supporting"
+      },
+      {
+        "name": "Alpharius",
+        "role": "supporting"
+      },
+      {
+        "name": "Mortarion",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.78,
+      "count": 336,
+      "evidenceUrl": "https://www.goodreads.com/book/show/57147055-blood-of-the-emperor"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

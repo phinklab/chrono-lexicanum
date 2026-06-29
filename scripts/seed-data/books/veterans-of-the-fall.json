@@ -1,0 +1,83 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0570",
+  "slug": "veterans-of-the-fall",
+  "title": "Veterans of the Fall",
+  "authors": [
+    "William Crowe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2026,
+  "format": "novel",
+  "seriesHint": "40k - Imperial Guard",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "When Cadia fell, a handful of traumatised survivors found themselves stranded on a ruined world carved apart by rival cults. Since then, the Kasrkin veterans known as the Tattershields have anchored the crumbling Imperial defence, holding back the overwhelming might of the Archenemy through sabotage, assassinations, and unbreakable discipline. Their commander, Sergeant Kostantin Taikon, is an inspiration to the beleaguered defenders — but he is haunted by guilt and consumed by fatalism, fighting on with no hope of victory or atonement. As infiltrators sow discord in their ranks and a sadistic new enemy closes in, Taikon must lead his indomitable Kasrkin to the bitter end. Collecting the short story Tattershield, the serial Tatters of Hope, and the novella Veterans of the Fall.",
+    "facetIds": [
+      "book",
+      "en",
+      "male",
+      "guardsman",
+      "imperium",
+      "company",
+      "standalone",
+      "standard",
+      "war_story",
+      "grimdark",
+      "brotherhood",
+      "sacrifice",
+      "loyalty",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Kasrkin",
+        "role": "primary"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Cadia",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sergeant Kostantin Taikon",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "The antagonist is named only as 'the Archenemy' and 'rival cults'; no specific Chaos warband or Legion is identified in available sources, so it is left unbound."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.25,
+      "count": 8,
+      "evidenceUrl": "https://www.goodreads.com/book/show/251417061-veterans-of-the-fall"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

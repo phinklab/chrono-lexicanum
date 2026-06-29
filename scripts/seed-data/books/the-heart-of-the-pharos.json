@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0278",
+  "slug": "the-heart-of-the-pharos",
+  "title": "The Heart of the Pharos",
+  "authors": [
+    "L.J. Goulding"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Young Oberdeii and Tebecai, Scouts of the 199th Company on the quiet jungle world of Sotha, are ordered into the tunnels beneath Mount Pharos to find out exactly what the Imperium has built its new beacon on. The masters of Ultramar know the alien device can pierce the warp-storms wrapping their realm, but almost nothing else about it — where it came from, who made it, or what is sleeping in the rock beneath. With just each other for company and rumours for a map, the two Scouts climb deeper than any have dared, and find something in the dark that their commanders very badly want to know about. A short, claustrophobic prequel to the Pharos novel about the secrets a beacon casts behind it.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "requires_context",
+      "novella",
+      "mystery",
+      "journey",
+      "somber",
+      "cosmic_horror",
+      "philosophical",
+      "doubt",
+      "brotherhood",
+      "loyalty",
+      "cw_violence",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sotha",
+        "role": "primary"
+      },
+      {
+        "name": "Mount Pharos",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramar",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Oberdeii",
+        "role": "pov"
+      },
+      {
+        "name": "Tebecai",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.72,
+      "count": 166,
+      "evidenceUrl": "https://www.goodreads.com/book/show/29230658-the-heart-of-the-pharos"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0468",
+  "slug": "divination",
+  "title": "Divination",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novel",
+  "seriesHint": "The Horusian Wars",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "As Inquisitor Covenant moves against the Triumvirate, the labour of his hunt falls across a small army of allies, rogues and rivals. Divination gathers their stories. A swordmistress weighs the weight of her own oaths; a covert agent runs the alleys of a shrineworld in pursuit of cult cells; a psyker peers through the Emperor's Tarot at futures that refuse to settle. Each story turns a card from Covenant's deck and lets the reader sit a moment with the people on its face — the killers, the savants, the broken servants of the Ordo Malleus and the Ordo Hereticus who keep his war going while he is elsewhere. Read together, the stories sketch the wider battlefield of the Horusian Wars from below, where the work is done not by primarchs but by mortals and their nerve.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "multi",
+      "imperium",
+      "sector",
+      "requires_context",
+      "standard",
+      "character_study",
+      "mystery",
+      "philosophical",
+      "grimdark",
+      "faith",
+      "doubt",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Inquisitor Covenant",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "suggestion": "collection",
+        "reason": "Goodreads and Lexicanum identify Divination as a single-author anthology of eleven short stories, not a novel as the roster lists."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.21,
+      "count": 107,
+      "evidenceUrl": "https://www.goodreads.com/book/show/48503778-divination"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

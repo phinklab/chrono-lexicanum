@@ -1,0 +1,79 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0269",
+  "slug": "the-eagles-talon",
+  "title": "The Eagle's Talon",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Tallarn is dying in poisoned fire. The Iron Warriors have turned the world into one vast attrition slog, and the Imperial Fists know that if the macro-transporter Eagle's Talon makes its planned drop on the southern continent the southern front collapses. Three recon squads - Gamus, Theophon and Arcad - are slipped aboard the traitor vessel with orders to seize her and reverse the tide. Their story is told in fragments: seven vox transmissions recovered from the operation, replayed by a survivor who already knows how it ends. In desperation the strike teams reach for measures that should be unthinkable to any son of Dorn, and pay accordingly.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "company",
+      "requires_context",
+      "war_story",
+      "last_stand",
+      "action_heavy",
+      "grimdark",
+      "sacrifice",
+      "loyalty",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Tallarn",
+        "role": "primary"
+      }
+    ],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "available source coverage names the Imperial Fists squads (Gamus, Theophon, Arcad) but not individual viewpoint characters with confidence"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.59,
+      "count": 194,
+      "evidenceUrl": "https://www.goodreads.com/book/show/24654992-the-eagle-s-talon"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

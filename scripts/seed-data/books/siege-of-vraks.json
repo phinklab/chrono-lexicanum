@@ -1,0 +1,105 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0588",
+  "slug": "siege-of-vraks",
+  "title": "Siege of Vraks",
+  "authors": [
+    "Steve Lyons"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "novel",
+  "seriesHint": "40k - Imperial Guard",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "Vraks Prime is an armoury world that feeds the endless wars along the Eye of Terror, and when its Cardinal-Astra Xaphan raises his voice in holy rebellion, the Imperium cannot afford to lose it. Millions of renegade soldiers stand ready to die for their prophet, and from the depths of the warp, the Alpha Legion, the World Eaters, and the Death Guard have answered the call. Dispatched to reclaim the planet inch by bloody inch, the Death Korps of Krieg dig their trenches and begin a siege that will last seventeen years. At its heart is Tyborc, a Krieg officer who must lead men bred to die without hesitation across a wasteland of mud, shell-craters, and corpses — and ask whether the regiment's fearless indifference to death is strength or a slow self-destruction. A story of attrition, faith twisted into fanaticism, and the terrible cost of victory on a world that may not be worth saving.",
+    "facetIds": [
+      "book",
+      "en",
+      "male",
+      "guardsman",
+      "imperium",
+      "regiment",
+      "standalone",
+      "doorstopper",
+      "siege",
+      "grimdark",
+      "war",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing"
+    ],
+    "factions": [
+      {
+        "name": "Death Korps of Krieg",
+        "role": "primary"
+      },
+      {
+        "name": "Vraksian Renegade Militia",
+        "role": "antagonist"
+      },
+      {
+        "name": "Alpha Legion",
+        "role": "antagonist"
+      },
+      {
+        "name": "World Eaters",
+        "role": "antagonist"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Vraks Prime",
+        "role": "primary"
+      },
+      {
+        "name": "Citadel of Vraks",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Tyborc",
+        "role": "pov"
+      },
+      {
+        "name": "Cardinal-Astra Xaphan",
+        "role": "antagonist"
+      },
+      {
+        "name": "Arkos the Faithless",
+        "role": "supporting"
+      },
+      {
+        "name": "Confessor Tenaxus",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4,
+      "count": 828,
+      "evidenceUrl": "https://www.goodreads.com/book/show/214397932-siege-of-vraks"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

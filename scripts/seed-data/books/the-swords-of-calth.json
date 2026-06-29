@@ -1,0 +1,87 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0054",
+  "slug": "the-swords-of-calth",
+  "title": "The Swords of Calth",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "novel",
+  "seriesHint": "Ultramarines",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Uriel Ventris, raised to the Primaris ranks by Roboute Guilliman's gene-doctors during the Indomitus Crusade, leads a hand-picked Ultramarines kill-force called the Swords of Calth to the frontier world of Sycorax. Once an Ork warzone, Sycorax is now under furious Necron assault: tomb-stalkers have risen from beneath the dunes and the cities fall section by section. Uriel senses an old foe's hand at work behind the xenos onslaught — a tally unfinished, a debt to the Imperium come due. Trapped deep in a devastated city, the Swords must adapt as much to Uriel's new Primaris incarnation as to the Necron offensive. The novel closes one chapter of the Ventris saga (his pre-Primaris career) and opens another (Primaris-Captain Uriel under Indomitus command) — chronologically far later than the 2002–2010 first six-book arc.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "standard",
+      "war_story",
+      "siege",
+      "grimdark",
+      "action_heavy",
+      "brotherhood",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Necrons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sycorax",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramar",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Uriel Ventris",
+        "role": "pov"
+      },
+      {
+        "name": "Pasanius Lysane",
+        "role": "supporting"
+      },
+      {
+        "name": "Roboute Guilliman",
+        "role": "mentioned"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

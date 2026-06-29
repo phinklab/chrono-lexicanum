@@ -1,0 +1,100 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0172",
+  "slug": "sinners-bounty",
+  "title": "Sinner's Bounty",
+  "authors": [
+    "Josh Reynolds"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novel",
+  "seriesHint": "Necromunda",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Kal Jerico returns to Hive Primus chasing the richest bounty of his career: Desolation Zoon, a Redemptionist preacher tearing through the Underhive in a mining hauler loaded with stolen Guilder guns. The reward draws every serious Venator in the hive, turning the pursuit into a running gang-war chase with Kal at its smirking center. Built for readers meeting Kal fresh, it plays as modern Necromunda action-comedy, all banter, collapsing plans, rival hunters and bad decisions made at full hive speed.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "mystery",
+      "war_story",
+      "journey",
+      "action_heavy",
+      "satirical",
+      "grimdark",
+      "war",
+      "loyalty",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_crime",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "House Helmawr",
+        "role": "supporting"
+      },
+      {
+        "name": "Redemptionists",
+        "role": "antagonist"
+      },
+      {
+        "name": "Venators",
+        "role": "supporting"
+      },
+      {
+        "name": "Guilders",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Necromunda",
+        "role": "primary"
+      },
+      {
+        "name": "Hive Primus",
+        "role": "primary"
+      },
+      {
+        "name": "Underhive",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Kal Jerico",
+        "role": "pov"
+      },
+      {
+        "name": "Desolation Zoon",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

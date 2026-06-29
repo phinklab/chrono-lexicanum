@@ -1,0 +1,115 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0149",
+  "slug": "echoes-of-revelation",
+  "title": "Echoes of Revelation",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2017,
+  "format": "collection",
+  "seriesHint": "Horus Heresy Collections",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Echoes of Revelation is the second audio drama anthology of the Horus Heresy, collecting three short pieces that turn on faith, severance and revelation. Dan Abnett's \"Perpetual\" picks up Oll Persson and his band of refugees, becalmed somewhere in the warp on their long road from Calth toward Terra, where the road ends at a dead city and the Cabal's hunters finally close in. Chris Wraight's \"The Soul, Severed\" follows Lord Commander Primus Eidolon of the Emperor's Children as he answers a challenge from within his own Legion, setting his Kakophoni against a rival officer who would see the III Legion returned to a glory it has long since left behind. Gav Thorpe's \"Valerius\" sends Vice-Caesari Marcus Valerius of the Therion Cohort, an Imperial Army officer haunted by holy visions, into the slaughter of Beta-Garmon under Corax's orders for one final stand against the Archtraitor.",
+    "facetIds": [
+      "audio_drama",
+      "ensemble",
+      "space_marine",
+      "guardsman",
+      "civilian",
+      "multi",
+      "imperium",
+      "chaos",
+      "company",
+      "planetary",
+      "requires_context",
+      "novella",
+      "war_story",
+      "journey",
+      "last_stand",
+      "character_study",
+      "somber",
+      "grimdark",
+      "cosmic_horror",
+      "philosophical",
+      "faith",
+      "betrayal",
+      "hubris",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Emperor's Children",
+        "role": "primary"
+      },
+      {
+        "name": "Alpha Legion",
+        "role": "antagonist"
+      },
+      {
+        "name": "Raven Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperial Army",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Calth",
+        "role": "supporting"
+      },
+      {
+        "name": "Beta-Garmon",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Oll Persson",
+        "role": "pov"
+      },
+      {
+        "name": "John Grammaticus",
+        "role": "supporting"
+      },
+      {
+        "name": "Eidolon",
+        "role": "pov"
+      },
+      {
+        "name": "Marcus Valerius",
+        "role": "pov"
+      },
+      {
+        "name": "Corax",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.68,
+      "count": 31,
+      "evidenceUrl": "https://www.goodreads.com/book/show/35318917-echoes-of-revelation"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

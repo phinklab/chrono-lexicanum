@@ -1,0 +1,110 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0002",
+  "slug": "malleus",
+  "title": "Malleus",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2001,
+  "format": "novel",
+  "seriesHint": "Inquisitor (Eisenhorn/Ravenor/Bequin)",
+  "series": "eisenhorn",
+  "seriesIndex": 2,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A century after Hubris, Eisenhorn is hunted by his own kind. Quixos, a fellow Inquisitor turned radical, has bound himself to a daemonic patron and accuses Eisenhorn of heresy to deflect attention from his own pact-making. Eisenhorn flees Inquisitorial detention with his small retinue and crosses Gudrun, Sameter and the daemon-touched world of Eechan in pursuit of evidence. To beat Quixos he risks bargaining with a chained daemonhost named Cherubael — bitter, lucid, and almost certainly listening too closely. The novel closes on the doctrine of the Tyrantine Cabal — the radical Inquisitorial subset who hold that the Emperor's Tarot must be read against the grain — and Eisenhorn keeps a copy of his bargain in writing, against the day the bargain itself reads him.",
+    "facetIds": [
+      "book",
+      "male",
+      "inquisitor",
+      "imperium",
+      "sector",
+      "mid_series",
+      "standard",
+      "mystery",
+      "journey",
+      "political_thriller",
+      "grimdark",
+      "philosophical",
+      "betrayal",
+      "hubris",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Malleus",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Gudrun",
+        "role": "primary"
+      },
+      {
+        "name": "Sameter",
+        "role": "secondary"
+      },
+      {
+        "name": "Eechan",
+        "role": "secondary"
+      },
+      {
+        "name": "Calixis Sector",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Gregor Eisenhorn",
+        "role": "pov"
+      },
+      {
+        "name": "Alizebeth Bequin",
+        "role": "supporting"
+      },
+      {
+        "name": "Godwyn Fischig",
+        "role": "supporting"
+      },
+      {
+        "name": "Uber Aemos",
+        "role": "supporting"
+      },
+      {
+        "name": "Cherubael",
+        "role": "supporting"
+      },
+      {
+        "name": "Quixos",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

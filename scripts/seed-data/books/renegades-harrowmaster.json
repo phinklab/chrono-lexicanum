@@ -1,0 +1,87 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0560",
+  "slug": "renegades-harrowmaster",
+  "title": "Renegades: Harrowmaster",
+  "authors": [
+    "Mike Brooks"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "Solomon Akurra",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Harrowmaster Drazus Jate dies in the opening pages, and with him goes the fragile leash holding the Serpent's Teeth warband together. Solomon Akurra, lieutenant and chief schemer, decides he is the only one who can take the title — not by acclaim but by being the last of his rivals still breathing when the dust settles. Around him the Indomitus Crusade pushes deeper into the Ultima Segmentum, the new Primaris Marines are uglier news than the warband expected, and the hydra-headed Alpha Legion is feuding with itself across half a sector. Mike Brooks' first Renegades novel is a slow, paranoid power struggle inside a Chaos legion famous for never showing its real face, told from the inside by someone who knows every knife in every back is meant to look like it belongs there.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "sector",
+      "series_start",
+      "standard",
+      "war_story",
+      "political_thriller",
+      "court_intrigue",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "betrayal",
+      "hubris",
+      "loyalty",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Alpha Legion",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Ultima Segmentum",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Solomon Akurra",
+        "role": "pov"
+      },
+      {
+        "name": "Drazus Jate",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.2,
+      "count": 789,
+      "evidenceUrl": "https://www.goodreads.com/book/show/63123245-harrowmaster"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

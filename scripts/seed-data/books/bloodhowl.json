@@ -1,0 +1,89 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0229",
+  "slug": "bloodhowl",
+  "title": "Bloodhowl",
+  "authors": [
+    "Chris Forrester"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Jorin Bloodhowl, Jarl of Dekk-Tra, has been given an unwelcome hunt: a pack of Space Wolves has broken away from the Sixth Legion, refusing the war that Russ now fights against Horus, and Bloodhowl has been told to bring them home or put them down. Tracking them to a wilderness world, his great-company is jumped by Night Lords skirmishers — and survives, only to walk straight into the camp of the wolves he came to judge. Their leader, Gunnar Thorolfsson, will not return. He argues, in the cold around their fire, that what was done at Prospero and what is being done in the wider Heresy is exactly what blind obedience to a primarch's leash produces, and that the wyrd of the Rout demands more than that. Bloodhowl has to decide what his orders weigh against his brother's words — and against something Russ once said to him, in a quieter year.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "novella",
+      "war_story",
+      "character_study",
+      "action_heavy",
+      "philosophical",
+      "grimdark",
+      "brotherhood",
+      "loyalty",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Night Lords",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Jorin Bloodhowl",
+        "role": "pov"
+      },
+      {
+        "name": "Gunnar Thorolfsson",
+        "role": "supporting"
+      },
+      {
+        "name": "Leman Russ",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "wilderness world where Bloodhowl confronts Gunnar Thorolfsson is not named on-page in available source coverage"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.59,
+      "count": 75,
+      "evidenceUrl": "https://www.goodreads.com/book/show/59831870-bloodhowl"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0308",
+  "slug": "accursed-eternity",
+  "title": "Accursed Eternity",
+  "authors": [
+    "Sarah Cawkwell"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "novella",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "An Inquisitor of the Ordo Malleus, Remigius, gathers Space Marines of the Blood Swords and Star Dragons for what should be a straightforward boarding action: storm and cleanse the drifting hulk known as the Accursed Eternity. But the ship is no derelict. As the warriors push into its black interior, the vessel reveals itself as a thing of the warp, a snare ten thousand years in the making, and the simple mission collapses into a waking nightmare. Cut off and surrounded, the boarders find themselves matched against one of the most infamous powers ever to sail the void, and survival will demand far more than bolter and blade.",
+    "facetIds": [
+      "book",
+      "multi",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "journey",
+      "war_story",
+      "action_heavy",
+      "cosmic_horror",
+      "grimdark",
+      "faith",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "novella",
+      "standalone",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ordo Malleus",
+        "role": "primary"
+      },
+      {
+        "name": "Blood Swords",
+        "role": "supporting"
+      },
+      {
+        "name": "Star Dragons",
+        "role": "supporting"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Remigius",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "daemon antagonist's specific Chaos sub-faction not pinned in available sources; left unnamed rather than tagging generic Chaos"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.63,
+      "count": 80,
+      "evidenceUrl": "https://www.goodreads.com/book/show/12935454-accursed-eternity"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

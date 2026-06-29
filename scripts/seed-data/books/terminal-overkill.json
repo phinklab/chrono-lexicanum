@@ -1,0 +1,103 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0173",
+  "slug": "terminal-overkill",
+  "title": "Terminal Overkill",
+  "authors": [
+    "Justin D. Hill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novel",
+  "seriesHint": "Necromunda",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Brielle grows up under the shadow of Red Tori, legendary leader of the Wild Hydras, until House Goliath overlord Fettnir kills her mother and breaks their House Escher territory in the Dim Zone. Cast alone into the black edges of Hive Primus, Brielle has to survive, harden, build a life from nothing and claw her way back toward vengeance. A grim coming-of-age revenge story told like a remembered Underhive memoir, where pain lingers for years before grief finally turns into a blade against Fettnir.",
+    "facetIds": [
+      "book",
+      "female",
+      "civilian",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "character_study",
+      "war_story",
+      "journey",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "loyalty",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_crime",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "House Escher",
+        "role": "primary"
+      },
+      {
+        "name": "House Goliath",
+        "role": "antagonist"
+      },
+      {
+        "name": "Guilders",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Necromunda",
+        "role": "primary"
+      },
+      {
+        "name": "Hive Primus",
+        "role": "primary"
+      },
+      {
+        "name": "Underhive",
+        "role": "primary"
+      },
+      {
+        "name": "Dim Zone",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Brielle",
+        "role": "pov"
+      },
+      {
+        "name": "Red Tori",
+        "role": "supporting"
+      },
+      {
+        "name": "Fettnir",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

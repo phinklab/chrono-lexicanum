@@ -1,0 +1,92 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0280",
+  "slug": "hunt-for-voldorius",
+  "title": "Hunt for Voldorius",
+  "authors": [
+    "Andy Hoare"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2010,
+  "format": "novel",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "For more than a decade, Kor'sarro Khan of the White Scars has pursued a single quarry across the stars: Kernax Voldorius, a daemon prince and warleader of the treacherous Alpha Legion. The hunt finally runs its prey to ground on Quintus, a world wholly corrupted and given over to the renegades' cause. To bring down so monstrous a foe, the swift riders of the White Scars must forge an unlikely alliance with the shadow-warriors of the Raven Guard and their captain, Kayvaan Shrike. Together they face an entire planet in arms, knowing that a hunt this long can end only in the daemon's death or their own. A relentless story of vengeance, honour and the price of an unbreakable oath.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "journey",
+      "grimdark",
+      "action_heavy",
+      "loyalty",
+      "hubris",
+      "brotherhood",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "White Scars",
+        "role": "primary"
+      },
+      {
+        "name": "Raven Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Alpha Legion",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Quintus",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Kor'sarro Khan",
+        "role": "pov"
+      },
+      {
+        "name": "Kayvaan Shrike",
+        "role": "supporting"
+      },
+      {
+        "name": "Kernax Voldorius",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.44,
+      "count": 635,
+      "evidenceUrl": "https://www.goodreads.com/book/show/7171766-the-hunt-for-voldorius"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

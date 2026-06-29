@@ -1,0 +1,96 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0084",
+  "slug": "perturabo-the-hammer-of-olympia",
+  "title": "Perturabo: The Hammer of Olympia",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "The Primarchs",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Perturabo's first novel-length portrait runs on two clocks. In the present, the Iron Warriors are grinding through a thankless campaign against the time-warping hrud when word reaches their primarch that his adopted homeworld of Olympia has risen in open rebellion against the Imperium. He abandons the alien war and brings the IV Legion home to crush the revolt by whatever means it asks of him. In the past, a child prodigy named Perturabo grows up inside the brutal court politics of Olympia, surrounded by people who fear his intellect more than they value it, with only his sister Calliphone to read him as anything close to human. The novel reaches the moment where the two timelines meet, and what the Hammer of Olympia does there shapes everything the Iron Warriors become.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "space_marine",
+      "male",
+      "imperium",
+      "planetary",
+      "standalone",
+      "short",
+      "war_story",
+      "character_study",
+      "siege",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "betrayal",
+      "hubris",
+      "brotherhood",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Warriors",
+        "role": "primary"
+      },
+      {
+        "name": "Hrud",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Olympia",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Perturabo",
+        "role": "pov"
+      },
+      {
+        "name": "Dantioch",
+        "role": "pov"
+      },
+      {
+        "name": "Calliphone",
+        "role": "supporting"
+      },
+      {
+        "name": "Forrix",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.09,
+      "count": 1427,
+      "evidenceUrl": "https://www.goodreads.com/book/show/32860977-perturabo"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

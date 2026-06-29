@@ -1,0 +1,108 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0060",
+  "slug": "storm-of-iron",
+  "title": "Storm of Iron",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2002,
+  "format": "novel",
+  "seriesHint": "Iron Warriors",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Iron Warriors under Warsmith Barban Falk, fronted by the three Grand-Company captains Forrix, Kroeger, and the rising half-breed Honsou, lay siege to the Imperial fortress-world of Hydra Cordatus. The Imperial defenders are an Imperial Guard regiment and a thin Imperial Fists detachment, both protecting a buried Adeptus Mechanicus secret held by Magos Naicin. Across the book the siege rolls section by section in canonical Iron Warriors fashion: the outer walls fall, the inner walls fall, the citadel falls — with the late arrival of Warsmith Berossus's reinforcement column tipping the final push. The buried vault is revealed to hold a fragment of primarch genetic material, which the Iron Warriors mean to weaponise against the Adeptus Astartes' loyalist chapters. Honsou's part in the siege earns him the elevation that carries him through Dead Sky, Black Sun, The Killing Ground, and The Chapter's Due — making Storm of Iron the foundational Honsou origin story, written four years before he appears as Ventris's antagonist. Dual POV across both sides.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "space_marine",
+      "dual",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "siege",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "hubris",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Warriors",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "background"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Hydra Cordatus",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Honsou",
+        "role": "pov"
+      },
+      {
+        "name": "Forrix",
+        "role": "pov"
+      },
+      {
+        "name": "Kroeger",
+        "role": "supporting"
+      },
+      {
+        "name": "Barban Falk",
+        "role": "supporting"
+      },
+      {
+        "name": "Berossus",
+        "role": "supporting"
+      },
+      {
+        "name": "Magos Naicin",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

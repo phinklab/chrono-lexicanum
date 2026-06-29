@@ -1,0 +1,76 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0251",
+  "slug": "veritas-ferrum",
+  "title": "Veritas Ferrum",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "When Horus's treachery is declared, the Iron Hands strike-cruiser Veritas Ferrum runs hard for the Isstvan system in the Imperial second wave, expecting to reinforce a victory. What they find is a slaughtered loyalist host and a primarch dead on the Urgall Depression. Battered by the traitor legions and forced to retreat, the warship's captain receives an open channel from survivors of the Dropsite Massacre begging for evacuation — a rescue that will cost the ship its only chance of escape. In eleven taut minutes the X Legion must decide whether the war has already burned the humanity out of them, or whether stopping for one's brothers still means something at all.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "standalone",
+      "novella",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "somber",
+      "loyalty",
+      "sacrifice",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Hands",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Isstvan V",
+        "role": "primary"
+      }
+    ],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "limited source coverage of named POV/supporting characters in this 11-minute Advent short"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.47,
+      "count": 226,
+      "evidenceUrl": "https://www.goodreads.com/book/show/17166478-veritas-ferrum"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

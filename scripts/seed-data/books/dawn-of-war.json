@@ -1,0 +1,99 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0207",
+  "slug": "dawn-of-war",
+  "title": "Dawn of War",
+  "authors": [
+    "C.S. Goto"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2004,
+  "format": "novel",
+  "seriesHint": "Dawn of War",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Brother-Captain Gabriel Angelos throws his Blood Ravens into a last-ditch defence of Tartarus, a world with a long and troubled past. A brutal ork invasion has reduced the planet to ruins, but the greenskins are only the surface of a deeper, older war: the enigmatic eldar of Biel-Tan move to their own ends, and the treacherous warriors of the Alpha Legion pursue secrets buried on the world. As Gabriel leads his brothers deeper into the conflict, he is forced to confront betrayal within his own ranks, the quiet manipulations of a shadowy Inquisition, and unsettling truths about the origins of his Chapter. The path the eldar foretell may lead to salvation or to damnation, and Gabriel must decide just how much he is willing to sacrifice to walk it.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "series_start",
+      "standard",
+      "war_story",
+      "action_heavy",
+      "grimdark",
+      "betrayal",
+      "war",
+      "brotherhood",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Ravens",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Eldar",
+        "role": "antagonist"
+      },
+      {
+        "name": "Alpha Legion",
+        "role": "antagonist"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Tartarus",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Gabriel Angelos",
+        "role": "pov"
+      },
+      {
+        "name": "Isador Akios",
+        "role": "supporting"
+      },
+      {
+        "name": "Macha",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.12,
+      "count": 354,
+      "evidenceUrl": "https://www.goodreads.com/book/show/438008.Dawn_of_War"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

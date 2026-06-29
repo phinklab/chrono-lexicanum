@@ -1,0 +1,124 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0347",
+  "slug": "blood-reaver",
+  "title": "Blood Reaver",
+  "authors": [
+    "Aaron Dembski-Bowden"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2011,
+  "format": "novel",
+  "seriesHint": "Night Lords",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Hunted and battered, the Night Lords flee into the Maelstrom and throw themselves on the mercy of Huron Blackheart — the Blood Reaver, tyrant of the Red Corsairs. Huron is planning his boldest raid yet: an assault on the fortress-monastery of the Marines Errant to plunder their precious gene-seed and cripple a loyal Chapter. Talos and First Claw join the siege, but the alliance is rotten on both sides, and the Night Lords are playing for a far greater prize than gene-seed. As betrayal stacks on betrayal, the warband must decide how much of itself it is willing to lose to survive.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "planetary",
+      "mid_series",
+      "standard",
+      "siege",
+      "war_story",
+      "heist",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "betrayal",
+      "loyalty",
+      "brotherhood",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_language",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Night Lords",
+        "role": "primary"
+      },
+      {
+        "name": "Red Corsairs",
+        "role": "supporting"
+      },
+      {
+        "name": "Marines Errant",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Vilamus",
+        "role": "primary"
+      },
+      {
+        "name": "the Maelstrom",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Talos",
+        "role": "pov"
+      },
+      {
+        "name": "Huron Blackheart",
+        "role": "supporting"
+      },
+      {
+        "name": "Cyrion",
+        "role": "supporting"
+      },
+      {
+        "name": "Xarl",
+        "role": "supporting"
+      },
+      {
+        "name": "Uzas",
+        "role": "supporting"
+      },
+      {
+        "name": "Mercutian",
+        "role": "supporting"
+      },
+      {
+        "name": "Variel",
+        "role": "supporting"
+      },
+      {
+        "name": "Septimus",
+        "role": "supporting"
+      },
+      {
+        "name": "Octavia",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.39,
+      "count": 4014,
+      "evidenceUrl": "https://www.goodreads.com/book/show/8697277"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

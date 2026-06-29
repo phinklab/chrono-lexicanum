@@ -1,0 +1,81 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0233",
+  "slug": "dead-men-walking",
+  "title": "Dead Men Walking",
+  "authors": [
+    "Steve Lyons"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2010,
+  "format": "novel",
+  "seriesHint": "Imperial Guard",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the young mining colony of Hieronymous Theta, the ground itself betrays the colonists when the Necrons awaken beneath the rock and begin to devour the living. Salvation arrives in a form almost as terrifying as the threat: the Death Korps of Krieg, soldiers as remorseless and self-sacrificing as the metal horror they have come to fight. As the Krieg regiments lay siege to Hieronymous City to retake it from the outside, the survivors slowly realise their rescuers value victory above every human life on the planet, including their own. Told through a commissar, a mine supervisor, a planetary governor and his niece, the story watches an ordinary world ground to nothing between two implacable, unfeeling powers.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "multi",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "siege",
+      "last_stand",
+      "grimdark",
+      "somber",
+      "cosmic_horror",
+      "war",
+      "sacrifice",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Death Korps of Krieg",
+        "role": "primary"
+      },
+      {
+        "name": "Necrons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Hieronymous Theta",
+        "role": "primary"
+      },
+      {
+        "name": "Hieronymous City",
+        "role": "supporting"
+      }
+    ],
+    "characters": [],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4,
+      "count": 1478,
+      "evidenceUrl": "https://www.goodreads.com/book/show/7841344-dead-men-walking"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

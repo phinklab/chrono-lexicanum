@@ -1,0 +1,87 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0383",
+  "slug": "ravenwing",
+  "title": "Ravenwing",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "novel",
+  "seriesHint": "The Legacy of Caliban",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Ravenwing ride to war where their fellow Dark Angels cannot — swift hunters mounted on bikes and speeders, striking from the shadows. When Brother Annael is raised into their ranks, he is drawn into a world of secrets withheld from ordinary battle-brothers. In the aftermath of the war for Kadillus, fragments of a dark conspiracy surface, and it becomes clear that the Ravenwing pursue a duty far graver than slaying orks: the hunt for the Fallen, the renegades whose treachery the Chapter has hidden for ten thousand years. Told through the eyes of the recruit Annael, the veteran Telemenus, and Grand Master Sammael himself, Gav Thorpe opens the Legacy of Caliban trilogy with a layered look at the most secretive of the Space Marines.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "series_start",
+      "standard",
+      "war_story",
+      "mystery",
+      "grimdark",
+      "action_heavy",
+      "loyalty",
+      "betrayal",
+      "brotherhood",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      },
+      {
+        "name": "The Fallen",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Annael",
+        "role": "pov"
+      },
+      {
+        "name": "Telemenus",
+        "role": "pov"
+      },
+      {
+        "name": "Sammael",
+        "role": "supporting"
+      },
+      {
+        "name": "Asmodai",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.61,
+      "count": 440,
+      "evidenceUrl": "https://www.goodreads.com/book/show/13547117-ravenwing"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

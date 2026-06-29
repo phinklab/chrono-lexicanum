@@ -1,0 +1,125 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0023",
+  "slug": "angel-exterminatus",
+  "title": "Angel Exterminatus",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Fulgrim comes to Hydra Cordatus offering the Iron Warriors a way out of being Horus's siege engineers: a hidden eldar weapon in the Eye of Terror, the Angel Exterminatus, sealed away on the crystal world of Iydris. Perturabo takes the bait — partly out of curiosity, partly out of pride — and the Emperor's Children and Iron Warriors push together through the warp toward a tomb that was never meant to be reopened. Aboard ship, the Phoenician unravels by visible inches under the daemon now wearing his face, while the Iron Warrior triumvirate of Forrix, Berossus and Kroeger circle their primarch's mood. And from the wreckage of Isstvan V, the Raven Guard scout Sharrowkyn and the Iron Hand Ancient Rylanor are stowed away in the fleet with a quieter brief — kill Fulgrim before he reaches the prize.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "sector",
+      "mid_series",
+      "doorstopper",
+      "journey",
+      "war_story",
+      "mystery",
+      "character_study",
+      "betrayal",
+      "hubris",
+      "grimdark",
+      "somber",
+      "brotherhood",
+      "cosmic_horror",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Iron Warriors",
+        "role": "primary"
+      },
+      {
+        "name": "Emperor's Children",
+        "role": "primary"
+      },
+      {
+        "name": "Iron Hands",
+        "role": "antagonist"
+      },
+      {
+        "name": "Raven Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Eldar",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Iydris",
+        "role": "primary"
+      },
+      {
+        "name": "Eye of Terror",
+        "role": "primary"
+      },
+      {
+        "name": "Hydra Cordatus",
+        "role": "supporting"
+      },
+      {
+        "name": "Isstvan V",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Perturabo",
+        "role": "pov"
+      },
+      {
+        "name": "Fulgrim",
+        "role": "pov"
+      },
+      {
+        "name": "Sharrowkyn",
+        "role": "pov"
+      },
+      {
+        "name": "Rylanor",
+        "role": "pov"
+      },
+      {
+        "name": "Forrix",
+        "role": "supporting"
+      },
+      {
+        "name": "Lucius",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.08,
+      "count": 4510,
+      "evidenceUrl": "https://www.goodreads.com/book/show/15803022-angel-exterminatus"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

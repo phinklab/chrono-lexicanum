@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0331",
+  "slug": "lords-of-the-storm",
+  "title": "Lords of the Storm",
+  "authors": [
+    "Edoardo Albert"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novella",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On a penitential shrine world swallowed by the Great Rift, a divine tempest is the only thing keeping the forces of Chaos from the bones of a revered Imperial saint. As the storm begins to fail, the young survivor Montalte is summoned by blue-armoured strangers: a squad of Fulminators Reivers under Sergeant Augustin, sent to recover the saint's relics before they fall to the enemy. Montalte must guide these silent warriors through ruined sanctuaries crawling with cultists and traitor soldiery, while the living storm answers to a will of its own. As they fight toward the reliquary, Montalte wrestles with a harder question than survival: are these towering demigods the shepherds of humanity, or its wolves? A tense, faith-haunted novella about devotion, doubt, and the gulf between mortal worshippers and the Space Marines who do not share their creed.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "faith",
+      "doubt",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Fulminators",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos Cultists",
+        "role": "antagonist"
+      },
+      {
+        "name": "Traitor Guard",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Montalte",
+        "role": "pov"
+      },
+      {
+        "name": "Sergeant Augustin",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "shrine world not clearly named in available sources"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.76,
+      "count": 58,
+      "evidenceUrl": "https://www.goodreads.com/book/show/48735834-lords-of-the-storm"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0495",
+  "slug": "nightbleed",
+  "title": "Nightbleed",
+  "authors": [
+    "Peter Fehervari"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the night-shrouded hive world of Sarastus, disgraced former medicae Chel works under-the-table for a dubious synth-protein supplier, refusing to ask where the raw material comes from. Her nights bring waking horrors and her days bring worse dreams. Down in Carceri Hive, a self-styled missionary called Skreech moves through the crowd, choosing his initiates and revealing to them what he calls the True Night. When their paths cross, Chel discovers that her quiet refusal to look may have made her exactly the kind of receptive soul Skreech has been hunting. A low-key Peter Fehervari short that quietly extends his loose Dark Coil sequence of interconnected stories.",
+    "facetIds": [
+      "book",
+      "female",
+      "civilian",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "mystery",
+      "character_study",
+      "cosmic_horror",
+      "somber",
+      "grimdark",
+      "doubt",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_mental_health",
+      "cw_crime",
+      "en"
+    ],
+    "factions": [],
+    "locations": [
+      {
+        "name": "Sarastus",
+        "role": "primary"
+      },
+      {
+        "name": "Carceri Hive",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Chel",
+        "role": "pov"
+      },
+      {
+        "name": "Skreech",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "suggestion": "short_story"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.19,
+      "count": 237,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/55815522"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

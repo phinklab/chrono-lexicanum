@@ -1,0 +1,96 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0132",
+  "slug": "longshot",
+  "title": "Longshot",
+  "authors": [
+    "Rob Young"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2023,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Sergeant Darya Nevic of the Cadian 217th is a sniper on the frozen manufactorum world Attruso, where the T'au invasion has made every kill into propaganda. She is not Cadian-born, and the regiment's true sons never let her forget it, yet Imperial officers want her turned into a symbol while the T'au promise a cleaner loyalty across the lines. As winter and casualties close in, Darya has to decide whether she can become the legend her soldiers need without surrendering the person beneath it. A line-soldier war story about identity, morale, and useful lies.",
+    "facetIds": [
+      "book",
+      "female",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "character_study",
+      "political_thriller",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "doubt",
+      "loyalty",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Cadian Shock Troops",
+        "role": "primary"
+      },
+      {
+        "name": "Cadian 217th",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      },
+      {
+        "name": "T'au Empire",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tau Empire",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Attruso",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Darya Nevic",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

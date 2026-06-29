@@ -1,0 +1,79 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0399",
+  "slug": "cassius",
+  "title": "Cassius",
+  "authors": [
+    "Ben Counter"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "Space Marine Legends",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "When a Tyranid hive fleet is detected dangerously close to the Sol system, two whole companies of Ultramarines are dispatched to find and destroy the alien menace, led by their legendary Chaplain, Ortan Cassius. Grizzled and scarred after centuries of unending war, Cassius brings bravery, faith, and an impetuous streak to the defence of the strategically vital world of Kolovan. But against the endless, evolving waves of the swarm, even his fury and resolve may not be enough, and his own headstrong nature could prove as great a danger as the xenos themselves. A profile of the Ultramarines' fiercest spiritual leader, told as a relentless war against a tide that never stops coming.",
+    "facetIds": [
+      "book",
+      "space_marine",
+      "male",
+      "imperium",
+      "planetary",
+      "standalone",
+      "short",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "faith",
+      "war",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Kolovan",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ortan Cassius",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.38,
+      "count": 53,
+      "evidenceUrl": "https://www.goodreads.com/book/show/30180677-cassius"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0095",
+  "slug": "lion-eljonson-lord-of-the-first",
+  "title": "Lion El'Jonson: Lord of the First",
+  "authors": [
+    "David Guymer"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "The Primarchs",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "While the Emperor calls his primarchs together for the muster at Ullanor, the Lion turns his Legion the other way and drives the First into the Ghoul Stars to put down one defiant world. The Dark Angels expect a swift compliance and find themselves at war with the Khrave — mind-eating xenos who can wear the thoughts of weaker minds like clothing. Suddenly the mortals serving aboard the Lion's fleet cannot be trusted to hold the line beside their Astartes, and every plan must account for treachery from within. Pride or warning? Caprice or duty? The novel keeps the question open, and the Lord of the First in shadow.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "requires_context",
+      "short",
+      "character_study",
+      "war_story",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "hubris",
+      "loyalty",
+      "war",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Khrave",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Ghoul Stars",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lion El'Jonson",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.67,
+      "count": 843,
+      "evidenceUrl": "https://www.goodreads.com/book/show/62887011"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

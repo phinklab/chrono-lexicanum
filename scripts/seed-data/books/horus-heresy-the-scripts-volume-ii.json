@@ -1,0 +1,110 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0293",
+  "slug": "horus-heresy-the-scripts-volume-ii",
+  "title": "Horus Heresy: The Scripts: Volume II",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2014,
+  "format": "scriptbook",
+  "seriesHint": "Other Books",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The second script collection prints the production texts behind six further Horus Heresy audio dramas, with editor Laurie Goulding's introduction, soundtrack cues, and character notes. Malcador the Sigillite shapes a quiet war on Terra in 'The Sigillite.' Captain Garro returns three times — 'Sword of Truth' and 'Burden of Duty' continue his Knight-Errant arc, while 'Honour to the Dead' tracks a haunted Death Guard frigate. 'Grey Angel' sends an Inquisitor and a Knight-Errant chasing rumours of one of the Lion's sons. 'Censure' drops Aeonid Thiel and a handful of Ultramarines onto a fractured world to hunt a Word Bearers preacher dug in among the rubble. A reference volume for listeners who want the page behind the audio.",
+    "facetIds": [
+      "book",
+      "male",
+      "multi",
+      "space_marine",
+      "inquisitor",
+      "imperium",
+      "galactic",
+      "requires_context",
+      "standard",
+      "war_story",
+      "character_study",
+      "mystery",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "betrayal",
+      "war",
+      "faith",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Court",
+        "role": "primary"
+      },
+      {
+        "name": "Death Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Calth",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Malcador the Sigillite",
+        "role": "pov"
+      },
+      {
+        "name": "Nathaniel Garro",
+        "role": "pov"
+      },
+      {
+        "name": "Aeonid Thiel",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.73,
+      "count": 22,
+      "evidenceUrl": "https://goodreads.com/book/show/29436892-the-scripts"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

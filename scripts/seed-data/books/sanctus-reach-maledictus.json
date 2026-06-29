@@ -1,0 +1,91 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0329",
+  "slug": "sanctus-reach-maledictus",
+  "title": "Sanctus Reach: Maledictus",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novella",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Drawn by dire prophecy, a cadre of Grey Knights arrives at Squire's Rest, a quiet agri-world where old Guardsmen go to live out their final years. Their auguries warn of a daemonic eruption to come, but the daemon-hunters are not the only force descending on the planet, for the Red Waaagh! has reached Squire's Rest as well. As the Grey Knights wade into battle against the savage Orks, they begin to suspect that their own arrival may have set in motion the very catastrophe they came to prevent. Two mysteries tangle together, and the threat of open conflict between rival branches of the Inquisition looms as darkly as the gathering storm. To save the world, the Knights must first unravel which doom is truly theirs to face.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "inquisitor",
+      "imperium",
+      "planetary",
+      "novella",
+      "standalone",
+      "war_story",
+      "mystery",
+      "cosmic_horror",
+      "grimdark",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Grey Knights",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos Daemons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Squire's Rest",
+        "role": "primary"
+      },
+      {
+        "name": "Sanctus Reach",
+        "role": "supporting"
+      }
+    ],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "available sources name no individual viewpoint character"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.64,
+      "count": 55,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22885976-maledictus"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

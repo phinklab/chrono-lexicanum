@@ -1,0 +1,82 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0195",
+  "slug": "wolf-mother",
+  "title": "Wolf Mother",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Aboard the Molech's Enlightenment, the great refugee transport carrying the survivors of Horus's invasion of Molech away into the dark, an old enemy makes its nest. The Serpent Cult that brought House Devine down from inside lives on, hidden among the wounded and the desperate, and it has begun to take children. Alivia Sureka, the woman who has stood quiet sentinel over Molech's secret for longer than the Imperium has existed, must walk those crowded decks to find her adopted daughter before the cult does. Her only ally is the Knight Errant Severian, a lone hunter cast out of his Legion's shadow, and his methods are not gentle ones. A short, taut sequel to Vengeful Spirit, set in the corridors of a wounded ship full of frightened civilians.",
+    "facetIds": [
+      "book",
+      "female",
+      "civilian",
+      "imperium",
+      "squad",
+      "requires_context",
+      "mystery",
+      "character_study",
+      "grimdark",
+      "somber",
+      "faith",
+      "sacrifice",
+      "en",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing"
+    ],
+    "factions": [
+      {
+        "name": "Knights Errant",
+        "role": "supporting"
+      },
+      {
+        "name": "Serpent Cult",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Molech's Enlightenment",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Alivia Sureka",
+        "role": "pov"
+      },
+      {
+        "name": "Severian",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.78,
+      "count": 147,
+      "evidenceUrl": "https://www.goodreads.com/book/show/24888323-wolf-mother"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

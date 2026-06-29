@@ -1,0 +1,99 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0176",
+  "slug": "road-to-redemption",
+  "title": "Road to Redemption",
+  "authors": [
+    "Mike Brooks"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Necromunda",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Zeke has left House Cawdor's faith-and-flagellant life behind, or convinced himself he has, until raiders burn Floodgrave and carry off the settlement's children into Hive Primus. To follow them, he straps on the weapons he swore away and walks back into the zealotry, brutality and Redemptionist logic that shaped him. With children's lives on the line, Mike Brooks turns the rescue into a grim road downhive, asking whether a man can use the old violence for one decent end without becoming its servant again in the dark.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "journey",
+      "character_study",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "faith",
+      "redemption",
+      "doubt",
+      "loyalty",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_crime",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "House Cawdor",
+        "role": "primary"
+      },
+      {
+        "name": "Redemptionists",
+        "role": "primary"
+      },
+      {
+        "name": "Guilders",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Necromunda",
+        "role": "primary"
+      },
+      {
+        "name": "Hive Primus",
+        "role": "primary"
+      },
+      {
+        "name": "Underhive",
+        "role": "primary"
+      },
+      {
+        "name": "Floodgrave",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Zeke",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

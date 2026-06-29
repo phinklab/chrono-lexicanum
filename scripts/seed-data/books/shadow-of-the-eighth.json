@@ -1,0 +1,93 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0472",
+  "slug": "shadow-of-the-eighth",
+  "title": "Shadow of the Eighth",
+  "authors": [
+    "Justin D. Hill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2023,
+  "format": "novel",
+  "seriesHint": "Cadia",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "When Minka Lesk and the Cadian 101st recover a relic belonging to the missing Cadian 8th — long thought destroyed in the fall of their homeworld — they follow the trail to Telken's Rest, an ice-locked world at the heart of the Chaos warlord Drakul-zar's crumbling regime. Rumours hint that Lord Castellan Ursarkar Creed himself may still be alive there. The Cadians know the lead may be bait, but heritage runs too deep to ignore, and what waits in the frozen hab-sprawl will force them to choose between the duty they have now and the past they cannot let go.",
+    "facetIds": [
+      "book",
+      "female",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "journey",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "loyalty",
+      "doubt",
+      "war",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Cadian Shock",
+        "role": "primary"
+      },
+      {
+        "name": "Traitor Guard",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Telken's Rest",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Minka Lesk",
+        "role": "pov"
+      },
+      {
+        "name": "Ursarkar Creed",
+        "role": "supporting"
+      },
+      {
+        "name": "Drakul-zar",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.87,
+      "count": 279,
+      "evidenceUrl": "https://www.goodreads.com/book/show/194574811-shadow-of-the-eighth"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

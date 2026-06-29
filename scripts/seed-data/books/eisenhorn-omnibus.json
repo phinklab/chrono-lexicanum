@@ -1,0 +1,155 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0004",
+  "slug": "eisenhorn-omnibus",
+  "title": "Eisenhorn Omnibus",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2005,
+  "format": "omnibus",
+  "seriesHint": "Inquisitor (Eisenhorn/Ravenor/Bequin)",
+  "series": "eisenhorn",
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Omnibus collecting Xenos, Malleus and Hereticus plus the short stories \"Missing in Action\" and \"Backcloth for a Crown Additional\" — the full first arc of Inquisitor Gregor Eisenhorn's record. Across two centuries of in-universe time he advances from puritan Amalathian to radical Inquisitor willing to bind a daemonhost and conceal it from his peers. The omnibus is the most coherent single text on how a servant of the Imperium reaches the threshold of heresy without quite crossing the line he himself can see, and on how the line he cannot see moves behind him. The canonical entry point into Black Library through Abnett.",
+    "facetIds": [
+      "book",
+      "male",
+      "inquisitor",
+      "imperium",
+      "sector",
+      "series_start",
+      "doorstopper",
+      "mystery",
+      "journey",
+      "political_thriller",
+      "grimdark",
+      "philosophical",
+      "somber",
+      "betrayal",
+      "hubris",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Xenos",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Malleus",
+        "role": "supporting"
+      },
+      {
+        "name": "Ordo Hereticus",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Helican Subsector",
+        "role": "primary"
+      },
+      {
+        "name": "Gudrun",
+        "role": "primary"
+      },
+      {
+        "name": "Hubris",
+        "role": "secondary"
+      },
+      {
+        "name": "Thracian Primaris",
+        "role": "secondary"
+      },
+      {
+        "name": "Spaeton House",
+        "role": "secondary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Gregor Eisenhorn",
+        "role": "pov"
+      },
+      {
+        "name": "Alizebeth Bequin",
+        "role": "supporting"
+      },
+      {
+        "name": "Midas Betancore",
+        "role": "supporting"
+      },
+      {
+        "name": "Godwyn Fischig",
+        "role": "supporting"
+      },
+      {
+        "name": "Uber Aemos",
+        "role": "supporting"
+      },
+      {
+        "name": "Cherubael",
+        "role": "supporting"
+      },
+      {
+        "name": "Pontius Glaw",
+        "role": "supporting"
+      },
+      {
+        "name": "Gideon Ravenor",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0001",
+        "displayOrder": 0,
+        "confidence": 0.95,
+        "basis": "Explicit Eisenhorn omnibus follows the trilogy in TLBranson section order"
+      },
+      {
+        "externalBookId": "W40K-0002",
+        "displayOrder": 1,
+        "confidence": 0.95,
+        "basis": "Explicit Eisenhorn omnibus follows the trilogy in TLBranson section order"
+      },
+      {
+        "externalBookId": "W40K-0003",
+        "displayOrder": 2,
+        "confidence": 0.95,
+        "basis": "Explicit Eisenhorn omnibus follows the trilogy in TLBranson section order"
+      }
+    ]
+  }
+}

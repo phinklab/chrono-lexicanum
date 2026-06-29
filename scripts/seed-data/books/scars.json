@@ -1,0 +1,114 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0028",
+  "slug": "scars",
+  "title": "Scars",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "At the Khan's distant warzone on Chondax, the White Scars finish their ork hunt and find the galaxy gone insane behind their backs — and Alpha Legion ships rising in their wake. Jaghatai Khan refuses to declare for either side until he has read the field himself, and turns the Fifth Legion toward Prospero to question Magnus, then toward Terra by way of an ambushed Space Wolves fleet at the Alaxxes Nebula. Through the Khan, his keshig khan Shiban, the Stormseer Yesugei and the increasingly fractured legion-brother Torghun, the novel watches an open, easy culture try to make the closed decision the war is forcing on it. The serial that became this book still reads in twelve clean movements, each a stage in the Khan's slow turn from neutral observer to loyalist.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "mid_series",
+      "doorstopper",
+      "war_story",
+      "character_study",
+      "political_thriller",
+      "journey",
+      "action_heavy",
+      "betrayal",
+      "loyalty",
+      "brotherhood",
+      "doubt",
+      "grimdark",
+      "somber",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "White Scars",
+        "role": "primary"
+      },
+      {
+        "name": "Alpha Legion",
+        "role": "antagonist"
+      },
+      {
+        "name": "Space Wolves",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Chondax",
+        "role": "primary"
+      },
+      {
+        "name": "Alaxxes Nebula",
+        "role": "primary"
+      },
+      {
+        "name": "Prospero",
+        "role": "supporting"
+      },
+      {
+        "name": "Chogoris",
+        "role": "supporting"
+      },
+      {
+        "name": "Ullanor",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Jaghatai Khan",
+        "role": "pov"
+      },
+      {
+        "name": "Shiban Khan",
+        "role": "pov"
+      },
+      {
+        "name": "Torghun Khan",
+        "role": "pov"
+      },
+      {
+        "name": "Targutai Yesugei",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.15,
+      "count": 4070,
+      "evidenceUrl": "https://www.goodreads.com/book/show/18143803-scars"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

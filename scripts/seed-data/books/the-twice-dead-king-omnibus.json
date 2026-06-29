@@ -1,0 +1,113 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0553",
+  "slug": "the-twice-dead-king-omnibus",
+  "title": "The Twice-Dead King Omnibus",
+  "authors": [
+    "Nate Crowley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "omnibus",
+  "seriesHint": "The Twice-Dead King",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Nate Crowley's complete Twice-Dead King in one volume: the duology Ruin and Reign — exiled lord Oltyx's reckoning with the brother who broke him, the orks at his gates, and the flayer curse rotting his own court from within — together with the novella Severed and a clutch of shorter pieces that fill out the same dynasty's long, weary history. Read end to end, the omnibus traces a kind of necron tragedy: a species that traded life for immortality and now spends eternity defending the bargain it made, told through one disgraced lord who is slowly remembering what was taken from him. A natural entry point for readers who want the whole arc — court intrigue, crownworld siege, fleet exodus — in a single doorstopper.",
+    "facetIds": [
+      "book",
+      "male",
+      "pc_xenos",
+      "xenos",
+      "galactic",
+      "standalone",
+      "doorstopper",
+      "war_story",
+      "last_stand",
+      "journey",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "cosmic_horror",
+      "hubris",
+      "sacrifice",
+      "loyalty",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Necrons",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Navy",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sedh",
+        "role": "primary"
+      },
+      {
+        "name": "Antikef",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Oltyx",
+        "role": "pov"
+      },
+      {
+        "name": "Djoseras",
+        "role": "supporting"
+      },
+      {
+        "name": "Yenekh",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.42,
+      "count": 57,
+      "evidenceUrl": "https://www.goodreads.com/book/show/221160726-the-twice-dead-king"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0551",
+        "displayOrder": 0,
+        "confidence": 0.95,
+        "basis": "Twice-Dead King omnibus follows Ruin and Reign"
+      },
+      {
+        "externalBookId": "W40K-0552",
+        "displayOrder": 1,
+        "confidence": 0.95,
+        "basis": "Twice-Dead King omnibus follows Ruin and Reign"
+      }
+    ]
+  }
+}

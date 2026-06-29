@@ -1,0 +1,100 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0469",
+  "slug": "cadia-stands",
+  "title": "Cadia Stands",
+  "authors": [
+    "Justin D. Hill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "Cadia",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Abaddon the Despoiler's Thirteenth Black Crusade has come at last. The Black Legion and the warlords of the Eye of Terror are battering Cadia, the fortress world that has stood as the Imperium's bulwark for ten thousand years. Cadia Stands tells the planet's defence from inside the Cadian regiments themselves. Major Bendikt, a tank commander stranded at a remote outpost, watches the invasion fall through binoculars and broken vox channels. Minka, a Whiteshield barely old enough to be a soldier, holes up with a ragged company in the rubble of a Kasr. General Grüber commands from the High Command bunkers as one ruined city falls after another. The pylons that have kept Cadia stable since the dawn of the Imperium begin to fail. And the planet's defenders — stoic, stubborn, justifiably proud — discover what their oath of loyalty actually costs.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "series_start",
+      "standard",
+      "war_story",
+      "siege",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "sacrifice",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Black Legion",
+        "role": "antagonist"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Cadia",
+        "role": "primary"
+      },
+      {
+        "name": "Eye of Terror",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Major Bendikt",
+        "role": "pov"
+      },
+      {
+        "name": "Minka Lesk",
+        "role": "pov"
+      },
+      {
+        "name": "General Grüber",
+        "role": "supporting"
+      },
+      {
+        "name": "Abaddon the Despoiler",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.77,
+      "count": 1429,
+      "evidenceUrl": "https://www.goodreads.com/book/show/35297654"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

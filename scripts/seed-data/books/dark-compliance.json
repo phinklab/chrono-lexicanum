@@ -1,0 +1,79 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0285",
+  "slug": "dark-compliance",
+  "title": "Dark Compliance",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A defiant planetary lord has refused the Warmaster's summons. Argonis of the Sons of Horus arrives as emissary and, in the candle-lit hall of a man who still believes he can negotiate, calmly recounts what was done to the system of Accazzar-Beta in a single day when its rulers said the same word: no. The tale is precise, almost gentle in its telling, and it leaves no room for any answer except surrender. This is how Horus is binding so many worlds to his cause without burning them: he is teaching the galaxy that the cost of refusal has already been paid by someone else, and showing the receipt.",
+    "facetIds": [
+      "audio_drama",
+      "novella",
+      "chaos",
+      "space_marine",
+      "male",
+      "planetary",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "somber",
+      "hubris",
+      "war",
+      "requires_context",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Sons of Horus",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Accazzar-Beta",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Argonis",
+        "role": "pov"
+      },
+      {
+        "name": "Horus",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.62,
+      "count": 160,
+      "evidenceUrl": "https://www.goodreads.com/book/show/35150689"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

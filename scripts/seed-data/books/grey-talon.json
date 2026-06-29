@@ -1,0 +1,90 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0275",
+  "slug": "grey-talon",
+  "title": "Grey Talon",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The destroyer Grey Talon was once a Sons of Horus ship, but loyalist hands now turn her guns against her former masters. Captain Bion Henricos of the Iron Hands keeps her cunning hidden under traitor colours, striking at isolated warbands and hunting the killers of his primarch. Beside him stands Hibou Khan, an exiled warrior of the White Scars who once rode with the Khan's keshig and now serves a death-oath in penance. As each ambush ratchets the crew further from the cold logic of strategy and deeper into private grief, the question grows louder — who exactly is the Grey Talon avenging, and what do men with nothing left to lose ever do once they finally run out of enemies? A follow-up to Scars, paired tightly with the Meduson story arc.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "requires_context",
+      "novella",
+      "war_story",
+      "character_study",
+      "somber",
+      "action_heavy",
+      "grimdark",
+      "redemption",
+      "loyalty",
+      "doubt",
+      "brotherhood",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Hands",
+        "role": "primary"
+      },
+      {
+        "name": "White Scars",
+        "role": "primary"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Isstvan V",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Bion Henricos",
+        "role": "pov"
+      },
+      {
+        "name": "Hibou Khan",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.87,
+      "count": 128,
+      "evidenceUrl": "https://www.goodreads.com/book/show/28635737-grey-talon"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

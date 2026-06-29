@@ -1,0 +1,94 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0086",
+  "slug": "silver-skulls-portents",
+  "title": "Silver Skulls: Portents",
+  "authors": [
+    "Sarah Cawkwell"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Mid-series Silver Skulls novel. The chapter — a White-Scars successor whose deployments are dictated by an order of Prognosticars, prophetic psyker-priests — is sent to Valoria Quintus to crush an insurrection the prophecy promises will fall quickly. The campaign is anchored by Sergeant Gileas Ur'ten, a rogue-element battle-brother whose temper holds him at angles to command but whose squad becomes the spearhead. As the war drags on the prophecy frays: the Inquisition has arrived with its own interest in the Prognosticars themselves, and the chapter begins to look like it is being steered by exactly the powers it thought it was fighting. A slow-burn political-mystery over a war-story spine.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "mid_series",
+      "standard",
+      "war_story",
+      "mystery",
+      "political_thriller",
+      "character_study",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "brotherhood",
+      "doubt",
+      "betrayal",
+      "loyalty",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Silver Skulls",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Valoria Quintus",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Gileas Ur'ten",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

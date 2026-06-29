@@ -1,0 +1,181 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0061",
+  "slug": "iron-warriors-the-omnibus",
+  "title": "Iron Warriors: The Omnibus",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "omnibus",
+  "seriesHint": "Iron Warriors",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Graham McNeill's first omnibus of Iron Warriors stories, all anchored on the warsmith Honsou. The novel Storm of Iron runs the methodical siege of the Imperial fortress-world Hydra Cordatus, with Warsmith Barban Falk and the captains Forrix, Kroeger and a rising Honsou tearing apart wall after wall to reach the primarch-DNA vault buried beneath. The novella Iron Warrior delivers Honsou's near-impossible vendetta strike on an Ultramarines star fort, and six bridging shorts thread his career through the Eye of Terror, the Skull Harvest and the long Ventris obsession. Strictly chaos-POV — the legion seen from inside, hubris and workmanship intact together.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "sector",
+      "standalone",
+      "doorstopper",
+      "war_story",
+      "siege",
+      "character_study",
+      "journey",
+      "grimdark",
+      "cosmic_horror",
+      "action_heavy",
+      "somber",
+      "hubris",
+      "brotherhood",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Warriors",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "supporting"
+      },
+      {
+        "name": "Daemons",
+        "role": "background"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Medrengard",
+        "role": "primary"
+      },
+      {
+        "name": "Hydra Cordatus",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramar",
+        "role": "secondary"
+      },
+      {
+        "name": "Calth",
+        "role": "mentioned"
+      },
+      {
+        "name": "Macragge",
+        "role": "mentioned"
+      },
+      {
+        "name": "Eye of Terror",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Honsou",
+        "role": "pov"
+      },
+      {
+        "name": "Forrix",
+        "role": "pov"
+      },
+      {
+        "name": "Kroeger",
+        "role": "supporting"
+      },
+      {
+        "name": "Barban Falk",
+        "role": "supporting"
+      },
+      {
+        "name": "Berossus",
+        "role": "supporting"
+      },
+      {
+        "name": "Magos Naicin",
+        "role": "supporting"
+      },
+      {
+        "name": "Ardaric Vaanes",
+        "role": "supporting"
+      },
+      {
+        "name": "Uriel Ventris",
+        "role": "antagonist"
+      },
+      {
+        "name": "Pasanius Lysane",
+        "role": "mentioned"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "duplicate_omnibus",
+        "current": "distinct",
+        "suggestion": "marked-as-repackaging-pair-with-W40K-0062",
+        "sources": [
+          "Black Library product listings; Lexicanum Iron Warriors (Novel Series); Goodreads"
+        ],
+        "reasoning": "Content-identical to W40K-0062 Iron Warriors: The Complete Honsou Omnibus (2019). Both collect the same eight constituents: the novel Storm of Iron, the novella Iron Warrior, and the six shorts The Enemy of My Enemy, The Heraclitus Effect, The Skull Harvest, The Iron Without, The Beast of Calth, and The Corpse Road. Roster carries both rows because they exist as distinct SKUs (different ISBNs, different cover art, seven-year publication gap). Resolver should treat them as the same logical work for recommendation purposes but keep separate book rows for catalogue completeness."
+      }
+    ]
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0060",
+        "displayOrder": 0,
+        "confidence": 0.8,
+        "basis": "Iron Warriors omnibus inferred from Honsou section membership"
+      },
+      {
+        "externalBookId": "W40K-0063",
+        "displayOrder": 1,
+        "confidence": 0.8,
+        "basis": "Iron Warriors omnibus inferred from Honsou section membership"
+      }
+    ]
+  }
+}

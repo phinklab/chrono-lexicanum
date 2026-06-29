@@ -1,0 +1,90 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0450",
+  "slug": "dante",
+  "title": "Dante",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "Dante",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Commander Dante has led the Blood Angels for over a thousand years, the longest-serving Chapter Master in the Imperium's history. This novel braids two stories fifteen centuries apart: the origin of a boy born in the rad-blasted wastes of Baal Secundus, destined for glory, rising from aspirant to the angelic lord of a Space Marine Chapter; and the present-day commander fighting to save his people as tyranid hive fleets devour the Cryptus system at the edge of Baal. Across both, Dante wrestles with the Flaw in the blood of Sanguinius and the darkness it breeds in every Blood Angel — and with what it costs to wear the Death Mask and never falter.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "standalone",
+      "standard",
+      "war_story",
+      "character_study",
+      "journey",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "sacrifice",
+      "faith",
+      "doubt",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Baal Secundus",
+        "role": "primary"
+      },
+      {
+        "name": "Cryptus",
+        "role": "supporting"
+      },
+      {
+        "name": "Armageddon",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Dante",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.32,
+      "count": 2036,
+      "evidenceUrl": "https://www.goodreads.com/book/show/30753457-dante"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

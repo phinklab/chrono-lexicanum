@@ -1,0 +1,81 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0174",
+  "slug": "lord-of-the-red-sands",
+  "title": "Lord of the Red Sands",
+  "authors": [
+    "Aaron Dembski-Bowden"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the murdered surface of Isstvan III, Angron of the World Eaters wades through the smoke and the ash and the dying. He kills his own wayward sons as readily as the enemy, and yet in the carnage he finds an unfamiliar quiet — something close to peace. The gladiator-primarch is renowned across the galaxy for savagery, but the Eater of Worlds carries another hunger underneath, older than the Heresy: not honour, not vengeance, but freedom from the chains the cosmos has wrapped around him since the day the Emperor pulled him off the slave-pits of Nuceria. A short, brutal interior portrait of the angriest of the primarchs.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "chaos",
+      "planetary",
+      "requires_context",
+      "novella",
+      "war_story",
+      "character_study",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "betrayal",
+      "hubris",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "World Eaters",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Isstvan III",
+        "role": "primary"
+      },
+      {
+        "name": "Nuceria",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Angron",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.07,
+      "count": 303,
+      "evidenceUrl": "https://www.goodreads.com/book/show/25262003-lord-of-the-red-sands"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

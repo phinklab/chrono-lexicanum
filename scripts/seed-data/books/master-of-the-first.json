@@ -1,0 +1,90 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0264",
+  "slug": "master-of-the-first",
+  "title": "Master of the First",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Thramas Crusade has ground the Dark Angels and Night Lords into a bloody stalemate; the Lion holds nominal victory, but the First Legion is scattered and bled white. On Caliban, Chapter Master Astelan and the brethren loyal to Terra grow restless under Luther's quiet consolidation of power. Captain Melian brings warning of a deeper conspiracy among the home-Legion officers, and Astelan must decide whether his oaths bind him to the Lion's distant war or to the increasingly strange order taking root on his homeworld. When the trap is finally sprung - Army forces under Tylaine moving in concert with a loyal company of Astartes - the conspirators are crushed, but the questions about Luther himself remain. A tense political piece about loyalty, ambition and the slow rot that will one day shatter Caliban.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "war_story",
+      "political_thriller",
+      "character_study",
+      "somber",
+      "action_heavy",
+      "loyalty",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Night Lords",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Caliban",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Astelan",
+        "role": "pov"
+      },
+      {
+        "name": "Luther",
+        "role": "supporting"
+      },
+      {
+        "name": "Captain Melian",
+        "role": "supporting"
+      },
+      {
+        "name": "Tylaine",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.67,
+      "count": 183,
+      "evidenceUrl": "https://www.goodreads.com/book/show/23443389-master-of-the-first"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

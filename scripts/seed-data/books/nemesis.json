@@ -1,0 +1,104 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0013",
+  "slug": "nemesis",
+  "title": "Nemesis",
+  "authors": [
+    "James Swallow"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2010,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "After the slaughter at Isstvan V, Malcador the Sigillite quietly summons one operative from each Officio Assassinorum clade — Vindicare sniper, Eversor berserker, Venenum poisoner, Callidus shapeshifter, Culexus null and Vanus infocyte — and forges them into an Execution Force with a single brief: kill the Warmaster. While the killers cross the void towards Horus on Dagonet, a parallel manhunt unfolds on the sleepy world of Iesta Veracrux, where Arbites investigator Yosef Sabrat tracks a serial killer whose murders fit no pattern a human profiler can read. The two threads collide as a Word Bearers-engineered weapon designed to slay the Emperor himself reveals its hand.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "multi",
+      "imperium",
+      "sector",
+      "requires_context",
+      "standard",
+      "political_thriller",
+      "mystery",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "hubris",
+      "betrayal",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_crime"
+    ],
+    "factions": [
+      {
+        "name": "Officio Assassinorum",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Arbites",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Iesta Veracrux",
+        "role": "primary"
+      },
+      {
+        "name": "Dagonet",
+        "role": "primary"
+      },
+      {
+        "name": "Terra",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Eristede Kell",
+        "role": "pov"
+      },
+      {
+        "name": "Yosef Sabrat",
+        "role": "pov"
+      },
+      {
+        "name": "Spear",
+        "role": "antagonist"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.72,
+      "count": 6161,
+      "evidenceUrl": "https://www.goodreads.com/book/show/7113690-nemesis"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

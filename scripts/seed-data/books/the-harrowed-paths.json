@@ -1,0 +1,77 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0510",
+  "slug": "the-harrowed-paths",
+  "title": "The Harrowed Paths",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "novel",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Seven Warhammer Horror stories collected as The Harrowed Paths, ranging from a colonel's haunted monograph and a planet that registers only as a ghost on the auspex to a sketch-artist drawn into the work of a serial killer and an old woman whose last candle gutters under the weight of a necroquake. Voices in mosaic tile, a cutter who works in bone, and a quiet drowning under dark water round out the collection. The book travels between 40K hive cities and the Mortal Realms without ever quite settling, and the throughline is less a setting than a tone — the patient, attentive horror of being noticed by something you should have left undisturbed.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "multi",
+      "neutral",
+      "planetary",
+      "standalone",
+      "standard",
+      "character_study",
+      "mystery",
+      "cosmic_horror",
+      "grimdark",
+      "somber",
+      "doubt",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_death",
+      "en"
+    ],
+    "factions": [],
+    "locations": [],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "suggestion": "anthology",
+        "reason": "The Harrowed Paths is a seven-story Warhammer Horror anthology (McNeill, Gray, Strachan, Sheil, Kyme, Hinks, Ozga), not a single-author novel; Graham McNeill is the contributing author of one story"
+      },
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "Anthology spans 40K hive cities and AoS Mortal Realms; per-story aggregation not reliably surfaced in this pass"
+      },
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "Per-story locations span multiple unrelated 40K/AoS settings; insufficient source coverage to enumerate reliably"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.83,
+      "count": 115,
+      "evidenceUrl": "https://www.goodreads.com/book/show/55892287-the-harrowed-paths"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

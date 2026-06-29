@@ -1,0 +1,82 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0556",
+  "slug": "long-live-da-red-gobbo",
+  "title": "Long Live Da Red Gobbo",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2024,
+  "format": "novella",
+  "seriesHint": "Da Red Gobbo",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "When the kill kroozer Big Thumpa crashes on a barren world ruled by warboss Brukka Bludspilla and his Snakebites clan, the current Da Red Gobbo decides the mantle is too heavy for him and passes it to his reluctant second, Slipbit. Slipbit would much rather not be a symbol of grot revolution, but the grots conscripted into Bludspilla's mob would much rather not be slaves either, so he picks up the snazzy goggles and starts a small, badly-organised, very loud uprising. Justin Woolley's Red Gobbo novella is gleeful, episodic and surprisingly tender: a tale of small creatures pulling off an outsized stunt against an oppressor who never quite believes runts can hurt him until they do.",
+    "facetIds": [
+      "book",
+      "male",
+      "pc_xenos",
+      "xenos",
+      "planetary",
+      "mid_series",
+      "novella",
+      "war_story",
+      "satirical",
+      "action_heavy",
+      "hopepunk",
+      "brotherhood",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Orks",
+        "role": "primary"
+      },
+      {
+        "name": "Snakebites",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Slipbit",
+        "role": "pov"
+      },
+      {
+        "name": "Brukka Bludspilla",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "authors",
+        "reason": "roster authors[] is empty; sources consistently credit Justin Woolley",
+        "suggestion": "Justin Woolley"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.04,
+      "count": 85,
+      "evidenceUrl": "https://www.goodreads.com/book/show/221124965-long-live-da-red-gobbo"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

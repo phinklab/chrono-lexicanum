@@ -1,0 +1,98 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0545",
+  "slug": "the-king-of-the-spoil",
+  "title": "The King of the Spoil",
+  "authors": [
+    "Jonathan D. Beer"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2023,
+  "format": "novel",
+  "seriesHint": "Warhammer Crime",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Andreti Sorokin, the gangster-king whose iron hand kept the Spoil from eating itself, has been killed in a way that was meant to be witnessed. Into the vacuum step two women: Melita Voronova, a careful info-broker now collared by the Valtteri cartel and ordered to find the killer before Sorokin's coalition of pushers, smugglers and street captains tears itself to pieces; and Haska Jovanic, a hopeful at the edge of the Har Dhrol gang who keeps getting swept further into the rising tide of anger on the wards. Jonathan D. Beer's first Warhammer Crime novel follows both — the investigator looking up and the would-be soldier looking out — as the question shifts from who killed Sorokin to who wanted the Spoil set on fire, and why Varangantua's untouchable cartels might be the answer.",
+    "facetIds": [
+      "book",
+      "female",
+      "mixed",
+      "civilian",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "mystery",
+      "political_thriller",
+      "grimdark",
+      "somber",
+      "betrayal",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_crime",
+      "cw_disturbing",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Valtteri Cartel",
+        "role": "primary"
+      },
+      {
+        "name": "Har Dhrol",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Varangantua",
+        "role": "primary"
+      },
+      {
+        "name": "The Spoil",
+        "role": "primary"
+      },
+      {
+        "name": "Alecto",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Melita Voronova",
+        "role": "pov"
+      },
+      {
+        "name": "Haska Jovanic",
+        "role": "pov"
+      },
+      {
+        "name": "Andreti Sorokin",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.81,
+      "count": 211,
+      "evidenceUrl": "https://www.goodreads.com/book/show/138538196-the-king-of-the-spoil"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

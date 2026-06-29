@@ -1,0 +1,102 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0262",
+  "slug": "templar",
+  "title": "Templar",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "First Captain Sigismund of the Imperial Fists has been disgraced. His refusal to leave Terra with the Retribution Fleet enraged his primarch Rogal Dorn, who renounced him as a son even while letting him keep his rank. Now a desperate Word Bearers warband tries to slip back into the Sol System after Lorgar abandoned them, and only Sigismund's strike force stands between the renegades and the Throneworld. As his blade carves through the traitors aboard their ship, he relives duels and conversations with brothers from other Legions - Jubal Khan of the White Scars, Kharn of the World Eaters - and confronts what kind of warrior he has chosen to be at the dawn of the long war.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "company",
+      "requires_context",
+      "war_story",
+      "character_study",
+      "action_heavy",
+      "somber",
+      "loyalty",
+      "doubt",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      },
+      {
+        "name": "White Scars",
+        "role": "supporting"
+      },
+      {
+        "name": "World Eaters",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sol System",
+        "role": "primary"
+      },
+      {
+        "name": "Terra",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sigismund",
+        "role": "pov"
+      },
+      {
+        "name": "Rogal Dorn",
+        "role": "supporting"
+      },
+      {
+        "name": "Jubal Khan",
+        "role": "supporting"
+      },
+      {
+        "name": "Kharn",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.73,
+      "count": 316,
+      "evidenceUrl": "https://www.goodreads.com/book/show/21411990-templar"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

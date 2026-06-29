@@ -1,0 +1,83 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0227",
+  "slug": "the-lightning-hall",
+  "title": "The Lightning Hall",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the conquered face of Mars, House Taranis is in ruins. Its forges burn under Dark Mechanicum colours, its knights lie broken in the dust, and its servants huddle in places where the new masters have not yet come. Then, across a vox-band that should be empty, a ghost-signal speaks: an old call-tone from the Lightning Hall, the holy seat of House Taranis itself. Raf Maven, one of the last surviving scions, rides to answer it. Picking his way through ash-fields haunted by the corrupted Mechanicum and by their suborned war-engines, Raf finds his house's heart not destroyed but waiting — and with it, the slim chance that Taranis can be rebuilt as the spear of a counter-strike against Kelbor-Hal and his red-eyed allies. The story is a direct sequel to the fall of Mars.",
+    "facetIds": [
+      "book",
+      "male",
+      "multi",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "novella",
+      "war_story",
+      "last_stand",
+      "action_heavy",
+      "grimdark",
+      "loyalty",
+      "sacrifice",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "House Taranis",
+        "role": "primary"
+      },
+      {
+        "name": "Dark Mechanicum",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Mars",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Raf Maven",
+        "role": "pov"
+      },
+      {
+        "name": "Kelbor-Hal",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.03,
+      "count": 89,
+      "evidenceUrl": "https://www.goodreads.com/book/show/56397512-the-lightning-hall"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

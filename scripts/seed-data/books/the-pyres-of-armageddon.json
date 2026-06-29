@@ -1,0 +1,84 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0378",
+  "slug": "the-pyres-of-armageddon",
+  "title": "The Pyres of Armageddon",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "novel",
+  "seriesHint": "Yarrick",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "When the ork warlord Ghazghkull Thraka hurls the largest greenskin horde seen in centuries against the hive world of Armageddon, Commissar Sebastian Yarrick rises to meet the assault that will make him a legend. As the Second War for Armageddon engulfs the planet, the Imperial defenders are nearly overwhelmed, and Yarrick leads the resistance through a series of desperate, daring strikes against the orks. To hold the world he will defy even Armageddon's corrupt overlord, for Yarrick will not allow it to fall. A relentless, action-heavy war story that brings one of the setting's most iconic confrontations to the page.",
+    "facetIds": [
+      "book",
+      "male",
+      "commissar",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "siege",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "faith",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Armageddon",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sebastian Yarrick",
+        "role": "pov"
+      },
+      {
+        "name": "Ghazghkull Thraka",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.97,
+      "count": 208,
+      "evidenceUrl": "https://www.goodreads.com/book/show/23492362-yarrick"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

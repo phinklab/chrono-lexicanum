@@ -1,0 +1,93 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0351",
+  "slug": "path-of-the-warrior",
+  "title": "Path of the Warrior",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2010,
+  "format": "novel",
+  "seriesHint": "Path of the Eldar",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the craftworld Alaitoc, the Eldar live by discipline, each citizen walking a chosen Path that shapes who they become. Korlandril is a celebrated sculptor — until envy and a sense of betrayal turn him from his art toward the Aspect Temples. Under the Exarch Kenainath he trains as a Striking Scorpion, learning to kill with lethal grace and to wear the war-mask that lets an Eldar fight without losing himself. As Alaitoc braces for an Imperial assault, Korlandril is drawn ever deeper into the warrior's discipline, and the further he walks that road the harder it becomes to set the mask aside and return to the person he once was. The first book of the Path of the Eldar trilogy, told from the warrior's view.",
+    "facetIds": [
+      "book",
+      "male",
+      "pc_xenos",
+      "xenos",
+      "planetary",
+      "series_start",
+      "standard",
+      "character_study",
+      "war_story",
+      "somber",
+      "philosophical",
+      "grimdark",
+      "war",
+      "hubris",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Craftworld Eldar",
+        "role": "primary"
+      },
+      {
+        "name": "Striking Scorpions",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Alaitoc",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Korlandril",
+        "role": "pov"
+      },
+      {
+        "name": "Kenainath",
+        "role": "supporting"
+      },
+      {
+        "name": "Thirianna",
+        "role": "supporting"
+      },
+      {
+        "name": "Aradryan",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.64,
+      "count": 1079,
+      "evidenceUrl": "https://www.goodreads.com/book/show/7095160-path-of-the-warrior"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

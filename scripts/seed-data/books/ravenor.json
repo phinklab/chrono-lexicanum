@@ -1,0 +1,114 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0005",
+  "slug": "ravenor",
+  "title": "Ravenor",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2004,
+  "format": "novel",
+  "seriesHint": "Inquisitor (Eisenhorn/Ravenor/Bequin)",
+  "series": "ravenor",
+  "seriesIndex": 1,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Gideon Ravenor, the rising Inquisitor whose body was destroyed in the Spatian incident, hunts a synthetic narcotic called Flects across the Eustis Majoris sub-sector. He works from a hovering force-chair — locked in mind, projecting through telepathy — with a retinue led by his lifelong protector Harlon Nayl and the savant Kara Swole. The investigation widens: the flects are warp-glass refracted from the Eye of Terror, sold to bored aristocrats as a daemon-narcotic. Behind the dealers stands a hereditary commercial dynasty older than the local government, with Inquisitorial protection inherited like silverware. Ravenor closes one cell and watches three more open. The book introduces the difference between the Eisenhorn voice and the Ravenor voice: Eisenhorn writes; Ravenor speaks through others.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "inquisitor",
+      "imperium",
+      "sector",
+      "series_start",
+      "standard",
+      "mystery",
+      "political_thriller",
+      "court_intrigue",
+      "grimdark",
+      "action_heavy",
+      "betrayal",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_crime",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Xenos",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Eustis Majoris",
+        "role": "primary"
+      },
+      {
+        "name": "Sancour",
+        "role": "secondary"
+      },
+      {
+        "name": "Eye of Terror",
+        "role": "mentioned"
+      },
+      {
+        "name": "Scarus Sector",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Gideon Ravenor",
+        "role": "pov"
+      },
+      {
+        "name": "Harlon Nayl",
+        "role": "supporting"
+      },
+      {
+        "name": "Kara Swole",
+        "role": "supporting"
+      },
+      {
+        "name": "Patience Kys",
+        "role": "supporting"
+      },
+      {
+        "name": "Carl Thonius",
+        "role": "supporting"
+      },
+      {
+        "name": "Wystan Frauka",
+        "role": "supporting"
+      },
+      {
+        "name": "Zael Efferneti",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

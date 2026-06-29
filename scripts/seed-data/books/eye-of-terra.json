@@ -1,0 +1,140 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0035",
+  "slug": "eye-of-terra",
+  "title": "Eye of Terra",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2017,
+  "format": "anthology",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Fifteen pieces gathered around the loyalist–traitor schism. Aaron Dembski-Bowden's novella Aurelian sends Lorgar into the immaterium to commune with the Primordial Annihilator; his Massacre and The Long Night turn the Isstvan V dropsite and Sevatar's imprisonment over to Night Lords eyes. Graham McNeill's The Wolf of Ash and Fire pairs Horus with the Emperor on a final hunt against an Ork empire. David Annandale's Iron Corpses sifts the radioactive wreck of Tallarn for survivors. Nick Kyme's Red-Marked and Stratagem follow the censured Ultramarine Aeonid Thiel as he meets Guilliman again after Calth. Gav Thorpe (Inheritor, Master of the First), Matthew Farrer (Vorax), Rob Sanders and Chris Wraight (Brotherhood of the Moon) round out a survey of legions and primarchs under strain.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "ensemble",
+      "space_marine",
+      "multi",
+      "dual",
+      "galactic",
+      "requires_context",
+      "standard",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "action_heavy",
+      "cosmic_horror",
+      "betrayal",
+      "war",
+      "brotherhood",
+      "loyalty",
+      "hubris",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Word Bearers",
+        "role": "primary"
+      },
+      {
+        "name": "Night Lords",
+        "role": "supporting"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "supporting"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "supporting"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "supporting"
+      },
+      {
+        "name": "Dark Angels",
+        "role": "supporting"
+      },
+      {
+        "name": "White Scars",
+        "role": "supporting"
+      },
+      {
+        "name": "Mechanicus",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Isstvan V",
+        "role": "supporting"
+      },
+      {
+        "name": "Tallarn",
+        "role": "supporting"
+      },
+      {
+        "name": "Calth",
+        "role": "supporting"
+      },
+      {
+        "name": "Terra",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lorgar",
+        "role": "pov"
+      },
+      {
+        "name": "Horus",
+        "role": "pov"
+      },
+      {
+        "name": "The Emperor",
+        "role": "supporting"
+      },
+      {
+        "name": "Sevatar",
+        "role": "pov"
+      },
+      {
+        "name": "Aeonid Thiel",
+        "role": "pov"
+      },
+      {
+        "name": "Roboute Guilliman",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.7,
+      "count": 1545,
+      "evidenceUrl": "https://www.goodreads.com/book/show/28956068-eye-of-terra"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

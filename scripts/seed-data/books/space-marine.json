@@ -1,0 +1,113 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0064",
+  "slug": "space-marine",
+  "title": "Space Marine",
+  "authors": [
+    "Ian Watson"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 1993,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Three boys from the underhive gangs of Hive Trazior on Necromunda — Lexandro d'Arquebus, Yeremi Valance and Biff Tundrish — are dragged into the Imperial Fists' induction programme. The novel follows their gene-seed implantation, scout trials and ascension to full battle-brother status, closing on a First Company boarding action inside a Tyranid bioship. A Bildungsroman in three POVs — Lexandro's ascetic discipline, Yeremi's intuitive aggression, Biff's bawdy loyalty — set against the chapter's iron Codex orthodoxy. The third Warhammer 40,000 novel ever published (Games Workshop, 1993), and the structural template for every later path-to-Astartes story.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "company",
+      "standalone",
+      "standard",
+      "war_story",
+      "journey",
+      "character_study",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "brotherhood",
+      "loyalty",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Genestealer Cults",
+        "role": "antagonist"
+      },
+      {
+        "name": "Squats",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Necromunda",
+        "role": "primary"
+      },
+      {
+        "name": "Hive Trazior",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lexandro d'Arquebus",
+        "role": "pov"
+      },
+      {
+        "name": "Yeremi Valance",
+        "role": "pov"
+      },
+      {
+        "name": "Biff Tundrish",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "canonicity",
+        "current": "rostered",
+        "suggestion": "heretic_tomes_label",
+        "sources": [
+          "Black Library / Lexicanum: novel sold under the Heretic Tomes brand"
+        ],
+        "reasoning": "Black Library currently distributes the novel under its *Heretic Tomes* label, reserved for works no longer consistent with current Warhammer 40,000 canon. The 1993 lore around Imperial Fists recruitment, gene-seed rites, and the now-removed Squat sub-faction has been retconned. Roster correctly lists the book as a 40K novel; this flag is informational for the recommender so it can de-weight or contextualise canonicity-drift entries in Ask-the-Archive results."
+      }
+    ]
+  },
+  "collections": {
+    "collects": []
+  }
+}

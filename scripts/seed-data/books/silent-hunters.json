@@ -1,0 +1,98 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0110",
+  "slug": "silent-hunters",
+  "title": "Silent Hunters",
+  "authors": [
+    "Edoardo Albert"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Carcharodons return from the void-haunted galactic fringe when a relic Chaplain Tangata Manu has hunted for a thousand years is stolen and carried into Commorragh, the Dark City of the Drukhari. The chase brings Te Kahurangi, the Pale Nomad Librarian, back into the hunt and exposes an old feud between brothers that the mission can no longer leave buried. Chapter-serfs Iraia and Jona give the quest a human pulse as the trail runs from the sea world Sagaraya to the worst city in the galaxy, where every bargain cuts. A grim Carcharodons journey-heist about relic-obsession, brotherhood and reconciliation under knives.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "mid_series",
+      "standard",
+      "journey",
+      "war_story",
+      "heist",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "cosmic_horror",
+      "brotherhood",
+      "redemption",
+      "loyalty",
+      "sacrifice",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Carcharodons",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Drukhari",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sagaraya",
+        "role": "primary"
+      },
+      {
+        "name": "Commorragh",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Te Kahurangi",
+        "role": "pov"
+      },
+      {
+        "name": "Chaplain Tangata Manu",
+        "role": "pov"
+      },
+      {
+        "name": "Iraia",
+        "role": "pov"
+      },
+      {
+        "name": "Jona",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

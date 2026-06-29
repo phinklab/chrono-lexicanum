@@ -1,0 +1,79 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0070",
+  "slug": "restorer",
+  "title": "Restorer",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "short_story",
+  "seriesHint": "Siege of Terra Prequels",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Shiban Khan has returned to Terra. The White Scar's body has been remade and his mechanical shackles cast aside, but there are other, deeper wounds — older than Prospero, older than the legion's long ride across the wilds of the galaxy — that must still be confronted before he can stand in the line again. As the Warmaster's host draws ever closer to the Throneworld, Shiban walks the pre-Siege corridors of the Imperial Palace and the wild places of Terra not yet bombarded into ruin, taking stock of the brother he once was and the warrior he must become. A quiet, introspective coda to one White Scar's long arc through the Heresy, set on the threshold of the war's final act.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "novella",
+      "character_study",
+      "somber",
+      "philosophical",
+      "redemption",
+      "doubt",
+      "brotherhood",
+      "loyalty",
+      "cw_violence",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "White Scars",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Palace",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Shiban Khan",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.08,
+      "count": 110,
+      "evidenceUrl": "https://www.goodreads.com/book/show/36134201-restorer"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

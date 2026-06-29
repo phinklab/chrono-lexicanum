@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0244",
+  "slug": "the-remnant-blade",
+  "title": "The Remnant Blade",
+  "authors": [
+    "Mike Vincent"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "novel",
+  "seriesHint": "Night Lords",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Dalchian Rassaq, the Skin-Taker, once ruled the Blades of Atrocity, until rivals deposed him, broke him, and left him for dead. Cast out and hunted within his own warband, the Night Lord refuses to fade into the dark. When whispers reach him of a phantom voidship adrift in the void, Rassaq sees a chance to reclaim everything that was taken from him and repay every betrayal in kind. With only a renegade tech-priest at his side and the casual cruelty of his kind as his weapon, he sets out to seize the prize before his rival can. A grim tale of ambition, vengeance, and the endless infighting that defines the Night Lords.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "company",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "action_heavy",
+      "betrayal",
+      "hubris",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_language",
+      "en",
+      "standard",
+      "standalone"
+    ],
+    "factions": [
+      {
+        "name": "Night Lords",
+        "role": "primary"
+      },
+      {
+        "name": "Blades of Atrocity",
+        "role": "supporting"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Dalchian Rassaq",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "seriesHint",
+        "reason": "roster seriesHint is 'Imperial Guard' but the book is a Night Lords (Chaos Space Marines) novel",
+        "suggestion": "Night Lords"
+      },
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "no clearly named world or sector in available sources"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.07,
+      "count": 243,
+      "evidenceUrl": "https://www.goodreads.com/book/show/241815776-the-remnant-blade"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

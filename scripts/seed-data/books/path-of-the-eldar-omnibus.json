@@ -1,0 +1,114 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0354",
+  "slug": "path-of-the-eldar-omnibus",
+  "title": "Path of the Eldar Omnibus",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "omnibus",
+  "seriesHint": "Path of the Eldar",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The complete Path of the Eldar trilogy in one volume. On the craftworld Alaitoc, three friends each walk a different road: Korlandril the sculptor who becomes a Striking Scorpion, Thirianna the poet who trains as a farseer, and Aradryan the outcast who flees to live among rangers and corsairs. The three novels — Path of the Warrior, Path of the Seer and Path of the Outcast — retell the same gathering catastrophe from each of their viewpoints, building a portrait of a proud and ancient people, the discipline that holds them together, and the choices that bring war to their home.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "pc_xenos",
+      "xenos",
+      "sector",
+      "series_start",
+      "doorstopper",
+      "character_study",
+      "war_story",
+      "journey",
+      "somber",
+      "philosophical",
+      "grimdark",
+      "war",
+      "hubris",
+      "betrayal",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Craftworld Eldar",
+        "role": "primary"
+      },
+      {
+        "name": "Striking Scorpions",
+        "role": "supporting"
+      },
+      {
+        "name": "Eldar Corsairs",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Alaitoc",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Korlandril",
+        "role": "pov"
+      },
+      {
+        "name": "Thirianna",
+        "role": "pov"
+      },
+      {
+        "name": "Aradryan",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.02,
+      "count": 164,
+      "evidenceUrl": "https://www.goodreads.com/book/show/18143882-path-of-the-eldar-omnibus"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0351",
+        "displayOrder": 0,
+        "confidence": 0.95,
+        "basis": "Path of the Eldar omnibus follows the trilogy"
+      },
+      {
+        "externalBookId": "W40K-0352",
+        "displayOrder": 1,
+        "confidence": 0.95,
+        "basis": "Path of the Eldar omnibus follows the trilogy"
+      },
+      {
+        "externalBookId": "W40K-0353",
+        "displayOrder": 2,
+        "confidence": 0.95,
+        "basis": "Path of the Eldar omnibus follows the trilogy"
+      }
+    ]
+  }
+}

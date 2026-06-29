@@ -1,0 +1,90 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0432",
+  "slug": "space-wolves-the-darkness-of-angels",
+  "title": "Space Wolves: The Darkness of Angels",
+  "authors": [
+    "Rob Sanders"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "short_story",
+  "seriesHint": "Legends of the Dark Millennium",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "With Wolf Lord Krom Dragongaze and his warriors trapped fighting for their lives in the dark city of Commorragh, the Space Wolves' hunt for their missing lord Logan Grimnar looks doomed. As Ulrik the Slayer mounts a desperate rescue, Krom finally breaks free of the arena, only to be run down by vengeful dark eldar through the twisting corridors of the city. Salvation comes from the unlikeliest of quarters: Balthus, an Interrogator-Chaplain of the Dark Angels, the Wolves' oldest rivals. Forced into an uneasy alliance, hunter and rival must trust one another long enough to seize a webway portal and tear their way back into real space before the eldar close in.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "requires_context",
+      "war_story",
+      "journey",
+      "action_heavy",
+      "grimdark",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Dark Angels",
+        "role": "supporting"
+      },
+      {
+        "name": "Dark Eldar",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Commorragh",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Krom Dragongaze",
+        "role": "pov"
+      },
+      {
+        "name": "Ulrik the Slayer",
+        "role": "supporting"
+      },
+      {
+        "name": "Balthus",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.86,
+      "count": 35,
+      "evidenceUrl": "https://www.goodreads.com/book/show/27883859-the-darkness-of-angels"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

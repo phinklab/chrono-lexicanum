@@ -1,0 +1,106 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0083",
+  "slug": "valedor",
+  "title": "Valedor",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Apocalypse-scale Eldar novel set at the Battle of Duriel. Prince Yriel of Iyanden — carrying the consequences of an earlier engagement his farseers diverted into the warp — learns that the diverted fragment of Hive Fleet Kraken has re-emerged on a collision course with Hive Fleet Leviathan, and that the two swarms' genetic exchange would produce something the galaxy cannot survive. Yriel forges an uneasy three-way alliance with the Aspect-Warrior swordwind of Biel-Tan and the Dark Eldar of Commorragh, who fight only as long as the soul-toll suits them. Wraithguard, Aspect shrines, Kabal raiders and Tyranid bioforms collide across battlefield set pieces; a somber-cosmic register in which even victory only postpones the long extinction.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "pc_xenos",
+      "xenos",
+      "sector",
+      "standalone",
+      "standard",
+      "war_story",
+      "last_stand",
+      "journey",
+      "siege",
+      "grimdark",
+      "cosmic_horror",
+      "somber",
+      "action_heavy",
+      "sacrifice",
+      "doubt",
+      "hubris",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Eldar",
+        "role": "primary"
+      },
+      {
+        "name": "Iyanden",
+        "role": "primary"
+      },
+      {
+        "name": "Biel-Tan",
+        "role": "primary"
+      },
+      {
+        "name": "Dark Eldar",
+        "role": "primary"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      },
+      {
+        "name": "Hive Fleet Leviathan",
+        "role": "antagonist"
+      },
+      {
+        "name": "Hive Fleet Kraken",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Duriel",
+        "role": "primary"
+      },
+      {
+        "name": "Iyanden",
+        "role": "secondary"
+      },
+      {
+        "name": "Commorragh",
+        "role": "secondary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Yriel",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

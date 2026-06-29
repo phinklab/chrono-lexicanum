@@ -1,0 +1,197 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0016",
+  "slug": "age-of-darkness",
+  "title": "Age of Darkness",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2011,
+  "format": "anthology",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Nine novellas drawn from the months after the Dropsite Massacre at Isstvan V, each visiting a different corner of the new war. Graham McNeill puts Roboute Guilliman's officers through a training scenario that already smells like the disaster waiting at Calth; James Swallow watches a single agitator unravel a peaceful Ultima Segmentum world; Nick Kyme sends Salamander and Ultramarine envoys on a diplomatic errand; John French interrogates the last Remembrancer in Imperial custody; Chris Wraight follows Thousand Sons survivors fleeing burning Prospero; Gav Thorpe joins Raven Guard and Iron Hands picking their way out of the slaughter; Dan Abnett rides with Little Horus Aximand; Rob Sanders garrisons the loyalist Iron Warrior Barabas Dantioch at Hydra Cordatus; and Aaron Dembski-Bowden brokers a black parley between the Lion and Konrad Curze.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "multi",
+      "dual",
+      "sector",
+      "mid_series",
+      "standard",
+      "war_story",
+      "character_study",
+      "last_stand",
+      "grimdark",
+      "somber",
+      "loyalty",
+      "betrayal",
+      "brotherhood",
+      "sacrifice",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "primary"
+      },
+      {
+        "name": "Thousand Sons",
+        "role": "supporting"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "supporting"
+      },
+      {
+        "name": "Raven Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Iron Hands",
+        "role": "supporting"
+      },
+      {
+        "name": "Salamanders",
+        "role": "supporting"
+      },
+      {
+        "name": "Dark Angels",
+        "role": "supporting"
+      },
+      {
+        "name": "Night Lords",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Ultramar",
+        "role": "primary"
+      },
+      {
+        "name": "Isstvan V",
+        "role": "supporting"
+      },
+      {
+        "name": "Prospero",
+        "role": "supporting"
+      },
+      {
+        "name": "Hydra Cordatus",
+        "role": "supporting"
+      },
+      {
+        "name": "Terra",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Roboute Guilliman",
+        "role": "supporting"
+      },
+      {
+        "name": "Iacton Qruze",
+        "role": "supporting"
+      },
+      {
+        "name": "Little Horus Aximand",
+        "role": "supporting"
+      },
+      {
+        "name": "Barabas Dantioch",
+        "role": "supporting"
+      },
+      {
+        "name": "Lion El'Jonson",
+        "role": "supporting"
+      },
+      {
+        "name": "Konrad Curze",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.73,
+      "count": 4692,
+      "evidenceUrl": "https://www.goodreads.com/book/show/8697285-age-of-darkness"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "HH-0157",
+        "displayOrder": 0,
+        "confidence": 0.82,
+        "basis": "Age of Darkness anthology contents align with the next nine listed HH short stories"
+      },
+      {
+        "externalBookId": "HH-0158",
+        "displayOrder": 1,
+        "confidence": 0.82,
+        "basis": "Age of Darkness anthology contents align with the next nine listed HH short stories"
+      },
+      {
+        "externalBookId": "HH-0159",
+        "displayOrder": 2,
+        "confidence": 0.82,
+        "basis": "Age of Darkness anthology contents align with the next nine listed HH short stories"
+      },
+      {
+        "externalBookId": "HH-0160",
+        "displayOrder": 3,
+        "confidence": 0.82,
+        "basis": "Age of Darkness anthology contents align with the next nine listed HH short stories"
+      },
+      {
+        "externalBookId": "HH-0161",
+        "displayOrder": 4,
+        "confidence": 0.82,
+        "basis": "Age of Darkness anthology contents align with the next nine listed HH short stories"
+      },
+      {
+        "externalBookId": "HH-0162",
+        "displayOrder": 5,
+        "confidence": 0.82,
+        "basis": "Age of Darkness anthology contents align with the next nine listed HH short stories"
+      },
+      {
+        "externalBookId": "HH-0163",
+        "displayOrder": 6,
+        "confidence": 0.82,
+        "basis": "Age of Darkness anthology contents align with the next nine listed HH short stories"
+      },
+      {
+        "externalBookId": "HH-0164",
+        "displayOrder": 7,
+        "confidence": 0.82,
+        "basis": "Age of Darkness anthology contents align with the next nine listed HH short stories"
+      },
+      {
+        "externalBookId": "HH-0165",
+        "displayOrder": 8,
+        "confidence": 0.82,
+        "basis": "Age of Darkness anthology contents align with the next nine listed HH short stories"
+      }
+    ]
+  }
+}

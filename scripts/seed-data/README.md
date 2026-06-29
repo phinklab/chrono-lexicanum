@@ -2,6 +2,19 @@
 
 Canonical reference data used by `scripts/seed.ts` to initialize a fresh database.
 
+> **📚 Book corpus = per-book SSOT (Brief 171 Teil B).** The live book corpus lives
+> ONLY in [`books/`](./books/) — one `books/<slug>.json` (`book-v1`) per book. Add
+> books there (`books/README.md` + `scripts/runbooks/add-book-runbook.md`), apply
+> with `npm run apply:book -- --all`. The legacy sources — `book-roster.json`, the
+> 90 `manual-overrides-ssot-*.json` batches, `book-roster.extension.json`, and
+> `source/Warhammer_Books_SSOT.xlsx` — are **frozen provenance** (and the migration
+> equivalence golden); nothing reads them as a live source anymore. The batch/Excel/
+> loop CLIs (`db:apply-override`, `loop:next`, `import:ssot-roster`, `db:apply-scope`,
+> `run-ssot-loop.sh`) are retired and refuse with a pointer to the per-book path.
+> A read-only Excel VIEW of the per-book corpus: `npm run books:excel`. Note: the
+> separate `books.json` dev-seed below is a different, much smaller hand-curated set
+> with its own id space (unchanged by Brief 171).
+
 ## What's in the catalog (post Stufe 2b — sessions/2026-05-01-021)
 
 **Reference structure** (canon, hand-curated, source of truth for v1):

@@ -1,0 +1,124 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0038",
+  "slug": "angels-of-caliban",
+  "title": "Angels of Caliban",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Dark Angels are a Legion split in half. On Macragge, Lion El'Jonson stands as Lord Protector of Imperium Secundus, hunting his shackled brother Konrad Curze through Roboute Guilliman's new realm; when the Night Lords strike Sotha, the Lion's response brings him to the brink of breaking with Guilliman and Sanguinius outright. On distant Caliban, the Legion garrison left under Luther has fractured into rival camps: Astelan plays the soldier-statesman, Zahariel digs into forbidden Calibanite mysteries, and Luther himself nurses the wound of his primarch's rejection. As the Lion's ruthlessness in Ultramar pulls one half of the Legion toward tyranny, the Calibanite faction edges toward open rebellion — and the Order's oldest secret, the figure of the Lord Cypher, is about to be reborn.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "requires_context",
+      "standard",
+      "court_intrigue",
+      "political_thriller",
+      "war_story",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "betrayal",
+      "brotherhood",
+      "loyalty",
+      "hubris",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Night Lords",
+        "role": "antagonist"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "supporting"
+      },
+      {
+        "name": "Blood Angels",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Caliban",
+        "role": "primary"
+      },
+      {
+        "name": "Macragge",
+        "role": "supporting"
+      },
+      {
+        "name": "Sotha",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lion El'Jonson",
+        "role": "pov"
+      },
+      {
+        "name": "Luther",
+        "role": "pov"
+      },
+      {
+        "name": "Astelan",
+        "role": "pov"
+      },
+      {
+        "name": "Zahariel",
+        "role": "pov"
+      },
+      {
+        "name": "Konrad Curze",
+        "role": "antagonist"
+      },
+      {
+        "name": "Roboute Guilliman",
+        "role": "supporting"
+      },
+      {
+        "name": "Sanguinius",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.78,
+      "count": 2393,
+      "evidenceUrl": "https://www.goodreads.com/book/show/28956059-angels-of-caliban"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

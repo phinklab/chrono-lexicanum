@@ -1,0 +1,84 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0137",
+  "slug": "spear-of-ultramar",
+  "title": "Spear of Ultramar",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novella",
+  "seriesHint": "Horus Heresy Novellas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Ruinstorm has thinned and Roboute Guilliman is finally driving his vast Ultramarines fleet toward Terra, certain that every day he loses is a day Horus gains. In the Charchera System he finds a trap waiting for him. Warsmith Khrossus and a single, outnumbered company of Iron Warriors have been ordered to delay the Avenging Son at any cost — and they have built the kind of patient, brittle snare that Guilliman, of all primarchs, will recognise on sight and still have no choice but to spring. As the Ultramarines bleed for every parsec, the truth of why the Thirteenth Legion never reached the Siege of Terra is laid bare in a single brutal engagement, and weighed in the Primarch's own counsel. A focused character study of command under the cruelest kind of time pressure.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "requires_context",
+      "novella",
+      "war_story",
+      "last_stand",
+      "character_study",
+      "somber",
+      "action_heavy",
+      "sacrifice",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Charchera System",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Roboute Guilliman",
+        "role": "pov"
+      },
+      {
+        "name": "Khrossus",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.71,
+      "count": 191,
+      "evidenceUrl": "https://www.goodreads.com/book/show/42740947-spear-of-ultramar"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

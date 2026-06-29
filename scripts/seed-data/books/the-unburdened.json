@@ -1,0 +1,89 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0133",
+  "slug": "the-unburdened",
+  "title": "The Unburdened",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "novella",
+  "seriesHint": "Horus Heresy Novellas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Long before the fires of Calth, Chaplain Kurtha Sedd walked beside the Emperor at Monarchia and shared a strange brotherhood with an Ultramarines captain named Steloc Aethon. Now Kurtha Sedd is a Chaplain of the Third Hand Chapter of the Word Bearers, and his Legion's long-prepared revenge against Guilliman's sons has only just begun. Driven beneath the surface of Calth as the wounded Veridian star unleashes its furies, Kurtha Sedd leads his most devout brethren deeper into the arcologies — and deeper into the unholy truths that bind them. There the Word Bearers must wage a darkening war against the Ultramarines, one in which old friendship cannot be allowed to soften the knife. A descent into Word Bearer faith and cosmic horror, paired with Sanders's The Honoured.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "chaos",
+      "planetary",
+      "requires_context",
+      "novella",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "cosmic_horror",
+      "faith",
+      "betrayal",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Word Bearers",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Calth",
+        "role": "primary"
+      },
+      {
+        "name": "Monarchia",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Kurtha Sedd",
+        "role": "pov"
+      },
+      {
+        "name": "Steloc Aethon",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.43,
+      "count": 369,
+      "evidenceUrl": "https://www.goodreads.com/book/show/26029275-the-unburdened"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0382",
+  "slug": "the-helwinter-gate",
+  "title": "The Helwinter Gate",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Space Wolves (newer)",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Hunted by the judgement of their own Chapter, the survivors of the Jarnhamar pack flee aboard a stolen vessel into an Imperium sliding toward total war. Still chasing vengeance for old wrongs, they pick through the ruins of dead worlds in search of an enemy who refuses to be found — even as one of their own, his unsanctioned powers swelling beyond control, charts a path none of them can predict. Their dream of returning to Fenris with honour restored grows ever more distant, and their road carries them at last to Cadia as that fortress world burns. Chris Wraight closes his Space Wolves trilogy with a somber story of exile, brotherhood, and what it means to belong to a misunderstood Chapter at the end of the age.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "series_finale",
+      "standard",
+      "war_story",
+      "journey",
+      "grimdark",
+      "somber",
+      "brotherhood",
+      "loyalty",
+      "doubt",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Cadia",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ingvar",
+        "role": "pov"
+      },
+      {
+        "name": "Gunnlaugur",
+        "role": "supporting"
+      },
+      {
+        "name": "Baldr Fjolnir",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.12,
+      "count": 289,
+      "evidenceUrl": "https://www.goodreads.com/book/show/56490418-the-helwinter-gate"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0462",
+  "slug": "meduson-wings",
+  "title": "Meduson Wings",
+  "authors": [
+    "Matt Westbrook"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novella",
+  "seriesHint": "Iron Hands (newer)",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Atraxii is a gifted pilot of Clan Company Kaargul, newly ordained as a Techmarine and freshly returned to Medusa. Almost at once he is thrown back into the void: the Medusan Wing, an Iron Hands fighter squadron led by his mentor Oblexus, is scrambling to defend a forge world refinery against a ramshackle ork airfleet. Side by side with Mechanicus tech-priests and their void-pilots, Atraxii throws his interceptor into running dogfights above the smelters. But as the orks press harder and the alliance with the Mechanicus begins to strain, Atraxii learns that his hosts are hiding secrets of their own, and that holding the line will demand more from him as a son of Medusa than as a tool of the Omnissiah.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "novella",
+      "war_story",
+      "action_heavy",
+      "brotherhood",
+      "war",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Hands",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Medusa",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Atraxii",
+        "role": "pov"
+      },
+      {
+        "name": "Oblexus",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "title",
+        "suggestion": "Medusan Wings",
+        "reason": "Goodreads, Black Library, and Amazon all publish this Matt Westbrook novella as 'Medusan Wings'; roster title 'Meduson Wings' appears to be a typo."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.62,
+      "count": 34,
+      "evidenceUrl": "https://www.goodreads.com/book/show/30807620-medusan-wings"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

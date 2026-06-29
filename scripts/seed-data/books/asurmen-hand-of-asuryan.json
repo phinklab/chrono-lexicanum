@@ -1,0 +1,90 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0395",
+  "slug": "asurmen-hand-of-asuryan",
+  "title": "Asurmen: Hand of Asuryan",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "novel",
+  "seriesHint": "Phoenix Lords",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Asurmen is the first and greatest of the Phoenix Lords, the legendary warrior-teachers of the aeldari. In the present, he intervenes in a reckless scheme launched by a farseer of Anuiven to reclaim a powerful artefact, a gambit that has drawn the murderous Flesh Thieves down upon the eldar. To avert the coming disaster he co-opts a peaceful pilot, Neridiath, whose calm spirit is unsettled by the warrior soul that walks beside her. As they fight, Asurmen tells her of his past: of the long decline of his people, the cataclysm that shattered their empire, and the choices that turned a survivor of the ruins into the first of the Phoenix Lords. A dual-timeline meditation on grief, duty, and the long shadow of a fallen civilisation.",
+    "facetIds": [
+      "book",
+      "pc_xenos",
+      "mixed",
+      "xenos",
+      "planetary",
+      "series_start",
+      "standard",
+      "war_story",
+      "journey",
+      "character_study",
+      "somber",
+      "philosophical",
+      "war",
+      "sacrifice",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Eldar",
+        "role": "primary"
+      },
+      {
+        "name": "Flesh Thieves",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Anuiven",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Asurmen",
+        "role": "pov"
+      },
+      {
+        "name": "Neridiath",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "value_outside_vocabulary",
+        "field": "facetIds",
+        "reason": "Phoenix Lord / aspect-warrior aeldari protagonist mapped to pc_xenos; no aeldari-specific protagonist_class value"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.77,
+      "count": 204,
+      "evidenceUrl": "https://www.goodreads.com/book/show/25410816-asurmen"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

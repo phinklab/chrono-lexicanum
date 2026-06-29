@@ -1,0 +1,107 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0262",
+  "slug": "savage-scars",
+  "title": "Savage Scars",
+  "authors": [
+    "Andy Hoare"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2011,
+  "format": "novel",
+  "seriesHint": "Rogue Trader",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The crusade against the tau has reached the contested world of Dal'yth, and the time has come for the Imperium to break the Greater Good's grip by force. The White Scars spearhead the ground assault, their riders tearing into the enemy with blistering speed while Lucian Gerrit leads the massed Imperial Guard and his daughter Brielle pursues her own designs. Yet victory hinges on a fractured crusade council, where backstabbing and rival agendas threaten to squander every gain, and Inquisitor Grand readies measures more terrible than the war itself. The Space Marine Sarik must win a swift triumph, for the cost of delay to Dal'yth could be beyond reckoning. When a far greater horror descends on the system, both sides are forced to count what their ambitions have truly bought.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "multi",
+      "imperium",
+      "planetary",
+      "series_finale",
+      "standard",
+      "war_story",
+      "siege",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "loyalty",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "White Scars",
+        "role": "primary"
+      },
+      {
+        "name": "Tau Empire",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Dal'yth",
+        "role": "primary"
+      },
+      {
+        "name": "Damocles Gulf",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sarik",
+        "role": "pov"
+      },
+      {
+        "name": "Lucian Gerrit",
+        "role": "pov"
+      },
+      {
+        "name": "Brielle Gerrit",
+        "role": "supporting"
+      },
+      {
+        "name": "Inquisitor Grand",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.34,
+      "count": 226,
+      "evidenceUrl": "https://www.goodreads.com/book/show/8959571-savage-scars"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

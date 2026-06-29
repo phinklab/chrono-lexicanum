@@ -1,0 +1,89 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0583",
+  "slug": "grotsnik-da-mad-dok",
+  "title": "Grotsnik: Da Mad Dok",
+  "authors": [
+    "Denny Flowers"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "novel",
+  "seriesHint": "40k - Character Series",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "Da Mad Dok Grotsnik, creator of Ghazghkull Thraka and the most infamous painboy in the galaxy, is a legend even among legends. When Grotsnik answers the call of Beastboss Bakmun, whose assault on Hive Prome is teetering on the edge of an embarrassing failure, Bakmun can't believe his luck. But through a series of increasingly suspicious accidents, Grotsnik's orderly Valtun and the grot Ikor begin to suspect that the Mad Dok is up to something far bigger than patching up wounded boyz. Deep in the bowels of Grotsnik's colossal Painwagon, something is being built — something that could surpass even the Prophet of the Waaagh! himself. Part heist, part philosophical nightmare, and entirely unhinged, this darkly comedic ork tale asks the ancient question: if you keep replacing the parts, is it still the same monster?",
+    "facetIds": [
+      "book",
+      "en",
+      "male",
+      "pc_xenos",
+      "xenos",
+      "standalone",
+      "standard",
+      "character_study",
+      "satirical",
+      "action_heavy",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Orks",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Hive Prome",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Grotsnik",
+        "role": "pov"
+      },
+      {
+        "name": "Valtun the Patient",
+        "role": "pov"
+      },
+      {
+        "name": "Beastboss Bakmun",
+        "role": "supporting"
+      },
+      {
+        "name": "Ikor",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "The Imperial defenders of Hive Prome are not named as a specific regiment or body in available sources, so they are left unbound; both Ork forces are tagged under the parent faction."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.05,
+      "count": 234,
+      "evidenceUrl": "https://www.goodreads.com/book/show/229201761"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

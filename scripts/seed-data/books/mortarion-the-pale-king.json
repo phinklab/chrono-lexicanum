@@ -1,0 +1,95 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0098",
+  "slug": "mortarion-the-pale-king",
+  "title": "Mortarion: The Pale King",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "The Primarchs",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The compliance of Galaspar was so thorough that the Imperium recoiled from its own victory. Mortarion, freshly placed at the head of the Death Guard, descended on a system whose ruling Order kept billions in slavery — and burned them out with a savagery that made his brothers question him. Now two of those brothers, Horus and Sanguinius, summon the Pale King back to the ruins he made and demand he account for what was done there. The novel cuts between the slaughter itself and the reckoning afterwards, watching a primarch who hates tyrants discover how easily he becomes one.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "requires_context",
+      "short",
+      "character_study",
+      "war_story",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "philosophical",
+      "hubris",
+      "brotherhood",
+      "doubt",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Death Guard",
+        "role": "primary"
+      },
+      {
+        "name": "The Order",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Galaspar",
+        "role": "primary"
+      },
+      {
+        "name": "Barbarus",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Mortarion",
+        "role": "pov"
+      },
+      {
+        "name": "Horus",
+        "role": "supporting"
+      },
+      {
+        "name": "Sanguinius",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.94,
+      "count": 728,
+      "evidenceUrl": "https://www.goodreads.com/book/show/60483879-mortarion"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

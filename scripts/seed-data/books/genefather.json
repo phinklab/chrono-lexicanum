@@ -1,0 +1,103 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0134",
+  "slug": "genefather",
+  "title": "Genefather",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2024,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Belisarius Cawl gathers the Imperium's great institutions on the artificial world Pontus Avernes to unveil his work on the Pylon network, a plan he believes could blunt the Great Rift and save a broken galaxy. The audience he wants is political; the guest he gets is Fabius Bile, who has his own designs on the data, the experiment, and the meaning of human perfection. Their duel becomes part scientific war, part ideological knife-fight, with Pontus Avernes as laboratory and the Imperium's representatives as audience, collateral, and prize. A Mechanicus thriller about genius, hubris, and two monsters who both think they are improving mankind.",
+    "facetIds": [
+      "book",
+      "male",
+      "tech_priest",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "mystery",
+      "political_thriller",
+      "character_study",
+      "grimdark",
+      "philosophical",
+      "somber",
+      "hubris",
+      "doubt",
+      "betrayal",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      },
+      {
+        "name": "Indomitus Crusade",
+        "role": "supporting"
+      },
+      {
+        "name": "Emperor's Children",
+        "role": "antagonist"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Slaanesh",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Pontus Avernes",
+        "role": "primary"
+      },
+      {
+        "name": "Great Rift",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Belisarius Cawl",
+        "role": "pov"
+      },
+      {
+        "name": "Fabius Bile",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

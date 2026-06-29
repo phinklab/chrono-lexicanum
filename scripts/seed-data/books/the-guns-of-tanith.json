@@ -1,0 +1,138 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0028",
+  "slug": "the-guns-of-tanith",
+  "title": "The Guns of Tanith",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2002,
+  "format": "novel",
+  "seriesHint": "Gaunt's Ghosts",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Ghosts join a multi-regiment Imperial Guard descent on Phantine, a smog-choked world where the breathable atmosphere sits in a thin shell above poisoned lowlands and where every battlefield is a hive-tower spire reached only from the air. To prosecute the assault, Gaunt's regiment — never trained for airborne operations — is rapidly stood up alongside the elite Phantine Air Corps and the Urdeshi armoured regiments. The campaign focuses on the Cirenholm and Ouranberg objectives, with Major Rawne's increasingly insubordinate command of a separate strike, the trial of trooper Caffran on a false rape-and-murder charge engineered by an internal enemy, and the methodical retaking of spire after spire from Blood Pact defenders. Political subplot: the Crusade's wider war over Phantine's promethium reserves and the Cardinal Pater Gargoyle subplot of Chaos infiltration into the Munitorum command. Tonally one of the tightest, most procedural of the series.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "regiment",
+      "mid_series",
+      "standard",
+      "war_story",
+      "siege",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "loyalty",
+      "brotherhood",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Tanith First-and-Only",
+        "role": "primary"
+      },
+      {
+        "name": "Verghastite Ghosts",
+        "role": "primary"
+      },
+      {
+        "name": "Phantine Air Corps",
+        "role": "supporting"
+      },
+      {
+        "name": "Urdeshi",
+        "role": "supporting"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Blood Pact",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Phantine",
+        "role": "primary"
+      },
+      {
+        "name": "Cirenholm",
+        "role": "secondary"
+      },
+      {
+        "name": "Ouranberg",
+        "role": "secondary"
+      },
+      {
+        "name": "Sabbat Worlds",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ibram Gaunt",
+        "role": "pov"
+      },
+      {
+        "name": "Colm Corbec",
+        "role": "supporting"
+      },
+      {
+        "name": "Elim Rawne",
+        "role": "supporting"
+      },
+      {
+        "name": "Hlaine Larkin",
+        "role": "supporting"
+      },
+      {
+        "name": "Caffran",
+        "role": "supporting"
+      },
+      {
+        "name": "Tona Criid",
+        "role": "supporting"
+      },
+      {
+        "name": "Viktor Hark",
+        "role": "supporting"
+      },
+      {
+        "name": "Oan Mkoll",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

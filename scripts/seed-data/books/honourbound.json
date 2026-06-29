@@ -1,0 +1,102 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0101",
+  "slug": "honourbound",
+  "title": "Honourbound",
+  "authors": [
+    "Rachel Harrison"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Commissar Severina Raine fights beside the Eleventh Antari Rifles in the Bale Stars Crusade, an Astra Militarum campaign against the Sighted, a Chaos cult that sends bound thrall regiments into the field. As Raine leads the Antari through drop strikes, urban war and a cult-citadel assault, memories of the Schola Progenium and her sister Lucia keep tightening around the question of what loyalty costs. Someone inside the crusade is feeding the enemy its next target. A somber war-story and character study about command, betrayal and the price of being the Emperor's voice.",
+    "facetIds": [
+      "book",
+      "female",
+      "guardsman",
+      "imperium",
+      "sector",
+      "series_start",
+      "standard",
+      "war_story",
+      "character_study",
+      "political_thriller",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "loyalty",
+      "doubt",
+      "faith",
+      "sacrifice",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Antari Rifles",
+        "role": "primary"
+      },
+      {
+        "name": "Schola Progenium",
+        "role": "secondary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "The Sighted",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bale Stars",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Severina Raine",
+        "role": "pov"
+      },
+      {
+        "name": "Lucia Raine",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

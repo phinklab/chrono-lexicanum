@@ -1,0 +1,74 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0544",
+  "slug": "sanction-and-sin",
+  "title": "Sanction and Sin",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2021,
+  "format": "anthology",
+  "seriesHint": "Warhammer Crime",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The third Warhammer Crime anthology gathers nine short stories from across the choking hive of Varangantua — sanctioners and gangers, devout citizens and the cults that prey on them, syndicates so large they amount to a second government. J. S. Collyer, Mike Brooks, Gary Kloster, Victoria Hayward, Jonathan D. Beer, Jude Reid and Danie Ware (among others) take turns at the door: a ballot count run by killers, a bodyguarding job that turns into an ambush, a confession dragged out of a fire, an enforcer's siege in the spires of Ismyr. The collection's pleasure is breadth, not arc; it pans the camera across a city where almost everyone is both the law's target and the law's last hope.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "multi",
+      "imperium",
+      "neutral",
+      "planetary",
+      "standalone",
+      "standard",
+      "mystery",
+      "character_study",
+      "grimdark",
+      "somber",
+      "doubt",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "cw_crime",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Arbites",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Varangantua",
+        "role": "primary"
+      },
+      {
+        "name": "Alecto",
+        "role": "supporting"
+      }
+    ],
+    "characters": [],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.99,
+      "count": 164,
+      "evidenceUrl": "https://www.goodreads.com/book/show/58326583-sanction-and-sin"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

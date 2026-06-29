@@ -1,0 +1,135 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0154",
+  "slug": "grey-hunter",
+  "title": "Grey Hunter",
+  "authors": [
+    "William King"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2002,
+  "format": "novel",
+  "seriesHint": "Space Wolves (original)",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the corrupted world of Garm, Madox of the Thousand Sons has stolen the Spear of Russ and means to use it as the key to a ritual gate for Magnus the Red. Ragnar Blackmane, Strybjorn and Sven race into the old Space Wolves and Thousand Sons hatred, fighting through sorcery, relic-worship and the weight of their Chapter's history. Ragnar's choice at the portal costs the Wolves their sacred spear but saves them from a worse return, marking his passage from Blood Claw toward Grey Hunter. A brutal chapter-myth of sacrifice and inherited war.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "last_stand",
+      "action_heavy",
+      "grimdark",
+      "war",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Space Marines",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      },
+      {
+        "name": "Thousand Sons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos Space Marines",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tzeentch",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Fenris",
+        "role": "supporting"
+      },
+      {
+        "name": "The Fang",
+        "role": "supporting"
+      },
+      {
+        "name": "Garm",
+        "role": "primary"
+      },
+      {
+        "name": "Planet of the Sorcerers",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ragnar Blackmane",
+        "role": "pov"
+      },
+      {
+        "name": "Strybjorn Grimskull",
+        "role": "supporting"
+      },
+      {
+        "name": "Sven Brujothirson",
+        "role": "supporting"
+      },
+      {
+        "name": "Berek Thunderfist",
+        "role": "supporting"
+      },
+      {
+        "name": "Madox",
+        "role": "antagonist"
+      },
+      {
+        "name": "Magnus the Red",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

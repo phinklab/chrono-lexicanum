@@ -1,0 +1,77 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0204",
+  "slug": "artefacts",
+  "title": "Artefacts",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the eve of the Dropsite Massacre, Vulkan stands among the great weapons of his own making and considers which of them to take with him to Isstvan V — and which to destroy before any could fall into the hands of those who once were brothers. Between Salamander primarch and Salamander son, the conversation reaches across Konrad Curze's descent into madness, the burning of Nostramo, and the warning signs in Horus that the Emperor's confidence missed. A quiet, forge-lit story about what a primarch leaves behind, the first stirring of the duty that the Eighteenth Legion will one day call the Forgefather, and the origin of relics still being hunted ten millennia after Vulkan himself is gone.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "requires_context",
+      "character_study",
+      "somber",
+      "philosophical",
+      "grimdark",
+      "faith",
+      "brotherhood",
+      "hubris",
+      "sacrifice",
+      "doubt",
+      "en",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Salamanders",
+        "role": "primary"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Vulkan",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "framing conversation is on the eve of Isstvan V; available summaries do not pin down whether the scene is set on Nocturne, in transit, or aboard Vulkan's flagship."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.54,
+      "count": 160,
+      "evidenceUrl": "https://www.goodreads.com/book/show/25815635-artefacts"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

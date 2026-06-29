@@ -1,0 +1,91 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0457",
+  "slug": "the-hollow-mountain",
+  "title": "The Hollow Mountain",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novel",
+  "seriesHint": "Vaults of Terra",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Crowl has seen too much. The cult of the False Angel was a door, and the things behind it reach into chambers of the Imperial Palace where his warrant should not even permit him to stand. He and Spinoza follow the conspiracy further down — a quiet hunt for the men and women who arranged to bring a xenos creature onto Terra itself, and the deeper questions of what they hoped to do with it. Every move invites danger; rival Inquisitors begin to ask why Crowl's name keeps surfacing in places where it should not. And then the sky changes. The Cicatrix Maledictum tears open across half the galaxy, the Astronomican's light wavers, and pilgrims at the Palace gates begin to scream in tongues they were not born to. As madness threatens to crack Terra from the heavens down, Crowl's small island of acolytes is set upon at home — base ravaged, allies bleeding — and Spinoza must hold the line while her master pushes toward an answer no Inquisitor was ever supposed to find.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "mixed",
+      "inquisitor",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "mystery",
+      "political_thriller",
+      "court_intrigue",
+      "siege",
+      "grimdark",
+      "cosmic_horror",
+      "somber",
+      "philosophical",
+      "faith",
+      "doubt",
+      "betrayal",
+      "sacrifice",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Hereticus",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Erasmus Crowl",
+        "role": "pov"
+      },
+      {
+        "name": "Luce Spinoza",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.09,
+      "count": 1514,
+      "evidenceUrl": "https://www.goodreads.com/book/show/46221875-the-hollow-mountain"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

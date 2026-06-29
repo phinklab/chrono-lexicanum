@@ -1,0 +1,80 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0574",
+  "slug": "apostle",
+  "title": "Apostle",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2026,
+  "format": "novel",
+  "seriesHint": "40k - Word Bearers",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "Cerastes, Dark Apostle of the Word Bearers, is bowed but not broken. Once, he came to the world of Legitur to drown it in the worship of the Dark Gods, and once he was driven back, his host crushed by Palatine Aesura and the Battle Sisters of the Order of the Thorn. Now he returns to finish what he started. Legitur is a planet devoted utterly to the sacred writings of the Imperial Creed, endlessly producing mountains of scripture and proclaiming itself an exemplar of piety. But beneath that certainty lie secrets the faithful would rather keep buried, and Cerastes means to dig them out, resurrect the Eightfold Bane, and turn the whole world from the false Emperor to Chaos. As revolutionary fire spreads through Legitur's cathedrals and scriptoria, Aesura must hold the line against a heretic who knows this world better than its defenders do.",
+    "facetIds": [
+      "book",
+      "en",
+      "space_marine",
+      "chaos",
+      "squad",
+      "mid_series",
+      "standard",
+      "war_story",
+      "grimdark",
+      "faith",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_stigma"
+    ],
+    "factions": [
+      {
+        "name": "Word Bearers",
+        "role": "primary"
+      },
+      {
+        "name": "Adepta Sororitas",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Legitur",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Cerastes",
+        "role": "pov"
+      },
+      {
+        "name": "Palatine Aesura",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.9,
+      "count": 212,
+      "evidenceUrl": "https://www.goodreads.com/book/show/247327031-apostle"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

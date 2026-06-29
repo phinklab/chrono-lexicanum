@@ -1,0 +1,116 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0183",
+  "slug": "annihilation-squad",
+  "title": "Annihilation Squad",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2004,
+  "format": "novel",
+  "seriesHint": "Last Chancers",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "After a year sealed in punishing warp transit, Kage and a fresh Last Chancers squad reach Armageddon to kill Overlord von Strab, the renegade commander hiding inside the Ork-held rebel hive of Acheron. The journey has already broken them: failing Geller fields, dead navigators, violent infighting, and Kage's awakening psychic visions turn the mission inward before the shooting starts. Lorii's return reopens old guilt instead of healing it, and the hunt ends in a fiery chasm with Kage apparently lost. Penal-legion war-story shading into psychic horror and survivor's guilt.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "series_finale",
+      "standard",
+      "war_story",
+      "journey",
+      "last_stand",
+      "character_study",
+      "mystery",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "cosmic_horror",
+      "betrayal",
+      "doubt",
+      "faith",
+      "hubris",
+      "loyalty",
+      "sacrifice",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_crime",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Last Chancers",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Armageddon",
+        "role": "primary"
+      },
+      {
+        "name": "Acheron",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lieutenant Kage",
+        "role": "pov"
+      },
+      {
+        "name": "Colonel Schaeffer",
+        "role": "supporting"
+      },
+      {
+        "name": "Lorii",
+        "role": "supporting"
+      },
+      {
+        "name": "Overlord von Strab",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

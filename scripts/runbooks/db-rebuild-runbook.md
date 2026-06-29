@@ -4,6 +4,8 @@
 >
 > *(Dateiname bleibt `db-rebuild-runbook.md`, damit der `brain/wiki`-Querverweis nicht bricht — inhaltlich deckt es jetzt `db:sync` + `db:drift` + `db:rebuild` ab. Eine etwaige Umbenennung + Brain-Link-Fix ist ein Coordination-Pass, kein Batches-Job.)*
 
+> **⚙ Per-Buch-Update (Brief 171 Teil B).** Der Korpus lebt jetzt ausschließlich in `scripts/seed-data/books/*.json`. Die Ketten wurden umgebaut: der **Preflight** ist `npm run book:preflight` (DB-frei: parse/eindeutig/`collects`/Prolog-Kataloge — **keine** Batch-Contiguity mehr), und der **primäre Korpus-Schritt** ist `npm run apply:book -- --all --mode post-retirement` (er fährt den Reference-/Facet-Seed-Prolog selbst). Der alte Legacy-Korpus-Schritt (`run-phase4-apply.sh` über `db:apply-override`) ist **abgelöst**; `db-apply-scope.ts` ist retired. „Roster" unten = jetzt der per-Buch-Korpus; die Tails (podcast/audiobook/timeline/curation) sind unverändert.
+
 ## Das Modell (Brief 157) — ein Handgriff für jede Änderung
 
 Der **destruktive Full-Rebuild ist NICHT mehr der Alltag.** Er war als Recovery-Werkzeug gebaut (Brief 107) und wurde fälschlich zur Routine-Deployment-Methode gemacht; ein From-Reset-Rebuild muss *alles* in einem Schuss neu derivieren, und eine einzige Lücke reißt den ganzen `works`-Bereich um (der 96+Drukhari-Abbruch am 2026-06-18 mit halb-truncatetem Prod).

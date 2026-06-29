@@ -1,0 +1,77 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0239",
+  "slug": "the-revelation-of-the-word",
+  "title": "The Revelation of the Word",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "audio_drama",
+  "seriesHint": "The Primarchs Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In the middle of the Shadow Crusade against Guilliman's Five Hundred Worlds, Lorgar Aurelian's meditations are broken by a Word Bearer son with strange news from the surface. An underground congregation has been found — Imperial citizens, hidden from the war, gathered around a battered copy of the Lectitio Divinitatus that they have been using to worship the Emperor as a god. Lorgar follows his chaplain down to the chapel and listens. The book in their hands is the same book he wrote in another life, the one he renounced when he swore himself to the Pantheon, and the irony of finding his abandoned scripture still doing its slow work in the heart of an Imperium he is now burning becomes the whole weight of the conversation. There is no battle here, only a primarch confronting what he chose to leave behind.",
+    "facetIds": [
+      "audio_drama",
+      "mixed",
+      "space_marine",
+      "chaos",
+      "planetary",
+      "requires_context",
+      "novella",
+      "character_study",
+      "philosophical",
+      "grimdark",
+      "somber",
+      "faith",
+      "doubt",
+      "hubris",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Word Bearers",
+        "role": "primary"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Lorgar Aurelian",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "the world inside the Five Hundred Worlds where the underground Lectitio Divinitatus congregation is uncovered is not named in available source coverage"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.71,
+      "count": 105,
+      "evidenceUrl": "https://www.goodreads.com/book/show/49199268-the-revelation-of-the-word"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0271",
+  "slug": "garro-ashes-of-fealty",
+  "title": "Garro: Ashes of Fealty",
+  "authors": [
+    "James Swallow"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Knight-Errant Nathaniel Garro is summoned to a quiet meeting with an old comrade — Meric Voyen, once an Apothecary of his former Death Guard legion. Voyen has carried a sealed casket deep into the Solar System, convinced that the rot of Nurgle's plague can be studied, catalogued and one day cured if only it is examined with patience and care. Garro, who has stood within the warp's reach and walked away marked by it, sees only ruin in his friend's mission. Two brothers who served together on the Eisenstein now face each other across a single piece of cargo — one pleading for the work of an Apothecary, the other knowing that some things must never be opened. A short, tight piece about loyalty, hubris and the price of curiosity in a Heresy that has only just begun to turn against its own.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "requires_context",
+      "novella",
+      "character_study",
+      "somber",
+      "philosophical",
+      "loyalty",
+      "doubt",
+      "hubris",
+      "brotherhood",
+      "cw_violence",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Knights-Errant",
+        "role": "primary"
+      },
+      {
+        "name": "Death Guard",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Solar System",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Nathaniel Garro",
+        "role": "pov"
+      },
+      {
+        "name": "Meric Voyen",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.76,
+      "count": 152,
+      "evidenceUrl": "https://www.goodreads.com/book/show/24924096-garro"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

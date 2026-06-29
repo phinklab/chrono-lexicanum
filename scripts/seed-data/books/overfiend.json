@@ -1,0 +1,94 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0293",
+  "slug": "overfiend",
+  "title": "Overfiend",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "anthology",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A monstrous Ork warlord known only as the Overfiend has seized the Octarius system, and three Space Marine Chapters answer the threat. The White Scars send a Stormseer to bend the storm against the greenskins; the Raven Guard strike from the shadows; and the Salamanders bring fire and forge-craft to bear. Fighting alongside the Astra Militarum and the unpredictable Eldar, the three brotherhoods wage a converging campaign across the worlds of Octarius, hunting the Overfiend through ruin and battle. Collected here are three linked tales of very different sons of the Emperor united against a single, savage foe.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "standalone",
+      "standard",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "White Scars",
+        "role": "primary"
+      },
+      {
+        "name": "Raven Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Salamanders",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Eldar",
+        "role": "supporting"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Octarius",
+        "role": "primary"
+      }
+    ],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "single-author collection of three novellas; individual protagonist names not reliably surfaced by search"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.54,
+      "count": 164,
+      "evidenceUrl": "https://www.goodreads.com/book/show/25110906-overfiend"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

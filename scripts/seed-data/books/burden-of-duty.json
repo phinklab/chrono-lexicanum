@@ -1,0 +1,81 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0247",
+  "slug": "burden-of-duty",
+  "title": "Burden of Duty",
+  "authors": [
+    "James Swallow"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Battle-Captain Nathaniel Garro, moving among the Knights-Errant in search of new recruits for Malcador the Sigillite's elite cadre, makes his way to the Imperial Fists' star-fortress Phalanx. His objective is to reach the legion's librarians, kept in isolation since the Emperor forbade all use of psychic powers at Nikaea. Disabling the guard-servitors, Garro confronts six former librarians who have had no contact with their brothers or their primarch for years and are unaware that the Great Crusade has dissolved into civil war. One of them, Yored Massak, has had troubling dreams — but Dorn's standing order will not break.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "heist",
+      "character_study",
+      "somber",
+      "loyalty",
+      "doubt",
+      "faith",
+      "cw_violence",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Knights-Errant",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Phalanx",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Nathaniel Garro",
+        "role": "pov"
+      },
+      {
+        "name": "Yored Massak",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.67,
+      "count": 230,
+      "evidenceUrl": "https://www.goodreads.com/book/show/17192485-garro"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

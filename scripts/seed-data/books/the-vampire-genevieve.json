@@ -1,0 +1,111 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0511",
+  "slug": "the-vampire-genevieve",
+  "title": "The Vampire Genevieve",
+  "authors": [
+    "Kim Newman"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "novel",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "This omnibus gathers four interconnected works following Genevieve Dieudonne, a four-hundred-year-old vampire of unusual conscience who wanders the Old World as a reluctant heroine. In Drachenfels she joins playwright Detlef Sierck and a doomed adventuring party to confront the Great Enchanter in his cursed mountain fortress. Genevieve Undead continues her story through three loosely connected hauntings of theatre, court and forest, while Beasts in Velvet pivots to a serial-killer hunt through the rain-slicked alleys of Altdorf. Silver Nails closes the cycle with a sweep of shorter Empire and Bretonnian tales reuniting Genevieve, Detlef and other Old World survivors against monsters human and otherwise.",
+    "facetIds": [
+      "book",
+      "female",
+      "mixed",
+      "neutral",
+      "planetary",
+      "standalone",
+      "doorstopper",
+      "mystery",
+      "character_study",
+      "journey",
+      "somber",
+      "grimdark",
+      "cosmic_horror",
+      "hubris",
+      "loyalty",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Vampire Counts",
+        "role": "primary"
+      },
+      {
+        "name": "The Empire",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "The Old World",
+        "role": "primary"
+      },
+      {
+        "name": "Altdorf",
+        "role": "supporting"
+      },
+      {
+        "name": "Drachenfels",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Genevieve Dieudonne",
+        "role": "pov"
+      },
+      {
+        "name": "Detlef Sierck",
+        "role": "supporting"
+      },
+      {
+        "name": "Constant Drachenfels",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "reason": "omnibus collecting Drachenfels, Genevieve Undead, Beasts in Velvet and Silver Nails into one ~720pp volume",
+        "suggestion": "omnibus"
+      },
+      {
+        "kind": "data_conflict",
+        "field": "setting",
+        "reason": "Warhammer Fantasy Old World (pre-AoS), not Warhammer 40,000",
+        "suggestion": "warhammer_fantasy"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.89,
+      "count": 654,
+      "evidenceUrl": "https://www.goodreads.com/book/show/55830164-vampire-genevieve"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

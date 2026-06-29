@@ -1,0 +1,111 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0133",
+  "slug": "creed-ashes-of-cadia",
+  "title": "Creed: Ashes of Cadia",
+  "authors": [
+    "Jude Reid"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2024,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Ursula Creed has spent decades building a command career far from the shadow of her father, the lost Lord Castellan of Cadia. Then Guilliman sends her back to the shattered planet to recover Ursarkar Creed's hidden battle plans, and the new Lord Castellan finds poxwalker-haunted ruins, rival Imperial agendas, and a legacy that will not stay buried. Cadia is dead, but it still has teeth. A survival-horror edged Astra Militarum novel about inheritance, command, and the cost of carrying a name the Imperium refuses to forget.",
+    "facetIds": [
+      "book",
+      "female",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "journey",
+      "mystery",
+      "character_study",
+      "grimdark",
+      "somber",
+      "cosmic_horror",
+      "action_heavy",
+      "war",
+      "doubt",
+      "loyalty",
+      "sacrifice",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Cadian Shock Troops",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      },
+      {
+        "name": "Indomitus Crusade",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Nurgle",
+        "role": "antagonist"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Cadia",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ursula Creed",
+        "role": "pov"
+      },
+      {
+        "name": "Ursarkar E. Creed",
+        "role": "mentioned"
+      },
+      {
+        "name": "Roboute Guilliman",
+        "role": "mentioned"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

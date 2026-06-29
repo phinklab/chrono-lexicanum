@@ -1,0 +1,101 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0191",
+  "slug": "crimson-tears",
+  "title": "Crimson Tears",
+  "authors": [
+    "Ben Counter"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2005,
+  "format": "novel",
+  "seriesHint": "Soul Drinkers",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Years after his apparent death on Stratix Lumine, Tellos — once a Soul Drinker, now wholly given to Chaos — has returned at the head of his frenzied warriors, on an Imperial world already at war with Dark Eldar raiders. He carries the secrets of his old chapter with him, and Sarpedon must take what remains of his depleted Astartes to hunt his former brother one last time. A character-study of command under unbearable cost, and the close of the first Soul Drinkers trilogy.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "mid_series",
+      "standard",
+      "war_story",
+      "character_study",
+      "journey",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "cosmic_horror",
+      "betrayal",
+      "doubt",
+      "hubris",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Soul Drinkers",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Dark Eldar",
+        "role": "antagonist"
+      },
+      {
+        "name": "Crimson Fists",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Imperium",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sarpedon",
+        "role": "pov"
+      },
+      {
+        "name": "Tellos",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

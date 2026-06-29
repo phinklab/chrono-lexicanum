@@ -1,0 +1,83 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0179",
+  "slug": "the-wolf-of-ash-and-fire",
+  "title": "The Wolf of Ash and Fire",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "During the high days of the Great Crusade, long before the Heresy, the Emperor of Mankind takes the field at his favoured son's side. Horus Lupercal leads the Luna Wolves into the ork-infested wastes of Gorro, and the Master of Mankind himself comes with him — fighting shoulder-to-shoulder with the Warmaster against a greenskin warboss the size of a fortress. A short, fond piece set in the unbroken father-and-son moment that the rest of the Horus Heresy will spend forty books destroying, written as a quiet counterweight to everything that comes after.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "novella",
+      "war_story",
+      "action_heavy",
+      "hopepunk",
+      "brotherhood",
+      "loyalty",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Luna Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Gorro",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Horus Lupercal",
+        "role": "pov"
+      },
+      {
+        "name": "The Emperor of Mankind",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.71,
+      "count": 548,
+      "evidenceUrl": "https://www.goodreads.com/book/show/20592013-the-wolf-of-ash-and-fire"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

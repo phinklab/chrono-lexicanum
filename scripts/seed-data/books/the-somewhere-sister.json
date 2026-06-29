@@ -1,0 +1,72 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0522",
+  "slug": "the-somewhere-sister",
+  "title": "The Somewhere Sister",
+  "authors": [
+    "Jeremy Lambert"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A grief-stricken innkeeper, marked by old loss and fresh trauma, tends a mirror at the edge of her common room and learns that it will listen — and then answer. As her sorrow deepens, the glass becomes a confidant, then a weapon, then something that begins to demand a price she cannot count beforehand. This is a quiet, claustrophobic horror about how mourning can be turned outward as easily as it can be turned inward, set in a small inn far from any field of battle. The story works at the scale of one woman's pain rather than any wider conflict, and asks what survives at the end of a long bargain — and what remains of the person who struck it.",
+    "facetIds": [
+      "book",
+      "female",
+      "civilian",
+      "neutral",
+      "planetary",
+      "cosmic_horror",
+      "somber",
+      "grimdark",
+      "character_study",
+      "doubt",
+      "cw_disturbing",
+      "cw_mental_health",
+      "cw_death",
+      "novella",
+      "standalone",
+      "en"
+    ],
+    "factions": [],
+    "locations": [],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "suggestion": "short_story",
+        "note": "Roster marks 'novel' but The Somewhere Sister is a Black Library eShort, later collected in The Resting Places anthology"
+      },
+      {
+        "kind": "data_conflict",
+        "field": "domain",
+        "suggestion": "age_of_sigmar",
+        "note": "Roster places this in the W40K domain, but The Somewhere Sister is an Age of Sigmar story per Lexicanum and the Resting Places anthology classification"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.29,
+      "count": 21,
+      "evidenceUrl": "https://www.goodreads.com/book/show/63116070-the-somewhere-sister"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

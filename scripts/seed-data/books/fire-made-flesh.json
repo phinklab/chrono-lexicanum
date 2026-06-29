@@ -1,0 +1,104 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0179",
+  "slug": "fire-made-flesh",
+  "title": "Fire Made Flesh",
+  "authors": [
+    "Denny Flowers"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "novel",
+  "seriesHint": "Necromunda",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Fallen Dome of Periculus has been found again, and every noble, Guilder and hive-scum faction with a taste for profit wants what lies inside. Tempes Sol of the Guild of Light sees the dome as a weapon against Lord Silas Pureburn, a Redemptionist firebrand with the Underhive at his back, but the expeditions uncover more than loot: forbidden archeotech, flesh-hungry things and a rage that spreads through everyone it touches. Denny Flowers turns the treasure hunt into Necromunda archeotech horror, with religious violence burning under the skin.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "mystery",
+      "war_story",
+      "journey",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "cosmic_horror",
+      "faith",
+      "hubris",
+      "doubt",
+      "betrayal",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_crime",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Guild of Light",
+        "role": "primary"
+      },
+      {
+        "name": "Redemptionists",
+        "role": "antagonist"
+      },
+      {
+        "name": "Guilders",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Necromunda",
+        "role": "primary"
+      },
+      {
+        "name": "Hive Primus",
+        "role": "primary"
+      },
+      {
+        "name": "Underhive",
+        "role": "primary"
+      },
+      {
+        "name": "Fallen Dome of Periculus",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Tempes Sol",
+        "role": "pov"
+      },
+      {
+        "name": "Lord Silas Pureburn",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

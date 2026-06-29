@@ -327,14 +327,28 @@ async function main(): Promise<void> {
 
   // --- static wiring guard: db:sync tail + db:drift verify ------------------
 
-  check("db-sync.sh runs apply:book --all AFTER run-phase4-apply and BEFORE apply:podcast", () => {
+  // Brief 171: apply:book --all is now the PRIMARY corpus step (no legacy
+  // run-phase4-apply.sh corpus step), gated by the DB-free book-corpus-preflight
+  // and running before the podcast tail.
+  check("db-sync.sh runs preflight → apply:book --all (primary) → apply:podcast, no run-phase4 step", () => {
     const sh = readFileSync(join(process.cwd(), "scripts", "db-sync.sh"), "utf8");
-    const iPhase4 = sh.indexOf("run-phase4-apply.sh");
+    const iPreflight = sh.indexOf("book-corpus-preflight");
     const iBook = sh.indexOf("apply:book -- --all");
     const iPodcast = sh.indexOf("apply:podcast -- --all");
-    assert.ok(iPhase4 >= 0 && iBook >= 0 && iPodcast >= 0, "all three steps present");
-    assert.ok(iPhase4 < iBook, "per-book tail must come after the legacy corpus apply");
-    assert.ok(iBook < iPodcast, "per-book tail must come before the podcast tail");
+    assert.ok(iPreflight >= 0 && iBook >= 0 && iPodcast >= 0, "preflight + per-book + podcast steps present");
+    assert.ok(iPreflight < iBook, "per-book preflight must come before the per-book apply");
+    assert.ok(iBook < iPodcast, "per-book corpus must come before the podcast tail");
+    // The legacy batch corpus engine must NOT be a live step (comments may mention it).
+    assert.ok(!sh.includes("bash scripts/run-phase4-apply.sh"), "run-phase4-apply.sh is no longer invoked as a step");
+  });
+
+  check("db-rebuild.sh + db-sync.sh use the per-book preflight, not db-apply-scope", () => {
+    const sync = readFileSync(join(process.cwd(), "scripts", "db-sync.sh"), "utf8");
+    const rebuild = readFileSync(join(process.cwd(), "scripts", "db-rebuild.sh"), "utf8");
+    assert.ok(sync.includes("book-corpus-preflight"), "db:sync wires book-corpus-preflight");
+    assert.ok(rebuild.includes("book-corpus-preflight"), "db:rebuild wires book-corpus-preflight");
+    assert.ok(!sync.includes("npx tsx scripts/db-apply-scope.ts"), "db:sync no longer calls db-apply-scope");
+    assert.ok(!rebuild.includes("npx tsx scripts/db-apply-scope.ts"), "db:rebuild no longer calls db-apply-scope");
   });
 
   check("db-drift.sh includes the read-only per-book verify", () => {

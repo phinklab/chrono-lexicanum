@@ -1,0 +1,76 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0197",
+  "slug": "chirurgeon",
+  "title": "Chirurgeon",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Long before the III Legion was given a new name and a new primarch, a flaw ran in its gene-seed that threatened to end it before it ever marched. Apothecary Fabius worked in those years to keep his brothers alive, cataloguing failures of the flesh that no one outside his surgeries was supposed to know about. Years later, with the Phoenician fallen and the Heresy in full song, Fabius lays a screaming legionary open on the slab and revisits the same problem with no constraint of conscience left to slow him. The story moves between the two timeframes, an unflinching character study of the man who would become the most infamous Apothecary in the galaxy, and of the III Legion's oldest secret learning to bloom again.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "squad",
+      "requires_context",
+      "character_study",
+      "mystery",
+      "grimdark",
+      "cosmic_horror",
+      "somber",
+      "hubris",
+      "doubt",
+      "en",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_mental_health"
+    ],
+    "factions": [
+      {
+        "name": "Emperor's Children",
+        "role": "primary"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Fabius Bile",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "the surgery scene takes place aboard an Emperor's Children vessel not named in available coverage"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.53,
+      "count": 166,
+      "evidenceUrl": "https://www.goodreads.com/book/show/24888290-chirurgeon"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

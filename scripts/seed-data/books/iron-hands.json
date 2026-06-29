@@ -1,0 +1,102 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0072",
+  "slug": "iron-hands",
+  "title": "Iron Hands",
+  "authors": [
+    "Jonathan Green"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2004,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Iron-Father Gdolkin is pulled away from the defence of Medusa to honour an ancient oath sworn to the Adeptus Mechanicus, and a trail through the Mechanicus archives draws him to a long-lost world that may hold a weapon capable of turning the tide of Abaddon's 13th Black Crusade. The same lost world is rumoured to hide the resting place of Ferrus Manus, primarch of the Iron Hands — the oldest mystery of the chapter — and the quest curdles into something personal. Written from inside the chapter's machine-supremacist register: a Mechanicus-theological quest novel.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "company",
+      "standalone",
+      "standard",
+      "journey",
+      "mystery",
+      "war_story",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "loyalty",
+      "hubris",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Hands",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Black Legion",
+        "role": "antagonist"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Medusa",
+        "role": "primary"
+      },
+      {
+        "name": "Eye of Terror",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Iron-Father Gdolkin",
+        "role": "pov"
+      },
+      {
+        "name": "Ferrus Manus",
+        "role": "mentioned"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

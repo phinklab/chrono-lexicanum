@@ -1,0 +1,85 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0516",
+  "slug": "bird-of-change",
+  "title": "Bird of Change",
+  "authors": [
+    "Richard Strachan"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "novel",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Each year in a remote forest community the village elders bind a chosen youth to the sacred tree and offer their life to the Bird of Change, a benevolence they have served for as long as anyone can remember. This year the chosen is younger than most and not at all ready to die for the favour of a god he no longer trusts. As the dawn ceremony approaches and the cultists chant the names the bird is said to like, he begins to listen properly to the wind in the branches above him, and to understand that what answers their prayers each year is not the patron they imagine.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "neutral",
+      "squad",
+      "standalone",
+      "novella",
+      "character_study",
+      "cosmic_horror",
+      "grimdark",
+      "somber",
+      "faith",
+      "doubt",
+      "sacrifice",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Disciples of Tzeentch",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "reason": "Black Library eShort, short story length",
+        "suggestion": "novella"
+      },
+      {
+        "kind": "data_conflict",
+        "field": "setting",
+        "reason": "Age of Sigmar Mortal Realms per Black Library product page, not Warhammer 40,000",
+        "suggestion": "age_of_sigmar"
+      },
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "youth and elders unnamed in available source coverage"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.17,
+      "count": 24,
+      "evidenceUrl": "https://www.goodreads.com/book/show/59478074-bird-of-change"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

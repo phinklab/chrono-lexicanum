@@ -1,0 +1,91 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0208",
+  "slug": "ascension-dawn-of-war",
+  "title": "Ascension",
+  "authors": [
+    "C.S. Goto"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2005,
+  "format": "novel",
+  "seriesHint": "Dawn of War",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Reeling from the catastrophic losses of the Tartarus campaign, Captain Gabriel Angelos travels to the world of Rahe's Paradise to rebuild the Blood Ravens with desperately needed recruits. There he stumbles on an archaeological dig that threatens to overturn everything he believed about his Chapter's origins. Watched with suspicion by the Sisters of Battle and hunted by his old foe, the eldar Farseer Macha, Gabriel finds himself unwittingly stirring something ancient and terrible from his own past and that of the eldar. As fleets clash overhead and war engulfs the planet, a young aspirant named Ckrius is rushed through the brutal trials of becoming a Space Marine. The secrets buried on this world could remake the Blood Ravens, or destroy them all.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "mystery",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "brotherhood",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Ravens",
+        "role": "primary"
+      },
+      {
+        "name": "Eldar",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adepta Sororitas",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Rahe's Paradise",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Gabriel Angelos",
+        "role": "pov"
+      },
+      {
+        "name": "Macha",
+        "role": "antagonist"
+      },
+      {
+        "name": "Ckrius",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.14,
+      "count": 210,
+      "evidenceUrl": "https://www.goodreads.com/book/show/588668.Dawn_of_War"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

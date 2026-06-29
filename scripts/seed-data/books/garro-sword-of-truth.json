@@ -1,0 +1,99 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0248",
+  "slug": "garro-sword-of-truth",
+  "title": "Garro: Sword of Truth",
+  "authors": [
+    "James Swallow"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Nathaniel Garro, Knight-Errant and agent of the Sigillite, returns from the battlefields of Calth to find a new mission already waiting. A ragged fleet of Space Marines from several legions lingers at the edge of the Sol System claiming loyalty; the presence of World Eaters and Emperor's Children warriors among them draws an uneasy parallel with his own desperate flight on the Eisenstein, and Garro must look beneath the obvious to tell friend from foe. As hidden hands sacrifice their own men and tamper with evidence to frame the innocent, the truth Garro hunts proves more dangerous than the lie.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "standalone",
+      "novella",
+      "mystery",
+      "political_thriller",
+      "grimdark",
+      "somber",
+      "loyalty",
+      "betrayal",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Knights-Errant",
+        "role": "primary"
+      },
+      {
+        "name": "World Eaters",
+        "role": "supporting"
+      },
+      {
+        "name": "Emperor's Children",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sol System",
+        "role": "primary"
+      },
+      {
+        "name": "Calth",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Nathaniel Garro",
+        "role": "pov"
+      },
+      {
+        "name": "Hakeem",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tylos Rubio",
+        "role": "supporting"
+      },
+      {
+        "name": "Macer Varren",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.09,
+      "count": 458,
+      "evidenceUrl": "https://www.goodreads.com/book/show/13547110"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

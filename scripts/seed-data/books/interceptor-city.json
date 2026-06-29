@@ -1,0 +1,106 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0138",
+  "slug": "interceptor-city",
+  "title": "Interceptor City",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "More than twenty years after Enothis, Commander Bree Jagdea returns to the air war of the Sabbat Worlds Crusade. Over the hive city Vesperus, she joins Circus 66 for interception runs that may decide whether the Imperium can break the Archenemy's hold on the skies. The dogfights are fast, technical, and personal, but the deeper pressure is time: veterans carrying old wars into new cockpits, younger pilots learning from people already half-consumed by attrition, and every victory arriving too late for someone. A darker return to the Double Eagle register, all speed, grief, and exhausted courage.",
+    "facetIds": [
+      "book",
+      "female",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "action_heavy",
+      "character_study",
+      "grimdark",
+      "somber",
+      "war",
+      "brotherhood",
+      "sacrifice",
+      "hubris",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Aeronautica Imperialis",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Navy",
+        "role": "primary"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Blood Pact",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Vesperus",
+        "role": "primary"
+      },
+      {
+        "name": "Sabbat Worlds",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Bree Jagdea",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "authors",
+        "suggestion": [
+          "Dan Abnett"
+        ],
+        "reason": "Roster authors[] empty; canonical author confirmed by Black Library + Lexicanum + The-Unseen-Library + Warhammer-Community"
+      }
+    ]
+  },
+  "collections": {
+    "collects": []
+  }
+}

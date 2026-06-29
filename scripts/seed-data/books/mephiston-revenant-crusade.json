@@ -1,0 +1,81 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0448",
+  "slug": "mephiston-revenant-crusade",
+  "title": "Mephiston: Revenant Crusade",
+  "authors": [
+    "Darius Hinks"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novel",
+  "seriesHint": "Mephiston",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "As the Great Rift splits the galaxy and the dead seem to walk, portents and darkness close in on Mephiston. At the moment he needs his psychic sight most, the Blood Angels Chief Librarian finds his powers struck blind by an inexplicable force and his mind haunted by the ghosts of the damned. Aboard his ship the Blood Oath, he leads his warriors to the embattled world of Morsus, certain the source of his blindness lies there — only to find it locked in an ancient war against the necrons of the Revenant Crusade. To press on with his hunt for the daemon he believes anchors the Great Rift, Mephiston must shatter a necron army and arrest his own slide into inhuman savagery.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "journey",
+      "character_study",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "doubt",
+      "faith",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Necrons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Morsus",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Mephiston",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.8,
+      "count": 324,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/40737867-mephiston"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

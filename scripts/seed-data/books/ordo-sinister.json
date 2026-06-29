@@ -1,0 +1,82 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0215",
+  "slug": "ordo-sinister",
+  "title": "Ordo Sinister",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "When Magnus the Red shattered the wards of the Imperial Webway, daemons poured through the breach toward the heart of Terra itself. While the Emperor stands at the breach holding the structure of the tunnels together by will alone, the killing in the deep ways is left to weapons most of the Imperium does not know exist. In the spiral chambers of the Lychway, the Psi-Titan Borealis Thoon of the Ordo Sinister walks alone. Powered by chained psykers and commanded by the pariah princeps Hydragyrum, the engine drives wave after wave of warp entities into a controlled killing ground, its null-laced weapons annihilating what no other weapon can touch. As Hydragyrum's bound psykers burn out one after another, the past that brought her to this command crowds in around her — and ahead, something far older than the daemons she has slain is beginning to take shape in the dark.",
+    "facetIds": [
+      "book",
+      "female",
+      "multi",
+      "imperium",
+      "sector",
+      "requires_context",
+      "novella",
+      "war_story",
+      "action_heavy",
+      "cosmic_horror",
+      "sacrifice",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ordo Sinister",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Imperial Webway",
+        "role": "primary"
+      },
+      {
+        "name": "Terra",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Hydragyrum",
+        "role": "pov"
+      },
+      {
+        "name": "Borealis Thoon",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.83,
+      "count": 154,
+      "evidenceUrl": "https://www.goodreads.com/book/show/34408337-ordo-sinister"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

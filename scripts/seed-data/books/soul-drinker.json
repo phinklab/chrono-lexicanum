@@ -1,0 +1,95 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0189",
+  "slug": "soul-drinker",
+  "title": "Soul Drinker",
+  "authors": [
+    "Ben Counter"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2002,
+  "format": "novel",
+  "seriesHint": "Soul Drinkers",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Soul Drinkers, an Imperial Fists successor Chapter, recover the sacred Soulspear from a captured Chaos cruiser and clash with the Adeptus Mechanicus over who may keep it. When Imperial authority backs the Mechanicus, Librarian Sarpedon rebels, kills his Chapter Master, and leads the Chapter into Excommunicate Traitoris exile. Their chosen symbol of loyalty is already corrupting them: mutations spread, and Sarpedon begins to grow arachnid legs. A renegade-loyalist Space Marine opener about pride, relic faith, body horror, and believing yourself truer than the Imperium that condemns you.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "series_start",
+      "standard",
+      "war_story",
+      "political_thriller",
+      "character_study",
+      "mystery",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "cosmic_horror",
+      "betrayal",
+      "doubt",
+      "faith",
+      "hubris",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Soul Drinkers",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Navy",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperium",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Imperium",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sarpedon",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0026",
+  "slug": "necropolis",
+  "title": "Necropolis",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2000,
+  "format": "novel",
+  "seriesHint": "Gaunt's Ghosts",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the hive world of Verghast, the great hive-state of Vervunhive — long the rival of neighbouring Ferrozoica — comes under surprise assault when Zoican forces, secretly thralled to the Chaos warlord Heritor Asphodel, march out and lay siege. The Vervunhive militia is shattered in the field; Crusade-fleet reinforcements arrive in fragments under several command structures, and rivalries between the relief generals nearly derail the defence before it begins. Colonel-Commissar Ibram Gaunt — who arrives with the Tanith First-and-Only inside a city already burning — is forced to take command of the Imperial forces and stitch a unified defence out of regiments that despise each other. The novel ends with the founding of the regiment's second intake, the Verghastite Ghosts (introducing Soric, Criid, Kolea, Banda, Hark and others), permanently changing the regiment's character from Tanith-only to mixed. Doorstopper-length, structurally a siege narrative with a multi-POV battlefield map.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "doorstopper",
+      "siege",
+      "war_story",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "sacrifice",
+      "betrayal",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Tanith First-and-Only",
+        "role": "primary"
+      },
+      {
+        "name": "Verghastite Ghosts",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Vervunhive Militia",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Zoican Host",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Verghast",
+        "role": "primary"
+      },
+      {
+        "name": "Vervunhive",
+        "role": "primary"
+      },
+      {
+        "name": "Ferrozoica",
+        "role": "secondary"
+      },
+      {
+        "name": "Sabbat Worlds",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ibram Gaunt",
+        "role": "pov"
+      },
+      {
+        "name": "Colm Corbec",
+        "role": "supporting"
+      },
+      {
+        "name": "Elim Rawne",
+        "role": "supporting"
+      },
+      {
+        "name": "Hlaine Larkin",
+        "role": "supporting"
+      },
+      {
+        "name": "Tona Criid",
+        "role": "supporting"
+      },
+      {
+        "name": "Agun Soric",
+        "role": "supporting"
+      },
+      {
+        "name": "Gol Kolea",
+        "role": "supporting"
+      },
+      {
+        "name": "Viktor Hark",
+        "role": "supporting"
+      },
+      {
+        "name": "Heritor Asphodel",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

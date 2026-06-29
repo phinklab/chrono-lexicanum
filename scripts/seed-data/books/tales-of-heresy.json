@@ -1,0 +1,181 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0010",
+  "slug": "tales-of-heresy",
+  "title": "Tales of Heresy",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2009,
+  "format": "anthology",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Seven novellas circling the early Heresy. In 'Blood Games' the Adeptus Custodes police the noble courts of Terra under Constantin Valdor. In 'Wolf at the Door' Russ's Space Wolves crash into Dark Eldar raiders at the edge of the Imperium. 'Scions of the Storm' watches a Word Bearers compliance turn into sacred genocide. In 'The Voice' a witch-hunter of the Sisters of Silence walks an empty world hearing voices that should not be there. 'Call of the Lion' weighs Dark Angels allegiance after Caliban. In 'The Last Church' the Emperor sits with the last priest left on Terra and argues about faith on the eve of unification. 'After Desh'ea' is the warband-meeting that forges Kharn to Angron and the World Eaters.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "multi",
+      "dual",
+      "galactic",
+      "mid_series",
+      "standard",
+      "war_story",
+      "character_study",
+      "philosophical",
+      "somber",
+      "grimdark",
+      "faith",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "betrayal",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Custodes",
+        "role": "primary"
+      },
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "primary"
+      },
+      {
+        "name": "Sisters of Silence",
+        "role": "primary"
+      },
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      },
+      {
+        "name": "World Eaters",
+        "role": "primary"
+      },
+      {
+        "name": "Dark Eldar",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Caliban",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Constantin Valdor",
+        "role": "pov"
+      },
+      {
+        "name": "Leman Russ",
+        "role": "supporting"
+      },
+      {
+        "name": "Lorgar",
+        "role": "supporting"
+      },
+      {
+        "name": "Amendera Kendel",
+        "role": "pov"
+      },
+      {
+        "name": "Astelan",
+        "role": "pov"
+      },
+      {
+        "name": "Uriah Olathaire",
+        "role": "pov"
+      },
+      {
+        "name": "The Emperor",
+        "role": "supporting"
+      },
+      {
+        "name": "Kharn",
+        "role": "pov"
+      },
+      {
+        "name": "Angron",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.8,
+      "count": 7213,
+      "evidenceUrl": "https://www.goodreads.com/book/show/6296659"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "HH-0150",
+        "displayOrder": 0,
+        "confidence": 0.85,
+        "basis": "Tales of Heresy anthology contents align with the first seven listed HH short stories"
+      },
+      {
+        "externalBookId": "HH-0151",
+        "displayOrder": 1,
+        "confidence": 0.85,
+        "basis": "Tales of Heresy anthology contents align with the first seven listed HH short stories"
+      },
+      {
+        "externalBookId": "HH-0152",
+        "displayOrder": 2,
+        "confidence": 0.85,
+        "basis": "Tales of Heresy anthology contents align with the first seven listed HH short stories"
+      },
+      {
+        "externalBookId": "HH-0153",
+        "displayOrder": 3,
+        "confidence": 0.85,
+        "basis": "Tales of Heresy anthology contents align with the first seven listed HH short stories"
+      },
+      {
+        "externalBookId": "HH-0154",
+        "displayOrder": 4,
+        "confidence": 0.85,
+        "basis": "Tales of Heresy anthology contents align with the first seven listed HH short stories"
+      },
+      {
+        "externalBookId": "HH-0155",
+        "displayOrder": 5,
+        "confidence": 0.85,
+        "basis": "Tales of Heresy anthology contents align with the first seven listed HH short stories"
+      },
+      {
+        "externalBookId": "HH-0156",
+        "displayOrder": 6,
+        "confidence": 0.85,
+        "basis": "Tales of Heresy anthology contents align with the first seven listed HH short stories"
+      }
+    ]
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0286",
+  "slug": "architect-of-fate",
+  "title": "Architect of Fate",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2012,
+  "format": "anthology",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Across the war-torn galaxy, the Space Marines fight battles they believe are their own, never suspecting that they move as pieces in the schemes of a single, ancient manipulator. Kairos Fateweaver, the twin-headed greater daemon of Tzeentch, has spun a plan thousands of years in the making, and friend and foe alike unknowingly serve his design. This collection gathers four linked tales: a doomed ship haunted by what the warp left behind, a desperate recovery mission beneath a dying sky, the Imperial Fists' stand against a relentless Iron Warriors assault, and a final reckoning at the very edge of the Eye of Terror. Yet even the Architect of Fate cannot see what waits beyond the end of the age.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "space_marine",
+      "imperium",
+      "chaos",
+      "sector",
+      "standalone",
+      "standard",
+      "war_story",
+      "siege",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "cosmic_horror",
+      "war",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Fists",
+        "role": "supporting"
+      },
+      {
+        "name": "Relictors",
+        "role": "supporting"
+      },
+      {
+        "name": "White Consuls",
+        "role": "supporting"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "antagonist"
+      },
+      {
+        "name": "Daemons of Tzeentch",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Ilissus",
+        "role": "supporting"
+      },
+      {
+        "name": "Eye of Terror",
+        "role": "supporting"
+      },
+      {
+        "name": "Claros",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Kairos Fateweaver",
+        "role": "antagonist"
+      },
+      {
+        "name": "Darnath Lysander",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.47,
+      "count": 316,
+      "evidenceUrl": "https://www.goodreads.com/book/show/12649792-architect-of-fate"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0308",
+        "displayOrder": 0,
+        "confidence": 0.95,
+        "basis": "Architect of Fate (Space Marine Battles anthology #10, ed. Christian Dunn, 2012) collects exactly these four novellas; contents enumerated by Lexicanum and Black Library. OQ(14)(e) / Resolver-Pass 6."
+      },
+      {
+        "externalBookId": "W40K-0309",
+        "displayOrder": 1,
+        "confidence": 0.95,
+        "basis": "Architect of Fate (Space Marine Battles anthology #10, ed. Christian Dunn, 2012) collects exactly these four novellas; contents enumerated by Lexicanum and Black Library. OQ(14)(e) / Resolver-Pass 6."
+      },
+      {
+        "externalBookId": "W40K-0310",
+        "displayOrder": 2,
+        "confidence": 0.95,
+        "basis": "Architect of Fate (Space Marine Battles anthology #10, ed. Christian Dunn, 2012) collects exactly these four novellas; contents enumerated by Lexicanum and Black Library. OQ(14)(e) / Resolver-Pass 6."
+      },
+      {
+        "externalBookId": "W40K-0311",
+        "displayOrder": 3,
+        "confidence": 0.95,
+        "basis": "Architect of Fate (Space Marine Battles anthology #10, ed. Christian Dunn, 2012) collects exactly these four novellas; contents enumerated by Lexicanum and Black Library. OQ(14)(e) / Resolver-Pass 6."
+      }
+    ]
+  }
+}

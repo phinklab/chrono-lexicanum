@@ -1,0 +1,113 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0123",
+  "slug": "shadowsun-the-patient-hunter",
+  "title": "Shadowsun: The Patient Hunter",
+  "authors": [
+    "Phil Kelly"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Commander O'Shaserra, Shadowsun of the T'au Empire, has built her legend on the patience of Kauyon and the cold logic of the killing blow. That logic begins to fray when the haunted survivors of the Fourth Sphere Expansion return changed, and a Death Guard armada tears holes in real-space with weapons that drag daemonic impossibility into the Chalnath Expanse. Shadowsun must spring a Mont'ka counter-trap while the Startide Nexus itself comes under threat and hidden crimes inside her own empire edge toward civil war. A T'au military thriller where faith, strategy, and physics all stop behaving.",
+    "facetIds": [
+      "book",
+      "female",
+      "pc_xenos",
+      "xenos",
+      "sector",
+      "standalone",
+      "standard",
+      "war_story",
+      "political_thriller",
+      "character_study",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "cosmic_horror",
+      "war",
+      "doubt",
+      "betrayal",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "T'au Empire",
+        "role": "primary"
+      },
+      {
+        "name": "Tau Empire",
+        "role": "primary"
+      },
+      {
+        "name": "Fire Caste",
+        "role": "primary"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperium",
+        "role": "mentioned"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Chalnath Expanse",
+        "role": "primary"
+      },
+      {
+        "name": "Fourth Sphere Expansion",
+        "role": "primary"
+      },
+      {
+        "name": "Startide Nexus",
+        "role": "primary"
+      },
+      {
+        "name": "Great Rift",
+        "role": "secondary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Shadowsun",
+        "role": "pov"
+      },
+      {
+        "name": "O'Shaserra",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

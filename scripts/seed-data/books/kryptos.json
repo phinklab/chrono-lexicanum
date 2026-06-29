@@ -1,0 +1,81 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0167",
+  "slug": "kryptos",
+  "title": "Kryptos",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In the long shadow of Isstvan V, the survivors of the betrayed Legions hunt by other means. Aboard the wounded strike cruiser Sisypheum, a Raven Guard shadow-killer named Nykona Sharrowkyn and an Iron Hands techmarine named Sabik Wayland are sent to steal a device the traitor war machine cannot do without — the cryptographic engine the loyalists have only just realised is the spine of Horus's communications. The mission is short, surgical and very nearly fatal: a boarding action over hostile space, a frantic descent into the heart of an enemy ship, and a price that will be paid long after the device is brought home. 'Kryptos' is the first sketch of the Shattered Legions doctrine that will come to define the wider story of Shadrak Meduson's war.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "sector",
+      "requires_context",
+      "heist",
+      "war_story",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "brotherhood",
+      "sacrifice",
+      "loyalty",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Hands",
+        "role": "primary"
+      },
+      {
+        "name": "Raven Guard",
+        "role": "primary"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Nykona Sharrowkyn",
+        "role": "pov"
+      },
+      {
+        "name": "Sabik Wayland",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.6,
+      "count": 359,
+      "evidenceUrl": "https://www.goodreads.com/book/show/15704226"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

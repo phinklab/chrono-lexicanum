@@ -1,0 +1,123 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0196",
+  "slug": "phalanx",
+  "title": "Phalanx",
+  "authors": [
+    "Ben Counter"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "novel",
+  "seriesHint": "Soul Drinkers",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Soul Drinkers have been taken alive by the Imperial Fists and brought aboard the Phalanx — the planetoid-fortress of Dorn's gene-sons — to stand trial for their crimes against the Imperium. Sarpedon defends his chapter before an audience of Astartes, Inquisitors, and Mechanicus, until a confession leads to a vault on Selaaca and Daenyathos is brought back to face trial beside the warriors he engineered. The series finale closes the chapter-tragedy at bittersweet cost.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "series_finale",
+      "standard",
+      "court_intrigue",
+      "war_story",
+      "character_study",
+      "last_stand",
+      "political_thriller",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "cosmic_horror",
+      "betrayal",
+      "doubt",
+      "faith",
+      "hubris",
+      "redemption",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_socio_political",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Soul Drinkers",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "antagonist"
+      },
+      {
+        "name": "Inquisition",
+        "role": "antagonist"
+      },
+      {
+        "name": "Sisters of Battle",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperium",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "the Phalanx",
+        "role": "primary"
+      },
+      {
+        "name": "Selaaca",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sarpedon",
+        "role": "pov"
+      },
+      {
+        "name": "Daenyathos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Iktinos",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

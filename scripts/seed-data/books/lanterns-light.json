@@ -1,0 +1,76 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0225",
+  "slug": "lanterns-light",
+  "title": "Lantern's Light",
+  "authors": [
+    "James Swallow"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A year after the Emperor descended onto Barbarus, Mortarion's Legion still hangs back from the Great Crusade. The Death Lord has been given a new name, a new armour, and a future as one of the Emperor's gene-sons — but he has not been given the one thing he came for: the head of the alien tyrant who raised him. Summoned aboard the Emperor's flagship, Mortarion arrives with that old resentment burning behind his rebreather, certain he will be lectured into obedience. Instead the Emperor places a long, slender pistol in his hands — a weapon He calls the Lantern — and over the slow course of a single conversation forces His son to examine why he is angry, what he has already become, and what kind of crusade he means to fight. A quiet story about a primarch on the verge of choosing wrong.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "novella",
+      "character_study",
+      "philosophical",
+      "somber",
+      "doubt",
+      "loyalty",
+      "faith",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Death Guard",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Barbarus",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Mortarion",
+        "role": "pov"
+      },
+      {
+        "name": "the Emperor",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.19,
+      "count": 152,
+      "evidenceUrl": "https://www.goodreads.com/book/show/44073884-lantern-s-light"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0018",
+  "slug": "deliverance-lost",
+  "title": "Deliverance Lost",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2011,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Cut down to a few hundred warriors by the trap on Isstvan V, Corax brings what is left of the Raven Guard back to Terra and begs an audience with the Emperor. Granted access to the original gene-tech of the Primarch Project, he returns to Deliverance to forge a new generation of legionaries at a speed no other Legion has dared. But Alpharius and Omegon have already inserted infiltrators wearing the faces of dead Raven Guard among the survivors, and as Corax's new sons begin to take shape on the operating slabs, the Alpha Legion move to either steal his work for Horus or twist the Nineteenth Legion until it can never be trusted again. Hovering above the whole conspiracy, the xenos Cabal weighs the long galactic future against the short Imperial one.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "mystery",
+      "betrayal",
+      "grimdark",
+      "somber",
+      "loyalty",
+      "brotherhood",
+      "sacrifice",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Raven Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Alpha Legion",
+        "role": "antagonist"
+      },
+      {
+        "name": "Custodes",
+        "role": "supporting"
+      },
+      {
+        "name": "Mechanicum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Deliverance",
+        "role": "primary"
+      },
+      {
+        "name": "Terra",
+        "role": "supporting"
+      },
+      {
+        "name": "Isstvan V",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Corax",
+        "role": "pov"
+      },
+      {
+        "name": "Branne",
+        "role": "supporting"
+      },
+      {
+        "name": "Alpharius",
+        "role": "antagonist"
+      },
+      {
+        "name": "Omegon",
+        "role": "antagonist"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.86,
+      "count": 5134,
+      "evidenceUrl": "https://www.goodreads.com/book/show/10838911-deliverance-lost"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

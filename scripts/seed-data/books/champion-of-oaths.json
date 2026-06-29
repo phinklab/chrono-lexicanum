@@ -1,0 +1,80 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0219",
+  "slug": "champion-of-oaths",
+  "title": "Champion of Oaths",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Two scenes from a single life. In the drift camps of Terra's Ionus Plateau, an orphan boy puts himself between a vicious teenage gang and the smaller children they have been preying on, refusing to step aside even when refusal will almost certainly kill him. In the Temple of Oaths, lifetimes later, a warrior in the colours of the Imperial Fists faces two hundred of his brother champions one after another, every duel pressing him a little closer to collapse, every victory a step toward the rank of First of Templars. Between the two stands Sigismund — not yet the killer of titans the rest of the galaxy will come to know, but the same iron will, the same refusal to let any line he draws be crossed, the same unhurried indifference to whether the cost will be paid by him or by the world that asks it of him.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "standalone",
+      "novella",
+      "character_study",
+      "philosophical",
+      "somber",
+      "loyalty",
+      "sacrifice",
+      "faith",
+      "cw_violence",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sigismund",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "releaseYear",
+        "reason": "Roster lists 2017; Goodreads/Black Library record first publication in 2018 Events Anthology",
+        "suggestion": "2018"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.97,
+      "count": 29,
+      "evidenceUrl": "https://www.goodreads.com/book/show/198207203-champion-of-oaths"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

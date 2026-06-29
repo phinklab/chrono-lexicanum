@@ -1,0 +1,81 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0342",
+  "slug": "crimson-dawn",
+  "title": "Crimson Dawn",
+  "authors": [
+    "C.Z. Dunn"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novella",
+  "seriesHint": "Crimson Slaughter",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Before they became the Crimson Slaughter, they were the Crimson Sabres — loyal sons of the Emperor. After the brutal purge of the world of Umidia, where they slaughtered a population they branded heretics, the Sabres find no peace: sleep brings only the faces of the slain, and then their voices. As an Inquisitorial investigation finds no proof of the corruption they claimed to root out, Scout Captain Anzo Riegler watches his brothers unravel, the lone steady voice in a Chapter sliding toward damnation. The origin of one of the galaxy's most feared renegade warbands.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "character_study",
+      "war_story",
+      "grimdark",
+      "somber",
+      "betrayal",
+      "doubt",
+      "faith",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Crimson Sabres",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Umidia",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Anzo Riegler",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.87,
+      "count": 39,
+      "evidenceUrl": "https://www.goodreads.com/book/show/20958501-crimson-dawn"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

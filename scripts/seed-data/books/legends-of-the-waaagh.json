@@ -1,0 +1,90 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0569",
+  "slug": "legends-of-the-waaagh",
+  "title": "Legends of the Waaagh!",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2026,
+  "format": "omnibus",
+  "seriesHint": "40k - Various",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "Three of Black Library's finest authors — Dan Abnett, Aaron Dembski-Bowden, and Sandy Mitchell — deliver two novels, a novella, and three short stories united by one green tide. In Helsreach, the Black Templars make a ferocious last stand to defend Hive Helsreach on Armageddon as an ork horde of unprecedented scale crashes over the city walls. In Caves of Ice, Commissar Ciaphas Cain leads Valhallan Ice Warriors on a frozen mining world where an ork invasion masks something far older and more dangerous stirring beneath the permafrost. In I Am Slaughter, the Imperial Fists depart Terra for the first time in centuries only to find a xenos onslaught that threatens the entire Imperium. Three short stories round out the collection, each placing soldiers, commissars, and Space Marines face-to-face with the unrelenting ferocity of the Waaagh.",
+    "facetIds": [
+      "book",
+      "en",
+      "ensemble",
+      "multi",
+      "dual",
+      "galactic",
+      "standalone",
+      "doorstopper",
+      "war_story",
+      "action_heavy",
+      "war",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Black Templars",
+        "role": "primary"
+      },
+      {
+        "name": "Valhallan Ice Warriors",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Armageddon",
+        "role": "primary"
+      },
+      {
+        "name": "Nusquam Fundumentibus",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ciaphas Cain",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "No named ork warbosses are confirmed for this omnibus; Orks appear as the collective antagonist across the collected stories."
+      }
+    ],
+    "rating": {
+      "status": "unrated",
+      "source": "goodreads",
+      "reason": "no Goodreads edition found",
+      "evidenceUrl": null
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

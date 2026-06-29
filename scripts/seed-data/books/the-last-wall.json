@@ -1,0 +1,98 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0417",
+  "slug": "the-last-wall",
+  "title": "The Last Wall",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "The Beast Arises",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Every effort to halt the ork plague has failed, and now an enemy attack moon hangs in the sky directly above the Imperial Palace. As its malevolent shadow falls across Terra, panic grips the populace and riots tear through the streets. Juskina Tull, Speaker for the Chartist Captains, seizes the moment to launch an audacious gamble: a Proletarian Crusade that arms billions of ordinary citizens and hurls them at the moon in a vast tide of ships, trusting sheer weight of numbers to do what fleets could not. The landings succeed, and for a heartbeat hope flares, but the orks have not yet sprung their trap. Far away in the Phall system, the surviving Imperial Fists successor chapters answer Koorland's call and muster as the Last Wall, the old defence of Terra reborn for a new and desperate age. The fourth novel of the Beast Arises series.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "mid_series",
+      "standard",
+      "war_story",
+      "last_stand",
+      "siege",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "sacrifice",
+      "hubris",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Phall",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Koorland",
+        "role": "pov"
+      },
+      {
+        "name": "Juskina Tull",
+        "role": "supporting"
+      },
+      {
+        "name": "Drakan Vangorich",
+        "role": "supporting"
+      },
+      {
+        "name": "Inquisitor Wienand",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.84,
+      "count": 787,
+      "evidenceUrl": "https://www.goodreads.com/book/show/26029271-the-last-wall"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0413",
+  "slug": "farsight-blade-of-truth",
+  "title": "Farsight: Blade Of Truth",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "novel",
+  "seriesHint": "Farsight",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Farsight has hung up his uncanny alien blade and his battle-worn XV8 suit, hoping his enclaves can finally know peace. That hope dies when a tyranid bio-fleet falls upon Vior'los, the world he has come to call home, and begins to devour it whole. Forced to take up his sword once more, Farsight defends a planet collapsing around him, only to discover a second enemy within: the scheming ethereal Aun'Va, whose ambitions threaten the enclaves as surely as the swarm. As Vior'los is ground down to its last eight warriors, among them the young rebel Torchstar, who has wrested battlesuits from Aun'Va's grip, unlikely allies stand together against impossible odds. Farsight's truest and final test is still to come. The concluding novel of the Farsight trilogy.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "pc_xenos",
+      "xenos",
+      "planetary",
+      "series_finale",
+      "standard",
+      "war_story",
+      "last_stand",
+      "siege",
+      "action_heavy",
+      "philosophical",
+      "grimdark",
+      "faith",
+      "betrayal",
+      "sacrifice",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "T'au Empire",
+        "role": "primary"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Vior'los",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Commander Farsight",
+        "role": "pov"
+      },
+      {
+        "name": "Aun'Va",
+        "role": "antagonist"
+      },
+      {
+        "name": "Torchstar",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.59,
+      "count": 115,
+      "evidenceUrl": "https://www.goodreads.com/book/show/230632922-farsight"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

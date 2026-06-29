@@ -1,0 +1,78 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0491",
+  "slug": "tomb-of-the-necron",
+  "title": "Tomb of the Necron",
+  "authors": [
+    "Cavan Scott"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Warhammer Adventures",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Guided by the vision of a mysterious psyker, Zelia finally tracks down her mother on a distant world after a galaxy-spanning quest. But the ancient relic she and her friends still carry — the same one that destroyed Talen's home planet — has drawn the attention of an unstoppable Necron army that will tear the world apart to claim it. As loyalties are tested, destinies decided, and the Space Marines arrive in force, a young heroine must work out what she is willing to lose to keep her newfound family together. The sixth and final volume of the middle-grade Warped Galaxies sequence brings the Warhammer Adventures arc to its blockbuster close.",
+    "facetIds": [
+      "book",
+      "female",
+      "civilian",
+      "imperium",
+      "galactic",
+      "series_finale",
+      "short",
+      "journey",
+      "last_stand",
+      "hopepunk",
+      "action_heavy",
+      "brotherhood",
+      "sacrifice",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Necrons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "supporting"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Zelia",
+        "role": "pov"
+      },
+      {
+        "name": "Talen",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.69,
+      "count": 13,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/58920025-warhammer-adventures"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

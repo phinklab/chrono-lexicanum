@@ -1,0 +1,99 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0548",
+  "slug": "the-wraithbone-phoenix",
+  "title": "The Wraithbone Phoenix",
+  "authors": [
+    "Alec Worley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "Baggit and Clodde",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Baggit and Clodde are back on the run — a bounty on both their heads, a smuggling job spectacularly gone wrong, and Tabidiah Kruger's memory of them very much intact. Holed up in a Varangantuan reclamation yard, Baggit hears a rumour with teeth: somewhere in the bones of a wrecked Imperial voidship scheduled for breaking lies the Wraithbone Phoenix, a xenos relic worth enough to buy their lives back twice over. The catch is that everyone else in the city seems to have heard the same rumour. Alec Worley's full-length follow-up to Dredge Runners turns the ratling-and-ogryn double act into a deceptively dark caper — chases through ship-hulks, double-crosses among bounty hunters, and a friendship that keeps surviving the worst decisions the two of them can make.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "pc_xenos",
+      "civilian",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "heist",
+      "mystery",
+      "grimdark",
+      "action_heavy",
+      "satirical",
+      "betrayal",
+      "loyalty",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "cw_crime",
+      "cw_stigma",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ratlings",
+        "role": "primary"
+      },
+      {
+        "name": "Ogryns",
+        "role": "primary"
+      },
+      {
+        "name": "Aeldari",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Varangantua",
+        "role": "primary"
+      },
+      {
+        "name": "Alecto",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Baggit",
+        "role": "pov"
+      },
+      {
+        "name": "Clodde",
+        "role": "pov"
+      },
+      {
+        "name": "Tabidiah Kruger",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.09,
+      "count": 317,
+      "evidenceUrl": "https://www.goodreads.com/book/show/60871891-the-wraithbone-phoenix"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0343",
+  "slug": "shield-of-baal-tempestus",
+  "title": "Shield of Baal: Tempestus",
+  "authors": [
+    "Braden Campbell"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novella",
+  "seriesHint": "Shield of Baal",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A tendril of Hive Fleet Leviathan has reached the Cryptus shieldworlds, the last barrier before Baal itself. On the drowned world of Lysios, where a world-circling tidal wave drags eldritch horrors from the deep, the Adepta Sororitas hold the line against the swarm. Into this nightmare comes a platoon of Tempestus Scions, the Imperium's elite storm troopers, seconded to the enigmatic Inquisitor Ulrich on a mission that may decide far more than one battle: to seize a unique tyranid bioform from the surging tides — a prize Tempestor Chavis and his men may not live to deliver.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "inquisitor",
+      "imperium",
+      "planetary",
+      "series_start",
+      "novella",
+      "war_story",
+      "journey",
+      "grimdark",
+      "action_heavy",
+      "faith",
+      "sacrifice",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Militarum Tempestus",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "Adepta Sororitas",
+        "role": "supporting"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Lysios",
+        "role": "primary"
+      },
+      {
+        "name": "Cryptus",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Tempestor Chavis",
+        "role": "pov"
+      },
+      {
+        "name": "Inquisitor Ulrich",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.47,
+      "count": 129,
+      "evidenceUrl": "https://www.goodreads.com/book/show/23562402-tempestus"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

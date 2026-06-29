@@ -1,0 +1,86 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0183",
+  "slug": "daemonology",
+  "title": "Daemonology",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Beaten in single combat by the Khan on the ruined plains of Prospero, Mortarion turns his fury on the library-world of Terathalion in search of what no decree of his Father's ever allowed him to learn: how to wage war on daemons and on the psykers he loathes. The Death Guard burn the planet, and Mortarion captures the scholar Lermenta and presses her for the knowledge she has spent a life hiding. Memory and present interleave through long years on Terra and his clashes with Malcador the Sigillite, until Mortarion stands before the contradiction at the heart of his crusade. To defeat the warp's powers he must first bend, however briefly, to them.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "planetary",
+      "requires_context",
+      "character_study",
+      "somber",
+      "grimdark",
+      "philosophical",
+      "hubris",
+      "doubt",
+      "en",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing"
+    ],
+    "factions": [
+      {
+        "name": "Death Guard",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terathalion",
+        "role": "primary"
+      },
+      {
+        "name": "Terra",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Mortarion",
+        "role": "pov"
+      },
+      {
+        "name": "Lermenta",
+        "role": "supporting"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.71,
+      "count": 228,
+      "evidenceUrl": "https://www.goodreads.com/book/show/23494252"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

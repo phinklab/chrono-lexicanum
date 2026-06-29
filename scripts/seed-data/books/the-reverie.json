@@ -1,0 +1,79 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0506",
+  "slug": "the-reverie",
+  "title": "The Reverie",
+  "authors": [
+    "Peter Fehervari"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The homeworld of the Angels Resplendent is a planet of marble galleries, hymnal silences and immaculate Astartes who pride themselves on living a chapter culture closer to enlightenment than war. Three travellers arrive together: a Knight Exemplar troubled by what is left of his humanity, a Muse — the human poet bound to him — who refuses the dignified retirement his age demands, and a scholar who has come looking for something to redeem mankind in the chapter's example. None of them quite belong to the order they admire. None of them can stop their attention drifting toward the Reverie, a snow-shrouded forest at the heart of the world where the seasons do not behave and the wound that keeps the chapter's secret will not close.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "multi",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "character_study",
+      "mystery",
+      "cosmic_horror",
+      "grimdark",
+      "philosophical",
+      "somber",
+      "hubris",
+      "doubt",
+      "faith",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Angels Resplendent",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "The Reverie",
+        "role": "primary"
+      }
+    ],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "Source coverage names protagonists only by archetype/rank (Knight Exemplar, the Muse, the scholar) without proper names"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.06,
+      "count": 695,
+      "evidenceUrl": "https://www.goodreads.com/book/show/55467845-the-reverie"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

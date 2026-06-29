@@ -1,0 +1,116 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0070",
+  "slug": "fire-warrior",
+  "title": "Fire Warrior",
+  "authors": [
+    "Simon Spurrier"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2003,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Shas'la T'au Kais, a Fire-Caste trooper fresh from the trial of fire, drops onto Dolumar IV with a hunter-cadre sent to rescue Aun'el Ko'vash — an Ethereal who has crash-landed behind Imperial lines. A clean extraction tangles into a multi-faction nightmare: Imperial Guard and Astartes hold the surface, a Chaos cult below the city has engineered Ko'vash's capture as bait for the soul-substance to free the Greater Daemon Tarkh'ax from a buried fragment of the Webway, and an Inquisition strike-team converges in pursuit. Kais cuts through every layer of betrayal, his caste-discipline fracturing under the rising kill-count. Tie-in novelisation of THQ's 2003 PlayStation 2 game; a rare Tau-POV anchor in early-2000s Black Library.",
+    "facetIds": [
+      "book",
+      "male",
+      "pc_xenos",
+      "xenos",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "journey",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "loyalty",
+      "doubt",
+      "sacrifice",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Tau Empire",
+        "role": "primary"
+      },
+      {
+        "name": "Fire Caste",
+        "role": "primary"
+      },
+      {
+        "name": "Ethereal Caste",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "antagonist"
+      },
+      {
+        "name": "Inquisition",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Daemons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Cult of Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Dolumar IV",
+        "role": "primary"
+      },
+      {
+        "name": "Webway",
+        "role": "secondary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Shas'la T'au Kais",
+        "role": "pov"
+      },
+      {
+        "name": "Aun'el Ko'vash",
+        "role": "supporting"
+      },
+      {
+        "name": "Tarkh'ax",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

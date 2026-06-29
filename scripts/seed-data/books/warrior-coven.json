@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0251",
+  "slug": "warrior-coven",
+  "title": "Warrior Coven",
+  "authors": [
+    "C.S. Goto"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2006,
+  "format": "novel",
+  "seriesHint": "Deathwatch",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A Deathwatch kill-team led by Captain Octavius is bound by an ancient debt to the Eldar of Craftworld Ulthwé. When the craftworld's people are abducted by their cruel kin, the dark eldar raiders of the Twisted Kin, Octavius and his warriors must fight alongside their alien allies to recover the captives in exchange for forbidden knowledge only the Eldar can offer. Trust is nonexistent between Space Marine and xenos, and pragmatism alone holds the uneasy pact together. As the hunt drags the team into the torture-realm of the dark eldar, one of their number carries secret orders that could damn them all, and the warriors face a battle not only for their lives but for their very souls.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "xenos",
+      "squad",
+      "war_story",
+      "journey",
+      "grimdark",
+      "action_heavy",
+      "brotherhood",
+      "war",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "mid_series",
+      "standard",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Deathwatch",
+        "role": "primary"
+      },
+      {
+        "name": "Eldar",
+        "role": "supporting"
+      },
+      {
+        "name": "Dark Eldar",
+        "role": "antagonist"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Craftworld Ulthwé",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Captain Octavius",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.38,
+      "count": 229,
+      "evidenceUrl": "https://www.goodreads.com/book/show/438109.Warrior_Coven"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

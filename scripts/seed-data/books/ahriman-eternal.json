@@ -1,0 +1,84 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0374",
+  "slug": "ahriman-eternal",
+  "title": "Ahriman: Eternal",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "Ahriman",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Doom stalks the Thousand Sons across time and space. In the aftermath of a second Rubric, the spirits bound within the Legion's armour begin to vanish one by one, and living sorcerers are cursed to take their place, consumed by a force called the Pyrodomon that reaches out of the warp to devour them. Driven as ever by the need to save his brothers and redeem his failures, Ahzek Ahriman turns to the time-bending technology of the necrons, seizing a captured xenos named Setekh in the hope of rewriting his past. But the alliance of his Exiles is fracturing, the Pyrodomon is gaining, and the power to master time may cost more than even Ahriman is willing to pay.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "galactic",
+      "requires_context",
+      "standard",
+      "journey",
+      "character_study",
+      "grimdark",
+      "philosophical",
+      "cosmic_horror",
+      "hubris",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Thousand Sons",
+        "role": "primary"
+      },
+      {
+        "name": "Necrons",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Eye of Terror",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ahzek Ahriman",
+        "role": "pov"
+      },
+      {
+        "name": "Setekh",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.77,
+      "count": 331,
+      "evidenceUrl": "https://www.goodreads.com/book/show/60667813"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0193",
+  "slug": "gunsight",
+  "title": "Gunsight",
+  "authors": [
+    "James Swallow"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Eristede Kell of the Vindicare temple is the only survivor of the assassination cabal that hunted Horus on Dagonet. Years later he is still aboard the Vengeful Spirit, half-mad and rotting in the ship's poisoned underdecks, his rifle still trained on the man he was sent to kill. A serf named Letae stumbles onto his hiding place and is drawn into an alliance of pity and fear, smuggling food and parts to a killer whose grip on time has snapped. When Kell finally takes his shot, every certainty he came aboard with collapses in the seconds that follow, and the Warmaster reaches into the wreckage with a far older invitation than vengeance. A bleak coda to Nemesis, set in the corroding belly of the ship that will carry the Heresy to Terra.",
+    "facetIds": [
+      "book",
+      "male",
+      "multi",
+      "imperium",
+      "squad",
+      "requires_context",
+      "character_study",
+      "grimdark",
+      "cosmic_horror",
+      "somber",
+      "doubt",
+      "hubris",
+      "betrayal",
+      "en",
+      "cw_violence",
+      "cw_death",
+      "cw_mental_health",
+      "cw_disturbing"
+    ],
+    "factions": [
+      {
+        "name": "Officio Assassinorum",
+        "role": "primary"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Vengeful Spirit",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Eristede Kell",
+        "role": "pov"
+      },
+      {
+        "name": "Horus Lupercal",
+        "role": "antagonist"
+      },
+      {
+        "name": "Letae",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.56,
+      "count": 132,
+      "evidenceUrl": "https://www.goodreads.com/book/show/24525024-gunsight"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

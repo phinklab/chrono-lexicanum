@@ -1,0 +1,93 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0429",
+  "slug": "astra-militarum",
+  "title": "Astra Militarum",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2016,
+  "format": "anthology",
+  "seriesHint": "Legends of the Dark Millennium",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "For ten thousand years the massed regiments of the Astra Militarum — the Imperial Guard — have thrown themselves into the meat-grinder of endless war, ordinary men and women holding back horrors that would devour the galaxy. This collection gathers tales of the Guard's most famous commanders. The indomitable Commissar Yarrick duels the ork warlord Ghazghkull; the bionic 'Iron Hand' Colonel Straken leads from the front against impossible odds; and a trilogy of stories follows Lord Castellan Creed and his Cadian Eighth as the general forges his legend at the Battle of Tyrok Fields. With courage, stubbornness and an endless supply of lasguns and tanks, these soldiers prove that humanity's greatest weapon is its sheer refusal to die.",
+    "facetIds": [
+      "book",
+      "male",
+      "ensemble",
+      "guardsman",
+      "commissar",
+      "imperium",
+      "regiment",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "loyalty",
+      "sacrifice",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Cadia",
+        "role": "primary"
+      },
+      {
+        "name": "Armageddon",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Commissar Yarrick",
+        "role": "supporting"
+      },
+      {
+        "name": "Colonel Straken",
+        "role": "supporting"
+      },
+      {
+        "name": "Lord Castellan Creed",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.93,
+      "count": 135,
+      "evidenceUrl": "https://www.goodreads.com/book/show/27871603-astra-militarum"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0055",
+  "slug": "ultramarines-the-second-omnibus",
+  "title": "Ultramarines: The Second Omnibus",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "omnibus",
+  "seriesHint": "Ultramarines",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Omnibus collecting the second half of Uriel Ventris's pre-Primaris career: The Killing Ground (Salinas, Governor Barbaden's massacre, the Unfleshed pursuing Uriel out of the Eye of Terror); Courage and Honour (the Tau Empire's invasion of Pavonis under Shas'O Or'es'ka'an and Aun'rai, defended by the 4th Company plus Lord Winterbourne's Imperial Guard regiment); and The Chapter's Due (Honsou's Skull Harvest revenge invasion of Ultramar, with Iron Warriors and the Khornate Bloodborn assaulting Calth at sector scale). The arc moves from one Astartes's character-study and death-oath investigation to a chapter-scale war for survival. Not the canonical series entry-point — that is The Ultramarines Omnibus / Uriel Ventris Chronicles Vol. 1, which collects books 1–3 — but the natural follow-on volume for readers continuing the saga.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "requires_context",
+      "doorstopper",
+      "war_story",
+      "siege",
+      "mystery",
+      "character_study",
+      "last_stand",
+      "political_thriller",
+      "grimdark",
+      "cosmic_horror",
+      "action_heavy",
+      "somber",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "doubt",
+      "redemption",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Tau Empire",
+        "role": "antagonist"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Bloodborn",
+        "role": "antagonist"
+      },
+      {
+        "name": "Khorne",
+        "role": "antagonist"
+      },
+      {
+        "name": "Unfleshed",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Salinas Liberation Front",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Ultramar",
+        "role": "primary"
+      },
+      {
+        "name": "Calth",
+        "role": "primary"
+      },
+      {
+        "name": "Salinas",
+        "role": "primary"
+      },
+      {
+        "name": "Pavonis",
+        "role": "primary"
+      },
+      {
+        "name": "Killing Ground",
+        "role": "primary"
+      },
+      {
+        "name": "Macragge",
+        "role": "secondary"
+      },
+      {
+        "name": "Eye of Terror",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Uriel Ventris",
+        "role": "pov"
+      },
+      {
+        "name": "Pasanius Lysane",
+        "role": "supporting"
+      },
+      {
+        "name": "Marneus Calgar",
+        "role": "supporting"
+      },
+      {
+        "name": "Cato Sicarius",
+        "role": "supporting"
+      },
+      {
+        "name": "Tigurius",
+        "role": "supporting"
+      },
+      {
+        "name": "Cassius",
+        "role": "supporting"
+      },
+      {
+        "name": "Honsou",
+        "role": "supporting"
+      },
+      {
+        "name": "Ardaric Vaanes",
+        "role": "supporting"
+      },
+      {
+        "name": "Leto Barbaden",
+        "role": "supporting"
+      },
+      {
+        "name": "Daron Nisato",
+        "role": "supporting"
+      },
+      {
+        "name": "Sylvanus Thayer",
+        "role": "supporting"
+      },
+      {
+        "name": "Shas'O Or'es'ka'an",
+        "role": "supporting"
+      },
+      {
+        "name": "Aun'rai",
+        "role": "supporting"
+      },
+      {
+        "name": "Lord Winterbourne",
+        "role": "supporting"
+      },
+      {
+        "name": "Mykola Shonai",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0051",
+        "displayOrder": 0,
+        "confidence": 0.88,
+        "basis": "Second omnibus is placed after novels 4-6 in section order"
+      },
+      {
+        "externalBookId": "W40K-0052",
+        "displayOrder": 1,
+        "confidence": 0.88,
+        "basis": "Second omnibus is placed after novels 4-6 in section order"
+      },
+      {
+        "externalBookId": "W40K-0053",
+        "displayOrder": 2,
+        "confidence": 0.88,
+        "basis": "Second omnibus is placed after novels 4-6 in section order"
+      }
+    ]
+  }
+}

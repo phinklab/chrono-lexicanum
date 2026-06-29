@@ -1,0 +1,95 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0422",
+  "slug": "watchers-in-death",
+  "title": "Watchers in Death",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "The Beast Arises",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The grand assault on the ork home world has ended in slaughter, and brute force has failed the Imperium utterly. Lord Commander Koorland refuses to accept defeat. Borrowing the patient, surgical methods of the Officio Assassinorum, he forges something new: small, elite kill-teams drawn from many different Space Marine Chapters, trained to strike at the enemy's heart rather than meet it head-on. Clad in black and answerable only to their mission, these warriors learn to fight as one despite their rival traditions — and in their forming lies the first stirring of the Deathwatch. As Koorland hunts for a weakness in the Beast's empire, his new brotherhood must prove that a blade in the dark can succeed where whole fleets have died.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "squad",
+      "requires_context",
+      "short",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "brotherhood",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Deathwatch",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Sisters of Silence",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Ullanor",
+        "role": "primary"
+      },
+      {
+        "name": "Terra",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Koorland",
+        "role": "pov"
+      },
+      {
+        "name": "Asger Warfist",
+        "role": "supporting"
+      },
+      {
+        "name": "The Beast",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.79,
+      "count": 538,
+      "evidenceUrl": "https://www.goodreads.com/book/show/27276157-watchers-in-death"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0279",
+  "slug": "the-thirteenth-wolf",
+  "title": "The Thirteenth Wolf",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the burning city-spires of Prospero, the Space Wolves' Thirteenth Great Company hunts the last of the Thousand Sons through the rubble. When a fleeing sorcerer slips between teleportation-portals to escape their wrath, Sergeant Bulveye and his pack give chase, plunging into a magical maze that bends space and memory around them. Every doorway they break breaks the maze a little further, and every leap takes them somewhere stranger, until the warriors of the Rout can no longer be sure which Prospero they will step out into — or which century. A short, hard-edged piece that gives a first answer to a famous question — why the entire 13th Great Company vanished after the Burning of Prospero and was not seen again for ten thousand years.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "requires_context",
+      "novella",
+      "journey",
+      "war_story",
+      "grimdark",
+      "somber",
+      "cosmic_horror",
+      "hubris",
+      "brotherhood",
+      "sacrifice",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Thousand Sons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Prospero",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Bulveye",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.48,
+      "count": 145,
+      "evidenceUrl": "https://www.goodreads.com/book/show/32470138-the-thirteenth-wolf"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

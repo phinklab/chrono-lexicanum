@@ -1,0 +1,86 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0235",
+  "slug": "imperial-glory",
+  "title": "Imperial Glory",
+  "authors": [
+    "Richard Williams"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2011,
+  "format": "novel",
+  "seriesHint": "Imperial Guard",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "After decades stretched thin across the galaxy, the exhausted veterans of the Brimlock Eleventh are promised one final reward: to win a single last campaign and then settle the distant world of Voor in peace. Standing between them and that retirement is a feral ork infestation, sprung from a crashed ork rok and now spreading unchecked across the planet. Major Stanhope, the haunted Lieutenant Carson, the amnesiac Private Blank and the unbending Commissar Reeve drag their worn-out regiment into a brutal colonial war that grows uglier than any of them imagined. Told partly from the orks' own savage point of view, it is a bleak, Zulu-flavoured study of soldiers fighting one war too many.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "dual",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "last_stand",
+      "character_study",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "loyalty",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Brimlock Dragoons",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Voor",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Major Stanhope",
+        "role": "pov"
+      },
+      {
+        "name": "Lieutenant Carson",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.89,
+      "count": 264,
+      "evidenceUrl": "https://www.goodreads.com/book/show/10913533-imperial-glory"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

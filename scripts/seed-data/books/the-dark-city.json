@@ -1,0 +1,109 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0458",
+  "slug": "the-dark-city",
+  "title": "The Dark City",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "Vaults of Terra",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Great Rift has opened, the Astronomican is failing, and Terra is a place where night arrives in the middle of the day. Crowl is missing, his mind broken by what he saw in the Hollow Mountain, the threads of the conspiracy he chased disappearing with him. Spinoza, his interrogator, is forced to choose: hunt the man she swore to follow, or hold what is left of their small house against the many enemies still circling. A grand expedition is being assembled — Custodes, Mechanicum savants, the Inquisition, the Imperial Army — bent on a task so grave that even speaking it aloud is forbidden: the repair of the Golden Throne itself. Spinoza's path drags her past the bounds of permitted thought, into chambers where humans are not meant to walk, and into bargains with creatures whose courtesies are an insult. As the truth Crowl bled for narrows to a single, brutal answer, Spinoza must decide what she is willing to lose to keep speaking it.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "female",
+      "inquisitor",
+      "imperium",
+      "sector",
+      "series_finale",
+      "standard",
+      "mystery",
+      "political_thriller",
+      "journey",
+      "court_intrigue",
+      "grimdark",
+      "cosmic_horror",
+      "somber",
+      "philosophical",
+      "faith",
+      "doubt",
+      "sacrifice",
+      "loyalty",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Hereticus",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Custodes",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      },
+      {
+        "name": "Drukhari",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Luce Spinoza",
+        "role": "pov"
+      },
+      {
+        "name": "Erasmus Crowl",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "title alludes to Commorragh and Drukhari appear; available reviews confirm Drukhari presence but do not firmly establish Commorragh as an on-page setting, so the canonical Drukhari capital is omitted from locations"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.22,
+      "count": 1138,
+      "evidenceUrl": "https://www.goodreads.com/book/show/61661304-the-dark-city"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

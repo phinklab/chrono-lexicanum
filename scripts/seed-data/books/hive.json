@@ -1,0 +1,78 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0566",
+  "slug": "hive",
+  "title": "Hive",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2026,
+  "format": "novel",
+  "seriesHint": "40k - TBC",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "Sacramentus is a hive city on the edge. The planetary governor has fallen amid scandal and treachery, and the Imperial authorities have installed an outsider to fill the void — an unpopular choice in a rough, dogmatic city where austerity bites deep and Adeptus Arbites patrols enforce the Lex Imperialis without mercy or sympathy. In the upper spires, whispers of rebellion grow louder. In the depths, rival gangs carve out territory and forbidden cults grow bolder, feeding on resentment and desperation. But the visible unrest is not the greatest threat to Sacramentus. Something darker stirs in the lower reaches — something that the Arbites sense but cannot yet name, and that no faction scheming for control of the hive is prepared for.",
+    "facetIds": [
+      "book",
+      "en",
+      "ensemble",
+      "multi",
+      "imperium",
+      "planetary",
+      "standalone",
+      "doorstopper",
+      "political_thriller",
+      "grimdark",
+      "betrayal",
+      "faith",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Arbites",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sacramentus",
+        "role": "primary"
+      }
+    ],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "A hidden Chaos cult is the antagonist, but no specific patron god or sub-faction is confirmed in pre-release coverage, so it is left unbound rather than guessed."
+      },
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "No named POV characters are confirmed in pre-release sources; the novel uses multiple shifting perspectives."
+      }
+    ],
+    "rating": {
+      "status": "unrated",
+      "source": "goodreads",
+      "reason": "no Goodreads edition found",
+      "evidenceUrl": null
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

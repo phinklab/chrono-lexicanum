@@ -1,0 +1,198 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0151",
+  "slug": "the-inquisition-war-omnibus",
+  "title": "The Inquisition War Omnibus",
+  "authors": [
+    "Ian Watson"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2009,
+  "format": "omnibus",
+  "seriesHint": "The Inquisition War",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Jaq Draco's Inquisition War is gathered here as one feverish early-40K epic: an Ordo Malleus inquisitor sent to cleanse a Genestealer-tainted hive world instead uncovers the Hydra, a rogue cabal convinced it can solve the fate of humanity's soul. His pursuit carries him from Stalinvast and a Harlequin rite of catastrophe to the Webway and Sabulorb, with Meh'Lindi, Vitali Googol and Grimm dragged through conspiracies that mix Inquisition paranoia, Eldar mystery and Thousand Sons sorcery. It reads like a relic from the setting's stranger youth - cosmic, heretical, overripe and more interested in forbidden metaphysics than clean war-story closure.",
+    "facetIds": [
+      "book",
+      "male",
+      "inquisitor",
+      "imperium",
+      "galactic",
+      "standalone",
+      "doorstopper",
+      "mystery",
+      "political_thriller",
+      "war_story",
+      "character_study",
+      "journey",
+      "grimdark",
+      "philosophical",
+      "somber",
+      "cosmic_horror",
+      "war",
+      "doubt",
+      "betrayal",
+      "sacrifice",
+      "hubris",
+      "redemption",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_socio_political",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Malleus",
+        "role": "primary"
+      },
+      {
+        "name": "Officio Assassinorum",
+        "role": "primary"
+      },
+      {
+        "name": "Callidus Temple",
+        "role": "primary"
+      },
+      {
+        "name": "Navis Nobilite",
+        "role": "primary"
+      },
+      {
+        "name": "Squats",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      },
+      {
+        "name": "Harlequins",
+        "role": "primary"
+      },
+      {
+        "name": "Aeldari",
+        "role": "primary"
+      },
+      {
+        "name": "Eldar",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "antagonist"
+      },
+      {
+        "name": "Space Marines",
+        "role": "antagonist"
+      },
+      {
+        "name": "Hydra",
+        "role": "antagonist"
+      },
+      {
+        "name": "Thousand Sons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos Space Marines",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tzeentch",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Genestealer Cults",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Stalinvast",
+        "role": "primary"
+      },
+      {
+        "name": "Sabulorb",
+        "role": "primary"
+      },
+      {
+        "name": "Webway",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Jaq Draco",
+        "role": "pov"
+      },
+      {
+        "name": "Meh'Lindi",
+        "role": "supporting"
+      },
+      {
+        "name": "Vitali Googol",
+        "role": "supporting"
+      },
+      {
+        "name": "Grimm",
+        "role": "supporting"
+      },
+      {
+        "name": "Obispal",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0148",
+        "displayOrder": 0,
+        "confidence": 0.95,
+        "basis": "Omnibus follows the Inquisition War trilogy"
+      },
+      {
+        "externalBookId": "W40K-0149",
+        "displayOrder": 1,
+        "confidence": 0.95,
+        "basis": "Omnibus follows the Inquisition War trilogy"
+      },
+      {
+        "externalBookId": "W40K-0150",
+        "displayOrder": 2,
+        "confidence": 0.95,
+        "basis": "Omnibus follows the Inquisition War trilogy"
+      }
+    ]
+  }
+}

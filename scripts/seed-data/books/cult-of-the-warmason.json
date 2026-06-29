@@ -1,0 +1,95 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0454",
+  "slug": "cult-of-the-warmason",
+  "title": "Cult of the Warmason",
+  "authors": [
+    "C.L. Werner"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "Genestealer Cults",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Lubentina is a shrine world living off the pilgrims who flock to the cathedral that holds the relics of Vadok Singh, the Warmason. When militia patrols start vanishing into the back-alleys, Sister Superior Trishala of the Order of the Sombre Vow follows the rumours and uncovers what no shrine world is meant to harbour: a hidden brood of genestealer cultists, generations deep, ready to surface. Her distress signal is intercepted before it can reach the Imperium proper — and answered by exactly the wrong listeners. Cornak, an Iron Warriors sorcerer hungry for the Warmason's secrets, drags the warband of Warsmith Rhodaan into a planet-side war for the cathedral's vaults. Three forces collide across the shrine city: a small order of Battle-Sisters defending their holiest relics, an Iron Warriors strike force grinding through the streets, and a cult that has been waiting under the basilicas for decades to call down its true gods.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "mixed",
+      "sister",
+      "imperium",
+      "chaos",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "siege",
+      "grimdark",
+      "action_heavy",
+      "faith",
+      "war",
+      "betrayal",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adepta Sororitas",
+        "role": "primary"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "antagonist"
+      },
+      {
+        "name": "Genestealer Cults",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Lubentina",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sister Superior Trishala",
+        "role": "pov"
+      },
+      {
+        "name": "Warsmith Rhodaan",
+        "role": "pov"
+      },
+      {
+        "name": "Cornak",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.54,
+      "count": 150,
+      "evidenceUrl": "https://www.goodreads.com/book/show/34678312"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

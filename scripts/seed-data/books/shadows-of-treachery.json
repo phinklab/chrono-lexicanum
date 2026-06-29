@@ -1,0 +1,172 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0022",
+  "slug": "shadows-of-treachery",
+  "title": "Shadows of Treachery",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2012,
+  "format": "anthology",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Two novellas and five short stories filling in the months around Isstvan. John French's The Crimson Fist follows Captain Alexis Polux as the Iron Warriors snare the Imperial Fists' retribution fleet in a void ambush at Phall. Aaron Dembski-Bowden's Prince of Crows watches Night Lords first captain Sevatar police his own primarch's collapsing mind on the death world Tsagualsa. Dan Abnett's The Lightning Tower puts Rogal Dorn alone in his study as he readies Terra for siege; Graham McNeill's The Dark King and Death of a Silversmith trace Konrad Curze from the slums of Nostramo to the present; Gav Thorpe's Raven's Flight rides with Corax breaking out of the Isstvan V trap; and McNeill's The Kaban Project surfaces a forbidden Mechanicum AI inside the loyalist machine cult.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "multi",
+      "dual",
+      "sector",
+      "mid_series",
+      "standard",
+      "war_story",
+      "character_study",
+      "betrayal",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "loyalty",
+      "brotherhood",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "antagonist"
+      },
+      {
+        "name": "Night Lords",
+        "role": "primary"
+      },
+      {
+        "name": "Raven Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Mechanicum",
+        "role": "supporting"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Phall",
+        "role": "primary"
+      },
+      {
+        "name": "Tsagualsa",
+        "role": "primary"
+      },
+      {
+        "name": "Terra",
+        "role": "supporting"
+      },
+      {
+        "name": "Nostramo",
+        "role": "supporting"
+      },
+      {
+        "name": "Isstvan V",
+        "role": "supporting"
+      },
+      {
+        "name": "Mars",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Alexis Polux",
+        "role": "pov"
+      },
+      {
+        "name": "Sevatar",
+        "role": "pov"
+      },
+      {
+        "name": "Konrad Curze",
+        "role": "pov"
+      },
+      {
+        "name": "Rogal Dorn",
+        "role": "pov"
+      },
+      {
+        "name": "Corax",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.82,
+      "count": 3161,
+      "evidenceUrl": "https://www.goodreads.com/book/show/13547203-shadows-of-treachery"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "HH-0124",
+        "displayOrder": 0,
+        "confidence": 0.78,
+        "basis": "Shadows of Treachery mapping from matching novella/audio-drama titles in the roster"
+      },
+      {
+        "externalBookId": "HH-0125",
+        "displayOrder": 1,
+        "confidence": 0.78,
+        "basis": "Shadows of Treachery mapping from matching novella/audio-drama titles in the roster"
+      },
+      {
+        "externalBookId": "HH-0170",
+        "displayOrder": 2,
+        "confidence": 0.78,
+        "basis": "Shadows of Treachery mapping from matching novella/audio-drama titles in the roster"
+      },
+      {
+        "externalBookId": "HH-0172",
+        "displayOrder": 3,
+        "confidence": 0.78,
+        "basis": "Shadows of Treachery mapping from matching novella/audio-drama titles in the roster"
+      },
+      {
+        "externalBookId": "HH-0241",
+        "displayOrder": 4,
+        "confidence": 0.78,
+        "basis": "Shadows of Treachery mapping from matching novella/audio-drama titles in the roster"
+      },
+      {
+        "externalBookId": "HH-0242",
+        "displayOrder": 5,
+        "confidence": 0.78,
+        "basis": "Shadows of Treachery mapping from matching novella/audio-drama titles in the roster"
+      },
+      {
+        "externalBookId": "HH-0243",
+        "displayOrder": 6,
+        "confidence": 0.78,
+        "basis": "Shadows of Treachery mapping from matching novella/audio-drama titles in the roster"
+      }
+    ]
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0053",
+  "slug": "titandeath",
+  "title": "Titandeath",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the war-ravaged moons of Beta-Garmon, the Adeptus Titanicus fights the largest god-engine engagement the Imperium has ever seen. Rogal Dorn has poured the loyalist Titan reserve into the system to bleed Horus's advance before he reaches Sol, and at the centre of the carnage stand the Imperial Hunters of Legio Solaria, an all-female princeps order led by the Great Mother Mohana Mankata Vi. Across the campaign, the young princeps Esha Ani Mohana finds herself drawn deeper into the line, while the Death Stalker Terent Hartekk of Legio Vulpa serves as Horus's blade. Titandeath is a story of attrition: how much can be sacrificed, and at what price, to win even a few more days for Terra.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "female",
+      "ensemble",
+      "dual",
+      "sector",
+      "mid_series",
+      "standard",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "war",
+      "sacrifice",
+      "brotherhood",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Legio Solaria",
+        "role": "primary"
+      },
+      {
+        "name": "Legio Vulpa",
+        "role": "antagonist"
+      },
+      {
+        "name": "Collegia Titanica",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Beta-Garmon",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Esha Ani Mohana",
+        "role": "pov"
+      },
+      {
+        "name": "Mohana Mankata Vi",
+        "role": "supporting"
+      },
+      {
+        "name": "Terent Hartekk",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.84,
+      "count": 1554,
+      "evidenceUrl": "https://www.goodreads.com/book/show/42892331"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

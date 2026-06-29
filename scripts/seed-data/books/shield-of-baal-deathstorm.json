@@ -1,0 +1,94 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0344",
+  "slug": "shield-of-baal-deathstorm",
+  "title": "Shield of Baal: Deathstorm",
+  "authors": [
+    "Josh Reynolds"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novella",
+  "seriesHint": "Shield of Baal",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The sons of Sanguinius descend on the dying world of Phodia, where Hive Fleet Leviathan's swarms already strip the planet bare. First Captain Karlaen, called the Shield of Baal, leads his Blood Angels and the savage Flesh Tearers to find and secure the planetary governor, whose bloodline may hold a cure for the twin curses of the Red Thirst and the Black Rage. But the Spawn of Cryptus, a monstrous tyranid creature, hunts the same prize — and only Karlaen and his Terminators stand between it and the heart of the Chapter's hope.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "novella",
+      "war_story",
+      "siege",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "brotherhood",
+      "sacrifice",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Flesh Tearers",
+        "role": "supporting"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Phodia",
+        "role": "primary"
+      },
+      {
+        "name": "Cryptus",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Karlaen",
+        "role": "pov"
+      },
+      {
+        "name": "Spawn of Cryptus",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.58,
+      "count": 89,
+      "evidenceUrl": "https://www.goodreads.com/book/show/23630125-deathstorm"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0339",
+  "slug": "black-leviathan",
+  "title": "Black Leviathan",
+  "authors": [
+    "Ben Counter"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novella",
+  "seriesHint": "Apocalypse",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A tale of subterfuge in which good intentions clear the path to ruin. As the war for the Damocles Gulf grinds on, a cunning T'au Water Caste operative weaves a web of deceit around the Space Marines of the Jade Dragons, their Earth Caste counterparts, and a world's senior tech-priests alike. He plays Fire Warriors, Imperial servants and local tribes against one another like pieces on a board, never seeking open battle when a whisper or a planted relic will do. When a fragment of black leviathan hide finds its way into Adeptus Mechanicus hands, old loyalties curdle into bloodshed between servants of the Emperor. A political, low-trust story where the deadliest weapon is a well-placed lie.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "dual",
+      "planetary",
+      "standalone",
+      "novella",
+      "political_thriller",
+      "war_story",
+      "grimdark",
+      "somber",
+      "betrayal",
+      "doubt",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Jade Dragons",
+        "role": "primary"
+      },
+      {
+        "name": "T'au Empire",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      }
+    ],
+    "locations": [],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "Water Caste operative and Jade Dragons figures not named in available sources"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3,
+      "count": 8,
+      "evidenceUrl": "https://www.goodreads.com/book/show/55819470-black-leviathan"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

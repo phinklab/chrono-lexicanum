@@ -1,0 +1,161 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0231",
+  "slug": "crusades-end",
+  "title": "Crusade's End",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2016,
+  "format": "omnibus",
+  "seriesHint": "Horus Heresy Omnibus Editions",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Three novels and three short pieces collected as the opening movement of the Heresy. Horus Rising shows the Warmaster at the height of his power: Garviel Loken of the Sons of Horus rides at his primarch's side, the Great Crusade is bringing one world after another into compliance, and the future of the Imperium feels secure. By the close of False Gods that picture has darkened — Horus has been wounded on Davin and touched by something there, Erebus and Maloghurst are working a slow corruption, and Loken is no longer sure which of his brothers he can trust. Galaxy in Flames ends the arc with the dropsite atrocity at Isstvan III, where the legions Horus cannot turn are virus-bombed by their own. Three interleaved shorts — The Wolf of Ash and Fire, Death of a Silversmith, and Lord of the Red Sands — show Horus hunting beside Leman Russ in better days, the quiet murder that began the fall, and Lorgar Aurelian preparing the path ahead.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "series_start",
+      "doorstopper",
+      "war_story",
+      "political_thriller",
+      "character_study",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "betrayal",
+      "brotherhood",
+      "loyalty",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Sons of Horus",
+        "role": "primary"
+      },
+      {
+        "name": "Luna Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "supporting"
+      },
+      {
+        "name": "Emperor's Children",
+        "role": "supporting"
+      },
+      {
+        "name": "World Eaters",
+        "role": "supporting"
+      },
+      {
+        "name": "Death Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Space Wolves",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Davin",
+        "role": "primary"
+      },
+      {
+        "name": "Isstvan III",
+        "role": "primary"
+      },
+      {
+        "name": "60-Sixty",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Garviel Loken",
+        "role": "pov"
+      },
+      {
+        "name": "Horus Lupercal",
+        "role": "pov"
+      },
+      {
+        "name": "Tarik Torgaddon",
+        "role": "supporting"
+      },
+      {
+        "name": "Saul Tarvitz",
+        "role": "supporting"
+      },
+      {
+        "name": "Erebus",
+        "role": "antagonist"
+      },
+      {
+        "name": "Maloghurst",
+        "role": "supporting"
+      },
+      {
+        "name": "Lorgar Aurelian",
+        "role": "supporting"
+      },
+      {
+        "name": "Leman Russ",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.44,
+      "count": 94,
+      "evidenceUrl": "https://www.goodreads.com/book/show/26029267"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "HH-0001",
+        "displayOrder": 0,
+        "confidence": 0.85,
+        "basis": "Crusade's End omnibus inferred from opening Horus Heresy arc"
+      },
+      {
+        "externalBookId": "HH-0002",
+        "displayOrder": 1,
+        "confidence": 0.85,
+        "basis": "Crusade's End omnibus inferred from opening Horus Heresy arc"
+      },
+      {
+        "externalBookId": "HH-0003",
+        "displayOrder": 2,
+        "confidence": 0.85,
+        "basis": "Crusade's End omnibus inferred from opening Horus Heresy arc"
+      },
+      {
+        "externalBookId": "HH-0004",
+        "displayOrder": 3,
+        "confidence": 0.85,
+        "basis": "Crusade's End omnibus inferred from opening Horus Heresy arc"
+      }
+    ]
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0440",
+  "slug": "manflayer",
+  "title": "Manflayer",
+  "authors": [
+    "Josh Reynolds"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Fabius Bile",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In the long centuries since his escape from Commorragh, Fabius Bile has held himself apart from the wars of friend and foe alike, content to shepherd the slow, cruel evolution of his New Men toward the perfected humanity he calls Homo novus. That isolation shatters when the dread haemonculi of the Thirteen Scars, the dark eldar coven that once schooled him in the arts of torture and flesh-craft, come to claim his work and silence what he knows. To save everything he has built, the Manflayer must once more seek out new allies and old enemies, and reckon with the possibility that his great experiment can only endure if its maker is willing to die for it. This is the final reckoning of his long and monstrous ambition.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "sector",
+      "series_finale",
+      "standard",
+      "war_story",
+      "journey",
+      "character_study",
+      "grimdark",
+      "philosophical",
+      "satirical",
+      "cosmic_horror",
+      "hubris",
+      "sacrifice",
+      "betrayal",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_abuse",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Emperor's Children",
+        "role": "primary"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "supporting"
+      },
+      {
+        "name": "Drukhari",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Commorragh",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Fabius Bile",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.29,
+      "count": 839,
+      "evidenceUrl": "https://www.goodreads.com/book/show/48845235"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

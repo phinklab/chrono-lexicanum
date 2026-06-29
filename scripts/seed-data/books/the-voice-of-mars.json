@@ -1,0 +1,90 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0461",
+  "slug": "the-voice-of-mars",
+  "title": "The Voice of Mars",
+  "authors": [
+    "David Guymer"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novel",
+  "seriesHint": "Iron Hands (newer)",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In the Iron Council of the Iron Hands, the seat called the Voice of Mars has long pursued ambitions seeded during the Horus Heresy. Iron Father Kristos has been charged with unlocking the Dawnbreak Technologies — mysterious devices of Eldar origin scattered across forge worlds and shrine vaults. When Kristos moves to recover the first relic from the knight world Fabris Calivant, the Eldar steer a ravening greenskin invasion onto its plains, and Kristos discovers that the xenos are only one set of enemies arrayed against him. Within his own brotherhood, rival clans of the Iron Hands move to seize the Dawnbreak prize for themselves. As clan turns against clan and iron clashes with iron above the burning forges of Fabris Calivant, Kristos must decide how much of his Chapter he is willing to break to keep the Voice of Mars whole.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "action_heavy",
+      "grimdark",
+      "war",
+      "loyalty",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Hands",
+        "role": "primary"
+      },
+      {
+        "name": "Eldar",
+        "role": "antagonist"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Fabris Calivant",
+        "role": "primary"
+      },
+      {
+        "name": "Medusa",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Iron Father Kristos",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.9,
+      "count": 82,
+      "evidenceUrl": "https://www.goodreads.com/book/show/38747880-the-voice-of-mars"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0178",
+  "slug": "uprising",
+  "title": "Uprising",
+  "authors": [
+    "Denny Flowers"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Necromunda",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Uprising frames another sweep through modern Necromunda around Caleb Cursebound and a wider set of downhive rebellions, escapes and terrible bargains. Yar Umbra cuts a path through Hive Primus seeking a way off Necromunda; a House Cawdor juve finds a statue of the Emperor that can remake his life; a Corpse Guild drudge learns why some secrets must stay buried; and Caleb runs for Hope's End with enemies on his reputation as much as his heels. A multi-author anthology of hive unrest, faith, hunger and little revolutions, where the Underhive keeps turning private desperation into public violence and nobody leaves clean.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "multi",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "character_study",
+      "mystery",
+      "journey",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "faith",
+      "war",
+      "loyalty",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_crime",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "House Cawdor",
+        "role": "primary"
+      },
+      {
+        "name": "House Orlock",
+        "role": "primary"
+      },
+      {
+        "name": "Redemptionists",
+        "role": "primary"
+      },
+      {
+        "name": "Corpse Guild",
+        "role": "primary"
+      },
+      {
+        "name": "Venators",
+        "role": "supporting"
+      },
+      {
+        "name": "Ratskins",
+        "role": "supporting"
+      },
+      {
+        "name": "Guilders",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Necromunda",
+        "role": "primary"
+      },
+      {
+        "name": "Hive Primus",
+        "role": "primary"
+      },
+      {
+        "name": "Underhive",
+        "role": "primary"
+      },
+      {
+        "name": "Hope's End",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Caleb Cursebound",
+        "role": "supporting"
+      },
+      {
+        "name": "Iktomi",
+        "role": "supporting"
+      },
+      {
+        "name": "Yar Umbra",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "suggestion": "anthology",
+        "note": "Multi-author short-fiction collection (Annandale + Kloster + Hill + Flowers + Green + Brooks + McDermott + Wiltgren + Rath) per Amazon table-of-contents; SSOT-roster lists as novel"
+      }
+    ]
+  },
+  "collections": {
+    "collects": []
+  }
+}

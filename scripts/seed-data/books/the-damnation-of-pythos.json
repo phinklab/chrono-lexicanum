@@ -1,0 +1,97 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0030",
+  "slug": "the-damnation-of-pythos",
+  "title": "The Damnation of Pythos",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A shattered force of Iron Hands under Captain Durun Atticus, with Salamander and Raven Guard survivors of Isstvan V grafted onto its command, makes planetfall on the death world Pythos and tries to turn it into a base from which to wage an independent war on Horus. The jungle answers with predators that should not exist; a stream of human refugees fleeing the war washes up on the same shore; and the astropath Rhydia Erephren slowly works out that Pythos is not just hostile — it is a wound, a warp-touched site Atticus's rage will not let him abandon. Through the Salamander Khi'dem, the Iron Hand Galba, Erephren and Atticus himself, the novel watches a small Imperial enclave argue itself into damnation while the planet feeds.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "character_study",
+      "last_stand",
+      "grimdark",
+      "somber",
+      "cosmic_horror",
+      "hubris",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing"
+    ],
+    "factions": [
+      {
+        "name": "Iron Hands",
+        "role": "primary"
+      },
+      {
+        "name": "Salamanders",
+        "role": "supporting"
+      },
+      {
+        "name": "Raven Guard",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Pythos",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Durun Atticus",
+        "role": "pov"
+      },
+      {
+        "name": "Galba",
+        "role": "pov"
+      },
+      {
+        "name": "Rhydia Erephren",
+        "role": "pov"
+      },
+      {
+        "name": "Khi'dem",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.26,
+      "count": 2206,
+      "evidenceUrl": "https://www.goodreads.com/book/show/21412249-the-damnation-of-pythos"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

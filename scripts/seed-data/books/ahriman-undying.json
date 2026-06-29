@@ -1,0 +1,80 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0375",
+  "slug": "ahriman-undying",
+  "title": "Ahriman: Undying",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2024,
+  "format": "novel",
+  "seriesHint": "Ahriman",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Adrift on the threshold of space and time, Ahzek Ahriman has finally found what he sought for so long: the ancient necron device known as the Key of Infinity. But he is no longer the sorcerer he once was. Betrayed and alone, stripped of allies and the grand designs that once defined him, he stands amid the wreckage of his ambitions while the fires of the Pyrodomon consume the last of his Legion. To have any hope of a future, Ahriman must fight his way back across the shattered ruins of his own past. The latest chapter in the long saga of the Thousand Sons' arch-sorcerer is its most solitary and haunted yet.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "galactic",
+      "requires_context",
+      "standard",
+      "journey",
+      "character_study",
+      "grimdark",
+      "philosophical",
+      "somber",
+      "hubris",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Thousand Sons",
+        "role": "primary"
+      },
+      {
+        "name": "Necrons",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Eye of Terror",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ahzek Ahriman",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.07,
+      "count": 214,
+      "evidenceUrl": "https://www.goodreads.com/book/show/216436741"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

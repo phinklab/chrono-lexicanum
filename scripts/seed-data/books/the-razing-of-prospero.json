@@ -1,0 +1,134 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0232",
+  "slug": "the-razing-of-prospero",
+  "title": "The Razing of Prospero",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2016,
+  "format": "omnibus",
+  "seriesHint": "Horus Heresy Omnibus Editions",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The duology and supporting shorts that frame the burning of Magnus the Red's homeworld, told from both sides of the fight. A Thousand Sons follows Ahzek Ahriman and the XV Legion through the Council of Nikaea and the patient, careful work the Crimson King does to spare his sons from the change that is already inside them — and shows the moment Magnus throws his psychic warning across the warp toward Terra. Prospero Burns turns the lens around: Kasper Hawser, a remembrancer adopted by the Space Wolves, walks among Leman Russ's warriors as the Rout is unleashed against the city of Tizca, and learns too late what the Wolf King thinks he is putting down. Custodes and Sisters of Silence accompany the assault, and the half-dozen shorter pieces around the novels deepen the grievance, the doctrine, and the cost of the burning.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "dual",
+      "planetary",
+      "requires_context",
+      "doorstopper",
+      "war_story",
+      "siege",
+      "character_study",
+      "grimdark",
+      "action_heavy",
+      "philosophical",
+      "betrayal",
+      "brotherhood",
+      "loyalty",
+      "hubris",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Thousand Sons",
+        "role": "primary"
+      },
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Custodes",
+        "role": "supporting"
+      },
+      {
+        "name": "Sisters of Silence",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Prospero",
+        "role": "primary"
+      },
+      {
+        "name": "Tizca",
+        "role": "primary"
+      },
+      {
+        "name": "Fenris",
+        "role": "supporting"
+      },
+      {
+        "name": "Nikaea",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Magnus the Red",
+        "role": "pov"
+      },
+      {
+        "name": "Ahzek Ahriman",
+        "role": "pov"
+      },
+      {
+        "name": "Leman Russ",
+        "role": "pov"
+      },
+      {
+        "name": "Kasper Hawser",
+        "role": "pov"
+      },
+      {
+        "name": "Bjorn",
+        "role": "supporting"
+      },
+      {
+        "name": "Constantin Valdor",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.41,
+      "count": 46,
+      "evidenceUrl": "https://www.goodreads.com/book/show/27276165-the-razing-of-prospero"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "HH-0012",
+        "displayOrder": 0,
+        "confidence": 0.8,
+        "basis": "Razing of Prospero omnibus inferred from Thousand Sons / Prospero Burns pairing"
+      },
+      {
+        "externalBookId": "HH-0015",
+        "displayOrder": 1,
+        "confidence": 0.8,
+        "basis": "Razing of Prospero omnibus inferred from Thousand Sons / Prospero Burns pairing"
+      }
+    ]
+  }
+}

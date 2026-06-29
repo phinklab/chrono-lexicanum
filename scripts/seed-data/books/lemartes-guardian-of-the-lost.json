@@ -1,0 +1,81 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0398",
+  "slug": "lemartes-guardian-of-the-lost",
+  "title": "Lemartes: Guardian of the Lost",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "Space Marine Legends",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Lemartes is the Guardian of the Lost, the Blood Angels warrior who walks forever on the knife-edge of the Black Rage, the curse that drives his Chapter's most afflicted brothers into berserk fury. Awakened to lead the Death Company into battle on the war-wracked world of Phlegethon, Lemartes finds himself facing a dark mirror of his own kind: the Blood Disciples, blood-crazed servants of Chaos whose madness echoes his own. As he fights, his mind slips between past and present, reliving the defence of the Imperial Palace through the eyes of his lost primarch even as the battle rages around him. To win, he must cling to the last threads of his own sanity while the enemy tries to tear them apart.",
+    "facetIds": [
+      "book",
+      "space_marine",
+      "male",
+      "imperium",
+      "planetary",
+      "standalone",
+      "short",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "somber",
+      "faith",
+      "sacrifice",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_mental_health",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Blood Disciples",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Phlegethon",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lemartes",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.65,
+      "count": 113,
+      "evidenceUrl": "https://www.goodreads.com/book/show/23377682-lemartes"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

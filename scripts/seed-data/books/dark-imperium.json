@@ -1,0 +1,103 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0463",
+  "slug": "dark-imperium",
+  "title": "Dark Imperium",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "Dark Imperium",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Ten thousand years after he was struck down at the Battle of Thessala, Roboute Guilliman walks the galaxy once more. The first phase of the Indomitus Crusade has bought the Imperium a breath; now Guilliman turns toward Ultramar, where his brother Mortarion and the Death Guard march from the wounded warp to drown the Ultramarines' realm in pestilence. Belisarius Cawl, the strange archmagos who pulled the primarch from his stasis, has gifted Guilliman a new breed of Space Marines — taller, harder, never quite at ease in their own skin. As Mortarion's plague-fleets close on the heart of Ultramar, Guilliman must rebuild his fractured kingdom, take the measure of his Primaris sons, and decide whether the Imperium he means to save still resembles the one he was born to build.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "series_start",
+      "standard",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "betrayal",
+      "loyalty",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Ministorum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Ultramar",
+        "role": "primary"
+      },
+      {
+        "name": "Macragge",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Roboute Guilliman",
+        "role": "pov"
+      },
+      {
+        "name": "Mortarion",
+        "role": "antagonist"
+      },
+      {
+        "name": "Belisarius Cawl",
+        "role": "supporting"
+      },
+      {
+        "name": "Mathieu",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.87,
+      "count": 4560,
+      "evidenceUrl": "https://www.goodreads.com/book/show/35318921-dark-imperium"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

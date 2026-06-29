@@ -1,0 +1,95 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0145",
+  "slug": "demolisher",
+  "title": "Demolisher",
+  "authors": [
+    "Andy Clark"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Lieutenant Hadeya Etsul and the battered crew of the Leman Russ Demolisher Steel Tread survived Croatoas once; now their reward is fame, propaganda attention, and transfer into another offensive on the same meat-grinder world. Their tank is patched together, their replacement crew is still raw, and command treats their unlikely victory as proof they can do the impossible again. Demolisher keeps the war inside the hull: cramped tempers, damaged machinery, and a Cadian officer learning that becoming a symbol may be deadlier than being forgotten.",
+    "facetIds": [
+      "book",
+      "female",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "siege",
+      "character_study",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "war",
+      "brotherhood",
+      "sacrifice",
+      "loyalty",
+      "doubt",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Cadian Shock Troops",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Croatoas",
+        "role": "primary"
+      },
+      {
+        "name": "Steel Tread",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Hadeya Etsul",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

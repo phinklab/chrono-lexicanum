@@ -1,0 +1,82 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0287",
+  "slug": "blackshields-the-red-fief",
+  "title": "Blackshields: The Red Fief",
+  "authors": [
+    "Josh Reynolds"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The raid on Xana left Endryd Haar's Blackshields battered, short of warriors, and no closer to deciding what kind of fighting force they intend to be. A distress call from an old comrade pulls them toward Duat, a tithe-world held in fief by the World Eaters, and Haar tells his pack the prize is plunder and perhaps a recruit. What he finds on Duat is something else: a discovery that turns the raid from a supply run into a hinge. Meanwhile, far away, Malcador the Sigillite is making delicate overtures, hoping to fold Haar and his stolen weapons into the loyalist defense of Terra. To take the Sigillite's offer is to become an instrument again; to refuse is to face the closing war alone.",
+    "facetIds": [
+      "audio_drama",
+      "novella",
+      "neutral",
+      "space_marine",
+      "male",
+      "planetary",
+      "war_story",
+      "heist",
+      "grimdark",
+      "loyalty",
+      "doubt",
+      "brotherhood",
+      "mid_series",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blackshields",
+        "role": "primary"
+      },
+      {
+        "name": "World Eaters",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Duat",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Endryd Haar",
+        "role": "pov"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.01,
+      "count": 113,
+      "evidenceUrl": "https://www.goodreads.com/book/show/39078942-blackshields"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

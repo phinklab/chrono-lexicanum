@@ -1,0 +1,109 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0122",
+  "slug": "awakenings",
+  "title": "Awakenings",
+  "authors": [
+    "George Mann"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Inquisitor Astor Sabbathiel was declared dead nearly a century ago, shot as a warp-storm swallowed the Calaphrax Cluster and left her trapped in impossible stasis. She wakes indebted to the magos Metik, then is summoned to Hulth by Inquisitor Heldren, who makes the bargain plain: her old conclave no longer trusts her, and survival means proving her loyalty. The trail runs through corrupt Inquisitors, Navigator houses, and even the Adeptus Custodes, while Sabbathiel hunts the truth of who killed her and why. Resurrection as Inquisition procedure: a slow-burn mystery with vendetta under the seal.",
+    "facetIds": [
+      "book",
+      "female",
+      "inquisitor",
+      "imperium",
+      "sector",
+      "mid_series",
+      "standard",
+      "mystery",
+      "political_thriller",
+      "character_study",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "betrayal",
+      "doubt",
+      "loyalty",
+      "redemption",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Hereticus",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      },
+      {
+        "name": "Ecclesiarchy",
+        "role": "supporting"
+      },
+      {
+        "name": "Navis Nobilite",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Custodes",
+        "role": "mentioned"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Calaphrax Cluster",
+        "role": "primary"
+      },
+      {
+        "name": "Hulth",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Astor Sabbathiel",
+        "role": "pov"
+      },
+      {
+        "name": "Metik",
+        "role": "supporting"
+      },
+      {
+        "name": "Heldren",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

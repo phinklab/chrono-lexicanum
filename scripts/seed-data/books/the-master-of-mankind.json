@@ -1,0 +1,121 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0041",
+  "slug": "the-master-of-mankind",
+  "title": "The Master of Mankind",
+  "authors": [
+    "Aaron Dembski-Bowden"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Five years after Magnus the Red's psychic breach opened the unfinished webway beneath the Imperial Palace, the deepest secret of the Heresy bleeds into open war. While Horus's rebellion burns across the galaxy, the Custodian Guard, the Sisters of Silence and the Mechanicum forces of Fabricator General Kane fight to hold the warp-poisoned tunnels and impossible cities at the threshold of Terra. Ra Endymion of the Ten Thousand walks beside his master and sees, in flashes of memory, what the Emperor truly is and what He once chose to be. Diocletian Coros returns from a long crusade in Mars's name to find the throneworld's defenders stretched thin against an unending tide of daemons and corrupted Titans. As the noose around Terra tightens, only the Emperor Himself can take the field — and the cost of doing so will shape every age to come.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "custodes",
+      "multi",
+      "imperium",
+      "galactic",
+      "mid_series",
+      "standard",
+      "war_story",
+      "siege",
+      "grimdark",
+      "philosophical",
+      "war",
+      "sacrifice",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Custodes",
+        "role": "primary"
+      },
+      {
+        "name": "Sisters of Silence",
+        "role": "primary"
+      },
+      {
+        "name": "Mechanicum",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos Daemons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Thousand Sons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Palace",
+        "role": "primary"
+      },
+      {
+        "name": "Webway",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "The Emperor",
+        "role": "pov"
+      },
+      {
+        "name": "Ra Endymion",
+        "role": "pov"
+      },
+      {
+        "name": "Diocletian Coros",
+        "role": "pov"
+      },
+      {
+        "name": "Kane",
+        "role": "supporting"
+      },
+      {
+        "name": "Arkhan Land",
+        "role": "supporting"
+      },
+      {
+        "name": "Magnus the Red",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.22,
+      "count": 4045,
+      "evidenceUrl": "https://www.goodreads.com/book/show/33303512-the-master-of-mankind"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

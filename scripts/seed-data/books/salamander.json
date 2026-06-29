@@ -1,0 +1,91 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0272",
+  "slug": "salamander",
+  "title": "Salamander",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2009,
+  "format": "novel",
+  "seriesHint": "Tome of Fire",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the volcanic death-world of Nocturne, the Salamanders are a Chapter apart, as much artisans and protectors as they are warriors. When the Space Marines of the 3rd Company pursue the trail of an ancient relic, their hunt leads them to a world scarred by Chaos and to the traitors who once murdered their captain. Among them are two very different battle-brothers: the introspective Dak'ir, troubled by strange visions, and the proud, driven Tsu'gan, whose rivalry will shape the company's future. As the renegade sorcerer Nihilan and his Dragon Warriors close in, the Salamanders must rebuild their broken brotherhood even as the thirst for vengeance threatens to consume them. The opening chapter of the Tome of Fire saga.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "company",
+      "series_start",
+      "standard",
+      "war_story",
+      "journey",
+      "grimdark",
+      "action_heavy",
+      "brotherhood",
+      "loyalty",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Salamanders",
+        "role": "primary"
+      },
+      {
+        "name": "Dragon Warriors",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Nocturne",
+        "role": "primary"
+      },
+      {
+        "name": "Stratos",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Dak'ir",
+        "role": "pov"
+      },
+      {
+        "name": "Tsu'gan",
+        "role": "supporting"
+      },
+      {
+        "name": "Nihilan",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.72,
+      "count": 1136,
+      "evidenceUrl": "https://www.goodreads.com/book/show/6296660"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

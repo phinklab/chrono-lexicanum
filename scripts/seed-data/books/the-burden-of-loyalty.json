@@ -1,0 +1,106 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0048",
+  "slug": "the-burden-of-loyalty",
+  "title": "The Burden of Loyalty",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2018,
+  "format": "anthology",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Eight tales from the long fault-line of the Heresy. Chris Wraight's novella The Wolf King watches Leman Russ argue the price of obedience after the burning of Prospero. Rob Sanders's Cybernetica follows a Mechanicum thinking engine that learns the war is not the war it was built for. Around them, shorter stories pull at the edges of canon — Dan Abnett's Perpetual on a deathless agent of Malcador, David Annandale's The Binary Succession on the politics of a fracturing Mars, Aaron Dembski-Bowden's Into Exile on a Knight Errant cutting away from the rest of his order, John French's Ordo Sinister on a Titan crew already too far gone, L J Goulding's The Heart of the Pharos on what was buried beneath Sotha, and Gav Thorpe's The Thirteenth Wolf on a vendetta the Vlka Fenryka would rather forget. Loyalty here is never simple, and never cheap.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "multi",
+      "imperium",
+      "sector",
+      "mid_series",
+      "doorstopper",
+      "war_story",
+      "character_study",
+      "somber",
+      "grimdark",
+      "war",
+      "loyalty",
+      "betrayal",
+      "sacrifice",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Mechanicum",
+        "role": "primary"
+      },
+      {
+        "name": "Knights Errant",
+        "role": "supporting"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "supporting"
+      },
+      {
+        "name": "Mars",
+        "role": "supporting"
+      },
+      {
+        "name": "Sotha",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Leman Russ",
+        "role": "pov"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "anthology-wide cast is broad; only stories with clearly named lead POVs surfaced in available sources."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.71,
+      "count": 1098,
+      "evidenceUrl": "https://www.goodreads.com/book/show/36373724-the-burden-of-loyalty"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

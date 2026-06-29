@@ -1,0 +1,84 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0282",
+  "slug": "the-soul-severed",
+  "title": "The Soul, Severed",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "With Fulgrim ascended and absent, Lord Commander Primus Eidolon holds the Emperor's Children together by force of will and rite. Among his lieutenants, the principled tactician Archorian believes the Legion still has glory to reclaim—and that Eidolon's appetites are dragging them away from it. When the dispute boils over and Archorian moves to set discipline against indulgence, Eidolon answers by unleashing the Kakophoni, the sonic-warriors warped in his own image. What follows is less a duel of officers than a verdict on what the Emperor's Children have already chosen to become, delivered in a wall of screaming sound that leaves no question who now defines the Legion's soul.",
+    "facetIds": [
+      "audio_drama",
+      "novella",
+      "chaos",
+      "space_marine",
+      "male",
+      "company",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "hubris",
+      "betrayal",
+      "brotherhood",
+      "requires_context",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Emperor's Children",
+        "role": "primary"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Eidolon",
+        "role": "pov"
+      },
+      {
+        "name": "Archorian",
+        "role": "antagonist"
+      },
+      {
+        "name": "Fulgrim",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "available source coverage does not name a specific geographic setting for the dispute"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.54,
+      "count": 120,
+      "evidenceUrl": "https://www.goodreads.com/book/show/33300086-the-soul-severed"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

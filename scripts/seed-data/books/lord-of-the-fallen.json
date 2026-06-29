@@ -1,0 +1,95 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0562",
+  "slug": "lord-of-the-fallen",
+  "title": "Lord of the Fallen",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2023,
+  "format": "novel",
+  "seriesHint": "Cypher",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "As the Great Rift tears open the sky above Terra and daemons walk upon the Throneworld for the first time in ten thousand years, Cypher and a small band of the Fallen escape from the most secure prison in the Imperium. Loose within the Imperial Palace itself, they are hunted by warriors of the Dark Angels, the golden Custodes of the Adeptus Custodes and the killers of the Officio Assassinorum — yet Cypher's true agenda runs far beyond mere escape. He intends to stand before the Emperor on the Golden Throne, though whether he comes to bow, to plead or to murder his god, even his closest companions cannot say. Told through Cypher's own unreliable voice, this is a tale of secrets, lies and a war waged at the heart of mankind.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "dual",
+      "planetary",
+      "standalone",
+      "standard",
+      "mystery",
+      "journey",
+      "character_study",
+      "political_thriller",
+      "grimdark",
+      "philosophical",
+      "betrayal",
+      "doubt",
+      "redemption",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "The Fallen",
+        "role": "primary"
+      },
+      {
+        "name": "Dark Angels",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Custodes",
+        "role": "supporting"
+      },
+      {
+        "name": "Officio Assassinorum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Palace",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Cypher",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.91,
+      "count": 810,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/101151817"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

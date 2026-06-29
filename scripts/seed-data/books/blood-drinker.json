@@ -1,0 +1,82 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0515",
+  "slug": "blood-drinker",
+  "title": "Blood Drinker",
+  "authors": [
+    "James Brogdan"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "novel",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Aboard a drifting spacecraft, life support failing and the lights guttering down corridor by corridor, a lone Blood Drinker has gone berserk. The Black Rage that haunts every son of Sanguinius has taken him fully, and he stalks the halls reliving battles only he can see. Two survivors realise they cannot outrun him and cannot match him, so they try the one thing left: to reach the man behind the visions, to remind him who he was before the curse closed over him. The ship groans toward its final orbit while they choose between running, dying, and answering the warrior's grief.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "space_marine",
+      "imperium",
+      "squad",
+      "standalone",
+      "novella",
+      "character_study",
+      "last_stand",
+      "somber",
+      "grimdark",
+      "cosmic_horror",
+      "action_heavy",
+      "brotherhood",
+      "sacrifice",
+      "doubt",
+      "redemption",
+      "cw_violence",
+      "cw_death",
+      "cw_mental_health",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Drinkers",
+        "role": "primary"
+      }
+    ],
+    "locations": [],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "reason": "Black Library eShort, short story length",
+        "suggestion": "novella"
+      },
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "Marine and survivors unnamed in available source coverage"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.59,
+      "count": 29,
+      "evidenceUrl": "https://www.goodreads.com/book/show/59471045-blood-drinker"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

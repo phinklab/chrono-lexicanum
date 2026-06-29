@@ -1,5 +1,7 @@
 # Consolidation-Pass Runbook — eine Phase
 
+> **⛔ LEGACY (Brief 171 Teil B).** Der Consolidation-Pass operierte auf der Batch-Welt (`manual-overrides-ssot-*.json` via `run-phase4-apply.sh` → `db:apply-override`). Diese Batch-Welt ist jetzt eingefrorene Provenienz (der Korpus lebt in `scripts/seed-data/books/*.json`), und `db:apply-override` verweigert. Es laufen **keine neuen Consolidation-Pässe** mehr; dieses Runbook bleibt nur als historische Spec stehen.
+
 > **Mechanischer Task, keine normale Session.** Dies ist die ausführbare Spec für **genau eine** Phase eines axis-sliced Consolidation-Passes. Wer dieses Runbook, die Pass-Config (`scripts/consolidation-pass.config.json`) und das Achs-Paket der eigenen Phase gelesen hat, hat alles, was er braucht — sonst nichts. **Kein Brief** wird gelesen — weder Brief 094 noch Brief 098. Die Herkunft der Rationale (Briefs 094 / 098) steht im Anhang am Ende — für eine Phase ebenfalls nicht lesen.
 
 ## 0. Bedienung

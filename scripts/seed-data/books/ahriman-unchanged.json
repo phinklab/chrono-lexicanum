@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0371",
+  "slug": "ahriman-unchanged",
+  "title": "Ahriman: Unchanged",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "novel",
+  "seriesHint": "Ahriman",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Ahzek Ahriman, once Chief Librarian of the Thousand Sons and now an exiled sorcerer, prepares for the most audacious working of his long life. Every fragment of forbidden knowledge he has gathered, every alliance he has forged and broken, has served a single purpose: to undo the Rubric that hollowed his Legion into dust-filled armour. As he gathers his strength and his followers for a final casting, the warp itself recoils, daemons gather, and the survivors of his shattered brotherhood close in. His quest carries him back to ruined Prospero and the Planet of the Sorcerers, where the price of his ambition - and the wrath of his primarch, Magnus the Red - finally comes due. The concluding volume of the Ahriman trilogy is a study of obsession, hubris and the thin hope of redemption.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "galactic",
+      "series_finale",
+      "standard",
+      "journey",
+      "character_study",
+      "grimdark",
+      "philosophical",
+      "cosmic_horror",
+      "hubris",
+      "redemption",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Thousand Sons",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Prospero",
+        "role": "supporting"
+      },
+      {
+        "name": "Planet of the Sorcerers",
+        "role": "supporting"
+      },
+      {
+        "name": "Eye of Terror",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ahzek Ahriman",
+        "role": "pov"
+      },
+      {
+        "name": "Magnus the Red",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.93,
+      "count": 507,
+      "evidenceUrl": "https://www.goodreads.com/book/show/25805039"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0266",
+  "slug": "dark-creed",
+  "title": "Dark Creed",
+  "authors": [
+    "Anthony Reynolds"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2010,
+  "format": "novel",
+  "seriesHint": "Word Bearers",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Dark Apostle Marduk turns his dark crusade against the Boros Gate, a vital nexus of stable passages through the warp that would lay the Imperium's heart open to invasion. Standing in his way are the White Consuls, a proud Space Marine chapter sworn to guard the region, and Marduk means to shatter them with the stolen power of an ancient and malevolent device. But as the Consuls are driven to the brink, an old and implacable enemy returns to throw the entire campaign into ruin, and Marduk finds the deadliest threats rising from within his own Legion. Beset by the necrons, the Space Marines, and the ambitions of his own brothers, he must defy them all if he is to survive and claim the destiny he believes is his. The climax of the Word Bearers trilogy.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "sector",
+      "series_finale",
+      "standard",
+      "war_story",
+      "siege",
+      "grimdark",
+      "cosmic_horror",
+      "action_heavy",
+      "hubris",
+      "betrayal",
+      "war",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Word Bearers",
+        "role": "primary"
+      },
+      {
+        "name": "White Consuls",
+        "role": "antagonist"
+      },
+      {
+        "name": "Necrons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Boros Gate",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Marduk",
+        "role": "pov"
+      },
+      {
+        "name": "Kol Badar",
+        "role": "supporting"
+      },
+      {
+        "name": "Burias",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4,
+      "count": 442,
+      "evidenceUrl": "https://www.goodreads.com/book/show/6948846-dark-creed"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

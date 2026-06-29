@@ -1,0 +1,90 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0232",
+  "slug": "redemption-corps",
+  "title": "Redemption Corps",
+  "authors": [
+    "Rob Sanders"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2010,
+  "format": "novel",
+  "seriesHint": "Imperial Guard",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Redemption Corps are storm troopers thrown into the deadliest warzones of the Imperium, led by the fearsome, fire-scarred Major Mortensen, a man so unbreakable his soldiers half-believe he carries a spark of the Emperor himself. When their troopship erupts in mutiny and an ork invasion bleeds across the warzone below, Mortensen drives his troopers through both at once. But his refusal to die draws darker scrutiny: an Inquisitor and the warrior-fanatics of the Sisters of Battle suspect Mortensen is no holy man but a heretic raising a cult around himself. Caught between the greenskin horde and the fury of his own side, the Major must win an unwinnable war while proving he is not the thing his accusers fear.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "war",
+      "loyalty",
+      "faith",
+      "doubt",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adepta Sororitas",
+        "role": "antagonist"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Major Mortensen",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "sources describe the troopship Deliverance and an ork warzone but do not reliably name the planet"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.57,
+      "count": 230,
+      "evidenceUrl": "https://www.goodreads.com/book/show/6887564-redemption-corps"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

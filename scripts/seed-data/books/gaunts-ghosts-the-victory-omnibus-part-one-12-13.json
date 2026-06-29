@@ -1,0 +1,175 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0045",
+  "slug": "gaunts-ghosts-the-victory-omnibus-part-one-12-13",
+  "title": "Gaunt's Ghosts: The Victory Omnibus Part One, 12-13",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "omnibus",
+  "seriesHint": "Gaunt's Ghosts",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Victory Omnibus Part One collects the two Gaunt's Ghosts novels that bridge the regiment's long post-Sabbat-Martyr decline into its reactivated final campaign. Book twelve (Blood Pact) pulls the Tanith First off the line to rear-area Balhaut and the city of Balopolis — the same world where Macaroth was anointed Warmaster a generation earlier — for furlough, refit and a slow regimental decay; Gaunt is dragged back into Section work by the captured Blood Pact Etogaur Mabbon, who refuses to talk to anyone else, while three rogue Sirkle-named Inquisitorial agents attempt to murder Mabbon before he can pass on what he knows about the Sek-versus-Innokenti split inside the Archenemy. Book thirteen (Salvation's Reach) acts on the intelligence Mabbon supplied: Gaunt's regiment — reinforced with fresh Verghastite and Belladon intakes — embarks on a black-ops fleet under Captain Spika to raid the fortress space hulk Salvation's Reach and seize Anarch Sek's strategic archive, with the teenage Verghastite intake Felyx Chass aboard who turns out to be Merity Chass's child by Gaunt — the son Gaunt never knew he fathered. The Victory arc proper opens here; the omnibus closes with the data in Imperial hands, Mabbon as an Imperial asset, and Sons of Sek established as the new Archenemy infantry tier facing the Crusade.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "regiment",
+      "mid_series",
+      "doorstopper",
+      "war_story",
+      "heist",
+      "political_thriller",
+      "mystery",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "betrayal",
+      "loyalty",
+      "brotherhood",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_crime",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Tanith First-and-Only",
+        "role": "primary"
+      },
+      {
+        "name": "Verghastite Ghosts",
+        "role": "primary"
+      },
+      {
+        "name": "Belladon",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperial Navy",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Blood Pact",
+        "role": "antagonist"
+      },
+      {
+        "name": "Sons of Sek",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Balhaut",
+        "role": "primary"
+      },
+      {
+        "name": "Balopolis",
+        "role": "primary"
+      },
+      {
+        "name": "Salvation's Reach",
+        "role": "primary"
+      },
+      {
+        "name": "Sabbat Worlds",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ibram Gaunt",
+        "role": "pov"
+      },
+      {
+        "name": "Elim Rawne",
+        "role": "supporting"
+      },
+      {
+        "name": "Viktor Hark",
+        "role": "supporting"
+      },
+      {
+        "name": "Oan Mkoll",
+        "role": "supporting"
+      },
+      {
+        "name": "Hlaine Larkin",
+        "role": "supporting"
+      },
+      {
+        "name": "Ana Curth",
+        "role": "supporting"
+      },
+      {
+        "name": "Ban Daur",
+        "role": "supporting"
+      },
+      {
+        "name": "Tona Criid",
+        "role": "supporting"
+      },
+      {
+        "name": "Caffran",
+        "role": "supporting"
+      },
+      {
+        "name": "Felyx Chass",
+        "role": "supporting"
+      },
+      {
+        "name": "Mabbon Etogaur",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0035",
+        "displayOrder": 0,
+        "confidence": 0.98,
+        "basis": "Title explicitly says Gaunt's Ghosts omnibus 12-13"
+      },
+      {
+        "externalBookId": "W40K-0036",
+        "displayOrder": 1,
+        "confidence": 0.98,
+        "basis": "Title explicitly says Gaunt's Ghosts omnibus 12-13"
+      }
+    ]
+  }
+}

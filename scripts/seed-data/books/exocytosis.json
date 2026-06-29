@@ -1,0 +1,81 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0213",
+  "slug": "exocytosis",
+  "title": "Exocytosis",
+  "authors": [
+    "James Swallow"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Hounded across the void by Lion El'Jonson's pursuing fleet, First Captain Calas Typhon has limped what remains of the Death Guard to sanctuary in the Segmentum Obscurus. On the forest world of Zaramund, Luther of Caliban and his Dark Angels grant the battered traitors safe harbour while their ships are repaired — a courtesy thin enough to feel like a leash. Typhon paces the encampment in restless thought, sleep denied to him by dreams he does not understand and by changes creeping through his flesh that no apothecary will name. Something has come with him out of the wider war: a slow rot, a patient blessing, a corruption that wears the shape of mercy. He waits, watches Luther's brothers across the firelight, and feels the thing inside him beginning to answer to a name.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "squad",
+      "requires_context",
+      "novella",
+      "character_study",
+      "cosmic_horror",
+      "somber",
+      "betrayal",
+      "doubt",
+      "cw_violence",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Death Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Dark Angels",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Zaramund",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Calas Typhon",
+        "role": "pov"
+      },
+      {
+        "name": "Luther",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.85,
+      "count": 119,
+      "evidenceUrl": "https://www.goodreads.com/book/show/33535849-exocytosis"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

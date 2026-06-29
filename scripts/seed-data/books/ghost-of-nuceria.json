@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0104",
+  "slug": "ghost-of-nuceria",
+  "title": "Ghost of Nuceria",
+  "authors": [
+    "Ian St. Martin"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "short_story",
+  "seriesHint": "Primarchs Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the dying world of Nuceria, the last day of the slave rebellion is bleeding into the next. Of the hundreds Angron freed from the fighting pits, barely fifty remain — starved, hounded into the mountains, sustained on the rich blood of their saviour. As the High-Riders muster their household troops for a final reckoning, the Eater of Cities prepares to sell his life beside the brothers and sisters who pulled him from the sand. Far above the ash-clouds, an unfamiliar fleet has slid into orbit, and the Emperor of Mankind is preparing to set foot on Nuceria for the first time. The story sits in the breath before that meeting: a portrait of who Angron was, who he chose to die with, and the kind of son the Imperium was about to inherit.",
+    "facetIds": [
+      "book",
+      "male",
+      "multi",
+      "neutral",
+      "regiment",
+      "standalone",
+      "novella",
+      "last_stand",
+      "character_study",
+      "somber",
+      "grimdark",
+      "sacrifice",
+      "brotherhood",
+      "loyalty",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_abuse",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Nuceria",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Angron",
+        "role": "pov"
+      },
+      {
+        "name": "Emperor of Mankind",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "story sits before Angron's elevation to the World Eaters — slave rebellion has no canonical Legion affiliation; only the arriving Imperium counts as a faction in scope"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.06,
+      "count": 136,
+      "evidenceUrl": "https://www.goodreads.com/book/show/44087359-ghost-of-nuceria"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

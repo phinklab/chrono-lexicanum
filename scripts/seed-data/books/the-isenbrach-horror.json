@@ -1,0 +1,84 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0513",
+  "slug": "the-isenbrach-horror",
+  "title": "The Isenbrach Horror",
+  "authors": [
+    "Darius Hinks"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "novel",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Two men meet in secret beneath the broken vaults of a ruined cathedral on a feudal world to plot the death of its planetary Governor. The site is well chosen for whispered treason: nobody walks these woods after dark, because of the old peasant tales about the Isenbrach Horror, a beast said to drag stragglers from the path and leave nothing behind. The conspirators trade in oaths, names and the names of accomplices, and trust the dark to keep their voices safe. They forget that some folklore is older than the Imperium and was true long before anyone thought to be afraid of it.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "court_intrigue",
+      "mystery",
+      "cosmic_horror",
+      "somber",
+      "grimdark",
+      "betrayal",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_crime",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Nobility",
+        "role": "primary"
+      }
+    ],
+    "locations": [],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "reason": "Black Library eShort, short story length",
+        "suggestion": "novella"
+      },
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "conspirators and Governor unnamed in available source coverage"
+      },
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "feudal world unnamed in available source coverage"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.6,
+      "count": 42,
+      "evidenceUrl": "https://www.goodreads.com/book/show/59451465-the-isenbrach-horror"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

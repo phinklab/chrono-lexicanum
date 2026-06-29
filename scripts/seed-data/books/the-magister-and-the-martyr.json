@@ -1,0 +1,111 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0550",
+  "slug": "the-magister-and-the-martyr",
+  "title": "The Magister and the Martyr",
+  "authors": [
+    "Matthew Farrer"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "novel",
+  "seriesHint": "Urdesh",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Saint Sabbat has wrought a miracle in the forge-city of Ghereppan, but Urdesh is not won — the Anarch Sek's voice still moves through the cult cells in the manufactoria, mocking the Imperium's victory, salting its faith. Damocles Squad of the Iron Snakes pick up where the previous campaign left off: short Astartes detachments running linked raids, securing the Beati's lines of approach, breaking heretek networks one cellar at a time. Matthew Farrer's continuation tightens to a handful of Space Marines and the question they cannot ignore. Sabbat's visions point at one final stroke against Sek; the Archenemy is too obviously letting them see it. Priad must decide whether to trust a saint whose mind is half elsewhere, and whether the chance she offers them is a war's end or a trap baited with one.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "series_finale",
+      "standard",
+      "war_story",
+      "siege",
+      "grimdark",
+      "action_heavy",
+      "philosophical",
+      "faith",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Snakes",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Ministorum",
+        "role": "supporting"
+      },
+      {
+        "name": "Sons of Sek",
+        "role": "antagonist"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Urdesh",
+        "role": "primary"
+      },
+      {
+        "name": "Ghereppan",
+        "role": "primary"
+      },
+      {
+        "name": "Sabbat Worlds",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Priad",
+        "role": "pov"
+      },
+      {
+        "name": "Saint Sabbat",
+        "role": "supporting"
+      },
+      {
+        "name": "Magister Sek",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.81,
+      "count": 156,
+      "evidenceUrl": "https://www.goodreads.com/book/show/59616967-urdesh"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

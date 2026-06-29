@@ -1,0 +1,117 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0127",
+  "slug": "angron-the-red-angel",
+  "title": "Angron: The Red Angel",
+  "authors": [
+    "David Guymer"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2023,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In Imperium Nihilus, Angron's return is less a miracle than a wound torn open across half a million abandoned worlds. His scattered World Eaters answer the Red Angel's call, but the Legion he summons is already breaking in three directions: Kossolax the Foresworn tries to hold command aboard the flagship while fearing the father he worships, Ortan Leidis of the Angels of the Grail sees in the slaughter a ladder out of petty raiding, and Grey Knight Graucis Telomane moves against plans six centuries in the making. Dense daemon-Primarch war-psychology, Legion politics, and a counter-strike aimed at ending the Emperor's most terrible son.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "dual",
+      "galactic",
+      "standalone",
+      "standard",
+      "war_story",
+      "character_study",
+      "political_thriller",
+      "grimdark",
+      "action_heavy",
+      "philosophical",
+      "war",
+      "hubris",
+      "brotherhood",
+      "betrayal",
+      "redemption",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "World Eaters",
+        "role": "primary"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos Space Marines",
+        "role": "primary"
+      },
+      {
+        "name": "Khorne",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "primary"
+      },
+      {
+        "name": "Angels of the Grail",
+        "role": "primary"
+      },
+      {
+        "name": "Grey Knights",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "secondary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Imperium Nihilus",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Angron",
+        "role": "pov"
+      },
+      {
+        "name": "Kossolax the Foresworn",
+        "role": "pov"
+      },
+      {
+        "name": "Ortan Leidis",
+        "role": "pov"
+      },
+      {
+        "name": "Graucis Telomane",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

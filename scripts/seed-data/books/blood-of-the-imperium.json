@@ -1,0 +1,92 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0587",
+  "slug": "blood-of-the-imperium",
+  "title": "Blood of the Imperium",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2025,
+  "format": "anthology",
+  "seriesHint": "40k",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "Eleven tales of war, survival, and sacrifice from across the galaxy of the 41st Millennium, assembled from some of Black Library's most acclaimed authors. Orks fall prey to the sadistic cruelty of the Drukhari in a brutal xenos encounter. A Tyranid hive fleet devours a world from the inside out, its alien hunger rendered in intimate and terrifying detail. A lone Sister of Battle fights to stop an epidemic spreading through the wounded. A Space Wolf cut off from his pack struggles to uphold his oaths in alien captivity. Imperial soldiers desert, propaganda artists spin their lies, and the Tome Keepers Chapter wages a four-part campaign of defiance against impossible odds. From cosmic horror to dark humour, the anthology spans the breadth of the Imperium's endless war.",
+    "facetIds": [
+      "book",
+      "en",
+      "ensemble",
+      "multi",
+      "imperium",
+      "galactic",
+      "standalone",
+      "standard",
+      "war_story",
+      "grimdark",
+      "war",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      },
+      {
+        "name": "Orks",
+        "role": "supporting"
+      },
+      {
+        "name": "Drukhari",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adepta Sororitas",
+        "role": "supporting"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Fjolnir",
+        "role": "pov"
+      },
+      {
+        "name": "Lucille von Shard",
+        "role": "supporting"
+      },
+      {
+        "name": "Darya Nevic",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.08,
+      "count": 38,
+      "evidenceUrl": "https://www.goodreads.com/book/show/228265844-blood-of-the-imperium"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

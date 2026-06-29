@@ -1,0 +1,87 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0345",
+  "slug": "shield-of-baal-devourer",
+  "title": "Shield of Baal: Devourer",
+  "authors": [
+    "Joe Parrino"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "novella",
+  "seriesHint": "Shield of Baal",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "As Hive Fleet Leviathan grinds toward Baal, Blood Angels Sergeant Jatiel and his squad keep a lonely vigil over a dead world far from the front. When their ship crashes and draws the swarm down upon them, the survivors are driven underground — straight into the path of the necron overlord Anrakyr the Traveller, who has come to wake a slumbering tomb. With the tyranids hungering above, ancient enemies forge a desperate, uneasy alliance to survive the dark beneath the surface, and the battle for the Cryptus shieldworlds reaches its close.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "xenos",
+      "planetary",
+      "series_finale",
+      "novella",
+      "war_story",
+      "journey",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Necrons",
+        "role": "supporting"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Cryptus",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Jatiel",
+        "role": "pov"
+      },
+      {
+        "name": "Anrakyr the Traveller",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.46,
+      "count": 108,
+      "evidenceUrl": "https://www.goodreads.com/book/show/23784581-devourer"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

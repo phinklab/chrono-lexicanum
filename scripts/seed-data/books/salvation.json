@@ -1,0 +1,99 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0163",
+  "slug": "salvation",
+  "title": "Salvation",
+  "authors": [
+    "C.S. Goto"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2005,
+  "format": "novel",
+  "seriesHint": "Necromunda",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Zefer Tyranus, a quiet House Ko'iron curator in the Spire of Hive Primus, finds a clue to an artefact that may tie his House to Necromunda's founders. The trail pulls him downward into the Underhive, where a spy, a charismatic Redemption-flavoured gang leader and a librarian with her own designs all chase the same relic. Spire politics and hive-bottom danger rub against stranger hints of buried history, with faith, class and old technology making each level feel more hostile than the last. A sombre vertical-descent mystery, part court intrigue and part undercity quest.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "mystery",
+      "journey",
+      "character_study",
+      "grimdark",
+      "somber",
+      "hubris",
+      "doubt",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "House Ko'iron",
+        "role": "primary"
+      },
+      {
+        "name": "Spyrers",
+        "role": "supporting"
+      },
+      {
+        "name": "Redemptionists",
+        "role": "supporting"
+      },
+      {
+        "name": "Guilders",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Necromunda",
+        "role": "primary"
+      },
+      {
+        "name": "Hive Primus",
+        "role": "primary"
+      },
+      {
+        "name": "The Spire",
+        "role": "primary"
+      },
+      {
+        "name": "Underhive",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Zefer Tyranus",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

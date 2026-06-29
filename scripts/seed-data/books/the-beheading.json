@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0425",
+  "slug": "the-beheading",
+  "title": "The Beheading",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "The Beast Arises",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The orks are broken and the galaxy has been saved, but peace brings a reckoning of its own. The long war exposed the rotten core of the Imperium's rulers — the High Lords of Terra, whose vanity and infighting nearly doomed humanity while billions died. One man has watched it all and decided that such failure cannot go unpunished. Drakan Vangorich, Grand Master of the Officio Assassinorum, has spent the entire war waiting in the shadows, and now he makes his move. As his killers move through the halls of power on Terra, the survivors of the crusade must decide who should inherit a wounded Imperium. This is the brutal, political finale of the saga, where the killing does not stop when the enemy is dead.",
+    "facetIds": [
+      "book",
+      "male",
+      "multi",
+      "imperium",
+      "galactic",
+      "sector",
+      "series_finale",
+      "short",
+      "political_thriller",
+      "court_intrigue",
+      "grimdark",
+      "somber",
+      "betrayal",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_crime",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Officio Assassinorum",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "supporting"
+      },
+      {
+        "name": "Senatorum Imperialis",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Drakan Vangorich",
+        "role": "pov"
+      },
+      {
+        "name": "Maximus Thane",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.89,
+      "count": 477,
+      "evidenceUrl": "https://www.goodreads.com/book/show/29430423-the-beheading"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

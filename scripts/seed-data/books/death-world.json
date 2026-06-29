@@ -1,0 +1,90 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0225",
+  "slug": "death-world",
+  "title": "Death World",
+  "authors": [
+    "Steve Lyons"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2006,
+  "format": "novel",
+  "seriesHint": "Imperial Guard",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A squad of Catachan Jungle Fighters under hard-bitten Sergeant Greiss is dropped onto Rogar III to break an Ork incursion by stealth and decapitate the warband at its head. But Rogar III is a death world in the truest sense: its jungle is awake, evolving new horrors to drive the intruders out. Venom-maddened troopers turn on their comrades, hypnotic lights lure men into the dark, and the dead come walking back. Between the greenskins and a planet that wants them gone, Greiss, the trooper Lorenzo and the commissar's adjutant Braxton must finish the mission and find a way back out alive. A tense survival war story of soldiers fighting the ground beneath their boots.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "squad",
+      "standalone",
+      "standard",
+      "war_story",
+      "journey",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "cosmic_horror",
+      "war",
+      "brotherhood",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Rogar III",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sergeant Greiss",
+        "role": "pov"
+      },
+      {
+        "name": "Lorenzo",
+        "role": "supporting"
+      },
+      {
+        "name": "Braxton",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.7,
+      "count": 569,
+      "evidenceUrl": "https://www.goodreads.com/book/show/908617.Death_World"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

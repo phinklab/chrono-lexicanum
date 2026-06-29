@@ -1,0 +1,105 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0190",
+  "slug": "the-bleeding-chalice",
+  "title": "The Bleeding Chalice",
+  "authors": [
+    "Ben Counter"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2003,
+  "format": "novel",
+  "seriesHint": "Soul Drinkers",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Years after the Soul Drinkers' fall, Sarpedon is less interested in vindication than survival: his battle-brothers are still mutating, apothecaries have failed, and the Chapter's gene-seed is sliding toward collapse. His hope lies in a Mechanicus facility the Soul Drinkers once saved, where pure genetic material may still exist. The pursuit is mirrored by Inquisitor Thaddeus hunting the renegade Chapter and by Teturact, a Chaos warlord whose designs pull both sides toward him. The sequel turns the rebellion into a three-way moral pressure chamber: renegade loyalty, Imperial orthodoxy, and daemonic appetite.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "mid_series",
+      "standard",
+      "war_story",
+      "journey",
+      "character_study",
+      "mystery",
+      "political_thriller",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "cosmic_horror",
+      "betrayal",
+      "doubt",
+      "faith",
+      "hubris",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "redemption",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Soul Drinkers",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperium",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Imperium",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sarpedon",
+        "role": "pov"
+      },
+      {
+        "name": "Inquisitor Thaddeus",
+        "role": "pov"
+      },
+      {
+        "name": "Teturact",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

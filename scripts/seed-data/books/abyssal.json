@@ -1,0 +1,80 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0224",
+  "slug": "abyssal",
+  "title": "Abyssal",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Aveth Vairon is a clerk of the Administratum, a man whose life shrank, one wax-sealed page at a time, until the day a single rune burned itself into his mind and refused to leave. Since then he has followed it. The rune brought him out of his quiet province, brought the Silent Sisters to his door, and brought him at last into the lightless holds of the black ship Irkalla, where psykers and witches are kept under the numbing aura of the witch-seekers. Aveth is sure his rune is leading him still — toward another prisoner, a faceless woman whose power he can feel like a tide behind the bulkheads. When the Irkalla comes under attack and her hull begins to fail, Aveth has to decide whether the path his vision laid out is destiny or the long, careful work of something else entirely.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "imperium",
+      "squad",
+      "requires_context",
+      "novella",
+      "character_study",
+      "mystery",
+      "cosmic_horror",
+      "grimdark",
+      "somber",
+      "faith",
+      "doubt",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Sisters of Silence",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Administratum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Irkalla",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Aveth Vairon",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.58,
+      "count": 91,
+      "evidenceUrl": "https://www.goodreads.com/book/show/43159822-abyssal"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

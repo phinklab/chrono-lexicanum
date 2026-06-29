@@ -1,0 +1,87 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0077",
+  "slug": "the-last-council",
+  "title": "The Last Council",
+  "authors": [
+    "L.J. Goulding"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "short_story",
+  "seriesHint": "Siege of Terra Prequels",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Council of Terra has shouldered the civilian governance of an Imperium at war for as long as anyone now living can remember, and in a hall behind locked doors it must vote itself out of existence one last time. Three primarchs stand in attendance, present to formalise the transfer of authority back to the war hierarchy, while High Lords bicker over budgets, jurisdictions and old grievances that, until today, mattered. Malcador the Sigillite sits as Regent and watches it all, his mind returning again and again to the half-truths and convenient histories the Imperium has been built on. What the records will say of this session, and what actually happened, will not be the same thing.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "multi",
+      "mixed",
+      "imperium",
+      "galactic",
+      "requires_context",
+      "novella",
+      "court_intrigue",
+      "political_thriller",
+      "character_study",
+      "philosophical",
+      "somber",
+      "doubt",
+      "loyalty",
+      "betrayal",
+      "hubris",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Custodes",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Palace",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Malcador the Sigillite",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "Council of Terra liegt nicht im Faction-Browse-Root; die drei anwesenden Primarchen sind in den Sekundaerquellen nicht eindeutig identifiziert."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.19,
+      "count": 173,
+      "evidenceUrl": "https://www.goodreads.com/book/show/43204380-the-last-council"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

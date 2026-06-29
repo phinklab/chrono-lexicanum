@@ -1,0 +1,90 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0377",
+  "slug": "imperial-creed",
+  "title": "Imperial Creed",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novel",
+  "seriesHint": "Yarrick",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Before he became the hero of Armageddon, Sebastian Yarrick was a freshly commissioned officer from the schola progenium, sent to the storm-wracked world of Mistral under the watchful eye of his mentor, Lord Commissar Rasp. Mistral is a place where rival barons have schemed for power since time immemorial, and where Imperial truth is rarely clear-cut. As open war engulfs the planet, Yarrick is drawn into a tangle of conspiracy that turns allies into enemies and forces strange bargains - with hidden chaos cults, the fervent Sisters of Battle and clandestine inquisitors all standing between the young commissar and his duty. The first Yarrick novel is a tense political thriller about faith, corruption and the making of a legend.",
+    "facetIds": [
+      "book",
+      "male",
+      "commissar",
+      "imperium",
+      "planetary",
+      "series_start",
+      "standard",
+      "political_thriller",
+      "mystery",
+      "court_intrigue",
+      "war_story",
+      "grimdark",
+      "somber",
+      "faith",
+      "betrayal",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Adepta Sororitas",
+        "role": "supporting"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Mistral",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sebastian Yarrick",
+        "role": "pov"
+      },
+      {
+        "name": "Lord Commissar Rasp",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.03,
+      "count": 335,
+      "evidenceUrl": "https://www.goodreads.com/book/show/18749592-yarrick"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

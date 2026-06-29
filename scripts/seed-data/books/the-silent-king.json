@@ -1,0 +1,91 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0536",
+  "slug": "the-silent-king",
+  "title": "The Silent King",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "novel",
+  "seriesHint": "Dawn of Fire",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The first phase of the Indomitus Crusade closes with Imperium Sanctus tenuously held, Roboute Guilliman fighting wars on every horizon, and Ultramar itself once again under threat. But the Avenging Son's road bends south - Battlefleet Kallides, dispatched into the deathly null space of the Pariah Nexus, has not been heard from in years. The necron dynasties are knitting themselves into a single power, and an old name is rising again from the dust of long-dead empires: Szarekh, the Silent King. Guilliman gathers the heart of his crusade and turns it toward a foe older than the Emperor, knowing that whatever he finds in the Pariah Nexus may be what finally turns the war.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "series_finale",
+      "doorstopper",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "hubris",
+      "sacrifice",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Necrons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Pariah Nexus",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramar",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperium Nihilus",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Roboute Guilliman",
+        "role": "pov"
+      },
+      {
+        "name": "Szarekh",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.96,
+      "count": 388,
+      "evidenceUrl": "https://www.goodreads.com/book/show/221160754-the-silent-king"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

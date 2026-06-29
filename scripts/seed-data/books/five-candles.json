@@ -1,0 +1,85 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0502",
+  "slug": "five-candles",
+  "title": "Five Candles",
+  "authors": [
+    "Lora Gray"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Havisa has outlived her friends, her usefulness, and the patience of her village in a corner of Aqshy where the fires of life have guttered for a generation. When Nagash's necroquake shudders through the realms and twists the wildlife around her hut into something worse, the old Aqshian spark in her flares again. A kind stranger appears at her door with warnings for the village and an unsettling familiarity, and Havisa, who knows she is too old for second chances, takes the road with him anyway. Whether her last candle burns out as warning or as kindling for something darker depends on whether the stranger is who he claims to be.",
+    "facetIds": [
+      "book",
+      "female",
+      "civilian",
+      "neutral",
+      "planetary",
+      "standalone",
+      "novella",
+      "character_study",
+      "somber",
+      "grimdark",
+      "doubt",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [],
+    "locations": [
+      {
+        "name": "Aqshy",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Havisa",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "suggestion": "short_story",
+        "reason": "Released as a Warhammer Horror Week 2020 eShort (Black Library short story), not a novel"
+      },
+      {
+        "kind": "data_conflict",
+        "field": "setting",
+        "suggestion": "age_of_sigmar",
+        "reason": "Age of Sigmar Mortal Realms story (Aqshy, Nagash's necroquake) populated under a W40K-prefixed roster slot"
+      },
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "AoS folk-horror with no specific Grand Alliance faction in source coverage"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.28,
+      "count": 25,
+      "evidenceUrl": "https://www.goodreads.com/book/show/55801283-five-candles"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0166",
+  "slug": "army-of-one",
+  "title": "Army of One",
+  "authors": [
+    "Rob Sanders"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The hive-world of Proxima Apocryphis has gone over to the Warmaster, and the Sigillite has no Legion to spare. What Malcador sends instead is a single weapon shaped from a man — an assassin of the Eversor Temple, drugged to incandescence and turned loose at the planetary governor's heart. The story rides the last shreds of human thought left in him: flashes of a life he can almost remember, a name he can no longer say, the small mercy that nothing he kills now has time to look back. Around him the governor's army discovers what one Eversor at full burn can do to a hive. A short, ferocious portrait of the Officio Assassinorum's most volatile work.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "civilian",
+      "imperium",
+      "planetary",
+      "standalone",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "sacrifice",
+      "war",
+      "hubris",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Officio Assassinorum",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Proxima Apocryphis",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "Eversor protagonist is unnamed in the source; only Malcador and the offstage governor are named in available coverage."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.3,
+      "count": 223,
+      "evidenceUrl": "https://www.goodreads.com/book/show/13570667-army-of-one"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

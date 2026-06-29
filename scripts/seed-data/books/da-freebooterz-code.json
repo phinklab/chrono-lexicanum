@@ -1,0 +1,83 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0567",
+  "slug": "da-freebooterz-code",
+  "title": "Da Freebooterz Code",
+  "authors": [
+    "Justin Woolley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2026,
+  "format": "novel",
+  "seriesHint": "40k - Orks",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "Skeeg Horntoof has one dream: the biggest hat, the most dakka, and a name that echoes across the void. As kaptin of Gork's Revenge, he commands his crew of Freebooterz by Da Freebooterz Code — a set of rules so outrageous they just might work. His latest plan is his boldest yet: plunder the hunting grounds of Lord Captain Antoinette von Hume, the merciless pirate queen who has terrorised the Halo Stars for decades. But von Hume did not earn her legend by suffering upstart Ork kaptins gladly, and she has no intention of letting Horntoof walk away with her prize. A raucous clash of pirates — green and otherwise — in the lawless dark beyond the Imperium's reach.",
+    "facetIds": [
+      "book",
+      "en",
+      "male",
+      "pc_xenos",
+      "xenos",
+      "standalone",
+      "standard",
+      "heist",
+      "satirical",
+      "action_heavy",
+      "hubris",
+      "cw_violence",
+      "cw_language"
+    ],
+    "factions": [
+      {
+        "name": "Freebooterz",
+        "role": "primary"
+      },
+      {
+        "name": "Rogue Traders",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Halo Stars",
+        "role": "primary"
+      },
+      {
+        "name": "Gork's Revenge",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Skeeg Horntoof",
+        "role": "pov"
+      },
+      {
+        "name": "Lord Captain Antoinette von Hume",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.3,
+      "count": 27,
+      "evidenceUrl": "https://www.goodreads.com/book/show/251416944-da-freebooterz-code"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

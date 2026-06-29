@@ -1,0 +1,95 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0512",
+  "slug": "the-vintage",
+  "title": "The Vintage",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "novel",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A weary Freeguild soldier holds the line at a remote stronghold and turns the cup over in his hands, remembering a childhood the war never quite let him bury. Years ago his village paid its tithe of blood to Anasta Malkorion, a vampire whose appetites his family barely survived, and he was promised to her when he came of age. He grew up, he marched away in Sigmar's livery, and he kept moving so she could not find him. Now the watchfires gutter, the wind off the moor smells wrong, and the old debt is coming due.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "neutral",
+      "squad",
+      "standalone",
+      "novella",
+      "character_study",
+      "last_stand",
+      "somber",
+      "cosmic_horror",
+      "grimdark",
+      "doubt",
+      "sacrifice",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "cw_mental_health",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Freeguild",
+        "role": "primary"
+      },
+      {
+        "name": "Soulblight Gravelords",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Anasta Malkorion",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "reason": "Black Library eShort, short story length",
+        "suggestion": "novella"
+      },
+      {
+        "kind": "data_conflict",
+        "field": "setting",
+        "reason": "Age of Sigmar Mortal Realms (Freeguild, Vyrkos), not Warhammer 40,000",
+        "suggestion": "age_of_sigmar"
+      },
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "POV soldier unnamed in available source coverage"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.96,
+      "count": 28,
+      "evidenceUrl": "https://www.goodreads.com/book/show/59448129"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

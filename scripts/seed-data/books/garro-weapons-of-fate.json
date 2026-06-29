@@ -1,0 +1,124 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0042",
+  "slug": "garro-weapons-of-fate",
+  "title": "Garro: Weapons of Fate",
+  "authors": [
+    "James Swallow"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "anthology",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Once captain of the Death Guard's Seventh Great Company, Nathaniel Garro carried news of the betrayal at Isstvan back to Terra — and was remade as the first of Malcador the Sigillite's hidden agents, the Knights Errant. Pulled forward from the audio dramas Oath of Moment, Legion of One, Sword of Truth, Shield of Lies, Burden of Duty and Ashes of Fealty, this volume follows Garro across the broken paths of the Heresy: hunting Garviel Loken through the ruins of Isstvan III, gathering Tylos Rubio and other lost legionaries to the Sigillite's banner, and walking deeper into the forbidden faith of the Lectitio Divinitatus. The novella Vow of Faith closes the arc, bringing Garro face-to-face with the cost of believing in a god the Emperor has forbidden.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "mid_series",
+      "doorstopper",
+      "war_story",
+      "character_study",
+      "somber",
+      "philosophical",
+      "faith",
+      "loyalty",
+      "betrayal",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Knights Errant",
+        "role": "primary"
+      },
+      {
+        "name": "Death Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Lectitio Divinitatus",
+        "role": "supporting"
+      },
+      {
+        "name": "Sisters of Silence",
+        "role": "supporting"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Isstvan III",
+        "role": "supporting"
+      },
+      {
+        "name": "Luna",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Nathaniel Garro",
+        "role": "pov"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      },
+      {
+        "name": "Garviel Loken",
+        "role": "supporting"
+      },
+      {
+        "name": "Tylos Rubio",
+        "role": "supporting"
+      },
+      {
+        "name": "Macer Varren",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "suggestion": "novel",
+        "reason": "Black Library and trade reviews catalogue Garro: Weapon of Fate as a single-author novelisation that consolidates the prior Garro audio dramas plus the Vow of Faith novella; roster has format=anthology."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.02,
+      "count": 1996,
+      "evidenceUrl": "https://www.goodreads.com/book/show/32860806-garro"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

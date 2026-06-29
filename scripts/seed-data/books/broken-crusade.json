@@ -1,0 +1,80 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0206",
+  "slug": "broken-crusade",
+  "title": "Broken Crusade",
+  "authors": [
+    "Steven B. Fischer"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2024,
+  "format": "novel",
+  "seriesHint": "Black Templars",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Black Templars of the Second Dorean Crusade race to reinforce the fleet gathering above Tempest, an ancient shrine world being torn apart by the murderous warbands of the Blood God. The Templars mean to burn the world clean of corruption for good, but a violent warp storm scatters the fleet and leaves the warship Dauntless Honour battered and alone in the void. Cut off and besieged by doubt, Castellan Emeric and his brothers must hold to their faith and fight a path back to Tempest, where the true battle awaits. A story of zealotry, destiny and the brutal cost of belief, it follows warriors who measure devotion in blood and ask what victory is worth when faith itself is put to the test.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "journey",
+      "grimdark",
+      "action_heavy",
+      "faith",
+      "doubt",
+      "brotherhood",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Black Templars",
+        "role": "primary"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Tempest",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Castellan Emeric",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.78,
+      "count": 299,
+      "evidenceUrl": "https://www.goodreads.com/book/show/220864963-broken-crusade"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

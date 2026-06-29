@@ -1,0 +1,114 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0016",
+  "slug": "duty-calls",
+  "title": "Duty Calls",
+  "authors": [
+    "Sandy Mitchell"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2007,
+  "format": "novel",
+  "seriesHint": "Ciaphas Cain",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The 597th rejoins Lord General Zyvan's task force on Periremunda just in time to find the world simultaneously menaced by a Tyranid splinter fleet, an emerging Chaos cult, and a hidden genestealer infestation that has already replaced parts of the planetary administration. Cain narrowly survives an early assassination attempt and is unsurprised to find Amberley Vail in town with her own priority: recovering a xenos artefact whose history brushes uncomfortably close to Cain's earliest service record. The novel braids three escalating threats and a slow Inquisitorial reveal that the genestealer hybrids predate this campaign by a generation. Periremunda holds, but only just, and Cain spends the close of the book trying to stay close enough to Vail to survive it. The fifth Cain memoir and the opener of the loose 'Shadowlight' arc that closes in Cain's Last Stand.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "mystery",
+      "political_thriller",
+      "satirical",
+      "action_heavy",
+      "loyalty",
+      "doubt",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "Ordo Xenos",
+        "role": "supporting"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      },
+      {
+        "name": "Genestealer Cults",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Periremunda",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ciaphas Cain",
+        "role": "pov"
+      },
+      {
+        "name": "Jurgen",
+        "role": "supporting"
+      },
+      {
+        "name": "Amberley Vail",
+        "role": "supporting"
+      },
+      {
+        "name": "Zyvan",
+        "role": "supporting"
+      },
+      {
+        "name": "Regina Kasteen",
+        "role": "supporting"
+      },
+      {
+        "name": "Ruput Broklaw",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0275",
+  "slug": "tome-of-fire",
+  "title": "Tome of Fire",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "anthology",
+  "seriesHint": "Tome of Fire",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A companion to the Tome of Fire trilogy, this collection gathers short stories and novellas that widen the world of the Salamanders. Across them, battle-brothers face ork raiders, treacherous kin and the corsairs of the Dark Eldar, while the simmering rivalry between Dak'ir and Tsu'gan plays out in the background. Some tales reach back to the Chapter's earlier deeds and the legend of their primarch Vulkan; others fill the spaces between the novels, revealing the hidden costs of duty borne by a Chapter forged in fire. Together they deepen the saga of Nocturne's defenders and the foes who would see their home reduced to ash.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "company",
+      "requires_context",
+      "standard",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "action_heavy",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Salamanders",
+        "role": "primary"
+      },
+      {
+        "name": "Marines Malevolent",
+        "role": "antagonist"
+      },
+      {
+        "name": "Dragon Warriors",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Nocturne",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Dak'ir",
+        "role": "pov"
+      },
+      {
+        "name": "Tsu'gan",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.73,
+      "count": 158,
+      "evidenceUrl": "https://www.goodreads.com/book/show/13547435"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

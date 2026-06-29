@@ -1,0 +1,82 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0259",
+  "slug": "the-rose-in-the-anger",
+  "title": "The Rose in Anger",
+  "authors": [
+    "Danie Ware"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novella",
+  "seriesHint": "Sisters of Battle",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Reeling from all that has befallen her, Sister Augusta of the Adeptus Sororitas is ordered back to the one world she swore she would never set foot upon again. As her Order musters for war, Augusta and her squad deploy in full strength, boots, tanks, and gunships, against the enemies that hold the forge world of Lycheate. This may be her final mission, and the cost of failure has never been higher. Pushed past grief and exhaustion, Augusta must hold her faith and her sisters together through one last brutal trial, where every weapon of the Sisterhood is brought to bear and devotion is the only thing standing between the living and the dark.",
+    "facetIds": [
+      "book",
+      "female",
+      "sister",
+      "imperium",
+      "planetary",
+      "war_story",
+      "last_stand",
+      "faith",
+      "sacrifice",
+      "loyalty",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "cw_violence",
+      "cw_death",
+      "series_finale",
+      "novella",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adepta Sororitas",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Lycheate",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sister Augusta",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "antagonist faction holding Lycheate not named in available sources"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.93,
+      "count": 95,
+      "evidenceUrl": "https://www.goodreads.com/book/show/55890432-the-rose-in-anger"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

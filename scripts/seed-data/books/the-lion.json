@@ -1,0 +1,83 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0119",
+  "slug": "the-lion",
+  "title": "The Lion",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "novella",
+  "seriesHint": "Horus Heresy Novellas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Eighty days after his confrontation with Konrad Curze, Lion El'Jonson is taking his Dark Angels deeper into the war without trust in any of his brother primarchs. The fleet itself comes under attack — not by void ships but by daemons spilling out of the warp, and the artefact at the heart of the storm is a sorcerous warp-engine the Lion intends to claim for the First Legion. To survive what is coming he must do what the Council of Nikaea forbade: reinstate his Librarians and put psyker against daemon. Not every son of the Lion will accept the order, and what he is prepared to do to one who refuses will mark him as the divisive figure his Legion remembers him as.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "requires_context",
+      "novella",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "somber",
+      "loyalty",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Lion El'Jonson",
+        "role": "pov"
+      },
+      {
+        "name": "Typhon",
+        "role": "supporting"
+      },
+      {
+        "name": "Nemiel",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.65,
+      "count": 284,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22439666-the-lion"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

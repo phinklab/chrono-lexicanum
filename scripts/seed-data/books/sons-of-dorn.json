@@ -1,0 +1,98 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0078",
+  "slug": "sons-of-dorn",
+  "title": "Sons of Dorn",
+  "authors": [
+    "Chris Roberson"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2010,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Imperial-Fists recruitment-and-training novel. The Imperial Fists, descending on a backwater planet whose technology has slipped back to roughly civil-war-era infrastructure and which has fallen out of contact with the wider Imperium, harvest some two thousand candidates from three rival nations locked in a long planetary war. Three of those candidates — Zatori, du Queste, and Taloc, drawn from opposing sides of that same local war — survive the brutal recruitment regime and progress together through the chapter's Scout-stage formation, each carrying nationally-coded grievances against the other two even as the Imperial Fists' indoctrination tries to weld them into battle-brothers. Their first deployment as fully-formed Neophytes is to Vernailis, a planet under Chaos blight, where they fight alongside their senior battle-brothers against the Roaring Blades Traitor Guard, a Chaos-corrupted Imperial Guard host. Coming-of-age / Bildungsroman structure across three POV recruits; opens what was projected as an Imperial-Fists scout trilogy.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "series_start",
+      "standard",
+      "war_story",
+      "character_study",
+      "journey",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "brotherhood",
+      "loyalty",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Roaring Blades",
+        "role": "antagonist"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Vernailis",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Zatori",
+        "role": "pov"
+      },
+      {
+        "name": "du Queste",
+        "role": "pov"
+      },
+      {
+        "name": "Taloc",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

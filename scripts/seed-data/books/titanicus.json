@@ -1,0 +1,114 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0077",
+  "slug": "titanicus",
+  "title": "Titanicus",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2008,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Adeptus-Titanicus ensemble novel set on the vital forge-world of Orestes when a Chaos titan legion makes planetfall. Titan Legio Invicta — fresh from the front and in desperate need of refit — responds anyway, committing its surviving god-engines to the defence under the leadership of Princeps Gearhart, with Princeps Guido Prinzhorn of Legio Tempestus drafted in to crew the Titan Dominatus Victrix after most of its previous crew was killed in an Eldar engagement (only Moderati Zane Tarses survived). On the ground around the titan-line, Cally Samstag — a member of the Orestes PDF Activated 26th whose pre-war military experience was little more than weekend hikes — finds herself an unlikely junior leader as the war stretches the planetary defenders thin. Underneath the war on Orestes, archivist Tolemy and an Orestes-internal faction of the Adeptus Mechanicus surface a deeper crisis: the theological gulf between the Mechanicus (Omnissiah as separate being) and the Imperium (Omnissiah as the Emperor) opens into a real schism, and the Chaos invasion is partly cover for that internal Imperium fracture. Multi-POV doorstopper ensemble, war-story + political-thriller in roughly equal weight.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "multi",
+      "imperium",
+      "planetary",
+      "standalone",
+      "doorstopper",
+      "war_story",
+      "political_thriller",
+      "siege",
+      "character_study",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "loyalty",
+      "betrayal",
+      "doubt",
+      "sacrifice",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "primary"
+      },
+      {
+        "name": "Legio Invicta",
+        "role": "primary"
+      },
+      {
+        "name": "Legio Tempestus",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Titanicus",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Orestes",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Princeps Gearhart",
+        "role": "pov"
+      },
+      {
+        "name": "Guido Prinzhorn",
+        "role": "pov"
+      },
+      {
+        "name": "Cally Samstag",
+        "role": "pov"
+      },
+      {
+        "name": "Zane Tarses",
+        "role": "supporting"
+      },
+      {
+        "name": "Tolemy",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

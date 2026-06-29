@@ -1,0 +1,93 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0104",
+  "slug": "rites-of-passage",
+  "title": "Rites of Passage",
+  "authors": [
+    "Mike Brooks"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Lord Azariel of House Brobantis is dead, and his widow Chettamandey knows exactly who killed him: she did. The frail, brilliant Navigator expects to inherit his power, until ritual murders begin targeting the Navis Nobilite and harvesting their warp-eyes. On Vorlese, the Chaos-touched Radimir Niklau turns the aftermath of his Galimo Prime rite into a campaign of surgical assassinations, forcing Chettamandey into a house-politics investigation where every ally has a price. A court-intrigue mystery inside the Navigator Houses, with old age, ambition and warp-sight made dangerous.",
+    "facetIds": [
+      "book",
+      "female",
+      "civilian",
+      "imperium",
+      "planetary",
+      "series_start",
+      "standard",
+      "mystery",
+      "political_thriller",
+      "court_intrigue",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "betrayal",
+      "hubris",
+      "doubt",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_crime",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Navis Nobilite",
+        "role": "primary"
+      },
+      {
+        "name": "House Brobantis",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Vorlese",
+        "role": "primary"
+      },
+      {
+        "name": "Galimo Prime",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lady Chettamandey Brobantis",
+        "role": "pov"
+      },
+      {
+        "name": "Lord Azariel",
+        "role": "mentioned"
+      },
+      {
+        "name": "Radimir Niklau",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

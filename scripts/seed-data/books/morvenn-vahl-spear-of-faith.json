@@ -1,0 +1,86 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0576",
+  "slug": "morvenn-vahl-spear-of-faith",
+  "title": "Morvenn Vahl: Spear of Faith",
+  "authors": [
+    "Jude Reid"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "novel",
+  "seriesHint": "40k - Sisters of Battle",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "Morvenn Vahl is the Abbess Sanctorum and a High Lord of Terra, a warrior born and a faithful daughter of the Emperor. Yet she is only mortal, performing no miracles, untouched by divinity, and though she was chosen not by the Master of Mankind but by his living thralls, the faith is hers to command and to protect. When a monster from myth threatens the cardinal world of Ophelia VII, Morvenn Vahl defies the Senatorum Imperialis and heads to the planet's defence. There, she finds a world in terror — the warlord Kol Rakhul, known as the Death of Saints, has come for the faithful and, with his Heldrake and a host of Night Lords at his back, plans to enshroud the world in flame and blood. This is a reckoning. A holy world is being defiled, and in its defence, Morvenn Vahl must wield an army of Living Saints to stand a hope of survival, let alone victory.",
+    "facetIds": [
+      "book",
+      "en",
+      "sister",
+      "female",
+      "imperium",
+      "squad",
+      "standalone",
+      "standard",
+      "siege",
+      "last_stand",
+      "grimdark",
+      "faith",
+      "doubt",
+      "war",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Adepta Sororitas",
+        "role": "primary"
+      },
+      {
+        "name": "Night Lords",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Ophelia VII",
+        "role": "primary"
+      },
+      {
+        "name": "Terra",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Morvenn Vahl",
+        "role": "pov"
+      },
+      {
+        "name": "Kol Rakhul",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.84,
+      "count": 321,
+      "evidenceUrl": "https://www.goodreads.com/book/show/218089956-morvenn-vahl"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0182",
+  "slug": "the-devine-adoratrice",
+  "title": "The Devine Adoratrice",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On Molech, Raeven Devine prepares for the Becoming, the rite that will bond him to the Knight he will ride for the rest of his life. Entangled in a quiet affair with Lyx, his elder brother Abelard's wife, he glimpses on her skin the mark of the Serpent Cult and chooses not to ask. The ceremonial procession is ambushed by a Sacristan wielding an electromagnetic device; Abelard's power armour and the great carriage beasts fail at once, and Raeven seizes his brother's blade to be hailed as a hero. The plot succeeds in its real aim. Abelard bonds imperfectly to his Knight while Raeven bonds perfectly, and the path of succession in House Devine bends one step further toward the powers that put the Serpent's mark on Lyx.",
+    "facetIds": [
+      "book",
+      "male",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "court_intrigue",
+      "political_thriller",
+      "character_study",
+      "somber",
+      "betrayal",
+      "hubris",
+      "en",
+      "cw_violence",
+      "cw_death",
+      "cw_socio_political",
+      "cw_disturbing"
+    ],
+    "factions": [
+      {
+        "name": "House Devine",
+        "role": "primary"
+      },
+      {
+        "name": "Serpent Cult",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Molech",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Raeven Devine",
+        "role": "pov"
+      },
+      {
+        "name": "Abelard Devine",
+        "role": "supporting"
+      },
+      {
+        "name": "Lyx",
+        "role": "supporting"
+      },
+      {
+        "name": "Cyprian Devine",
+        "role": "supporting"
+      },
+      {
+        "name": "Cebella",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.5,
+      "count": 168,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22041107-the-devine-adoratrice"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

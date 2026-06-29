@@ -1,0 +1,104 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0142",
+  "slug": "tomb-world",
+  "title": "Tomb World",
+  "authors": [
+    "Jonathan D Beer"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Khemet, a disgraced Triarch Praetorian, has endured a Necron punishment worse than death: conscious imprisonment for a failure that may not be hers alone. Lord Hekasun offers her one chance to restore her honour by awakening Orymous, a tomb world now paved over and occupied by the Astra Militarum. To complete the mission she must slip between Imperial defences, buried Necron systems, and Hekasun's own dynastic designs. A cold redemption-thriller where immortal pride meets the practical problem of humans living on top of your grave.",
+    "facetIds": [
+      "book",
+      "female",
+      "pc_xenos",
+      "xenos",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "political_thriller",
+      "mystery",
+      "character_study",
+      "grimdark",
+      "somber",
+      "cosmic_horror",
+      "philosophical",
+      "war",
+      "redemption",
+      "betrayal",
+      "doubt",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Necrons",
+        "role": "primary"
+      },
+      {
+        "name": "Triarch Praetorians",
+        "role": "primary"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperium",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Orymous",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Khemet",
+        "role": "pov"
+      },
+      {
+        "name": "Hekasun",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "authors",
+        "suggestion": [
+          "Jonathan D. Beer"
+        ],
+        "reason": "Roster authors[] empty; canonical author confirmed by Black Library + Lexicanum + Goonhammer + At-Boundary's-Edge + Warhammer-Community"
+      }
+    ]
+  },
+  "collections": {
+    "collects": []
+  }
+}

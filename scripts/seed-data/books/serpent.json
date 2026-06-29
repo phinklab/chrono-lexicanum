@@ -1,0 +1,76 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0175",
+  "slug": "serpent",
+  "title": "Serpent",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the swamp-shrouded world of Davin, the cult-priest Thoros calls upon his patron gods to drive out the pretenders and the doubters who would corrupt the Serpent Lodge from within. Only the true disciples of the dark powers, he believes, should be allowed to live — let alone to rule. A short, ritual-soaked glimpse at the chaos cult that first turned Davin and its moon into a wound on the galaxy, and at the kind of zealot from which the rot beneath the Horus Heresy first crept upward.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "civilian",
+      "chaos",
+      "planetary",
+      "requires_context",
+      "novella",
+      "character_study",
+      "cosmic_horror",
+      "grimdark",
+      "faith",
+      "hubris",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Davinite Serpent Lodge",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Davin",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Thoros",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 2.8,
+      "count": 152,
+      "evidenceUrl": "https://www.goodreads.com/book/show/18907513-serpent"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

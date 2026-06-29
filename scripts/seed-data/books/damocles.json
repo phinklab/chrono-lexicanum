@@ -1,0 +1,112 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0294",
+  "slug": "damocles",
+  "title": "Damocles",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2014,
+  "format": "anthology",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The xenos armies of the Tau Empire surge across the Damocles Gulf, and the world of Agrellan stands in their path. The White Scars and Raven Guard race to its defence, but Commander Shadowsun's forces press them to breaking point. Kor'sarro Khan, Huntmaster of the White Scars, swears a blood oath to take Shadowsun's head before the campaign is done. Across four interlocking novellas, Space Marine and Tau clash for a contested world — strike force against battlesuit, hunter against hunter — in a war neither side can afford to lose.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "standalone",
+      "standard",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "White Scars",
+        "role": "primary"
+      },
+      {
+        "name": "Raven Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Tau",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Agrellan",
+        "role": "primary"
+      },
+      {
+        "name": "Damocles Gulf",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Kor'sarro Khan",
+        "role": "pov"
+      },
+      {
+        "name": "Shadowsun",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.6,
+      "count": 314,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22609176"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0337",
+        "displayOrder": 0,
+        "confidence": 0.75,
+        "basis": "Damocles anthology inferred from the listed Damocles-era novellas"
+      },
+      {
+        "externalBookId": "W40K-0338",
+        "displayOrder": 1,
+        "confidence": 0.75,
+        "basis": "Damocles anthology inferred from the listed Damocles-era novellas"
+      },
+      {
+        "externalBookId": "W40K-0339",
+        "displayOrder": 2,
+        "confidence": 0.75,
+        "basis": "Damocles anthology inferred from the listed Damocles-era novellas"
+      },
+      {
+        "externalBookId": "W40K-0340",
+        "displayOrder": 3,
+        "confidence": 0.75,
+        "basis": "Damocles anthology inferred from the listed Damocles-era novellas"
+      }
+    ]
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0003",
+  "slug": "hereticus",
+  "title": "Hereticus",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2002,
+  "format": "novel",
+  "seriesHint": "Inquisitor (Eisenhorn/Ravenor/Bequin)",
+  "series": "eisenhorn",
+  "seriesIndex": 3,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Decades on, Eisenhorn is older, harder, and openly using a bound daemonhost — Cherubael — as a working tool. His old enemy Pontius Glaw, presumed contained, escapes his iron prison with help from a Mechanicus reclamator named Pater Sinjet. The pursuit drags Eisenhorn through the agri-world of Durer and the ice-tomb of Spaeton House on Gudrun, and costs him half his retinue. He closes the case but loses Fischig to puritan denunciation, and Bequin to a stasis injury that will not unwind. The book is an obituary in the voice of the obituary's author — he is the man he once would have arrested, and he writes the record himself because he no longer trusts any other archivist to do it.",
+    "facetIds": [
+      "book",
+      "male",
+      "inquisitor",
+      "imperium",
+      "sector",
+      "series_finale",
+      "standard",
+      "siege",
+      "mystery",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "betrayal",
+      "hubris",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Hereticus",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Gudrun",
+        "role": "primary"
+      },
+      {
+        "name": "Spaeton House",
+        "role": "primary"
+      },
+      {
+        "name": "Durer",
+        "role": "secondary"
+      },
+      {
+        "name": "Helican Subsector",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Gregor Eisenhorn",
+        "role": "pov"
+      },
+      {
+        "name": "Alizebeth Bequin",
+        "role": "supporting"
+      },
+      {
+        "name": "Godwyn Fischig",
+        "role": "supporting"
+      },
+      {
+        "name": "Uber Aemos",
+        "role": "supporting"
+      },
+      {
+        "name": "Cherubael",
+        "role": "supporting"
+      },
+      {
+        "name": "Pontius Glaw",
+        "role": "supporting"
+      },
+      {
+        "name": "Gideon Ravenor",
+        "role": "supporting"
+      },
+      {
+        "name": "Pater Sinjet",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

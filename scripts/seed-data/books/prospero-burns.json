@@ -1,0 +1,97 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0015",
+  "slug": "prospero-burns",
+  "title": "Prospero Burns",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2010,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Decades before the Council of Nikaea, Terran scholar Kasper Hawser leaves the Conservatory and follows a fragment of his childhood — a wolf with a man's voice — to the icy oceans of Fenris. There the Rout, the Sixth Legion that other men call the Space Wolves, take him in as a skjald, and Hawser slowly learns that nothing about the Vlka Fenryka is what the Imperium thinks it is. By the time the Emperor's writ to muster against Magnus the Red reaches Fenris, the skjald has glimpsed enough of the Changer of Ways' hand to suspect that the Wolves are the only weapon precisely shaped to break the Thousand Sons.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "civilian",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "doorstopper",
+      "character_study",
+      "journey",
+      "war_story",
+      "somber",
+      "grimdark",
+      "philosophical",
+      "brotherhood",
+      "loyalty",
+      "doubt",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Thousand Sons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Fenris",
+        "role": "primary"
+      },
+      {
+        "name": "Terra",
+        "role": "supporting"
+      },
+      {
+        "name": "Prospero",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Kasper Hawser",
+        "role": "pov"
+      },
+      {
+        "name": "Leman Russ",
+        "role": "supporting"
+      },
+      {
+        "name": "Longfang",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.11,
+      "count": 8773,
+      "evidenceUrl": "https://www.goodreads.com/book/show/6109704-prospero-burns"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

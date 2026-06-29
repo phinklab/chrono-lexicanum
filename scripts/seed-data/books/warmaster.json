@@ -1,0 +1,68 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0249",
+  "slug": "warmaster",
+  "title": "Warmaster",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In the strategium of his flagship, Warmaster Horus lays out the next moves of his assault on his father's Imperium. He speaks of his brothers — those who stand with him and those who stand against — and weighs his hopes and fears for the war he has begun, including whether he truly believes it can be ended. Alone with his thoughts, Horus admits that for all the righteousness he claims, only the worst of the primarchs have answered his call: broken monsters with which he must somehow remake the galaxy.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "chaos",
+      "galactic",
+      "standalone",
+      "novella",
+      "character_study",
+      "somber",
+      "philosophical",
+      "hubris",
+      "doubt",
+      "betrayal",
+      "cw_violence",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Sons of Horus",
+        "role": "primary"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Horus Lupercal",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.63,
+      "count": 234,
+      "evidenceUrl": "https://www.goodreads.com/book/show/16281442-warmaster"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

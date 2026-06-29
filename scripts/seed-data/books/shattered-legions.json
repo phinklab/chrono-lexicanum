@@ -1,0 +1,113 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0043",
+  "slug": "shattered-legions",
+  "title": "Shattered Legions",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2017,
+  "format": "anthology",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Their Primarch Ferrus Manus slain at the Dropsite Massacre, the survivors of the Iron Hands refuse to retreat into mourning. Joined by stranded warriors of the Salamanders and the Raven Guard, and bound to a campaign of annihilation by the warleader Shadrak Meduson, they take the war back to the traitor Legions one ambush at a time. The novella Meduson opens the campaign; The Noose, The Keys of Hel, Unforged, Unspoken, Immortal Duty, The Either, Deeds Endure, Grey Talon and The Hand Elect trace its costs across captured frigates, drifting hulks and burning worlds; The Seventh Serpent puts Meduson's grand stratagem on the line against the Sons of Horus. Together the collected tales chart a vengeful, fragmented war that the Imperium will never officially acknowledge.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "mid_series",
+      "doorstopper",
+      "war_story",
+      "last_stand",
+      "somber",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "brotherhood",
+      "sacrifice",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Hands",
+        "role": "primary"
+      },
+      {
+        "name": "Salamanders",
+        "role": "supporting"
+      },
+      {
+        "name": "Raven Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "antagonist"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      },
+      {
+        "name": "World Eaters",
+        "role": "antagonist"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "antagonist"
+      },
+      {
+        "name": "Alpha Legion",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Shadrak Meduson",
+        "role": "pov"
+      },
+      {
+        "name": "Bion Henricos",
+        "role": "pov"
+      },
+      {
+        "name": "Tybalt Marr",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "stories range across many one-off ship and planet settings; no single location anchors the volume."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.7,
+      "count": 1310,
+      "evidenceUrl": "https://www.goodreads.com/book/show/33791624-shattered-legions"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

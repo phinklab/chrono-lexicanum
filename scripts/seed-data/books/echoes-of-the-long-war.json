@@ -1,0 +1,105 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0419",
+  "slug": "echoes-of-the-long-war",
+  "title": "Echoes of the Long War",
+  "authors": [
+    "David Guymer"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "The Beast Arises",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The ork war has reached its grim halfway point and patience has run out. On Terra, Koorland, the last true son of Dorn, finally loses faith in the paralysed government and, with Drakan Vangorich at his side, moves to seize control of the Imperium's leadership outright. Far from the throneworld, newly promoted First Captain Zerberyn drives the Fists Exemplar fleet into the teeth of the greenskins in support of Black Templar Marshal Magneric, and finds himself forced into an unthinkable alliance with the very Iron Warriors his Chapter is sworn to destroy, raising a question that will haunt them: can a traitor ever truly be trusted? On Mars, the tech-priest Urquidex turns against his own masters, smuggling forbidden knowledge back to Vangorich. The sixth novel of the Beast Arises series.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "mid_series",
+      "standard",
+      "war_story",
+      "political_thriller",
+      "court_intrigue",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "betrayal",
+      "loyalty",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "supporting"
+      },
+      {
+        "name": "Mars",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Zerberyn",
+        "role": "pov"
+      },
+      {
+        "name": "Koorland",
+        "role": "supporting"
+      },
+      {
+        "name": "Drakan Vangorich",
+        "role": "supporting"
+      },
+      {
+        "name": "Urquidex",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.6,
+      "count": 651,
+      "evidenceUrl": "https://www.goodreads.com/book/show/29851423-echoes-of-the-long-war"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

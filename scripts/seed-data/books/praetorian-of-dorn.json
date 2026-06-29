@@ -1,0 +1,116 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0039",
+  "slug": "praetorian-of-dorn",
+  "title": "Praetorian of Dorn",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "For the first time since the war began, the Solar System itself is under attack. Rogal Dorn, recalled from the Great Crusade to fortify Terra, watches his outer defences begin to fall to assaults he does not recognise: ships destroyed before they fire, fortresses opened from within, agents who answer to no name. The enemy is the Alpha Legion, slipped past Sol's curtain long before Horus declared war, and their primarch Alpharius walks the same corridors as Dorn himself. Alongside the Praetorian's public war, his huscarl Archamus — once a Terran youth named Kestros, now master of Dorn's bodyguard — runs a hidden hunt for the cell directing the sabotage. Past and present interleave as Archamus's training under Sigismund and Dorn becomes the answer to who can be trusted when even Alpharius wears a brother's face.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "dual",
+      "sector",
+      "requires_context",
+      "standard",
+      "war_story",
+      "mystery",
+      "political_thriller",
+      "grimdark",
+      "action_heavy",
+      "philosophical",
+      "loyalty",
+      "brotherhood",
+      "betrayal",
+      "doubt",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Alpha Legion",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Custodes",
+        "role": "supporting"
+      },
+      {
+        "name": "Sisters of Silence",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Pluto",
+        "role": "supporting"
+      },
+      {
+        "name": "Sol System",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Rogal Dorn",
+        "role": "pov"
+      },
+      {
+        "name": "Archamus",
+        "role": "pov"
+      },
+      {
+        "name": "Alpharius",
+        "role": "antagonist"
+      },
+      {
+        "name": "Sigismund",
+        "role": "supporting"
+      },
+      {
+        "name": "Constantin Valdor",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.12,
+      "count": 2799,
+      "evidenceUrl": "https://www.goodreads.com/book/show/29430395-praetorian-of-dorn"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

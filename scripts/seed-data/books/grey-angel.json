@@ -1,0 +1,87 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0246",
+  "slug": "grey-angel",
+  "title": "Grey Angel",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the distant world of Caliban, an agent of Rogal Dorn finds himself the prisoner of a legion whose loyalties may be divided. Garviel Loken, on his first mission as a Knight-Errant, has deliberately allowed himself to be captured inside the Dark Angels' fortress of Aldurukh to engineer a face-to-face meeting with Luther, while Iacton Cruze slips deeper into the citadel in search of answers. Shackled and bound, the former Luna Wolf must fight a battle of wits, lest his very presence push another legion into the arms of the Warmaster.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "mystery",
+      "political_thriller",
+      "character_study",
+      "somber",
+      "philosophical",
+      "loyalty",
+      "doubt",
+      "betrayal",
+      "cw_violence",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Knights-Errant",
+        "role": "primary"
+      },
+      {
+        "name": "Dark Angels",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Caliban",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Garviel Loken",
+        "role": "pov"
+      },
+      {
+        "name": "Luther",
+        "role": "supporting"
+      },
+      {
+        "name": "Iacton Cruze",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.64,
+      "count": 258,
+      "evidenceUrl": "https://www.goodreads.com/book/show/15787528-grey-angel"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

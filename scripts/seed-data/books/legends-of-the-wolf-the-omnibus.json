@@ -1,0 +1,100 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0586",
+  "slug": "legends-of-the-wolf-the-omnibus",
+  "title": "Legends of the Wolf: The Omnibus",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "omnibus",
+  "seriesHint": "40k - Space Wolves",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "Collecting Chris Wraight's complete Space Wolves trilogy alongside the short story Kraken, this omnibus follows the Jarnhamar pack across three wars. In Blood of Asaheim, Ingvar returns from decades of service with the Deathwatch to find his old pack fractured by loyalty and pride — even as the Death Guard descend on the plague-wracked world of Ras Shakeh. In Stormcaller, a fragile alliance with the Sisters of Battle begins to crack when the Ecclesiarchy uncovers a secret that could doom the planet entirely. In The Helwinter Gate, the pack pursues a shadowy enemy through the ruins of broken worlds, uncovering an ancient betrayal that reaches back to the founding of their Chapter. Together the three novels trace the bonds, rivalries, and ferocity of Fenris's warrior-sons across a single sustained saga.",
+    "facetIds": [
+      "book",
+      "en",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "doorstopper",
+      "requires_context",
+      "war_story",
+      "action_heavy",
+      "brotherhood",
+      "loyalty",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adepta Sororitas",
+        "role": "supporting"
+      },
+      {
+        "name": "Deathwatch",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Ras Shakeh",
+        "role": "primary"
+      },
+      {
+        "name": "Fenris",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ingvar",
+        "role": "pov"
+      },
+      {
+        "name": "Gunnlaugur",
+        "role": "pov"
+      },
+      {
+        "name": "Baldr",
+        "role": "supporting"
+      },
+      {
+        "name": "Olgeir",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.31,
+      "count": 45,
+      "evidenceUrl": "https://www.goodreads.com/book/show/220714736-legends-of-the-wolf"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

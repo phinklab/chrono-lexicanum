@@ -1,0 +1,81 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0178",
+  "slug": "bjorn-lone-wolf",
+  "title": "Bjorn: Lone Wolf",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the fields of Velbayne, daemons spill out of every shadow and brotherhood is the only thing keeping the Rout alive. Packs of Space Wolves fight back to back — except for one. Bjorn, the warrior who has lost his entire pack, walks the line alone, sworn to a silence he will not break until he has put steel through the beast that killed them. As Leman Russ and the VIth Legion hold their ground, Bjorn hunts. A small, perfect grace note about grief, vengeance, and the particular loneliness of the Space Wolf who has outlived everyone he ever called brother.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "requires_context",
+      "novella",
+      "last_stand",
+      "war_story",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Velbayne",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Bjorn",
+        "role": "pov"
+      },
+      {
+        "name": "Leman Russ",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.39,
+      "count": 196,
+      "evidenceUrl": "https://www.goodreads.com/book/show/19079995-bjorn"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

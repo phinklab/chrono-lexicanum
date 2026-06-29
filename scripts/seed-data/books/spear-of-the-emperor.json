@@ -1,0 +1,118 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0099",
+  "slug": "spear-of-the-emperor",
+  "title": "Spear of the Emperor",
+  "authors": [
+    "Aaron Dembski-Bowden"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Anuradha, helot to Lieutenant Amadeus Kaias Incarius of the Mentors, tells this crossing of the Great Rift from decades of hindsight. Amadeus is sent into Elara's Veil to judge three frontier chapters: the failing Star Scorpions, the Inquisition-wounded Celestial Lions, and the Emperor's Spears, who still guard a region the wider Imperium can no longer reach. He arrives as a polished Primaris emissary and finds his chapter's reputation wins him suspicion rather than welcome. As the way home vanishes, observer and servant are pulled into the Spears' doomed vigil. A frontier-Astartes memoir where the armour is seen from below.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "multi",
+      "imperium",
+      "sector",
+      "standalone",
+      "standard",
+      "war_story",
+      "journey",
+      "character_study",
+      "political_thriller",
+      "mystery",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "philosophical",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "doubt",
+      "faith",
+      "hubris",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Emperor's Spears",
+        "role": "primary"
+      },
+      {
+        "name": "Mentors",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Star Scorpions",
+        "role": "mentioned"
+      },
+      {
+        "name": "Celestial Lions",
+        "role": "mentioned"
+      },
+      {
+        "name": "Inquisition",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Elara's Veil",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium Nihilus",
+        "role": "secondary"
+      },
+      {
+        "name": "Great Rift",
+        "role": "secondary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Anuradha",
+        "role": "pov"
+      },
+      {
+        "name": "Amadeus Kaias Incarius",
+        "role": "primary"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

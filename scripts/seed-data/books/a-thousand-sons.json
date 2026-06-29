@@ -1,0 +1,112 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0012",
+  "slug": "a-thousand-sons",
+  "title": "A Thousand Sons",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2010,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Censured at the Council of Nikaea for the Legion's open use of psychic sorcery, Magnus the Red withdraws with his Thousand Sons to the crystal city of Tizca on Prospero. There the primarch peers into the warp and glimpses Horus' coming betrayal, and he hurls his mind across the void to warn the Emperor on Terra — only to crash through the half-built webway gate beneath the Imperial Palace, tearing it open to daemons. Followed through the eyes of Captain Ahzek Ahriman and the chronicler Lemuel Gaumon, the novel charts a tragedy of brilliant minds undone by hubris and good intentions, and ends with the Wolf King's pyres already kindling over the City of Light.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "doorstopper",
+      "character_study",
+      "hubris",
+      "betrayal",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "faith",
+      "doubt",
+      "cosmic_horror",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Thousand Sons",
+        "role": "primary"
+      },
+      {
+        "name": "Space Wolves",
+        "role": "supporting"
+      },
+      {
+        "name": "Custodes",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Prospero",
+        "role": "primary"
+      },
+      {
+        "name": "Tizca",
+        "role": "primary"
+      },
+      {
+        "name": "Terra",
+        "role": "supporting"
+      },
+      {
+        "name": "Aghoru",
+        "role": "supporting"
+      },
+      {
+        "name": "Nikaea",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Magnus the Red",
+        "role": "pov"
+      },
+      {
+        "name": "Ahzek Ahriman",
+        "role": "pov"
+      },
+      {
+        "name": "Lemuel Gaumon",
+        "role": "pov"
+      },
+      {
+        "name": "Leman Russ",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.27,
+      "count": 10635,
+      "evidenceUrl": "https://www.goodreads.com/book/show/6465063-a-thousand-sons"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

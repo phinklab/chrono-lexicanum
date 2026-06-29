@@ -1,0 +1,119 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0296",
+  "slug": "sanctus-reach",
+  "title": "Sanctus Reach",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2015,
+  "format": "anthology",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The cunning Ork warboss Grukk Face-Rippa leads the Red Waaagh! against Alaric Prime and its neighbouring worlds, and the earth shakes beneath the green tide. The Astra Militarum, the noble Knight houses of Alaric Prime, and the savage Space Wolves rise to meet the invasion — while within the Ork host, the Big Mek Mogrok schemes to topple Grukk and seize the Waaagh! for himself. These linked tales chart a Chapter's death, the secret missions of inquisitors and assassins, and the moment Ragnar Blackmane's rage threatens to doom his own brothers.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "xenos",
+      "sector",
+      "standalone",
+      "standard",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperial Knights",
+        "role": "supporting"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Alaric Prime",
+        "role": "primary"
+      },
+      {
+        "name": "Sanctus Reach",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ragnar Blackmane",
+        "role": "supporting"
+      },
+      {
+        "name": "Grukk Face-Rippa",
+        "role": "antagonist"
+      },
+      {
+        "name": "Mogrok",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.76,
+      "count": 85,
+      "evidenceUrl": "https://www.goodreads.com/book/show/25111240-sanctus-reach"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0327",
+        "displayOrder": 0,
+        "confidence": 0.75,
+        "basis": "Sanctus Reach anthology inferred from matching Sanctus Reach novella titles"
+      },
+      {
+        "externalBookId": "W40K-0328",
+        "displayOrder": 1,
+        "confidence": 0.75,
+        "basis": "Sanctus Reach anthology inferred from matching Sanctus Reach novella titles"
+      },
+      {
+        "externalBookId": "W40K-0329",
+        "displayOrder": 2,
+        "confidence": 0.75,
+        "basis": "Sanctus Reach anthology inferred from matching Sanctus Reach novella titles"
+      }
+    ]
+  }
+}

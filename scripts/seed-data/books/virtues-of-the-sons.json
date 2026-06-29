@@ -1,0 +1,92 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0189",
+  "slug": "virtues-of-the-sons",
+  "title": "Virtues of the Sons",
+  "authors": [
+    "Andy Smillie"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Aboard the Blood Angels fleet, Sanguinius's most loyal sons step into the Tempest of Angels, the old duelling tradition carried from Baal Secundus. Nassir Amit, the Flesh Tearer, faces Khârn of the World Eaters and matches rage against rage on the blade. Azkaellon of the Sanguinary Guard crosses swords with Lucius of the Emperor's Children, finest of his legion's blademasters. Through the contests the IX Legion confronts its own twin nature, the cold nobility it carries before its brothers and the older, hungrier thing that waits inside every son of Baal. Sanguinius watches, and reads the colour of the storm coming for them all.",
+    "facetIds": [
+      "book",
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "requires_context",
+      "character_study",
+      "action_heavy",
+      "philosophical",
+      "brotherhood",
+      "hubris",
+      "loyalty",
+      "en",
+      "cw_violence"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "World Eaters",
+        "role": "supporting"
+      },
+      {
+        "name": "Emperor's Children",
+        "role": "supporting"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Nassir Amit",
+        "role": "pov"
+      },
+      {
+        "name": "Azkaellon",
+        "role": "pov"
+      },
+      {
+        "name": "Khârn",
+        "role": "supporting"
+      },
+      {
+        "name": "Lucius",
+        "role": "supporting"
+      },
+      {
+        "name": "Sanguinius",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.77,
+      "count": 155,
+      "evidenceUrl": "https://www.goodreads.com/book/show/24467151-virtues-of-the-sons"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

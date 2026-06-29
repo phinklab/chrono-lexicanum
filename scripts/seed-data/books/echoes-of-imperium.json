@@ -1,0 +1,103 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0147",
+  "slug": "echoes-of-imperium",
+  "title": "Echoes of Imperium",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2016,
+  "format": "collection",
+  "seriesHint": "Horus Heresy Collections",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Echoes of Imperium is an audio anthology of four short dramas set inside the fragile realm of Imperium Secundus, the loyalist remnant cut off from Terra. Andy Smillie's \"The Herald of Sanguinius\" finds the newly crowned Emperor-Regent on Macragge under threat from within, with Commander Azkaellon of the Sanguinary Guard forced into the darkest of measures to keep his primarch alive. Nick Kyme's \"Stratagem\" and C Z Dunn's \"The Watcher\" extend the picture of the loyalist remnant in further short pieces. Gav Thorpe's dramatised version of \"The Shadowmasters\" cuts away to Sergeant Chamell and his Mor Deythan of the Raven Guard, slipping behind enemy lines on Atlas to break a forge-temple from within during the Soulforge campaign.",
+    "facetIds": [
+      "audio_drama",
+      "ensemble",
+      "space_marine",
+      "multi",
+      "imperium",
+      "company",
+      "planetary",
+      "requires_context",
+      "novella",
+      "war_story",
+      "court_intrigue",
+      "character_study",
+      "somber",
+      "grimdark",
+      "action_heavy",
+      "loyalty",
+      "betrayal",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Raven Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Macragge",
+        "role": "primary"
+      },
+      {
+        "name": "Atlas",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sanguinius",
+        "role": "supporting"
+      },
+      {
+        "name": "Azkaellon",
+        "role": "pov"
+      },
+      {
+        "name": "Chamell",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "limited source coverage for the constituent shorts 'Stratagem' and 'The Watcher'; their faction focus could not be confirmed from accessible sources"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.76,
+      "count": 17,
+      "evidenceUrl": "https://www.goodreads.com/book/show/32073771-echoes-of-imperium"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

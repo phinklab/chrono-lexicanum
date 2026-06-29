@@ -1,0 +1,93 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0274",
+  "slug": "nocturne",
+  "title": "Nocturne",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2011,
+  "format": "novel",
+  "seriesHint": "Tome of Fire",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "War has come at last to Nocturne. After decades of patient slaughter, the renegade Nihilan has gathered a vast armada of Dragon Warriors, Dark Eldar corsairs and Chaos renegades, and turns it against the Salamanders' volcanic home. As the Chapter marshals its strength, unrest gnaws at its ranks, for an old prophecy foretells a saviour or a destroyer in the Librarian Dak'ir. Held captive amid the enemy fleet, his bitter rival Tsu'gan awaits a final accounting. With fire and ruin closing over their world, the two battle-brothers are driven toward the confrontation that will decide whether Nocturne endures or burns. The climactic battle of the Tome of Fire trilogy.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "series_finale",
+      "standard",
+      "war_story",
+      "siege",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "brotherhood",
+      "sacrifice",
+      "betrayal",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Salamanders",
+        "role": "primary"
+      },
+      {
+        "name": "Dragon Warriors",
+        "role": "antagonist"
+      },
+      {
+        "name": "Dark Eldar",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Nocturne",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Dak'ir",
+        "role": "pov"
+      },
+      {
+        "name": "Tsu'gan",
+        "role": "pov"
+      },
+      {
+        "name": "Nihilan",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.96,
+      "count": 468,
+      "evidenceUrl": "https://www.goodreads.com/book/show/11454774-nocturne"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

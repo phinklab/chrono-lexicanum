@@ -1,0 +1,116 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0021",
+  "slug": "choose-your-enemies",
+  "title": "Choose Your Enemies",
+  "authors": [
+    "Sandy Mitchell"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novel",
+  "seriesHint": "Ciaphas Cain",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Ciaphas Cain and the Valhallan 597th deploy to the ice world of Drechia in the Damocles Gulf, ostensibly to reinforce the planetary defence force against Eldar pirate raids. The pirates turn out to be the surface symptom of a deeper rot: a Chaos cult has taken root among the Drechian PDF officer corps and is feeding the Eldar coordinates in exchange for ritual artefacts. Cain's investigation, run nominally as a counter-piracy mop-up but in practice as Amberley Vail's Inquisitorial errand, drags him into a three-way crossfire between cultists, raiders, and his own paranoid command structure. The cult's confessions point to a forge world named Ironfound as the next domino — a hook that Vainglorious will pick up. Tonally lighter than the late Cain books that follow; the threat stays local-planetary, but the Damocles-Gulf framing implies a larger Tau-border subplot that Mitchell deliberately keeps off-page.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "mystery",
+      "action_heavy",
+      "satirical",
+      "doubt",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Valhallan 597th",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "Ordo Xenos",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Eldar",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Drechia",
+        "role": "primary"
+      },
+      {
+        "name": "Damocles Gulf",
+        "role": "secondary"
+      },
+      {
+        "name": "Ironfound",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ciaphas Cain",
+        "role": "pov"
+      },
+      {
+        "name": "Jurgen",
+        "role": "supporting"
+      },
+      {
+        "name": "Amberley Vail",
+        "role": "supporting"
+      },
+      {
+        "name": "Regina Kasteen",
+        "role": "supporting"
+      },
+      {
+        "name": "Ruput Broklaw",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

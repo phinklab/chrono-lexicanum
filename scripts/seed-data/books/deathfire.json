@@ -1,0 +1,111 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0032",
+  "slug": "deathfire",
+  "title": "Deathfire",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Vulkan, primarch of the Salamanders, lies in a coma-like state aboard the fortress-world of Macragge after the Fulgurite Spear pierced his hearts. His Pyre Guard captain Artellus Numeon refuses to accept his lord's death: ancient ritual demands that a fallen primarch be returned to Mount Deathfire on Nocturne, where the volcanic flames will either burn the soul clean or wake it. Defying Roboute Guilliman's new Imperium Secundus, Numeon gathers the last Salamanders on Macragge and steals a ship into the Ruinstorm. The voyage home becomes a running fight against an unholy alliance of Word Bearers and Death Guard who want Vulkan's body for their own ends, while visions, daemonic encounters and the doubts of his own brothers test Numeon's faith that the perpetual primarch can return at all.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "requires_context",
+      "standard",
+      "journey",
+      "war_story",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "faith",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Salamanders",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Macragge",
+        "role": "supporting"
+      },
+      {
+        "name": "Nocturne",
+        "role": "primary"
+      },
+      {
+        "name": "Mount Deathfire",
+        "role": "primary"
+      },
+      {
+        "name": "Ruinstorm",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Artellus Numeon",
+        "role": "pov"
+      },
+      {
+        "name": "Vulkan",
+        "role": "supporting"
+      },
+      {
+        "name": "Roboute Guilliman",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.6,
+      "count": 1990,
+      "evidenceUrl": "https://www.goodreads.com/book/show/25111238-deathfire"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

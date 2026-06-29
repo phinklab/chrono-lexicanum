@@ -1,0 +1,107 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0367",
+  "slug": "gods-of-mars",
+  "title": "Gods of Mars",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novel",
+  "seriesHint": "Forges of Mars",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The conclusion of the Forges of Mars trilogy. At the very edge of the galaxy, Archmagos Kotov's fleet finally reaches the object of its long pursuit — the lost Magos Telok, who has remade himself into something monstrous and god-like with the forbidden technologies he has hoarded. As Telok's ambitions threaten not only the Speranza but the Imperium itself, and an ancient alien power stirs to reclaim what is theirs, Kotov, the rogue trader Roboute Surcouf, and their allies must confront the true price of the knowledge they have chased across the stars. A climactic, cosmic-scale reckoning about hubris, sacrifice, and the things humanity was never meant to find.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "tech_priest",
+      "imperium",
+      "galactic",
+      "series_finale",
+      "doorstopper",
+      "journey",
+      "war_story",
+      "philosophical",
+      "cosmic_horror",
+      "hubris",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "primary"
+      },
+      {
+        "name": "Necrons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      },
+      {
+        "name": "Black Templars",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Mars",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lexell Kotov",
+        "role": "pov"
+      },
+      {
+        "name": "Roboute Surcouf",
+        "role": "pov"
+      },
+      {
+        "name": "Telok",
+        "role": "antagonist"
+      },
+      {
+        "name": "Galatea",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tarkis Blaylock",
+        "role": "supporting"
+      },
+      {
+        "name": "Linya Tychon",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4,
+      "count": 814,
+      "evidenceUrl": "https://www.goodreads.com/book/show/18649333"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

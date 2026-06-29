@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0204",
+  "slug": "conquest-of-armageddon",
+  "title": "Conquest of Armageddon",
+  "authors": [
+    "Jonathan Green"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2005,
+  "format": "novel",
+  "seriesHint": "Black Templars",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The war for Armageddon grinds on, and one of the Black Templars' fighting companies has vanished into the planet's choking jungles. Marshal Brant leads a force to find his lost brothers, unaware that a band of Imperial ork-hunters is also out in the green hell, searching for a high-ranking officer downed in a crash. None of them realise what else stirs beneath the canopy: the savage greenskins of the Blood Scar tribe stalk them through the undergrowth, and something far older and darker is waking to reach out once more. What begins as a rescue becomes a fight on two fronts as the Templars uncover a corrupting plot and must face renegade Space Marines as well as the endless ork tide.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "journey",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "faith",
+      "brotherhood",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Black Templars",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Armageddon",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Marshal Brant",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.52,
+      "count": 132,
+      "evidenceUrl": "https://www.goodreads.com/book/show/1981361.Conquest_of_Armageddon"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

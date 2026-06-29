@@ -1,0 +1,153 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0038",
+  "slug": "the-anarch",
+  "title": "The Anarch",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novel",
+  "seriesHint": "Gaunt's Ghosts",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Urdesh campaign reaches its climax inside the city of Eltath, where Warmaster Macaroth's headquarters has become the target of an in-person decapitation push by Anarch Sek himself. Sek arrives on the planet to take the Warmaster's life, breaking every rule of Archenemy command doctrine and forcing the Crusade leadership into a desperate close-quarters defence of the command palaces and tactical-control nodes. The Tanith First fights through the urban-warfare maze of Eltath in fragments — Rawne running one column, Hark another, Daur and Criid coordinating the Mkoll-led scout teams — converging slowly on the Macaroth-Sek confrontation. The Felyx Chass subplot, the long-running Yoncy Kolea daemon-whisper subplot, and the Sirkle internal-conspiracy thread all close out, costing the regiment several of its longest-serving figures. Series climax. Closes with Sek killed, the Crusade strategic balance permanently tipped, and the Tanith First reduced again to a smaller, harder unit.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "doorstopper",
+      "war_story",
+      "siege",
+      "last_stand",
+      "political_thriller",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "sacrifice",
+      "betrayal",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Tanith First-and-Only",
+        "role": "primary"
+      },
+      {
+        "name": "Verghastite Ghosts",
+        "role": "primary"
+      },
+      {
+        "name": "Belladon",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Urdeshi",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Blood Pact",
+        "role": "antagonist"
+      },
+      {
+        "name": "Sons of Sek",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Urdesh",
+        "role": "primary"
+      },
+      {
+        "name": "Eltath",
+        "role": "primary"
+      },
+      {
+        "name": "Sabbat Worlds",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ibram Gaunt",
+        "role": "pov"
+      },
+      {
+        "name": "Elim Rawne",
+        "role": "pov"
+      },
+      {
+        "name": "Macaroth",
+        "role": "supporting"
+      },
+      {
+        "name": "Viktor Hark",
+        "role": "supporting"
+      },
+      {
+        "name": "Oan Mkoll",
+        "role": "supporting"
+      },
+      {
+        "name": "Hlaine Larkin",
+        "role": "supporting"
+      },
+      {
+        "name": "Ban Daur",
+        "role": "supporting"
+      },
+      {
+        "name": "Tona Criid",
+        "role": "supporting"
+      },
+      {
+        "name": "Felyx Chass",
+        "role": "supporting"
+      },
+      {
+        "name": "Mabbon Etogaur",
+        "role": "supporting"
+      },
+      {
+        "name": "Anakwanar Sek",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0295",
+  "slug": "the-world-engine",
+  "title": "The World Engine",
+  "authors": [
+    "Ben Counter"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novel",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "For months the Necron World Engine — a vast, mobile construct the size of a planet — has carved a path of ruin through the Vidar sector, shattering worlds and destroying every fleet sent against it. With billions of lives in the balance, the Astral Knights stake everything on a single desperate plan: crash their battle-barge onto the construct's surface and fight their way to its heart. Led by Chapter Master Artor Amhrad, the Astral Knights land amid tens of thousands of Necrons and wage a relentless war through forge and weapon-node, paying for every yard in blood. It is a battle that will define a Chapter — and demand the ultimate price.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "standalone",
+      "standard",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "sacrifice",
+      "brotherhood",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astral Knights",
+        "role": "primary"
+      },
+      {
+        "name": "Necrons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Vidar Sector",
+        "role": "primary"
+      },
+      {
+        "name": "World Engine",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Artor Amhrad",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.66,
+      "count": 231,
+      "evidenceUrl": "https://www.goodreads.com/book/show/24092496-the-world-engine"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

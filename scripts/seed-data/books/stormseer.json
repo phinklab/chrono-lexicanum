@@ -1,0 +1,86 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0315",
+  "slug": "stormseer",
+  "title": "Stormseer",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "novella",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The orks of the Overfiend of Octavius have bled the Imperium for too long, and now the White Scars come to break them. Temur Khan and his brotherhood fall upon the embattled world of Lepidus Prime like a thunderbolt, the swift hammer to the Imperial Guard's anvil. But the battlefront is only half the war: a lone Stormseer, guided by a fragmentary psychic vision and shadowed by enigmatic eldar, slips behind enemy lines to uncover the secret of the greenskins' uncanny ability to appear everywhere at once. Fast, furious, and steeped in the lightning-and-storm mysticism of Chogoris, this is the White Scars at their most kinetic.",
+    "facetIds": [
+      "book",
+      "novella",
+      "space_marine",
+      "male",
+      "imperium",
+      "planetary",
+      "standalone",
+      "war_story",
+      "mystery",
+      "grimdark",
+      "action_heavy",
+      "brotherhood",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "White Scars",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Eldar",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Lepidus Prime",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Temur Khan",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.62,
+      "count": 52,
+      "evidenceUrl": "https://www.goodreads.com/book/show/19440228-stormseer"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0449",
+  "slug": "mephiston-city-of-light",
+  "title": "Mephiston: City of Light",
+  "authors": [
+    "Darius Hinks"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novel",
+  "seriesHint": "Mephiston",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Deep within Imperium Nihilus, in the shadow of the Great Rift, Blood Angels Chief Librarian Mephiston and his comrades are drawn by cryptic visions to a war-torn world. There the sorcerers of the Thousand Sons labour to unite nine Silver Towers and complete a ritual that would empower their daemon-primarch Magnus the Red and cast the entire sub-sector into Chaos. Having already endured the Devastation of Baal, Mephiston must summon all his strength and will to stop them — confronting a hidden truth that threatens to expose him to his darkest fears. The climactic battle of the Lord of Death's darkest hour.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "series_finale",
+      "standard",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "cosmic_horror",
+      "doubt",
+      "faith",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Thousand Sons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Imperium Nihilus",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Mephiston",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.83,
+      "count": 267,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/49229915-mephiston"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

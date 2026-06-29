@@ -1,0 +1,107 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0004",
+  "slug": "the-flight-of-the-eisenstein",
+  "title": "The Flight of the Eisenstein",
+  "authors": [
+    "James Swallow"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2007,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Battle-captain Nathaniel Garro of the Death Guard learns of his primarch's treason at Isstvan III and refuses it. With the few loyalist Astartes he can gather, he commandeers the frigate Eisenstein, breaks the traitor blockade above the killing-world, and runs for Terra to warn the Emperor. The price is paid by his ship, his crew, and ultimately his own body as daemons of the warp claw at the hull and his closest brother is taken by plague. By the time the Eisenstein limps into the Sol system, gaunt and burning, Garro is the first man to speak the word 'heresy' inside the Imperial palace — and the first of a quieter brotherhood that will follow.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "journey",
+      "grimdark",
+      "action_heavy",
+      "cosmic_horror",
+      "betrayal",
+      "loyalty",
+      "faith",
+      "sacrifice",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Death Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Custodes",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Isstvan III",
+        "role": "primary"
+      },
+      {
+        "name": "Terra",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Nathaniel Garro",
+        "role": "pov"
+      },
+      {
+        "name": "Mortarion",
+        "role": "antagonist"
+      },
+      {
+        "name": "Kaleb Arin",
+        "role": "supporting"
+      },
+      {
+        "name": "Solun Decius",
+        "role": "supporting"
+      },
+      {
+        "name": "Rogal Dorn",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.13,
+      "count": 20766,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22571995"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0236",
+  "slug": "iron-guard",
+  "title": "Iron Guard",
+  "authors": [
+    "Mark Clapham"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "novel",
+  "seriesHint": "Imperial Guard",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The 114th Mordian, the Iron Guard, are famed for their unbreakable discipline at the Siege of Defure. Sent to the mining world of Belmos VII, Major Geiss leads a strike force to investigate a silence that has fallen over the colony, only to find day turning to night on a world that should be teeming with life. A terrible affliction of alien origin is spreading through the Belmosian population, and as the newly initiated guardsman Fernand Hool and his comrades hunt for its source, panic and corruption close in around them. Surrounded by enemies among the colonists and beyond, the Mordians must hold their iron line or be swallowed by the dying world.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "mystery",
+      "siege",
+      "grimdark",
+      "somber",
+      "cosmic_horror",
+      "war",
+      "loyalty",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Mordian Iron Guard",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Belmos VII",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Fernand Hool",
+        "role": "pov"
+      },
+      {
+        "name": "Major Geiss",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "sources confirm the affliction is of xenos origin but do not name the species, so no antagonist faction is asserted"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.79,
+      "count": 198,
+      "evidenceUrl": "https://www.goodreads.com/book/show/17571895"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

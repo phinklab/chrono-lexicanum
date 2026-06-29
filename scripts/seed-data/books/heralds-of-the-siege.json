@@ -1,0 +1,77 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0052",
+  "slug": "heralds-of-the-siege",
+  "title": "Heralds of the Siege",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2018,
+  "format": "anthology",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Sixteen short stories and two novellas mark the threshold of the Horus Heresy's final act. As the traitor warhost gathers for the assault on Sol, loyalist remnants on Terra and beyond reckon with their place in the war's closing chapters: a primarch lays down a final ultimatum to a defeated world; Knights-Errant carry out Malcador's quiet errands; voices from the Sol defence, the Mechanicum, and the scattered legions speak across the void. The anthology serves as the bridge between the original Horus Heresy and the Siege of Terra, drawing together a generation of contributing authors — John French, James Swallow, Gav Thorpe, Chris Wraight, Guy Haley, Nick Kyme, Rob Sanders, and Anthony Reynolds — to set the stage for the Throneworld's siege.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "ensemble",
+      "mixed",
+      "space_marine",
+      "dual",
+      "galactic",
+      "mid_series",
+      "standard",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "war",
+      "loyalty",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [],
+    "locations": [],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "anthology table of contents not retrievable from accessible sources; per-story faction aggregation skipped rather than fabricated"
+      },
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "anthology table of contents not retrievable from accessible sources; per-story character list skipped rather than fabricated"
+      },
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "anthology table of contents not retrievable from accessible sources; per-story location list skipped rather than fabricated"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.95,
+      "count": 1180,
+      "evidenceUrl": "https://www.goodreads.com/book/show/40593237-heralds-of-the-siege"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

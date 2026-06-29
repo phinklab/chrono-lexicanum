@@ -1,0 +1,96 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0360",
+  "slug": "ishas-lament",
+  "title": "Isha's Lament",
+  "authors": [
+    "Thomas Parrott"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novella",
+  "seriesHint": "Eldar",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Brakus Andradus was once a sniper in the Astra Militarum; now he is a deserter trying to drink away what he saw on his last expedition into the Blackstone Fortress. When a deadly plague erupts and begins to kill the inhabitants of the frontier station Precipice, Brakus is forced back into the vast alien fortress to hunt for a cure. His only companions are a wary Eldar ranger, Amallyn, and a lethal dark eldar gladiatrix, Maugra — uneasy allies whose own goals could turn on him at any moment. A tense standalone novella of survival and old wounds set in the depths of the Blackstone Fortress.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "neutral",
+      "squad",
+      "standalone",
+      "novella",
+      "journey",
+      "mystery",
+      "somber",
+      "action_heavy",
+      "grimdark",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Craftworld Eldar",
+        "role": "supporting"
+      },
+      {
+        "name": "Dark Eldar",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Precipice",
+        "role": "primary"
+      },
+      {
+        "name": "Blackstone Fortress",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Brakus Andradus",
+        "role": "pov"
+      },
+      {
+        "name": "Amallyn",
+        "role": "supporting"
+      },
+      {
+        "name": "Maugra",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.08,
+      "count": 75,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/48671618"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

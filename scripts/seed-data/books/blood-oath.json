@@ -1,0 +1,87 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0337",
+  "slug": "blood-oath",
+  "title": "Blood Oath",
+  "authors": [
+    "Phil Kelly"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novella",
+  "seriesHint": "Apocalypse",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Two centuries after the first clashes in the Damocles Gulf, the T'au Empire returns in force, and the world of Agrellan burns. The White Scars and Raven Guard race to its defence, but the alien host is led by the brilliant Commander Shadowsun, and the Imperium's warriors are pressed to their limit. For Kor'sarro Khan, Huntmaster of the White Scars, the campaign becomes something personal: he swears a blood oath to win in the most direct way imaginable, by riding down Shadowsun and claiming her head. A fast, hard-charging war story of the hunt, pitting the headlong fury of the White Scars against the patient, calculated genius of the T'au commander.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "series_start",
+      "novella",
+      "war_story",
+      "siege",
+      "action_heavy",
+      "grimdark",
+      "loyalty",
+      "war",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "White Scars",
+        "role": "primary"
+      },
+      {
+        "name": "Raven Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "T'au Empire",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Agrellan",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Kor'sarro Khan",
+        "role": "pov"
+      },
+      {
+        "name": "Commander Shadowsun",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3,
+      "count": 13,
+      "evidenceUrl": "https://www.goodreads.com/book/show/55819462-blood-oath"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

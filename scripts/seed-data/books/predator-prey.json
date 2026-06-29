@@ -1,0 +1,85 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0415",
+  "slug": "predator-prey",
+  "title": "Predator, Prey",
+  "authors": [
+    "Rob Sanders"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "The Beast Arises",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Imperial Fists are gone, annihilated on Ardamantua, and after centuries of peace the Imperium reels in panic. World after world is menaced by orks whose colossal attack moons cross the void and shatter planets with gravity weapons no human fleet can answer. On Terra the High Lords squander their hours in petty politicking, paralysed by the sheer scale of the threat, while Space Marine homeworlds and Mechanicus forge worlds alike fall before the green tide. Across a dozen embattled fronts, from the warriors of the Fists Exemplar to a lone planetary defence commander making his hopeless stand, ordinary defenders try to hold the line against an enemy that simply cannot be stopped. And in the wreckage of Ardamantua, against all odds, a single Imperial Fist still draws breath. The second novel of the Beast Arises series.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "mid_series",
+      "standard",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "sacrifice",
+      "loyalty",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Koorland",
+        "role": "supporting"
+      },
+      {
+        "name": "Drakan Vangorich",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.57,
+      "count": 1048,
+      "evidenceUrl": "https://www.goodreads.com/book/show/28954461-predator-prey"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

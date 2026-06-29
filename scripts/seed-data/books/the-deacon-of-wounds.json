@@ -1,0 +1,84 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0509",
+  "slug": "the-deacon-of-wounds",
+  "title": "The Deacon of Wounds",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "novel",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Theotokos is dying of thirst. Above the ration queues sits Cardinal Lorenz, who has spent a long career hoarding the planet's last water beneath the Ecclesiarchal Palace; beside him serves Arch-Deacon Ambrose, charismatic and devout, beloved by a people for whom Lorenz is the face of everything wrong with the Imperial Creed. When Lorenz dies, Ambrose's moment finally arrives — and so does a plague, the Grey Tears, that runs ahead of every measure he can devise. The more Ambrose intends mercy, the more extreme the means by which he reaches for it, until the question is no longer whether Theotokos can be saved, but what malign thing he has been negotiating with all along.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "character_study",
+      "political_thriller",
+      "mystery",
+      "grimdark",
+      "cosmic_horror",
+      "somber",
+      "philosophical",
+      "faith",
+      "hubris",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Ministorum",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Theotokos",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Arch-Deacon Ambrose",
+        "role": "pov"
+      },
+      {
+        "name": "Cardinal Lorenz",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.71,
+      "count": 357,
+      "evidenceUrl": "https://www.goodreads.com/book/show/55711318-the-deacon-of-wounds"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

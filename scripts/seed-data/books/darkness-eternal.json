@@ -1,0 +1,107 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0577",
+  "slug": "darkness-eternal",
+  "title": "Darkness Eternal",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2025,
+  "format": "anthology",
+  "seriesHint": "40k",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "In the grim darkness of the far future, the galaxy burns as its disparate races fight for resources, territory and divine purpose. Across thirteen tales, the 41st Millennium is seen through the eyes of the lowly soldiers, hunters and warriors whose actions keep the nightmares of the galaxy at bay. In the ruins of Traitor Rock, Cadian veteran Minka Lesk drinks with her comrades and tells sanitised stories of a lost homeworld. The legendary pilot Lucille von Shard faces an unusual and deadly foe above the Great Grass Plains, while Major Wulf Khan ventures deep behind t'au lines after his fighter is brought down. A kroot shaper struggles to guide the evolution of his kindred, and the t'au warrior Takka hunts vanguard tyranid organisms with an elite strike force. From the avaricious Leagues of Votann to the ravenous tyranids and the savage kroot, these stories examine the Imperium's struggle for primacy against them all.",
+    "facetIds": [
+      "book",
+      "en",
+      "ensemble",
+      "multi",
+      "dual",
+      "galactic",
+      "standalone",
+      "short",
+      "war_story",
+      "grimdark",
+      "war",
+      "sacrifice",
+      "brotherhood",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "T'au Empire",
+        "role": "primary"
+      },
+      {
+        "name": "Kroot",
+        "role": "supporting"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      },
+      {
+        "name": "Leagues of Votann",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Cadia",
+        "role": "supporting"
+      },
+      {
+        "name": "Traitor Rock",
+        "role": "supporting"
+      },
+      {
+        "name": "Great Grass Plains",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Minka Lesk",
+        "role": "pov"
+      },
+      {
+        "name": "Lucille von Shard",
+        "role": "pov"
+      },
+      {
+        "name": "Wulf Khan",
+        "role": "pov"
+      },
+      {
+        "name": "Takka",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.35,
+      "count": 48,
+      "evidenceUrl": "https://www.goodreads.com/book/show/241816322-darkness-eternal"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

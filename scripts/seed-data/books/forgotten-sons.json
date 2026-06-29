@@ -1,0 +1,98 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0159",
+  "slug": "forgotten-sons",
+  "title": "Forgotten Sons",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2011,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The world of Bastion has chosen neutrality in the civil war, and both sides have sent ambassadors to win it. The Imperium's are two loyalist Space Marines — Heka'tan of the Salamanders and Arcadese of the Ultramarines — accompanied by the remembrancer Persephia. When their landing ship is shot down they reach the capital on foot, surrender their weapons, and stand to argue their case against Horus's smooth-tongued envoy Vorkellen. Beneath the city an Iron Warrior is rigging the planet's foundations with atomics. Persephia stumbles upon the saboteur and is killed; a lacrymole shape-shifter is sent to assassinate Vorkellen in open court. As Bastion begins to come apart, Heka'tan and Arcadese must decide whose lives are worth saving — including that of the enemy whose mission would have destroyed their own.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "company",
+      "planetary",
+      "standalone",
+      "political_thriller",
+      "war_story",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "sacrifice",
+      "loyalty",
+      "brotherhood",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Salamanders",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bastion",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Heka'tan",
+        "role": "pov"
+      },
+      {
+        "name": "Arcadese",
+        "role": "pov"
+      },
+      {
+        "name": "Persephia",
+        "role": "supporting"
+      },
+      {
+        "name": "Vorkellen",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.46,
+      "count": 211,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22599275-forgotten-sons"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

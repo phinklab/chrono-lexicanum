@@ -1,0 +1,125 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0033",
+  "slug": "war-without-end",
+  "title": "War Without End",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2016,
+  "format": "anthology",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Twenty-one short stories spanning the breadth of the Horus Heresy. Aaron Dembski-Bowden's Howl of the Hearthworld returns to Bjorn and the Space Wolves' Tra pack, while Lord of the Red Sands drops back into Angron's red-misted skull. Graham McNeill's Wolf Mother brings the Sisters of Silence into focus against psychic horror; James Swallow's All That Remains and Gunsight follow Nathaniel Garro on Knight-Errant missions for Malcador. Nick Kyme's The Phoenician and Chirurgeon turn to Fulgrim's transformation; Chris Wraight's Allegiance and Daemonology to White Scars caught between sides. Guy Haley, John French, David Annandale, Gav Thorpe and Rob Sanders fill out a mosaic that runs from Calth wreckage and Sigillite intrigue to traitor-legion oaths sworn in the dark.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "ensemble",
+      "space_marine",
+      "multi",
+      "dual",
+      "galactic",
+      "requires_context",
+      "standard",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "betrayal",
+      "war",
+      "brotherhood",
+      "loyalty",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "World Eaters",
+        "role": "supporting"
+      },
+      {
+        "name": "Sisters of Silence",
+        "role": "supporting"
+      },
+      {
+        "name": "Emperor's Children",
+        "role": "supporting"
+      },
+      {
+        "name": "White Scars",
+        "role": "supporting"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "supporting"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "supporting"
+      },
+      {
+        "name": "Dark Angels",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Calth",
+        "role": "supporting"
+      },
+      {
+        "name": "Terra",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Bjorn",
+        "role": "pov"
+      },
+      {
+        "name": "Angron",
+        "role": "pov"
+      },
+      {
+        "name": "Nathaniel Garro",
+        "role": "pov"
+      },
+      {
+        "name": "Fulgrim",
+        "role": "supporting"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.64,
+      "count": 1568,
+      "evidenceUrl": "https://www.goodreads.com/book/show/28678934-war-without-end"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

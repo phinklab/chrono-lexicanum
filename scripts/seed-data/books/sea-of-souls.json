@@ -1,0 +1,92 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0534",
+  "slug": "sea-of-souls",
+  "title": "Sea of Souls",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2023,
+  "format": "novel",
+  "seriesHint": "Dawn of Fire",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Fleet Secundus carves a course straight toward the Eye of Terror, and the Imperial Navy battle cruiser Judgement of the Void leads it. A handful of Adeptus Astartes, a squad of Adepta Sororitas including the hospitaller Sister Isobel, and a tightly drawn crew of mortals must endure a journey that becomes its own kind of warfare: nightmares bleeding through hull-plating, treachery splitting the bridge, the deep warp pressing on every soul aboard. The deeper they sail, the more clearly the ship - and its passengers - become the battlefield. By the time the enemy closes in for real, the Judgement of the Void's crew are already half-broken, and the wider schemes of the Indomitus Crusade have begun to unravel.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "multi",
+      "imperium",
+      "sector",
+      "mid_series",
+      "standard",
+      "war_story",
+      "journey",
+      "grimdark",
+      "cosmic_horror",
+      "somber",
+      "war",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Navy",
+        "role": "primary"
+      },
+      {
+        "name": "Adepta Sororitas",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Eye of Terror",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sister Isobel",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "Chaos antagonist sub-faction not confidently identifiable from public sources for this Eye-of-Terror voyage"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.06,
+      "count": 625,
+      "evidenceUrl": "https://www.goodreads.com/book/show/202445877-sea-of-souls"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

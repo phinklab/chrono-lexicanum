@@ -1,0 +1,95 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0404",
+  "slug": "the-relic",
+  "title": "The Relic",
+  "authors": [
+    "Jonathan Green"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "Space Marine Legends",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "As Ghazghkull Thraka's second war for Armageddon engulfs the planet, the Black Templars hunt their foe across the frozen Dead Lands. Leading the charge is the Dreadnought Brother Jarold, an ancient warrior interred in adamantium and driven on by the loss of his Chapter's champion to a marauding Ork warband. Following a faint distress beacon buried in the ice, the Templars unearth another Dreadnought: Venerable Brother Rhodomanus of the Crimson Fists, entombed and dormant for half a century since the previous war. When the greenskins descend in overwhelming numbers, the two relics of a bygone age stand together for one final, defiant battle against the bestial tide.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "planetary",
+      "standalone",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "brotherhood",
+      "sacrifice",
+      "loyalty",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Black Templars",
+        "role": "primary"
+      },
+      {
+        "name": "Crimson Fists",
+        "role": "supporting"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Armageddon",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Jarold",
+        "role": "pov"
+      },
+      {
+        "name": "Rhodomanus",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "suggestion": "short_story",
+        "reason": "Roster lists format=novel, but sources show this is a short story from the Legends of the Space Marines anthology (2010), re-released as a standalone ebook in 2016."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.77,
+      "count": 43,
+      "evidenceUrl": "https://www.goodreads.com/book/show/17334754-the-relic"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

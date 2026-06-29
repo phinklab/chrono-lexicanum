@@ -1,0 +1,87 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0165",
+  "slug": "junktion",
+  "title": "Junktion",
+  "authors": [
+    "Matthew Farrer"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2005,
+  "format": "novel",
+  "seriesHint": "Necromunda",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Sinden Kass keeps Junktion alive by keeping its lights burning. As the downhive township's lamplighter, he maintains the fragile power that lets people see trouble before it reaches the door; then the other lamplighters start dying, and every Guilder and gang nearby realises Kass now controls the town's most valuable resource. Trapped between flight and defence, he has to learn who is hunting him while the dark closes in. A tight Necromunda siege-procedural, all claustrophobia, utility work and noir pressure.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "siege",
+      "character_study",
+      "mystery",
+      "grimdark",
+      "somber",
+      "doubt",
+      "loyalty",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_crime",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Guilders",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Necromunda",
+        "role": "primary"
+      },
+      {
+        "name": "Hive Primus",
+        "role": "supporting"
+      },
+      {
+        "name": "Underhive",
+        "role": "primary"
+      },
+      {
+        "name": "Junktion",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sinden Kass",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

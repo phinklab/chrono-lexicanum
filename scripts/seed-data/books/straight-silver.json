@@ -1,0 +1,122 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0029",
+  "slug": "straight-silver",
+  "title": "Straight Silver",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2002,
+  "format": "novel",
+  "seriesHint": "Gaunt's Ghosts",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On Aexe Cardinal, the Imperial Guard finds itself embedded in a planetary-scale stalingrad of trench warfare — a static Great-War-style front line where two Aexegarian factions, locked in a fifty-year-old grudge, are now joined by Crusade reinforcements on one side and Blood Pact warbands on the other. The Ghosts are dropped into this medieval gunfight as a scout-and-stealth regiment in a war that has barely heard of stealth. Gaunt's command intersects with the venal General Lyntor-Sewq and the local Aexegarian high command, where political snobbery toward an off-world regiment matters more than the daily attrition. Subplots: Trooper Cuu's killer-among-the-Ghosts arc tightens its noose around Larkin; Mkoll's scout teams probe the no-man's-land for ways past the Shadik trench network. The novel ends with a no-budge stalemate broken by Tanith reconnaissance feeding the artillery a working firing solution. Tone register stays in the trench-poetry vein throughout — somber and grinding.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "regiment",
+      "mid_series",
+      "standard",
+      "war_story",
+      "siege",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "brotherhood",
+      "sacrifice",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Tanith First-and-Only",
+        "role": "primary"
+      },
+      {
+        "name": "Verghastite Ghosts",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Aexegarian Forces",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Blood Pact",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Aexe Cardinal",
+        "role": "primary"
+      },
+      {
+        "name": "Sabbat Worlds",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ibram Gaunt",
+        "role": "pov"
+      },
+      {
+        "name": "Colm Corbec",
+        "role": "supporting"
+      },
+      {
+        "name": "Elim Rawne",
+        "role": "supporting"
+      },
+      {
+        "name": "Hlaine Larkin",
+        "role": "supporting"
+      },
+      {
+        "name": "Oan Mkoll",
+        "role": "supporting"
+      },
+      {
+        "name": "Lijah Cuu",
+        "role": "supporting"
+      },
+      {
+        "name": "Viktor Hark",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}
