@@ -5,8 +5,8 @@ created: 2026-05-09
 updated: 2026-07-01
 sources:
   - ../../sessions/README.md
-  - ../../sessions/2026-06-28-170-impl-per-book-ssot.md
-  - ../../sessions/2026-06-30-171-impl-per-book-ssot-migration.md
+  - ../../sessions/archive/2026-06/2026-06-28-170-impl-per-book-ssot.md
+  - ../../sessions/archive/2026-06/2026-06-30-171-impl-per-book-ssot-migration.md
   - ../../sessions/2026-07-01-172-impl-podcast-weekly-maintenance.md
   - ../../sessions/archive/2026-06/2026-06-17-154-impl-book-reviewer.md
   - ../../sessions/archive/2026-06/2026-06-18-155-impl-book-review-web-pass.md
@@ -15,7 +15,7 @@ sources:
   - ../../sessions/archive/2026-06/2026-06-18-160-impl-bg-scroll-polish.md
   - ../../sessions/archive/2026-06/2026-06-19-161-impl-perceived-latency-feedback.md
   - ../../sessions/archive/2026-06/2026-06-19-162-impl-entity-isr-hot-subset.md
-  - ../../sessions/2026-06-20-163-impl-timed-preview-access.md
+  - ../../sessions/archive/2026-06/2026-06-20-163-impl-timed-preview-access.md
   - ../../sessions/archive/2026-06/2026-06-18-157-impl-incremental-apply-default.md
 related:
   - ./open-questions.md
@@ -74,7 +74,9 @@ confidence: high
 
 ## What's open
 
-Strang-Arbeit trackt in den Boards (Status-Spalten = Wahrheit): **121** offen P7(teilw. via 147)/P8/P9 (Themen/Galerie, warten auf 122-B8/B9) / **P12** URL-Migration EN + `/buch`-SSG / **P13** Mobile-Sweep / **P14** Map ⏸ — jetzt mit Inhalt: **53 sektor-zugeordnete Welten aus Stage 3** sind die Platzierungs-Worklist, und der **Redditor liefert eine Sternenkarte-Koordinaten-Excel** (Stand 2026-06-24: angekündigt, Reconciliation auf das interne `gx`/`gy`-0–1000-Raster ist die eigentliche Arbeit) / **P15** Map-Chrome-Kohärenz-Pass (Kandidat aus 150). **122** offen B5(⏸ Hand)/B6 (geprüft: **nicht** gelaufen, V1/V2-Code liegt komplett)/B7/B8/B9 / **B12** Ask-Logik-Tuning — **erledigt via Brief 164** (Ask-Overhaul gemergt + gepullt; Impl-Report war vergessen, im 2026-06-26-Pass nachgetragen). **B14 Local-only Curation Admin Tool am 2026-06-17 verworfen**: Hand-Kuration läuft per Codex-Auftrag an `curation-overlay.json` + Dry-Run/Verify. Erledigt: P1–P6, **P10 (150)**, **P11 (Seiten-Rückbau/Security-Rest, Report 153, gemergt)**, Product-Wave **159/160/161/162/163**, B1, **B2 (149)**, B3 (Full 981/981), B4, B10, **B11 Buch-Reviewer voll gelaufen + appliziert (154 + Stage 3 155 + Gate F/L 158)**, **B13 (151)**, **OQ 16(a) (152)**. Queue: [`open-questions.md`](./open-questions.md) (nur noch 16b/c Timeline-Folgen; **18a/b geschlossen** via Brief 170/171). Character-Sentinels (315) geparkt.
+> **Kanonische Sammelstelle seit 2026-07-01: [`worklist.md`](./worklist.md)** (Konsolidierungs-Session mit Philipp, Brief 173). Neue offene Punkte landen dort; der Abschnitt hier bleibt Kontext-Zusammenfassung.
+
+Strang-Arbeit trackt in den Boards (Status-Spalten = Wahrheit): **121** offen P7(teilw. via 147)/P8/P9 (Themen/Galerie, warten auf 122-B8/B9) / **P12** URL-Migration EN + `/buch`-SSG / **P13** Mobile-Sweep / **P14** Map (entsperrt) — jetzt mit Inhalt: **53 sektor-zugeordnete Welten aus Stage 3** sind die Platzierungs-Worklist, und der **Redditor liefert eine Sternenkarte-Koordinaten-Excel** (Stand 2026-06-24: angekündigt, Reconciliation auf das interne `gx`/`gy`-0–1000-Raster ist die eigentliche Arbeit) / **P15** Map-Chrome-Kohärenz-Pass (Kandidat aus 150). **122** offen B5(⏸ Hand)/B6 (geprüft: **nicht** gelaufen, V1/V2-Code liegt komplett)/B7/B8/B9 / **B12** Ask-Logik-Tuning — **erledigt via Brief 164** (Ask-Overhaul gemergt + gepullt; Impl-Report war vergessen, im 2026-06-26-Pass nachgetragen). **B14 Local-only Curation Admin Tool am 2026-06-17 verworfen**: Hand-Kuration läuft per Codex-Auftrag an `curation-overlay.json` + Dry-Run/Verify. Erledigt: P1–P6, **P10 (150)**, **P11 (Seiten-Rückbau/Security-Rest, Report 153, gemergt)**, Product-Wave **159/160/161/162/163**, B1, **B2 (149)**, B3 (Full 981/981), B4, B10, **B11 Buch-Reviewer voll gelaufen + appliziert (154 + Stage 3 155 + Gate F/L 158)**, **B13 (151)**, **OQ 16(a) (152)**. Queue: [`open-questions.md`](./open-questions.md) (nur noch 16b/c Timeline-Folgen; **18a/b geschlossen** via Brief 170/171). Character-Sentinels (315) geparkt.
 
 Kleinkram außerhalb Boards/OQs:
 
@@ -85,13 +87,10 @@ Kleinkram außerhalb Boards/OQs:
 
 ## Next likely brief
 
-**Stand 2026-07-01:** Die Per-Buch-SSOT-Wave **170/171/172 ist komplett gemergt + `implemented`** (dieser Koordinations-Pass zieht `project-state`/`log`/`README` nach). ⚠ **Adjacent-Staleness, bewusst NICHT in diesem Pass gefixt (eigene Hygiene-Session):** die Zeilen 166/167/168/169 stehen im README noch auf `open`, obwohl **166/168/169 Impl-Reports haben** und **167s 6 ADD-Bücher (`W40K-0593..0598`) im per-Buch-Korpus liegen** — Board-/README-Status-Resync + Archiv-Sweep dieser Vierer-Gruppe ist die nächste Koordinations-Aufgabe. Die Forward-Queue unten ist der 2026-06-26-Stand und wird beim 166-169-Resync mitgezogen.
->
-> Aktualisiert 2026-06-26: **Brief 164 (Ask-Overhaul) ist gemergt + gepullt** (Impl-Report war vergessen — im 2026-06-26-Koordinations-Pass nachgetragen); die Wave 154–163 ist gemergt und DB-seitig appliziert. **Neu gebrieft: [166](../../sessions/2026-06-26-166-arch-ask-hub-one-faction-one-book.md)** — `/ask` wird „Find your next book"-Hub mit Fragebogen + neuem Tool „1 Faction, 1 Book" (maintainer-gepflegte Kurations-JSON, Reshuffle) + Diamond-Glyph-Rückbau; Product-Strang. Forward-Queue mit Philipp (2026-06-26):
+**Stand 2026-07-01 (nach Brief 173, Hygiene-Resync):** Die Per-Buch-SSOT-Wave **170/171/172 ist komplett gemergt + `implemented`**; Brief 173 hat die Buchhaltung nachgezogen (README-Tabelle 166–169 → `implemented`, 167 ohne Impl-Report mit Evidenz-Vermerk; Archiv-Sweep des `sessions/`-Roots; Boards-121/122-Resync; OQ-16b verortet in `scripts/book-apply-shared.ts`) und [`worklist.md`](./worklist.md) als kanonische Sammelstelle etabliert. Forward-Queue (mit Philipp 2026-07-01 bestätigt, Detail + Pakete in der Worklist):
 
-1. **Brief 166 — Ask-Hub + „1 Faction, 1 Book" (gebrieft, wartet auf CC).** Philipp pflegt die Faction→Buch-Liste; CC liefert Schema + Loader + UI + Validierung. Product-Worktree, ein PR.
-2. **P14 Map / Sternenkarte (entsperrt).** Der Redditor liefert eine Koordinaten-Excel; Stage 3 hinterlässt **53 sektor-zugeordnete Welten** als Platzierungs-Worklist. Architektonischer Kern eines Briefs: das Koordinatensystem der Excel auf das interne `gx`/`gy`-0–1000-Canvas-Raster mappen (Reconciliation), Roh-Quelle nach `scripts/seed-data/source/` (Präzedenz: `Warhammer_Books_SSOT.xlsx`), Apply read-only-vorschlagend → Hand-Gate. **Voraussetzung: die Excel sichten, bevor der Brief geschnitten wird.**
-3. **P12 URL-Migration EN + `/buch`-SSG** — reiner Architektur-Schnitt, keine Daten nötig.
-4. **P13 Mobile-Sweep.** Dazwischen wann Luft ist: B6 (Dead-Code), B7 (brain:lint-Guardrail); **B5** läuft als Hand-Kuratierung weiter; **P15** Map-Chrome-Kohärenz als eigener Kandidat. Optional `npm run db:drift` gegen Prod als read-only Bestätigung nach den Applies.
+1. **P14 Map / Sternenkarte (entsperrt).** Stage 3 hinterlässt **53 sektor-zugeordnete Welten** als Platzierungs-Worklist; die Redditor-Koordinaten-Excel ist seit 2026-06-24 angekündigt, **nicht geliefert** — sichten, bevor der Brief geschnitten wird, alternativ P14 auf die 53 Welten schneiden. Architektonischer Kern: Excel-Koordinatensystem aufs interne `gx`/`gy`-0–1000-Canvas-Raster mappen (Reconciliation), Roh-Quelle nach `scripts/seed-data/source/`, Apply read-only-vorschlagend → Hand-Gate.
+2. **P12 URL-Migration EN + `/buch`-SSG** — reiner Architektur-Schnitt, keine Daten nötig.
+3. **P13 Mobile-Sweep.** Dazwischen wann Luft ist: B6 (Dead-Code), B7 (brain:lint-Guardrail), **P15** Map-Chrome-Kohärenz; Pakete **Podcast-Hygiene** + **Roster-Rebind** (Worklist § B); **B5** läuft als Hand-Kuratierung weiter. Optional `npm run db:drift` gegen Prod als read-only Bestätigung nach den Applies.
 
 Session-end-Disziplin: [`workflows/session-end.md`](./workflows/session-end.md); Rollup-Files ändern sich ausschließlich über den Koordinations-Pass (Brief 095).
