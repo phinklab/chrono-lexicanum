@@ -275,8 +275,10 @@ function reviewPromptSection(proposal: RefreshProposal): string[] {
     "  • Collisions (books.reviewBooks[]): a human call — new edition/omnibus vs duplicate.",
     "",
     "Podcasts (proposal.json → podcasts.shows[].newEpisodes[], report-only — not roster rows):",
-    "  • Ingest a show: `PODCAST_LLM_MODEL=claude-sonnet-4-6 npm run ingest:podcast -- --show <slug>`,",
-    "    then `npm run apply:podcast -- --show <slug>` (only on explicit DB confirmation — see below).",
+    "  • Add new episodes (delta, Brief 172): acquire the show manifest, tag ONLY the new guids",
+    "    (`prepare-delta` → run-podcast-tag-loop.sh → `merge-delta`), assemble, then",
+    "    `npm run apply:podcast -- --show <slug>` (only on explicit DB confirmation — see below).",
+    "    NO full-show retag, no metered `ingest:podcast --show`. See scripts/runbooks/add-podcast-episode-runbook.md.",
     "",
     "After reviewing, advance the cursors so next week shows only what is genuinely new.",
     "SEQUENCING TRAP: run these AFTER this PR is merged AND fetched — the proposal lands on",
@@ -286,8 +288,8 @@ function reviewPromptSection(proposal: RefreshProposal): string[] {
     '  Run --books even if you promote/ignore nothing — "I have seen this list" is the whole point.',
     "",
     "DO NOT write the production database unless Philipp explicitly confirms it in this session.",
-    "Without that confirmation, stay at: roster-extension / ignore-list / curation-state file edits",
-    "+ this PR. The DB writes (apply:podcast, db:apply-override, db:rebuild) are the maintainer's call.",
+    "Without that confirmation, stay at: per-book files / ignore-list / curation-state file edits",
+    "+ this PR. The DB writes (apply:book, apply:podcast, db:sync) are the maintainer's call.",
     "```",
     "",
   ];
@@ -334,7 +336,10 @@ export function buildReportMarkdown(
       "chosen `proposal.json` row (allocated externalBookId included), curate, then " +
       "`npm run apply:book -- --slug <slug>` — no batch/slot/extension/import:ssot-roster/loop:next. " +
       "See `scripts/runbooks/add-book-runbook.md` (+ `weekly-refresh-runbook.md` §Promote).",
-    "- **Podcasts:** `npm run ingest:podcast -- --show <slug>` then `npm run apply:podcast`.",
+    "- **Podcasts (delta path, Brief 172):** acquire the show manifest, tag ONLY the new episodes, " +
+      "merge-delta into `ingest/podcasts/<slug>.extractions.json`, assemble, then " +
+      "`npm run apply:podcast -- --show <slug>` — never a full-show retag. " +
+      "See `scripts/runbooks/add-podcast-episode-runbook.md` (+ `weekly-db-update-runbook.md`).",
     "- **Afterwards:** `npm run refresh:mark-reviewed -- --books` (after merging this PR — even if " +
       "you promote/ignore nothing): marks everything listed here as seen, so next week's PR only " +
       "shows what is genuinely new.",

@@ -21,6 +21,12 @@ import {
   type EpisodeResult,
 } from "../src/lib/ingestion/podcast/artifact";
 import {
+  DeltaGuardError,
+  mergeExtractionsDelta,
+  partitionProposalGuids,
+  selectDeltaGuids,
+} from "../src/lib/ingestion/podcast/delta";
+import {
   canonicalizeExtraction,
   coerceEpisodeExtraction,
   ExtractionValidationError,
@@ -367,6 +373,7 @@ test("cc-direct lib + scripts never import @anthropic-ai/sdk", () => {
     "src/lib/ingestion/podcast/prompt.ts",
     "src/lib/ingestion/podcast/extraction.ts",
     "src/lib/ingestion/podcast/manifest.ts",
+    "src/lib/ingestion/podcast/delta.ts",
     "scripts/podcast-cc-tag.ts",
     "scripts/podcast-migrate-extractions.ts",
   ];
@@ -385,6 +392,119 @@ test("ingest-podcast.ts imports the SDK only as a type + lazily", () => {
     src.includes('await import("@anthropic-ai/sdk")'),
     "expected the SDK to be loaded via a lazy await import in the api path",
   );
+});
+
+// --- 10. delta primitives (Brief 172) ----------------------------------------
+
+/** A minimal extraction with an optional character surface-form list. */
+function mkExt(kind: EpisodeExtraction["episodeKind"], chars: string[] = []): EpisodeExtraction {
+  return {
+    episodeKind: kind,
+    characters: { primary: chars, mentioned: [] },
+    factions: emptyAxis(),
+    locations: emptyAxis(),
+  };
+}
+
+/** A committed extractions file fixture (default header, override extractions). */
+function mkFile(extractions: Record<string, EpisodeExtraction>, over?: Partial<ExtractionsFile>): ExtractionsFile {
+  return {
+    show: "s",
+    tagging: "cc-direct",
+    model: "claude-sonnet-4-6",
+    promptVersion: "v1",
+    extractions,
+    ...over,
+  };
+}
+
+test("selectDeltaGuids: new = manifest ∖ existing, manifest order preserved", () => {
+  const sel = selectDeltaGuids(["a", "b", "c", "d"], ["b", "d"]);
+  assert.deepEqual(sel.newGuids, ["a", "c"]);
+  assert.deepEqual(sel.alreadyTagged, ["b", "d"]);
+});
+
+test("selectDeltaGuids: up-to-date show → zero new guids (nothing to tag)", () => {
+  const sel = selectDeltaGuids(["a", "b"], ["a", "b", "x"]);
+  assert.deepEqual(sel.newGuids, []);
+  assert.deepEqual(sel.alreadyTagged, ["a", "b"]);
+});
+
+test("mergeExtractionsDelta: fresh show (null existing) → the delta IS the file", () => {
+  const r = mergeExtractionsDelta(null, {
+    show: "s",
+    model: "claude-sonnet-4-6",
+    promptVersion: "v1",
+    extractions: { a: mkExt("lore") },
+  });
+  assert.deepEqual(Object.keys(r.file.extractions), ["a"]);
+  assert.deepEqual(r.added, ["a"]);
+  assert.deepEqual(r.unchanged, []);
+});
+
+test("mergeExtractionsDelta: additive — existing preserved verbatim, new added (no shrink)", () => {
+  const existing = mkFile({ a: mkExt("lore", ["Konrad Curze"]) });
+  const r = mergeExtractionsDelta(existing, {
+    show: "s",
+    model: "claude-sonnet-4-6",
+    promptVersion: "v1",
+    extractions: { b: mkExt("news_recap") },
+  });
+  assert.deepEqual(Object.keys(r.file.extractions).sort(), ["a", "b"]);
+  assert.deepEqual(r.added, ["b"]);
+  // the reviewed 'a' entry is untouched.
+  assert.deepEqual(r.file.extractions.a, canonicalizeExtraction(mkExt("lore", ["Konrad Curze"])));
+});
+
+test("mergeExtractionsDelta: re-merging the same delta is idempotent + byte-stable", () => {
+  const existing = mkFile({ a: mkExt("lore") });
+  const delta = {
+    show: "s",
+    model: "claude-sonnet-4-6",
+    promptVersion: "v1",
+    extractions: { b: mkExt("interview") },
+  };
+  const r1 = mergeExtractionsDelta(existing, delta);
+  const s1 = serializeExtractions(r1.file);
+  const r2 = mergeExtractionsDelta(r1.file, delta); // weekly re-run on the same accepted item
+  assert.deepEqual(r2.added, []);
+  assert.deepEqual(r2.unchanged, ["b"]);
+  assert.equal(serializeExtractions(r2.file), s1, "re-merge changed the bytes");
+});
+
+test("mergeExtractionsDelta: a guid already tagged with a DIFFERENT extraction → DeltaGuardError", () => {
+  const existing = mkFile({ a: mkExt("lore", ["X"]) });
+  assert.throws(
+    () =>
+      mergeExtractionsDelta(existing, {
+        show: "s",
+        model: "claude-sonnet-4-6",
+        promptVersion: "v1",
+        extractions: { a: mkExt("lore", ["Y"]) }, // same guid, different tags → no silent retag
+      }),
+    DeltaGuardError,
+  );
+});
+
+test("mergeExtractionsDelta: prompt / model / show drift each → DeltaGuardError (needs-decision)", () => {
+  const existing = mkFile({ a: mkExt("lore") });
+  const withHeader = (over: { model?: string; promptVersion?: string; show?: string }) => ({
+    show: over.show ?? "s",
+    model: over.model ?? "claude-sonnet-4-6",
+    promptVersion: over.promptVersion ?? "v1",
+    extractions: { b: mkExt("lore") },
+  });
+  assert.throws(() => mergeExtractionsDelta(existing, withHeader({ promptVersion: "v2" })), DeltaGuardError);
+  assert.throws(() => mergeExtractionsDelta(existing, withHeader({ model: "claude-haiku-4-5" })), DeltaGuardError);
+  assert.throws(() => mergeExtractionsDelta(existing, withHeader({ show: "other" })), DeltaGuardError);
+});
+
+test("partitionProposalGuids: toTag / alreadyTagged / missingFromFeed (source drift)", () => {
+  // a: in feed, untagged → toTag; b: in feed + committed → stale skip; c: gone from feed → source drift.
+  const part = partitionProposalGuids(["a", "b", "c"], ["a", "b"], ["b"]);
+  assert.deepEqual(part.toTag, ["a"]);
+  assert.deepEqual(part.alreadyTagged, ["b"]);
+  assert.deepEqual(part.missingFromFeed, ["c"]);
 });
 
 // --- summary -----------------------------------------------------------------
