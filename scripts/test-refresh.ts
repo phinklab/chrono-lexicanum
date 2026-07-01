@@ -1052,6 +1052,28 @@ async function main(): Promise<void> {
     assert.match(md, /ingest\/refresh\/2026-W24\//);
   });
 
+  await test("buildReportMarkdown: podcast promote points at the delta path, not a full retag (Brief 172)", async () => {
+    const books = await detectMissingBooks(CFG, INDEX, makeIdAllocator(ROSTER), fakeFetcher({ [CFG.sheetCsvUrl]: TRACKER_CSV }));
+    const proposal: RefreshProposal = {
+      $generatedBy: "test",
+      isoWeek: "2026-W24",
+      books,
+      podcasts: { shows: [] },
+      hasFindings: true,
+    };
+    const md = buildReportMarkdown(proposal, {
+      generatedAtIso: "2026-06-09T00:00:00.000Z",
+      episodeSinceDate: "2026-01-01",
+    });
+    // The delta runbook + the targeted apply are the promoted path.
+    assert.match(md, /add-podcast-episode-runbook\.md/);
+    assert.match(md, /merge-delta/);
+    assert.match(md, /apply:podcast -- --show <slug>/);
+    // The old default (a metered full-show retag) must NOT be the promoted step:
+    // `ingest:podcast --show` may only appear inside an explicit NO/negative.
+    assert.doesNotMatch(md, /`npm run ingest:podcast -- --show <slug>`/);
+  });
+
   // --- artifact ↔ DB drift audit (Brief 151 Task 2, pure set logic) ---------
 
   await test("auditArtifactDrift: DB ahead of the artifact is the dangerous set", () => {

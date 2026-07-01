@@ -324,24 +324,33 @@ batch / slot / `loop:next` / `book-roster.extension.json` dance:
 > Legacy roster + Excel are never written by the refresh or per-book path.
 
 **Podcasts** (`proposal.json` `podcasts.shows[].newEpisodes[]` are report-only, NOT roster
-rows). The intended loop is conversational — review the report WITH Claude Code in the
-terminal ("lorehammer passt, bei luetin die eine, Video raus"), and Claude runs the steps
-for what fits (or you do it by hand):
+rows). Post-172 the promote path is the **delta** — tag ONLY the new guids and merge them
+into the committed artifact, never a full-show retag. The full station-by-station flow lives
+in [`add-podcast-episode-runbook.md`](./add-podcast-episode-runbook.md); in short:
 
-1. `PODCAST_LLM_MODEL=claude-sonnet-4-6 npm run ingest:podcast -- --show <slug>` (re-pull +
-   LLM-tag; honors `excludeTitlePatterns`, so "(Video)" twins never enter the artifact —
-   the book-default Haiku under-tags podcasts, so the Sonnet env knob is required),
-2. `npm run apply:podcast -- --show <slug>` (idempotent, episodeGuid-keyed DB write),
-3. `npm run refresh:mark-reviewed -- --show <slug>` — stamp the cursor to today so next
-   week's report only shows what's newer. Run this EVEN IF you ingest nothing (you've
-   reviewed the show and chosen to skip its backlog); the skipped episodes won't re-appear.
+1. `npm run ingest:podcast -- --tagging=cc-direct --stage=acquire --show <slug> --out <slug>`
+   (fetch the live manifest; honors `excludeTitlePatterns`, so "(Video)" twins never enter),
+2. `npm run ingest:podcast:tag -- prepare-delta --out <slug> --week <YYYY-Www>` (chunk ONLY
+   the guids not already tagged; cross-checks this week's proposal — "up to date" when nothing
+   is new, `needs-decision` on source/prompt drift),
+3. tag the delta batches with `scripts/run-podcast-tag-loop.sh --out <slug>` (cc-direct,
+   Sonnet, **zero** metered API calls) then `npm run ingest:podcast:tag -- merge-delta --out <slug>`
+   (additive union into `<slug>.extractions.json` — never overwrites a reviewed episode, never
+   shrinks),
+4. `npm run ingest:podcast -- --tagging=cc-direct --stage=assemble --out <slug>` (rebuild the
+   artifact), then `npm run apply:podcast -- --show <slug>` (idempotent, episodeGuid-keyed DB
+   write — **only on Philipp's explicit go**),
+5. `npm run refresh:mark-reviewed -- --show <slug>` — stamp the cursor to today so next
+   week's report only shows what's newer. Run this EVEN IF you tag nothing (you've reviewed
+   the show and chosen to skip its backlog); the skipped episodes won't re-appear.
 
-> **Note — show-level, not per-episode.** `ingest:podcast` re-pulls the *whole* feed and
-> tags every (non-excluded) episode; there is no per-episode cherry-pick. Per-episode
-> curation happens through `excludeTitlePatterns` (permanent) + the cursor (a "reviewed up
-> to here" line), not an accept/reject of individual episodes. Per-episode Apple deep-links
-> are not produced by the pipeline (episode links = the RSS audio enclosure; Apple is a
-> show-level link) — add one by hand if ever needed.
+> **Note — delta, additive, per-episode.** The delta tags only guids absent from the committed
+> extractions and merges them in; a prompt-version/model drift or a guid that would be re-tagged
+> differently stops with `needs-decision` (never a silent retag or an inventory shrink). A
+> full-show re-pull (`ingest:podcast --show`, the metered api path) stays available as a
+> fallback for a first ingest or a deliberate re-tag, but is no longer the default. Per-episode
+> Apple deep-links are not produced by the pipeline (episode links = the RSS audio enclosure;
+> Apple is a show-level link) — add one by hand if ever needed.
 
 ---
 
