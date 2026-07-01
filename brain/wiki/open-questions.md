@@ -5,11 +5,12 @@ created: 2026-05-09
 updated: 2026-07-01
 sources:
   - ../../sessions/README.md
-  - ../../sessions/2026-06-28-170-impl-per-book-ssot.md
-  - ../../sessions/2026-06-30-171-impl-per-book-ssot-migration.md
+  - ../../sessions/archive/2026-06/2026-06-28-170-impl-per-book-ssot.md
+  - ../../sessions/archive/2026-06/2026-06-30-171-impl-per-book-ssot-migration.md
   - ../../sessions/archive/2026-06/2026-06-10-137-impl-timeline-data-foundation.md
   - ../../sessions/archive/2026-06/2026-06-16-152-impl-timeline-rebuild-tail.md
   - ../../sessions/archive/2026-06/2026-06-18-157-impl-incremental-apply-default.md
+  - ../../scripts/book-apply-shared.ts
 related:
   - ./project-state.md
   - ./deferred-questions.md
@@ -31,7 +32,7 @@ Format per item: **(N) <Title>** with `Owner: …` (who has to act) · `Sessions
 **(16) Timeline-Datenfundament — zwei Folgethemen aus impl 137**
 `Owner: Cowork (Brief-Schnitt)` · `Sessions: archive/2026-06/2026-06-10-137-impl-timeline-data-foundation.md; 2026-06-16-152-impl-timeline-rebuild-tail.md` · `Follow-up brief: offen`
 
-- **(b) `primaryEraId` ist ein Placeholder-Feld.** `apply-override.ts` hardcodet `'time_ending'` bei jedem SSOT-Upsert. Seit der neue `/timeline` auf Events + Setting-Dates läuft, ist der Consumer-Druck gesunken. Brief erst, wenn ein Consumer das Feld ernsthaft nutzt; naheliegende Ableitung: aus Setting-Dates bucketen + Überschreiben abgewöhnen. Curation-Overlay kann einzelne Hand-Fixes zuletzt gewinnen lassen, löst aber den systemischen Placeholder nicht.
+- **(b) `primaryEraId` ist ein Placeholder-Feld.** Verortung post-171 (Brief 173, 2026-07-01): der `'time_ending'`-Hardcode lebt im geteilten Writer-Pfad `scripts/book-apply-shared.ts` — Konstante `M41_ERA_ID = "time_ending"` (Z. 99, mit Warn-Kommentar Z. 90–98), gestempelt in `computeBookRows` → `bookDetails.primaryEraId` (Z. 712), geschrieben von `applyBook` bei **jedem** Upsert (Insert wie Update) nach `book_details.primary_era_id` — praktisch der ganze 896er-Korpus trägt `'time_ending'`. Lesende Consumer existieren (Ask: `src/lib/ask/boundaries.ts`-Heresy-Gate + `ResultCard`-Era-Anzeige; Buchseite `src/lib/book/loadBook.ts`; `/archive`-Era-Gruppierung; Atlas-Queries), behandeln das Feld aber durchweg als uniformen Platzhalter (Anzeige bzw. Fallback auf Setting-Dates/Slug-Sets) — kein Consumer nutzt es ernsthaft als Era-Anker; seit der neue `/timeline` auf Events + Setting-Dates läuft, bleibt der Consumer-Druck niedrig. Brief erst, wenn ein Consumer das Feld ernsthaft nutzt; naheliegende Ableitung: aus Setting-Dates bucketen + Überschreiben abgewöhnen. Curation-Overlay kann einzelne Hand-Fixes zuletzt gewinnen lassen (`db:sync`-Schritt 8/9, nach dem Korpus-Apply), löst aber den systemischen Placeholder nicht.
 - **(c) Atlas-Extension für Events.** Events sind first-class kuratierte Entities. `atlas:regen` um einen Event-Page-Type erweitern (eine Seite pro Event, Era-Index-Seiten).
 
 ---
