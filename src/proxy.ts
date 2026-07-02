@@ -5,9 +5,11 @@ import { timingSafeEqualStr } from "@/lib/timingSafeEqual";
 
 // Next.js 16 file convention: this file replaces the pre-v16 `middleware.ts`.
 // The matcher covers every page route (preview gate, session 145) — excluded
-// are /login itself, Next internals, the public/ asset folders, and three
-// machine endpoints that must answer without the preview cookie: /healthz
-// (uptime probe), /api/revalidate (token-authed cache webhook), and
+// are /login itself, the legal pages /imprint + /privacy (Brief 179: § 5 DDG /
+// Art. 13 DSGVO information must be reachable from the public /login surface,
+// i.e. without a preview cookie), Next internals, the public/ asset folders,
+// and three machine endpoints that must answer without the preview cookie:
+// /healthz (uptime probe), /api/revalidate (token-authed cache webhook), and
 // /api/preview-invites (admin-gated activation read for the local console —
 // Brief 163; it self-checks the admin credential in its own handler precisely
 // BECAUSE the proxy is bypassed for it). Without that exclusion the preview
@@ -16,7 +18,7 @@ import { timingSafeEqualStr } from "@/lib/timingSafeEqual";
 // paths below additionally run the Basic-Auth admin detection.
 export const config = {
   matcher: [
-    "/((?!_next/|login|healthz|api/revalidate|api/preview-invites|img/|audio/|timeline/|lab/|aquila\\.png|favicon\\.ico|robots\\.txt|sitemap\\.xml).*)",
+    "/((?!_next/|login|imprint|privacy|healthz|api/revalidate|api/preview-invites|img/|audio/|timeline/|lab/|aquila\\.png|favicon\\.ico|robots\\.txt|sitemap\\.xml).*)",
   ],
 };
 

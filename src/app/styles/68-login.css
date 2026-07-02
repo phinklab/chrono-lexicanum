@@ -238,3 +238,35 @@ main.login {
 .login-expired-contact a:hover {
   border-bottom-color: var(--cl-gold);
 }
+
+/* --- Legal links (Brief 179) ---------------------------------------------- */
+
+/* Quiet mono line pinned to the bottom edge, centered under the console /
+   artwork. The only navigation the gate page carries — Impressum and
+   Datenschutz stay reachable without a preview session. */
+.login-legal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 12px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+}
+
+.login-legal a {
+  color: var(--cl-dim);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.login-legal a:hover,
+.login-legal a:focus-visible {
+  color: var(--cl-gold);
+}

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import SiteBackground from "@/components/chrome/SiteBackground";
 import { previewSecret } from "@/lib/previewGate";
 import { verifyPreviewToken } from "@/lib/previewToken";
@@ -129,6 +130,15 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
           </>
         )}
       </section>
+
+      {/* Legal links (Brief 179): /login is publicly reachable even while the
+          preview gate is up, so the § 5 DDG / Art. 13 DSGVO pages must be
+          linked from here — both routes sit outside the gate. */}
+      <footer className="login-legal" aria-label="Rechtliches">
+        <Link href="/imprint">Impressum</Link>
+        <span aria-hidden>·</span>
+        <Link href="/privacy">Datenschutz</Link>
+      </footer>
     </main>
   );
 }

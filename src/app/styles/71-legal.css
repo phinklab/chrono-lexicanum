@@ -1,0 +1,226 @@
+/* 71-legal.css
+   Legal document pages (Brief 179): /imprint (Impressum § 5 DDG + GW-IP-
+   Disclaimer) and /privacy (Datenschutzerklärung Art. 13 DSGVO). Sober
+   document register on the flat void — the syspage vocabulary up top
+   (mono eyebrow / Cinzel heading / gold hairline), then one left-aligned
+   reading column of numbered sections. Deliberately no artwork, no glow,
+   no in-universe voice: these pages must read as plain paperwork inside
+   the house frame. Content is German → the pages set lang="de". */
+
+.legal {
+  min-height: 100vh;
+  padding: clamp(72px, 12vh, 120px) 24px 72px;
+  background: var(--cl-void);
+}
+
+.legal__head {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.legal__eyebrow {
+  margin: 0;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+}
+
+.legal__title {
+  margin: 14px 0 0;
+  font-family: var(--font-cinzel), serif;
+  font-weight: 400;
+  font-size: clamp(26px, 4.6vw, 40px);
+  letter-spacing: 0.09em;
+  color: var(--cl-bone);
+}
+
+.legal__rule {
+  width: min(300px, 52vw);
+  height: 1px;
+  margin: 20px auto 0;
+  background: linear-gradient(90deg, transparent, var(--cl-gold-dim), transparent);
+  opacity: 0.85;
+}
+
+/* Version stamp under the rule ("STAND · …") — only the privacy page uses it. */
+.legal__stand {
+  margin: 16px 0 0;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+}
+
+/* ── Reading column ─────────────────────────────────────────────────────── */
+
+.legal__doc {
+  max-width: 660px;
+  margin: clamp(44px, 7vh, 68px) auto 0;
+}
+
+.legal__section + .legal__section {
+  margin-top: clamp(36px, 6vh, 52px);
+}
+
+/* Section heading: gold ordinal + tracked mono title, hairline underneath —
+   the archive's kicker idiom carrying document structure instead of flavor. */
+.legal__kicker {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0 0 6px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  font-weight: 400;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--cl-bone);
+}
+
+.legal__no {
+  color: var(--cl-gold);
+  letter-spacing: 0.1em;
+}
+
+.legal__section-rule {
+  height: 1px;
+  margin-bottom: 18px;
+  background: linear-gradient(90deg, var(--cl-ghost), transparent);
+}
+
+.legal__p {
+  margin: 0 0 14px;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: var(--fs-read-sm);
+  font-weight: var(--fw-read);
+  line-height: var(--lh-read);
+  color: var(--cl-dim);
+}
+
+.legal__p:last-child {
+  margin-bottom: 0;
+}
+
+.legal__p strong {
+  font-weight: 600;
+  color: var(--cl-bone);
+}
+
+.legal__p a {
+  color: var(--cl-gold);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in oklch, var(--cl-gold) 45%, transparent);
+  transition: border-color 0.2s ease;
+}
+
+.legal__p a:hover {
+  border-bottom-color: var(--cl-gold);
+}
+
+/* Postal / contact block — mono, non-italic: data, not prose. */
+.legal__address {
+  margin: 0 0 14px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-style: normal;
+  font-size: var(--fs-label-lg);
+  letter-spacing: 0.06em;
+  line-height: 1.9;
+  color: var(--cl-bone);
+}
+
+.legal__address a {
+  color: var(--cl-gold);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in oklch, var(--cl-gold) 45%, transparent);
+  transition: border-color 0.2s ease;
+}
+
+.legal__address a:hover {
+  border-bottom-color: var(--cl-gold);
+}
+
+.legal__list {
+  margin: 0 0 14px;
+  padding-left: 22px;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: var(--fs-read-sm);
+  font-weight: var(--fw-read);
+  line-height: var(--lh-read);
+  color: var(--cl-dim);
+}
+
+.legal__list li {
+  margin-bottom: 6px;
+}
+
+.legal__list li::marker {
+  color: var(--cl-gold-dim);
+}
+
+/* Canonical English IP one-liner at the foot of the GW section — quoted
+   verbatim for Games Workshop's benefit, visually set off from the German. */
+.legal__en {
+  margin: 18px 0 0;
+  padding-left: 16px;
+  border-left: 1px solid var(--cl-ghost);
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: var(--fs-read-xs);
+  line-height: var(--lh-read);
+  color: var(--cl-faint);
+}
+
+/* ── Site-wide legal links (<SiteLegal>, root layout) ───────────────────────
+   Tiny fixed row pinned UNDER the media player (player: bottom 24px, left
+   24px) — the one legal affordance the footerless desktop surfaces
+   (map/timeline/entities) get. Provisional per maintainer request. */
+
+.site-legal {
+  position: fixed;
+  bottom: 7px;
+  left: 24px;
+  z-index: 40;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+}
+
+.site-legal a {
+  color: var(--cl-faint);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.site-legal a:hover,
+.site-legal a:focus-visible {
+  color: var(--cl-gold);
+}
+
+/* /login carries its own centered legal line (68-login.css). */
+body:has(main.login) .site-legal {
+  display: none;
+}
+
+/* Track the player's narrow-viewport offset … */
+@media (max-width: 900px) {
+  .site-legal {
+    left: 14px;
+  }
+}
+
+/* … and disappear with it: ≤760px the player is hidden (56-media-player.css)
+   and the burger menu carries the legal links on every page. */
+@media (max-width: 760px) {
+  .site-legal {
+    display: none;
+  }
+}

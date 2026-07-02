@@ -141,6 +141,19 @@ export default function SiteMenu() {
             ))}
           </ul>
           <div className="site-menu__foot">TERRA STANDARD · M42.347</div>
+          {/* Legal links (Brief 179): the burger is the only chrome on the
+              immersive surfaces (map/timeline/entities), so on touch/narrow
+              viewports this row is what keeps Impressum + Datenschutz
+              reachable from every page. */}
+          <div className="site-menu__legal">
+            <Link href="/imprint" onClick={() => setOpen(false)}>
+              Impressum
+            </Link>
+            <span aria-hidden>·</span>
+            <Link href="/privacy" onClick={() => setOpen(false)}>
+              Datenschutz
+            </Link>
+          </div>
         </div>
         <div className="site-menu__grain" aria-hidden />
       </nav>
