@@ -2,7 +2,7 @@
 title: Wiki index — master catalog
 type: reference
 created: 2026-05-09
-updated: 2026-07-01
+updated: 2026-07-02
 sources: []
 related:
   - ../CLAUDE.md
@@ -21,10 +21,10 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 
 | Page                                             | Description                                                                                                                 | Updated    |
 | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, what's open, next likely brief. **Stand 2026-07-01:** **Buchkorpus auf Per-Buch-SSOT migriert (170/171/172)** — 896 Bücher in `scripts/seed-data/books/*.json` (`book-v1`), Äquivalenz DB-frei bewiesen (0 Row-Deltas / 196 Collection-Kanten), Batch-/Loop-Maschinerie retired, `db:sync` **9-schrittig** (Korpus = `apply:book --all`), Podcast-Delta-Pfad. Weiter: 4 Podcast-Shows (~1094 Episoden); Buch-Reviewer (B11) appliziert; Product-Wave 159–163. Ops sauber (Migration 0014 + beide Secrets). Site hinter Preview-Gate (+ Invite-Links). Forward: P14 Map → P12 URL-EN → P13 Mobile (kanonisch: `worklist.md`); Hygiene-Resync 166–169 erledigt (Brief 173). | 2026-07-01 |
+| [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, what's open, next likely brief. **Stand 2026-07-01:** **Buchkorpus auf Per-Buch-SSOT migriert (170/171/172)** — 896 Bücher in `scripts/seed-data/books/*.json` (`book-v1`), Äquivalenz DB-frei bewiesen (0 Row-Deltas / 196 Collection-Kanten), Batch-/Loop-Maschinerie retired, `db:sync` **9-schrittig** (Korpus = `apply:book --all`), Podcast-Delta-Pfad. Weiter: 4 Podcast-Shows (~1094 Episoden); Buch-Reviewer (B11) appliziert; Product-Wave 159–163. Ops sauber (Migration 0014 + beide Secrets). Site hinter Preview-Gate (+ Invite-Links). Forward: P14 Map **in Arbeit** (Zweiteiler 174 Daten / 175 UI+P15; Excel liegt vor) → P12 URL-EN → P13 Mobile (kanonisch: `worklist.md`). | 2026-07-02 |
 | [open-questions.md](./open-questions.md)         | Items the next architect brief must address (Queue klein halten, 3-5). Aktuell: **(16b/c)** Timeline-Folgen aus impl 137/152: `primaryEraId`-Placeholder (verortet via Brief 173: `scripts/book-apply-shared.ts`, `M41_ERA_ID`) + Atlas-Events. **(18a) via Brief 170 Teil A geliefert, (18b) via Brief 171 Teil B geschlossen** (beide gemergt 2026-06-30/07-01 — aus der Queue). Wave 154–163 + 170/171/172 öffneten keine neue OQ. **16(a) seit Brief 152 geschlossen**; (17) 2026-06-12 geschlossen -> Boards. | 2026-07-01 |
-| [worklist.md](./worklist.md)                     | **Die eine kanonische Sammelstelle für offene Arbeit** (Konsolidierung 2026-07-01, Brief 173): Forward-Queue (P14 Map → P12 URL/SSG → P13 Mobile), Pakete (Podcast-Hygiene, Roster-Rebind), Blockiert-Liste (P8/P9 ← B8/B9), Geparkt (inkl. UI-Gesamt-Pass nach P14), Maintainer-Merker. Neue offene Punkte landen hier; UI-Kosmetik bleibt bewusst in `docs/ui-backlog.md`. | 2026-07-01 |
-| [deferred-questions.md](./deferred-questions.md) | Dormant / distant questions that aren't queue-relevant. Promoted back to `open-questions.md` when their trigger fires. Post-074: enthält `chaos`-pov_side-Promote-Pass mit Promote-Trigger. | 2026-06-20 |
+| [worklist.md](./worklist.md)                     | **Die eine kanonische Sammelstelle für offene Arbeit** (Konsolidierung 2026-07-01, Brief 173): Forward-Queue (P14 Map als Zweiteiler 174/175 in Arbeit → P12 URL/SSG → P13 Mobile), Pakete (Podcast-Hygiene, Roster-Rebind), Blockiert-Liste (P8/P9 ← B8/B9), Geparkt (inkl. UI-Gesamt-Pass nach P14), Maintainer-Merker. Neue offene Punkte landen hier; UI-Kosmetik bleibt bewusst in `docs/ui-backlog.md`. | 2026-07-02 |
+| [deferred-questions.md](./deferred-questions.md) | Dormant / distant questions that aren't queue-relevant. Promoted back to `open-questions.md` when their trigger fires. Post-074: enthält `chaos`-pov_side-Promote-Pass mit Promote-Trigger. | 2026-07-02 |
 | [architecture.md](./architecture.md)             | High-level system shape, schema overview, module map, key types/enums. **⚠ Stand vor dem Juni-Sweep** — Events-Schema (0012), `/compendium`/`/archive`/`/timeline`-Cinematic, Proxy-Gate, Caching-Layer fehlen noch; Refresh ist ein eigener Ingest-Pass (gegen den Code, nicht aus Reports). | 2026-05-09 |
 | [roadmap.md](./roadmap.md)                       | Phased plan (1–7) with status per phase + sub-phase breakdown for Phase 3 + Ideas Backlog. **Status-Snapshot 2026-06-12:** Phase 3 shipped (Wartung = Weekly-Refresh), Phase 4 + 5 weitgehend shipped (4d Bibliothek offen), Fokus Phase 7 (Polish & Launch). | 2026-06-24 |
 | [onboarding.md](./onboarding.md)                 | First-time setup (local install + GitHub + Supabase + Vercel + optional Obsidian for Atlas).                                | 2026-05-09 |
@@ -70,7 +70,7 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 |---|---|---|
 | [glossary.md](./glossary.md) | Project-specific terms (M-scale, source_kind, work_facets, primaryEra, llm_flags, junctionsLocked, batched-3e, …) | 2026-05-09 |
 | [log.md](./log.md) | Append-only operation log (chronological history of Brain edits) | 2026-07-01 |
-| (this file) | Master catalog | 2026-06-24 |
+| (this file) | Master catalog | 2026-07-02 |
 
 > **Sessions-Catalog-Hinweis.** Diese Index-Datei listet keine einzelnen Session-Files — Sessions leben unter `sessions/` (rotierende `archive/YYYY-MM/`), die Cowork/CC-Catalog-Pflege passiert in `sessions/README.md` (Active-Threads-Tabelle) und im Archive-Sweep (Brief 099-Pattern). Brief 101 (HH-Bootstrap Guard-Reason-Split, gemergt 2026-05-26), Resolver-Pass 10 (HH-Bootstrap-Apply, gemergt 2026-05-26), der Resolver-Loop-Mehr-Wellen-Lauf Pässe 11–15 (HH-Wellen `ssot-hh-003..030`, PR #107 gemergt 2026-05-27), Brief 102 (HH-Konsolidierungs-Pass, PR #108 gemergt 2026-05-27) und Brief 103 Daten-Pass (Audit-Helper + 2 Pilot-Backfills, PR #109 gemergt 2026-05-28) erscheinen entsprechend in `sessions/README.md` und [`./log.md`](./log.md) — nicht hier.
 

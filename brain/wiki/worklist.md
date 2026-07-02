@@ -2,7 +2,7 @@
 title: Worklist — konsolidierte offene Arbeit
 type: overview
 created: 2026-07-01
-updated: 2026-07-01
+updated: 2026-07-02
 sources:
   - ../../sessions/README.md
   - ../../sessions/2026-06-03-121-arch-product-board.md
@@ -25,14 +25,17 @@ confidence: high
 
 ## A. Forward-Queue (priorisiert, mit Philipp 2026-07-01 bestätigt)
 
-1. **P14 Map / Sternenkarte** (121, entsperrt). Worklist: 53 sektor-zugeordnete Welten aus Stage 3 (Brief 155). ⚠ Redditor-Koordinaten-Excel seit 2026-06-24 angekündigt, **nicht geliefert** — Excel sichten, bevor der Brief geschnitten wird; alternativ P14 nur auf die 53 Welten schneiden. Reconciliation aufs interne `gx`/`gy`-0–1000-Raster ist der architektonische Kern.
-2. **P12 URL-Migration EN + `/buch`-SSG** (121). Reiner Architektur-Schnitt, keine Daten nötig.
-3. **P13 Mobile-Sweep** (121).
-4. Dazwischen, wenn Luft: **B6 Dead-Code-Sweep** (Code liegt komplett, nie gelaufen) · **B7 brain:lint-Guardrail** · **P15 Map-Chrome-Kohärenz** (Kandidat aus 150, sinnvoll mit/nach P14).
+1. **P14 Map / Sternenkarte** (121, in Arbeit als Zweiteiler; Philipp 2026-07-02: **Excel = die Karte** — eigener Map-Katalog aus den 992 Redditor-Welten, nur Pins/keine neuen Entities, Medien-Bestand wird dagegen gematcht, Lücken-Welten via Review-Liste nachplatziert, Segmentum ersetzt den Sektor-Layer). Excel `Warhammer_map_SSOT.xlsx` **liegt vor** (28.06., 992 Welten, 0 Koordinaten-Lücken). **Teil A Daten = Brief [174](../../sessions/2026-07-02-174-arch-map-ssot-reconciliation.md)** (Batches, DB-frei: `map-worlds.json` + Overrides + Review-Report; `locations`/Schema unberührt). **Teil B UI = Brief 178** (Product, Neubau in gleicher Optik, schneiden nach 174-Merge; **P15 eingefaltet**; renummeriert von 175 am 2026-07-02). **Beim 178-Schnitt einfalten (Review-Triage 2026-07-02):** K11 — Maintainer-only Map-Editor-Panels (`EditPanel` + `AddElementPanel`, ~1.300 LOC) shippen heute in jedem öffentlichen `/map`-Bundle (null-gated, aber geladen; kein einziges `next/dynamic` repo-weit) → im Neubau via `next/dynamic` auf `initialIsAdmin` gaten. Map-A11y (W7/W8) dagegen **bewusst nicht** in 178 (Philipp: nicht v1 → § E).
+2. **Hygiene-Wave vor dem Map-UI-Schnitt** (Philipp 2026-07-02, alle Batches, alle `open`): Brief [175](../../sessions/2026-07-02-175-arch-podcast-hygiene.md) Podcast-Hygiene (§ B-1) · Brief [176](../../sessions/2026-07-02-176-arch-roster-rebind-kleinkram.md) Roster-Rebind + Kleinkram + B7 (§ B-2) · Brief [177](../../sessions/2026-07-02-177-arch-dead-code-sweep.md) B6 Dead-Code-Sweep (nach 176-Merge).
+3. **Review-Paket sofort fahrbar** (Status-quo-Review-Triage 2026-07-02): Brief [179](../../sessions/2026-07-02-179-arch-launch-legal.md) **Launch-Legal** (Product, kollisionsfrei, jederzeit — deckt das einzige High-Finding W1) · Brief [180](../../sessions/2026-07-02-180-arch-ci-test-gate-wartung.md) **CI-Test-Gate + Wartung** (Batches, nach der Hygiene-Wave einreihen, parallel zu 178; Termin-Anker: ESLint-EOL 2026-08-06).
+4. **Brief [181](../../sessions/2026-07-02-181-arch-product-prune-pass.md) Product-Prune-Pass** (Product) — Startbedingung: nach 178-Merge, vor P12.
+5. **P12 URL-Migration EN + `/buch`-SSG** (121). Reiner Architektur-Schnitt, keine Daten nötig. **Hinweis aus 179:** `/impressum` + `/datenschutz` behalten deutsche Slugs — als Ausnahme im P12-Brief vermerken.
+6. **Brief [182](../../sessions/2026-07-02-182-arch-launch-tech.md) Launch-Tech** (Product) — Startbedingung: nach P12-Merge (sitemap/Metadata brauchen finale URLs; Focus-Fix + Font-Wiring notfalls als Mini-PR vorziehbar, Philipp entscheidet).
+7. **P13 Mobile-Sweep** (121).
 
 ## B. Pakete (gebündelt je eine Session)
 
-### B-1. Podcast-Hygiene-Session (Batches)
+### B-1. Podcast-Hygiene-Session (Batches) — briefed: [175](../../sessions/2026-07-02-175-arch-podcast-hygiene.md)
 
 Gehört zusammen, eine Session:
 
@@ -42,7 +45,7 @@ Gehört zusammen, eine Session:
 - **Lorehammer-Twin-Filter** für Cold-Reingest.
 - Abgegrenzt bleibt: S4 YouTube-Episode-Matching (Session 128) — nur aufnehmen, wenn der Rest Platz lässt.
 
-### B-2. Roster-Rebind + Verify-Kleinkram (Batches, klein)
+### B-2. Roster-Rebind + Verify-Kleinkram (Batches, klein) — briefed: [176](../../sessions/2026-07-02-176-arch-roster-rebind-kleinkram.md) (inkl. B7)
 
 - **Rebind:** `import-faction-starters.ts` + `book-review/projection.ts` lesen noch den eingefrorenen `book-roster.json` statt `loadEffectiveCorpusBooks` — sehen per-Buch-Bücher nicht (aus 171-Impl, kein Blocker, aber Drift-Falle).
 - Einmal `npm run refresh:audit-artifacts` lokal read-only ziehen, bevor dem Wochenlauf vertraut wird (Brief 151).
@@ -63,12 +66,20 @@ Gehört zusammen, eine Session:
 ## E. Bewusst geparkt (nicht vergessen, aber kein Zug)
 
 - **UI-Gesamt-Pass (eigene Session, Philipp-Entscheid 2026-07-01):** UI wird komplett in einer separaten Session neu angegangen — Kandidat: **erst wenn P14 Map steht**. Bis dahin sammeln kosmetische Einzelitems weiter in [`docs/ui-backlog.md`](../../docs/ui-backlog.md) (bleibt live, wird nicht hierher gefaltet); dort liegt auch das MediaPlayer-Mobile-Konzeptthema. Farbsprachen-Konsolidierung (Review 141) + P7-Frontend-Lockdown-Rest gehören in diesen Pass.
+- **Map-A11y — bewusst nicht v1 (Philipp 2026-07-02, Review-Triage; Findings hier konserviert, Review-Datei ist gitignored; Stand pre-178-Neubau):**
+  - **W7 (medium, verifiziert):** `/map` ist öffentliches Nav-Ziel (nur der Editor ist admin-gated), aber pointer-only — Planeten-Marker haben `pointerEvents=none`; im ganzen `components/map`-Tree nur 9 tabIndex/aria-Treffer (alle im Control-Rail). Keyboard-/Screenreader-Nutzer können keine Welt explorieren oder auswählen (WCAG 2.1.1); gemildert: dieselben Welten sind übers Compendium erreichbar. Fix-Idee: fokussierbare Welt-Liste/Buttons, die dieselbe Selektion treiben; minimal ein zugänglicher Text-Index.
+  - **W8 (medium, verifiziert):** Ring-/Puls-Animationen laufen als SVG-SMIL (`<animateTransform>`, `map/disc/PlanetMarker.tsx:50`) — der globale reduced-motion-Clamp in `10-base.css` greift per Spezifikation nur für CSS-Animationen; SMIL dreht unter reduced-motion weiter, ausgerechnet auf der bewegungsintensivsten Vollbild-Fläche (WCAG 2.3.3, Vestibular-Risiko). Fix-Idee: SMIL hinter `useReducedMotion()` gaten (statische Marker rendern), wie Typewriter/RouteProgress es vormachen.
+  - **Aufgreifen:** nach Launch bzw. mit dem UI-Gesamt-Pass; betrifft dann die 178er-Neubau-Komponenten.
+- **UI-Gesamt-Pass — Zusatz-Zielliste aus der Review-Triage 2026-07-02:** A11y-Polish (K62 kein Skip-to-content-Link vor der persistenten Nav · K60 Heading-Sprung h1→h3 auf Podcast-Show-Seiten · K61 Volume-/Playlist-Popovers fälschlich `role=dialog` ohne Modal-Semantik) + K16 Degraded-State in der UI unterscheidbar machen („temporarily unavailable" statt „The database is empty" bei DB-Fehler, `archive/page.tsx:217`).
+- **Beim-nächsten-Anfassen-Konventionen (Review 2026-07-02, kein Brief):** `test-resolver.ts` (120K, 518 Cases) beim nächsten Anfassen splitten · explizite `_frozen/`-Konvention für retiriertes Generationen-Sediment · `ssot-loop-log.md` (651 KB) rotieren.
 - **Character-Long-Tail: 315 Sentinels** (Stage 3) — geparkt seit 155.
 - **Launch-Tag:** `PREVIEW_GATE=off` (Env-Flip), danach dedizierter Cleanup-Brief, der die komplette Gate-/Invite-Maschinerie ausbaut — Details + Datei-Liste in [`deferred-questions.md`](./deferred-questions.md) § Preview-Gate. Promote beim Reddit-Launch-Brief.
 - Übrige Dormant-Items mit Triggern: [`deferred-questions.md`](./deferred-questions.md).
 
 ## F. Maintainer-Merker (Philipp)
 
-- Redditor-Excel für Sternenkarte nachfassen (blockiert die volle P14-Fassung).
+- Nach 174-Merge: `map-worlds.review.md` sichten und die Nachplatzierungs-Worklist (Medien-Welten ohne Excel-Match) per Override-Stubs abarbeiten — kann parallel zu 178 laufen. Kein `db:sync` nötig (Katalog ist DB-frei); die alte Karte bleibt bis 178 unverändert.
+- Nach 175-Merge: explizites Go für `apply:podcast --show <slug>` (3 Shows) geben; danach ggf. `POST /api/revalidate`.
+- Für Brief 176: entscheiden, ob CC `npm run db:drift` gegen Prod ziehen darf (read-only).
 - Repo-Setting „Allow Actions to create PRs" bleibt ON.
 - Nach Daten-Applies bei Bedarf `POST /api/revalidate`.
