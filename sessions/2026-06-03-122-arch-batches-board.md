@@ -33,8 +33,8 @@ Stehendes Strang-Board. Daten + Logik, kein UI (das ist 121). Status-Spalte = Wa
 | B2 | Buch-Kuratierung: Faction add/remove + Hand-Fixes via Hand-Override-Overlay (deterministischer Tail nach Auto-Apply/Rebuild); Override-Format „final"/„reviewQueue" definieren. Spec: Brief [149](./archive/2026-06/2026-06-12-149-arch-curation-foundation.md). | ☑ erledigt (impl [149](./archive/2026-06/2026-06-14-149-impl-curation-foundation.md): Sidecar `curation-overlay.json`, Validator, programmatischer Apply/Dry-Run/Verify, Tail-Slot in `db:rebuild`; DB-frei bewiesen, keine Prod-Mutation unter Freeze) |
 | B3 | Entity-Blurbs: F/C/W je 1–2 Satz per Websuche als Seed/Override-Daten. Kurz, faktisch, kein Lore-Essay | ☑ erledigt (Full-Coverage 981/981: 202 F / 490 C / 289 W; Subset+Machinery via Handoff, Full-Sweep maintainer-direkt nachgezogen) |
 | B5 | Chronicle-Daten: präzise/event-anchored Setting-Placement → `works.startY/endY` (Maximalpräzision, **kein** Ära-Bucketing — nicht spezifisch verortbare Bücher bleiben raus). **Läuft als Cowork+Philipp-Hand-Kuratierung im git-ignored `/timeline-workshop/`** (Events-Spine M1–M42 zuerst, dann per-Buch-Datierung; Inclusion-Gate „kein Buch ohne groben Richtwert"). Graduiert erst als sauberer Brief zu CC (Events-Tabelle + Apply-Pfad + Date-Provenance + Inclusion-Gate + Undatierbar-Liste). **CC: nicht anfangen** bis der Brief landet. Brief 134 dafür retired/gelöscht. (NB: `atY` ist per-Location, **nicht** das Buch-Setting-Date.) | ⏸ Cowork-Hand |
-| B6 | Dead-Code-Retirement: V1-Ingestion + V2-LLM + V2-Rest ausmustern (Carve-out: Excel-SSOT-Loader bleibt); stale `CLAUDE.md`-Stack-Tabelle fixen | ☐ |
-| B7 | brain:lint always-read Budget-Guardrail (Spec: archivierter Brief 112) | ☐ |
+| B6 | Dead-Code-Retirement: V1-Ingestion + V2-LLM + V2-Rest ausmustern (Carve-out post-171 erweitert: der komplette `equiv:diff`-Golden-Pfad bleibt, nicht nur der Excel-Loader); stale `CLAUDE.md`-Stack-Tabelle fixen | ☐ briefed → Brief [177](./2026-07-02-177-arch-dead-code-sweep.md) (startet nach 176-Merge) |
+| B7 | brain:lint always-read Budget-Guardrail (Spec: archivierter Brief 112) | ☐ briefed → Brief [176](./2026-07-02-176-arch-roster-rebind-kleinkram.md) |
 | B8 | Kuratierte Themen-Straenge: seed-data-JSON (Titel/Blurb + Refs auf vorhandene work-/entity-IDs), kein Schema; dangling ID faellt laut. Spec [129](./2026-06-04-129-arch-doorways-curation-layer.md) | ☐ |
 | B9 | Kuratierte Charakter-Auswahl: seed-data-JSON ueber `characters` (Spotlight-Flag + `is_primarch`-Flag), kein Schema; Blurbs reiten auf B3. Spec [129](./2026-06-04-129-arch-doorways-curation-layer.md) | ☐ |
 | B10 | Weekly content refresh: wöchentl. Cron difft Track of Words (Bücher) + Registry-Podcast-Feeds gegen committeten Bestand → Vorschlag-Report + Apply-File → PR-Approval → bestehende Apply-Pfade. Additions-only, kein DB-Write aus CI. Spec [133](./archive/2026-06/2026-06-09-133-arch-weekly-content-refresh.md) | ☑ erledigt (133 PR1+PR2 Cron/Rolling-PR; 134 Ignore-List; 136 erste 30 Promotions, Roster 889; 148 Delta-Cursor) |
@@ -45,7 +45,7 @@ Stehendes Strang-Board. Daten + Logik, kein UI (das ist 121). Status-Spalte = Wa
 
 ## Standing tool
 
-SSOT-Loop (ex-061): Ad-hoc-Roster-Erweiterung, läuft nicht im Default-Cycle. Betrieb: `scripts/runbooks/ssot-loop-runbook.md`. Vehikel für B5.
+Per-Buch-SSOT (Briefe 170/171/172): Neuzugänge über `/add-book` → `apply:book --slug`; Podcasts über den Delta-Pfad (`/add-podcast-episode`, `apply:podcast --show`); Wochenlauf `/weekly-db-update`. Der SSOT-Loop (ex-061) ist retired (Runbook trägt LEGACY-Banner). B5-Vehikel ist die Hand-Kuratierung: Codex-Auftrag → `curation-overlay.json` → Dry-Run/Verify.
 
 ## Optional context (nur laden wenn der Task es braucht)
 

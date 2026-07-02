@@ -1,0 +1,80 @@
+---
+session: 2026-07-02-174
+role: architect
+date: 2026-07-02
+status: open
+slug: map-ssot-reconciliation
+parent: null
+links: [2026-06-03-121, 2026-06-18-155, 2026-07-01-173]
+commits: []
+---
+
+# P14 Teil A — Map-Katalog aus der Redditor-Excel + Medien-Abgleich (Batches)
+
+> **Rev. 2026-07-02 (Philipp):** Richtung umgedreht gegenüber dem ersten Schnitt. Die Excel wird **nicht** in `locations.json` gemergt — sie wird die Karte. Eigener Map-Katalog, `locations`/Schema/DB bleiben unberührt.
+
+## Goal
+
+Die Redditor-Excel (`scripts/seed-data/source/Warhammer_map_SSOT.xlsx`, 992 Welten) wird per deterministischem Convert-Step zum **eigenen, committeten Map-Katalog** (Arbeitsname `map-worlds.json`): die Welten und Koordinaten des Redditors sind die neue Karte. Gegen diesen Katalog wird unser Bestand gematcht, um pro Excel-Welt zu wissen, ob wir Bücher/Podcasts dazu haben — und als Gegenliste: welche Medien-Welten in der Excel fehlen (Philipps Nachplatzierungs-Worklist). Datenfundament für den Map-Neubau in gleicher Optik (P14 Teil B = Brief 178, inkl. P15).
+
+## Context
+
+- **Excel:** Sheet `Tabelle1`, `A1:G993`. Spalten: `Name` / `Primary/Secondary/Tertiary Classification` / Spalte E = x (Header „Coordinates") / Spalte F = y (headerless) / `Segmentum`. 992 Datenzeilen, alle Koordinaten numerisch (x ≈ 2.8–7031, y ≈ 515–6198 — Pixel-Raum der Quellkarte), **12 Namens-Dubletten**, 198× Primary „Unclassified". Segmenta: Ultima 536 / Obscurus 193 / Tempestus 100 / Solar 87 / Pacificus 76.
+- **Bestand (bleibt unberührt):** `scripts/seed-data/locations.json` (446 Rows) + `location-aliases.json`; `locations`-Tabelle dient weiter den Entity-Seiten (`/welt/[id]`), Compendium, Suche. Medien-Verknüpfung: `work_locations` referenziert `works` — Bücher **und** Podcast-Episoden einheitlich.
+- **Repo-seitige Medien-Quellen (DB-frei auswertbar):** per-Buch-Korpus `scripts/seed-data/books/*.json` (Location-Referenzen) + Podcast-Extractions `ingest/podcasts/*.extractions.json`; ggf. `curation-overlay.json`.
+- **Muster für den Convert-Step:** `import:faction-starters` / `import:ssot-roster` — deterministischer `npm run`-Schritt, committete JSON, `next build` liest nur die JSON.
+- Die 53 sektor-zugeordneten Stage-3-Welten (Briefe 155/158) sind Medien-Welten ohne Koordinaten — sie lösen sich hier auf in „matcht die Excel" (→ Pin) oder „steht auf der Nachplatzierungs-Liste".
+
+## Philipp-Entscheide (2026-07-02)
+
+1. Karte = die Redditor-Welten samt deren Koordinaten; Aufbau von dieser Seite aus.
+2. **Nur Karten-Pins, keine neuen Entities** — die 992 werden NICHT zu `locations`-Rows / `/welt`-Seiten. Gematchte Pins verlinken auf die vorhandene `/welt`-Seite.
+3. Medien-Welten ohne Excel-Match: **Review-Liste, Philipp platziert nach** (Hand-Koordinaten im selben Raster).
+4. Neue Karte in **gleicher Optik** (heutige Gold-Sprache als Blaupause), aber neu gebaut; **Segmentum ersetzt den gezeichneten Sektor-Layer** (alte Sektor-Geometrie passt nicht zur echten Galaxie-Geometrie). Alles Rendering = Brief 178.
+
+## Architektur-Entscheidungen
+
+1. **Eigener Katalog, DB-frei.** `map-worlds.json` (committed, unter `scripts/seed-data/`) ist die einzige Quelle der neuen Karte. **Keine Schema-Änderung, keine Migration, kein neuer `db:sync`-Schritt.** Felder pro Welt: `id` (Slug aus Name, kollisionsfrei), `name`, `gx`/`gy` (0–1000, seitenverhältnis-treu normalisiert, Transformation im Script dokumentiert), Klassifikation (rangerhaltend Primary→Tertiary), `segmentum`, `locationId` (nullable — Match auf bestehende `locations`-Row).
+2. **Match nur zur Verknüpfung:** Excel-Name gegen `locations.json` + `location-aliases.json` (case-insensitiv). Ein Match schreibt `locationId` in den Katalog — sonst ändert er nichts. `locations.json` wird nicht angefasst.
+3. **Hand-Nachplatzierung als Datenpfad:** ein committetes Override-/Extension-File (z. B. `map-worlds.overrides.json`), das der Convert-Step deterministisch einmerged — damit Philipp Lücken-Welten mit Hand-Koordinaten nachtragen (und einzelne Fehl-Matches korrigieren) kann, ohne den generierten Katalog zu editieren. Struktur dokumentieren; darf leer shippen.
+4. **Review-Report als Hand-Gate** (committed, z. B. `map-worlds.review.md`): (a) Match-Übersicht Excel↔Bestand mit Medien-Zahl je gematchter Welt (aus den repo-seitigen Quellen oder read-only DB-Query — CC-Entscheid, im Report dokumentieren); (b) **die Gegenliste: Bestands-Welten mit ≥1 Werk, aber ohne Excel-Match** — Philipps Nachplatzierungs-Worklist, ideal als copy-paste-fertige Override-Stubs; (c) die 12 Excel-Dubletten + angewandte deterministische Regel (z. B. erstes Vorkommen gewinnt); (d) ID-Kollisionen.
+5. Die Excel bleibt unverändert als read-only Input unter `source/`.
+
+## Constraints
+
+- `locations.json`, `location-aliases.json`, `sectors.json`, `src/db/**` (Schema + Migrationen), `scripts/seed.ts`, `db-sync.sh` — **alle unangetastet.**
+- Convert deterministisch + idempotent (zweiter Lauf → kein Diff); kein Excel-Parse zur Buildzeit.
+- Batches-Worktree (`chrono-lexicanum-batches`), ein PR; `brain/**` + `sessions/README.md` nicht anfassen (Rollup-Ownership). Dieser Brief reitet im PR mit, `status: open → implemented`.
+- TypeScript strict, keine Version-Pins (CC recherchiert/pinnt).
+
+## Out of scope
+
+- **Jedes Rendering:** `src/app/map/**`, `src/components/map/**` — komplett Brief 178 (Neubau in gleicher Optik + Segmentum-Layer + P15). Die alte Karte bleibt bis dahin unverändert live (preview-gated).
+- Rückbau des alten Sektor-/Location-Map-Pfads — passiert mit/nach 175, nicht hier.
+- Keine neuen `work_locations`-Kanten, keine Entity-/Blurb-/Alias-Erzeugung für Excel-Welten.
+- Per-Buch-SSOT-Maschinerie — unberührt.
+
+## Acceptance
+
+The session is done when:
+
+- [ ] Ein `npm run`-Convert-Step (Name CC-frei) liest Excel + Overrides und schreibt `map-worlds.json` + `map-worlds.review.md` deterministisch; zweiter Lauf ohne Diff.
+- [ ] `map-worlds.json` enthält die Excel-Welten (nach Dubletten-Regel) mit `gx`/`gy` im 0–1000-Raster (seitenverhältnis-treu), rangerhaltender Klassifikation, Segmentum und `locationId` wo gematcht.
+- [ ] Der Review-Report enthält die vier Abschnitte aus Architektur-Entscheidung 4 — insbesondere die Nachplatzierungs-Worklist (Medien-Welten ohne Excel-Match) mit copy-paste-fähigen Override-Stubs.
+- [ ] Override-File + dokumentierte Struktur existieren; ein Test-/Beispiel-Eintrag beweist den Merge-Pfad (darf danach leer shippen).
+- [ ] `git status` zeigt keine Änderung an `locations.json` / `sectors.json` / `src/db/**` / `db-sync.sh` / `seed.ts`.
+- [ ] `tsc --noEmit`, Lint und bestehende Tests grün; `next build` ohne Excel-Zugriff.
+
+## Open questions
+
+- Match-Quote: wie viele der 992 Excel-Welten matchen den Bestand, und wie groß ist die Nachplatzierungs-Worklist (Medien-Welten ohne Match)? Davon hängt ab, wie viel Handarbeit auf Philipp zukommt, bevor 175 sinnvoll rendert.
+- Medien-Zählung repo-seitig (books/*.json + Extractions) vs. read-only DB-Query — was war verlässlicher, und sollte 175 die Pin-Medien-Anzeige live aus der DB joinen (via `locationId`) oder vorberechnet aus dem Katalog lesen?
+- Dubletten-Befund: sind die 12 echte Duplikate oder legitime Mehrfach-Objekte (Fleets, Warp Gates an zwei Positionen)? Empfehlung für die Regel in Teil B.
+- Reicht integer-0–1000 als Präzision für 992 Pins (dichte Cluster), oder empfiehlst du fürs 175er-Rendering mehr Auflösung im Katalog?
+
+## Notes
+
+- Beispielzeile: `('Cypra Mundi', 'Forge World', 'Genestealer Infested', 'Imperial Navy Base', 2567, 1643, 'Obscurus')`.
+- Die 12 Dubletten-Namen: black templar fleet, canopus, sarum, jericho-maw warp gate, commorragh, blackstone fortress, contra empyric nexus, gramarye, prescience, the gates of fire, imperial fists fleet, startide nexus.
+- OQ 16b/c (Timeline-`primaryEraId` / Atlas-Events) bewusst nicht berührt — unverwandt, bleiben in der Queue.
+- P14 Teil B (Brief 178, Product): Map-Neubau in gleicher Optik auf `map-worlds.json` — Segmentum-Regionen statt Sektor-Zeichnung, Pins mit Medien-Anzeige + `/welt`-Link wo gematcht, P15-Chrome-Kohärenz eingefaltet. Wird nach Merge + Report dieses Briefs geschnitten.

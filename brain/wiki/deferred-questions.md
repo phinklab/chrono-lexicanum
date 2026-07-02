@@ -2,7 +2,7 @@
 title: Deferred questions (dormant)
 type: overview
 created: 2026-05-09
-updated: 2026-06-20
+updated: 2026-07-02
 sources:
   - ../../sessions/archive/2026-06/2026-06-20-163-arch-timed-preview-access.md
   - ../../sessions/archive/2026-05/2026-05-04-042-impl-phase3c-haiku-switch.md
@@ -34,7 +34,33 @@ Maintainer-Entscheid 2026-06-20: Der **gesamte Preview-Gate ist temporäres Vor-
 
 **Promote when:** der Public-Launch konkret ansteht (Reddit-Launch-Brief wird geschnitten). Reihenfolge: erst `PREVIEW_GATE=off` am Launch-Tag, dann ein dedizierter Cleanup-Brief, der das Gerüst entfernt. Bis dahin bleibt alles wie gebaut — der Gate schützt die Pre-Launch-Preview.
 
+**Launch-Config-Checkliste (ergänzt 2026-07-02, Status-quo-Review-Triage; Philipp-Handoff — Klick-Settings, die nur im Vercel-/Supabase-Dashboard prüfbar sind; Brief 182 verweist hierher):**
+
+1. `PREVIEW_USER`/`PREVIEW_PASS` in Prod mit hoher Entropie überschrieben — die committeten Defaults als öffentlich behandeln (Review K28).
+2. Vercel **Deployment Protection** für Preview-Deployments aktiv — Previews sind sonst automatisch Admin; die dokumentierte Verteidigung setzt Vercels SSO-Gate voraus (K27).
+3. Supabase **Data API deaktiviert** bzw. RLS-Posture geprüft — die App nutzt PostgREST seit Session 147 nicht mehr, aber `.env.example` dokumentiert noch anon/service-role Keys (stale); falls die Data API im Projekt an ist (ohne RLS), wäre die DB am App-Gate vorbei erreichbar (K57).
+4. `NEXT_PUBLIC_SITE_URL` in Prod gesetzt — `metadataBase` fällt sonst auf localhost zurück (K76).
+5. Gate-Flip-Ablauf: erst `PREVIEW_GATE=off` (Env-Flip, kein Deploy-Risiko), dann der Cleanup-Brief oben.
+
+Ergebnis nach der Prüfung im Brain als „geprüft, Datum" dokumentieren (Review § 6.6 — diese drei Sicherheits-Findings hängen an Config, die das Repo nicht zeigen kann).
+
 ---
+
+## `cachedRead` ohne Cross-Request-Coalescing (Review K40)
+
+**Owner:** future brief (Launch-Hardening). **Sessions:** Status-quo-Review-Triage 2026-07-02 (Review-Datei gitignored, Finding hier konserviert).
+
+`cachedRead` (`src/lib/db-cache.ts`) coalesct nicht cross-request — `memoryCachedRead` hat die In-Flight-Promise-Map, `cachedRead` nicht. Ein Launch-Spike auf ein frisch invalidiertes Buch kann parallel mehrfach in den `max:5`-Pool fan-outen; bounded und selbstheilend (dokumentierter Tradeoff), aber eine symmetrische In-Flight-Map wäre ein kleiner Hardening-Gewinn. Verwandt (K77, ebenfalls dokumentiert): On-demand-ISR-Long-Tail + `force-dynamic` können beim Reddit-Hug transiente Timeouts auf kalten URLs geben — Option: Hot-Subset in `generateStaticParams` vor dem Launch verbreitern.
+
+**Promote when:** der Reddit-Launch-Brief geschnitten wird (als Hardening-Zeile mitnehmen) oder erste Pool-Timeout-Beobachtungen unter Last.
+
+## Code-Splitting-Rest (Review K11-Teilmenge)
+
+**Owner:** future brief. **Sessions:** Status-quo-Review-Triage 2026-07-02.
+
+Kein einziges `next/dynamic` in 104 Komponenten. Der Map-Editor-Teil (~1.300 LOC) wird in Brief 178 eingefaltet (Philipp-Entscheid 2026-07-02, siehe `worklist.md` § A); Rest-Kandidaten laut Review: CinematicView (722 LOC), PodcastArchive. Materialität von den Verifiern als klein eingestuft — kein Zug ohne Messung.
+
+**Promote when:** Bundle-Größe/TTI wird gemessen problematisch (z. B. Lighthouse-/Bundle-Analyzer-Session nach dem Launch — die Review hat Laufzeit-Messungen bewusst ausgespart).
 
 ## `chaos`-pov_side-Promote-Pass für Traitor-Legion-POV-Bücher — moot post-CC-Direct-Curation
 

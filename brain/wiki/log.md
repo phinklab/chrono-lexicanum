@@ -1592,3 +1592,38 @@ Policy-Wechsel mit Philipp, **löst die 2026-05-25-„doc-only → direct to `ma
 **⚠ Adjacent-Staleness — NOTIERT, bewusst NICHT in diesem Pass gefixt (Scope = 170/171/172):** die README-Zeilen **166/167/168/169** stehen noch auf `open`, obwohl **166/168/169 Impl-Reports haben** (`2026-06-26-166-impl-…`, `2026-06-28-168-impl-…`, `2026-06-28-169-impl-…`) und **167s 6 ADD-Bücher (`W40K-0593..0598`) im per-Buch-Korpus liegen** (167 hatte nie einen eigenen Impl-Report — seine Batch-Extension wurde von der 171-Migration absorbiert). Diese Vierer-Gruppe braucht einen eigenen Status-Resync + Archiv-Sweep; hier nur geflaggt, nicht mitgezogen, um den Scope eng zu halten.
 
 **Edits (Cowork, uncommitted — CC committet via Koordinations-PR `codex/session-172-rollup-coordination`):** `project-state.md` (Neuschrieb Latest-state auf Per-Buch-SSOT 896 + Frozen-Provenienz + Retired + Neue-Werkzeuge; DB-Apply-Modell 9-schrittig; Podcast-Delta; Standing-tools; Batches-Tail + latente Follow-ups; Queue-Referenz; Next-brief-Adjacent-Note; Header + `updated` → 2026-07-01), `log.md` (dieser Eintrag), `open-questions.md` (Frontmatter `updated` → 2026-07-01 + 171-Impl in Sources), `sessions/README.md` (2026-07-01-Nachtrag: „Offen"-Klausel geschlossen), `index.md` (project-state/open-questions/log-Catalog-Zeilen `Updated` → 2026-07-01 + project-state-Summary auf 896 per-Buch).
+
+## 2026-07-02 · Backfill · README-Nachträge 2026-06-24…07-01 kondensiert
+
+Der Active-threads-Kopf in `sessions/README.md` trug sieben historische Nachträge (~9k chars, Budget-Treiber). Kondensiert auf einen aktuellen Kopf; die Historie in Kurzform (Detail: Tabellenzeilen, `sessions/archive/2026-06/`, Rollup-Eintrag 2026-07-01):
+
+- **06-24:** Wave 154–163 gemergt + appliziert (B11-Reviewer 889 Bücher, Stage 3 → 53 sektor-zugeordnete Welten, Gate F/L +20 Factions/+142 Locations; Product 159–163). Ops: `db:sync` gelaufen, Migration 0014, Secrets gesetzt. Brief 157 = `db:sync` Default nach Rebuild-Vorfall 18.06.
+- **06-26/27/27b:** 164/165 implemented; Brief 166 (Ask-Hub/OFOB) revidiert + geliefert; Drei-Teiler 167 (OFOB-Gap-Bücher, `OFOB-gap-books.xlsx`: 6 ADD + 4 REPOINT) / 168 (Weekly-Catchup) / 169 (faction-starters-Re-Link); Review-Fixes (ADD-Bücher → Restbatch `ssot-w40k-060`).
+- **06-28…07-01:** 170er-Arc (Per-Buch-SSOT) gereviewt, in Drei-Teiler gesplittet, komplett gemergt — Detail im Rollup-Eintrag 2026-07-01.
+- **07-01b:** Konsolidierungs-Session mit Philipp → `worklist.md` als kanonische Sammelstelle etabliert; Brief 173 (Hygiene-Resync: README-Tabelle 166–169, Archiv-Sweep 16 Files, Boards-Resync, OQ-16b verortet in `book-apply-shared.ts`) geschnitten und am selben Tag umgesetzt (CC-Koordinations-PR #206).
+
+## 2026-07-02 · Coordination + Brief 174 · P14 gestartet (Map-SSOT-Zweiteiler)
+
+**Gelesen:** Impl-Report `2026-07-01-173-impl-hygiene-resync-worklist.md` (complete, PR #206 gemergt).
+
+**Befund:** Die Redditor-Koordinaten-Excel liegt vor — `scripts/seed-data/source/Warhammer_map_SSOT.xlsx` (28.06.): 992 Welten, alle mit numerischen Koordinaten (Pixel-Raum ~7031×6198), Klassifikationen (rangig, 198× „Unclassified"), Segmentum; 12 Namens-Dubletten, 0 Koordinaten-Lücken. Bestand: `locations.json` 446 Rows im 0–1000-`gx`/`gy`-Raster.
+
+**Philipp-Entscheide (rev. in derselben Session — erster Schnitt „Excel in `locations.json` mergen" verworfen):** **Excel = die Karte.** Eigener Map-Katalog aus den 992 Redditor-Welten samt deren Koordinaten; nur Karten-Pins, keine neuen Entities (`locations` bleibt Entity-Quelle für `/welt`); Medien-Bestand (Bücher + Podcast-Episoden, einheitlich via `work_locations`) wird gegen die Excel gematcht; Medien-Welten ohne Excel-Match → Nachplatzierungs-Review-Liste (Philipp platziert per Override nach); Neubau in gleicher Optik; Segmentum ersetzt den gezeichneten Sektor-Layer. P14 als Zweiteiler; P15 in Teil B eingefaltet.
+
+**Neuer Brief:** `sessions/2026-07-02-174-arch-map-ssot-reconciliation.md` (open, Batches, **DB-frei**) — deterministischer Convert-Step (Muster `import:faction-starters`) → committeter Katalog `map-worlds.json` (id/name/gx/gy 0–1000/Klassifikation rangerhaltend/Segmentum/`locationId` wo gematcht) + `map-worlds.overrides.json` als Hand-Pfad + `map-worlds.review.md` als Hand-Gate (Match-Übersicht mit Medien-Zahl, Nachplatzierungs-Worklist mit Override-Stubs, 12 Dubletten, ID-Kollisionen). Keine Schema-Änderung, kein `db:sync`-Schritt, `locations`/`sectors` unangetastet. Brief 178 (Map-UI-Neubau + P15; renummeriert von 175, s. Folgeeintrag) folgt nach 174-Merge. OQ 16b/c explizit deferred (unverwandt).
+
+**173-Impl-Findings abgearbeitet:** 122-Board § Standing tool vom retirten SSOT-Loop auf den per-Buch-Pfad umgeschrieben; README-Tabellenzeilen 163–165 getrimmt + Nachträge kondensiert (Budget, s. Backfill-Eintrag); `index.md`-Selbstzeile nachgeführt.
+
+**Edits (Cowork, uncommitted — reiten im nächsten CC-PR):** Brief 174 (neu), `sessions/README.md` (Kopf neu + Nachtrag 07-02 + Zeile 174 + Trim), Boards 121 (P14/P15-Status) + 122 (Standing tool), `worklist.md` (§ A P14 → 174/175, § F Excel-Merker ersetzt), `project-state.md` (§ What's open + § Next likely brief), `index.md`, `log.md` (diese zwei Einträge).
+
+## 2026-07-02 · Coordination + Briefe 175/176/177 · Hygiene-Wave vor dem Map-UI-Schnitt
+
+**Anlass:** Philipp wollte vor dem letzten Map-Puzzlestück (P14 Teil B) eine Gesamtübersicht der offenen Punkte und entschied nach dem Review: die Batches-Hygiene wird vorgezogen — Podcast-Hygiene + Roster-Rebind + B6/B7, alles vor dem Map-UI-Brief.
+
+**Drei neue Briefe (alle Batches, alle `open`):** **175** `2026-07-02-175-arch-podcast-hygiene.md` — Drift-Fix der 8 roten `test:podcast-cc-direct`-Fälle (Re-Assemble luetin09 + the-40k-lorecast), 168er-Catchup für 3 Shows über den 172er-Delta-Pfad (Entscheid: **cc-direct**, kein metered Pfad), Alias-Backlog-Triage (~63+~212 Surface-Forms; keine neuen Entities, Rest → Review-Liste), Lorehammer-Twin-Filter; S4 explizit out of scope; Interplay Alias-Index ↔ Assemble im Brief benannt. **176** `2026-07-02-176-arch-roster-rebind-kleinkram.md` — Roster-Rebind (`import-faction-starters` + `book-review/projection` → `loadEffectiveCorpusBooks`; Roster bleibt Golden), `refresh:audit-artifacts`-Preflight (+ optional `db:drift` mit Philipp-Go), Slug-Kosmetik `W40K-0259`/`W40K-0330` (normalisieren = dokumentierte Golden-Divergenz, sonst begründet lassen), **B7** brain:lint-Budget-Guardrail (Spec Brief 112). **177** `2026-07-02-177-arch-dead-code-sweep.md` — **B6** Dead-Code-Sweep, Startbedingung 176-Merge; B6-Carve-out post-171 erweitert: der komplette `equiv:diff`-Golden-Pfad bleibt (nicht nur der Excel-Loader), Refusal-Stubs bleiben; Inventar-vor-Löschung; `CLAUDE.md`-Stack-Tabelle auf Per-Buch-SSOT-Stand.
+
+**OQ-Queue:** 16b/c erneut explizit deferred (unverwandt zu allen drei Briefen; 16b wartet weiter auf Consumer-Druck).
+
+**Renummerierung:** Map-UI (P14 Teil B, inkl. P15) **175 → 178**; Forward-Pointer angepasst in Brief 174, Boards 121 (P14/P15) + 122 (B6/B7 briefed), `sessions/README.md` (Kopf, Nachtrag, neue Tabellenzeilen 175–177), `worklist.md` (§ A neu geordnet, § B-1/B-2 briefed, § F zwei neue Merker), `project-state.md` (§ What's open Kleinkram → Brief-Pointer, § Next likely brief) und der 174-Eintrag hier drüber.
+
+**Edits (Cowork, uncommitted — reiten im nächsten CC-PR):** Briefe 175/176/177 (neu), `sessions/README.md`, Boards 121+122, `worklist.md`, `project-state.md`, `log.md` (dieser Eintrag).

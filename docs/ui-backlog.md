@@ -17,6 +17,11 @@ Differences from neighbouring docs:
 
 ## Open
 
+- **MediaPlayer: rAF-Tick läuft auch idle/paused auf jeder Seite** (2026-07-02,
+  Status-quo-Review K23). Der Tick baut pro Frame den 96-Bar-SVG-Pfad neu, auch
+  wenn nichts spielt (der reduced-motion-Guard existiert, greift aber nur für
+  genau dieses Setting). Fix: rAF bei idle/paused/nicht-sichtbar suspendieren
+  (Play-State + `visibilitychange`).
 - **/archive: FilterSelect-Hover ohne Text-Farbantwort auf der Gold-Surface**
   (2026-06-11, Session 141). `body:has(main.catalogue)` override färbt nur die
   Border gold (`61-browse.css:529-531`), der Button-Text bleibt bone — `.is-set`
