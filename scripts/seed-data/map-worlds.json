@@ -7,7 +7,7 @@
     "transform": "gx = (x - 2.794) * 1000/7028.206, gy = (y - 515) * 1000/7028.206 (gleicher Skalierungsfaktor für beide Achsen = seitenverhältnis-treu; y wächst wie im Quellbild nach unten; gerundet auf 2 Nachkommastellen). Quelle: Warhammer_map_SSOT.xlsx, Pixel-Raum x ∈ [2.794, 7031], y ∈ [515, 6198]."
   },
   "coverage": {
-    "placedWorkEdges": 1200,
+    "placedWorkEdges": 1332,
     "totalWorkEdges": 1685
   },
   "worlds": [
@@ -101,6 +101,32 @@
         }
       ],
       "origin": "excel"
+    },
+    {
+      "id": "aexe-cardinal",
+      "name": "Aexe Cardinal",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Pacificus",
+      "gx": 166.79,
+      "gy": 537.83,
+      "locationId": "aexe_cardinal",
+      "works": [
+        {
+          "type": "book",
+          "slug": "gaunts-ghosts-the-saint-omnibus-4-7",
+          "title": "Gaunt's Ghosts: The Saint Omnibus, 4-7",
+          "role": "primary"
+        },
+        {
+          "type": "book",
+          "slug": "straight-silver",
+          "title": "Straight Silver",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
     },
     {
       "id": "aggaros",
@@ -264,6 +290,64 @@
       "origin": "excel"
     },
     {
+      "id": "alaric-prime",
+      "name": "Alaric Prime",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Ultima",
+      "gx": 464.87,
+      "gy": 201.33,
+      "locationId": "alaric_prime",
+      "works": [
+        {
+          "type": "book",
+          "slug": "sanctus-reach",
+          "title": "Sanctus Reach",
+          "role": "primary"
+        },
+        {
+          "type": "book",
+          "slug": "sanctus-reach-blood-on-the-mountain",
+          "title": "Sanctus Reach: Blood on the Mountain",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
+    },
+    {
+      "id": "alaxxes-nebula",
+      "name": "Alaxxes Nebula",
+      "kind": "region",
+      "classification": "Region",
+      "classification2": null,
+      "segmentum": "Solar",
+      "gx": 419.34,
+      "gy": 246.86,
+      "locationId": "alaxxes_nebula",
+      "works": [
+        {
+          "type": "book",
+          "slug": "scars",
+          "title": "Scars",
+          "role": "primary"
+        },
+        {
+          "type": "book",
+          "slug": "wolf-king",
+          "title": "Wolf King",
+          "role": "primary"
+        },
+        {
+          "type": "book",
+          "slug": "wolfs-claw",
+          "title": "Wolf's Claw",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
+    },
+    {
       "id": "alcuescar",
       "name": "Alcuescar",
       "kind": "imperial",
@@ -283,8 +367,8 @@
       "classification": "Unclassified",
       "classification2": null,
       "segmentum": "Tempestus",
-      "gx": 420,
-      "gy": 640,
+      "gx": 420.05,
+      "gy": 639.99,
       "locationId": "alecto",
       "works": [
         {
@@ -484,6 +568,32 @@
       "locationId": null,
       "works": [],
       "origin": "excel"
+    },
+    {
+      "id": "ancreon-sextus",
+      "name": "Ancreon Sextus",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Pacificus",
+      "gx": 176.75,
+      "gy": 520.76,
+      "locationId": "ancreon_sextus",
+      "works": [
+        {
+          "type": "book",
+          "slug": "gaunts-ghosts-the-lost-omnibus-8-11",
+          "title": "Gaunt's Ghosts: The Lost Omnibus, 8-11",
+          "role": "primary"
+        },
+        {
+          "type": "book",
+          "slug": "his-last-command",
+          "title": "His Last Command",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
     },
     {
       "id": "angstrom",
@@ -1408,6 +1518,13 @@
         },
         {
           "type": "book",
+          "slug": "dante",
+          "title": "Dante",
+          "role": "primary",
+          "via": "baal_secundus"
+        },
+        {
+          "type": "book",
           "slug": "darkness-in-the-blood",
           "title": "Darkness in the Blood",
           "role": "primary"
@@ -1471,6 +1588,14 @@
         },
         {
           "type": "podcast_episode",
+          "slug": "the-40k-lorecast-6fda0240-e317-11ef-b623-4308392253d8",
+          "show": "the-40k-lorecast",
+          "title": "Episode 74 - Blood Angels pt1 - The origins",
+          "role": "subject",
+          "via": "baal_secundus"
+        },
+        {
+          "type": "podcast_episode",
           "slug": "the-40k-lorecast-92821c50-e728-11ef-8213-af33b664c72d",
           "show": "the-40k-lorecast",
           "title": "Episode 75 - Blood Angels pt2 - After the Death of Sanguinius",
@@ -1496,7 +1621,15 @@
       "gx": 540.99,
       "gy": 495.72,
       "locationId": null,
-      "works": [],
+      "works": [
+        {
+          "type": "book",
+          "slug": "legacy-of-dorn",
+          "title": "Legacy of Dorn",
+          "role": "mentioned",
+          "via": "arx_tyrannus"
+        }
+      ],
       "origin": "excel"
     },
     {
@@ -1550,6 +1683,58 @@
       "locationId": null,
       "works": [],
       "origin": "excel"
+    },
+    {
+      "id": "balhaut",
+      "name": "Balhaut",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Pacificus",
+      "gx": 152.56,
+      "gy": 517.2,
+      "locationId": "balhaut",
+      "works": [
+        {
+          "type": "book",
+          "slug": "blood-pact",
+          "title": "Blood Pact",
+          "role": "primary"
+        },
+        {
+          "type": "book",
+          "slug": "gaunts-ghosts-the-victory-omnibus-part-one-12-13",
+          "title": "Gaunt's Ghosts: The Victory Omnibus Part One, 12-13",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
+    },
+    {
+      "id": "balopolis",
+      "name": "Balopolis",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Pacificus",
+      "gx": 163.94,
+      "gy": 550.64,
+      "locationId": "balopolis",
+      "works": [
+        {
+          "type": "book",
+          "slug": "blood-pact",
+          "title": "Blood Pact",
+          "role": "primary"
+        },
+        {
+          "type": "book",
+          "slug": "gaunts-ghosts-the-victory-omnibus-part-one-12-13",
+          "title": "Gaunt's Ghosts: The Victory Omnibus Part One, 12-13",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
     },
     {
       "id": "balor",
@@ -2865,6 +3050,26 @@
       "origin": "excel"
     },
     {
+      "id": "calixis",
+      "name": "Calixis",
+      "kind": "region",
+      "classification": "Region",
+      "classification2": null,
+      "segmentum": "Obscurus",
+      "gx": 184.57,
+      "gy": 83.24,
+      "locationId": "calixis",
+      "works": [
+        {
+          "type": "book",
+          "slug": "malleus",
+          "title": "Malleus",
+          "role": "mentioned"
+        }
+      ],
+      "origin": "override"
+    },
+    {
       "id": "calth",
       "name": "Calth",
       "kind": "imperial",
@@ -3113,6 +3318,26 @@
       "locationId": null,
       "works": [],
       "origin": "excel"
+    },
+    {
+      "id": "cao-quo",
+      "name": "Cao Quo",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Ultima",
+      "gx": 881.76,
+      "gy": 574.12,
+      "locationId": "cao_quo",
+      "works": [
+        {
+          "type": "book",
+          "slug": "elemental-council",
+          "title": "Elemental Council",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
     },
     {
       "id": "cardrim",
@@ -4873,8 +5098,8 @@
       "classification": "Unclassified",
       "classification2": null,
       "segmentum": "Ultima",
-      "gx": 700,
-      "gy": 243,
+      "gx": 700.07,
+      "gy": 243.02,
       "locationId": "cryptus",
       "works": [
         {
@@ -5158,6 +5383,26 @@
       "origin": "excel"
     },
     {
+      "id": "damask",
+      "name": "Damask",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Obscurus",
+      "gx": 241.48,
+      "gy": 125.92,
+      "locationId": "damask",
+      "works": [
+        {
+          "type": "book",
+          "slug": "xenos",
+          "title": "Xenos",
+          "role": "secondary"
+        }
+      ],
+      "origin": "override"
+    },
+    {
       "id": "damnos",
       "name": "Damnos",
       "kind": "imperial",
@@ -5190,8 +5435,8 @@
       "classification": "Region",
       "classification2": null,
       "segmentum": "Ultima",
-      "gx": 845,
-      "gy": 550,
+      "gx": 845.05,
+      "gy": 550.07,
       "locationId": "damocles_gulf",
       "works": [
         {
@@ -5327,6 +5572,32 @@
       "locationId": null,
       "works": [],
       "origin": "excel"
+    },
+    {
+      "id": "dasht-i-kevar",
+      "name": "Dasht i-Kevar",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Ultima",
+      "gx": 839.08,
+      "gy": 574.12,
+      "locationId": "dasht_i_kevar",
+      "works": [
+        {
+          "type": "book",
+          "slug": "kasrkin",
+          "title": "Kasrkin",
+          "role": "primary"
+        },
+        {
+          "type": "book",
+          "slug": "soldiers-of-the-imperium",
+          "title": "Soldiers of the Imperium",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
     },
     {
       "id": "davatas",
@@ -5933,6 +6204,26 @@
       "origin": "excel"
     },
     {
+      "id": "durer",
+      "name": "Durer",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Obscurus",
+      "gx": 241.48,
+      "gy": 111.69,
+      "locationId": "durer",
+      "works": [
+        {
+          "type": "book",
+          "slug": "hereticus",
+          "title": "Hereticus",
+          "role": "secondary"
+        }
+      ],
+      "origin": "override"
+    },
+    {
       "id": "duriel",
       "name": "Duriel",
       "kind": "dead",
@@ -6018,6 +6309,72 @@
       "origin": "excel"
     },
     {
+      "id": "eastern-fringe",
+      "name": "Eastern Fringe",
+      "kind": "region",
+      "classification": "Region",
+      "classification2": null,
+      "segmentum": "Ultima",
+      "gx": 974.25,
+      "gy": 396.26,
+      "locationId": "eastern_fringe",
+      "works": [
+        {
+          "type": "book",
+          "slug": "clonelord",
+          "title": "Clonelord",
+          "role": "secondary"
+        },
+        {
+          "type": "book",
+          "slug": "relentless",
+          "title": "Relentless",
+          "role": "primary"
+        },
+        {
+          "type": "book",
+          "slug": "rogue-star",
+          "title": "Rogue Star",
+          "role": "primary"
+        },
+        {
+          "type": "podcast_episode",
+          "slug": "adeptus-ridiculous-buzzsprout-14098992",
+          "show": "adeptus-ridiculous",
+          "title": "TAU VEHICLES: ALL GRACE AND MEASURED FURY | Warhammer 40k Lore feat Kirioth",
+          "role": "mentioned"
+        },
+        {
+          "type": "podcast_episode",
+          "slug": "adeptus-ridiculous-buzzsprout-15277282",
+          "show": "adeptus-ridiculous",
+          "title": "THE ELDRITCH HORROR OF THE GHOUL STARS | Warhammer 40k Lore",
+          "role": "mentioned"
+        }
+      ],
+      "origin": "override"
+    },
+    {
+      "id": "eechan",
+      "name": "Eechan",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Obscurus",
+      "gx": 252.87,
+      "gy": 121.65,
+      "locationId": "eechan",
+      "works": [
+        {
+          "type": "book",
+          "slug": "malleus",
+          "title": "Malleus",
+          "role": "secondary"
+        }
+      ],
+      "origin": "override"
+    },
+    {
       "id": "eilon",
       "name": "Eilon",
       "kind": "unclassified",
@@ -6029,6 +6386,26 @@
       "locationId": null,
       "works": [],
       "origin": "excel"
+    },
+    {
+      "id": "elaras-veil",
+      "name": "Elara's Veil",
+      "kind": "region",
+      "classification": "Region",
+      "classification2": null,
+      "segmentum": "Ultima",
+      "gx": 952.9,
+      "gy": 581.23,
+      "locationId": "elaras_veil",
+      "works": [
+        {
+          "type": "book",
+          "slug": "spear-of-the-emperor",
+          "title": "Spear of the Emperor",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
     },
     {
       "id": "eldritch",
@@ -6550,7 +6927,8 @@
           "type": "book",
           "slug": "children-of-sicarus",
           "title": "Children of Sicarus",
-          "role": "secondary"
+          "role": "primary",
+          "via": "sicarus"
         },
         {
           "type": "book",
@@ -6600,7 +6978,8 @@
           "type": "book",
           "slug": "hammer-of-daemons",
           "title": "Hammer of Daemons",
-          "role": "secondary"
+          "role": "primary",
+          "via": "drakaasi"
         },
         {
           "type": "book",
@@ -6714,7 +7093,8 @@
           "type": "book",
           "slug": "the-grey-knights-omnibus",
           "title": "The Grey Knights Omnibus",
-          "role": "secondary"
+          "role": "primary",
+          "via": "drakaasi"
         },
         {
           "type": "book",
@@ -7483,6 +7863,32 @@
       "origin": "excel"
     },
     {
+      "id": "fortis-binary",
+      "name": "Fortis Binary",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Pacificus",
+      "gx": 143.31,
+      "gy": 537.12,
+      "locationId": "fortis_binary",
+      "works": [
+        {
+          "type": "book",
+          "slug": "first-and-only",
+          "title": "First and Only",
+          "role": "secondary"
+        },
+        {
+          "type": "book",
+          "slug": "gaunts-ghosts-the-founding-omnibus-1-3",
+          "title": "Gaunt's Ghosts: The Founding Omnibus, 1-3",
+          "role": "secondary"
+        }
+      ],
+      "origin": "override"
+    },
+    {
       "id": "fortress",
       "name": "Fortress",
       "kind": "imperial-military",
@@ -7639,6 +8045,32 @@
       "origin": "excel"
     },
     {
+      "id": "garm",
+      "name": "Garm",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Solar",
+      "gx": 412.23,
+      "gy": 275.32,
+      "locationId": "garm",
+      "works": [
+        {
+          "type": "book",
+          "slug": "grey-hunter",
+          "title": "Grey Hunter",
+          "role": "primary"
+        },
+        {
+          "type": "book",
+          "slug": "the-space-wolf-omnibus",
+          "title": "The Space Wolf Omnibus",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
+    },
+    {
       "id": "gartuli",
       "name": "Gartuli",
       "kind": "imperial-military",
@@ -7705,7 +8137,7 @@
       "classification2": null,
       "segmentum": "Pacificus",
       "gx": 185,
-      "gy": 540,
+      "gy": 539.97,
       "locationId": "gereon",
       "works": [
         {
@@ -7866,8 +8298,8 @@
       "classification": "Region",
       "classification2": null,
       "segmentum": "Ultima",
-      "gx": 835,
-      "gy": 130,
+      "gx": 834.95,
+      "gy": 130.05,
       "locationId": "ghoul_stars",
       "works": [
         {
@@ -7962,6 +8394,26 @@
       "locationId": null,
       "works": [],
       "origin": "excel"
+    },
+    {
+      "id": "gnostes",
+      "name": "Gnostes",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Pacificus",
+      "gx": 171.77,
+      "gy": 552.77,
+      "locationId": "gnostes",
+      "works": [
+        {
+          "type": "book",
+          "slug": "volpone-glory",
+          "title": "Volpone Glory",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
     },
     {
       "id": "golgotha",
@@ -8060,8 +8512,8 @@
       "classification": "Region",
       "classification2": null,
       "segmentum": "Obscurus",
-      "gx": 430,
-      "gy": 175,
+      "gx": 430.01,
+      "gy": 175.01,
       "locationId": "gothic_sector",
       "works": [
         {
@@ -8197,6 +8649,26 @@
       "origin": "excel"
     },
     {
+      "id": "gravalax",
+      "name": "Gravalax",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Ultima",
+      "gx": 850.46,
+      "gy": 549.93,
+      "locationId": "gravalax",
+      "works": [
+        {
+          "type": "book",
+          "slug": "for-the-emperor",
+          "title": "For the Emperor",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
+    },
+    {
       "id": "grave",
       "name": "Grave",
       "kind": "unclassified",
@@ -8301,8 +8773,8 @@
       "classification": "Unclassified",
       "classification2": null,
       "segmentum": "Obscurus",
-      "gx": 247,
-      "gy": 118,
+      "gx": 247.03,
+      "gy": 117.95,
       "locationId": "gudrun",
       "works": [
         {
@@ -8419,6 +8891,32 @@
       "origin": "excel"
     },
     {
+      "id": "hagia",
+      "name": "Hagia",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Pacificus",
+      "gx": 154.69,
+      "gy": 528.58,
+      "locationId": "hagia",
+      "works": [
+        {
+          "type": "book",
+          "slug": "gaunts-ghosts-the-saint-omnibus-4-7",
+          "title": "Gaunt's Ghosts: The Saint Omnibus, 4-7",
+          "role": "primary"
+        },
+        {
+          "type": "book",
+          "slug": "honour-guard",
+          "title": "Honour Guard",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
+    },
+    {
       "id": "haint",
       "name": "Haint",
       "kind": "unclassified",
@@ -8482,6 +8980,26 @@
       "locationId": null,
       "works": [],
       "origin": "excel"
+    },
+    {
+      "id": "halo-stars",
+      "name": "Halo Stars",
+      "kind": "region",
+      "classification": "Region",
+      "classification2": null,
+      "segmentum": "Obscurus",
+      "gx": 149,
+      "gy": 26.32,
+      "locationId": "halo_stars",
+      "works": [
+        {
+          "type": "book",
+          "slug": "da-freebooterz-code",
+          "title": "Da Freebooterz Code",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
     },
     {
       "id": "haltomoat",
@@ -8673,6 +9191,32 @@
       "origin": "excel"
     },
     {
+      "id": "herodor",
+      "name": "Herodor",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Pacificus",
+      "gx": 164.65,
+      "gy": 512.93,
+      "locationId": "herodor",
+      "works": [
+        {
+          "type": "book",
+          "slug": "gaunts-ghosts-the-saint-omnibus-4-7",
+          "title": "Gaunt's Ghosts: The Saint Omnibus, 4-7",
+          "role": "primary"
+        },
+        {
+          "type": "book",
+          "slug": "sabbat-martyr",
+          "title": "Sabbat Martyr",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
+    },
+    {
       "id": "hexos",
       "name": "Hexos",
       "kind": "unclassified",
@@ -8736,6 +9280,32 @@
       "locationId": null,
       "works": [],
       "origin": "excel"
+    },
+    {
+      "id": "hubris",
+      "name": "Hubris",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Obscurus",
+      "gx": 250.02,
+      "gy": 113.12,
+      "locationId": "hubris",
+      "works": [
+        {
+          "type": "book",
+          "slug": "eisenhorn-omnibus",
+          "title": "Eisenhorn Omnibus",
+          "role": "secondary"
+        },
+        {
+          "type": "book",
+          "slug": "xenos",
+          "title": "Xenos",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
     },
     {
       "id": "hydra-cordatus",
@@ -8872,8 +9442,8 @@
       "classification": "Unclassified",
       "classification2": null,
       "segmentum": "Ultima",
-      "gx": 897,
-      "gy": 650,
+      "gx": 896.99,
+      "gy": 649.95,
       "locationId": "iax",
       "works": [
         {
@@ -9250,8 +9820,8 @@
       "classification": "Unclassified",
       "classification2": null,
       "segmentum": "Ultima",
-      "gx": 496,
-      "gy": 161,
+      "gx": 496.03,
+      "gy": 161.07,
       "locationId": "istvaan_iii",
       "works": [
         {
@@ -9368,8 +9938,8 @@
       "classification": "Unclassified",
       "classification2": null,
       "segmentum": "Ultima",
-      "gx": 490,
-      "gy": 155,
+      "gx": 490.05,
+      "gy": 154.95,
       "locationId": "istvaan_v",
       "works": [
         {
@@ -9699,6 +10269,32 @@
       "locationId": null,
       "works": [],
       "origin": "excel"
+    },
+    {
+      "id": "jago",
+      "name": "Jago",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Pacificus",
+      "gx": 177.46,
+      "gy": 545.66,
+      "locationId": "jago",
+      "works": [
+        {
+          "type": "book",
+          "slug": "gaunts-ghosts-the-lost-omnibus-8-11",
+          "title": "Gaunt's Ghosts: The Lost Omnibus, 8-11",
+          "role": "primary"
+        },
+        {
+          "type": "book",
+          "slug": "only-in-death",
+          "title": "Only in Death",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
     },
     {
       "id": "jakart",
@@ -10109,6 +10705,32 @@
       "locationId": null,
       "works": [],
       "origin": "excel"
+    },
+    {
+      "id": "kathur",
+      "name": "Kathur",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Obscurus",
+      "gx": 291.28,
+      "gy": 246.86,
+      "locationId": "kathur",
+      "works": [
+        {
+          "type": "book",
+          "slug": "cadian-blood",
+          "title": "Cadian Blood",
+          "role": "primary"
+        },
+        {
+          "type": "book",
+          "slug": "honour-imperialis-omnibus",
+          "title": "Honour Imperialis Omnibus",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
     },
     {
       "id": "kato",
@@ -10555,6 +11177,26 @@
       "locationId": null,
       "works": [],
       "origin": "excel"
+    },
+    {
+      "id": "kronus",
+      "name": "Kronus",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Ultima",
+      "gx": 839.08,
+      "gy": 531.43,
+      "locationId": "kronus",
+      "works": [
+        {
+          "type": "book",
+          "slug": "inheritor",
+          "title": "Inheritor",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
     },
     {
       "id": "ksimyen",
@@ -12092,6 +12734,32 @@
       "origin": "excel"
     },
     {
+      "id": "menazoid-epsilon",
+      "name": "Menazoid Epsilon",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Pacificus",
+      "gx": 149,
+      "gy": 539.97,
+      "locationId": "menazoid_epsilon",
+      "works": [
+        {
+          "type": "book",
+          "slug": "first-and-only",
+          "title": "First and Only",
+          "role": "primary"
+        },
+        {
+          "type": "book",
+          "slug": "gaunts-ghosts-the-founding-omnibus-1-3",
+          "title": "Gaunt's Ghosts: The Founding Omnibus, 1-3",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
+    },
+    {
       "id": "mesoa",
       "name": "Mesoa",
       "kind": "imperial-military",
@@ -12236,7 +12904,7 @@
       "classification2": null,
       "segmentum": "Obscurus",
       "gx": 255,
-      "gy": 105,
+      "gy": 105.01,
       "locationId": "mistral",
       "works": [
         {
@@ -12342,6 +13010,13 @@
           "role": "primary"
         },
         {
+          "type": "book",
+          "slug": "wolf-mother",
+          "title": "Wolf Mother",
+          "role": "primary",
+          "via": "molechs_enlightenment"
+        },
+        {
           "type": "podcast_episode",
           "slug": "luetin09-tiwjfdhql2i",
           "show": "luetin09",
@@ -12409,6 +13084,32 @@
       "locationId": null,
       "works": [],
       "origin": "excel"
+    },
+    {
+      "id": "monthax",
+      "name": "Monthax",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Pacificus",
+      "gx": 161.81,
+      "gy": 534.28,
+      "locationId": "monthax",
+      "works": [
+        {
+          "type": "book",
+          "slug": "gaunts-ghosts-the-founding-omnibus-1-3",
+          "title": "Gaunt's Ghosts: The Founding Omnibus, 1-3",
+          "role": "primary"
+        },
+        {
+          "type": "book",
+          "slug": "ghostmaker",
+          "title": "Ghostmaker",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
     },
     {
       "id": "montsegnur",
@@ -13272,8 +13973,8 @@
       "classification": "Unclassified",
       "classification2": null,
       "segmentum": "Ultima",
-      "gx": 790,
-      "gy": 165,
+      "gx": 789.99,
+      "gy": 165.05,
       "locationId": "nostramo",
       "works": [
         {
@@ -13382,6 +14083,13 @@
       "gy": 665.18,
       "locationId": "nuceria",
       "works": [
+        {
+          "type": "book",
+          "slug": "after-deshea",
+          "title": "After Desh'ea",
+          "role": "mentioned",
+          "via": "deshea"
+        },
         {
           "type": "book",
           "slug": "angron",
@@ -13954,6 +14662,53 @@
       "origin": "excel"
     },
     {
+      "id": "pariah-nexus",
+      "name": "Pariah Nexus",
+      "kind": "region",
+      "classification": "Region",
+      "classification2": null,
+      "segmentum": "Ultima",
+      "gx": 625.65,
+      "gy": 253.98,
+      "locationId": "pariah_nexus",
+      "works": [
+        {
+          "type": "book",
+          "slug": "indomitus",
+          "title": "Indomitus",
+          "role": "primary"
+        },
+        {
+          "type": "book",
+          "slug": "the-silent-king",
+          "title": "The Silent King",
+          "role": "primary"
+        },
+        {
+          "type": "podcast_episode",
+          "slug": "adeptus-ridiculous-buzzsprout-14502039",
+          "show": "adeptus-ridiculous",
+          "title": "VASHTORR RETURNS IN CAWL vs. NECRONS DOOMSDAY WEAPON EXTRAVAGANZA | Warhammer 40k Lore",
+          "role": "subject"
+        },
+        {
+          "type": "podcast_episode",
+          "slug": "the-40k-lorecast-5f355046-8997-4223-a475-8687a4bc5bd3",
+          "show": "the-40k-lorecast",
+          "title": "Episode 102 - The Pariah Nexus pt 1",
+          "role": "subject"
+        },
+        {
+          "type": "podcast_episode",
+          "slug": "the-40k-lorecast-7c2e70ef-bc80-4e7a-abc2-28bb13866efa",
+          "show": "the-40k-lorecast",
+          "title": "Episode 103 - The Pariah Nexus pt2",
+          "role": "subject"
+        }
+      ],
+      "origin": "override"
+    },
+    {
       "id": "parmenio",
       "name": "Parmenio",
       "kind": "unclassified",
@@ -14128,6 +14883,52 @@
       "origin": "excel"
     },
     {
+      "id": "periremunda",
+      "name": "Periremunda",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Ultima",
+      "gx": 775.05,
+      "gy": 481.63,
+      "locationId": "periremunda",
+      "works": [
+        {
+          "type": "book",
+          "slug": "duty-calls",
+          "title": "Duty Calls",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
+    },
+    {
+      "id": "perlia",
+      "name": "Perlia",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Ultima",
+      "gx": 746.59,
+      "gy": 417.6,
+      "locationId": "perlia",
+      "works": [
+        {
+          "type": "book",
+          "slug": "cains-last-stand",
+          "title": "Cain's Last Stand",
+          "role": "primary"
+        },
+        {
+          "type": "book",
+          "slug": "death-or-glory",
+          "title": "Death or Glory",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
+    },
+    {
       "id": "perun-cross",
       "name": "Perun Cross",
       "kind": "unclassified",
@@ -14147,8 +14948,8 @@
       "classification": "Unclassified",
       "classification2": null,
       "segmentum": "Ultima",
-      "gx": 890,
-      "gy": 585,
+      "gx": 890.01,
+      "gy": 585.07,
       "locationId": "phaedra",
       "works": [
         {
@@ -14280,8 +15081,8 @@
       "classification": "Unclassified",
       "classification2": null,
       "segmentum": "Pacificus",
-      "gx": 140,
-      "gy": 545,
+      "gx": 140.04,
+      "gy": 544.95,
       "locationId": "phantine",
       "works": [
         {
@@ -14360,8 +15161,21 @@
       "segmentum": "Obscurus",
       "gx": 391.59,
       "gy": 244.16,
-      "locationId": null,
-      "works": [],
+      "locationId": "piscina_iv",
+      "works": [
+        {
+          "type": "book",
+          "slug": "angels-of-darkness",
+          "title": "Angels of Darkness",
+          "role": "primary"
+        },
+        {
+          "type": "book",
+          "slug": "the-purging-of-kadillus",
+          "title": "The Purging of Kadillus",
+          "role": "primary"
+        }
+      ],
       "origin": "excel"
     },
     {
@@ -14858,6 +15672,32 @@
       "origin": "excel"
     },
     {
+      "id": "pyrites",
+      "name": "Pyrites",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Pacificus",
+      "gx": 184.57,
+      "gy": 524.32,
+      "locationId": "pyrites",
+      "works": [
+        {
+          "type": "book",
+          "slug": "first-and-only",
+          "title": "First and Only",
+          "role": "secondary"
+        },
+        {
+          "type": "book",
+          "slug": "gaunts-ghosts-the-founding-omnibus-1-3",
+          "title": "Gaunt's Ghosts: The Founding Omnibus, 1-3",
+          "role": "secondary"
+        }
+      ],
+      "origin": "override"
+    },
+    {
       "id": "qarls-rim",
       "name": "Q'arl's Rim",
       "kind": "imperial",
@@ -14869,6 +15709,26 @@
       "locationId": null,
       "works": [],
       "origin": "excel"
+    },
+    {
+      "id": "quadravidia",
+      "name": "Quadravidia",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Ultima",
+      "gx": 831.96,
+      "gy": 567,
+      "locationId": "quadravidia",
+      "works": [
+        {
+          "type": "book",
+          "slug": "the-greater-good",
+          "title": "The Greater Good",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
     },
     {
       "id": "quai-jinn",
@@ -15092,6 +15952,26 @@
       "origin": "excel"
     },
     {
+      "id": "rezlan-vi",
+      "name": "Rezlan VI",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Ultima",
+      "gx": 824.85,
+      "gy": 588.34,
+      "locationId": "rezlan_vi",
+      "works": [
+        {
+          "type": "book",
+          "slug": "death-rider",
+          "title": "Death Rider",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
+    },
+    {
       "id": "rhanna",
       "name": "Rhanna",
       "kind": "imperial",
@@ -15215,8 +16095,8 @@
       "classification": "Region",
       "classification2": null,
       "segmentum": "Pacificus",
-      "gx": 160,
-      "gy": 515,
+      "gx": 159.96,
+      "gy": 515.07,
       "locationId": "sabbat",
       "works": [
         {
@@ -15502,6 +16382,26 @@
       "origin": "excel"
     },
     {
+      "id": "saltire-vex",
+      "name": "Saltire Vex",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Ultima",
+      "gx": 853.31,
+      "gy": 581.23,
+      "locationId": "saltire_vex",
+      "works": [
+        {
+          "type": "book",
+          "slug": "war-of-secrets",
+          "title": "War of Secrets",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
+    },
+    {
       "id": "salvation-gamma",
       "name": "Salvation Gamma",
       "kind": "dead",
@@ -15513,6 +16413,32 @@
       "locationId": null,
       "works": [],
       "origin": "excel"
+    },
+    {
+      "id": "salvations-reach",
+      "name": "Salvation's Reach",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Pacificus",
+      "gx": 191.69,
+      "gy": 557.04,
+      "locationId": "salvations_reach",
+      "works": [
+        {
+          "type": "book",
+          "slug": "gaunts-ghosts-the-victory-omnibus-part-one-12-13",
+          "title": "Gaunt's Ghosts: The Victory Omnibus Part One, 12-13",
+          "role": "primary"
+        },
+        {
+          "type": "book",
+          "slug": "salvations-reach",
+          "title": "Salvation's Reach",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
     },
     {
       "id": "samech",
@@ -15560,10 +16486,17 @@
       "classification": "Unclassified",
       "classification2": null,
       "segmentum": "Obscurus",
-      "gx": 215,
-      "gy": 122,
+      "gx": 215.02,
+      "gy": 121.94,
       "locationId": "sancour",
       "works": [
+        {
+          "type": "book",
+          "slug": "death-knell",
+          "title": "Death Knell",
+          "role": "primary",
+          "via": "isle_of_st_capilene"
+        },
         {
           "type": "book",
           "slug": "pariah",
@@ -15642,6 +16575,38 @@
       "locationId": null,
       "works": [],
       "origin": "excel"
+    },
+    {
+      "id": "sanctus-reach",
+      "name": "Sanctus Reach",
+      "kind": "region",
+      "classification": "Region",
+      "classification2": null,
+      "segmentum": "Ultima",
+      "gx": 462.02,
+      "gy": 197.06,
+      "locationId": "sanctus_reach",
+      "works": [
+        {
+          "type": "book",
+          "slug": "sanctus-reach",
+          "title": "Sanctus Reach",
+          "role": "secondary"
+        },
+        {
+          "type": "book",
+          "slug": "sanctus-reach-evil-sun-rising",
+          "title": "Sanctus Reach: Evil Sun Rising",
+          "role": "primary"
+        },
+        {
+          "type": "book",
+          "slug": "sanctus-reach-maledictus",
+          "title": "Sanctus Reach: Maledictus",
+          "role": "secondary"
+        }
+      ],
+      "origin": "override"
     },
     {
       "id": "sangua-terra",
@@ -15780,8 +16745,8 @@
       "classification": "Region",
       "classification2": null,
       "segmentum": "Obscurus",
-      "gx": 235,
-      "gy": 110,
+      "gx": 234.94,
+      "gy": 109.99,
       "locationId": "scarus",
       "works": [
         {
@@ -16324,8 +17289,8 @@
       "classification": "Unclassified",
       "classification2": null,
       "segmentum": "Ultima",
-      "gx": 920,
-      "gy": 668,
+      "gx": 920.04,
+      "gy": 668.02,
       "locationId": "sotha",
       "works": [
         {
@@ -17015,6 +17980,64 @@
       "origin": "excel"
     },
     {
+      "id": "tarsis-ultra",
+      "name": "Tarsis Ultra",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Ultima",
+      "gx": 860.42,
+      "gy": 635.3,
+      "locationId": "tarsis_ultra",
+      "works": [
+        {
+          "type": "book",
+          "slug": "the-ultramarines-omnibus",
+          "title": "The Ultramarines Omnibus",
+          "role": "primary"
+        },
+        {
+          "type": "book",
+          "slug": "the-uriel-ventris-chronicles-vol-1-omnibus",
+          "title": "The Uriel Ventris Chronicles Vol. 1 Omnibus",
+          "role": "primary"
+        },
+        {
+          "type": "book",
+          "slug": "warriors-of-the-ultramar",
+          "title": "Warriors of the Ultramar",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
+    },
+    {
+      "id": "tartarus",
+      "name": "Tartarus",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Ultima",
+      "gx": 810.62,
+      "gy": 510.09,
+      "locationId": "tartarus",
+      "works": [
+        {
+          "type": "book",
+          "slug": "blood-ravens-the-dawn-of-war-omnibus",
+          "title": "Blood Ravens: The Dawn of War Omnibus",
+          "role": "primary"
+        },
+        {
+          "type": "book",
+          "slug": "dawn-of-war",
+          "title": "Dawn of War",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
+    },
+    {
       "id": "tashvar",
       "name": "Tash'var",
       "kind": "xenos",
@@ -17358,7 +18381,8 @@
           "type": "book",
           "slug": "eater-of-dreams",
           "title": "Eater of Dreams",
-          "role": "secondary"
+          "role": "primary",
+          "via": "albia"
         },
         {
           "type": "book",
@@ -17536,7 +18560,8 @@
           "type": "book",
           "slug": "ordo-sinister",
           "title": "Ordo Sinister",
-          "role": "secondary"
+          "role": "primary",
+          "via": "imperial_webway"
         },
         {
           "type": "book",
@@ -17747,8 +18772,8 @@
           "type": "book",
           "slug": "the-last-remembrancer",
           "title": "The Last Remembrancer",
-          "role": "secondary",
-          "via": "sol_system"
+          "role": "primary",
+          "via": "titan"
         },
         {
           "type": "book",
@@ -17814,8 +18839,8 @@
           "type": "book",
           "slug": "the-serpents-dance",
           "title": "The Serpent's Dance",
-          "role": "secondary",
-          "via": "sol_system"
+          "role": "primary",
+          "via": "jupiter"
         },
         {
           "type": "book",
@@ -18161,6 +19186,14 @@
         },
         {
           "type": "podcast_episode",
+          "slug": "lorehammer-3c530a7c-9349-46bf-ab70-45a78bce8df5",
+          "show": "lorehammer",
+          "title": "Listener Lore 13",
+          "role": "mentioned",
+          "via": "jupiter"
+        },
+        {
+          "type": "podcast_episode",
           "slug": "lorehammer-6b92044c-27bd-4899-ae00-85093b6b0dbf",
           "show": "lorehammer",
           "title": "Bonus 28 - Warlords of Old Terra Discord Event",
@@ -18459,6 +19492,14 @@
           "show": "the-40k-lorecast",
           "title": "Episode 54 - The Grey Knights pt 1 - The Flight of the Eisenstein and the Knights Errant.",
           "role": "subject"
+        },
+        {
+          "type": "podcast_episode",
+          "slug": "the-40k-lorecast-buzzsprout-15828324",
+          "show": "the-40k-lorecast",
+          "title": "Episode 55 - The Grey Knights pt 2 - The rise of the Grey Knights",
+          "role": "mentioned",
+          "via": "titan"
         },
         {
           "type": "podcast_episode",
@@ -18827,7 +19868,8 @@
           "type": "book",
           "slug": "daemon-world",
           "title": "Daemon World",
-          "role": "secondary"
+          "role": "primary",
+          "via": "torvendis"
         },
         {
           "type": "book",
@@ -19146,6 +20188,26 @@
       "origin": "excel"
     },
     {
+      "id": "thramas-sector",
+      "name": "Thramas Sector",
+      "kind": "region",
+      "classification": "Region",
+      "classification2": null,
+      "segmentum": "Ultima",
+      "gx": 917.33,
+      "gy": 460.29,
+      "locationId": "thramas_sector",
+      "works": [
+        {
+          "type": "book",
+          "slug": "prince-of-crows",
+          "title": "Prince of Crows",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
+    },
+    {
       "id": "thranix",
       "name": "Thranix",
       "kind": "chaos-warp",
@@ -19412,8 +20474,8 @@
       "classification": "Unclassified",
       "classification2": null,
       "segmentum": "Ultima",
-      "gx": 925,
-      "gy": 470,
+      "gx": 925.02,
+      "gy": 469.96,
       "locationId": "tsagualsa",
       "works": [
         {
@@ -19528,8 +20590,8 @@
       "classification": "Craftworld",
       "classification2": null,
       "segmentum": "Obscurus",
-      "gx": 245,
-      "gy": 210,
+      "gx": 245.04,
+      "gy": 210.01,
       "locationId": "ulthwe",
       "works": [
         {
@@ -20365,6 +21427,38 @@
       "origin": "excel"
     },
     {
+      "id": "voltemand",
+      "name": "Voltemand",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Pacificus",
+      "gx": 174.61,
+      "gy": 528.58,
+      "locationId": "voltemand",
+      "works": [
+        {
+          "type": "book",
+          "slug": "first-and-only",
+          "title": "First and Only",
+          "role": "secondary"
+        },
+        {
+          "type": "book",
+          "slug": "gaunts-ghosts-the-founding-omnibus-1-3",
+          "title": "Gaunt's Ghosts: The Founding Omnibus, 1-3",
+          "role": "secondary"
+        },
+        {
+          "type": "book",
+          "slug": "the-vincula-insurgency",
+          "title": "The Vincula Insurgency",
+          "role": "mentioned"
+        }
+      ],
+      "origin": "override"
+    },
+    {
       "id": "voltoris",
       "name": "Voltoris",
       "kind": "imperial-military",
@@ -20506,6 +21600,26 @@
       "locationId": null,
       "works": [],
       "origin": "excel"
+    },
+    {
+      "id": "vraks-prime",
+      "name": "Vraks Prime",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Obscurus",
+      "gx": 224.41,
+      "gy": 103.16,
+      "locationId": "vraks_prime",
+      "works": [
+        {
+          "type": "book",
+          "slug": "siege-of-vraks",
+          "title": "Siege of Vraks",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
     },
     {
       "id": "vresh",
@@ -20688,6 +21802,32 @@
       "locationId": null,
       "works": [],
       "origin": "excel"
+    },
+    {
+      "id": "yassilli-sarum",
+      "name": "Yassilli Sarum",
+      "kind": "unclassified",
+      "classification": "Unclassified",
+      "classification2": null,
+      "segmentum": "Obscurus",
+      "gx": 230.1,
+      "gy": 115.96,
+      "locationId": "yassilli_sarum",
+      "works": [
+        {
+          "type": "book",
+          "slug": "ravenor-rogue",
+          "title": "Ravenor Rogue",
+          "role": "primary"
+        },
+        {
+          "type": "book",
+          "slug": "ravenor-the-omnibus",
+          "title": "Ravenor: The Omnibus",
+          "role": "secondary"
+        }
+      ],
+      "origin": "override"
     },
     {
       "id": "ygma-monolith",

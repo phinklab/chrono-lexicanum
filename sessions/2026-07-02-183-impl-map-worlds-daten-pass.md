@@ -82,3 +82,35 @@ sollen ohne Umrechnung zwischen SSOT-Excel und Kurations-Excel wandern können.
   Sync-Roundtrip stabil. Anker-Stichprobe gegen die SSOT: Macragge Notiz (6167/5266) vs.
   SSOT (6166/5266), Tanith (1219/4247) vs. (1217/4247) — Abweichung ≤ 3 px (Rundung der
   Brief-Grid-Ganzzahlen auf ~7000 px Kartenbreite), vernachlässigbar.
+
+## Nachtrag 2 (2026-07-02): Ganzzahl-Koordinaten + CC-Kurations-Pass (Maintainer-Delegation)
+
+Zwei weitere Maintainer-Entscheide: (a) Pin-Koordinaten ohne Nachkommastellen, (b) Philipp
+kann nicht weiter handkuratieren und delegiert die Rest-Kuration an CC — „wenn du zu allen
+anderen Büchern nichts findest, dann ist das eben so“.
+
+- **Ganzzahl-Rundung:** die 20 Brief-Pins auf ganze Pixel gerundet (max. ±0,5 px ≈ ±0,07
+  Grid-Einheiten — Katalog-`gx`/`gy` verschieben sich in der zweiten Nachkommastelle).
+- **CC-Pass über alle 319 offenen Zeilen.** Kriterium: Rollup nur bei lore-sicherer
+  Zugehörigkeit (Stadt/Hive/Mond/Feature einer gemappten Welt); Pin nur mit belastbarem
+  Regional-Anker, Konfidenz in der Notiz; Resolver-Sektor allein reicht nur bei eng
+  umrissenen Regionen (Sabbat-Cluster, Scarus). Ergebnis: **1 Link** (`piscina_iv` →
+  `piscina` — Welt existierte ungematcht in der Excel), **38 Rollups** (13× Sol/Terra:
+  Jupiter, Titan, Golden Throne, Siege-Wälle, Unification-Regionen, Imperial Webway;
+  Hive-Städte auf Verghast/Phantine/Necromunda; Ithraca→Calth, Illyrium→Macragge,
+  Pharos→Sotha, Desh'ea→Nuceria, Northwilds→Caliban; Sicarus+Drakaasi→Eye of Terror,
+  Torvendis→Maelstrom, Arx Tyrannus→Badab; Schiffs-Regel: Macragge's Honour→Macragge,
+  Molech's Enlightenment→Molech), **42 Pins** (14 Sabbat-Welten am Tanith/Verghast-Anker,
+  6 Scarus/Helican-Welten, 7 T'au-Grenzwelten, Kathur/Garm/Perlia/Periremunda/Kronus/
+  Tartarus/Tarsis Ultra/Alaric Prime; 8 Regionen: Eastern Fringe, Pariah Nexus (Lexicanum:
+  Nephilim-Sektor, Ultima), Sanctus Reach, Alaxxes-Nebel, Calixis, Halo Stars, Thramas,
+  Elara's Veil), **8 Notiz-Markierungen** für bewusst Offenes (Space Hulk, Schiffe, Panzer,
+  Craftworld Saim-Hann — mobil/ohne Position).
+- **~190 Zeilen bleiben offen** — Kanon nennt keine Position (Ein-Buch-Welten wie
+  Broucheroc, Salinas, Adumbria). Die werkstärksten Unklaren (Orath, Candleworld, Antikef,
+  Pariah Nexus, Sanctus Reach) per Web-Recherche geprüft; nur die letzten beiden ergaben
+  belastbare Verortungen. Webway/Great Rift/Imperium Nihilus bleiben bewusst offen (nicht
+  punkt-kartierbar); Eastern Fringe jetzt als Region gepinnt.
+- **Ergebnis:** 1054 Welten (992 Excel + 62 Pins), 5 Links / 58 Rollups / 62 Pins,
+  Abdeckung 1200 → **1332/1685 Werk-Kanten (79,1 %)**, Worklist 319 → 238. Convert 2×
+  idempotent, Sync-Roundtrip stabil, 44/44 Tests, keine ID-Kollisionen.
