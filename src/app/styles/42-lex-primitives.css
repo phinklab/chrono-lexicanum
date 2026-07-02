@@ -491,3 +491,47 @@
     display: none;
   }
 }
+
+/* Legal row (Brief 179) — short-form GW disclaimer + Impressum/Datenschutz
+   links under the triad. Quieter than the triad (faint, smaller tracking);
+   the links carry the gold-hairline hover idiom. */
+.lx-foot__legal {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+.lx-foot__ip {
+  margin: 0;
+  max-width: 560px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.8;
+  color: var(--cl-faint);
+}
+.lx-foot__law {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+.lx-foot__law a {
+  color: var(--cl-dim);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.lx-foot__law a:hover {
+  color: var(--cl-gold);
+  border-bottom-color: color-mix(in oklch, var(--cl-gold) 45%, transparent);
+}
+.lx-foot__law-sep {
+  color: var(--cl-faint);
+}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cinzel, Cormorant_Garamond, IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
 import SiteMenu from "@/components/chrome/SiteMenu";
 import SiteNav from "@/components/chrome/SiteNav";
+import SiteLegal from "@/components/chrome/SiteLegal";
 import MediaPlayer from "@/components/chrome/MediaPlayer";
 import { NavProgressProvider } from "@/components/chrono/RouteProgress";
 import "./globals.css";
@@ -95,6 +96,10 @@ export default function RootLayout({
           {modal}
         </NavProgressProvider>
         <MediaPlayer />
+        {/* Fixed Impressum/Datenschutz links under the player (Brief 179):
+            the legal-reachability guarantee for footerless desktop surfaces.
+            Hidden on /login and ≤760px via 71-legal.css. */}
+        <SiteLegal />
       </body>
     </html>
   );

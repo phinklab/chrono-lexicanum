@@ -2,7 +2,7 @@
 session: 2026-07-02-179
 role: architect
 date: 2026-07-02
-status: open
+status: implemented
 slug: launch-legal
 parent: null
 links: [2026-06-20-163, 2026-06-03-121]
@@ -34,16 +34,16 @@ Warum ungated erreichbar: `/login` ist heute schon öffentlich — die Impressum
 ## Constraints
 
 - Statische Server-Components, kein DB-Zugriff, kein neues Dependency.
-- **Deutsche Slugs `/impressum` + `/datenschutz` sind fix** und bleiben bei der P12-URL-EN-Migration unangetastet (deutsche Rechtstexte, deutsche URLs — im P12-Brief wird das als Ausnahme vermerkt).
+- Englische Slugs, weil wir eh P12-URL-EN-Migration machen ( Wenn das im P12-Brief anders vermerkt ist (also, dass sie slugs deutsch sein sollen, bitte dort anpassen).
 - Proxy-Matcher (`src/proxy.ts`): beide Routen + der Footer auf `/login` ohne Preview-Session erreichbar; der Rest des Gates bleibt exakt unverändert.
-- CC entwirft die Texte auf Basis der Ist-Stand-Fakten oben; **Platzhalter für Philipps § 5-Angaben klar markiert** (`[NAME]`, `[ANSCHRIFT]`, `[E-MAIL]`) — Philipp füllt und reviewt vor dem Merge. Im PR-Text explizit darauf hinweisen, dass weder CC noch Cowork Rechtsberatung leisten und Philipp die Texte final verifiziert (Generator/Anwalt nach eigenem Ermessen).
+- CC entwirft die Texte auf Basis der Ist-Stand-Fakten Angaben: Philipp Künzler, Saseler Weg 11a 22359 Hamburg, mail: info@chrono-lexicanum.com 
 - GW-Disclaimer inhaltlich: unofficial fan project, not endorsed by Games Workshop, alle genannten Marken (Warhammer 40,000 etc.) Eigentum von Games Workshop Limited, non-commercial; Cover-Artwork liegt bei den jeweiligen Rechteinhabern und wird von externen Quellen eingebunden. Ob als Sektion auf dem Impressum oder eigene Seite: dein Call.
 - `brain/**` + `sessions/README.md` nicht anfassen (Rollup-Ownership); Product-Worktree, ein PR.
 
 ## Out of scope
 
 - Analytics selbst einbauen (Brief 182) — hier nur der vorbereitende Datenschutz-Abschnitt.
-- Cookie-Consent-Banner: nicht bauen. Stand heute existiert nur der technisch erforderliche Preview-Cookie; sollte CC bei der Text-Recherche zum Schluss kommen, dass geplantes Analytics doch consent-pflichtig wäre, im Report flaggen statt bauen.
+- Cookie-Consent-Banner: nicht bauen. Stand heute existiert nur der technisch erforderliche Preview-Cookie; sollte CC bei der Text-Recherche zum Schluss kommen, dass geplantes Analytics doch consent-pflichtig wäre, dann bauen.
 - Keine Footer-Redesigns über die zwei/drei neuen Links hinaus.
 - Kein Gate-Rückbau (bleibt der Launch-Cleanup-Brief, siehe `brain/wiki/deferred-questions.md` § Preview-Gate).
 
