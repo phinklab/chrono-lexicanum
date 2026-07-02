@@ -1,7 +1,8 @@
 /**
- * map-worlds-core.ts — Brief 174 (P14 Teil A). PURE core of the map-catalog
- * convert step: Excel rows + overrides + repo-derived media edges →
- * `map-worlds.json` (catalog) + `map-worlds.review.md` (hand-gate report).
+ * map-worlds-core.ts — Brief 174 (P14 Teil A) + Brief 183 (Daten-Pass). PURE
+ * core of the map-catalog convert step: Excel rows + curation sheet +
+ * repo-derived media edges → `map-worlds.json` (catalog) +
+ * `map-worlds.review.md` (hand-gate report).
  *
  * NO DB, NO filesystem at call time (the IO wrapper `import-map-worlds.ts`
  * reads the inputs; this module composes them). The media derivation reuses
@@ -19,12 +20,19 @@
  * Excel-name → locations.json match is CASE-INSENSITIVE over canonical names
  * + alias keys (Philipp-Entscheid, Brief 174 Arch-Entscheidung 2) — unlike
  * the case-sensitive book-edge resolver, because Excel casing is foreign.
+ * There is deliberately NO fuzzy matching (Brief 183): everything beyond the
+ * exact match is explicit hand curation in
+ * `scripts/seed-data/source/map-worlds-curation.xlsx` (sheet "Kuration",
+ * one row per unmatched media location; actions link / rollup / pin; sheet
+ * "Welten" for per-world locationId overrides — replaces the retired
+ * `map-worlds.overrides.json`).
  *
- * Duplicate rule (review §3): the source map's repeated names (fleets, webway
+ * Duplicate rule (review): the source map's repeated names (fleets, webway
  * gates, blackstone fortresses at several positions) are LEGITIMATE multi-pin
  * objects — ALL rows are kept and repeated slugs get deterministic ordinal
  * suffixes in sheet order (`commorragh`, `commorragh-2`, …). Nothing is
- * dropped; hand corrections go through the overrides file.
+ * dropped; curation actions targeting a duplicated name apply to ALL
+ * instances, consistent with the matcher.
  */
 import { slugify } from "@/lib/slug";
 import { deriveEpisodeSlug } from "@/lib/ingestion/podcast/apply-plan";
@@ -32,7 +40,7 @@ import type { ShowArtifact } from "@/lib/ingestion/podcast/types";
 import {
   MAP_WORLDS_SCHEMA,
   type MapWorld,
-  type MapWorldClassification,
+  type MapWorldKind,
   type MapWorldWork,
   type MapWorldsFile,
   type BookWorkRole,
@@ -50,9 +58,10 @@ import type { BookFileV1 } from "./book-file";
  * Coordinate extent of the FROZEN 992-row Excel (probe 2026-07-02):
  * x ∈ [2.794, 7031], y ∈ [515, 6198] — pixel space of the source map image.
  * Hardcoded (not re-derived per run) so the projection is a STABLE contract:
- * Philipp's hand-placed override coordinates live in the projected grid and
- * must not shift if the Excel were ever re-exported. A source row outside
- * this box is a recalibration decision for a human → hard error.
+ * curation pins are hand-entered in the SAME pixel space as the redditor
+ * Excel (copy-paste compatible) and projected with the SAME formula — the
+ * grid output must not shift if the Excel were ever re-exported. A source
+ * row outside this box is a recalibration decision for a human → hard error.
  */
 export const SOURCE_EXTENT = {
   minX: 2.794,
@@ -75,6 +84,16 @@ export const GRID_TRANSFORM_DOC =
   `Quellbild nach unten; gerundet auf 2 Nachkommastellen). Quelle: Warhammer_map_SSOT.xlsx, ` +
   `Pixel-Raum x ∈ [${SOURCE_EXTENT.minX}, ${SOURCE_EXTENT.maxX}], y ∈ [${SOURCE_EXTENT.minY}, ${SOURCE_EXTENT.maxY}].`;
 
+/** The five Segmenta of the frozen source sheet — a sixth value is drift.
+ *  Curation pins must use one of these, too. */
+export const KNOWN_SEGMENTA: ReadonlySet<string> = new Set([
+  "Solar",
+  "Obscurus",
+  "Pacificus",
+  "Tempestus",
+  "Ultima",
+]);
+
 function round2(v: number): number {
   return Math.round(v * 100) / 100;
 }
@@ -95,76 +114,288 @@ export function projectToGrid(x: number, y: number, at: string): { gx: number; g
 }
 
 // =============================================================================
+// kind mapping — Brief 183 § Daten D, verbatim. All 70 Excel primary values →
+// 11 groups; `region` is curation-pin-only (never an Excel value).
+// =============================================================================
+
+/** Klassifikation cell value that marks a curation pin as a region. */
+export const REGION_CLASSIFICATION = "Region" as const;
+
+const KIND_GROUPS: ReadonlyArray<[MapWorldKind, ReadonlyArray<string>]> = [
+  [
+    "imperial",
+    [
+      "Civilized World", "Hive World", "Industrial World", "Agri World", "Mining World",
+      "Feral World", "Feudal World", "Frontier World", "Shrine World", "Cardinal World",
+      "Cemetary World", "Penal World", "Quarry World", "Anchor World", "Ocean World",
+      "Forest World", "Ice World", "Frozen World", "Gas Giant", "Artificial World",
+      "Terra", "Mars", "War World", "Death World", "Severan Dominate World",
+      "Lion's Protectorate",
+    ],
+  ],
+  [
+    "imperial-military",
+    ["Fortress World", "Adeptus Astartes World", "Imperial Knight World", "Mechanicus Knight World", "Forge World"],
+  ],
+  [
+    "station",
+    [
+      "Space Station", "Research Station", "Imperial Navy Base", "Deathwatch Fortress",
+      "Custodes Watch Station", "Segmentum Fortress", "Inactive Blackstone Fortress",
+      "Active Blackstone Fortress",
+    ],
+  ],
+  ["fleet", ["Adeptus Astartes Fleet", "Imperial Fleet", "Necron Warship"]],
+  [
+    "chaos-warp",
+    [
+      "Warp Storm", "Daemon World", "Tzeentch Daemon World", "Nurgle Daemon World",
+      "Slaanesh Daemon World", "Khorne Daemon World", "Hell Forge", "Fallen Knight World",
+    ],
+  ],
+  ["gate", ["Webway Gate", "Warp Gate"]],
+  ["aeldari", ["Craftworld", "Exodite World", "Maiden World"]],
+  ["necron", ["Necron Tomb World", "Necron Crown World", "Contra Empyric Nexus"]],
+  [
+    "xenos",
+    [
+      "Ork World", "T'au Sept", "T'au Aligned World", "Firesight Enclave",
+      "Votann Hold World", "Genestealer Infested", "Xenos World",
+    ],
+  ],
+  ["dead", ["Dead World", "Destroyed World", "Devoured World", "Forbidden World"]],
+  ["unclassified", ["Unclassified"]],
+] as const;
+
+/** Primary-Classification → kind. Exactly the 70 known Excel values; a value
+ *  missing here (incl. "Region", which is curation-pin-only) is a DELIBERATE
+ *  fail-loud: new Excel values require a conscious group assignment. */
+export const KIND_BY_CLASSIFICATION: ReadonlyMap<string, MapWorldKind> = new Map(
+  KIND_GROUPS.flatMap(([kind, values]) => values.map((v): [string, MapWorldKind] => [v, kind])),
+);
+
+// =============================================================================
 // Input shapes
 // =============================================================================
 
-/** One validated Excel data row (IO layer parses + validates the sheet). */
+/** One validated Excel data row (IO layer parses + validates the sheet).
+ *  Tertiary classification is deliberately dropped (4 rows, Brief 183). */
 export interface ExcelWorldRow {
   /** 1-based Excel row number (header = row 1) — for review/error messages. */
   sourceRow: number;
   name: string;
   primary: string | null;
   secondary: string | null;
-  tertiary: string | null;
   x: number;
   y: number;
   segmentum: string;
 }
 
-export const MAP_WORLDS_OVERRIDES_SCHEMA = "map-worlds-overrides-v1" as const;
+// =============================================================================
+// Curation sheet — map-worlds-curation.xlsx, the hand path (Brief 183).
+// Replaces the retired map-worlds.overrides.json. Sheet "Kuration" is keyed
+// by media location (one row per unmatched locations.json row with ≥1 work);
+// sheet "Welten" is keyed by catalog world id (locationId override, e.g. to
+// decouple one duplicate pin). The convert READS the file only.
+// =============================================================================
 
-/** A hand-added world (gap world from the review §2 worklist). `gx`/`gy` are
- *  REQUIRED grid coordinates — the review stubs ship them as `null` so a
- *  pasted-but-unedited stub fails loud instead of pinning at the corner. */
-export interface OverrideAddWorld {
-  /** Defaults to `slugify(name)`; must not collide with an existing id. */
-  id?: string;
+/** Raw cell as delivered by `read-excel-file` (mirrors its value union). */
+export type SheetCell = string | number | boolean | Date | null | undefined;
+
+export type CurationAction = "link" | "rollup" | "pin";
+
+/** One parsed row of sheet "Kuration". `action: null` = open (empty cell or
+ *  "später"). The Bücher/Episoden columns are informational snapshots and are
+ *  ignored by the convert (counts are re-derived every run). */
+export interface CurationRow {
+  /** 1-based sheet row (header = row 1) — for error messages. */
+  sheetRow: number;
+  locationId: string;
   name: string;
-  gx: number | null;
-  gy: number | null;
-  classification?: Partial<MapWorldClassification>;
-  segmentum?: string | null;
-  /** Absent → auto-match by name (like Excel worlds); null → force unmatched. */
-  locationId?: string | null;
+  action: CurationAction | null;
+  /** Verbatim Aktion cell (trimmed) — `--sync-curation` writes it back so a
+   *  hand-typed "später" marker survives the rewrite. */
+  actionRaw: string;
+  /** Catalog world id — required for link/rollup. */
+  target: string | null;
+  /** Pin coordinates in the SSOT pixel space (same numbers as the redditor
+   *  Excel's Coordinates columns) — projected to the grid by the convert. */
+  x: number | null;
+  y: number | null;
+  segmentum: string | null;
+  classification: string | null;
+  note: string | null;
 }
 
-/** A patch on one generated Excel world, keyed by its catalog id. */
-export interface OverrideWorldPatch {
-  name?: string;
-  gx?: number;
-  gy?: number;
-  classification?: Partial<MapWorldClassification>;
-  segmentum?: string | null;
-  /** Present-with-string → force this match; present-with-null → force unmatched. */
-  locationId?: string | null;
+/** One parsed row of sheet "Welten": force a world's locationId (a
+ *  locations.json id) or force-unmatch it (cell "null" or "-"). */
+export interface CurationWorldRow {
+  sheetRow: number;
+  worldId: string;
+  locationIdOverride: string | null;
+  note: string | null;
 }
 
-export interface MapWorldsOverridesFile {
-  $schema: typeof MAP_WORLDS_OVERRIDES_SCHEMA;
-  doc?: string;
-  addWorlds: OverrideAddWorld[];
-  worldOverrides: Record<string, OverrideWorldPatch>;
+export interface CurationInput {
+  rows: CurationRow[];
+  worldRows: CurationWorldRow[];
 }
 
-/** Validate + narrow the raw overrides JSON. Throws listing ALL problems. */
-export function validateOverridesFile(raw: unknown): MapWorldsOverridesFile {
-  const errors: string[] = [];
-  if (typeof raw !== "object" || raw === null || Array.isArray(raw)) {
-    throw new Error("map-worlds.overrides.json: root must be an object");
+export const CURATION_HEADERS = [
+  "locationId", "Name", "Bücher", "Episoden", "Aktion", "Ziel",
+  "x", "y", "Segmentum", "Klassifikation", "Notiz",
+] as const;
+
+export const WELTEN_HEADERS = ["Welt-ID", "locationId-Override", "Notiz"] as const;
+
+function cellText(v: SheetCell): string {
+  if (v === null || v === undefined) return "";
+  return String(v).trim();
+}
+
+function cellTextOrNull(v: SheetCell): string | null {
+  const s = cellText(v);
+  return s === "" ? null : s;
+}
+
+/** Numeric cell: real numbers pass through; text cells are parsed leniently
+ *  (German decimal comma tolerated — hand-typed cells sometimes come through
+ *  as text). Returns null for empty, NaN marker via exception. */
+function cellNumberOrNull(v: SheetCell, at: string, issues: string[]): number | null {
+  if (v === null || v === undefined) return null;
+  if (typeof v === "number") {
+    if (!Number.isFinite(v)) {
+      issues.push(`${at}: number is not finite`);
+      return null;
+    }
+    return v;
   }
-  const o = raw as Record<string, unknown>;
-  if (o.$schema !== MAP_WORLDS_OVERRIDES_SCHEMA) {
-    errors.push(`$schema must be "${MAP_WORLDS_OVERRIDES_SCHEMA}"`);
+  const s = String(v).trim();
+  if (s === "") return null;
+  const n = Number(s.replace(",", "."));
+  if (!Number.isFinite(n)) {
+    issues.push(`${at}: "${s}" is not a number`);
+    return null;
   }
-  if (o.doc !== undefined && typeof o.doc !== "string") errors.push("doc must be a string");
-  if (!Array.isArray(o.addWorlds)) errors.push("addWorlds must be an array");
-  if (typeof o.worldOverrides !== "object" || o.worldOverrides === null || Array.isArray(o.worldOverrides)) {
-    errors.push("worldOverrides must be an object (id → patch)");
+  return n;
+}
+
+function isEmptyRow(row: ReadonlyArray<SheetCell>): boolean {
+  return row.every((c) => cellText(c) === "");
+}
+
+function checkHeader(
+  actual: ReadonlyArray<SheetCell>,
+  expected: ReadonlyArray<string>,
+  sheet: string,
+): void {
+  const got = expected.map((_, i) => cellText(actual[i]));
+  if (!expected.every((h, i) => got[i] === h)) {
+    throw new Error(
+      `map-worlds-curation.xlsx sheet "${sheet}": header mismatch.\n` +
+        `  expected: ${JSON.stringify(expected)}\n` +
+        `  actual:   ${JSON.stringify(got)}`,
+    );
   }
-  if (errors.length > 0) {
-    throw new Error(`map-worlds.overrides.json invalid:\n  - ${errors.join("\n  - ")}`);
+}
+
+/** Parse + shape-validate sheet "Kuration". Throws listing ALL problems. */
+export function parseCurationSheet(raw: ReadonlyArray<ReadonlyArray<SheetCell>>): CurationRow[] {
+  checkHeader(raw[0] ?? [], CURATION_HEADERS, "Kuration");
+  const issues: string[] = [];
+  const rows: CurationRow[] = [];
+  const seenLocationIds = new Map<string, number>();
+  for (let i = 1; i < raw.length; i++) {
+    const row = raw[i]!;
+    const sheetRow = i + 1;
+    if (isEmptyRow(row)) continue;
+    const at = `Kuration row ${sheetRow}`;
+    const locationId = cellText(row[0]);
+    const name = cellText(row[1]);
+    if (locationId === "") {
+      issues.push(`${at}: locationId is empty but the row carries data`);
+      continue;
+    }
+    const firstRow = seenLocationIds.get(locationId);
+    if (firstRow !== undefined) {
+      issues.push(`${at}: duplicate locationId "${locationId}" (first seen in row ${firstRow})`);
+      continue;
+    }
+    seenLocationIds.set(locationId, sheetRow);
+    if (name === "") issues.push(`${at} ("${locationId}"): Name is empty`);
+
+    const actionRaw = cellText(row[4]);
+    const actionKey = actionRaw.toLowerCase();
+    let action: CurationAction | null;
+    if (actionKey === "" || actionKey === "später" || actionKey === "spaeter") {
+      action = null;
+    } else if (actionKey === "link" || actionKey === "rollup" || actionKey === "pin") {
+      action = actionKey;
+    } else {
+      issues.push(`${at} ("${locationId}"): unknown Aktion "${cellText(row[4])}" (expected link | rollup | pin | später | empty)`);
+      continue;
+    }
+
+    const target = cellTextOrNull(row[5]);
+    const x = cellNumberOrNull(row[6], `${at} ("${locationId}") x`, issues);
+    const y = cellNumberOrNull(row[7], `${at} ("${locationId}") y`, issues);
+    const segmentum = cellTextOrNull(row[8]);
+    const classification = cellTextOrNull(row[9]);
+    const note = cellTextOrNull(row[10]);
+
+    if ((action === "link" || action === "rollup") && target === null) {
+      issues.push(`${at} ("${locationId}"): Aktion "${action}" requires Ziel (a catalog world id)`);
+    }
+    if (action === "pin") {
+      if (x === null || y === null) issues.push(`${at} ("${locationId}"): Aktion "pin" requires x AND y`);
+      if (segmentum === null) issues.push(`${at} ("${locationId}"): Aktion "pin" requires Segmentum`);
+      if (classification === null) issues.push(`${at} ("${locationId}"): Aktion "pin" requires Klassifikation`);
+      if (target !== null) issues.push(`${at} ("${locationId}"): Aktion "pin" must not carry Ziel`);
+    }
+
+    rows.push({ sheetRow, locationId, name, action, actionRaw, target, x, y, segmentum, classification, note });
   }
-  return raw as unknown as MapWorldsOverridesFile;
+  if (issues.length > 0) {
+    throw new Error(`map-worlds-curation.xlsx sheet "Kuration" invalid:\n  - ${issues.join("\n  - ")}`);
+  }
+  return rows;
+}
+
+/** Parse + shape-validate sheet "Welten". Throws listing ALL problems. */
+export function parseWeltenSheet(raw: ReadonlyArray<ReadonlyArray<SheetCell>>): CurationWorldRow[] {
+  checkHeader(raw[0] ?? [], WELTEN_HEADERS, "Welten");
+  const issues: string[] = [];
+  const rows: CurationWorldRow[] = [];
+  const seenWorldIds = new Map<string, number>();
+  for (let i = 1; i < raw.length; i++) {
+    const row = raw[i]!;
+    const sheetRow = i + 1;
+    if (isEmptyRow(row)) continue;
+    const at = `Welten row ${sheetRow}`;
+    const worldId = cellText(row[0]);
+    if (worldId === "") {
+      issues.push(`${at}: Welt-ID is empty but the row carries data`);
+      continue;
+    }
+    const firstRow = seenWorldIds.get(worldId);
+    if (firstRow !== undefined) {
+      issues.push(`${at}: duplicate Welt-ID "${worldId}" (first seen in row ${firstRow})`);
+      continue;
+    }
+    seenWorldIds.set(worldId, sheetRow);
+    const overrideRaw = cellText(row[1]);
+    if (overrideRaw === "") {
+      issues.push(`${at} ("${worldId}"): locationId-Override is empty — use a locations.json id, or "null" / "-" to force-unmatch`);
+      continue;
+    }
+    const locationIdOverride =
+      overrideRaw === "-" || overrideRaw.toLowerCase() === "null" ? null : overrideRaw;
+    rows.push({ sheetRow, worldId, locationIdOverride, note: cellTextOrNull(row[2]) });
+  }
+  if (issues.length > 0) {
+    throw new Error(`map-worlds-curation.xlsx sheet "Welten" invalid:\n  - ${issues.join("\n  - ")}`);
+  }
+  return rows;
 }
 
 // =============================================================================
@@ -357,20 +588,21 @@ export function derivePodcastEdges(
   return { byLocation, notes };
 }
 
-/** Merge book + episode edges into one map with a stable per-location order:
- *  books before episodes, each sorted by slug (byte order). */
+/** Stable per-location work order: books before episodes, each by slug. */
+function compareWorks(a: MapWorldWork, b: MapWorldWork): number {
+  if (a.type !== b.type) return a.type === "book" ? -1 : 1;
+  return a.slug < b.slug ? -1 : a.slug > b.slug ? 1 : 0;
+}
+
+/** Merge book + episode edges into one map with the stable order. */
 export function mergeWorkEdges(
   bookEdges: ReadonlyMap<string, MapWorldWork[]>,
   podcastEdges: ReadonlyMap<string, MapWorldWork[]>,
 ): Map<string, MapWorldWork[]> {
   const merged = new Map<string, MapWorldWork[]>();
   const locationIds = new Set<string>([...bookEdges.keys(), ...podcastEdges.keys()]);
-  const bySlug = (a: MapWorldWork, b: MapWorldWork): number =>
-    a.slug < b.slug ? -1 : a.slug > b.slug ? 1 : 0;
   for (const id of [...locationIds].sort()) {
-    const books = [...(bookEdges.get(id) ?? [])].sort(bySlug);
-    const episodes = [...(podcastEdges.get(id) ?? [])].sort(bySlug);
-    merged.set(id, [...books, ...episodes]);
+    merged.set(id, [...(bookEdges.get(id) ?? []), ...(podcastEdges.get(id) ?? [])].sort(compareWorks));
   }
   return merged;
 }
@@ -379,15 +611,26 @@ export function mergeWorkEdges(
 // Catalog composition
 // =============================================================================
 
+/** Rollup role conflict: the stronger role wins (Brief 183 Scope 2). Book and
+ *  episode entries never collide (dedup key includes `type`). */
+function roleStrength(work: MapWorldWork): number {
+  if (work.type === "book") {
+    return work.role === "primary" ? 3 : work.role === "secondary" ? 2 : 1;
+  }
+  return work.role === "subject" ? 2 : 1;
+}
+
 interface WorldDraft {
   id: string;
   name: string;
-  classification: MapWorldClassification;
+  kind: MapWorldKind;
+  classification: string | null;
+  classification2: string | null;
   segmentum: string | null;
   gx: number;
   gy: number;
   origin: "excel" | "override";
-  /** undefined = auto-match by name; string|null = forced by an override. */
+  /** undefined = auto-match by name; string|null = forced by curation. */
   forcedLocationId: string | null | undefined;
   sourceRow: number | null;
 }
@@ -402,6 +645,46 @@ export interface IdCollisionGroup {
   names: string[];
 }
 
+export interface AppliedLink {
+  locationId: string;
+  locationName: string;
+  worldIds: string[];
+  works: number;
+}
+
+export interface AppliedRollup {
+  locationId: string;
+  locationName: string;
+  worldIds: string[];
+  works: number;
+}
+
+export interface AppliedPin {
+  locationId: string;
+  worldId: string;
+  name: string;
+  kind: MapWorldKind;
+  /** Hand-entered SSOT pixel coordinates (sheet input). */
+  x: number;
+  y: number;
+  /** Projected grid coordinates (catalog output). */
+  gx: number;
+  gy: number;
+  works: number;
+}
+
+export interface AppliedWorldOverride {
+  worldId: string;
+  locationId: string | null;
+}
+
+export interface AppliedCuration {
+  links: AppliedLink[];
+  rollups: AppliedRollup[];
+  pins: AppliedPin[];
+  worldOverrides: AppliedWorldOverride[];
+}
+
 export interface ReviewData {
   totals: {
     excelWorlds: number;
@@ -410,22 +693,34 @@ export interface ReviewData {
     matchedWithWorks: number;
     distinctMatchedLocationIds: number;
   };
+  coverage: { placedWorkEdges: number; totalWorkEdges: number };
   /** §1 — matched worlds with their work counts. */
   matchedWorlds: Array<{ id: string; name: string; locationId: string; books: number; episodes: number }>;
-  /** §2 — locations with ≥1 work but NO catalog world → Philipps worklist. */
-  unplacedLocations: Array<{ locationId: string; name: string; books: number; episodes: number }>;
-  /** §3 — repeated Excel names + the applied keep-all rule. */
+  /** §2 — open worklist: locations with ≥1 work, neither matched/linked/
+   *  pinned nor rolled up. Sorted by work count DESC (Philipps priority). */
+  unplacedLocations: Array<{
+    locationId: string;
+    name: string;
+    books: number;
+    episodes: number;
+    /** false = the curation sheet has no row for this location yet
+     *  (run `import:map-worlds -- --sync-curation`). */
+    inCurationSheet: boolean;
+  }>;
+  /** §3 — applied hand curation (sheet order). */
+  applied: AppliedCuration;
+  /** §4 — repeated Excel names + the applied keep-all rule. */
   duplicateNameGroups: DuplicateNameGroup[];
-  /** §4 — different raw names slugifying onto the same base id. */
+  /** §5 — different raw names slugifying onto the same base id. */
   idCollisions: IdCollisionGroup[];
-  /** §5 — derivation notes. */
+  /** §6 — derivation notes. */
   bookNotes: BookDerivationNotes;
   podcastNotes: PodcastDerivationNotes;
 }
 
 export interface CatalogInputs {
   excelRows: ExcelWorldRow[];
-  overrides: MapWorldsOverridesFile;
+  curation: CurationInput;
   /** Case-insensitive surface form → locationId (from `buildLocationMatcher`). */
   matcher: ReadonlyMap<string, string>;
   /** locationId → canonical display name (review §2). */
@@ -436,19 +731,34 @@ export interface CatalogInputs {
 }
 
 const CATALOG_DOC =
-  "Map-Katalog der neuen Galaxiekarte (Brief 174, P14 Teil A) — generiert von " +
+  "Map-Katalog der neuen Galaxiekarte (Brief 174 + 183, P14 Teil A) — generiert von " +
   "`npm run import:map-worlds` aus Warhammer_map_SSOT.xlsx (Welten + Koordinaten des " +
-  "Redditors) + map-worlds.overrides.json (Hand-Nachplatzierungen/Korrekturen). " +
+  "Redditors) + map-worlds-curation.xlsx (Hand-Kuration: link/rollup/pin + Welten-Overrides). " +
   "`locationId` verlinkt auf die bestehende locations.json-Row (/welt/{id}); `works` " +
-  "sind die Bücher + Podcast-Episoden der gematchten Location, DB-frei abgeleitet aus " +
-  "scripts/seed-data/books/*.json + curation-overlay.json + ingest/podcasts/<show>.json. " +
-  "NICHT von Hand editieren: Korrekturen in map-worlds.overrides.json, dann Convert neu laufen lassen.";
+  "sind die Bücher + Podcast-Episoden der verknüpften Location (Rollup-Werke tragen `via`), " +
+  "DB-frei abgeleitet aus scripts/seed-data/books/*.json + curation-overlay.json + " +
+  "ingest/podcasts/<show>.json. `kind` gruppiert die 70 Excel-Klassifikationen in 11 Gruppen " +
+  "+ `region` (Kurations-Pins). NICHT von Hand editieren: Kuration in " +
+  "map-worlds-curation.xlsx, dann Convert neu laufen lassen.";
 
 /** Compose the catalog + review data from prepared inputs. Pure. */
 export function buildCatalog(inputs: CatalogInputs): { file: MapWorldsFile; review: ReviewData } {
   const errors: string[] = [];
 
-  // ---- 1. Excel rows → drafts with deterministic ids -----------------------
+  const kindFor = (classification: string | null, at: string): MapWorldKind => {
+    if (classification === null) {
+      errors.push(`${at}: Primary Classification is empty — new/unknown values need a deliberate kind assignment (Brief 183 § Daten D)`);
+      return "unclassified";
+    }
+    const kind = KIND_BY_CLASSIFICATION.get(classification);
+    if (kind === undefined) {
+      errors.push(`${at}: unknown classification "${classification}" — new Excel values need a deliberate kind assignment (Brief 183 § Daten D)`);
+      return "unclassified";
+    }
+    return kind;
+  };
+
+  // ---- 1. Excel rows → drafts with deterministic ids + kind ------------------
   const drafts: WorldDraft[] = [];
   const usedIds = new Set<string>();
   const byBaseId = new Map<string, Array<{ name: string; draft: WorldDraft }>>();
@@ -465,7 +775,9 @@ export function buildCatalog(inputs: CatalogInputs): { file: MapWorldsFile; revi
     const draft: WorldDraft = {
       id,
       name: row.name,
-      classification: { primary: row.primary, secondary: row.secondary, tertiary: row.tertiary },
+      kind: kindFor(row.primary, `Excel row ${row.sourceRow} ("${row.name}")`),
+      classification: row.primary,
+      classification2: row.secondary,
       segmentum: row.segmentum,
       gx,
       gy,
@@ -478,110 +790,240 @@ export function buildCatalog(inputs: CatalogInputs): { file: MapWorldsFile; revi
     group.push({ name: row.name, draft });
     byBaseId.set(base, group);
   }
-
-  // ---- 2. worldOverrides — patch generated Excel worlds by id --------------
   const draftById = new Map(drafts.map((d) => [d.id, d]));
-  for (const [id, patch] of Object.entries(inputs.overrides.worldOverrides)) {
-    const draft = draftById.get(id);
+
+  // ---- 2. Sheet "Welten" — per-world locationId overrides --------------------
+  const applied: AppliedCuration = { links: [], rollups: [], pins: [], worldOverrides: [] };
+  for (const wr of inputs.curation.worldRows) {
+    const at = `Welten row ${wr.sheetRow} ("${wr.worldId}")`;
+    const draft = draftById.get(wr.worldId);
     if (draft === undefined) {
-      errors.push(
-        `worldOverrides["${id}"]: no Excel world with this id (worldOverrides patches ` +
-          `generated worlds only; new worlds go into addWorlds)`,
-      );
+      errors.push(`${at}: no catalog world with this id`);
       continue;
     }
-    if (patch.name !== undefined) draft.name = patch.name;
-    if (patch.gx !== undefined) {
-      if (!isGridCoord(patch.gx, GRID_GX_MAX)) errors.push(`worldOverrides["${id}"].gx must be a number in [0, ${GRID_GX_MAX}]`);
-      else draft.gx = patch.gx;
+    if (wr.locationIdOverride !== null && !inputs.locationNames.has(wr.locationIdOverride)) {
+      errors.push(`${at}: locationId-Override "${wr.locationIdOverride}" is not a locations.json id`);
+      continue;
     }
-    if (patch.gy !== undefined) {
-      if (!isGridCoord(patch.gy, GRID_GY_MAX)) errors.push(`worldOverrides["${id}"].gy must be a number in [0, ${GRID_GY_MAX}]`);
-      else draft.gy = patch.gy;
+    draft.forcedLocationId = wr.locationIdOverride;
+    applied.worldOverrides.push({ worldId: wr.worldId, locationId: wr.locationIdOverride });
+  }
+
+  // ---- 3. Pre-curation match state (guard base) -------------------------------
+  // Which locations are already covered BEFORE link/rollup/pin? A curation
+  // action on such a location is stale → fail loud (Brief 183 Scope 1).
+  const preMatchedLocationIds = new Set<string>();
+  for (const d of drafts) {
+    const effective =
+      d.forcedLocationId !== undefined
+        ? d.forcedLocationId
+        : (inputs.matcher.get(d.name.trim().toLowerCase()) ?? null);
+    if (effective !== null) preMatchedLocationIds.add(effective);
+  }
+
+  const curationRows = inputs.curation.rows;
+  for (const row of curationRows) {
+    const at = `Kuration row ${row.sheetRow} ("${row.locationId}")`;
+    if (!inputs.locationNames.has(row.locationId)) {
+      errors.push(`${at}: locationId is not a locations.json id`);
+      continue;
     }
-    if (patch.segmentum !== undefined) draft.segmentum = patch.segmentum;
-    if (patch.classification !== undefined) {
-      draft.classification = { ...draft.classification, ...patch.classification };
-    }
-    if (Object.prototype.hasOwnProperty.call(patch, "locationId")) {
-      draft.forcedLocationId = patch.locationId ?? null;
+    if (row.action !== null && preMatchedLocationIds.has(row.locationId)) {
+      errors.push(
+        `${at}: Aktion "${row.action}" on an already matched location — the catalog covers it ` +
+          `(via name match or Welten-Override); remove the Aktion or the row`,
+      );
     }
   }
 
-  // ---- 3. addWorlds — hand-placed gap worlds --------------------------------
-  for (const [i, add] of inputs.overrides.addWorlds.entries()) {
-    const at = `addWorlds[${i}] ("${add.name}")`;
-    const base = add.id ?? slugify(add.name);
-    if (base === "") {
-      errors.push(`${at}: id/name slugifies to an empty id`);
+  /** All drafts sharing the target draft's (trimmed, lowercased) name —
+   *  curation actions apply to every instance, consistent with the matcher. */
+  const sameNameInstances = (target: WorldDraft): WorldDraft[] => {
+    const key = target.name.trim().toLowerCase();
+    return drafts.filter((d) => d.name.trim().toLowerCase() === key);
+  };
+
+  // ---- 4. Pins — new hand-placed worlds (BEFORE rollups: Brief 183 Scope 2) --
+  for (const row of curationRows) {
+    if (row.action !== "pin") continue;
+    const at = `Kuration row ${row.sheetRow} ("${row.locationId}")`;
+    if (row.x === null || row.y === null || row.segmentum === null || row.classification === null) {
+      // parseCurationSheet already rejects this; double-guard for direct calls.
+      errors.push(`${at}: pin requires x, y, Segmentum, Klassifikation`);
       continue;
     }
-    if (usedIds.has(base)) {
-      errors.push(`${at}: id "${base}" already exists in the catalog — pick an explicit unique "id"`);
+    // Pin coordinates are SSOT-pixel-space (redditor-Excel-kompatibel) and go
+    // through the SAME projection as Excel worlds — out-of-extent fails loud.
+    let projected: { gx: number; gy: number };
+    try {
+      projected = projectToGrid(row.x, row.y, at);
+    } catch (e) {
+      errors.push(e instanceof Error ? e.message : String(e));
       continue;
     }
-    if (add.gx === null || add.gy === null) {
-      errors.push(
-        `${at}: gx/gy are null — fill in the hand coordinates (0–${GRID_GX_MAX} / 0–${GRID_GY_MAX} grid) ` +
-          `before running the convert (review stubs ship null on purpose)`,
-      );
+    if (!KNOWN_SEGMENTA.has(row.segmentum)) {
+      errors.push(`${at}: unknown Segmentum "${row.segmentum}" (expected one of ${[...KNOWN_SEGMENTA].join(", ")})`);
       continue;
     }
-    if (!isGridCoord(add.gx, GRID_GX_MAX)) {
-      errors.push(`${at}: gx must be a number in [0, ${GRID_GX_MAX}]`);
+    const kind: MapWorldKind =
+      row.classification === REGION_CLASSIFICATION
+        ? "region"
+        : kindFor(row.classification, at);
+    const id = slugify(row.name);
+    if (id === "") {
+      errors.push(`${at}: pin name "${row.name}" slugifies to an empty id`);
       continue;
     }
-    if (!isGridCoord(add.gy, GRID_GY_MAX)) {
-      errors.push(`${at}: gy must be a number in [0, ${GRID_GY_MAX}]`);
+    if (usedIds.has(id)) {
+      errors.push(`${at}: pin id "${id}" already exists in the catalog — rename the pin`);
       continue;
     }
-    usedIds.add(base);
-    drafts.push({
-      id: base,
-      name: add.name,
-      classification: {
-        primary: add.classification?.primary ?? null,
-        secondary: add.classification?.secondary ?? null,
-        tertiary: add.classification?.tertiary ?? null,
-      },
-      segmentum: add.segmentum ?? null,
-      gx: round2(add.gx),
-      gy: round2(add.gy),
+    usedIds.add(id);
+    const draft: WorldDraft = {
+      id,
+      name: row.name,
+      kind,
+      classification: row.classification,
+      classification2: null,
+      segmentum: row.segmentum,
+      gx: projected.gx,
+      gy: projected.gy,
       origin: "override",
-      forcedLocationId: Object.prototype.hasOwnProperty.call(add, "locationId")
-        ? (add.locationId ?? null)
-        : undefined,
+      forcedLocationId: row.locationId,
       sourceRow: null,
+    };
+    drafts.push(draft);
+    draftById.set(id, draft);
+    applied.pins.push({
+      locationId: row.locationId,
+      worldId: id,
+      name: row.name,
+      kind,
+      x: row.x,
+      y: row.y,
+      gx: draft.gx,
+      gy: draft.gy,
+      works: (inputs.worksByLocation.get(row.locationId) ?? []).length,
     });
   }
 
-  // ---- 4. Match + attach works ----------------------------------------------
+  // ---- 5. Links — an Excel world exists under another name --------------------
+  for (const row of curationRows) {
+    if (row.action !== "link") continue;
+    const at = `Kuration row ${row.sheetRow} ("${row.locationId}")`;
+    if (row.target === null) continue; // parse guard
+    const target = draftById.get(row.target);
+    if (target === undefined) {
+      errors.push(`${at}: Ziel "${row.target}" is not a catalog world id`);
+      continue;
+    }
+    const instances = sameNameInstances(target);
+    let ok = true;
+    for (const inst of instances) {
+      if (inst.forcedLocationId !== undefined) {
+        errors.push(`${at}: Ziel-Welt "${inst.id}" already carries a forced locationId (Welten-Override or another link)`);
+        ok = false;
+        continue;
+      }
+      const natural = inputs.matcher.get(inst.name.trim().toLowerCase());
+      if (natural !== undefined) {
+        errors.push(`${at}: Ziel-Welt "${inst.id}" already matches location "${natural}" by name — a link would silently replace it`);
+        ok = false;
+      }
+    }
+    if (!ok) continue;
+    for (const inst of instances) inst.forcedLocationId = row.locationId;
+    applied.links.push({
+      locationId: row.locationId,
+      locationName: inputs.locationNames.get(row.locationId) ?? row.locationId,
+      worldIds: instances.map((i) => i.id),
+      works: (inputs.worksByLocation.get(row.locationId) ?? []).length,
+    });
+  }
+
+  // ---- 6. Match + attach own-location works -----------------------------------
   const worlds: MapWorld[] = [];
+  const worldByDraftId = new Map<string, MapWorld>();
   for (const draft of drafts) {
     let locationId: string | null;
     if (draft.forcedLocationId !== undefined) {
       locationId = draft.forcedLocationId;
       if (locationId !== null && !inputs.locationNames.has(locationId)) {
-        errors.push(
-          `world "${draft.id}": forced locationId "${locationId}" is not a locations.json id`,
-        );
+        errors.push(`world "${draft.id}": forced locationId "${locationId}" is not a locations.json id`);
         continue;
       }
     } else {
       locationId = inputs.matcher.get(draft.name.trim().toLowerCase()) ?? null;
     }
     const works = locationId !== null ? [...(inputs.worksByLocation.get(locationId) ?? [])] : [];
-    worlds.push({
+    const world: MapWorld = {
       id: draft.id,
       name: draft.name,
+      kind: draft.kind,
       classification: draft.classification,
+      classification2: draft.classification2,
       segmentum: draft.segmentum,
       gx: draft.gx,
       gy: draft.gy,
       locationId,
       works,
       origin: draft.origin,
+    };
+    worlds.push(world);
+    worldByDraftId.set(draft.id, world);
+  }
+
+  // ---- 7. Rollups — attach a location's works to a target world ---------------
+  // AFTER pins (a rollup may target a pin world, e.g. helican → gudrun) and
+  // AFTER own-location works, so dedup sees the target's own works.
+  const rollupSourceIds = new Set(
+    curationRows.filter((r) => r.action === "rollup").map((r) => r.locationId),
+  );
+  const rolledWorldIds = new Set<string>();
+  for (const row of curationRows) {
+    if (row.action !== "rollup") continue;
+    const at = `Kuration row ${row.sheetRow} ("${row.locationId}")`;
+    if (row.target === null) continue; // parse guard
+    const targetDraft = draftById.get(row.target);
+    if (targetDraft === undefined) {
+      errors.push(`${at}: Ziel "${row.target}" is not a catalog world id`);
+      continue;
+    }
+    const sourceWorks = inputs.worksByLocation.get(row.locationId) ?? [];
+    const instances = sameNameInstances(targetDraft)
+      .map((d) => worldByDraftId.get(d.id))
+      .filter((w): w is MapWorld => w !== undefined);
+    let ok = true;
+    for (const world of instances) {
+      if (world.locationId !== null && rollupSourceIds.has(world.locationId)) {
+        errors.push(
+          `${at}: Rollup-Kette — Ziel-Welt "${world.id}" (location "${world.locationId}") ist selbst ` +
+            `Quelle eines Rollups; Ketten sind nicht erlaubt (direkt ans End-Ziel hängen)`,
+        );
+        ok = false;
+      }
+    }
+    if (!ok) continue;
+    for (const world of instances) {
+      rolledWorldIds.add(world.id);
+      for (const work of sourceWorks) {
+        const existing = world.works.find((w) => w.type === work.type && w.slug === work.slug);
+        if (existing === undefined) {
+          world.works.push({ ...work, via: row.locationId });
+        } else if (roleStrength(work) > roleStrength(existing)) {
+          world.works[world.works.indexOf(existing)] = { ...work, via: row.locationId };
+        }
+      }
+    }
+    applied.rollups.push({
+      locationId: row.locationId,
+      locationName: inputs.locationNames.get(row.locationId) ?? row.locationId,
+      worldIds: instances.map((w) => w.id),
+      works: sourceWorks.length,
     });
+  }
+  for (const id of rolledWorldIds) {
+    worldByDraftId.get(id)?.works.sort(compareWorks);
   }
 
   if (errors.length > 0) {
@@ -590,27 +1032,48 @@ export function buildCatalog(inputs: CatalogInputs): { file: MapWorldsFile; revi
 
   worlds.sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
 
-  // ---- 5. Review data --------------------------------------------------------
+  // ---- 8. Coverage — placed vs. total (location, work) edges ------------------
+  const coveredLocationIds = new Set(
+    worlds.filter((w) => w.locationId !== null).map((w) => w.locationId as string),
+  );
+  let totalWorkEdges = 0;
+  let placedWorkEdges = 0;
+  for (const [locationId, works] of inputs.worksByLocation) {
+    totalWorkEdges += works.length;
+    if (coveredLocationIds.has(locationId) || rollupSourceIds.has(locationId)) {
+      placedWorkEdges += works.length;
+    }
+  }
+
+  // ---- 9. Review data ----------------------------------------------------------
   const matchedWorlds = worlds
     .filter((w): w is MapWorld & { locationId: string } => w.locationId !== null)
     .map((w) => ({
       id: w.id,
       name: w.name,
       locationId: w.locationId,
-      books: w.works.filter((x) => x.type === "book").length,
-      episodes: w.works.filter((x) => x.type === "podcast_episode").length,
+      books: w.works.filter((x) => x.type === "book" && x.via === undefined).length,
+      episodes: w.works.filter((x) => x.type === "podcast_episode" && x.via === undefined).length,
     }));
 
-  const coveredLocationIds = new Set(matchedWorlds.map((m) => m.locationId));
+  const curationRowLocationIds = new Set(curationRows.map((r) => r.locationId));
   const unplacedLocations = [...inputs.worksByLocation.entries()]
-    .filter(([locationId, works]) => works.length > 0 && !coveredLocationIds.has(locationId))
+    .filter(
+      ([locationId, works]) =>
+        works.length > 0 && !coveredLocationIds.has(locationId) && !rollupSourceIds.has(locationId),
+    )
     .map(([locationId, works]) => ({
       locationId,
       name: inputs.locationNames.get(locationId) ?? locationId,
       books: works.filter((x) => x.type === "book").length,
       episodes: works.filter((x) => x.type === "podcast_episode").length,
+      inCurationSheet: curationRowLocationIds.has(locationId),
     }))
-    .sort((a, b) => (a.locationId < b.locationId ? -1 : a.locationId > b.locationId ? 1 : 0));
+    .sort((a, b) => {
+      const byWorks = b.books + b.episodes - (a.books + a.episodes);
+      if (byWorks !== 0) return byWorks;
+      return a.locationId < b.locationId ? -1 : a.locationId > b.locationId ? 1 : 0;
+    });
 
   const duplicateNameGroups: DuplicateNameGroup[] = [];
   const idCollisions: IdCollisionGroup[] = [];
@@ -642,8 +1105,10 @@ export function buildCatalog(inputs: CatalogInputs): { file: MapWorldsFile; revi
       matchedWithWorks: matchedWorlds.filter((m) => m.books + m.episodes > 0).length,
       distinctMatchedLocationIds: coveredLocationIds.size,
     },
+    coverage: { placedWorkEdges, totalWorkEdges },
     matchedWorlds,
     unplacedLocations,
+    applied,
     duplicateNameGroups,
     idCollisions,
     bookNotes: inputs.bookNotes,
@@ -654,13 +1119,10 @@ export function buildCatalog(inputs: CatalogInputs): { file: MapWorldsFile; revi
     $schema: MAP_WORLDS_SCHEMA,
     doc: CATALOG_DOC,
     grid: { gxMax: GRID_GX_MAX, gyMax: GRID_GY_MAX, transform: GRID_TRANSFORM_DOC },
+    coverage: { placedWorkEdges, totalWorkEdges },
     worlds,
   };
   return { file, review };
-}
-
-function isGridCoord(v: unknown, max: number): v is number {
-  return typeof v === "number" && Number.isFinite(v) && v >= 0 && v <= max;
 }
 
 // =============================================================================
@@ -670,20 +1132,31 @@ function isGridCoord(v: unknown, max: number): v is number {
 export function renderReview(review: ReviewData): string {
   const lines: string[] = [];
   const t = review.totals;
-  lines.push("# map-worlds — Review-Report (Brief 174)");
+  const c = review.coverage;
+  const pct = c.totalWorkEdges === 0 ? "0" : ((c.placedWorkEdges / c.totalWorkEdges) * 100).toFixed(1);
+  lines.push("# map-worlds — Review-Report (Brief 174 + 183)");
   lines.push("");
   lines.push(
     "> Generiert von `npm run import:map-worlds` — nicht von Hand editieren. " +
-      "Hand-Korrekturen: `map-worlds.overrides.json`, dann Convert neu laufen lassen.",
+      "Der Hand-Pfad ist `scripts/seed-data/source/map-worlds-curation.xlsx`: Sheet „Kuration“ " +
+      "hat eine Zeile pro Medien-Location ohne Match — `Aktion` = `link` (Excel-Welt existiert " +
+      "unter anderem Namen; `Ziel` = Welt-ID, deren `locationId` gesetzt wird), `rollup` (Werke " +
+      "an die Ziel-Welt anhängen, Herkunft via `via`), `pin` (neue Welt; `x`/`y`/`Segmentum`/" +
+      "`Klassifikation` Pflicht — `x`/`y` im SSOT-Pixelraum der Redditor-Excel, der Convert " +
+      "projiziert sie aufs Grid; Klassifikation „Region“ → `kind: region`) oder leer/`später` " +
+      "(offen). Sheet „Welten“ erzwingt pro Welt-ID ein `locationId` (oder `-`/`null` = bewusst " +
+      "ohne Match, z. B. Dubletten-Entkopplung). Danach Convert neu laufen lassen.",
   );
+  lines.push("");
+  lines.push(`**Abdeckung: ${c.placedWorkEdges} von ${c.totalWorkEdges} Werk-Kanten (${pct} %) platziert** (matched/link/pin/rollup).`);
   lines.push("");
 
   // ---- §1 Match-Übersicht ----
   lines.push("## 1. Match-Übersicht Excel ↔ Bestand");
   lines.push("");
-  lines.push(`- Katalog-Welten gesamt: **${t.excelWorlds + t.addedWorlds}** (${t.excelWorlds} aus der Excel, ${t.addedWorlds} aus Overrides)`);
-  lines.push(`- Gematcht auf eine \`locations.json\`-Row: **${t.matched}** Welten (${t.distinctMatchedLocationIds} verschiedene Locations)`);
-  lines.push(`- Davon mit ≥1 Werk (Buch/Podcast): **${t.matchedWithWorks}**`);
+  lines.push(`- Katalog-Welten gesamt: **${t.excelWorlds + t.addedWorlds}** (${t.excelWorlds} aus der Excel, ${t.addedWorlds} Kurations-Pins)`);
+  lines.push(`- Verknüpft mit einer \`locations.json\`-Row: **${t.matched}** Welten (${t.distinctMatchedLocationIds} verschiedene Locations)`);
+  lines.push(`- Davon mit ≥1 eigenem Werk (Buch/Podcast, ohne Rollup): **${t.matchedWithWorks}**`);
   lines.push("");
   lines.push("| Welt-ID | Name | locationId | Bücher | Episoden |");
   lines.push("|---|---|---|---:|---:|");
@@ -692,41 +1165,80 @@ export function renderReview(review: ReviewData): string {
   }
   lines.push("");
 
-  // ---- §2 Gegenliste / Nachplatzierungs-Worklist ----
-  lines.push("## 2. Nachplatzierungs-Worklist — Medien-Welten ohne Excel-Match");
+  // ---- §2 Nachplatzierungs-Worklist ----
+  lines.push("## 2. Nachplatzierungs-Worklist — offene Medien-Locations");
   lines.push("");
+  const missingFromSheet = review.unplacedLocations.filter((u) => !u.inCurationSheet).length;
   lines.push(
-    `**${review.unplacedLocations.length}** \`locations.json\`-Rows tragen ≥1 Werk, haben aber keine Welt im Katalog. ` +
-      "Zum Nachplatzieren: Stub unten in `map-worlds.overrides.json` → `addWorlds` kopieren, " +
-      "`gx`/`gy` mit Hand-Koordinaten füllen (gleiche Raster wie der Katalog: gx 0–1000, gy 0–" +
-      `${GRID_GY_MAX}), Convert neu laufen lassen. \`gx\`/\`gy\` = \`null\` bricht den Convert absichtlich ab.`,
+    `**${review.unplacedLocations.length}** \`locations.json\`-Rows tragen ≥1 Werk und sind weder ` +
+      "verknüpft noch gerollt — absteigend nach Werk-Zahl. Zum Abarbeiten: Zeile in der " +
+      "Kurations-Excel mit einer `Aktion` versehen (s. Kopf), Convert neu laufen lassen." +
+      (missingFromSheet > 0
+        ? ` **${missingFromSheet}** Zeile(n) fehlen noch in der Kurations-Excel (Marker ✚) — ` +
+          "`npm run import:map-worlds -- --sync-curation` ergänzt sie."
+        : ""),
   );
   lines.push("");
   lines.push("| locationId | Name | Bücher | Episoden |");
   lines.push("|---|---|---:|---:|");
   for (const u of review.unplacedLocations) {
-    lines.push(`| \`${u.locationId}\` | ${u.name} | ${u.books} | ${u.episodes} |`);
+    lines.push(`| \`${u.locationId}\`${u.inCurationSheet ? "" : " ✚"} | ${u.name} | ${u.books} | ${u.episodes} |`);
   }
   lines.push("");
-  lines.push("Copy-paste-Stubs (`addWorlds`-Einträge):");
-  lines.push("");
-  lines.push("```json");
-  const stubs = review.unplacedLocations.map((u) =>
-    [
-      "  {",
-      `    "name": ${JSON.stringify(u.name)},`,
-      `    "gx": null,`,
-      `    "gy": null,`,
-      `    "locationId": ${JSON.stringify(u.locationId)}`,
-      "  }",
-    ].join("\n"),
-  );
-  lines.push(`[\n${stubs.join(",\n")}\n]`);
-  lines.push("```");
-  lines.push("");
 
-  // ---- §3 Dubletten ----
-  lines.push("## 3. Excel-Namensdubletten + angewandte Regel");
+  // ---- §3 Angewandte Kuration ----
+  const a = review.applied;
+  lines.push("## 3. Angewandte Kuration");
+  lines.push("");
+  const appliedTotal = a.links.length + a.rollups.length + a.pins.length + a.worldOverrides.length;
+  if (appliedTotal === 0) {
+    lines.push("Keine — die Kurations-Excel enthält (noch) keine Aktionen.");
+    lines.push("");
+  } else {
+    if (a.links.length > 0) {
+      lines.push(`### Links (${a.links.length})`);
+      lines.push("");
+      lines.push("| locationId | Name | → Welt-ID(s) | Werke |");
+      lines.push("|---|---|---|---:|");
+      for (const l of a.links) {
+        lines.push(`| \`${l.locationId}\` | ${l.locationName} | ${l.worldIds.map((w) => `\`${w}\``).join(", ")} | ${l.works} |`);
+      }
+      lines.push("");
+    }
+    if (a.rollups.length > 0) {
+      lines.push(`### Rollups (${a.rollups.length})`);
+      lines.push("");
+      lines.push("| locationId | Name | → Welt-ID(s) | Werke |");
+      lines.push("|---|---|---|---:|");
+      for (const r of a.rollups) {
+        lines.push(`| \`${r.locationId}\` | ${r.locationName} | ${r.worldIds.map((w) => `\`${w}\``).join(", ")} | ${r.works} |`);
+      }
+      lines.push("");
+    }
+    if (a.pins.length > 0) {
+      lines.push(`### Pins (${a.pins.length})`);
+      lines.push("");
+      lines.push("| locationId | Welt-ID | Name | kind | x | y | gx | gy | Werke |");
+      lines.push("|---|---|---|---|---:|---:|---:|---:|---:|");
+      for (const p of a.pins) {
+        lines.push(`| \`${p.locationId}\` | \`${p.worldId}\` | ${p.name} | \`${p.kind}\` | ${p.x} | ${p.y} | ${p.gx} | ${p.gy} | ${p.works} |`);
+      }
+      lines.push("");
+    }
+    if (a.worldOverrides.length > 0) {
+      lines.push(`### Welten-Overrides (${a.worldOverrides.length})`);
+      lines.push("");
+      lines.push("| Welt-ID | locationId |");
+      lines.push("|---|---|");
+      for (const o of a.worldOverrides) {
+        lines.push(`| \`${o.worldId}\` | ${o.locationId === null ? "— (entkoppelt)" : `\`${o.locationId}\``} |`);
+      }
+      lines.push("");
+    }
+  }
+
+  // ---- §4 Dubletten ----
+  lines.push("## 4. Excel-Namensdubletten + angewandte Regel");
   lines.push("");
   lines.push(
     "**Regel: keep-all mit Ordinal-Suffix.** Wiederholte Namen sind auf der Quellkarte " +
@@ -734,7 +1246,7 @@ export function renderReview(review: ReviewData): string {
       "Blackstone Fortresses) — es wird KEINE Zeile verworfen. Wiederholte Slugs bekommen in " +
       "Sheet-Reihenfolge deterministische Suffixe (`-2`, `-3`, …). Alle Instanzen eines Namens " +
       "matchen dieselbe Location (gleiches `locationId`, gleiche Werke); einzelne Pins lassen " +
-      "sich per `worldOverrides.<id>.locationId: null` entkoppeln.",
+      "sich über Sheet „Welten“ (`locationId-Override` = `-`) entkoppeln.",
   );
   lines.push("");
   for (const g of review.duplicateNameGroups) {
@@ -748,22 +1260,22 @@ export function renderReview(review: ReviewData): string {
     lines.push("");
   }
 
-  // ---- §4 ID-Kollisionen ----
-  lines.push("## 4. ID-Kollisionen (verschiedene Namen → gleicher Basis-Slug)");
+  // ---- §5 ID-Kollisionen ----
+  lines.push("## 5. ID-Kollisionen (verschiedene Namen → gleicher Basis-Slug)");
   lines.push("");
   if (review.idCollisions.length === 0) {
     lines.push("Keine — jeder Basis-Slug stammt von genau einem (ggf. wiederholten) Namen.");
   } else {
-    for (const c of review.idCollisions) {
-      lines.push(`- \`${c.baseId}\`: ${c.names.map((n) => `"${n}"`).join(", ")} (Suffix-Vergabe in Sheet-Reihenfolge)`);
+    for (const col of review.idCollisions) {
+      lines.push(`- \`${col.baseId}\`: ${col.names.map((n) => `"${n}"`).join(", ")} (Suffix-Vergabe in Sheet-Reihenfolge)`);
     }
   }
   lines.push("");
 
-  // ---- §5 Ableitungs-Notizen ----
+  // ---- §6 Ableitungs-Notizen ----
   const b = review.bookNotes;
   const p = review.podcastNotes;
-  lines.push("## 5. Medien-Ableitung (JSON-first, DB-frei)");
+  lines.push("## 6. Medien-Ableitung (JSON-first, DB-frei)");
   lines.push("");
   lines.push(
     "Quellen: `scripts/seed-data/books/*.json` (geteilter Resolver-Pfad `resolveLocations`, " +

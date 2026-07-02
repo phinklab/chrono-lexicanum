@@ -64,6 +64,27 @@ lives in your local archive only.
 | `character-blurbs.json` | Short factual blurbs (2–3 sentences) for characters, keyed by `characters.id` — growing toward full coverage | curation layer (no schema) |
 | `location-blurbs.json` | Short factual blurbs (2–3 sentences) for worlds/locations, keyed by `locations.id` — growing toward full coverage | curation layer (no schema) |
 
+## Map-Katalog (Brief 174 + 183) — nicht von `seed.ts` geladen
+
+- **`map-worlds.json`** — generierter Katalog der neuen Galaxiekarte (992 Excel-Welten +
+  Kurations-Pins; `kind`-Typ-Gruppen, `locationId`-Links, Werk-Kanten inkl. Rollup-`via`,
+  `coverage`-Kopf). NIE von Hand editieren; regenerieren via `npm run import:map-worlds`.
+- **`map-worlds.review.md`** — generierter Hand-Gate-Report (Abdeckung, offene Worklist,
+  angewandte Kuration, Dubletten).
+- **`source/map-worlds-curation.xlsx`** — der **Hand-Pfad** (Philipps Arbeitsformat, ersetzt
+  das frühere `map-worlds.overrides.json`). Sheet „Kuration“: eine Zeile pro Medien-Location
+  ohne Match; `Aktion` = `link` (Excel-Welt existiert unter anderem Namen; `Ziel` = Welt-ID),
+  `rollup` (Werke an Ziel-Welt anhängen, Herkunft `via`), `pin` (neue Welt; `x`/`y`/
+  `Segmentum`/`Klassifikation` Pflicht; Klassifikation „Region“ → `kind: region`) oder
+  leer/`später` (offen). **`x`/`y` sind SSOT-Pixelkoordinaten** — dieselben Zahlen wie die
+  Coordinates-Spalten der Redditor-Excel (copy-paste-kompatibel); der Convert projiziert sie
+  mit derselben eingefrorenen Formel aufs Grid wie die Excel-Welten. Sheet „Welten“:
+  `locationId-Override` pro Welt-ID (`-`/`null` = bewusst ohne Match, z. B.
+  Dubletten-Entkopplung). Neue Worklist-Zeilen ergänzt
+  `npm run import:map-worlds -- --sync-curation`.
+- **`source/Warhammer_map_SSOT.xlsx`** — eingefrorene Quell-Excel des Redditors
+  (Welten + Pixel-Koordinaten); read-only Input des Converts.
+
 ## Notes on `books.json` shape
 
 A book entry looks roughly like:

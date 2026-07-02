@@ -1,6 +1,0 @@
-{
-  "$schema": "map-worlds-overrides-v1",
-  "doc": "Hand-Overrides für den Map-Katalog (Brief 174). Der Convert `npm run import:map-worlds` merged diese Datei deterministisch über die Excel-Welten; der generierte Katalog map-worlds.json wird NIE von Hand editiert. Zwei Werkzeuge: (1) addWorlds — Lücken-Welten nachplatzieren (Stubs aus map-worlds.review.md §2 kopieren, gx/gy mit Hand-Koordinaten im Katalog-Raster füllen: gx 0–1000, gy 0–808.6; gx/gy = null bricht den Convert absichtlich ab; 'id' default = slugify(name); 'locationId' default = Namens-Match wie bei Excel-Welten, explizit null = bewusst ohne Match). (2) worldOverrides — Patch auf eine generierte Welt per Katalog-ID, z. B. { \"commorragh-2\": { \"locationId\": null } } um einen Fehl-Match zu lösen, oder gx/gy/segmentum/classification/name zu korrigieren; locationId muss eine locations.json-ID sein oder null.",
-  "addWorlds": [],
-  "worldOverrides": {}
-}

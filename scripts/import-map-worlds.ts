@@ -1,35 +1,48 @@
 /**
- * Convert step (Brief 174, P14 Teil A): read the redditor's map Excel
- * (`scripts/seed-data/source/Warhammer_map_SSOT.xlsx`, sheet `Tabelle1`,
- * 992 worlds) + the hand-override file, derive the per-world media links
- * (books + podcast episodes) JSON-first from the repo-side sources, and write
- * the committed catalog `scripts/seed-data/map-worlds.json` + the hand-gate
+ * Convert step (Brief 174 P14 Teil A, Brief 183 Daten-Pass): read the
+ * redditor's map Excel (`scripts/seed-data/source/Warhammer_map_SSOT.xlsx`,
+ * sheet `Tabelle1`, 992 worlds) + the hand-curation Excel
+ * (`scripts/seed-data/source/map-worlds-curation.xlsx`, sheets `Kuration` +
+ * `Welten` — Philipps Arbeitsformat, replaces the retired
+ * map-worlds.overrides.json), derive the per-world media links (books +
+ * podcast episodes) JSON-first from the repo-side sources, and write the
+ * committed catalog `scripts/seed-data/map-worlds.json` + the hand-gate
  * report `scripts/seed-data/map-worlds.review.md`.
  *
  * Pure file I/O — NO DB access (runs without `--env-file`; there is no
  * DATABASE_URL in play, by construction). Deterministic + idempotent:
- * identical (Excel + overrides + corpus + overlay + podcast artifacts) →
- * byte-identical outputs; a second run produces no diff.
+ * identical (Excel + curation + corpus + overlay + podcast artifacts) →
+ * byte-identical outputs; a second run produces no diff. Both Excel files are
+ * READ-ONLY inputs in the normal run.
+ *
+ * `--sync-curation` additionally REWRITES the curation Excel: existing rows
+ * are preserved (values as parsed; Bücher/Episoden counts refreshed), and
+ * worklist locations that have no row yet are appended (sorted by work count
+ * desc). This is the only code path that writes the curation file.
  *
  * All composition logic lives in the pure `scripts/map-worlds-core.ts`
  * (shared with `scripts/test-map-worlds.ts`). This wrapper only reads inputs,
- * validates the sheet shape (fail-loud on drift), and writes the outputs.
+ * validates the sheet shapes (fail-loud on drift), and writes the outputs.
  *
  * Usage:
  *   npm run import:map-worlds
+ *   npm run import:map-worlds -- --sync-curation
  *
  * Brief 174 (2026-07-02) — sessions/2026-07-02-174-arch-map-ssot-reconciliation.md
+ * Brief 183 (2026-07-02) — sessions/2026-07-02-183-arch-map-worlds-daten-pass.md
  */
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
+import { parseArgs } from "node:util";
 
 import { readSheet } from "read-excel-file/node";
+import writeXlsxFile, { type Cell } from "write-excel-file/node";
 
 import { assertShowArtifact } from "@/lib/ingestion/podcast/apply-plan";
 import { loadRegistry } from "@/lib/ingestion/podcast/registry";
 import type { ShowArtifact } from "@/lib/ingestion/podcast/types";
-import { validateMapWorlds } from "@/lib/map/map-worlds-schema";
+import { validateMapWorlds, type MapWorldWork } from "@/lib/map/map-worlds-schema";
 
 import locationsCanon from "./seed-data/locations.json";
 import locationAliases from "./seed-data/location-aliases.json";
@@ -41,19 +54,30 @@ import { loadBannedPatterns } from "./apply-override-synopsis-lint";
 import { VALID_BOOK_FORMATS, loadBookFiles } from "./book-file";
 import { validateOverlay, type CurationOverlay, type RefSets } from "./curation-overlay";
 import {
+  CURATION_HEADERS,
+  KNOWN_SEGMENTA,
+  WELTEN_HEADERS,
   buildCatalog,
   buildLocationMatcher,
   deriveBookEdges,
   derivePodcastEdges,
   mergeWorkEdges,
+  parseCurationSheet,
+  parseWeltenSheet,
   renderReview,
-  validateOverridesFile,
+  type CurationInput,
+  type CurationRow,
+  type CurationWorldRow,
   type ExcelWorldRow,
+  type ReviewData,
+  type SheetCell,
 } from "./map-worlds-core";
 
 const SOURCE_FILE = "scripts/seed-data/source/Warhammer_map_SSOT.xlsx";
 const SHEET = "Tabelle1";
-const OVERRIDES_FILE = "scripts/seed-data/map-worlds.overrides.json";
+const CURATION_FILE = "scripts/seed-data/source/map-worlds-curation.xlsx";
+const CURATION_SHEET = "Kuration";
+const WELTEN_SHEET = "Welten";
 const OVERLAY_FILE = "scripts/seed-data/curation-overlay.json";
 const SEED_DIR = "scripts/seed-data";
 const OUTPUT_FILE = "scripts/seed-data/map-worlds.json";
@@ -69,35 +93,24 @@ const EXPECTED_HEADERS = [
 ] as const;
 const SEGMENTUM_HEADER = "Segmentum";
 
-/** The five Segmenta of the frozen source sheet — a sixth value is drift. */
-const KNOWN_SEGMENTA: ReadonlySet<string> = new Set([
-  "Solar",
-  "Obscurus",
-  "Pacificus",
-  "Tempestus",
-  "Ultima",
-]);
-
-type Cell = string | number | boolean | Date | null | undefined;
-
-function trimCell(v: Cell): string {
+function trimCell(v: SheetCell): string {
   if (v === null || v === undefined) return "";
   return String(v).trim();
 }
 
-function cellOrNull(v: Cell): string | null {
+function cellOrNull(v: SheetCell): string | null {
   const s = trimCell(v);
   return s === "" ? null : s;
 }
 
-/** Parse + fail-loud validate the sheet into ExcelWorldRow[]. */
+/** Parse + fail-loud validate the SSOT sheet into ExcelWorldRow[]. */
 async function readExcelRows(): Promise<ExcelWorldRow[]> {
   // `trim: false` mirrors import-ssot-roster/import-faction-starters:
   // read-excel-file 9.x crashes on some empty string-typed cells with trim
   // on; we trim ourselves.
   const raw = await readSheet(SOURCE_FILE, SHEET, { trim: false });
 
-  const header = (raw[0] ?? []).map((v) => trimCell(v as Cell));
+  const header = (raw[0] ?? []).map((v) => trimCell(v as SheetCell));
   const headerOk =
     EXPECTED_HEADERS.every((h, i) => header[i] === h) && header[6] === SEGMENTUM_HEADER;
   if (!headerOk) {
@@ -110,7 +123,7 @@ async function readExcelRows(): Promise<ExcelWorldRow[]> {
   const rows: ExcelWorldRow[] = [];
   const issues: string[] = [];
   for (let i = 1; i < raw.length; i++) {
-    const row = raw[i]! as Cell[];
+    const row = raw[i]! as SheetCell[];
     const sourceRow = i + 1;
     if (row.every((c) => c === null || c === undefined || trimCell(c) === "")) continue;
     const name = trimCell(row[0]);
@@ -134,7 +147,7 @@ async function readExcelRows(): Promise<ExcelWorldRow[]> {
       name,
       primary: cellOrNull(row[1]),
       secondary: cellOrNull(row[2]),
-      tertiary: cellOrNull(row[3]),
+      // Tertiary (column D) is deliberately dropped — 4 rows, Brief 183.
       x,
       y,
       segmentum,
@@ -146,6 +159,23 @@ async function readExcelRows(): Promise<ExcelWorldRow[]> {
     process.exit(1);
   }
   return rows;
+}
+
+/** Read + parse the hand-curation Excel (both sheets) through the pure core
+ *  parsers. The file is a committed input — missing = hard error. */
+async function readCuration(): Promise<CurationInput> {
+  if (!existsSync(resolve(process.cwd(), CURATION_FILE))) {
+    throw new Error(
+      `[import-map-worlds] ${CURATION_FILE} is missing — the curation Excel is a committed ` +
+        `input (Brief 183); restore it from git.`,
+    );
+  }
+  const kurationRaw = (await readSheet(CURATION_FILE, CURATION_SHEET, { trim: false })) as SheetCell[][];
+  const weltenRaw = (await readSheet(CURATION_FILE, WELTEN_SHEET, { trim: false })) as SheetCell[][];
+  return {
+    rows: parseCurationSheet(kurationRaw),
+    worldRows: parseWeltenSheet(weltenRaw),
+  };
 }
 
 /** Load + validate the curation overlay through the SHARED validator, with
@@ -174,15 +204,100 @@ function loadShowArtifacts(): ShowArtifact[] {
   });
 }
 
+// =============================================================================
+// --sync-curation — append missing worklist rows to the curation Excel
+// =============================================================================
+
+const str = (v: string | null): Cell => (v === null ? null : { value: v, type: String });
+const num = (v: number | null): Cell => (v === null ? null : { value: v, type: Number });
+const header = (v: string): Cell => ({ value: v, type: String, fontWeight: "bold" });
+
+function countByType(works: ReadonlyArray<MapWorldWork> | undefined): { books: number; episodes: number } {
+  const list = works ?? [];
+  return {
+    books: list.filter((w) => w.type === "book").length,
+    episodes: list.filter((w) => w.type === "podcast_episode").length,
+  };
+}
+
+/** Rewrite the curation Excel: existing rows preserved in sheet order (counts
+ *  refreshed; Aktion/`-` normalized to their parsed form), missing worklist
+ *  rows appended sorted by work count desc. */
+async function syncCuration(
+  curation: CurationInput,
+  review: ReviewData,
+  worksByLocation: ReadonlyMap<string, MapWorldWork[]>,
+): Promise<number> {
+  const missing = review.unplacedLocations.filter((u) => !u.inCurationSheet);
+
+  const kurationRows: Cell[][] = [CURATION_HEADERS.map(header)];
+  const rowFor = (r: CurationRow): Cell[] => {
+    const counts = countByType(worksByLocation.get(r.locationId));
+    return [
+      str(r.locationId),
+      str(r.name),
+      num(counts.books),
+      num(counts.episodes),
+      str(r.actionRaw === "" ? null : r.actionRaw),
+      str(r.target),
+      num(r.x),
+      num(r.y),
+      str(r.segmentum),
+      str(r.classification),
+      str(r.note),
+    ];
+  };
+  for (const r of curation.rows) kurationRows.push(rowFor(r));
+  for (const u of missing) {
+    kurationRows.push([
+      str(u.locationId),
+      str(u.name),
+      num(u.books),
+      num(u.episodes),
+      null, null, null, null, null, null, null,
+    ]);
+  }
+
+  const weltenRows: Cell[][] = [WELTEN_HEADERS.map(header)];
+  for (const w of curation.worldRows) {
+    weltenRows.push([str(w.worldId), str(w.locationIdOverride ?? "-"), str(w.note)]);
+  }
+
+  await writeXlsxFile([
+    {
+      sheet: CURATION_SHEET,
+      data: kurationRows,
+      columns: [
+        { width: 26 }, { width: 30 }, { width: 8 }, { width: 9 }, { width: 8 }, { width: 20 },
+        { width: 8 }, { width: 8 }, { width: 12 }, { width: 16 }, { width: 60 },
+      ],
+    },
+    {
+      sheet: WELTEN_SHEET,
+      data: weltenRows,
+      columns: [{ width: 26 }, { width: 20 }, { width: 60 }],
+    },
+  ]).toFile(resolve(process.cwd(), CURATION_FILE));
+  return missing.length;
+}
+
+// =============================================================================
+
 async function main(): Promise<void> {
+  const { values } = parseArgs({ options: { "sync-curation": { type: "boolean" } } });
+  const doSync = values["sync-curation"] === true;
+
   const excelRows = await readExcelRows();
   console.log(`[import-map-worlds] read ${excelRows.length} worlds from ${SOURCE_FILE}`);
 
-  const overridesRaw: unknown = JSON.parse(readFileSync(resolve(process.cwd(), OVERRIDES_FILE), "utf8"));
-  const overrides = validateOverridesFile(overridesRaw);
+  const curation = await readCuration();
+  const actions = curation.rows.filter((r) => r.action !== null);
   console.log(
-    `[import-map-worlds] overrides: ${overrides.addWorlds.length} addWorlds, ` +
-      `${Object.keys(overrides.worldOverrides).length} worldOverrides`,
+    `[import-map-worlds] curation: ${curation.rows.length} rows ` +
+      `(${actions.filter((r) => r.action === "link").length} link, ` +
+      `${actions.filter((r) => r.action === "rollup").length} rollup, ` +
+      `${actions.filter((r) => r.action === "pin").length} pin), ` +
+      `${curation.worldRows.length} world overrides`,
   );
 
   const { books, issues } = loadBookFiles();
@@ -207,7 +322,7 @@ async function main(): Promise<void> {
 
   const { file, review } = buildCatalog({
     excelRows,
-    overrides,
+    curation,
     matcher,
     locationNames,
     worksByLocation,
@@ -219,7 +334,7 @@ async function main(): Promise<void> {
   const schemaErrors = validateMapWorlds(JSON.parse(JSON.stringify(file)));
   if (schemaErrors.length > 0) {
     for (const e of schemaErrors) console.error(`[error map-worlds.json] ${e}`);
-    console.error(`\n[import-map-worlds] generated catalog violates map-worlds-v1 — aborting.`);
+    console.error(`\n[import-map-worlds] generated catalog violates map-worlds-v2 — aborting.`);
     process.exit(1);
   }
 
@@ -227,19 +342,38 @@ async function main(): Promise<void> {
   await writeFile(REVIEW_FILE, renderReview(review), "utf8");
 
   const t = review.totals;
+  const c = review.coverage;
   console.log(`[import-map-worlds] wrote ${OUTPUT_FILE}: ${file.worlds.length} worlds`);
   console.log(
     `[import-map-worlds]   matched: ${t.matched} (${t.distinctMatchedLocationIds} locations), ` +
       `with works: ${t.matchedWithWorks}`,
   );
   console.log(
+    `[import-map-worlds]   curation applied: ${review.applied.links.length} links, ` +
+      `${review.applied.rollups.length} rollups, ${review.applied.pins.length} pins, ` +
+      `${review.applied.worldOverrides.length} world overrides`,
+  );
+  console.log(
+    `[import-map-worlds]   coverage: ${c.placedWorkEdges}/${c.totalWorkEdges} work edges placed ` +
+      `(${c.totalWorkEdges === 0 ? "0" : ((c.placedWorkEdges / c.totalWorkEdges) * 100).toFixed(1)} %)`,
+  );
+  console.log(
     `[import-map-worlds]   media: ${bookNotes.bookEdgeCount} book edges (${bookNotes.booksWithLocationEdges}/${bookNotes.bookCount} books), ` +
       `${podcastNotes.episodeEdgeCount} episode edges (${podcastNotes.episodesWithLocations}/${podcastNotes.episodeCount} episodes)`,
   );
   console.log(
-    `[import-map-worlds] wrote ${REVIEW_FILE}: ${review.unplacedLocations.length} unplaced media locations, ` +
+    `[import-map-worlds] wrote ${REVIEW_FILE}: ${review.unplacedLocations.length} open media locations, ` +
       `${review.duplicateNameGroups.length} duplicate-name groups, ${review.idCollisions.length} id collisions`,
   );
+
+  if (doSync) {
+    const appended = await syncCuration(curation, review, worksByLocation);
+    console.log(
+      appended > 0
+        ? `[import-map-worlds] --sync-curation: appended ${appended} new worklist row(s) to ${CURATION_FILE}`
+        : `[import-map-worlds] --sync-curation: no new worklist rows — ${CURATION_FILE} rewritten (counts refreshed)`,
+    );
+  }
 }
 
 main().catch((err: unknown) => {
