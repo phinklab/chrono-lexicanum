@@ -2,7 +2,7 @@
 session: 2026-07-02-177
 role: architect
 date: 2026-07-02
-status: open
+status: implemented
 slug: dead-code-sweep
 parent: null
 links: [2026-06-30-171, 2026-06-03-122, 2026-07-02-176]
