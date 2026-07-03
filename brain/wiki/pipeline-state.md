@@ -55,9 +55,6 @@ sources:
   - ../../ingest/.archive/v1/backfill-20260508-2101.diff.json
   - ../../ingest/.archive/v2-pilot/v2-pilot-20260509-1934.diff.json
   - ../../ingest/.last-run/v2-batch-20260510-1109.diff.json
-  - ../../scripts/test-discovery-merge.ts
-  - ../../scripts/analyze-v2-surfaces.ts
-  - ../../scripts/synthesize-v2-batch-diff.ts
   - ../../scripts/import-ssot-roster.ts
   - ../../scripts/db-reset-for-ssot.ts
   - ../../scripts/seed-data/book-roster.json

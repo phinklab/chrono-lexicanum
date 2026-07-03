@@ -12,7 +12,6 @@ sources:
   - ../../../sessions/archive/2026-05/2026-05-15-074-impl-resolver-batch-3.md
   - ../../../scripts/run-ssot-loop.sh
   - ../../../scripts/apply-override.ts
-  - ../../../src/lib/ingestion/v2/llm/enrich.ts
 related:
   - ./why-excel-ssot-not-crawl.md
   - ./why-sonnet-not-haiku.md
