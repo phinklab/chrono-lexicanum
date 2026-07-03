@@ -30,7 +30,20 @@ declare global {
 const client =
   globalThis.__chronoPg ??
   postgres(connectionString, {
-    // Supabase serves Postgres over TLS — never disable.
+    // TLS is on and must never be disabled. Residual risk (Brief 180 / K54,
+    // LOW): postgres.js maps `ssl: "require"` to `rejectUnauthorized: false`
+    // (its connection.js:283) — the link is encrypted but the pooler's
+    // certificate is NOT verified, so a MITM able to intercept the connection
+    // could present its own cert (postgres.js's own README flags this). We keep
+    // "require" over "verify-full" deliberately: full verification needs the
+    // pooler cert to chain to a CA in Node's trust store (or the Supabase CA
+    // bundled + pinned in the repo), and getting it wrong breaks *all* DB
+    // access in prod — a disproportionate risk to take blind, for a LOW-
+    // severity gap, on a change that can't be validated here without a live
+    // pooler handshake. Enabling verify-full is a sound follow-up once it can
+    // be tested against a live connection; the practical blast radius stays
+    // small because this is the transaction pooler over TLS, not a plaintext
+    // socket.
     ssl: "require",
     // Pool size: 5 stays comfortably below pgbouncer's default_pool_size on
     // the Supabase free-tier pooler (~15). Higher values oversubscribe the
