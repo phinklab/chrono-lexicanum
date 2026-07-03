@@ -7,15 +7,15 @@ Reproducible via: `PODCAST_LLM_MODEL=claude-sonnet-4-6 npm run ingest:podcast --
 - **Show:** Adeptus Ridiculous (slug `adeptus-ridiculous`)
 - **Feed:** https://rss.buzzsprout.com/1497970.rss
 - **Apple id:** 1679817767
-- **Episodes:** 363
+- **Episodes:** 367
 - **Extraction model:** `claude-sonnet-4-6` (prompt version `3f6a5ff87efa`)
-- **Resolved coverage:** 281/363 episodes (77.4%) carry ≥1 resolved tag
-- **Resolved tags:** 790 total — 535 subject, 255 mentioned
-  - by type: 191 character, 480 faction, 119 location
-- **Episode kinds:** 304 lore, 2 news_recap, 6 interview, 51 other
+- **Resolved coverage:** 291/367 episodes (79.3%) carry ≥1 resolved tag
+- **Resolved tags:** 827 total — 561 subject, 266 mentioned
+  - by type: 199 character, 496 faction, 132 location
+- **Episode kinds:** 308 lore, 2 news_recap, 6 interview, 51 other
 - **Show links:** 5 (apple_podcasts, official_website, rss, spotify, youtube)
-- **Episode links:** 363/363 episodes carry an RSS audio link (`listen`/`rss`/`podcast_rss`)
-- **Distinct unresolved surface-forms:** 181
+- **Episode links:** 367/367 episodes carry an RSS audio link (`listen`/`rss`/`podcast_rss`)
+- **Distinct unresolved surface-forms:** 164
 
 ## Method (resolution reuse)
 
@@ -33,8 +33,6 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 |---|---|---|
 | location | the Warp | 6 |
 | faction | Adeptus Terra | 4 |
-| faction | Leagues of Votann | 4 |
-| location | Vraks | 4 |
 | character | Cardinal Xaphan | 3 |
 | faction | Departmento Munitorum | 3 |
 | faction | Farsight Enclaves | 3 |
@@ -47,18 +45,14 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | character | Kubik | 2 |
 | character | Lufgt Huron | 2 |
 | character | Omnissiah | 2 |
-| character | The Silent King | 2 |
 | character | Vashtorr | 2 |
 | character | Vashtorr the Arkifane | 2 |
 | faction | Abhumans | 2 |
-| faction | Armageddon Steel Legion | 2 |
 | faction | Cult Mechanicus | 2 |
 | faction | Men of Iron | 2 |
 | faction | Necrontyr | 2 |
 | faction | Priesthood of Terra | 2 |
 | faction | Skaven | 2 |
-| faction | Space Marine Legions | 2 |
-| faction | Titan Legions | 2 |
 | location | Indiga | 2 |
 | location | Maelstrom Zone | 2 |
 | location | Sangua Terra | 2 |
@@ -83,8 +77,8 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | character | Gotrek Gurnisson | 1 |
 | character | Greta | 1 |
 | character | Grimtoof | 1 |
-| character | Grotsnik | 1 |
 | character | Haarken Worldclaimer | 1 |
+| character | Idaeus | 1 |
 | character | Inquisitor Kryptman | 1 |
 | character | Iordax Quan | 1 |
 | character | Junith Eruita | 1 |
@@ -93,13 +87,13 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | character | Kaylia | 1 |
 | character | Ko'vash | 1 |
 | character | Kravek Morne | 1 |
+| character | Learchus | 1 |
 | character | Lhaerial Rey | 1 |
 | character | Lost Primarchs | 1 |
 | character | Marshal Adenauer | 1 |
 | character | Mathieu | 1 |
 | character | Nekrosor Ammenthar | 1 |
 | character | O'Shaserra | 1 |
-| character | Phoenix Lords | 1 |
 | character | Primarchs | 1 |
 | character | Prince Yriel | 1 |
 | character | Prisca | 1 |
@@ -113,6 +107,7 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | character | Talos Valcoran | 1 |
 | character | The Horned Rat | 1 |
 | character | Titus | 1 |
+| character | Tyberos the Red Wake | 1 |
 | character | Ufthak | 1 |
 | character | Ugulhard | 1 |
 | character | UR-025 | 1 |
@@ -121,18 +116,14 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | character | Wytbor Oct | 1 |
 | faction | 1st Tanith Regiment | 1 |
 | faction | Angels Vermillion | 1 |
-| faction | Aspect Warriors | 1 |
-| faction | Astral Claws | 1 |
-| faction | Asuryani | 1 |
-| faction | Blood Axes | 1 |
 | faction | Cadian 8th | 1 |
+| faction | Carcharodon Astra | 1 |
 | faction | Castellans of the Rift | 1 |
 | faction | Chartist Captains | 1 |
 | faction | Children of Thorns | 1 |
 | faction | Collegiate Extremis | 1 |
 | faction | Corpse Grinder Cult | 1 |
 | faction | Council of Thirteen | 1 |
-| faction | Crimson Sabres | 1 |
 | faction | Cursed Founding | 1 |
 | faction | Destroyers | 1 |
 | faction | Drukhari Covens | 1 |
@@ -153,7 +144,6 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | faction | II Legion | 1 |
 | faction | Imperial Nobles | 1 |
 | faction | Ithakas Dynasty | 1 |
-| faction | Kabals | 1 |
 | faction | Men of Stone | 1 |
 | faction | Ork Freebootas | 1 |
 | faction | Penal Legions | 1 |
@@ -173,30 +163,24 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | faction | XI Legion | 1 |
 | location | 500 Worlds of Ultramar | 1 |
 | location | Agripinaa | 1 |
-| location | Arthas Moloch | 1 |
 | location | Ash Wastes | 1 |
 | location | Bubonicus | 1 |
 | location | Cadian Gate | 1 |
-| location | Caldera | 1 |
 | location | Corsair's Keep | 1 |
 | location | Crimson Eyrie | 1 |
 | location | Estalia | 1 |
 | location | Farsight Enclaves | 1 |
 | location | Fleshmyre | 1 |
 | location | Forge Worlds | 1 |
-| location | Gabal | 1 |
 | location | Galactic Core | 1 |
 | location | Grakiliod Narrow | 1 |
 | location | Hades Hive | 1 |
-| location | Halo Stars | 1 |
 | location | Kislev | 1 |
 | location | Landunder | 1 |
-| location | Morod | 1 |
 | location | Nearsteel | 1 |
 | location | New Badab | 1 |
 | location | Novamagnor | 1 |
 | location | Octarius Sector | 1 |
-| location | Parmenio | 1 |
 | location | Periphery sub-sector | 1 |
 | location | Realm of Slaanesh | 1 |
 | location | Red Angel's Gate | 1 |
@@ -211,7 +195,6 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | location | Vesmir II | 1 |
 | location | Vior'la | 1 |
 | location | Vostroya | 1 |
-| location | Zartak | 1 |
 
 ## Spot-check (10 episodes, evenly spaced)
 
@@ -225,46 +208,42 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 - **Date / kind:** 2021-07-21 · lore
 - **Tags:** `faction:orks` (subject, name)
 
-### THE REALM OF SLAANESH | Warhammer 40k Lore
+### Interview with Richard Reed, Necron & Tomb King voice actor extraordinaire
 
-- **Date / kind:** 2022-02-09 · lore
-- **Tags:** `faction:slaanesh` (subject, name)
-- **Unresolved:** “Realm of Slaanesh” (location)
+- **Date / kind:** 2022-02-13 · interview
+- **Tags:** `faction:necrons` (subject, name)
 
-### THE CURSED FOUNDING: MISTAKES WERE MADE | Warhammer 40k Lore
+### Duperrault Family Massacre | Detective Ridiculous
 
-- **Date / kind:** 2022-08-24 · lore
-- **Tags:** `faction:adeptus_astartes` (mentioned, alias, “Space Marines”)
-- **Unresolved:** “Cursed Founding” (faction)
-
-### Astronaut, Engineer, Scuba Diver, Liar, Murderer | Detective Ridiculous
-
-- **Date / kind:** 2023-02-26 · other
+- **Date / kind:** 2022-09-03 · other
 - **Tags:** _none resolved_
 
-### THE SIEGE OF VRAKS: THE LAST ENEMY TO BE DESTROYED | Warhammer 40k Lore
+### THOSE WACKY FACE-EATING XENOS | Warhammer 40k Lore
 
-- **Date / kind:** 2023-09-06 · lore
-- **Tags:** _none resolved_
-- **Unresolved:** “Vraks” (location)
+- **Date / kind:** 2023-03-01 · lore
+- **Tags:** `faction:tyranids` (subject, name)
 
-### ELDAR OF THE LIVING DEAD: WRAITHBONE & SOULSTONES | Warhammer 40k Lore
+### THE HORROR AND HATE OF THE TYRANID HIVE MIND | Warhammer 40k Lore
 
-- **Date / kind:** 2024-03-20 · lore
-- **Tags:** `faction:eldar` (subject, alias); `faction:slaanesh` (mentioned, name)
+- **Date / kind:** 2023-09-20 · lore
+- **Tags:** `faction:tyranids` (subject, name)
 
-### ULTRAMARINES FT. Luetin: ULTRADEPRESSION, SPACE MARINE 2, TABLETOP VS LORE | Warhammer 40k
+### FABIUS BILE: GODS ARE FOR THE WEAK. I AM NOT WEAK. | Warhammer 40k Lore
 
-- **Date / kind:** 2024-09-25 · lore
-- **Tags:** `character:marneus_calgar` (subject, name, “Marneus Calgar”); `faction:ultramarines` (subject, name)
+- **Date / kind:** 2024-04-03 · lore
+- **Tags:** `character:fabius_bile` (subject, name, “Fabius Bile”); `faction:emperors_children` (subject, name, “Emperor's Children”); `faction:heretic_astartes` (mentioned, alias, “Chaos Space Marines”)
 
-### HERETIC LEGION: Bound by the suffering ties of Damnation | Trench Crusade Lore
+### SOUL DRINKERS: LOYALIST TRAITORS OF THE EMPEROR, ARCHITECT OF FATE | Warhammer 40k Lore
 
-- **Date / kind:** 2025-03-26 · other
-- **Tags:** _none resolved_
+- **Date / kind:** 2024-10-02 · lore
+- **Tags:** `character:the_emperor` (mentioned, alias, “The Emperor”); `faction:soul_drinkers` (subject, name, “Soul Drinkers”); `faction:chaos` (mentioned, alias); `faction:imperial_fists` (mentioned, name, “Imperial Fists”)
 
-### War Of The Beast: And They Were Roommates | Warhammer 40k Lore
+### TRAITOR GUARD | Warhammer 40k Lore
 
-- **Date / kind:** 2025-10-15 · lore
-- **Tags:** `character:eldrad_ulthran` (subject, name, “Eldrad Ulthran”); `character:vulkan` (subject, name); `faction:harlequins` (subject, name); `faction:orks` (subject, name); `faction:imperium` (mentioned, alias); `faction:senatorum_imperialis` (mentioned, alias, “High Lords of Terra”); `location:terra` (subject, name); `location:imperial_palace` (mentioned, name, “Imperial Palace”); `location:nocturne` (mentioned, name)
-- **Unresolved:** “Juskina Tull” (character); “Lhaerial Rey” (character); “Chartist Captains” (faction)
+- **Date / kind:** 2025-04-16 · lore
+- **Tags:** `character:horus` (mentioned, name); `faction:chaos` (subject, alias, “Traitoris Militarum”); `faction:astra_militarum` (mentioned, alias, “Astra Militarum”)
+
+### Entertainment in the 41st Millennium: Mandatory Fun | Warhammer 40k Lore
+
+- **Date / kind:** 2025-11-12 · lore
+- **Tags:** `character:ciaphas_cain` (subject, name, “Ciaphas Cain”); `character:perturabo` (subject, name); `faction:imperium` (subject, alias, “Imperium of Man”); `faction:death_korps_of_krieg` (mentioned, alias, “Krieg”)

@@ -7,7 +7,7 @@
     "appleId": "1709093251",
     "podcastGuid": "cc233adb-de43-49be-bb76-9720292ddc98",
     "imageUrl": "https://media.redcircle.com/images/2025/5/13/20/27c7ddbc-c7eb-4d15-b305-ce9e8834f144_-535dda26d00f_da4230511c4076e9ed53cb4872e8cabe.jpg",
-    "episodeCount": 149,
+    "episodeCount": 154,
     "links": [
       {
         "serviceId": "apple_podcasts",
@@ -1656,6 +1656,14 @@
       "episodeKind": "lore",
       "tags": [
         {
+          "type": "character",
+          "canonicalId": "szarekh",
+          "rawName": "The Silent King",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
           "type": "faction",
           "canonicalId": "necrons",
           "rawName": "Necrons",
@@ -1665,11 +1673,6 @@
         }
       ],
       "unresolved": [
-        {
-          "rawName": "The Silent King",
-          "axisGuess": "character",
-          "role": "subject"
-        },
         {
           "rawName": "Necrontyr",
           "axisGuess": "faction",
@@ -2268,6 +2271,14 @@
         },
         {
           "type": "faction",
+          "canonicalId": "armageddon_steel_legion",
+          "rawName": "Armageddon Steel Legion",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
           "canonicalId": "astra_militarum",
           "rawName": "Astra Militarum",
           "role": "subject",
@@ -2316,6 +2327,14 @@
         },
         {
           "type": "faction",
+          "canonicalId": "valhallan_597th",
+          "rawName": "Valhallan Ice Warriors",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
           "canonicalId": "orks",
           "rawName": "Orks",
           "role": "mentioned",
@@ -2356,16 +2375,6 @@
         }
       ],
       "unresolved": [
-        {
-          "rawName": "Armageddon Steel Legion",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
-        {
-          "rawName": "Valhallan Ice Warriors",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
         {
           "rawName": "Tanith First and Only",
           "axisGuess": "faction",
@@ -2449,13 +2458,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Craftworlds",
-          "axisGuess": "location",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -2509,7 +2512,7 @@
         {
           "type": "faction",
           "canonicalId": "eldar",
-          "rawName": "Craftworld Eldar",
+          "rawName": "Phoenix Lords",
           "role": "subject",
           "confidence": 0.9,
           "matchedVia": "alias"
@@ -2519,16 +2522,6 @@
         {
           "rawName": "Exarch",
           "axisGuess": "character",
-          "role": "subject"
-        },
-        {
-          "rawName": "Phoenix Lords",
-          "axisGuess": "character",
-          "role": "subject"
-        },
-        {
-          "rawName": "Aspect Warriors",
-          "axisGuess": "faction",
           "role": "subject"
         }
       ],
@@ -3238,7 +3231,7 @@
         },
         {
           "type": "faction",
-          "canonicalId": "eldar",
+          "canonicalId": "drukhari",
           "rawName": "Drukhari",
           "role": "subject",
           "confidence": 0.9,
@@ -3292,20 +3285,14 @@
         },
         {
           "type": "faction",
-          "canonicalId": "eldar",
+          "canonicalId": "drukhari",
           "rawName": "Drukhari",
           "role": "subject",
           "confidence": 0.9,
           "matchedVia": "alias"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Kabals",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -3328,7 +3315,7 @@
       "tags": [
         {
           "type": "faction",
-          "canonicalId": "eldar",
+          "canonicalId": "drukhari",
           "rawName": "Drukhari",
           "role": "subject",
           "confidence": 0.9,
@@ -3350,17 +3337,7 @@
           "role": "subject"
         },
         {
-          "rawName": "Kabals",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
-        {
           "rawName": "Scourges",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
-        {
-          "rawName": "Wych Cults",
           "axisGuess": "faction",
           "role": "subject"
         }
@@ -4279,7 +4256,7 @@
         },
         {
           "type": "faction",
-          "canonicalId": "eldar",
+          "canonicalId": "drukhari",
           "rawName": "Drukhari",
           "role": "mentioned",
           "confidence": 0.9,
@@ -5981,6 +5958,14 @@
           "matchedVia": "canonical-name"
         },
         {
+          "type": "character",
+          "canonicalId": "szarekh",
+          "rawName": "The Silent King",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
           "type": "faction",
           "canonicalId": "necrons",
           "rawName": "Necrons",
@@ -6013,11 +5998,6 @@
         },
         {
           "rawName": "Inquisitor Draxus",
-          "axisGuess": "character",
-          "role": "subject"
-        },
-        {
-          "rawName": "The Silent King",
           "axisGuess": "character",
           "role": "subject"
         }
@@ -6252,6 +6232,14 @@
       "tags": [
         {
           "type": "faction",
+          "canonicalId": "leagues_of_votann",
+          "rawName": "Leagues of Votann",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
           "canonicalId": "squats",
           "rawName": "Squats",
           "role": "subject",
@@ -6275,13 +6263,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Leagues of Votann",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -6301,14 +6283,17 @@
       "link": "https://the40klorecast.com/",
       "episode": 108,
       "episodeKind": "lore",
-      "tags": [],
-      "unresolved": [
+      "tags": [
         {
+          "type": "faction",
+          "canonicalId": "leagues_of_votann",
           "rawName": "Leagues of Votann",
-          "axisGuess": "faction",
-          "role": "subject"
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
         }
       ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -6348,14 +6333,17 @@
       "link": "https://the40klorecast.com/",
       "episode": 109,
       "episodeKind": "lore",
-      "tags": [],
-      "unresolved": [
+      "tags": [
         {
+          "type": "faction",
+          "canonicalId": "leagues_of_votann",
           "rawName": "Leagues of Votann",
-          "axisGuess": "faction",
-          "role": "subject"
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
         }
       ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -6375,14 +6363,17 @@
       "link": "https://the40klorecast.com/",
       "episode": 110,
       "episodeKind": "lore",
-      "tags": [],
-      "unresolved": [
+      "tags": [
         {
+          "type": "faction",
+          "canonicalId": "leagues_of_votann",
           "rawName": "Leagues of Votann",
-          "axisGuess": "faction",
-          "role": "subject"
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
         }
       ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -6443,6 +6434,14 @@
         },
         {
           "type": "faction",
+          "canonicalId": "astral_claws",
+          "rawName": "Astral Claws",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
           "canonicalId": "adeptus_astartes",
           "rawName": "Space Marines",
           "role": "mentioned",
@@ -6459,11 +6458,6 @@
         }
       ],
       "unresolved": [
-        {
-          "rawName": "Astral Claws",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
         {
           "rawName": "Adeptus Terra",
           "axisGuess": "faction",
@@ -6497,6 +6491,14 @@
       "tags": [
         {
           "type": "faction",
+          "canonicalId": "astral_claws",
+          "rawName": "Astral Claws",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
           "canonicalId": "carcharodons",
           "rawName": "Carcharodons",
           "role": "subject",
@@ -6521,11 +6523,6 @@
         }
       ],
       "unresolved": [
-        {
-          "rawName": "Astral Claws",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
         {
           "rawName": "Tiger Claws",
           "axisGuess": "faction",
@@ -6579,7 +6576,7 @@
       "tags": [
         {
           "type": "faction",
-          "canonicalId": "eldar",
+          "canonicalId": "drukhari",
           "rawName": "Drukhari",
           "role": "subject",
           "confidence": 0.9,
@@ -7127,15 +7124,17 @@
           "role": "subject",
           "confidence": 1,
           "matchedVia": "canonical-name"
-        }
-      ],
-      "unresolved": [
+        },
         {
+          "type": "faction",
+          "canonicalId": "cabal",
           "rawName": "The Cabal",
-          "axisGuess": "faction",
-          "role": "mentioned"
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
         }
       ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -7814,17 +7813,20 @@
           "role": "mentioned",
           "confidence": 0.9,
           "matchedVia": "alias"
+        },
+        {
+          "type": "location",
+          "canonicalId": "vraks_prime",
+          "rawName": "Vraks",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
         }
       ],
       "unresolved": [
         {
           "rawName": "Cardinal Xaphan",
           "axisGuess": "character",
-          "role": "subject"
-        },
-        {
-          "rawName": "Vraks",
-          "axisGuess": "location",
           "role": "subject"
         }
       ],
@@ -7871,15 +7873,17 @@
           "role": "mentioned",
           "confidence": 0.9,
           "matchedVia": "alias"
-        }
-      ],
-      "unresolved": [
+        },
         {
+          "type": "location",
+          "canonicalId": "vraks_prime",
           "rawName": "Vraks",
-          "axisGuess": "location",
-          "role": "subject"
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
         }
       ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -7923,6 +7927,14 @@
           "role": "mentioned",
           "confidence": 0.9,
           "matchedVia": "alias"
+        },
+        {
+          "type": "location",
+          "canonicalId": "vraks_prime",
+          "rawName": "Vraks",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
         }
       ],
       "unresolved": [
@@ -7934,11 +7946,6 @@
         {
           "rawName": "Zhufor",
           "axisGuess": "character",
-          "role": "subject"
-        },
-        {
-          "rawName": "Vraks",
-          "axisGuess": "location",
           "role": "subject"
         }
       ],
@@ -8296,6 +8303,226 @@
           "serviceId": "rss",
           "kind": "listen",
           "url": "https://audio4.redcircle.com/episodes/ff2cfc5c-2ab7-4cc2-883b-cb6576f25494/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "d6c6bed4-d3eb-4feb-9b04-1ed3a6a0ca3c",
+      "title": "Episode 142 - Space Hulks, yeah.... they can be kind of a nightmare",
+      "pubDate": "2026-06-08T23:00:38.000Z",
+      "durationSec": 3575,
+      "audioUrl": "https://audio4.redcircle.com/episodes/1479834a-ead4-47f4-8340-0a6f36fde576/stream.mp3",
+      "link": "https://the40klorecast.com/",
+      "episode": 142,
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "faction",
+          "canonicalId": "adeptus_astartes",
+          "rawName": "Space Marines",
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "imperium",
+          "rawName": "Imperium",
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        }
+      ],
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/1479834a-ead4-47f4-8340-0a6f36fde576/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "bc46b3cc-dfb0-43d6-88fa-14a34426e965",
+      "title": "Bonus Episode - Our Takes on 11th Edition",
+      "pubDate": "2026-06-12T11:00:26.000Z",
+      "durationSec": 4393,
+      "audioUrl": "https://audio4.redcircle.com/episodes/8959065f-d391-470c-8af9-fa59647357a4/stream.mp3",
+      "link": "https://the40klorecast.com/",
+      "episodeKind": "news_recap",
+      "tags": [],
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/8959065f-d391-470c-8af9-fa59647357a4/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "834f3050-0001-46ab-a143-6b5caea3eb99",
+      "title": "Episode 143 - Legion of the Damned, yeah turns out they were a little over the top.",
+      "pubDate": "2026-06-15T23:00:20.000Z",
+      "durationSec": 3784,
+      "audioUrl": "https://audio4.redcircle.com/episodes/3e6e2878-5deb-409c-bcdf-948feb15ac71/stream.mp3",
+      "link": "https://the40klorecast.com/",
+      "episode": 143,
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "faction",
+          "canonicalId": "legion_of_the_damned",
+          "rawName": "Legion of the Damned",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/3e6e2878-5deb-409c-bcdf-948feb15ac71/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "ccea1f33-ef34-4da1-951a-150a6f6fee28",
+      "title": "Episode 144 - The Word Bearers pt 1 - The creation of the Imperial Heralds and the complete opposite thing happening on Colchis",
+      "pubDate": "2026-06-22T23:00:40.000Z",
+      "durationSec": 3714,
+      "audioUrl": "https://audio4.redcircle.com/episodes/0607c0ee-52d8-46ec-ae03-9cbfda41b396/stream.mp3",
+      "link": "https://the40klorecast.com/",
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "character",
+          "canonicalId": "erebus",
+          "rawName": "Erebus",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "character",
+          "canonicalId": "lorgar",
+          "rawName": "Lorgar",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "word_bearers",
+          "rawName": "Word Bearers",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "location",
+          "canonicalId": "colchis",
+          "rawName": "Colchis",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [
+        {
+          "rawName": "Covenant of Colchis",
+          "axisGuess": "faction",
+          "role": "subject"
+        },
+        {
+          "rawName": "Imperial Heralds",
+          "axisGuess": "faction",
+          "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/0607c0ee-52d8-46ec-ae03-9cbfda41b396/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "8a8b390d-c022-4be1-b655-b407a9dab293",
+      "title": "Episode 145 - Word Bearers pt 2 - The emperor's censure and the legions subsequent jaunt into the eye of terror",
+      "pubDate": "2026-06-29T23:00:18.000Z",
+      "durationSec": 4186,
+      "audioUrl": "https://audio4.redcircle.com/episodes/480777fa-de64-413a-8e5c-d62c7101c028/stream.mp3",
+      "link": "https://the40klorecast.com/",
+      "episode": 145,
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "character",
+          "canonicalId": "lorgar",
+          "rawName": "Lorgar",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "character",
+          "canonicalId": "the_emperor",
+          "rawName": "Emperor of Mankind",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "word_bearers",
+          "rawName": "Word Bearers",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "location",
+          "canonicalId": "cadia",
+          "rawName": "Cadia",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "location",
+          "canonicalId": "eye_of_terror",
+          "rawName": "Eye of Terror",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [
+        {
+          "rawName": "Serrated Suns",
+          "axisGuess": "faction",
+          "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/480777fa-de64-413a-8e5c-d62c7101c028/stream.mp3",
           "sourceKind": "podcast_rss",
           "confidence": 1
         }

@@ -7,7 +7,7 @@
     "appleId": null,
     "podcastGuid": null,
     "imageUrl": "https://yt3.ggpht.com/ytc/AIdro_kzjOl8pH7aEyLzSobTMfxihB2qLU6IeNdGU8zOWnRUAg4=s800-c-k-c0x00ffffff-no-rj",
-    "episodeCount": 191,
+    "episodeCount": 192,
     "links": [
       {
         "serviceId": "youtube",
@@ -286,6 +286,14 @@
       "episodeKind": "lore",
       "tags": [
         {
+          "type": "character",
+          "canonicalId": "the_emperor",
+          "rawName": "The Emperor of Man",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
           "type": "faction",
           "canonicalId": "imperium",
           "rawName": "Imperium of Man",
@@ -302,13 +310,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "The Emperor of Man",
-          "axisGuess": "character",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "youtube",
@@ -1125,6 +1127,14 @@
           "type": "faction",
           "canonicalId": "chaos",
           "rawName": "Chaos",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "drukhari",
+          "rawName": "Drukhari",
           "role": "subject",
           "confidence": 0.9,
           "matchedVia": "alias"
@@ -2149,9 +2159,17 @@
       "tags": [
         {
           "type": "faction",
-          "canonicalId": "eldar",
+          "canonicalId": "drukhari",
           "rawName": "Drukhari",
           "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "eldar",
+          "rawName": "Aeldari",
+          "role": "mentioned",
           "confidence": 0.9,
           "matchedVia": "alias"
         },
@@ -2186,7 +2204,7 @@
       "tags": [
         {
           "type": "faction",
-          "canonicalId": "eldar",
+          "canonicalId": "drukhari",
           "rawName": "Drukhari",
           "role": "subject",
           "confidence": 0.9,
@@ -2519,15 +2537,17 @@
           "role": "subject",
           "confidence": 1,
           "matchedVia": "canonical-name"
-        }
-      ],
-      "unresolved": [
+        },
         {
+          "type": "location",
+          "canonicalId": "vraks_prime",
           "rawName": "Vraks",
-          "axisGuess": "location",
-          "role": "mentioned"
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
         }
       ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "youtube",
@@ -3156,7 +3176,7 @@
         },
         {
           "type": "faction",
-          "canonicalId": "eldar",
+          "canonicalId": "drukhari",
           "rawName": "Drukhari",
           "role": "subject",
           "confidence": 0.9,
@@ -3931,14 +3951,17 @@
       "audioUrl": null,
       "link": "https://www.youtube.com/watch?v=CF8ex1Fgj0Q",
       "episodeKind": "lore",
-      "tags": [],
-      "unresolved": [
+      "tags": [
         {
+          "type": "faction",
+          "canonicalId": "house_van_saar",
           "rawName": "Van Saar",
-          "axisGuess": "faction",
-          "role": "mentioned"
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
         }
       ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "youtube",
@@ -4566,6 +4589,14 @@
           "matchedVia": "alias"
         },
         {
+          "type": "faction",
+          "canonicalId": "cabal",
+          "rawName": "The Cabal",
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
           "type": "location",
           "canonicalId": "terra",
           "rawName": "Terra",
@@ -4574,13 +4605,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "The Cabal",
-          "axisGuess": "faction",
-          "role": "mentioned"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "youtube",
@@ -4610,6 +4635,14 @@
         },
         {
           "type": "faction",
+          "canonicalId": "adeptus_titanicus",
+          "rawName": "Titan Legions",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
           "canonicalId": "sons_of_horus",
           "rawName": "Sons of Horus",
           "role": "subject",
@@ -4625,13 +4658,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Titan Legions",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "youtube",
@@ -5132,6 +5159,14 @@
         },
         {
           "type": "faction",
+          "canonicalId": "leagues_of_votann",
+          "rawName": "Leagues of Votann",
+          "role": "mentioned",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
           "canonicalId": "necrons",
           "rawName": "Necrons",
           "role": "mentioned",
@@ -5155,13 +5190,7 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Leagues of Votann",
-          "axisGuess": "faction",
-          "role": "mentioned"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "youtube",
@@ -5183,7 +5212,7 @@
       "tags": [
         {
           "type": "faction",
-          "canonicalId": "eldar",
+          "canonicalId": "drukhari",
           "rawName": "Drukhari",
           "role": "subject",
           "confidence": 0.9,
@@ -5330,7 +5359,7 @@
       "tags": [
         {
           "type": "faction",
-          "canonicalId": "eldar",
+          "canonicalId": "drukhari",
           "rawName": "Drukhari",
           "role": "subject",
           "confidence": 0.9,
@@ -6231,15 +6260,17 @@
           "role": "subject",
           "confidence": 1,
           "matchedVia": "canonical-name"
-        }
-      ],
-      "unresolved": [
+        },
         {
+          "type": "location",
+          "canonicalId": "vraks_prime",
           "rawName": "Vraks Prime",
-          "axisGuess": "location",
-          "role": "subject"
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
         }
       ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "youtube",
@@ -6585,15 +6616,17 @@
           "role": "mentioned",
           "confidence": 0.9,
           "matchedVia": "alias"
-        }
-      ],
-      "unresolved": [
+        },
         {
+          "type": "location",
+          "canonicalId": "vraks_prime",
           "rawName": "Vraks",
-          "axisGuess": "location",
-          "role": "subject"
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
         }
       ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "youtube",
@@ -7208,6 +7241,14 @@
           "matchedVia": "canonical-name"
         },
         {
+          "type": "character",
+          "canonicalId": "szarekh",
+          "rawName": "Silent King",
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
           "type": "faction",
           "canonicalId": "mechanicus",
           "rawName": "Adeptus Mechanicus",
@@ -7224,13 +7265,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Silent King",
-          "axisGuess": "character",
-          "role": "mentioned"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "youtube",
@@ -7260,6 +7295,14 @@
         },
         {
           "type": "faction",
+          "canonicalId": "armageddon_steel_legion",
+          "rawName": "Armageddon Steel Legion",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
           "canonicalId": "orks",
           "rawName": "Orks",
           "role": "mentioned",
@@ -7275,13 +7318,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Armageddon Steel Legion",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "youtube",
@@ -7361,6 +7398,57 @@
           "serviceId": "youtube",
           "kind": "watch",
           "url": "https://www.youtube.com/watch?v=HUdsrOD3iBs",
+          "sourceKind": "youtube",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "oMiv_wJqtLc",
+      "title": "40K LEGENDS - TRAZYN THE INFINITE | Warhammer 40,000 Lore/History",
+      "pubDate": "2026-06-13T19:02:18.000Z",
+      "durationSec": 5330,
+      "audioUrl": null,
+      "link": "https://www.youtube.com/watch?v=oMiv_wJqtLc",
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "character",
+          "canonicalId": "trazyn_the_infinite",
+          "rawName": "Trazyn the Infinite",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "necrons",
+          "rawName": "Necrons",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "location",
+          "canonicalId": "solemnace",
+          "rawName": "Solemnace",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [
+        {
+          "rawName": "Koronus Expanse",
+          "axisGuess": "location",
+          "role": "mentioned"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "youtube",
+          "kind": "watch",
+          "url": "https://www.youtube.com/watch?v=oMiv_wJqtLc",
           "sourceKind": "youtube",
           "confidence": 1
         }

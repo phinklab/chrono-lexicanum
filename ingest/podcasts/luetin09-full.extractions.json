@@ -23555,6 +23555,29 @@
         "mentioned": []
       }
     },
+    "oMiv_wJqtLc": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Trazyn the Infinite"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Necrons"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Solemnace"
+        ],
+        "mentioned": [
+          "Koronus Expanse"
+        ]
+      }
+    },
     "oNatBdf5-GE": {
       "episodeKind": "other",
       "characters": {

@@ -7,15 +7,15 @@ Reproducible via: `PODCAST_LLM_MODEL=claude-sonnet-4-6 npm run ingest:podcast --
 - **Show:** The 40k Lorecast (slug `the-40k-lorecast`)
 - **Feed:** https://feeds.redcircle.com/cc233adb-de43-49be-bb76-9720292ddc98
 - **Apple id:** 1709093251
-- **Episodes:** 149
+- **Episodes:** 154
 - **Extraction model:** `claude-sonnet-4-6` (prompt version `3f6a5ff87efa`)
-- **Resolved coverage:** 137/149 episodes (91.9%) carry ≥1 resolved tag
-- **Resolved tags:** 520 total — 370 subject, 150 mentioned
-  - by type: 155 character, 268 faction, 97 location
-- **Episode kinds:** 140 lore, 0 news_recap, 0 interview, 9 other
+- **Resolved coverage:** 144/154 episodes (93.5%) carry ≥1 resolved tag
+- **Resolved tags:** 546 total — 393 subject, 153 mentioned
+  - by type: 161 character, 282 faction, 103 location
+- **Episode kinds:** 144 lore, 1 news_recap, 0 interview, 9 other
 - **Show links:** 5 (apple_podcasts, official_website, rss, spotify, youtube)
-- **Episode links:** 149/149 episodes carry an RSS audio link (`listen`/`rss`/`podcast_rss`)
-- **Distinct unresolved surface-forms:** 123
+- **Episode links:** 154/154 episodes carry an RSS audio link (`listen`/`rss`/`podcast_rss`)
+- **Distinct unresolved surface-forms:** 114
 
 ## Method (resolution reuse)
 
@@ -32,18 +32,13 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | axis (LLM guess) | surface-form | # episodes |
 |---|---|---|
 | location | Sol | 6 |
-| faction | Leagues of Votann | 4 |
 | character | Titus | 3 |
 | location | Badab | 3 |
 | location | the Warp | 3 |
-| location | Vraks | 3 |
 | character | Ammentar | 2 |
 | character | Demetrian Titus | 2 |
 | character | Goge Vandire | 2 |
 | character | Malcador | 2 |
-| character | The Silent King | 2 |
-| faction | Astral Claws | 2 |
-| faction | Kabals | 2 |
 | faction | Lords of Terra | 2 |
 | faction | Men of Iron | 2 |
 | faction | Minotaurs | 2 |
@@ -74,7 +69,6 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | character | Navigators | 1 |
 | character | Ortan Cassius | 1 |
 | character | Perigno | 1 |
-| character | Phoenix Lords | 1 |
 | character | Shaan | 1 |
 | character | Shrike | 1 |
 | character | Skarbrand | 1 |
@@ -91,12 +85,11 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | character | Zhufor | 1 |
 | faction | 13th Great Company | 1 |
 | faction | Adeptus Terra | 1 |
-| faction | Armageddon Steel Legion | 1 |
-| faction | Aspect Warriors | 1 |
 | faction | Astropaths | 1 |
 | faction | Caryatids | 1 |
 | faction | Cognitae | 1 |
 | faction | Corsair Fleets | 1 |
+| faction | Covenant of Colchis | 1 |
 | faction | Craftworld Iyanden | 1 |
 | faction | Cythor Fiends | 1 |
 | faction | Daughters of the Emperor | 1 |
@@ -108,6 +101,7 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | faction | Freeblades | 1 |
 | faction | Haemonculus Covens | 1 |
 | faction | Hive Fleet Behemoth | 1 |
+| faction | Imperial Heralds | 1 |
 | faction | Imperial Senate | 1 |
 | faction | Jokaero | 1 |
 | faction | Kataphrons | 1 |
@@ -122,18 +116,15 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | faction | Rak'Gol | 1 |
 | faction | Schola Progenium | 1 |
 | faction | Scourges | 1 |
+| faction | Serrated Suns | 1 |
 | faction | Slaugth | 1 |
 | faction | Tanith First and Only | 1 |
 | faction | Tepresi | 1 |
-| faction | The Cabal | 1 |
 | faction | Tiger Claws | 1 |
-| faction | Valhallan Ice Warriors | 1 |
 | faction | Vespid | 1 |
-| faction | Wych Cults | 1 |
 | faction | Zoats | 1 |
 | location | Alaxxes | 1 |
 | location | Belial IV | 1 |
-| location | Craftworlds | 1 |
 | location | Eskrador | 1 |
 | location | Forge World | 1 |
 | location | Garden of Nurgle | 1 |
@@ -162,51 +153,53 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 - **Date / kind:** 2023-09-25 · lore
 - **Tags:** `character:the_emperor` (subject, alias, “The Emperor”); `location:terra` (subject, name)
 
-### Episode 15 - The Scouring.... well really just the start of the Imperium going to hell in a handbasket trying to kill everyone and everything associated with Chaos
+### Episode 16 - Dark Angels - The rise of the 1st legion under the Emperor and their reunitment with the Lion.
 
-- **Date / kind:** 2024-01-02 · lore
-- **Tags:** `character:leman_russ` (subject, name, “Leman Russ”); `character:lion_el_jonson` (subject, name, “Lion El'Jonson”); `character:roboute_guilliman` (subject, name, “Roboute Guilliman”); `faction:imperium` (subject, alias, “Imperium of Man”); `faction:chaos` (mentioned, alias); `location:terra` (subject, name)
+- **Date / kind:** 2024-01-09 · lore
+- **Tags:** `character:lion_el_jonson` (subject, name, “Lion El'Jonson”); `character:luther` (subject, name); `character:the_emperor` (mentioned, alias, “The Emperor”); `faction:dark_angels` (subject, name, “Dark Angels”)
 
-### Episode 30 - Necrons pt 1
+### Episode 31 - The Necrons Pt 2
 
-- **Date / kind:** 2024-04-15 · lore
+- **Date / kind:** 2024-04-22 · lore
 - **Tags:** `faction:necrons` (subject, name)
-- **Unresolved:** “The Silent King” (character); “Necrontyr” (faction)
 
-### Episode 45 - Eldar pt 2 - What is an Eldar, their Craftworlds. and their Psychics
+### Episode 47 - Eldar pt 4 - Eldar Weapons, Vehicles, Wraithhosts, and a little bit of Ynnari
 
-- **Date / kind:** 2024-07-29 · lore
-- **Tags:** `faction:eldar` (subject, alias, “Craftworld Aeldari”)
+- **Date / kind:** 2024-08-12 · lore
+- **Tags:** `faction:eldar` (subject, alias, “Aeldari”); `faction:ynnari` (subject, name)
 
-### Episode 60 - Drukhari pt 1 - The survival of the Dark City & rise of Vect
+### Episode 62 - Drukhari pt 3 - Wych cults, Kabals, Mercenaries and The Arenas
 
-- **Date / kind:** 2024-11-12 · lore
-- **Tags:** `character:asdrubael_vect` (subject, name, “Asdrubael Vect”); `faction:eldar` (subject, alias, “Drukhari”); `location:commorragh` (subject, name); `location:webway` (mentioned, alias, “The Webway”)
+- **Date / kind:** 2024-11-26 · lore
+- **Tags:** `faction:drukhari` (subject, alias); `location:commorragh` (subject, name)
+- **Unresolved:** “Haemonculus Covens” (faction); “Scourges” (faction)
 
-### Episode 75 - Blood Angels pt2 - After the Death of Sanguinius
+### Episode 78 - The Ynnari pt 1 - Ynnead, Yvraine, and the battle of Biel Tan
 
-- **Date / kind:** 2025-02-25 · lore
-- **Tags:** `character:roboute_guilliman` (subject, name, “Roboute Guilliman”); `character:sanguinius` (subject, name); `faction:blood_angels` (subject, name, “Blood Angels”); `location:baal` (subject, name)
-- **Unresolved:** “Primaris Marines” (faction)
+- **Date / kind:** 2025-03-17 · lore
+- **Tags:** `character:the_yncarne` (subject, name, “The Yncarne”); `character:yvraine` (subject, name); `faction:eldar` (subject, alias, “Biel-Tan”); `faction:ynnari` (subject, alias, “Ynnead”); `location:commorragh` (mentioned, name)
+- **Unresolved:** “Skarbrand” (character); “Ursulia” (character)
 
-### Episode 89 - The Black Templar
+### Episode 92 - The War of The Beast pt1. A new threat arises.
 
-- **Date / kind:** 2025-06-02 · lore
-- **Tags:** `character:helbrecht` (subject, name); `faction:black_templars` (subject, name, “Black Templars”)
+- **Date / kind:** 2025-06-23 · lore
+- **Tags:** `character:the_beast` (subject, name, “The Beast”); `character:roboute_guilliman` (mentioned, name, “Roboute Guilliman”); `faction:orks` (subject, name); `faction:inquisition` (mentioned, name); `faction:officio_assassinorum` (mentioned, name, “Officio Assassinorum”); `location:terra` (subject, name)
+- **Unresolved:** “Lords of Terra” (faction)
 
-### Episode 101 - The Silent King Returns
+### Episode 104 - The Ultramarines pt 1
 
-- **Date / kind:** 2025-08-25 · lore
-- **Tags:** `character:trazyn_the_infinite` (mentioned, name, “Trazyn the Infinite”); `faction:necrons` (subject, name)
-- **Unresolved:** “Szarek the Silent King” (character)
+- **Date / kind:** 2025-09-15 · lore
+- **Tags:** `character:roboute_guilliman` (subject, name, “Roboute Guilliman”); `faction:ultramarines` (subject, name)
+- **Unresolved:** “Osirian Psibrids” (faction)
 
-### Episode 114 - Drukhari Kabals and real space raids
+### Episode 118 - Demetrian Titus - His origins and events of Graia
 
-- **Date / kind:** 2025-11-25 · lore
-- **Tags:** `faction:eldar` (subject, alias, “Drukhari”); `location:commorragh` (subject, name)
-- **Unresolved:** “Drukhari Kabals” (faction)
+- **Date / kind:** 2025-12-23 · lore
+- **Tags:** `faction:ultramarines` (subject, name); `faction:inquisition` (mentioned, name)
+- **Unresolved:** “Demetrian Titus” (character); “Thrax” (character); “Graia” (location)
 
-### 40K Lorecast Live Q&A Spring of 2026
+### Episode 132 - The Death Korps of Krieg - Their history, their units, and (sigh) their horses
 
-- **Date / kind:** 2026-03-06 · other
-- **Tags:** _none resolved_
+- **Date / kind:** 2026-03-30 · lore
+- **Tags:** `faction:death_korps_of_krieg` (subject, name, “Death Korps of Krieg”)
+- **Unresolved:** “Jurten” (character)

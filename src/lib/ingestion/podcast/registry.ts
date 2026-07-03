@@ -357,3 +357,19 @@ export function isTitleExcluded(title: string, patterns: readonly string[]): boo
   const t = title.toLowerCase();
   return patterns.some((p) => t.includes(p.toLowerCase()));
 }
+
+/**
+ * Apply a show's `excludeTitlePatterns` to a freshly-acquired episode list —
+ * the ingest-side twin filter (Brief 175). This is the exact filter
+ * `acquireFeed` (scripts/ingest-podcast.ts) runs on every RSS acquire, exported
+ * so a test can prove a cold re-ingest of e.g. Lorehammer would drop the
+ * "(Video)" twins instead of re-introducing them. `dropped` is reported so the
+ * caller can log the exclusion (counted, never silent).
+ */
+export function dropExcludedTitles<T extends { title: string }>(
+  episodes: readonly T[],
+  patterns: readonly string[],
+): { kept: T[]; dropped: number } {
+  const kept = episodes.filter((e) => !isTitleExcluded(e.title, patterns));
+  return { kept, dropped: episodes.length - kept.length };
+}

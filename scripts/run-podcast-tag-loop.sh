@@ -14,6 +14,12 @@
 # /clear). Resumable: a batch whose `batch-NNN.output.json` already validates is
 # skipped, so re-running continues where it stopped.
 #
+# DELTA plans (Brief 172/175): when `podcast-cc-tag prepare-delta` already wrote a
+# mode:"delta" batches.json for <out>, the driver keeps that plan (no re-prepare)
+# and merges additively via `merge-delta` — the additive maintenance path of
+# scripts/runbooks/add-podcast-episode-runbook.md. Without a delta plan the classic
+# full prepare + merge runs unchanged.
+#
 # USAGE
 #   ./scripts/run-podcast-tag-loop.sh --out <name> [--model sonnet]
 #                                     [--label claude-sonnet-4-6] [--max-retries 2]
@@ -118,8 +124,24 @@ exec > >(tee "$STEP_LOG") 2>&1
 # Prepare batches
 # ---------------------------------------------------------------------------
 
-log "${C_BOLD}Prepare${C_RESET} — chunking manifest into batches"
-npx tsx "$HELPER" prepare --out "$OUT" || die 4 "prepare failed"
+# Delta-awareness (Brief 175): a DELTA plan written by `podcast-cc-tag
+# prepare-delta` must survive the driver — re-running `prepare` here would
+# overwrite batches.json with a FULL plan (re-tagging the whole corpus), and the
+# full `merge` refuses a delta plan outright. So: an existing mode:"delta" plan
+# is kept as-is and merged additively via `merge-delta`; everything else runs
+# the classic full prepare + merge, unchanged.
+PLAN_MODE="full"
+if [[ -f "$BATCHES_JSON" ]]; then
+  PLAN_MODE=$(node -e "process.stdout.write(JSON.parse(require('fs').readFileSync('${BATCHES_JSON}','utf8')).mode==='delta'?'delta':'full')") \
+    || die 4 "could not read plan mode from $BATCHES_JSON"
+fi
+
+if [[ "$PLAN_MODE" == "delta" ]]; then
+  log "${C_BOLD}Prepare${C_RESET} — DELTA plan detected in $BATCHES_JSON; keeping it (no re-prepare)"
+else
+  log "${C_BOLD}Prepare${C_RESET} — chunking manifest into batches"
+  npx tsx "$HELPER" prepare --out "$OUT" || die 4 "prepare failed"
+fi
 
 BATCH_COUNT=$(node -e "process.stdout.write(String(JSON.parse(require('fs').readFileSync('${BATCHES_JSON}','utf8')).count))") \
   || die 4 "could not read batch count from $BATCHES_JSON"
@@ -234,8 +256,13 @@ done
 # Merge → committed extractions file
 # ---------------------------------------------------------------------------
 
-log "${C_BOLD}Merge${C_RESET} — assembling ${OUT}.extractions.json"
-npx tsx "$HELPER" merge --out "$OUT" --model "$LABEL" || die 4 "merge failed"
+if [[ "$PLAN_MODE" == "delta" ]]; then
+  log "${C_BOLD}Merge${C_RESET} — merge-delta (additive union) into ${OUT}.extractions.json"
+  npx tsx "$HELPER" merge-delta --out "$OUT" --model "$LABEL" || die 4 "merge-delta failed"
+else
+  log "${C_BOLD}Merge${C_RESET} — assembling ${OUT}.extractions.json"
+  npx tsx "$HELPER" merge --out "$OUT" --model "$LABEL" || die 4 "merge failed"
+fi
 
 # ---------------------------------------------------------------------------
 # Summary

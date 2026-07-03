@@ -9,6 +9,8 @@
  *   npm run test:podcast-ingest
  */
 import assert from "node:assert/strict";
+import { existsSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 
 import {
   buildShowArtifact,
@@ -30,7 +32,9 @@ import {
 } from "../src/lib/ingestion/podcast/links";
 import {
   DEFAULT_SHOW_SLUG,
+  dropExcludedTitles,
   getShow,
+  isTitleExcluded,
   loadRegistry,
   parseRegistry,
   selectShows,
@@ -363,6 +367,60 @@ test("parseRegistry: bad link kind throws", () => {
       ]),
     /external_link_kind/,
   );
+});
+
+// --- registry: the ingest-side twin filter (Brief 175) ------------------------
+
+test("dropExcludedTitles: '(Video)' twins dropped case-insensitively, audio cuts kept", () => {
+  const episodes = [
+    { title: "236 - Aircraft of the Imperium" },
+    { title: "(Video) 236 - Aircraft of the Imperium" },
+    { title: "(video) 237 - lower-case twin" },
+    { title: "237 - Another Audio Episode" },
+  ];
+  const { kept, dropped } = dropExcludedTitles(episodes, ["(Video)"]);
+  assert.deepEqual(
+    kept.map((e) => e.title),
+    ["236 - Aircraft of the Imperium", "237 - Another Audio Episode"],
+  );
+  assert.equal(dropped, 2);
+  // no patterns → identity (nothing silently dropped)
+  const none = dropExcludedTitles(episodes, []);
+  assert.equal(none.kept.length, 4);
+  assert.equal(none.dropped, 0);
+});
+
+test("cold re-ingest guard: lorehammer registry entry carries the '(Video)' twin filter", () => {
+  // The data half of the twin filter: if this pattern is ever dropped from
+  // podcast-shows.json, a cold re-ingest of Lorehammer would re-introduce the
+  // hand-deduplicated "(Video)" twins (Session 128 / Brief 175).
+  const lorehammer = getShow(loadRegistry(), "lorehammer");
+  assert.ok(
+    lorehammer.excludeTitlePatterns.some((p) => p.toLowerCase() === "(video)"),
+    'lorehammer.excludeTitlePatterns must contain "(Video)"',
+  );
+});
+
+test("committed artifacts contain no episode matching their show's excludeTitlePatterns", () => {
+  // The state half: the committed inventory is already twin-free, and stays so
+  // as long as acquire keeps running the same dropExcludedTitles filter.
+  const dir = join(process.cwd(), "ingest", "podcasts");
+  for (const show of loadRegistry()) {
+    if (show.excludeTitlePatterns.length === 0) continue;
+    const artifactPath = join(dir, `${show.slug}.json`);
+    if (!existsSync(artifactPath)) continue;
+    const artifact = JSON.parse(readFileSync(artifactPath, "utf8")) as {
+      episodes: Array<{ title: string }>;
+    };
+    const offenders = artifact.episodes.filter((e) =>
+      isTitleExcluded(e.title, show.excludeTitlePatterns),
+    );
+    assert.deepEqual(
+      offenders.map((e) => e.title),
+      [],
+      `${show.slug}.json contains title-excluded episode(s)`,
+    );
+  }
 });
 
 // --- registry: show selection (the pure core of the ingest CLI) --------------
