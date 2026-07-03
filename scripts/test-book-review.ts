@@ -9,9 +9,13 @@
  *     the real validateOverlay).
  *   - LOUD ledger conflict (confirmed add + remove on same axis+id+book aborts).
  *   - Projection `curation-overlay.final` tail (W40K-0010 add/remove applied).
+ *   - Corpus rebind (Brief 176): per-book projection == frozen-batch projection
+ *     for the WHOLE migrated corpus; a post-migration book file is visible.
  */
+import { mkdtempSync, rmSync, writeFileSync } from "node:fs";
 import { readFile } from "node:fs/promises";
-import { resolve } from "node:path";
+import { tmpdir } from "node:os";
+import { join, resolve } from "node:path";
 import {
   AXIS_ROLES,
   validateOverlay,
@@ -34,7 +38,9 @@ import {
   mergeIntoOverlay,
 } from "./book-review/sidecar";
 import {
+  discoverAllBatches,
   loadBatchBooks,
+  loadCorpusBooks,
   loadProjectionContext,
   projectBook,
 } from "./book-review/projection";
@@ -215,6 +221,79 @@ async function main(): Promise<void> {
     check("projection: final-tail ADD applied (ordo_malleus=supporting)", facById.get("ordo_malleus") === "supporting");
     check("projection: final-tail REMOVE applied (chaos absent)", !facById.has("chaos"));
     check("projection: facets carry visibility flag", proj.facets.every((f) => typeof f.visible === "boolean"));
+  }
+
+  // -------------------------------------------------------------------------
+  // 7. Corpus rebind (Brief 176) — per-book projection == batch projection for
+  //    the WHOLE frozen corpus, and a post-migration book file is visible.
+  // -------------------------------------------------------------------------
+  const allBatchBooks = await loadBatchBooks(await discoverAllBatches());
+  const corpusBooks = loadCorpusBooks();
+  const missingInCorpus = [...allBatchBooks.keys()].filter((id) => !corpusBooks.has(id));
+  check(
+    `rebind: per-book corpus covers all ${allBatchBooks.size} frozen-batch books`,
+    missingInCorpus.length === 0,
+    missingInCorpus.slice(0, 5).join(", "),
+  );
+  let projectionDeltas = 0;
+  let firstDelta = "";
+  for (const [id, batchBook] of allBatchBooks) {
+    const corpusBook = corpusBooks.get(id);
+    if (!corpusBook) continue; // already counted above
+    const a = JSON.stringify(projectBook(batchBook, ctx));
+    const b = JSON.stringify(projectBook(corpusBook, ctx));
+    if (a !== b) {
+      projectionDeltas += 1;
+      if (!firstDelta) firstDelta = id;
+    }
+  }
+  check(
+    "rebind: projection identical for the whole migrated corpus (0 deltas)",
+    projectionDeltas === 0,
+    `${projectionDeltas} delta(s), first: ${firstDelta}`,
+  );
+
+  // Post-migration visibility: a synthetic book-v1 file in an injected dir is
+  // enumerated by loadCorpusBooks AND title-resolved by loadProjectionContext.
+  const demoDir = mkdtempSync(join(tmpdir(), "review-corpus-176-"));
+  try {
+    const demo = {
+      $schema: "book-v1",
+      externalBookId: "W40K-9999",
+      slug: "brief-176-demo",
+      title: "Brief 176 Demo Book",
+      authors: ["Demo Author"],
+      editors: [],
+      authorship: { editorialNote: null },
+      releaseYear: 2026,
+      format: "novel",
+      seriesHint: null,
+      series: null,
+      seriesIndex: null,
+      notes: null,
+      source: { kind: "manual", url: null, confidence: null },
+      curation: {
+        synopsis: "Demo synopsis.",
+        facetIds: [],
+        factions: [{ name: "Ordo Malleus", role: "supporting" }],
+        locations: [],
+        characters: [],
+        flags: [],
+      },
+      collections: { collects: [] },
+    };
+    writeFileSync(join(demoDir, "brief-176-demo.json"), JSON.stringify(demo, null, 2), "utf8");
+    const demoBooks = loadCorpusBooks(demoDir);
+    check("rebind: post-migration book enumerated by loadCorpusBooks", demoBooks.has("W40K-9999"));
+    const demoCtx = await loadProjectionContext(demoDir);
+    const demoProj = demoBooks.has("W40K-9999") ? projectBook(demoBooks.get("W40K-9999")!, demoCtx) : null;
+    check("rebind: post-migration book projects with corpus title", demoProj?.title === "Brief 176 Demo Book");
+    check(
+      "rebind: post-migration book curation resolves like a batch override",
+      demoProj?.factions.some((f) => f.id === "ordo_malleus" && f.role === "supporting") === true,
+    );
+  } finally {
+    rmSync(demoDir, { recursive: true, force: true });
   }
 
   // -------------------------------------------------------------------------

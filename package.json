@@ -36,6 +36,7 @@
     "resolver:next-wave": "tsx scripts/resolver-loop-detect.ts",
     "atlas:regen": "tsx --env-file=.env.local scripts/atlas-regen.ts",
     "brain:lint": "tsx scripts/brain-lint.ts",
+    "test:brain-lint-budgets": "tsx scripts/test-brain-lint-budgets.ts",
     "test:discovery-merge": "tsx scripts/test-discovery-merge.ts",
     "audit:ask-combinations": "tsx --env-file=.env.local scripts/audit-ask-combinations.ts",
     "test:ask-questions": "tsx scripts/test-ask-questions.ts",

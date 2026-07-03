@@ -14,6 +14,19 @@ Canonical reference data used by `scripts/seed.ts` to initialize a fresh databas
 > A read-only Excel VIEW of the per-book corpus: `npm run books:excel`. Note: the
 > separate `books.json` dev-seed below is a different, much smaller hand-curated set
 > with its own id space (unchanged by Brief 171).
+>
+> **Slug normalization in the frozen roster (Brief 176, 2026-07-03).** Two
+> `book-roster.json` rows carried a roster/override slug discrepancy preserved
+> verbatim by the migration: `W40K-0259` (roster `the-rose-in-anger` vs override
+> `the-rose-in-the-anger`) and `W40K-0330` (roster `the-hunt-for-magnus` vs
+> override `the-hunt-of-magnus`). The roster `slug` fields were normalized to the
+> override slugs — the values that actually live in `works.slug` / the `/buch/`
+> URLs and in `books/*.json`. This is the ONLY post-freeze edit: the roster `slug`
+> field feeds nothing in the equivalence projection (`computeBookRows` writes
+> `override.slug`), so `npm run equiv:diff` stays EMPTY after the edit (re-verified
+> 2026-07-03). Caveat: a provenance re-run of the retired `import:ssot-roster`
+> (escape hatch `ALLOW_RETIRED_SSOT_IMPORT=1`) would regenerate the roster from the
+> frozen Excel and revert these two fields.
 
 ## What's in the catalog (post Stufe 2b — sessions/2026-05-01-021)
 
