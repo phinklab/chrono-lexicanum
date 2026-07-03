@@ -60,7 +60,7 @@ The maintainer is **Philipp** (hobby project). Prefer **simple, honest tradeoffs
 | Database | **Supabase Postgres** | Real SQL, growth headroom, free tier ample, auth ready when needed |
 | ORM | **Drizzle ORM** | Type-safe, SQL-first, migrations versioned in git |
 | Hosting | **Vercel** | Zero-config Next.js deploys, preview URLs per branch |
-| Ingestion | **TypeScript under `src/lib/ingestion/`** (Phase 3) | Crawl Wikipedia + Lexicanum + Open Library + Hardcover; LLM-Anreicherung (Anthropic Haiku 4.5 + Web-Search). Dry-Run-Diffs unter `ingest/.last-run/`. |
+| Ingestion | **Per-Buch-SSOT: ein JSON pro Buch unter `scripts/seed-data/books/`** | Korpus wird via `apply:book --all` angewandt (Schritt 2 der `db:sync`-Kette). Neue Bücher über den Add-Book-Flow (`scripts/runbooks/add-book-runbook.md`); Podcasts über den Delta-Pfad (`/add-podcast`, `/add-podcast-episode`; Code unter `src/lib/ingestion/podcast/`); laufende Pflege über den Weekly-Refresh (`/weekly-db-update`). Die frühere Crawler-Pipeline (Wikipedia/Lexicanum/Open-Library/Hardcover + LLM-Anreicherung) ist ausgebaut (Brief 177); ihre Diff-Artefakte unter `ingest/` bleiben eingefroren. |
 
 > **⚠ Version policy — read this carefully.**
 >
@@ -135,10 +135,11 @@ The original HTML prototype lives **outside the repo** (in `archive/` locally, g
     seed.ts                ← loads seed-data/*.json into Postgres
     seed-data/             ← canonical JSON catalog (committed)
       README.md
+      books/                ← Per-Buch-SSOT (ein JSON pro Buch, `apply:book`)
       eras.json, factions.json, series.json, books.json,
       sectors.json, locations.json, ask-questions.json
 
-  ingest/                  ← Phase 3 dry-run outputs (.last-run/ committed JSON; .llm-cache/ gitignored). Crawler code lives under src/lib/ingestion/.
+  ingest/                  ← eingefrorene Pipeline-Artefakte (.last-run/ committed; .llm-cache/ gitignored) + Podcast-Artefakte. Lebender Ingest-Code: src/lib/ingestion/podcast/.
 ```
 
 ---
