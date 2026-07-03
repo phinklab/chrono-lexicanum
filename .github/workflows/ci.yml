@@ -32,6 +32,29 @@ jobs:
 
       - run: npm run typecheck
 
+      # DB-free assertion suites (~29 test-*.ts, Brief 180). Folded into this
+      # existing required check so it gates PRs immediately without touching
+      # branch-protection settings; the runner strips DATABASE_URL so no suite
+      # can reach a real DB. DB-gated suites (test:ask-recommend) stay manual.
+      - run: npm test
+
       - run: npm run check:eras
 
       - run: npm run brain:lint -- --no-write
+
+  # Dependency vulnerability report — non-blocking on purpose (continue-on-error),
+  # a visible surface for `npm audit` findings without gating merges. Ongoing
+  # remediation flows through Dependabot (.github/dependabot.yml); most current
+  # findings are transitive dev/build-time deps whose fixes need major bumps.
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm audit
+        continue-on-error: true

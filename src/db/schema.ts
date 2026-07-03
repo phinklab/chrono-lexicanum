@@ -211,14 +211,23 @@ export const eras = pgTable("eras", {
   coverRef: text("cover_ref"),
 });
 
-export const factions = pgTable("factions", {
-  id: varchar("id", { length: 64 }).primaryKey(),
-  name: text("name").notNull(),
-  parentId: varchar("parent_id", { length: 64 }),
-  alignment: factionAlignment("alignment").notNull().default("neutral"),
-  tone: text("tone"),
-  glyph: text("glyph"),
-});
+export const factions = pgTable(
+  "factions",
+  {
+    id: varchar("id", { length: 64 }).primaryKey(),
+    name: text("name").notNull(),
+    parentId: varchar("parent_id", { length: 64 }),
+    alignment: factionAlignment("alignment").notNull().default("neutral"),
+    tone: text("tone"),
+    glyph: text("glyph"),
+  },
+  (t) => ({
+    // Self-referential hierarchy lookup (factionsRelations.parent). Free win
+    // taken alongside the characters index in the same migration (Brief 180 /
+    // K51). Index only, no FK on the self-reference — keeps seed ordering free.
+    parentIdx: index("factions_parent_idx").on(t.parentId),
+  }),
+);
 
 export const series = pgTable("series", {
   id: varchar("id", { length: 64 }).primaryKey(),
@@ -286,7 +295,9 @@ export const works = pgTable(
     kindIdx: index("works_kind_idx").on(t.kind),
     canonicityIdx: index("works_canonicity_idx").on(t.canonicity),
     releaseYearIdx: index("works_release_year_idx").on(t.releaseYear),
-    slugIdx: index("works_slug_idx").on(t.slug),
+    // No explicit slug index: `slug` is `.unique()` above, whose UNIQUE index
+    // (works_slug_unique) already serves slug lookups. The former
+    // works_slug_idx was a redundant duplicate (Brief 180 / K50) — dropped.
     // Reverse-Lookup "welche Werke verankern auf Event X" (Timeline-Chips)
     // lief sonst auf Seq-Scan (Report 144 § DB.1).
     settingAnchorEventIdx: index("works_setting_anchor_event_idx").on(
@@ -714,13 +725,24 @@ export const locations = pgTable(
 // CHARACTERS
 // =============================================================================
 
-export const characters = pgTable("characters", {
-  id: varchar("id", { length: 64 }).primaryKey(),
-  name: text("name").notNull(),
-  primaryFactionId: varchar("primary_faction_id", { length: 64 }),
-  lexicanumUrl: text("lexicanum_url"),
-  notes: text("notes"),
-});
+export const characters = pgTable(
+  "characters",
+  {
+    id: varchar("id", { length: 64 }).primaryKey(),
+    name: text("name").notNull(),
+    primaryFactionId: varchar("primary_faction_id", { length: 64 }),
+    lexicanumUrl: text("lexicanum_url"),
+    notes: text("notes"),
+  },
+  (t) => ({
+    // Faction detail pages equality-filter characters by primaryFactionId
+    // (src/lib/entity/loader.ts) — a Seq-Scan per request until now, while
+    // every other FK-like column in the schema is indexed (Brief 180 / K19).
+    // Index only, no FK: character ingest can carry a faction id not yet
+    // present in `factions`, and a FK would turn that into a seed/apply error.
+    primaryFactionIdx: index("characters_primary_faction_idx").on(t.primaryFactionId),
+  }),
+);
 
 // =============================================================================
 // TIMELINE: Events + event↔work hooks (Brief 137, 2026-06-10)
