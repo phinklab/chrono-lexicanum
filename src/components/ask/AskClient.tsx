@@ -2,7 +2,7 @@
 
 import { type CSSProperties, useMemo, useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import AuspexSweep from "@/components/chrono/AuspexSweep";
+import AuspexPair from "@/components/chrono/AuspexPair";
 import RouteScrollCue from "@/components/chrome/RouteScrollCue";
 import ProcessingPanel from "./ProcessingPanel";
 import QuestionCard from "./QuestionCard";
@@ -160,31 +160,26 @@ export default function AskClient({
 
   return (
     <>
-      <div className="ask-hud" aria-hidden>
-        <div className="ask-hud__sweep">
-          <AuspexSweep r={180} sweepDuration={18} accent="var(--cl-gold)" />
-        </div>
-      </div>
-
       <section className="ask-console" aria-labelledby="ask-title">
         <header className="ask-console__mast route-act">
-          <p className="ask-console__eyebrow">
-            {"LEXICANVM · WHERE TO BEGIN"}
-          </p>
+          <AuspexPair />
+          <p className="ask-console__eyebrow">Where to Begin</p>
           <h1 id="ask-title" className="ask-console__title">
             Find Your Next Book
           </h1>
-          <div className="ask-console__rule" aria-hidden />
-          <AskToolTabs active="questionnaire" />
           <p className="ask-console__sub">
-            Ask the Archive — answer four questions and the cogitator weighs the
-            catalogue, returning its strongest doorways. Real recommendations from
-            the archive, not a horoscope.
+            Answer four questions and the archive weighs the catalogue — real
+            recommendations from the shelves, not a horoscope.
           </p>
-          <RouteScrollCue label="Begin the questionnaire" target=".ask-console__grid" />
+          <RouteScrollCue
+            className="route-cue--flow"
+            label="Begin the questionnaire"
+            target=".ask-console__grid"
+          />
         </header>
 
         <div className="ask-console__grid route-body-snap" ref={gridRef}>
+          <AskToolTabs active="questionnaire" />
           <div className="ask-stage">
             {/* Progress timeline — the chronicle era-band recast for the funnel
                 (maintainer rework 2026-06-19; the roman stepper is retired). One

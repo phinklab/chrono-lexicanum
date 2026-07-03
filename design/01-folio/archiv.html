@@ -1,0 +1,627 @@
+<!-- ======================================================================
+     RICHTUNG 01 — FOLIO · Fläche: Archiv-Liste
+     Das Archiv als gedrucktes Nachschlagewerk. Studie zu Brief 184.
+     Standalone — per Doppelklick öffnen. Fonts via Google-CDN.
+     ====================================================================== -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Folio — Archiv</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+  /* ── Palette & Grundwerte — zum Hand-Editieren ────────────────────── */
+  :root {
+    --paper:     #f4efe2;
+    --paper-2:   #ede7d6;   /* Karten, eingelassene Flächen              */
+    --ink:       #221c12;
+    --ink-soft:  #4c4434;
+    --ink-faded: #7c7360;
+    --seal:      #7c2622;   /* Siegelrot — die EINE Akzentfarbe          */
+    --rule:      rgba(34, 28, 18, 0.75);
+    --rule-mid:  rgba(34, 28, 18, 0.30);
+    --rule-hair: rgba(34, 28, 18, 0.16);
+
+    --serif-disp: "Instrument Serif", serif;
+    --serif-text: "EB Garamond", serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { background: var(--paper); }
+
+  body {
+    font-family: var(--serif-text);
+    color: var(--ink);
+    font-size: 17px;
+    line-height: 1.55;
+    /* sehr feine Papierstruktur — flach, kein Verlauf, keine Vignette */
+    background:
+      repeating-linear-gradient(0deg, rgba(34,28,18,0.012) 0 1px, transparent 1px 3px),
+      var(--paper);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection { background: var(--seal); color: var(--paper); }
+
+  a { color: inherit; text-decoration-color: var(--rule-mid); text-underline-offset: 3px; }
+  a:hover { color: var(--seal); text-decoration-color: var(--seal); }
+
+  /* Typografische Kleinkapitälchen: Versalien + Sperrung (robust ohne OT-Features) */
+  .sc {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.72em;
+    font-weight: 500;
+  }
+
+  .page {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 0 48px 96px;
+  }
+
+  /* ── Laufender Kopf ───────────────────────────────────────────────── */
+  .running-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 20px 0 10px;
+    border-bottom: 1px solid var(--rule);
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+  .running-head nav { display: flex; gap: 28px; }
+  .running-head a { text-decoration: none; }
+  .running-head .here {
+    color: var(--seal);
+    border-bottom: 1px solid var(--seal);
+    padding-bottom: 2px;
+  }
+
+  /* ── Titelkopf ────────────────────────────────────────────────────── */
+  header.masthead {
+    text-align: center;
+    padding: 72px 0 40px;
+  }
+  .masthead .over {
+    font-size: 13px;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .masthead h1 {
+    font-family: var(--serif-disp);
+    font-weight: 400;
+    font-size: clamp(64px, 9vw, 108px);
+    line-height: 1.02;
+    margin: 18px 0 10px;
+    letter-spacing: 0.01em;
+  }
+  .masthead h1 em { font-style: italic; color: var(--seal); }
+  .masthead .edition {
+    font-style: italic;
+    font-size: 18px;
+    color: var(--ink-soft);
+  }
+  .masthead .edition b { font-style: normal; font-weight: 600; }
+
+  /* Doppellinie unter dem Titel — klassisches Katalog-Ornament */
+  .double-rule {
+    border: 0;
+    border-top: 1px solid var(--rule);
+    position: relative;
+    margin: 34px 0 0;
+  }
+  .double-rule::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 3px;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* ── Register (Filter) — als gedruckte Indexzeilen ───────────────── */
+  .register {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    row-gap: 10px;
+    padding: 26px 0;
+    border-bottom: 1px solid var(--rule-mid);
+    font-size: 15.5px;
+  }
+  .register dt {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-faded);
+    padding-top: 3px;
+  }
+  .register dd { display: flex; flex-wrap: wrap; column-gap: 4px; }
+  .register dd a { text-decoration: none; padding: 0 4px; }
+  .register dd a:hover { text-decoration: underline; text-decoration-color: var(--seal); }
+  .register dd a.active {
+    color: var(--seal);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .register dd a + a::before {
+    content: "·";
+    color: var(--rule-mid);
+    padding-right: 8px;
+  }
+  .register .count { color: var(--ink-faded); font-size: 0.85em; }
+
+  /* Suchzeile wie ein gedrucktes Formularfeld */
+  .seek {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding: 18px 0 6px;
+  }
+  .seek label {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-faded);
+    white-space: nowrap;
+  }
+  .seek input {
+    flex: 1;
+    font-family: var(--serif-text);
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink);
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--rule-mid);
+    padding: 2px 2px 6px;
+    outline: none;
+  }
+  .seek input:focus { border-bottom-color: var(--seal); }
+  .seek input::placeholder { color: var(--ink-faded); }
+
+  /* ── Katalog-Einträge ─────────────────────────────────────────────── */
+  .era-head {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    margin: 56px 0 8px;
+  }
+  .era-head h2 {
+    font-family: var(--serif-disp);
+    font-weight: 400;
+    font-size: 30px;
+    white-space: nowrap;
+  }
+  .era-head .lead { flex: 1; border-bottom: 1px solid var(--rule); }
+  .era-head .note { font-style: italic; color: var(--ink-faded); font-size: 15px; white-space: nowrap; }
+
+  ol.catalog { list-style: none; counter-reset: entry; }
+
+  .entry {
+    counter-increment: entry;
+    display: grid;
+    grid-template-columns: 64px 1fr 128px;
+    column-gap: 22px;
+    padding: 26px 0 24px;
+    border-bottom: 1px solid var(--rule-hair);
+  }
+  .entry:last-child { border-bottom: 0; }
+
+  /* Marginalie links: laufende Nummer */
+  .entry .no {
+    font-family: var(--serif-disp);
+    font-size: 21px;
+    color: var(--ink-faded);
+    text-align: right;
+    padding-top: 6px;
+  }
+  .entry .no::before { content: counter(entry, decimal-leading-zero); }
+
+  /* Marginalie rechts: Chronologie in Siegelrot */
+  .entry .when {
+    text-align: right;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    color: var(--seal);
+    padding-top: 9px;
+    font-variant-numeric: tabular-nums;
+  }
+  .entry .when .approx { color: var(--ink-faded); font-style: italic; }
+
+  .entry h3 {
+    font-family: var(--serif-disp);
+    font-weight: 400;
+    font-size: 31px;
+    line-height: 1.1;
+  }
+  .entry h3 a { text-decoration: none; }
+  .entry h3 a:hover { color: var(--seal); }
+
+  .entry .byline {
+    margin-top: 3px;
+    font-size: 15px;
+    color: var(--ink-soft);
+  }
+  .entry .byline .sc { letter-spacing: 0.18em; }
+
+  .entry .excerpt {
+    margin-top: 9px;
+    max-width: 62ch;
+    color: var(--ink-soft);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .entry .meta {
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--ink-faded);
+    font-style: italic;
+  }
+  .entry .meta b { font-style: normal; font-weight: 500; color: var(--ink-soft); }
+  .entry .meta .sep { padding: 0 7px; font-style: normal; }
+
+  /* ── Schaltflächen: druckgraphisch, eckig, eine Linie ─────────────── */
+  .btn {
+    display: inline-block;
+    font-family: var(--serif-text);
+    font-size: 11.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink);
+    border: 1px solid var(--ink);
+    padding: 9px 22px 8px;
+    background: transparent;
+    cursor: pointer;
+  }
+  .btn:hover { color: var(--seal); border-color: var(--seal); }
+  .btn.solid { background: var(--ink); color: var(--paper); }
+  .btn.solid:hover { background: var(--seal); border-color: var(--seal); color: var(--paper); }
+
+  .load-more { text-align: center; padding: 44px 0 0; }
+  .load-more .hint {
+    display: block;
+    margin-top: 12px;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-faded);
+  }
+
+  /* ── Fußzeile ─────────────────────────────────────────────────────── */
+  footer.colophon {
+    margin-top: 72px;
+    border-top: 1px solid var(--rule);
+    padding-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--ink-faded);
+    font-style: italic;
+  }
+
+  /* ── Studien-Notiz (Rationale, für Philipp) ──────────────────────── */
+  details.study-note {
+    margin-top: 40px;
+    border: 1px solid var(--rule-mid);
+    background: var(--paper-2);
+    padding: 16px 20px;
+    font-size: 15px;
+  }
+  details.study-note summary {
+    cursor: pointer;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--seal);
+  }
+  details.study-note .body { margin-top: 12px; max-width: 78ch; }
+  details.study-note p { margin-bottom: 8px; }
+  details.study-note b { font-weight: 600; }
+
+  @media (max-width: 720px) {
+    .page { padding: 0 20px 64px; }
+    .entry { grid-template-columns: 1fr; row-gap: 4px; }
+    .entry .no, .entry .when { text-align: left; padding-top: 0; }
+    .register { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="page">
+
+  <div class="running-head">
+    <span>Chrono · Lexicanum</span>
+    <nav>
+      <a href="#">Chronicle</a>
+      <a href="map.html">Cartographer</a>
+      <a href="#" class="here">Archive</a>
+      <a href="#">Ask</a>
+    </nav>
+  </div>
+
+  <header class="masthead">
+    <p class="over">Chrono · Lexicanum</p>
+    <h1>The <em>Archive</em></h1>
+    <p class="edition">A reader’s catalogue of the Warhammer 40,000 library — <b>896 works</b> on record, compiled 2026.</p>
+    <hr class="double-rule">
+  </header>
+
+  <dl class="register">
+    <dt>Indexed by</dt>
+    <dd>
+      <a href="#" class="active">Setting, chronological</a>
+      <a href="#">Title</a>
+      <a href="#">Author</a>
+      <a href="#">Release</a>
+    </dd>
+    <dt>Faction</dt>
+    <dd>
+      <a href="#">All</a>
+      <a href="#" class="active">Thousand Sons <span class="count">(14)</span></a>
+      <a href="#">Ultramarines <span class="count">(61)</span></a>
+      <a href="#">Imperial Guard <span class="count">(88)</span></a>
+      <a href="#">Inquisition <span class="count">(43)</span></a>
+      <a href="#">Necrons <span class="count">(21)</span></a>
+      <a href="#">Orks <span class="count">(37)</span></a>
+      <a href="#">…</a>
+    </dd>
+    <dt>Format</dt>
+    <dd>
+      <a href="#" class="active">All</a>
+      <a href="#">Novels</a>
+      <a href="#">Novellas</a>
+      <a href="#">Short stories</a>
+      <a href="#">Omnibuses</a>
+      <a href="#">Audio dramas</a>
+    </dd>
+  </dl>
+
+  <div class="seek">
+    <label for="q">Seek</label>
+    <input id="q" type="text" placeholder="a title, an author, a world, a deed …">
+    <button class="btn">Consult</button>
+  </div>
+
+  <!-- ── Abteilung M31 ─────────────────────────────────────────────── -->
+  <div class="era-head">
+    <h2>The Horus Heresy</h2>
+    <div class="lead"></div>
+    <span class="note">M30 – M31 · the civil war that made the Imperium</span>
+  </div>
+
+  <ol class="catalog">
+    <li class="entry">
+      <span class="no"></span>
+      <div>
+        <h3><a href="buch.html">The First Heretic</a></h3>
+        <p class="byline"><span class="sc">Aaron Dembski-Bowden</span> — 2010 · Original Horus Heresy</p>
+        <p class="excerpt">Half a century before Isstvan, the Emperor descends on the freshly compliant world of Khur and razes the city of Monarchia that the Word Bearers had raised in His name, denouncing his most devout son Lorgar for the sin of religion. Shamed and adrift, the XVII Legion begins a Pilgrimage to find any truth that might fill the void.</p>
+        <p class="meta"><b>Novel</b><span class="sep">·</span>Word Bearers<span class="sep">·</span>4.35 <span>of 5, from 10 455 readings</span></p>
+      </div>
+      <span class="when"><span class="approx">c.</span> 963.M30 – 006.M31</span>
+    </li>
+
+    <li class="entry">
+      <span class="no"></span>
+      <div>
+        <h3><a href="buch.html">Horus Rising</a></h3>
+        <p class="byline"><span class="sc">Dan Abnett</span> — 2006 · Original Horus Heresy</p>
+        <p class="excerpt">Two centuries into the Great Crusade, the Emperor has retired to Terra and named his most beloved son Warmaster of the war that will reunite humanity. Newly chosen for the Mournival, Captain Garviel Loken trades the certainty of war for the harder business of speaking truth to a brother who has begun to need it.</p>
+        <p class="meta"><b>Novel</b><span class="sep">·</span>Luna Wolves<span class="sep">·</span>4.26 <span>of 5, from 41 579 readings</span></p>
+      </div>
+      <span class="when"><span class="approx">c.</span> 001.M31</span>
+    </li>
+
+    <li class="entry">
+      <span class="no"></span>
+      <div>
+        <h3><a href="buch.html">A Thousand Sons</a></h3>
+        <p class="byline"><span class="sc">Graham McNeill</span> — 2010 · Original Horus Heresy</p>
+        <p class="excerpt">Censured at the Council of Nikaea for the Legion’s open use of psychic sorcery, Magnus the Red withdraws with his Thousand Sons to the crystal city of Tizca on Prospero. There the primarch peers into the warp and glimpses Horus’ coming betrayal — a tragedy of brilliant minds undone by hubris and good intentions.</p>
+        <p class="meta"><b>Novel</b><span class="sep">·</span>Thousand Sons<span class="sep">·</span>4.27 <span>of 5, from 10 635 readings</span></p>
+      </div>
+      <span class="when">001 – 004.M31</span>
+    </li>
+
+    <li class="entry">
+      <span class="no"></span>
+      <div>
+        <h3><a href="buch.html">Legion</a></h3>
+        <p class="byline"><span class="sc">Dan Abnett</span> — 2008 · Original Horus Heresy</p>
+        <p class="excerpt">On the dust-blown Imperial world of Nurth, an Army officer fights a colonial counter-insurgency that will not end. Strange men in green and gold — the Alpha Legion — arrive late and seem to know more about the war than the men fighting it. By the close, the brothers who lead the Legion have made the most cynical bet in the Heresy.</p>
+        <p class="meta"><b>Novel</b><span class="sep">·</span>Alpha Legion<span class="sep">·</span>4.17 <span>of 5, from 14 320 readings</span></p>
+      </div>
+      <span class="when"><span class="approx">c.</span> 003.M31</span>
+    </li>
+
+    <li class="entry">
+      <span class="no"></span>
+      <div>
+        <h3><a href="buch.html">False Gods</a></h3>
+        <p class="byline"><span class="sc">Graham McNeill</span> — 2006 · Original Horus Heresy</p>
+        <p class="excerpt">After Ullanor, Horus rides the wave of his own glory and his Legion bleeds for it. When a ritual duel on the feral world of Davin leaves the Warmaster mortally wounded, a long spirit-walk through the warp shows Horus a future in which the Emperor has discarded the species he built. He rises restored in body, broken in faith.</p>
+        <p class="meta"><b>Novel</b><span class="sep">·</span>Luna Wolves<span class="sep">·</span>4.15 <span>of 5, from 28 641 readings</span></p>
+      </div>
+      <span class="when">004.M31</span>
+    </li>
+
+    <li class="entry">
+      <span class="no"></span>
+      <div>
+        <h3><a href="buch.html">The Master of Mankind</a></h3>
+        <p class="byline"><span class="sc">Aaron Dembski-Bowden</span> — 2017 · Original Horus Heresy</p>
+        <p class="excerpt">Five years after Magnus’ psychic breach opened the unfinished webway beneath the Imperial Palace, the deepest secret of the Heresy bleeds into open war. The Custodian Guard, the Sisters of Silence and the Mechanicum fight to hold the warp-poisoned tunnels at the threshold of Terra — until only the Emperor Himself can take the field.</p>
+        <p class="meta"><b>Novel</b><span class="sep">·</span>Adeptus Custodes<span class="sep">·</span>4.22 <span>of 5, from 4 045 readings</span></p>
+      </div>
+      <span class="when">004 – 014.M31</span>
+    </li>
+
+    <li class="entry">
+      <span class="no"></span>
+      <div>
+        <h3><a href="buch.html">Galaxy in Flames</a></h3>
+        <p class="byline"><span class="sc">Ben Counter</span> — 2006 · Original Horus Heresy</p>
+        <p class="excerpt">On the dead-grey world of Isstvan III, four Legions deploy in force against a recalcitrant governor. What they cannot know is that the deployment is the trap: from orbit their own brothers burn the loyalists to ash with virus and atomic fire. The Horus Heresy is no longer a rumour. Let the galaxy burn.</p>
+        <p class="meta"><b>Novel</b><span class="sep">·</span>Sons of Horus<span class="sep">·</span>4.19 <span>of 5, from 24 749 readings</span></p>
+      </div>
+      <span class="when">005 – 006.M31</span>
+    </li>
+
+    <li class="entry">
+      <span class="no"></span>
+      <div>
+        <h3><a href="buch.html">Fulgrim</a></h3>
+        <p class="byline"><span class="sc">Graham McNeill</span> — 2007 · Original Horus Heresy</p>
+        <p class="excerpt">Fulgrim, primarch of the Emperor’s Children, is the finest of the Emperor’s sons: beautiful, brilliant, devoted to perfection. On the murder-world of Laer, a Legion compliance brings home a daemon-bound sword that has been waiting for him. The blade is patient — and the Legion turns slowly, exquisitely, to excess.</p>
+        <p class="meta"><b>Novel</b><span class="sep">·</span>Emperor’s Children<span class="sep">·</span>4.05 <span>of 5, from 17 163 readings</span></p>
+      </div>
+      <span class="when">005 – 006.M31</span>
+    </li>
+
+    <li class="entry">
+      <span class="no"></span>
+      <div>
+        <h3><a href="buch.html">Know No Fear</a></h3>
+        <p class="byline"><span class="sc">Dan Abnett</span> — 2012 · Original Horus Heresy</p>
+        <p class="excerpt">On a single afternoon at Calth, Lorgar’s Legion executes the most devastating treacherous strike of the Heresy: orbital ships gut the Ultramarines fleet, ritualists raise daemons through wounds torn in the warp, and the system’s own star is wrenched out of true. Told in clipped present-tense reports, from sergeant to primarch.</p>
+        <p class="meta"><b>Novel</b><span class="sep">·</span>Ultramarines<span class="sep">·</span>4.30 <span>of 5, from 8 105 readings</span></p>
+      </div>
+      <span class="when">007.M31</span>
+    </li>
+
+    <li class="entry">
+      <span class="no"></span>
+      <div>
+        <h3><a href="buch.html">Betrayer</a></h3>
+        <p class="byline"><span class="sc">Aaron Dembski-Bowden</span> — 2013 · Original Horus Heresy</p>
+        <p class="excerpt">Lorgar’s Word Bearers and Angron’s World Eaters carve a shadow crusade through the Five Hundred Worlds in the wake of Calth. Khârn fights to keep his primarch human; Lorgar fights to keep him alive at any price; and the rest of Ultramar burns to give them the time to finish what they started.</p>
+        <p class="meta"><b>Novel</b><span class="sep">·</span>World Eaters<span class="sep">·</span>4.40 <span>of 5, from 6 149 readings</span></p>
+      </div>
+      <span class="when">007 – 008.M31</span>
+    </li>
+  </ol>
+
+  <!-- ── Abteilung M41 ─────────────────────────────────────────────── -->
+  <div class="era-head">
+    <h2>The Time of Ending</h2>
+    <div class="lead"></div>
+    <span class="note">M41 · the long dusk of the Imperium</span>
+  </div>
+
+  <ol class="catalog" style="counter-reset: entry 10;">
+    <li class="entry">
+      <span class="no"></span>
+      <div>
+        <h3><a href="buch.html">Xenos</a></h3>
+        <p class="byline"><span class="sc">Dan Abnett</span> — 2001 · Inquisitor: Eisenhorn</p>
+        <p class="excerpt">Inquisitor Gregor Eisenhorn of the Ordo Xenos pursues a renegade rogue trader to the ice-world of Hubris and unravels the cult of Pontius Glaw. Along the way he learns that Inquisitors can become the thing they hunt, and that the slow seduction of useful means is how heretics first persuade themselves.</p>
+        <p class="meta"><b>Novel</b><span class="sep">·</span>Inquisition<span class="sep">·</span><span>not yet rated</span></p>
+      </div>
+      <span class="when">240.M41</span>
+    </li>
+
+    <li class="entry">
+      <span class="no"></span>
+      <div>
+        <h3><a href="buch.html">Ravenor</a></h3>
+        <p class="byline"><span class="sc">Dan Abnett</span> — 2004 · Inquisitor: Ravenor</p>
+        <p class="excerpt">Gideon Ravenor hunts a synthetic narcotic called Flects across the Eustis Majoris sub-sector — warp-glass refracted from the Eye of Terror, sold to bored aristocrats as a daemon-narcotic. Behind the dealers stands a commercial dynasty older than the local government, with Inquisitorial protection inherited like silverware.</p>
+        <p class="meta"><b>Novel</b><span class="sep">·</span>Inquisition<span class="sep">·</span><span>not yet rated</span></p>
+      </div>
+      <span class="when">402.M41</span>
+    </li>
+
+    <li class="entry">
+      <span class="no"></span>
+      <div>
+        <h3><a href="buch.html">First and Only</a></h3>
+        <p class="byline"><span class="sc">Dan Abnett</span> — 1999 · Gaunt’s Ghosts</p>
+        <p class="excerpt">Commissar Ibram Gaunt leads the Tanith First-and-Only — sole survivors of a world that burned behind them — through the grinding campaigns of the Sabbat Worlds Crusade, toward a clue buried under the Necromantic ice of Menazoid Epsilon and enemies wearing his own uniform.</p>
+        <p class="meta"><b>Novel</b><span class="sep">·</span>Imperial Guard<span class="sep">·</span><span>not yet rated</span></p>
+      </div>
+      <span class="when">765.M41</span>
+    </li>
+
+    <li class="entry">
+      <span class="no"></span>
+      <div>
+        <h3><a href="buch.html">Titanicus</a></h3>
+        <p class="byline"><span class="sc">Dan Abnett</span> — 2008 · standalone</p>
+        <p class="excerpt">When a Chaos titan legion makes planetfall on the vital forge-world of Orestes, Legio Invicta — fresh from the front and in desperate need of refit — commits its surviving god-engines anyway. Beneath the titan-line, the theological gulf between Mechanicus and Imperium opens into real schism.</p>
+        <p class="meta"><b>Novel</b><span class="sep">·</span>Adeptus Mechanicus<span class="sep">·</span><span>not yet rated</span></p>
+      </div>
+      <span class="when"><span class="approx">c.</span> 779.M41</span>
+    </li>
+
+    <li class="entry">
+      <span class="no"></span>
+      <div>
+        <h3><a href="buch.html">The Infinite and the Divine</a></h3>
+        <p class="byline"><span class="sc">Robert Rath</span> — 2020 · standalone</p>
+        <p class="excerpt">Trazyn the Infinite guards the galleries of Solemnace like a museum, a fortress and a private joke. Orikan the Diviner breaks in. Their feud stretches across millennia, through lawsuits before the Triarch Council, uneasy alliances, and a human world that both will regret. Antique arrogance, deadpan comedy, genuine cosmic stakes.</p>
+        <p class="meta"><b>Novel</b><span class="sep">·</span>Necrons<span class="sep">·</span><span>not yet rated</span></p>
+      </div>
+      <span class="when"><span class="approx">c.</span> 910.M41</span>
+    </li>
+
+    <li class="entry">
+      <span class="no"></span>
+      <div>
+        <h3><a href="buch.html">For the Emperor</a></h3>
+        <p class="byline"><span class="sc">Sandy Mitchell</span> — 2003 · Ciaphas Cain</p>
+        <p class="excerpt">Commissar Ciaphas Cain takes charge of the freshly-merged Valhallan 597th and is shipped to Gravalax, a mining world on the Tau border where civil unrest threatens to drag both powers into open war. Cain spends the novel trying very hard to be somewhere else while accidentally averting an interstellar incident.</p>
+        <p class="meta"><b>Novel</b><span class="sep">·</span>Imperial Guard<span class="sep">·</span><span>not yet rated</span></p>
+      </div>
+      <span class="when">931.M41</span>
+    </li>
+
+    <li class="entry">
+      <span class="no"></span>
+      <div>
+        <h3><a href="buch.html">Soul Hunter</a></h3>
+        <p class="byline"><span class="sc">Aaron Dembski-Bowden</span> — 2010 · Night Lords</p>
+        <p class="excerpt">Ten thousand years after their Primarch’s murder, the Night Lords endure as scattered raiders, feared and hunted. Talos, a reluctant prophet cursed with his gene-father’s visions, fights to keep his fractured warband alive as it is drawn into one of Abaddon’s black crusades against the forge world of Crythe.</p>
+        <p class="meta"><b>Novel</b><span class="sep">·</span>Night Lords<span class="sep">·</span>4.36 <span>of 5, from 5 948 readings</span></p>
+      </div>
+      <span class="when"><span class="approx">c.</span> 945.M41</span>
+    </li>
+
+    <li class="entry">
+      <span class="no"></span>
+      <div>
+        <h3><a href="buch.html">Helsreach</a></h3>
+        <p class="byline"><span class="sc">Aaron Dembski-Bowden</span> — 2010 · Space Marine Battles</p>
+        <p class="excerpt">When the orks of a vast Waaagh! descend on Armageddon, Reclusiarch Grimaldus is charged with holding the sprawling Hive Helsreach against the xenos flood. As the greenskins keep coming and the defenders dwindle, he resolves to sell their lives at a terrible price, making his stand in an Imperial temple where faith and fury are all that remain.</p>
+        <p class="meta"><b>Novel</b><span class="sep">·</span>Black Templars<span class="sep">·</span>4.28 <span>of 5, from 4 535 readings</span></p>
+      </div>
+      <span class="when">998.M41</span>
+    </li>
+  </ol>
+
+  <div class="load-more">
+    <button class="btn solid">Continue the catalogue</button>
+    <span class="hint">Showing 18 of 896 entries — the presses of the Lexicanum run day and night.</span>
+  </div>
+
+  <footer class="colophon">
+    <span>Chrono · Lexicanum — a fan archive. All works remain the property of their publishers.</span>
+    <span>fol. 41</span>
+  </footer>
+
+  <details class="study-note">
+    <summary>Studien-Notiz · Richtung 01 — Folio</summary>
+    <div class="body">
+      <p><b>Haltung:</b> Das Archiv als publiziertes Nachschlagewerk — antiquarischer Bibliothekskatalog statt Sci-Fi-Interface. Licht statt Void. Die Autorität kommt aus der Typografie, nicht aus Chrome.</p>
+      <p><b>Verwirft:</b> Cinzel + Cormorant (Slop-Marker Nr. 1), das Void/Cyan-Farbsystem, alle Icon-Glyphen (Rauten, Facetten-Symbole, Auspex-Deko), Latin-Fake-Readouts, Glow und Scan-Effekte, Panel-Karten mit Transparenzen.</p>
+      <p><b>Behält:</b> die M-Skala-Chronologie als sichtbares Ordnungsprinzip (jetzt Marginalie in Siegelrot), die Ehrlichkeit der Daten („not yet rated", c.-Präfixe bei unsicherer Datierung), Era-Gruppierung, die ruhige Grundhaltung (kein Bloom — deckt sich mit Philipps Halo-Abneigung).</p>
+      <p><b>Kern-Parameter:</b> Instrument Serif (Display) + EB Garamond (Text). Papier #f4efe2, Tinte #221c12, genau EIN Akzent: Siegelrot #7c2622. Buttons = eckige Ein-Linien-Rahmen bzw. Tintenblöcke, Versalien gesperrt. Icon-Politik: null Icons — typografische Devices (Nummern, Mittelpunkte, Linien) übernehmen jede Auszeichnung.</p>
+    </div>
+  </details>
+
+</div>

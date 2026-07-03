@@ -35,20 +35,22 @@ html {
 ::-webkit-scrollbar-corner { background: transparent; }
 
 body {
-  font-family: var(--font-cormorant), Georgia, serif;
-  /* Cormorant's small x-height meant the unset 16px default read tiny; set a
-     comfortable reading base. Inheriting text (anything that doesn't pin its
-     own size) picks this up; component rules still override per element. */
-  font-size: var(--fs-read-sm);
-  line-height: 1.5;
-  font-feature-settings: 'ss01';
+  font-family: var(--font-body);
+  font-size: var(--fs-read);
+  line-height: var(--lh-read);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
+::selection {
+  background: var(--cl-gold);
+  color: var(--cl-void);
+}
+
 h1, h2, h3 {
-  font-family: var(--font-cinzel), serif;
-  letter-spacing: 0.02em;
+  font-family: var(--font-display);
+  font-weight: var(--font-display-wght);
+  letter-spacing: var(--font-display-track);
 }
 
 /* No focus outlines, site-wide (maintainer decision 2026-06-11): the gold/cyan

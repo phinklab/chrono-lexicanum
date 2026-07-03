@@ -1,32 +1,10 @@
 /* 64-detail-modal.css
-   The in-context detail overlay — Brief 131. The ONE popup shell, shared by the
-   book intercept and the four entity intercepts (merge of the former
-   64-book-modal.css + 60-entity-panel.css).
-
-   Owns the overlay CHROME only (backdrop scrim, centered card, top bar, the
-   prominent Back action + close affordance). The card body is
-   the db-free <BookDetailView> / <EntityView> the canonical pages render — their
-   `.book-detail__*` / `.entity-view*` styles live in 51-book-detail.css /
-   59-entity.css and are reused verbatim. A LARGE CENTERED card (not a side
-   drawer). NB: the card block is `.detail-modal-panel`, NOT a bare
-   `.detail-modal` — that exact class is already owned by the legacy book-audit
-   modal (24-detail-modal.css `.detail-modal` + its `.dm-*` children, used by
-   timeline/DetailPanel.tsx). Colliding on `.detail-modal` leaked the legacy
-   `position:fixed; top/left:50%` onto this card and shoved it off-screen; the
-   `-panel` suffix keeps the two shells fully independent.
-
-   Restraint (Brief 131, gold port Session 142): no drawn frame at all — the
-   card edge is carried by the drop shadow + a faint top light-catch (no bone
-   hairline, no drawn border); gold is reserved for text accents, hovers, focus
-   and live values (the compendium law). The one drawn line is the Terminus
-   under the top bar — the new language's divider. z-index 70 sits above the
-   app chrome (TopNav 50, MediaPlayer 40). The card is near-opaque dark because
-   no full-page scrim is present here — it supplies the dark ground the body
-   reads on.
-
-   Reduced motion: the global cascade in 10-base.css collapses every transition +
-   animation to instant under `prefers-reduced-motion: reduce`, so the fade/rise
-   below need no local @media block. */
+   The in-context record popup — the ONE overlay shell shared by the book
+   intercept and the entity intercepts. Owns the chrome only: scrim + blur,
+   the centred card without a drawn frame (shadow + top light-catch carry the
+   edge), the bar with Return/Close and the gold Terminus beneath it. The card
+   body is the db-free <BookDetailView> / <EntityView>. z-index 70 sits above
+   the app chrome. Reduced motion: stilled globally (10-base.css). */
 
 .detail-modal-root {
   position: fixed;
@@ -37,38 +15,34 @@
   padding: 24px;
 }
 
-/* ── Backdrop: dark scrim + blur over the origin context ──────────────────── */
 .detail-modal-backdrop {
   position: absolute;
   inset: 0;
-  background: color-mix(in srgb, var(--cl-void) 72%, transparent);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  animation: detailModalFade 0.2s ease-out both;
+  background: color-mix(in srgb, var(--cl-void) 78%, transparent);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  animation: detailModalFade 0.25s ease-out both;
 }
 
-/* ── Centered card ────────────────────────────────────────────────────────── */
 .detail-modal-panel {
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
-  width: min(1080px, 94vw);
-  max-height: 92vh;
+  width: min(940px, 94vw);
+  max-height: 90vh;
   background: linear-gradient(
     180deg,
-    rgba(6, 9, 16, 0.98) 0%,
-    rgba(2, 4, 10, 0.99) 100%
+    color-mix(in srgb, var(--cl-void-2) 98%, transparent),
+    color-mix(in srgb, var(--cl-void) 99%, transparent)
   );
-  /* No drawn frame (Brief 131): depth = drop shadow + a faint top light-catch.
-     The dark backdrop scrim separates the card from the page behind it. */
   box-shadow:
-    0 30px 80px -20px rgba(0, 0, 0, 0.85),
-    inset 0 1px 0 rgba(232, 220, 192, 0.06);
-  animation: detailModalRise 0.26s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    0 30px 90px -20px rgba(0, 0, 0, 0.9),
+    inset 0 1px 0 rgba(228, 221, 203, 0.07);
+  animation: detailModalRise 0.3s var(--ease) both;
 }
 
-/* ── Top bar (fixed; content scrolls beneath) ─────────────────────────────── */
+/* ── Bar (fixed; content scrolls beneath) ─────────────────────────────────── */
 .detail-modal__bar {
   position: relative;
   flex: 0 0 auto;
@@ -76,12 +50,9 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 13px 16px;
-  background: rgba(3, 6, 12, 0.5);
+  padding: 13px 20px;
 }
-
-/* Terminus under the bar — the divider of the gold language (mirrors the
-   /archive expanded-row seam). */
+/* Terminus — the one drawn line of the chapel. */
 .detail-modal__bar::after {
   content: "";
   position: absolute;
@@ -92,74 +63,42 @@
   background: linear-gradient(
     90deg,
     transparent,
-    color-mix(in oklch, var(--cl-gold) 16%, transparent) 14%,
-    color-mix(in oklch, var(--cl-gold) 16%, transparent) 86%,
+    color-mix(in srgb, var(--cl-gold) 40%, transparent) 16%,
+    color-mix(in srgb, var(--cl-gold) 40%, transparent) 84%,
     transparent
   );
 }
 
-/* The prominent primary close affordance — quiet at rest, lighting gold on
-   hover/focus (hover-reveal, no filled state). */
-.detail-modal__back {
+.detail-modal__back,
+.detail-modal__close {
   display: inline-flex;
-  align-items: center;
+  align-items: baseline;
   gap: 8px;
-  padding: 9px 16px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.18em;
+  padding: 6px 2px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: var(--cl-bone);
+  color: var(--cl-dim);
   background: transparent;
   border: none;
   cursor: pointer;
-  transition: color 0.18s, background 0.18s;
+  transition: color 0.3s;
 }
-.detail-modal__back:hover {
+.detail-modal__back:hover,
+.detail-modal__back:focus-visible,
+.detail-modal__close:hover,
+.detail-modal__close:focus-visible {
   color: var(--cl-gold);
-  background: rgba(201, 166, 90, 0.08);
-}
-.detail-modal__back:focus-visible {
-  outline: 1px solid var(--cl-gold);
-  outline-offset: 2px;
 }
 .detail-modal__back-arrow {
   font-size: 14px;
   line-height: 1;
 }
-
 .detail-modal__bar-end {
   display: flex;
   align-items: center;
   gap: 14px;
-}
-
-.detail-modal__close {
-  flex: 0 0 auto;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  padding: 0;
-  font-size: 22px;
-  line-height: 1;
-  color: var(--cl-dim);
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  transition: color 0.18s, background 0.18s;
-}
-.detail-modal__close:hover {
-  color: var(--cl-bone);
-  background: rgba(201, 166, 90, 0.08);
-}
-
-/* Overlay-scoped gold focus — overrides the global cyan glow (10-base.css)
-   for everything inside the popup, incl. the body view's links and chips. */
-.detail-modal-root :focus-visible {
-  outline: 1px solid var(--cl-gold);
-  box-shadow: none;
 }
 
 /* ── Scroll body — hosts <BookDetailView> / <EntityView> ──────────────────── */
@@ -168,7 +107,29 @@
   min-height: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding: 40px 44px 56px;
+  padding: 56px 56px 64px;
+}
+
+/* The chapel overture: the record's stages enter staggered on every open. */
+.detail-modal__scroll .book-detail__body > * {
+  animation: enter 0.7s 0.34s var(--ease) both;
+}
+.detail-modal__scroll .book-detail__rubric {
+  animation: enter 0.6s 0.05s var(--ease) both;
+}
+.detail-modal__scroll .book-detail__title {
+  animation: enterTitle 0.9s 0.12s var(--ease) both;
+}
+.detail-modal__scroll .book-detail__byline {
+  animation: enter 0.7s 0.2s var(--ease) both;
+}
+.detail-modal__scroll .book-detail__chrono {
+  animation: enter 0.7s 0.27s var(--ease) both;
+}
+
+/* Constrain the shared title inside the popup card. */
+.detail-modal__scroll .book-detail__title {
+  font-size: clamp(40px, 6vw, 76px);
 }
 
 /* Visually-hidden dialog label (the visible <h1> lives inside the body view). */
@@ -195,7 +156,7 @@
 @keyframes detailModalRise {
   from {
     opacity: 0;
-    transform: translateY(14px) scale(0.99);
+    transform: translateY(16px) scale(0.99);
   }
   to {
     opacity: 1;
@@ -215,6 +176,6 @@
     border: none;
   }
   .detail-modal__scroll {
-    padding: 26px 18px 44px;
+    padding: 40px 20px 50px;
   }
 }

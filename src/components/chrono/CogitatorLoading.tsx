@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import SternwarteRings from "@/components/shared/SternwarteRings";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 
 /**
@@ -43,8 +44,10 @@ export default function CogitatorLoading() {
     <div className="cogitator-loading" role="status">
       <span className="cogitator-loading__sr">Loading the archive…</span>
 
+      {/* Sternwarte loop — the .lx-btn hover HUD (rotating hairline rings
+          around a breathing origin dot) as an endless wait state. */}
       <div className="cogitator-loading__core" aria-hidden>
-        <span className="cogitator-loading__ring" />
+        <SternwarteRings className="cogitator-loading__rings" />
         <span className="cogitator-loading__seed" />
       </div>
 

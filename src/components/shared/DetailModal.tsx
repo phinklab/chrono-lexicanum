@@ -224,18 +224,17 @@ export default function DetailModal({
             onClick={handleClose}
           >
             <span className="detail-modal__back-arrow" aria-hidden>
-              ←
+              ‹
             </span>
-            Back
+            Return
           </button>
           <div className="detail-modal__bar-end">
             <button
               type="button"
               className="detail-modal__close"
               onClick={handleClose}
-              aria-label="Close"
             >
-              ×
+              Close
             </button>
           </div>
         </div>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import MainAuspex from "@/components/chrono/MainAuspex";
 import GhostReadout from "@/components/chrono/GhostReadout";
 import FloatingCoord from "@/components/chrono/FloatingCoord";
-import HeroScrollCue from "@/components/home/HeroScrollCue";
+import RouteScrollCue from "@/components/chrome/RouteScrollCue";
 import ExampleShell, { LexFooter } from "../_example/ExampleShell";
 
 export const metadata: Metadata = {
@@ -97,11 +97,6 @@ export default function HomeExamplePage() {
     >
       <div className="lex-readout" aria-hidden>
         <GhostReadout
-          color="var(--cl-gold)"
-          opacity={0.32}
-          lineMs={5200}
-          typeSpeed={82}
-          max={4}
           lines={READOUT_LINES}
         />
       </div>
@@ -116,18 +111,12 @@ export default function HomeExamplePage() {
           y="120px"
           label="ROUTE · SEGMENTVM ULTIMA"
           delay={1.2}
-          lifetime={5}
-          color="var(--cl-gold)"
-          opacity={0.5}
         />
         <FloatingCoord
           x="58%"
           y="220px"
           label="HIT · NOVA TERRA · M42.347"
           delay={3}
-          lifetime={5}
-          color="var(--cl-gold)"
-          opacity={0.45}
         />
 
         <div className="hub-hero__auspex hub-hero__auspex--main" aria-hidden>
@@ -136,7 +125,6 @@ export default function HomeExamplePage() {
             accent="var(--cl-gold)"
             spinDur={240}
             spinRevDur={320}
-            sweepDur={28}
           />
         </div>
         <div className="hub-hero__auspex hub-hero__auspex--secondary" aria-hidden>
@@ -145,7 +133,6 @@ export default function HomeExamplePage() {
             accent="var(--cl-gold)"
             spinDur={360}
             spinRevDur={440}
-            sweepDur={36}
           />
         </div>
 
@@ -161,7 +148,7 @@ export default function HomeExamplePage() {
           </p>
         </div>
 
-        <HeroScrollCue label="What can I do here?" target=".lexh-act--intro" />
+        <RouteScrollCue label="What can I do here?" target=".lexh-act--intro" />
       </section>
 
       {/* ── Act 2 · Praefatio — Lesetext mit Initiale + die Suche ───────── */}
@@ -209,7 +196,7 @@ export default function HomeExamplePage() {
           </div>
         </div>
 
-        <HeroScrollCue
+        <RouteScrollCue
           label="More to explore"
           target=".lexh-act--explore"
           className="hub-cue--floor"

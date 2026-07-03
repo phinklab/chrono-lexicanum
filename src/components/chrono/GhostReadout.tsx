@@ -1,230 +1,95 @@
 "use client";
 
-import {
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-  type CSSProperties,
-} from "react";
+import { useEffect, useState } from "react";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 
-type GhostReadoutProps = {
-  lines: string[];
-  lineMs?: number;
-  color?: string;
-  opacity?: number;
-  align?: CSSProperties["textAlign"];
-  max?: number;
-  typeSpeed?: number;
-};
+/**
+ * GhostReadout — the vox scribe, fixed top-right (styled in 46-site-nav.css).
+ * Up to three mono lines with a brightness ramp; each line writes itself
+ * character by character (every glyph fades in), the caret is a 1px gold
+ * stroke, finished lines rest, the oldest rises and fades out. Lines are
+ * treated as stable; callers remount via key to change them. Hidden entirely
+ * under prefers-reduced-motion.
+ */
 
-type Item = { id: number; text: string; exiting: boolean };
+type VoxLine = { id: number; text: string; typed: number; out: boolean };
 
-function GhostTypeOnce({
-  text,
-  speed = 30,
-  showCursorWhenDone = false,
-  reduced,
-}: {
-  text: string;
-  speed?: number;
-  showCursorWhenDone?: boolean;
-  reduced: boolean;
-}) {
-  const [n, setN] = useState(reduced ? text.length : 0);
+const RAMP = [0.16, 0.3, 0.55];
+const MAX_LINES = 3;
 
-  // Parents key this component by item.id so text never changes mid-mount;
-  // we only schedule the interval here and never reset state from an effect.
-  useEffect(() => {
-    if (reduced || !text) return;
-    let i = 0;
-    const id = setInterval(() => {
-      i++;
-      setN(i);
-      if (i >= text.length) clearInterval(id);
-    }, speed);
-    return () => clearInterval(id);
-  }, [text, speed, reduced]);
-
-  const done = n >= text.length;
-  const showCursor = !done || showCursorWhenDone;
-  return (
-    <span>
-      {text.slice(0, n)}
-      {showCursor && (
-        <span
-          style={{
-            display: "inline-block",
-            marginLeft: 2,
-            animation: "chronoCursor 2.2s steps(1) infinite",
-          }}
-        >
-          ▌
-        </span>
-      )}
-    </span>
-  );
-}
-
-function GhostRow({
-  it,
-  exiting,
-  opacityTarget,
-  typeSpeed,
-  isNewest,
-  reduced,
-  lineHeight = 20,
-}: {
-  it: Item;
-  exiting: boolean;
-  opacityTarget: number;
-  typeSpeed: number;
-  isNewest: boolean;
-  reduced: boolean;
-  lineHeight?: number;
-}) {
-  const [entered, setEntered] = useState(false);
-
-  useEffect(() => {
-    const id = requestAnimationFrame(() => {
-      requestAnimationFrame(() => setEntered(true));
-    });
-    return () => cancelAnimationFrame(id);
-  }, []);
-
-  const phase: "enter" | "in" | "exit" = exiting ? "exit" : entered ? "in" : "enter";
-
-  const base: CSSProperties = {
-    overflow: "hidden",
-    transition:
-      "opacity 1.8s ease, transform 1.8s ease, max-height 1.6s ease, margin-top 1.6s ease",
-    willChange: "opacity, transform, max-height",
-  };
-  const style: CSSProperties =
-    phase === "enter"
-      ? { ...base, opacity: 0, transform: "translateY(8px)", maxHeight: lineHeight }
-      : phase === "in"
-        ? {
-            ...base,
-            opacity: opacityTarget,
-            transform: "translateY(0)",
-            maxHeight: lineHeight,
-          }
-        : {
-            ...base,
-            opacity: 0,
-            transform: "translateY(-14px)",
-            maxHeight: 0,
-            marginTop: -4,
-          };
-
-  return (
-    <div style={style}>
-      <GhostTypeOnce
-        text={it.text}
-        speed={typeSpeed}
-        showCursorWhenDone={isNewest && !exiting}
-        reduced={reduced}
-      />
-    </div>
-  );
-}
-
-export default function GhostReadout({
-  lines,
-  lineMs = 2400,
-  color = "var(--cl-gold)",
-  opacity = 0.45,
-  align = "right",
-  max = 5,
-  typeSpeed = 30,
-}: GhostReadoutProps) {
+export default function GhostReadout({ lines }: { lines: string[] }) {
   const reduced = useReducedMotion();
+  const [items, setItems] = useState<VoxLine[]>([]);
 
-  const initialItems = useMemo<Item[]>(() => {
-    if (!lines.length) return [];
-    if (reduced) {
-      const tail = lines.slice(0, Math.min(max, lines.length));
-      return tail.map((text, i) => ({ id: i + 1, text, exiting: false }));
-    }
-    return [{ id: 1, text: lines[0], exiting: false }];
-  }, [lines, max, reduced]);
-
-  const [items, setItems] = useState<Item[]>(initialItems);
-  const idxRef = useRef(reduced ? 0 : 1);
-  const idRef = useRef(initialItems.length);
-  const scheduledRef = useRef<Set<number>>(new Set());
-  const EXIT_MS = 1700;
-
-  // Lines is treated as stable; if it changes, callers should remount via key.
   useEffect(() => {
     if (reduced || !lines.length) return;
-    const tick = () => {
-      const text = lines[idxRef.current % lines.length];
-      idxRef.current++;
-      idRef.current++;
-      const newItem: Item = { id: idRef.current, text, exiting: false };
-      setItems((prev) => {
-        const next = [...prev, newItem];
-        const stableCount = next.filter((it) => !it.exiting).length;
-        if (stableCount > max) {
-          const i = next.findIndex((it) => !it.exiting);
-          if (i !== -1) next[i] = { ...next[i], exiting: true };
-        }
-        return next;
-      });
+    let disposed = false;
+    const timers = new Set<ReturnType<typeof setTimeout>>();
+    const later = (fn: () => void, ms: number) => {
+      const t = setTimeout(() => {
+        timers.delete(t);
+        if (!disposed) fn();
+      }, ms);
+      timers.add(t);
     };
-    const id = setInterval(tick, lineMs);
-    return () => clearInterval(id);
-  }, [lines, lineMs, max, reduced]);
 
-  useEffect(() => {
-    items.forEach((it) => {
-      if (it.exiting && !scheduledRef.current.has(it.id)) {
-        scheduledRef.current.add(it.id);
-        setTimeout(() => {
-          setItems((prev) => prev.filter((p) => p.id !== it.id));
-        }, EXIT_MS);
-      }
-    });
-  }, [items]);
+    let idx = 0;
+    let nextId = 1;
+    const addLine = () => {
+      const text = lines[idx % lines.length];
+      idx += 1;
+      const id = nextId;
+      nextId += 1;
+      setItems((prev) => {
+        const next = [...prev, { id, text, typed: 0, out: false }];
+        const stable = next.filter((l) => !l.out);
+        if (stable.length <= MAX_LINES) return next;
+        const oldest = stable[0];
+        later(() => setItems((p) => p.filter((l) => l.id !== oldest.id)), 1200);
+        return next.map((l) => (l.id === oldest.id ? { ...l, out: true } : l));
+      });
+      const typeNext = (n: number) => {
+        if (n > text.length) {
+          later(addLine, 3600);
+          return;
+        }
+        setItems((prev) => prev.map((l) => (l.id === id ? { ...l, typed: n } : l)));
+        later(() => typeNext(n + 1), 34 + (n % 3) * 14);
+      };
+      later(() => typeNext(1), 400);
+    };
 
-  const stable = items.filter((it) => !it.exiting);
+    later(addLine, 1600);
+    return () => {
+      disposed = true;
+      timers.forEach(clearTimeout);
+      setItems([]);
+    };
+  }, [lines, reduced]);
+
+  if (reduced) return null;
+
+  const stable = items.filter((l) => !l.out);
   const newestId = stable.length ? stable[stable.length - 1].id : null;
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: 4,
-        textAlign: align,
-        fontFamily: "var(--font-plex-mono)",
-        fontSize: 10.5,
-        lineHeight: 1.55,
-        letterSpacing: "0.15em",
-        textTransform: "uppercase",
-        color,
-        pointerEvents: "none",
-        textShadow: "0 1px 4px rgba(0,0,0,0.9)",
-      }}
-    >
-      {items.map((it) => {
-        const stableIndex = stable.findIndex((s) => s.id === it.id);
-        const fromBottom = stableIndex === -1 ? max : stable.length - 1 - stableIndex;
-        const ramp = Math.max(0, 1 - fromBottom * (1 / (max - 0.5)));
-        const opacityTarget = opacity * ramp;
+    <div className="site-vox" aria-hidden>
+      {items.map((l) => {
+        const si = stable.findIndex((s) => s.id === l.id);
+        const opacity = si === -1 ? 0 : RAMP[RAMP.length - stable.length + si];
         return (
-          <GhostRow
-            key={it.id}
-            it={it}
-            exiting={it.exiting}
-            opacityTarget={opacityTarget}
-            typeSpeed={typeSpeed}
-            isNewest={it.id === newestId}
-            reduced={reduced}
-          />
+          <div
+            key={l.id}
+            className={`site-vox__line${l.out ? " is-out" : ""}`}
+            style={{ opacity }}
+          >
+            {Array.from(l.text.slice(0, l.typed)).map((ch, i) => (
+              <span key={i} className="site-vox__ch">
+                {ch}
+              </span>
+            ))}
+            {l.id === newestId && <span className="site-vox__caret" />}
+          </div>
         );
       })}
     </div>

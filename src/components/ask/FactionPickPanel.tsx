@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import BtnFx from "@/components/shared/BtnFx";
 import type { FactionStarterKind, FactionStarterPick } from "@/lib/ask/faction-starters-schema";
 
 const KIND_LABEL: Record<FactionStarterKind, string> = {
@@ -37,10 +38,6 @@ export default function FactionPickPanel({ contextLabel, picks }: FactionPickPan
 
   return (
     <div className="ask-pick" aria-live="polite">
-      <p className="ask-pick__kicker">
-        <span className="ask-pick__role">Entry point</span>
-      </p>
-
       {/* Keyed on the pick so a reshuffle re-triggers the reveal (motion is
           gated on prefers-reduced-motion in CSS). */}
       <div className="ask-pick__body" key={safeIndex}>
@@ -53,8 +50,12 @@ export default function FactionPickPanel({ contextLabel, picks }: FactionPickPan
 
         <div className="ask-pick__actions">
           {pick.book ? (
-            <Link href={`/buch/${pick.book}`} className="lx-btn ask-pick__open">
+            <Link href={`/buch/${pick.book}`} className="lx-btn lx-btn--primary ask-pick__open">
               Open the book
+              <span className="lx-btn__mark" aria-hidden>
+                →
+              </span>
+              <BtnFx />
             </Link>
           ) : (
             <span className="ask-pick__pending">Not in the archive yet</span>

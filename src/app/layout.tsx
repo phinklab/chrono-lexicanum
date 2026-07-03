@@ -1,11 +1,28 @@
 import type { Metadata } from "next";
-import { Cinzel, Cormorant_Garamond, IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
+import {
+  Cardo,
+  Cinzel,
+  Cormorant_SC,
+  Cormorant_Unicase,
+  Fragment_Mono,
+} from "next/font/google";
 import SiteMenu from "@/components/chrome/SiteMenu";
 import SiteNav from "@/components/chrome/SiteNav";
+import SiteBrand from "@/components/chrome/SiteBrand";
+import RevealObserver from "@/components/shared/RevealObserver";
 import SiteLegal from "@/components/chrome/SiteLegal";
 import MediaPlayer from "@/components/chrome/MediaPlayer";
 import { NavProgressProvider } from "@/components/chrono/RouteProgress";
 import "./globals.css";
+
+// Display voice: Cormorant SC (small-caps titling face), Cinzel as the loaded
+// fallback — both feed --font-display in 00-tokens.css.
+const cormorantSC = Cormorant_SC({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-cormorant-sc",
+  display: "swap",
+});
 
 const cinzel = Cinzel({
   subsets: ["latin"],
@@ -14,43 +31,43 @@ const cinzel = Cinzel({
   display: "swap",
 });
 
-const cormorant = Cormorant_Garamond({
+// Waypoint voice (--font-unicase): the Chronicle's era-band stop labels.
+// Upright only — the face ships no italic.
+const cormorantUnicase = Cormorant_Unicase({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["400", "500"],
+  variable: "--font-cormorant-unicase",
+  display: "swap",
+});
+
+// Reading voice (--font-body).
+const cardo = Cardo({
+  subsets: ["latin"],
+  weight: ["400", "700"],
   style: ["normal", "italic"],
-  variable: "--font-cormorant",
+  variable: "--font-cardo",
   display: "swap",
 });
 
-const plexMono = IBM_Plex_Mono({
+// Telemetry voice (--font-mono): registry numbers, M-scale, vox lines.
+const fragmentMono = Fragment_Mono({
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  variable: "--font-plex-mono",
-  display: "swap",
-});
-
-// Space Grotesk is bound to the `--font-grotesk` token (declared in
-// 00-tokens.css). Its only styling consumer was the old Chronicle accordion
-// (`tlp-*` rules in 57-chronicle.css), removed in Board 121-P11 — the face is
-// therefore currently orphaned. Kept wired here deliberately: dropping the font
-// import + token is a P7 CSS/token-cleanup decision, out of P11 scope.
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-space-grotesk",
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-fragment-mono",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Chrono · Lexicanum — The 41st Millennium Novel Archive",
+    default: "Chrono Lexicanum — The 41st Millennium Novel Archive",
     template: "%s · Chrono Lexicanum",
   },
   description:
     "An interactive timeline, galaxy map, and recommendation engine for Warhammer 40,000 novels. Find your next book by era, faction, location or mood.",
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
   openGraph: {
-    title: "Chrono · Lexicanum",
+    title: "Chrono Lexicanum",
     description:
       "Explore Warhammer 40k novels by era, faction, place and tone. A fan-made archive.",
     type: "website",
@@ -76,7 +93,7 @@ export default function RootLayout({
       lang="en"
       data-palette="cold"
       data-theme="dark"
-      className={`${cinzel.variable} ${cormorant.variable} ${plexMono.variable} ${spaceGrotesk.variable}`}
+      className={`${cormorantSC.variable} ${cinzel.variable} ${cormorantUnicase.variable} ${cardo.variable} ${fragmentMono.variable}`}
     >
       <body suppressHydrationWarning>
         {/* Primary navigation: the left-edge SiteNav rail on hover-capable wide
@@ -85,6 +102,12 @@ export default function RootLayout({
             so both mount unconditionally and only one is ever visible. */}
         <SiteNav />
         <SiteMenu />
+        {/* Fixed wordmark, top-left — hidden on the Hub (the hero IS the
+            wordmark), the login gate and the map (own chrome). */}
+        <SiteBrand />
+        {/* One app-wide scroll-reveal observer (survives navigations and
+            catches Suspense-streamed content). */}
+        <RevealObserver />
         {/* The shared route-transition provider owns the one `useTransition`
             that drives the global pending beam + the inline search affordance.
             Both `children` and the `@modal` slot sit inside it so in-context

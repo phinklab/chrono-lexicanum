@@ -1,0 +1,229 @@
+<!-- ======================================================================
+     RUNDE 9 — PRAXIS · Nachbau der Live-Seite /compendium (Übersicht).
+     Runde-9-Korrekturen (Philipps Runde-8-Review): (1) Doppelungen
+     raus — die Primarchs-Tür sagte „20 sons of the Emperor" (Stat) UND
+     „20 primarchs" (Zähler): jede Tür trägt jetzt genau EINE Zahl-
+     Zeile + einen kurzen Blurb; die Kategorie-Nav im Mast verliert
+     ihre Zähler-Badges (die Zahlen wohnen in den Türen), die Mast-Sub
+     ist ein Satz. Ziel: ersten Infoload minimieren. (2) Hintergrund =
+     Live-BG (main-bg.webp right bottom — live läuft /compendium auf
+     variant="main"; der librarium-Entscheid aus R8 ist zurückgenommen).
+     (3) Auspex-Zwillinge im Mast, Cue mit fadendem Strich + Licht-
+     tropfen, Größen gehoben, Wortmarke ohne Punkt. Geteilte Blöcke:
+     praxis.css/praxis.js (Keys cl09). Kein .btn auf diesem Blatt.
+     ====================================================================== -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Praxis — Compendium</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cardo:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400..900&family=Fragment+Mono:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="praxis.css">
+
+<style>
+  .mast {
+    position: relative;
+    min-height: 74vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: flex-end;
+    text-align: center;
+    padding: 0 20px 6vh;
+  }
+  .mast .over, .mast h1, .mast .sub, .mast .catnav, .mast .cue {
+    position: relative; z-index: 3;
+  }
+  .mast .over {
+    font-size: 15px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--gold);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+    animation: enter 1s 0.15s var(--ease) both;
+  }
+  .mast h1 {
+    margin-top: 18px;
+    font-family: var(--disp);
+    font-weight: var(--disp-wght-hero);
+    font-optical-sizing: auto;
+    font-size: clamp(48px, 7.4vw, 112px);
+    line-height: 1;
+    letter-spacing: var(--disp-track);
+    text-shadow: 0 2px 26px rgba(0,0,0,0.85);
+    animation: enterTitle 1.35s 0.4s var(--ease) both;
+  }
+  .mast .sub {
+    margin-top: 20px;
+    font-style: italic; font-size: 19.5px; color: var(--dim);
+    max-width: 58ch;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+    animation: enter 1s 0.85s var(--ease) both;
+  }
+  .mast .catnav {
+    margin-top: 24px;
+    display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline;
+    gap: 4px 0;
+    font-size: 13.5px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--dim);
+    animation: enter 1s 1.05s var(--ease) both;
+  }
+  .mast .catnav a { padding: 0 9px; transition: color 0.3s; white-space: nowrap; }
+  .mast .catnav a:hover { color: var(--bone); }
+  .mast .catnav a.active { color: var(--gold); }
+  .mast .catnav a + a::before { content: "·"; color: var(--faint); padding-right: 16px; }
+  .mast .cue {
+    margin-top: 5vh;
+    animation: enter 1s 1.2s var(--ease) both;
+  }
+
+  main { max-width: 900px; margin: 0 auto; padding: 9vh 24px 90px; }
+
+  h2.section {
+    text-align: center;
+    display: flex; align-items: center; gap: 26px;
+    font-size: 14.5px; letter-spacing: 0.34em; text-transform: uppercase;
+    color: var(--gold); font-weight: 400;
+    margin: 0 0 8px;
+  }
+  h2.section::before, h2.section::after {
+    content: ""; flex: 1; border-top: 1px solid var(--hair);
+    transform: scaleX(0);
+    transition: transform 1.15s var(--ease) 0.2s;
+  }
+  h2.section::before { transform-origin: right center; }
+  h2.section::after  { transform-origin: left center; }
+  h2.section.is-seen::before, h2.section.is-seen::after { transform: scaleX(1); }
+
+  /* Die Türen: Factions führend, dann vier Register-Türen.
+     Runde 9: EINE Zahl-Zeile pro Tür (Bestand in Gold + Coverage in
+     Klammern der Mono-Stimme), kurzer Blurb, „View all". */
+  a.door {
+    display: block;
+    padding: 34px 18px 30px;
+    border-bottom: 1px solid var(--hair-soft);
+    text-align: center;
+    transition: background 0.3s;
+  }
+  a.door:hover, a.door:focus-visible { background: rgba(228, 221, 203, 0.03); }
+  a.door:focus-visible { outline: 1px solid var(--gold); outline-offset: -1px; }
+  .door h3 {
+    font-family: var(--disp); font-weight: var(--disp-wght);
+    font-optical-sizing: auto;
+    font-size: 40px; line-height: 1.05;
+    transition: color 0.3s;
+  }
+  a.door:hover h3 { color: var(--gold); }
+  .door.hero h3 { font-size: clamp(44px, 6vw, 64px); }
+  .door .stat {
+    margin-top: 10px;
+    font-family: var(--mono);
+    font-size: 12.5px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--faint);
+  }
+  .door .stat b { color: var(--gold); font-weight: 400; }
+  .door .blurb {
+    max-width: 52ch;
+    margin: 12px auto 0;
+    font-style: italic; font-size: 17px; color: var(--dim);
+  }
+  .door .go {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 13px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--faint);
+    transition: color 0.3s;
+  }
+  a.door:hover .go { color: var(--gold); }
+  .doors-grid { display: grid; grid-template-columns: 1fr 1fr; }
+  .doors-grid a.door { border-right: 1px solid var(--hair-soft); }
+  .doors-grid a.door:nth-child(2n) { border-right: 0; }
+  @media (max-width: 720px) {
+    .doors-grid { grid-template-columns: 1fr; }
+    .doors-grid a.door { border-right: 0; }
+  }
+</style>
+
+<div class="bg" aria-hidden="true" style="--art: url('../../public/img/main-bg.webp'); --art-pos: right bottom;">
+  <div class="photo"></div>
+  <div class="vignette"></div>
+  <div class="fade"></div>
+  <div class="scrim" id="scrim"></div>
+  <div class="grain"></div>
+</div>
+
+<nav class="rail" aria-label="Primary">
+  <a href="hub.html"><span class="rn">I</span><span class="rt">Home</span></a>
+  <a href="archiv.html"><span class="rn">II</span><span class="rt">Archive</span></a>
+  <a href="kompendium.html" class="here" aria-current="page"><span class="rn">III</span><span class="rt">Compendium</span></a>
+  <a href="ask.html"><span class="rn">IV</span><span class="rt">Ask</span></a>
+  <a href="chronik.html"><span class="rn">V</span><span class="rt">Chronicle</span></a>
+  <a href="#"><span class="rn">VI</span><span class="rt">Cartographer</span></a>
+</nav>
+
+<div class="brand">Chrono Lexicanum</div>
+<div class="vox" id="vox" aria-hidden="true" data-lines='["Compendivm · quinque portae","Fractio · 126 registered","Mvndvs · 154 charted","Persona · 418 named","Avctor · 87 traced"]'></div>
+
+<section class="mast">
+  <div class="auspex-pair" aria-hidden="true">
+    <div class="aus aus--main" data-auspex="520"></div>
+    <div class="aus aus--sec" data-auspex="300" style="--spa: 360s; --spb: 440s; --spc: 242s;"></div>
+  </div>
+
+  <p class="over">The Registry</p>
+  <h1>The Compendium</h1>
+  <p class="sub">Five doorways into the archive — each one leads to the books and voices that carry its story.</p>
+  <p class="catnav" role="group" aria-label="Categories">
+    <a class="active">Index</a>
+    <a href="fraktion.html">Factions</a>
+    <a>Primarchs</a>
+    <a href="charakter.html">Characters</a>
+    <a href="welt.html">Worlds</a>
+    <a>Authors</a>
+  </p>
+  <span class="cue">The five doorways</span>
+</section>
+
+<main>
+  <h2 class="section reveal">The Doorways</h2>
+
+  <a class="door hero reveal" href="fraktion.html">
+    <h3>Factions</h3>
+    <p class="stat"><b>126</b> factions · 1 862 appearances</p>
+    <p class="blurb">Pick an allegiance and see what sits behind it.</p>
+    <span class="go">View all Factions →</span>
+  </a>
+
+  <div class="doors-grid reveal">
+    <a class="door" href="charakter.html">
+      <h3>Primarchs</h3>
+      <p class="stat"><b>20</b> sons of the Emperor</p>
+      <p class="blurb">The demigods who led the Legions.</p>
+      <span class="go">View all Primarchs →</span>
+    </a>
+    <a class="door" href="charakter.html">
+      <h3>Characters</h3>
+      <p class="stat"><b>418</b> characters · 2 214 appearances</p>
+      <p class="blurb">Points of view, protagonists and foils.</p>
+      <span class="go">View all Characters →</span>
+    </a>
+    <a class="door" href="welt.html">
+      <h3>Worlds</h3>
+      <p class="stat"><b>154</b> worlds · 1 054 appearances</p>
+      <p class="blurb">Ranked by how often the archive visits them.</p>
+      <span class="go">View all Worlds →</span>
+    </a>
+    <a class="door" href="#">
+      <h3>Authors</h3>
+      <p class="stat"><b>87</b> authors · 896 works credited</p>
+      <p class="blurb">Every novel and story traced to its hand.</p>
+      <span class="go">View all Authors →</span>
+    </a>
+  </div>
+</main>
+
+<details class="study-note">
+  <summary>Studien-Notiz · Runde 9 — Praxis (Nachbau /compendium)</summary>
+  <div class="body">
+    <p><b>Runde-9-Korrekturen nach Philipps Review:</b> (1) <b>Doppelungen raus:</b> die Primarchs-Tür trug „20 sons of the Emperor" (Stat) UND „20 primarchs" (Zähler) — jede Tür hat jetzt genau EINE Mono-Zahl-Zeile (Bestand in Gold, Coverage dahinter) und einen kurzen Blurb; die separate Count-Zeile ist raus. Die Kategorie-Nav im Mast verliert ihre Zähler-Badges (die Zahlen wohnen in den Türen), die Mast-Sub ist auf einen Satz gekürzt, die Overline auf „The Registry". Ziel: den ersten Infoload der Seite minimieren. (2) <b>Hintergrund = Live:</b> /compendium läuft live auf variant="main" — main-bg.webp right bottom; der librarium.webp-Entscheid aus Runde 8 ist zurückgenommen (Live-Treue schlägt eigenes Blatt). (3) <b>Auspex-Zwillinge im Mast</b> (Live-Positionen, Ringe enger, ohne Sweep), Cue mit fadendem Strich + Lichttropfen, Wortmarke ohne Punkt, Größen gehoben (Türen-Blurbs 17 px, Nav 13.5 px).</p>
+    <p><b>Unverändert:</b> Factions führend in voller Breite, das Vierer-Raster darunter, Sigils bewusst weggelassen (Icon-Politik), Türen verlinken auf die Entity-Beispiele. Zähler sind plausible Demo-Werte (154 Welten = echter map-worlds-Bestand). Geteilte Blöcke in praxis.css/praxis.js (Keys cl09).</p>
+  </div>
+</details>
+
+<script src="praxis.js"></script>

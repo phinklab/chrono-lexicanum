@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import SiteBackground from "@/components/chrome/SiteBackground";
 import ScrollScrim from "@/components/chrome/ScrollScrim";
 import RouteScrollCue from "@/components/chrome/RouteScrollCue";
+import AuspexPair from "@/components/chrono/AuspexPair";
 import FloatingCoord from "@/components/chrono/FloatingCoord";
 import GhostReadout from "@/components/chrono/GhostReadout";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";
@@ -26,14 +27,12 @@ interface AskFactionPageProps {
   params: Promise<{ segments?: string[] }>;
 }
 
-/** Same readout voice as /ask, tilted to the faction tool. */
-const FACTION_READOUT_LINES = [
-  "· ARCHIVE · WHERE TO BEGIN",
-  "· TWO WAYS IN · ONLINE",
-  "· VNA FACTIO · VNVS LIBER",
-  "· ONE ARMY · ONE DOORWAY",
-  "· CVRATED · NOT A READING LIST",
-  "· ARCHIVE QUERY IS SERVER-SIDE",
+/** Same vox voice as /ask, tilted to the faction tool. */
+const FACTION_VOX_LINES = [
+  "Vna factio · vnvs liber",
+  "One army · one doorway",
+  "Cvrated · not a reading list",
+  "Cognitio link stable",
 ];
 
 /**
@@ -76,59 +75,34 @@ export default async function AskFactionPage({ params }: AskFactionPageProps) {
     <main className="ask route-snap">
       <SiteBackground variant="main" position="right bottom" />
       <ScrollScrim
-        className="ask-scrim"
-        varName="--ask-scrim-opacity"
+        className="site-scrim"
+        varName="--scrim-o"
         heroSelector=".ask-console__mast"
-        maxOpacity={0.77}
+        maxOpacity={0.94}
       />
-
-      <div className="ask-readout" aria-hidden>
-        <GhostReadout
-          color="var(--cl-gold)"
-          opacity={0.28}
-          lineMs={5200}
-          typeSpeed={78}
-          max={4}
-          lines={FACTION_READOUT_LINES}
-        />
-      </div>
-
-      <FloatingCoord
-        x="42%"
-        y="120px"
-        label="QUERY · PVBLIC"
-        delay={1.2}
-        lifetime={5}
-        color="var(--cl-gold)"
-        opacity={0.5}
-      />
-      <FloatingCoord
-        x="58%"
-        y="220px"
-        label="VNA FACTIO · VNVS LIBER"
-        delay={3}
-        lifetime={5}
-        color="var(--cl-gold)"
-        opacity={0.5}
-      />
+      <GhostReadout lines={FACTION_VOX_LINES} />
+      <FloatingCoord x="9%" y="30%" label="Vna factio · vnvs liber" delay={7} />
 
       <section className="ask-console" aria-labelledby="ask-faction-title">
         <header className="ask-console__mast route-act">
-          <p className="ask-console__eyebrow">{"LEXICANVM · WHERE TO BEGIN"}</p>
+          <AuspexPair />
+          <p className="ask-console__eyebrow">Where to Begin</p>
           <h1 id="ask-faction-title" className="ask-console__title">
             Find Your Next Book
           </h1>
-          <div className="ask-console__rule" aria-hidden />
-          <AskToolTabs active="faction" />
           <p className="ask-console__sub">
-            One faction, one book. Choose an army and the archive answers with a single curated
-            doorway — not a reading list. Drill into a chapter for a sharper pick, and reshuffle
-            when more than one is on file.
+            One faction, one book — choose an army and the archive answers with
+            a single curated doorway, not a reading list.
           </p>
-          <RouteScrollCue label="Choose a faction" target=".ask-console__grid" />
+          <RouteScrollCue
+            className="route-cue--flow"
+            label="Choose a faction"
+            target=".ask-console__grid"
+          />
         </header>
 
         <div className="ask-console__grid ask-faction__grid route-body-snap">
+          <AskToolTabs active="faction" />
           <FactionCarousel
             nodes={FACTION_STARTER_NODES}
             initialFactionSlug={faction?.slug ?? null}
@@ -138,7 +112,7 @@ export default async function AskFactionPage({ params }: AskFactionPageProps) {
       </section>
 
       <div className="ask-foot">
-        <ArchiveFooter mid="VNA FACTIO · VNVS LIBER" />
+        <ArchiveFooter mid="One faction · one book" />
       </div>
     </main>
   );

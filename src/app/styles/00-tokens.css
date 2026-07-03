@@ -24,21 +24,23 @@
  * ============================================================================= */
 
 @theme {
-  /* ── Chrono palette (the new void/cyan direction, post-096) ─────────────── */
-  --color-cl-void: #02030a;
-  --color-cl-void-2: #06080f;
-  --color-cl-plate: rgba(8, 12, 20, 0.78);
-  --color-cl-plate-2: rgba(4, 8, 14, 0.86);
-  --color-cl-bone: #e8dcc0;
-  --color-cl-dim: rgba(232, 220, 192, 0.62);
-  --color-cl-faint: rgba(232, 220, 192, 0.28);
-  --color-cl-ghost: rgba(232, 220, 192, 0.14);
+  /* ── Chrono palette (Brief 184: warm void, bone ink, matte gold) ────────── */
+  --color-cl-void: #050301;
+  --color-cl-void-2: #090806;
+  --color-cl-plate: rgba(12, 9, 5, 0.78);
+  --color-cl-plate-2: rgba(7, 5, 2, 0.86);
+  --color-cl-bone: #e4ddcb;
+  --color-cl-dim: #9a927e;
+  --color-cl-faint: #6a6455;
+  --color-cl-ghost: rgba(228, 221, 203, 0.14);
+  --color-cl-hair: rgba(228, 221, 203, 0.16);
+  --color-cl-hair-soft: rgba(228, 221, 203, 0.08);
   --color-cl-cyan: #9ce6ff;
   --color-cl-cyan-dim: rgba(156, 230, 255, 0.45);
   --color-cl-cyan-fnt: rgba(156, 230, 255, 0.18);
-  --color-cl-gold: #c9a65a;
-  --color-cl-gold-dim: #8a6f2c;
-  --color-cl-blood: #a51c1c;
+  --color-cl-gold: #a48c52;
+  --color-cl-gold-dim: #6f5c33;
+  --color-cl-blood: #8e3b32;
 
   /* ── Phase 1 palette (still used by stub routes) ────────────────────────── */
   --color-void-600: #26304a;
@@ -88,12 +90,14 @@
   --color-gold: oklch(0.86 0.10 90);
   --color-chaos: oklch(0.68 0.14 25);
 
-  /* ── Typography ─────────────────────────────────────────────────────────── */
-  --font-cinzel: Cinzel, serif;
-  --font-cormorant: 'Cormorant Garamond', serif;
-  --font-grotesk: 'Space Grotesk', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
-  --font-reader: Newsreader, serif;
+  /* ── Typography — three voices (Brief 184). next/font (layout.tsx) loads
+   *    the faces into --font-cormorant-sc / --font-cinzel / --font-cardo /
+   *    --font-fragment-mono on <html>. ─────────────────────────────────────── */
+  --font-display: var(--font-cormorant-sc), var(--font-cinzel), serif;
+  --font-body: var(--font-cardo), Georgia, serif;
+  --font-mono: var(--font-fragment-mono), ui-monospace, monospace;
+  /* Waypoint voice — era-band stop labels (Chronicle). Upright only. */
+  --font-unicase: var(--font-cormorant-unicase), var(--font-cinzel), serif;
 
   /* ── Animations ─────────────────────────────────────────────────────────── */
   --animate-fade-slide: fadeSlide 0.6s ease-out both;
@@ -190,6 +194,54 @@
   100% { opacity: 0; transform: scale(1.2); }
 }
 
+/* ── Brief-184 shared choreography (masthead overture, cue, HUD, buttons) ── */
+@keyframes enter {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes enterTitle {
+  from { opacity: 0; transform: translateY(28px); letter-spacing: 0.09em; }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes plumb {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+@keyframes cueDrop {
+  0%, 14%   { background-position: 0 -34px, 0 0; }
+  62%, 100% { background-position: 0 66px, 0 0; }
+}
+@keyframes survey {
+  0%, 100% { opacity: 0; }
+  6%, 40%  { opacity: 0.95; }
+  48%      { opacity: 0; }
+}
+@keyframes surveyRing {
+  0%, 100% { transform: scale(0.35); opacity: 0; }
+  6%       { transform: scale(1); opacity: 0.55; }
+  40%      { transform: scale(1); opacity: 0.55; }
+  48%      { transform: scale(1.15); opacity: 0; }
+}
+@keyframes voxCh {
+  from { opacity: 0; }
+}
+@keyframes voxBlink {
+  50% { opacity: 0.15; }
+}
+@keyframes blipTw {
+  50% { opacity: 0.25; }
+}
+@keyframes fxTurn {
+  to { transform: rotate(360deg); }
+}
+@keyframes dotBreathe {
+  50% { opacity: 0.55; }
+}
+@keyframes starTw {
+  0%, 100% { opacity: 0.9; }
+  50%      { opacity: 0.4; }
+}
+
 /* =============================================================================
  * Aliases for hand-written CSS.
  * These compose @theme tokens via color-mix() and var() chains; they do NOT
@@ -208,12 +260,28 @@
   --cl-dim:      var(--color-cl-dim);
   --cl-faint:    var(--color-cl-faint);
   --cl-ghost:    var(--color-cl-ghost);
+  --cl-hair:     var(--color-cl-hair);
+  --cl-hair-soft: var(--color-cl-hair-soft);
   --cl-cyan:     var(--color-cl-cyan);
   --cl-cyan-dim: var(--color-cl-cyan-dim);
   --cl-cyan-fnt: var(--color-cl-cyan-fnt);
   --cl-gold:     var(--color-cl-gold);
   --cl-gold-dim: var(--color-cl-gold-dim);
   --cl-blood:    var(--color-cl-blood);
+
+  /* Display-voice metrics (Cormorant SC runs on 500/600; wider tracking). */
+  --font-display-wght: 600;
+  --font-display-wght-hero: 500;
+  --font-display-track: 0.05em;
+
+  /* House ease for entrances and hairline growth. */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Compat forwards for surfaces not yet on the semantic names (map inline
+     styles, lab, /ingest). New CSS uses --font-display / --font-body / --font-mono. */
+  --font-plex-mono: var(--font-mono);
+  --font-cormorant: var(--font-body);
+  --font-reader: var(--font-body);
 
   --bg-strong: var(--color-bg-0);
   --fg-strong: var(--color-ink-0);
@@ -251,27 +319,22 @@
   --scrollbar-thumb-hover: rgba(232, 228, 216, 0.34);
 
   /* ── Type scale ────────────────────────────────────────────────────────────
-   * Global typographic system (Brief 120 polish). Tuned for the two text faces
-   * the site actually reads in: Cormorant Garamond (body / reading — a SMALL
-   * x-height serif that renders ~2px "small" at any given px, so it never
-   * compensated and bottomed out at 13–20px) and IBM Plex Mono (uppercase,
-   * tracked labels, whose floor had drifted down to 9–10px). Two role ladders;
-   * re-tune a whole role site-wide by editing one value here.
+   * Two role ladders, re-tuned for the Brief-184 faces: Cardo (body — larger
+   * x-height than the old Cormorant Garamond, so the px values step down) and
+   * Fragment Mono (naturally wide; 12px uppercase is the floor).
    *
-   *   --fs-read-*   → Cormorant reading text
-   *   --fs-label-*  → mono labels / tags / chips / eyebrows
+   *   --fs-read-*   → Cardo reading text
+   *   --fs-label-*  → mono labels / rubrics / telemetry
    */
-  --fs-read-xs:  16px;  /* dense / secondary prose (captions, table cells)   */
-  --fs-read-sm:  18px;  /* compact body                                      */
-  --fs-read:     clamp(20px, 1.65vw, 24px); /* standard body — 24px on desktop.
-                           Maintainer 2026-06-19: 22px read too small for the serif
-                           subtexts; 26px had been too big — 24 splits the two.   */
-  --fs-read-lg:  clamp(22px, 1.85vw, 27px); /* lead body — one step above       */
-  --fw-read:     500;   /* reading weight (400 reads thin on the void)       */
-  --lh-read:     1.62;  /* reading line-height (matches .ei-text)            */
+  --fs-read-xs:  16.5px; /* dense / secondary prose (roles, hints, captions) */
+  --fs-read-sm:  18px;   /* compact body                                     */
+  --fs-read:     19px;   /* standard body                                    */
+  --fs-read-lg:  21px;   /* lead body — one step above                       */
+  --fw-read:     400;
+  --lh-read:     1.6;
 
-  --fs-label-xs: 11px;  /* eyebrows & micro-captions   (was 8.5–10px)        */
-  --fs-label:    12px;  /* standard label / tag / chip (was 10–11px)         */
-  --fs-label-lg: 13px;  /* prominent label / button    (was 12–12.5px)       */
-  --fs-label-xl: 15px;  /* heading-grade mono — stepper/rail headers         */
+  --fs-label-xs: 12px;   /* micro telemetry — the uppercase floor            */
+  --fs-label:    12.5px; /* standard label / kicker                          */
+  --fs-label-lg: 13.5px; /* prominent label / rubric / button                */
+  --fs-label-xl: 15px;   /* heading-grade mono                               */
 }

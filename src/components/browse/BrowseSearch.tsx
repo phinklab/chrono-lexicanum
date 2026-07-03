@@ -172,14 +172,6 @@ export default function BrowseSearch({
       aria-busy={pending || undefined}
       onSubmit={onSearchSubmit}
     >
-      <svg className="browse-search__sigil" viewBox="0 0 16 16" aria-hidden>
-        <circle cx="8" cy="8" r="5.4" fill="none" stroke="currentColor" strokeWidth="1" />
-        <path
-          d="M8 0.5v3M8 12.5v3M0.5 8h3M12.5 8h3"
-          stroke="currentColor"
-          strokeWidth="1"
-        />
-      </svg>
       <input
         ref={inputRef}
         type="search"

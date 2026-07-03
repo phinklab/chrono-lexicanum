@@ -13,7 +13,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import SiteBackground from "@/components/chrome/SiteBackground";
-import AuspexSweep from "@/components/chrono/AuspexSweep";
+import AuspexPair from "@/components/chrono/AuspexPair";
 import FloatingCoord from "@/components/chrono/FloatingCoord";
 import GhostReadout from "@/components/chrono/GhostReadout";
 import ScrollScrim from "@/components/chrome/ScrollScrim";
@@ -78,69 +78,42 @@ export default async function PodcastShowPage({
   const span = yearSpan(show.firstPubYear, show.lastPubYear);
   const stats = `${show.episodeCount} episodes${span ? ` · ${span}` : ""}`;
 
-  // Honest readout — this show's real holdings, no pseudo-telemetry
-  // (Report 141; sibling of the index readout).
-  const readoutLines = [
-    "· VOX · ARCHIVVM SONORVM",
-    `· ${show.episodeCount} EPISODES${span ? ` · ${span}` : ""}`,
-    "· INDEX · ANNVS / FACTIO",
-    "· PLAY / DOWNLOAD / OPEN IN APP",
-    "· COGNITIO LINK STABLE",
+  // Honest vox — this show's real holdings, no pseudo-telemetry.
+  const voxLines = [
+    "Vox · archivvm sonorvm",
+    `${show.episodeCount} episodes${span ? ` · ${span}` : ""}`,
+    "Index · annvs / factio",
+    "Cognitio link stable",
   ];
 
   return (
     <main className="podcasts podcasts--show">
       <SiteBackground variant="main" position="right bottom" />
+      <GhostReadout lines={voxLines} />
 
-      {/* The same one-act hero shell as /archive + /archive/podcasts (the shared
-          .catalogue-hero classes): a 100dvh masthead with the title and auspex
-          parked low, a ghost readout and a NEXT scroll cue into the episode
-          body — so a show page opens with the same rhythm as its index
-          (maintainer polish 2026-06-20). */}
+      {/* The same one-act hero shell as /archive + /archive/podcasts (the
+          shared .catalogue-hero classes), so a show page opens with the same
+          rhythm as its index. */}
       <section className="catalogue-hero route-act" aria-label={show.title}>
-        <ScrollScrim maxOpacity={0.77} />
-        <div className="catalogue-hero__sweep" aria-hidden>
-          <AuspexSweep r={180} sweepDuration={18} accent="var(--cl-gold)" />
-        </div>
-        <div className="werke-hero__readout" aria-hidden>
-          <GhostReadout
-            color="var(--cl-gold)"
-            opacity={0.32}
-            lineMs={5000}
-            typeSpeed={80}
-            max={4}
-            lines={readoutLines}
-          />
-        </div>
-        <FloatingCoord
-          x="42%"
-          y="120px"
-          label="VOX · DECODE LOCK"
-          delay={1.2}
-          lifetime={5}
-          color="var(--cl-gold)"
-          opacity={0.55}
+        <ScrollScrim
+          className="site-scrim"
+          varName="--scrim-o"
+          heroSelector=".catalogue-hero"
+          maxOpacity={0.94}
         />
-        <FloatingCoord
-          x="58%"
-          y="220px"
-          label={`VOX · ${show.episodeCount} EP`}
-          delay={3.0}
-          lifetime={5}
-          color="var(--cl-gold)"
-          opacity={0.55}
+        <AuspexPair quiet />
+        <FloatingCoord x="10%" y="32%" label="Vox · decode lock" delay={9} />
+
+        <p className="catalogue-hero__over">Podcast</p>
+        <h1 className="catalogue-hero__heading catalogue-hero__heading--show">
+          {show.title}
+        </h1>
+        <p className="catalogue-hero__edition">{stats} · entity-tagged, newest first.</p>
+        <RouteScrollCue
+          className="route-cue--flow"
+          label="Browse the episodes"
+          target=".pod-body"
         />
-        <div className="catalogue-hero__title">
-          <div className="catalogue-hero__eyebrow">{"VOX · ARCHIVVM SONORVM"}</div>
-          <h1 className="catalogue-hero__heading catalogue-hero__heading--show">
-            {show.title}
-          </h1>
-          <div className="catalogue-hero__rule" aria-hidden />
-          <p className="catalogue-hero__sub">
-            {stats} · entity-tagged, newest first.
-          </p>
-        </div>
-        <RouteScrollCue label="Browse the episodes" target=".pod-body" />
       </section>
 
       <div className="pod-body route-body-snap">

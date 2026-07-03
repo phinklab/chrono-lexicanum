@@ -1,0 +1,362 @@
+<!-- ======================================================================
+     RICHTUNG 03 — PLAKAT · Fläche: Map-Mock (Cartographer)
+     Die Galaxie als Schwarzes Plakat. Studie zu Brief 184.
+     Standalone — liest echte Koordinaten aus ../data/worlds.js.
+     ====================================================================== -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plakat — Cartographer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --blk:   #141310;
+    --blk-2: #1b1a16;
+    --bone:  #ece5d3;
+    --bone-dim: #b8b1a0;
+    --grey:  #7f7969;
+    --red:   #d5311f;
+    --line:  rgba(236, 229, 211, 0.16);
+    --line-strong: rgba(236, 229, 211, 0.4);
+    --disp: "Anton", sans-serif;
+    --text: "Spectral", serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { background: var(--blk); }
+  body {
+    font-family: var(--text);
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--bone);
+    background: var(--blk);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--red); color: var(--bone); }
+  a { color: inherit; text-decoration: none; }
+
+  .sheet { max-width: 1320px; margin: 0 auto; padding: 0 40px 100px; }
+
+  .strip {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 0;
+    border-bottom: 4px solid var(--bone);
+  }
+  .strip .brand { font-family: var(--disp); font-size: 17px; letter-spacing: 0.12em; text-transform: uppercase; }
+  .strip .brand span { color: var(--red); }
+  .strip nav { display: flex; gap: 26px; font-family: var(--disp); font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .strip nav a { color: var(--bone-dim); padding-bottom: 2px; }
+  .strip nav a:hover { color: var(--bone); }
+  .strip nav a.here { color: var(--red); border-bottom: 3px solid var(--red); }
+
+  /* ── Plakatkopf ───────────────────────────────────────────────────── */
+  header.poster {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 32px;
+    align-items: end;
+    padding: 46px 0 26px;
+  }
+  .poster h1 {
+    font-family: var(--disp);
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: clamp(64px, 10vw, 136px);
+    line-height: 0.88;
+  }
+  .poster h1 .red { color: var(--red); }
+  .poster .side {
+    padding-bottom: 12px;
+    padding-left: 18px;
+    border-left: 4px solid var(--red);
+    font-size: 15px;
+    color: var(--bone-dim);
+  }
+  .poster .side b { color: var(--bone); font-weight: 500; }
+
+  /* Era-Chips */
+  .band {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+  }
+  .band .lbl {
+    font-family: var(--disp);
+    font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--grey);
+    margin-right: 8px;
+  }
+  .chip {
+    font-family: var(--disp);
+    font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 8px 16px 7px;
+    border: 1px solid var(--line-strong);
+    color: var(--bone-dim);
+    cursor: pointer;
+  }
+  .chip:hover { color: var(--bone); border-color: var(--bone); }
+  .chip.on { background: var(--red); border-color: var(--red); color: var(--bone); }
+
+  /* ── Karte ────────────────────────────────────────────────────────── */
+  .chart-block {
+    border-top: 4px solid var(--bone);
+    border-bottom: 4px solid var(--bone);
+    position: relative;
+    background: #0e0d0b;
+  }
+  .chart-wrap { position: relative; width: 100%; aspect-ratio: 1000 / 700; overflow: hidden; }
+  .chart-wrap svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+  /* Callout: Prospero */
+  .callout {
+    position: absolute;
+    left: 53%;
+    top: 30%;
+    width: 260px;
+    background: var(--bone);
+    color: var(--blk);
+    padding: 18px 20px 16px;
+    box-shadow: 8px 8px 0 var(--red);
+  }
+  .callout .name {
+    font-family: var(--disp);
+    font-size: 28px;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .callout .cls { font-style: italic; font-size: 13.5px; color: #55504a; margin: 4px 0 10px; }
+  .callout ul { list-style: none; border-top: 2px solid var(--blk); }
+  .callout li {
+    padding: 6px 0 5px;
+    border-bottom: 1px solid rgba(20, 19, 16, 0.18);
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .callout li i { font-size: 12px; color: #55504a; }
+  .callout .more {
+    display: inline-block;
+    margin-top: 10px;
+    font-family: var(--disp);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--red);
+  }
+  .callout .more:hover { text-decoration: underline; }
+
+  /* Legende als Chip-Strip */
+  .legend-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .lg {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-family: var(--disp);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid var(--line-strong);
+    padding: 8px 14px 7px;
+    color: var(--bone-dim);
+    cursor: pointer;
+  }
+  .lg:hover { color: var(--bone); border-color: var(--bone); }
+  .lg .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--bone); }
+  .lg .dot.red { background: var(--red); }
+  .lg .dot.hollow { background: transparent; border: 1.5px solid var(--bone); }
+  .lg .dot.x { background: transparent; position: relative; border-radius: 0; }
+  .lg .dot.x::before, .lg .dot.x::after {
+    content: ""; position: absolute; left: 4px; top: -1px; width: 1.5px; height: 11px; background: var(--grey);
+  }
+  .lg .dot.x::before { transform: rotate(45deg); }
+  .lg .dot.x::after { transform: rotate(-45deg); }
+  .lg .dot.small { width: 5px; height: 5px; background: var(--grey); }
+  .lg .n { color: var(--grey); font-size: 11px; }
+  .legend-strip .note { margin-left: auto; font-style: italic; font-size: 13.5px; color: var(--grey); }
+
+  footer.base {
+    margin-top: 72px;
+    border-top: 4px solid var(--bone);
+    padding-top: 16px;
+    display: flex; justify-content: space-between;
+    font-size: 13px; font-style: italic; color: var(--grey);
+  }
+
+  details.study-note {
+    margin-top: 40px;
+    border: 1px solid var(--line-strong);
+    background: var(--blk-2);
+    padding: 16px 20px;
+    font-size: 15px;
+  }
+  details.study-note summary {
+    cursor: pointer;
+    font-family: var(--disp);
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--red);
+  }
+  details.study-note .body { margin-top: 12px; max-width: 80ch; line-height: 1.6; }
+  details.study-note p { margin-bottom: 8px; }
+  details.study-note b { color: var(--bone); font-weight: 500; }
+
+  @media (max-width: 900px) {
+    .sheet { padding: 0 18px 64px; }
+    header.poster { grid-template-columns: 1fr; }
+    .callout { position: static; width: auto; margin: 0 16px 16px; }
+    .legend-strip .note { margin-left: 0; width: 100%; }
+  }
+</style>
+
+<div class="sheet">
+
+  <div class="strip">
+    <div class="brand">Chrono<span>·</span>Lexicanum</div>
+    <nav>
+      <a href="#">Chronicle</a>
+      <a href="#" class="here">Cartographer</a>
+      <a href="archiv.html">Archive</a>
+      <a href="#">Ask</a>
+    </nav>
+  </div>
+
+  <header class="poster">
+    <h1>The Gal<span class="red">axy.</span></h1>
+    <p class="side"><b>1 054 worlds. 13 regions. One long war.</b> Every dot is a place the Black Library has written about — the red ones belong to the enemy.</p>
+  </header>
+
+  <div class="band">
+    <span class="lbl">Epoch</span>
+    <span class="chip">Heresy · M31</span>
+    <span class="chip on">Dark Millennium · M41</span>
+    <span class="chip">Everything</span>
+  </div>
+
+  <section class="chart-block">
+    <div class="chart-wrap" id="chart">
+      <aside class="callout">
+        <p class="name">Prospero</p>
+        <p class="cls">Dead world · Segmentum Ultima · 21 works</p>
+        <ul>
+          <li>A Thousand Sons <i>— primary</i></li>
+          <li>Ahriman: The Omnibus</li>
+          <li>Age of Darkness</li>
+        </ul>
+        <a class="more" href="buch.html">+18 more — open the record →</a>
+      </aside>
+    </div>
+  </section>
+
+  <div class="legend-strip">
+    <span class="lg"><span class="dot"></span> Imperium <span class="n">387</span></span>
+    <span class="lg"><span class="dot red"></span> Ruinous <span class="n">95</span></span>
+    <span class="lg"><span class="dot hollow"></span> Xenos <span class="n">117</span></span>
+    <span class="lg"><span class="dot x"></span> Dead <span class="n">90</span></span>
+    <span class="lg"><span class="dot small"></span> Stations, fleets &amp; the unnamed <span class="n">352</span></span>
+    <span class="note">Dot size = how much has been written there. Full 12-kind filter lives in the panel, not the paint.</span>
+  </div>
+
+  <footer class="base">
+    <span>Chrono · Lexicanum — a fan archive. Coordinates after the community survey.</span>
+    <span>Chart No. 1 / M3.2026</span>
+  </footer>
+
+  <details class="study-note">
+    <summary>Studien-Notiz · Richtung 03 — Plakat</summary>
+    <div class="body">
+      <p><b>Diese Fläche:</b> Die Galaxie als Plakatgrafik. Regionsnamen laufen in roter Anton über die Karte — sie SIND das Karten-Chrome; es gibt kein Panel, kein Gradnetz, keinen HUD-Rahmen, nur zwei dicke Knochenbalken oben und unten. Das Popup ist eine Knochen-Karte mit hartem rotem Versatz-Schatten.</p>
+      <p><b>Bewusste Reduktion:</b> Das Plakat fährt die 12 kind-Gruppen auf 5 sichtbare Marker-Klassen zusammen (Imperium / Ruinous / Xenos / Dead / Kleinzeug) — Vollfilterung bleibt Aufgabe der Filterleiste, nicht der Farbe. Das ist der größte inhaltliche Unterschied zu Richtung 02, die den vollen Farbkontrakt zeigt: Poster-Lesbarkeit gegen Instrument-Präzision.</p>
+    </div>
+  </details>
+
+</div>
+
+<script src="../data/worlds.js"></script>
+<script>
+  /* Plakat-Karte: 5 Marker-Klassen, Regionsnamen als rote Anton-Typo. */
+  (function () {
+    const NS = "http://www.w3.org/2000/svg";
+    const D = window.CL_WORLDS;
+    const W = 1000, H = 700;           /* Plakat beschneidet unten leicht */
+
+    const BONE = "#ece5d3", RED = "#d5311f", GREY = "#7f7969";
+
+    /* kind → Plakat-Klasse */
+    const CLASS = {
+      "imperial": "imp", "imperial-military": "imp",
+      "chaos-warp": "ruin",
+      "xenos": "xen", "necron": "xen", "aeldari": "xen",
+      "dead": "dead",
+      "station": "min", "gate": "min", "fleet": "min", "unclassified": "min",
+    };
+
+    const svg = document.createElementNS(NS, "svg");
+    svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+    document.getElementById("chart").insertBefore(svg, document.getElementById("chart").firstChild);
+
+    const el = (name, attrs) => {
+      const n = document.createElementNS(NS, name);
+      for (const k in attrs) n.setAttribute(k, attrs[k]);
+      return n;
+    };
+
+    const draw = (cls, x, y, r, dim) => {
+      const o = dim ? .4 : .95;
+      if (cls === "imp") {
+        svg.appendChild(el("circle", { cx: x, cy: y, r: r, fill: BONE, "fill-opacity": o }));
+      } else if (cls === "ruin") {
+        svg.appendChild(el("circle", { cx: x, cy: y, r: r + .3, fill: RED, "fill-opacity": Math.min(1, o + .05) }));
+      } else if (cls === "xen") {
+        svg.appendChild(el("circle", { cx: x, cy: y, r: r, fill: "none", stroke: BONE, "stroke-opacity": o, "stroke-width": 1.1 }));
+      } else if (cls === "dead") {
+        const s = r * .95;
+        svg.appendChild(el("line", { x1: x - s, y1: y - s, x2: x + s, y2: y + s, stroke: GREY, "stroke-opacity": o, "stroke-width": 1.2 }));
+        svg.appendChild(el("line", { x1: x - s, y1: y + s, x2: x + s, y2: y - s, stroke: GREY, "stroke-opacity": o, "stroke-width": 1.2 }));
+      } else {
+        svg.appendChild(el("circle", { cx: x, cy: y, r: Math.max(1, r * .55), fill: GREY, "fill-opacity": o * .8 }));
+      }
+    };
+
+    /* Hintergrund-Welten (gedimmt) */
+    for (const [gx, gy, ki] of D.background) {
+      if (gy > H) continue;
+      draw(CLASS[D.kinds[ki]] || "min", gx, gy, 1.7, true);
+    }
+
+    /* Welten mit Werken — Größe = Werkzahl */
+    for (const w of D.featured) {
+      if (w.gy > H) continue;
+      draw(CLASS[w.kind] || "min", w.gx, w.gy, 2.2 + Math.min(4.2, Math.log2(1 + w.n)), false);
+    }
+
+    /* Regionsnamen: rote Anton-Typo als Kartenbeschriftung */
+    for (const r of D.regions) {
+      if (r.gy > H - 10) continue;
+      const t = el("text", {
+        x: r.gx, y: r.gy,
+        "text-anchor": "middle",
+        fill: RED, "fill-opacity": .85,
+        "font-family": "'Anton', sans-serif",
+        "font-size": 19,
+        "letter-spacing": 2.5,
+      });
+      t.textContent = r.name.toUpperCase();
+      svg.appendChild(t);
+    }
+
+    /* Selektion: Prospero — rote Zielringe + fetter Leader zum Callout */
+    const sel = D.featured.find(w => w.name === "Prospero");
+    if (sel) {
+      svg.appendChild(el("circle", { cx: sel.gx, cy: sel.gy, r: 13, fill: "none", stroke: RED, "stroke-width": 2.6 }));
+      svg.appendChild(el("circle", { cx: sel.gx, cy: sel.gy, r: 21, fill: "none", stroke: RED, "stroke-width": 1 }));
+      svg.appendChild(el("line", { x1: sel.gx + 20, y1: sel.gy - 14, x2: sel.gx + 58, y2: sel.gy - 62, stroke: RED, "stroke-width": 2.4 }));
+    }
+  })();
+</script>

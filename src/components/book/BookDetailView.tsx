@@ -1,14 +1,14 @@
 /**
  * Book-detail body — the db-free view shared by the canonical `/buch/[slug]`
- * page and the `@modal/(.)buch` overlay (Brief 120 polish). Mirrors the entity
- * arc's `EntityView`: one server component, rendered into both the full page
- * and the client modal shell, so the two can never drift.
+ * page and the `@modal/(.)buch` overlay. One server component rendered into
+ * both surfaces, so the two can never drift.
  *
- * Everything that used to live inside `<main className="book-detail">` EXCEPT
- * the `<SiteBackground>` and the `<main>` wrapper itself lives here — the page
- * keeps the page chrome, the modal supplies its own dark ground. All
- * `book-detail__*` class names are unchanged, so `51-book-detail.css` styles
- * this identically in both contexts.
+ * Brief 184: the record speaks the title-page language on the centre axis —
+ * format rubric, the title as the cover, byline with series, era line, then
+ * Synopsis → Appendix (dramatis personae / factions / locations with roles) →
+ * motifs → Acquire → the quiet provenance link. All information of the old
+ * layout is retained; only the cover image is retired (the title is the
+ * cover — Brief 184 canon).
  */
 import Link from "next/link";
 import { entityHref } from "@/lib/entity/types";
@@ -19,8 +19,8 @@ import { type AudioCreditData } from "@/components/book/AudioCredit";
 import { type BookDetail } from "@/lib/book/loadBook";
 import { type StoreRegion } from "@/lib/store-links";
 
-function roleSuffix(role: string | null, defaultRole: string): string {
-  return role && role !== defaultRole ? ` · ${role}` : "";
+function roleLabel(role: string | null, fallback: string): string {
+  return (role ?? fallback).replace(/_/g, " ");
 }
 
 const AUDIO_ROLES = new Set(["narrator", "co_narrator", "full_cast"]);
@@ -52,6 +52,40 @@ function buildAudioCredit(
   return { kind: "ensemble", names };
 }
 
+function AppendixColumn({
+  heading,
+  entries,
+}: {
+  heading: string;
+  entries: {
+    key: string;
+    name: string;
+    href: string;
+    role: string;
+  }[];
+}) {
+  if (entries.length === 0) return null;
+  return (
+    <div className="book-detail__appendix-col">
+      <h3 className="book-detail__appendix-head">{heading}</h3>
+      <ul>
+        {entries.map((e) => (
+          <li key={e.key}>
+            <Link href={e.href}>{e.name}</Link>
+            <span
+              className={`book-detail__role${
+                e.role === "antagonist" ? " book-detail__role--antagonist" : ""
+              }`}
+            >
+              {e.role}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export default function BookDetailView({
   book,
   region,
@@ -64,174 +98,124 @@ export default function BookDetailView({
   const authorRows = book.persons.filter((p) => p.role === "author");
   const authors = authorRows.map((p) => p.name);
   const formatLabel = book.format ? FORMAT_LABELS[book.format] ?? book.format : null;
-  const metaParts = [
-    book.releaseYear != null ? String(book.releaseYear) : null,
-    formatLabel,
-    book.eraName,
-    book.seriesName
-      ? `${book.seriesName}${book.seriesIndex ? ` #${book.seriesIndex}` : ""}`
-      : null,
-  ].filter((v): v is string => Boolean(v));
+  const seriesLine = book.seriesName
+    ? `${book.seriesName}${book.seriesIndex ? ` #${book.seriesIndex}` : ""}`
+    : null;
+  const hasAppendix =
+    book.characters.length + book.factions.length + book.locations.length > 0;
 
   return (
-    <div className="book-detail__layout">
-      <div className="book-detail__rail">
-        <aside className="book-detail__cover-panel">
-          {book.coverUrl ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={book.coverUrl}
-              alt=""
-              width={220}
-              height={330}
-              className="book-detail__cover-img"
-            />
-          ) : (
-            <div className="book-detail__cover-missing" aria-hidden>
-              ?
-            </div>
-          )}
-        </aside>
+    <article className="book-detail__body">
+      <p className="book-detail__rubric">{formatLabel ?? "Book"}</p>
+      <h1 className="book-detail__title">{book.title}</h1>
 
-        <BuyListenActions
-          title={book.title}
-          author={authors[0] ?? null}
-          isbn={isbn}
-          region={region}
-          audio={audioCredit}
-        />
+      {authorRows.length > 0 && (
+        <p className="book-detail__byline">
+          by{" "}
+          {authorRows.map((a, i) => (
+            <span key={a.id}>
+              {i > 0 && ", "}
+              <Link
+                href={entityHref({ type: "person", id: a.id, name: a.name })}
+                className="book-detail__byline-link"
+              >
+                {a.name}
+              </Link>
+            </span>
+          ))}
+          {seriesLine && <> · {seriesLine}</>}
+        </p>
+      )}
 
-        <RegionSwitcher active={region} />
-      </div>
+      {book.eraName && <p className="book-detail__chrono">{book.eraName}</p>}
+      {book.releaseYear != null && (
+        <p className="book-detail__pub">First published {book.releaseYear}</p>
+      )}
 
-      <article className="book-detail__title-block">
-        <div className="book-detail__eyebrow">{"LECTIO PROFVNDA · BOOK"}</div>
-        <h1 className="book-detail__title">{book.title}</h1>
+      {book.containedIn.length > 0 && (
+        <p className="book-detail__contained">
+          Also contained in:{" "}
+          {book.containedIn.map((c, i) => (
+            <span key={c.collectionSlug}>
+              {i > 0 && ", "}
+              <Link
+                href={`/buch/${c.collectionSlug}`}
+                className="book-detail__contained-link"
+              >
+                {c.collectionTitle}
+              </Link>
+            </span>
+          ))}
+        </p>
+      )}
 
-        {authorRows.length > 0 && (
-          <p className="book-detail__byline">
-            by{" "}
-            {authorRows.map((a, i) => (
-              <span key={a.id}>
-                {i > 0 && ", "}
-                <Link
-                  href={entityHref({ type: "person", id: a.id, name: a.name })}
-                  className="book-detail__byline-link"
-                >
-                  {a.name}
-                </Link>
-              </span>
-            ))}
-          </p>
-        )}
-
-        {metaParts.length > 0 && (
-          <p className="book-detail__meta">{metaParts.join(" · ")}</p>
-        )}
-
-        {book.containedIn.length > 0 && (
-          <p className="book-detail__contained">
-            Also contained in:{" "}
-            {book.containedIn.map((c, i) => (
-              <span key={c.collectionSlug}>
-                {i > 0 && ", "}
-                <Link
-                  href={`/buch/${c.collectionSlug}`}
-                  className="book-detail__contained-link"
-                >
-                  {c.collectionTitle}
-                </Link>
-              </span>
-            ))}
-          </p>
-        )}
-
-        {book.synopsis && (
+      {book.synopsis && (
+        <>
+          <h2 className="lx-sect book-detail__sect">Synopsis</h2>
           <p className="book-detail__synopsis">{book.synopsis}</p>
-        )}
+        </>
+      )}
 
-        {book.factions.length > 0 && (
-          <section className="book-detail__section">
-            <div className="book-detail__section-label">{"FACTIONS"}</div>
-            <ul className="book-detail__chip-row">
-              {book.factions.map((f) => (
-                <li key={f.id}>
-                  <Link
-                    href={entityHref({ type: "faction", id: f.id, name: f.name })}
-                    className="book-detail__chip book-detail__chip--link"
-                  >
-                    {f.name}
-                    {roleSuffix(f.role, "supporting")}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
+      {hasAppendix && (
+        <>
+          <h2 className="lx-sect book-detail__sect">Appendix</h2>
+          <div className="book-detail__appendix">
+            <AppendixColumn
+              heading="Dramatis Personae"
+              entries={book.characters.map((c) => ({
+                key: c.id,
+                name: c.name,
+                href: entityHref({ type: "character", id: c.id, name: c.name }),
+                role: roleLabel(c.role, "appears"),
+              }))}
+            />
+            <AppendixColumn
+              heading="Factions"
+              entries={book.factions.map((f) => ({
+                key: f.id,
+                name: f.name,
+                href: entityHref({ type: "faction", id: f.id, name: f.name }),
+                role: roleLabel(f.role, "supporting"),
+              }))}
+            />
+            <AppendixColumn
+              heading="Locations"
+              entries={book.locations.map((l) => ({
+                key: l.id,
+                name: l.name,
+                href: entityHref({ type: "location", id: l.id, name: l.name }),
+                role: roleLabel(l.role, "secondary"),
+              }))}
+            />
+          </div>
+        </>
+      )}
 
-        {book.locations.length > 0 && (
-          <section className="book-detail__section">
-            <div className="book-detail__section-label">{"LOCATIONS"}</div>
-            <ul className="book-detail__chip-row">
-              {book.locations.map((l) => (
-                <li key={l.id}>
-                  <Link
-                    href={entityHref({ type: "location", id: l.id, name: l.name })}
-                    className="book-detail__chip book-detail__chip--link"
-                  >
-                    {l.name}
-                    {roleSuffix(l.role, "secondary")}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
+      {book.facets.length > 0 && (
+        <p className="book-detail__motifs">
+          {book.facets.map((f, i) => (
+            <span key={`${f.category}-${f.name}`}>
+              {i > 0 && <span className="book-detail__motif-sep"> · </span>}
+              {f.name}
+            </span>
+          ))}
+        </p>
+      )}
 
-        {book.characters.length > 0 && (
-          <section className="book-detail__section">
-            <div className="book-detail__section-label">{"CHARACTERS"}</div>
-            <ul className="book-detail__chip-row">
-              {book.characters.map((c) => (
-                <li key={c.id}>
-                  <Link
-                    href={entityHref({ type: "character", id: c.id, name: c.name })}
-                    className="book-detail__chip book-detail__chip--link"
-                  >
-                    {c.name}
-                    {roleSuffix(c.role, "appears")}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
+      <BuyListenActions
+        title={book.title}
+        author={authors[0] ?? null}
+        isbn={isbn}
+        region={region}
+        audio={audioCredit}
+      />
+      <RegionSwitcher active={region} />
 
-        {book.facets.length > 0 && (
-          <section className="book-detail__section">
-            <div className="book-detail__section-label">{"FACETS"}</div>
-            <ul className="book-detail__chip-row">
-              {book.facets.map((f) => (
-                <li
-                  key={`${f.category}-${f.name}`}
-                  className="book-detail__chip book-detail__chip--mute"
-                >
-                  {f.name}
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
-
-        <footer className="book-detail__footer">
-          <Link
-            href={`/buch/${book.slug}/audit`}
-            className="book-detail__audit-link"
-          >
-            {"audit"}
-          </Link>
-        </footer>
-      </article>
-    </div>
+      <footer className="book-detail__footer">
+        <Link href={`/buch/${book.slug}/audit`} className="book-detail__audit-link">
+          Provenance &amp; audit record →
+        </Link>
+      </footer>
+    </article>
   );
 }

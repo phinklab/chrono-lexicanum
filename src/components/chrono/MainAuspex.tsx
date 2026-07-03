@@ -1,10 +1,11 @@
 /**
- * MainAuspex — the big rotating HUD disc. Concentric rings, tick ring,
- * counter-rotating mid ring, cardinal axes, bearing labels, sector
- * wedges, central node, blips, sweep arm.
+ * MainAuspex — the rotating HUD disc of the hero mastheads. Concentric rings
+ * in a tight band (0.58–0.96 r), tick ring, counter-rotating dot ring,
+ * cardinal axes with bearing labels, bearing arcs, spinning cogitator core,
+ * five twinkling contacts. No sweep arm (Brief 184).
  *
  * Pure SVG + CSS keyframes. Server component — no state, no hooks.
- * Reduced-motion is handled globally in globals.css.
+ * Reduced-motion is stilled globally (10-base.css).
  */
 
 type MainAuspexProps = {
@@ -12,7 +13,7 @@ type MainAuspexProps = {
   accent?: string;
   spinDur?: number;
   spinRevDur?: number;
-  sweepDur?: number;
+  coreDur?: number;
 };
 
 function describeArc(r: number, a0: number, a1: number) {
@@ -27,32 +28,22 @@ function describeArc(r: number, a0: number, a1: number) {
 }
 
 export default function MainAuspex({
-  size = 480,
-  accent = "var(--cl-cyan)",
-  spinDur = 80,
-  spinRevDur = 110,
-  sweepDur = 10,
+  size = 520,
+  accent = "var(--cl-gold)",
+  spinDur = 240,
+  spinRevDur = 320,
+  coreDur,
 }: MainAuspexProps) {
   const r = size / 2;
-  const uid = `ma-${size}-${spinDur}`;
   const ticks = Array.from({ length: 72 });
-  const dotsCount = Array.from({ length: 16 });
-  // Blips as fractions of the radius (were fixed px, so on the smaller disc they
-  // spilled outside the rings) and pulled in toward the centre so they read as
-  // part of the instrument on every size.
-  const blipFracs: Array<[number, number]> = [
-    [0.34, -0.13],
-    [0.21, 0.24],
-    [-0.4, 0.16],
-    [-0.27, -0.35],
-    [0.46, -0.23],
-    [0.11, 0.42],
-    [-0.44, 0.36],
+  const dots = Array.from({ length: 16 });
+  const blips: Array<[number, number, number]> = [
+    [0.34, -0.13, 0],
+    [0.21, 0.24, 2.4],
+    [-0.4, 0.16, 4.2],
+    [0.46, -0.23, 6.1],
+    [-0.27, -0.35, 7.7],
   ];
-  const blips: Array<[number, number]> = blipFracs.map(([fx, fy]) => [
-    fx * r,
-    fy * r,
-  ]);
 
   return (
     <svg
@@ -62,13 +53,7 @@ export default function MainAuspex({
       style={{ display: "block", overflow: "visible" }}
       aria-hidden
     >
-      <defs>
-        <linearGradient id={`${uid}-sweep`} x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor={accent} stopOpacity="0" />
-          <stop offset="100%" stopColor={accent} stopOpacity="0.85" />
-        </linearGradient>
-      </defs>
-
+      {/* Tick ring (spins forward) */}
       <g
         style={{
           transformOrigin: "center",
@@ -80,7 +65,7 @@ export default function MainAuspex({
           const a = ((i * 5 - 90) * Math.PI) / 180;
           const long = i % 6 === 0;
           const r1 = r * 0.92;
-          const r2 = r * (long ? 0.98 : 0.94);
+          const r2 = r * (long ? 0.985 : 0.945);
           return (
             <line
               key={i}
@@ -96,7 +81,8 @@ export default function MainAuspex({
         })}
       </g>
 
-      {[0.3, 0.5, 0.72, 0.88].map((f, i) => (
+      {/* Static rings — tight band */}
+      {[0.58, 0.7, 0.81, 0.9].map((f, i) => (
         <circle
           key={i}
           r={r * f}
@@ -108,20 +94,21 @@ export default function MainAuspex({
         />
       ))}
 
+      {/* Dot ring (spins backward) */}
       <g
         style={{
           transformOrigin: "center",
           animation: `chronoSpinRev ${spinRevDur}s linear infinite`,
         }}
       >
-        <circle r={r * 0.62} fill="none" stroke={accent} strokeOpacity="0.32" strokeWidth="0.4" />
-        {dotsCount.map((_, i) => {
+        <circle r={r * 0.74} fill="none" stroke={accent} strokeOpacity="0.32" strokeWidth="0.4" />
+        {dots.map((_, i) => {
           const a = (i / 16) * Math.PI * 2;
           return (
             <circle
               key={i}
-              cx={Math.cos(a) * r * 0.62}
-              cy={Math.sin(a) * r * 0.62}
+              cx={Math.cos(a) * r * 0.74}
+              cy={Math.sin(a) * r * 0.74}
               r="1.8"
               fill={accent}
               opacity="0.75"
@@ -130,65 +117,62 @@ export default function MainAuspex({
         })}
       </g>
 
+      {/* Cardinal axes + bearing labels */}
       {[0, 90, 180, 270].map((a) => {
         const rad = ((a - 90) * Math.PI) / 180;
         return (
           <line
             key={a}
-            x1={Math.cos(rad) * r * 0.3}
-            y1={Math.sin(rad) * r * 0.3}
-            x2={Math.cos(rad) * r * 0.88}
-            y2={Math.sin(rad) * r * 0.88}
+            x1={Math.cos(rad) * r * 0.45}
+            y1={Math.sin(rad) * r * 0.45}
+            x2={Math.cos(rad) * r * 0.9}
+            y2={Math.sin(rad) * r * 0.9}
             stroke={accent}
             strokeOpacity="0.32"
             strokeWidth="0.6"
           />
         );
       })}
-
       {(["000", "090", "180", "270"] as const).map((t, i) => {
         const a = [0, 90, 180, 270][i];
         const rad = ((a - 90) * Math.PI) / 180;
-        const x = Math.cos(rad) * r * 1.02;
-        const y = Math.sin(rad) * r * 1.02;
         return (
           <text
             key={t}
-            x={x}
-            y={y}
+            x={Math.cos(rad) * r * 1.02}
+            y={Math.sin(rad) * r * 1.02}
             fill={accent}
-            fontFamily="var(--font-plex-mono)"
-            fontSize="10"
+            fontFamily="var(--font-mono)"
+            fontSize="10.5"
             textAnchor="middle"
             dominantBaseline="middle"
+            opacity="0.8"
           >
             ·{t}
           </text>
         );
       })}
 
-      <path d={describeArc(r * 0.88, -55, -25)} fill="none" stroke={accent} strokeWidth="1.5" />
+      {/* Bearing arcs on the 0.90 ring */}
+      <path d={describeArc(r * 0.9, -55, -25)} fill="none" stroke={accent} strokeWidth="1.5" />
       <path
-        d={describeArc(r * 0.88, 155, 195)}
+        d={describeArc(r * 0.9, 155, 195)}
         fill="none"
         stroke={accent}
         strokeWidth="1.2"
         opacity="0.5"
       />
 
-      {/* Center reticle — a small spinning cogitator core so the disc's middle
-          is no longer static. Stays all-hairline / no-fill (bar a 3px focal
-          dot) to keep the maintainer's 2026-06-11 restraint: the washed disc +
-          heavy ring must not read as a filled blob over the vista. */}
+      {/* Cogitator core (spins backward, faster) */}
       <g
         style={{
           transformOrigin: "center",
-          animation: `chronoSpinRev ${spinRevDur * 0.55}s linear infinite`,
+          animation: `chronoSpinRev ${coreDur ?? spinRevDur * 0.55}s linear infinite`,
         }}
       >
-        <circle r="46" fill="none" stroke={accent} strokeWidth="0.5" opacity="0.4" />
+        <circle r={r * 0.175} fill="none" stroke={accent} strokeWidth="0.5" opacity="0.4" />
         <circle
-          r="30"
+          r={r * 0.115}
           fill="none"
           stroke={accent}
           strokeOpacity="0.3"
@@ -200,10 +184,10 @@ export default function MainAuspex({
           return (
             <line
               key={a}
-              x1={Math.cos(rad) * 22}
-              y1={Math.sin(rad) * 22}
-              x2={Math.cos(rad) * 46}
-              y2={Math.sin(rad) * 46}
+              x1={Math.cos(rad) * r * 0.085}
+              y1={Math.sin(rad) * r * 0.085}
+              x2={Math.cos(rad) * r * 0.175}
+              y2={Math.sin(rad) * r * 0.175}
               stroke={accent}
               strokeOpacity="0.6"
               strokeWidth="0.8"
@@ -213,18 +197,19 @@ export default function MainAuspex({
         <circle r="3" fill={accent} opacity="0.7" />
       </g>
 
-      {blips.map(([x, y], i) => (
-        <g key={i}>
+      {/* Contacts in the open midfield, twinkling on a slow stagger */}
+      {blips.map(([fx, fy, d], i) => (
+        <g
+          key={i}
+          style={{
+            animation: "blipTw 9s ease-in-out infinite",
+            animationDelay: `${d}s`,
+          }}
+        >
+          <circle cx={fx * r} cy={fy * r} r="2.6" fill={accent} />
           <circle
-            cx={x}
-            cy={y}
-            r="2.6"
-            fill={accent}
-            className={i % 2 ? "c-blink" : "c-twinkle"}
-          />
-          <circle
-            cx={x}
-            cy={y}
+            cx={fx * r}
+            cy={fy * r}
             r="8"
             fill="none"
             stroke={accent}
@@ -233,22 +218,6 @@ export default function MainAuspex({
           />
         </g>
       ))}
-
-      <g
-        style={{
-          transformOrigin: "0 0",
-          animation: `chronoSweep ${sweepDur}s linear infinite`,
-        }}
-      >
-        <line
-          x1="0"
-          y1="0"
-          x2={r * 0.88}
-          y2="0"
-          stroke={`url(#${uid}-sweep)`}
-          strokeWidth="1.8"
-        />
-      </g>
     </svg>
   );
 }

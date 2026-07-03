@@ -1,29 +1,24 @@
 import Link from "next/link";
 
-/* Imprimatur foot (Report 141, accepted idea C1-1) — the closing seal of the
-   new design language: Terminus line, fleur seal, mono triad. The middle motto
-   is per page; the outer slots stay honest (no pseudo-telemetry stamps).
-   Brief 179 added the legal row underneath: the short-form Games Workshop IP
-   disclaimer plus the Impressum/Datenschutz links (§ 5 DDG / Art. 13 DSGVO —
-   both pages sit outside the preview gate). */
+/* Imprimatur foot — the closing seal of the design language: a plumb line
+   fading downward, the seal word, the italic subline, the triad (middle motto
+   per page), then the legal row: short-form Games Workshop IP disclaimer plus
+   the Impressum/Datenschutz links (§ 5 DDG / Art. 13 DSGVO — both pages sit
+   outside the preview gate). */
 
 export default function ArchiveFooter({ mid }: { mid: string }) {
   return (
     <footer className="lx-foot">
-      <div className="lx-foot__seal">
-        <span className="lx-foot__aq" aria-hidden>
-          ⚜
-        </span>
-        <span className="lx-foot__l1">Imprimatur</span>
-        <span className="lx-foot__l2">
-          Archivvm Chronologicvm · Unofficial Fan Archive
-        </span>
-      </div>
-      <div className="lx-foot__triad">
-        <span>EX TENEBRIS · COGNITIO</span>
+      <span className="lx-foot__line" aria-hidden />
+      <p className="lx-foot__l1">
+        Imprimatur
+        <span className="lx-foot__l2">Chrono Lexicanum — an unofficial fan archive</span>
+      </p>
+      <p className="lx-foot__triad">
+        <span>From darkness, knowledge</span>
         <span className="lx-foot__mid">{mid}</span>
-        <span>FAN-MADE · NON-COMMERCIAL</span>
-      </div>
+        <span>Fan-made · Non-commercial</span>
+      </p>
       <div className="lx-foot__legal">
         <p className="lx-foot__ip">
           Unofficial fan project, not endorsed by Games Workshop. Warhammer

@@ -73,6 +73,7 @@ export default function SiteBackground({
           />
         )}
         <div className="site-bg__vignette" />
+        <div className="site-bg__fade" />
         <div className="site-bg__grain" />
       </div>
       {credit && <ArtCreditTag credit={credit} className="art-credit--site" />}

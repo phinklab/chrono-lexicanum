@@ -100,7 +100,7 @@ main.login {
 
 .login-kicker {
   margin: 0 0 16px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label);
   letter-spacing: 0.32em;
   color: var(--cl-dim);
@@ -108,13 +108,13 @@ main.login {
 
 .login-title {
   margin: 0;
-  font-family: var(--font-cinzel), serif;
+  font-family: var(--font-display);
   font-size: clamp(28px, 3.4vw, 40px);
   font-weight: 400;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--cl-bone);
-  text-shadow: 0 0 32px rgba(201, 166, 90, 0.22);
+  text-shadow: 0 0 32px rgba(164, 140, 82, 0.22);
 }
 
 .login-rule {
@@ -133,7 +133,7 @@ main.login {
 .login-sub {
   margin: 0 0 34px;
   max-width: 36ch;
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-body);
   font-style: italic;
   font-size: var(--fs-read);
   line-height: 1.5;
@@ -175,7 +175,7 @@ main.login {
 }
 
 .login-lab {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.3em;
   color: var(--cl-faint);
@@ -183,7 +183,7 @@ main.login {
 
 .login-error {
   margin: 0;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label);
   letter-spacing: 0.22em;
   color: var(--cl-blood);
@@ -220,7 +220,7 @@ main.login {
 .login-expired-contact {
   margin: 6px 0 0;
   max-width: 36ch;
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-body);
   font-style: italic;
   font-size: var(--fs-read);
   line-height: 1.5;
@@ -253,7 +253,7 @@ main.login {
   justify-content: center;
   align-items: baseline;
   gap: 12px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.28em;
   text-transform: uppercase;

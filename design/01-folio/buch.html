@@ -1,0 +1,339 @@
+<!-- ======================================================================
+     RICHTUNG 01 — FOLIO · Fläche: Buch-Detail (A Thousand Sons)
+     Titelblatt + Katalogisat. Studie zu Brief 184. Standalone.
+     ====================================================================== -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Folio — A Thousand Sons</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --paper:     #f4efe2;
+    --paper-2:   #ede7d6;
+    --ink:       #221c12;
+    --ink-soft:  #4c4434;
+    --ink-faded: #7c7360;
+    --seal:      #7c2622;
+    --rule:      rgba(34, 28, 18, 0.75);
+    --rule-mid:  rgba(34, 28, 18, 0.30);
+    --rule-hair: rgba(34, 28, 18, 0.16);
+    --serif-disp: "Instrument Serif", serif;
+    --serif-text: "EB Garamond", serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { background: var(--paper); }
+  body {
+    font-family: var(--serif-text);
+    color: var(--ink);
+    font-size: 17.5px;
+    line-height: 1.6;
+    background:
+      repeating-linear-gradient(0deg, rgba(34,28,18,0.012) 0 1px, transparent 1px 3px),
+      var(--paper);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--seal); color: var(--paper); }
+  a { color: inherit; text-decoration-color: var(--rule-mid); text-underline-offset: 3px; }
+  a:hover { color: var(--seal); text-decoration-color: var(--seal); }
+
+  .sc { text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72em; font-weight: 500; }
+
+  .page { max-width: 1060px; margin: 0 auto; padding: 0 48px 96px; }
+
+  .running-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 20px 0 10px;
+    border-bottom: 1px solid var(--rule);
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+  }
+  .running-head nav { display: flex; gap: 28px; }
+  .running-head a { text-decoration: none; }
+  .running-head .here { color: var(--seal); border-bottom: 1px solid var(--seal); padding-bottom: 2px; }
+
+  .crumb {
+    padding: 26px 0 0;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--ink-faded);
+  }
+
+  /* ── Titelblatt ───────────────────────────────────────────────────── */
+  header.titlepage { text-align: center; padding: 46px 0 34px; }
+  .titlepage .series {
+    font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .titlepage .series b { color: var(--seal); font-weight: 500; }
+  .titlepage h1 {
+    font-family: var(--serif-disp);
+    font-weight: 400;
+    font-size: clamp(58px, 8.5vw, 104px);
+    line-height: 1.0;
+    margin: 22px auto 16px;
+    max-width: 14ch;
+  }
+  .titlepage .byline { font-size: 20px; font-style: italic; color: var(--ink-soft); }
+  .titlepage .byline b { font-style: normal; font-weight: 600; color: var(--ink); }
+
+  .titlepage .stamp {
+    margin: 26px auto 0;
+    display: inline-block;
+    border: 1px solid var(--seal);
+    color: var(--seal);
+    font-size: 11px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    padding: 7px 18px 6px;
+  }
+
+  .double-rule { border: 0; border-top: 1px solid var(--rule); position: relative; margin: 40px 0 0; }
+  .double-rule::after { content: ""; position: absolute; left: 0; right: 0; top: 3px; border-top: 1px solid var(--rule); }
+
+  /* ── Katalogisat + Synopsis, zweispaltig ─────────────────────────── */
+  .record {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 56px;
+    padding: 44px 0 8px;
+  }
+
+  .record h2, .appendix h2 {
+    font-size: 12px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--seal);
+    margin-bottom: 18px;
+    display: flex; align-items: baseline; gap: 14px;
+  }
+  .record h2::after, .appendix h2::after {
+    content: ""; flex: 1; border-bottom: 1px solid var(--rule-hair);
+  }
+
+  table.katalogisat { width: 100%; border-collapse: collapse; font-size: 15.5px; }
+  .katalogisat th, .katalogisat td {
+    text-align: left;
+    vertical-align: baseline;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--rule-hair);
+  }
+  .katalogisat th {
+    font-weight: 400;
+    font-style: italic;
+    color: var(--ink-faded);
+    width: 44%;
+    padding-right: 12px;
+  }
+  .katalogisat td { color: var(--ink); }
+  .katalogisat .seal-txt { color: var(--seal); }
+  .katalogisat .note { font-size: 13.5px; color: var(--ink-faded); font-style: italic; }
+
+  .actions { margin-top: 26px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    font-family: var(--serif-text);
+    font-size: 11.5px; letter-spacing: 0.22em; text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink);
+    border: 1px solid var(--ink);
+    padding: 9px 22px 8px;
+    background: transparent;
+    cursor: pointer;
+  }
+  .btn:hover { color: var(--seal); border-color: var(--seal); }
+  .btn.solid { background: var(--ink); color: var(--paper); }
+  .btn.solid:hover { background: var(--seal); border-color: var(--seal); color: var(--paper); }
+
+  /* Synopsis mit Initial */
+  .synopsis p { max-width: 66ch; margin-bottom: 14px; }
+  .synopsis p:first-of-type::first-letter {
+    font-family: var(--serif-disp);
+    font-size: 74px;
+    line-height: 0.78;
+    float: left;
+    padding: 8px 10px 0 0;
+    color: var(--seal);
+  }
+  .synopsis .aside {
+    margin-top: 22px;
+    padding-top: 14px;
+    border-top: 1px solid var(--rule-hair);
+    font-size: 14.5px;
+    font-style: italic;
+    color: var(--ink-faded);
+    max-width: 60ch;
+  }
+
+  /* ── Anhang: Personen / Fraktionen / Schauplätze ─────────────────── */
+  .appendix {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 56px;
+    padding: 44px 0 0;
+    margin-top: 26px;
+    border-top: 1px solid var(--rule-mid);
+  }
+  .appendix ul { list-style: none; font-size: 16px; }
+  .appendix li {
+    padding: 7px 0;
+    border-bottom: 1px solid var(--rule-hair);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .appendix li:last-child { border-bottom: 0; }
+  .appendix .role { font-style: italic; font-size: 13.5px; color: var(--ink-faded); white-space: nowrap; }
+  .appendix .role.antagonist { color: var(--seal); }
+  .appendix a { text-decoration: none; }
+  .appendix a:hover { text-decoration: underline; }
+
+  /* Motive als gesetzte Zeile, keine Chips */
+  .motifs {
+    margin-top: 48px;
+    padding: 20px 0;
+    border-top: 1px solid var(--rule-mid);
+    border-bottom: 1px solid var(--rule-mid);
+    text-align: center;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--ink-soft);
+  }
+  .motifs .sep { color: var(--seal); padding: 0 10px; font-style: normal; }
+  .motifs .cw {
+    display: block;
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--ink-faded);
+  }
+
+  footer.colophon {
+    margin-top: 64px;
+    border-top: 1px solid var(--rule);
+    padding-top: 18px;
+    display: flex; justify-content: space-between;
+    font-size: 13px; color: var(--ink-faded); font-style: italic;
+  }
+
+  details.study-note {
+    margin-top: 40px;
+    border: 1px solid var(--rule-mid);
+    background: var(--paper-2);
+    padding: 16px 20px;
+    font-size: 15px;
+  }
+  details.study-note summary {
+    cursor: pointer;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--seal);
+  }
+  details.study-note .body { margin-top: 12px; max-width: 78ch; }
+  details.study-note p { margin-bottom: 8px; }
+
+  @media (max-width: 860px) {
+    .page { padding: 0 20px 64px; }
+    .record { grid-template-columns: 1fr; gap: 36px; }
+    .appendix { grid-template-columns: 1fr; gap: 32px; }
+  }
+</style>
+
+<div class="page">
+
+  <div class="running-head">
+    <span>Chrono · Lexicanum</span>
+    <nav>
+      <a href="#">Chronicle</a>
+      <a href="map.html">Cartographer</a>
+      <a href="archiv.html" class="here">Archive</a>
+      <a href="#">Ask</a>
+    </nav>
+  </div>
+
+  <p class="crumb"><a href="archiv.html">← Return to the catalogue</a> · entry № 003 of the Heresy shelf</p>
+
+  <header class="titlepage">
+    <p class="series">The Horus Heresy · Book <b>XII</b></p>
+    <h1>A Thousand Sons</h1>
+    <p class="byline">being an account of the burning of Prospero — by <b>Graham McNeill</b></p>
+    <span class="stamp">Catalogued · HH-0012</span>
+    <hr class="double-rule">
+  </header>
+
+  <section class="record">
+    <div>
+      <h2>Katalogisat</h2>
+      <table class="katalogisat">
+        <tr><th>First published</th><td>2010</td></tr>
+        <tr><th>Format</th><td>Novel · doorstopper</td></tr>
+        <tr><th>Series</th><td>Original Horus Heresy, XII</td></tr>
+        <tr><th>Setting</th><td class="seal-txt">001 – 004.M31</td></tr>
+        <tr><th>Anchored on</th><td>The Burning of Prospero <span class="note">— Nikaea as second anchor</span></td></tr>
+        <tr><th>Principal world</th><td><a href="map.html">Prospero</a>, Segmentum Ultima</td></tr>
+        <tr><th>Standing</th><td>4.27 of 5 <span class="note">from 10 635 readings (Goodreads)</span></td></tr>
+        <tr><th>Approach</th><td>Read after the opening trilogy <span class="note">— requires context</span></td></tr>
+      </table>
+
+      <div class="actions">
+        <button class="btn solid">Place on reading list</button>
+        <a class="btn" href="map.html">Locate on the chart</a>
+      </div>
+    </div>
+
+    <div class="synopsis">
+      <h2>Synopsis</h2>
+      <p>Censured at the Council of Nikaea for the Legion’s open use of psychic sorcery, Magnus the Red withdraws with his Thousand Sons to the crystal city of Tizca on Prospero. There the primarch peers into the warp and glimpses Horus’ coming betrayal, and he hurls his mind across the void to warn the Emperor on Terra — only to crash through the half-built webway gate beneath the Imperial Palace, tearing it open to daemons.</p>
+      <p>Followed through the eyes of Captain Ahzek Ahriman and the chronicler Lemuel Gaumon, the novel charts a tragedy of brilliant minds undone by hubris and good intentions, and ends with the Wolf King’s pyres already kindling over the City of Light.</p>
+      <p class="aside">The archivist notes: paired most naturally with <a href="#">Prospero Burns</a>, which walks the same years in the Wolves’ boots — the two accounts disagree, as accounts of Prospero tend to.</p>
+    </div>
+  </section>
+
+  <section class="appendix">
+    <div>
+      <h2>Dramatis Personae</h2>
+      <ul>
+        <li><a href="#">Magnus the Red</a> <span class="role">point of view</span></li>
+        <li><a href="#">Ahzek Ahriman</a> <span class="role">point of view</span></li>
+        <li><a href="#">Lemuel Gaumon</a> <span class="role">point of view</span></li>
+        <li><a href="#">Leman Russ</a> <span class="role antagonist">antagonist</span></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Factions</h2>
+      <ul>
+        <li><a href="#">Thousand Sons</a> <span class="role">primary</span></li>
+        <li><a href="#">Space Wolves</a> <span class="role">supporting</span></li>
+        <li><a href="#">Custodes</a> <span class="role">supporting</span></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Locations</h2>
+      <ul>
+        <li><a href="map.html">Prospero</a> <span class="role">primary</span></li>
+        <li><a href="#">Tizca</a> <span class="role">primary</span></li>
+        <li><a href="#">Terra</a> <span class="role">supporting</span></li>
+        <li><a href="#">Aghoru</a> <span class="role">supporting</span></li>
+        <li><a href="#">Nikaea</a> <span class="role">supporting</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <p class="motifs">
+    hubris <span class="sep">·</span> betrayal <span class="sep">·</span> faith &amp; doubt <span class="sep">·</span> cosmic horror <span class="sep">·</span> a character study, philosophical and somber
+    <span class="cw">The reader is advised: violence, death.</span>
+  </p>
+
+  <footer class="colophon">
+    <span>Chrono · Lexicanum — a fan archive. All works remain the property of their publishers.</span>
+    <span>fol. 12</span>
+  </footer>
+
+  <details class="study-note">
+    <summary>Studien-Notiz · Richtung 01 — Folio</summary>
+    <div class="body">
+      <p><b>Diese Fläche:</b> Buch-Detail als Titelblatt + Katalogisat. Die Hierarchie ist streng typografisch: Serien-Zeile → Titel (Instrument Serif, sehr groß) → kursive Verlegerzeile → Siegel-Stempel als einziges „Badge". Links das Katalogisat als Registertabelle, rechts die Synopsis mit Initial in Siegelrot. Personen/Fraktionen/Schauplätze als gedruckte Listen mit kursiven Rollen-Annotationen — Antagonisten in Rot, sonst keinerlei Farb- oder Icon-Codierung.</p>
+      <p><b>Facetten-Politik:</b> Die Facetten-IDs (hubris, betrayal, …) werden zu einer gesetzten Motivzeile in Kursive — keine Chips, keine Symbole. Content-Warnings als Verlegervermerk („The reader is advised …").</p>
+    </div>
+  </details>
+
+</div>

@@ -70,26 +70,26 @@
 }
 
 .font-display {
-  font-family: var(--font-cinzel), serif;
+  font-family: var(--font-display);
   letter-spacing: 0.32em;
   font-weight: 400;
 }
 .font-display2 {
-  font-family: var(--font-cinzel), serif;
+  font-family: var(--font-display);
   letter-spacing: 0.14em;
   font-weight: 500;
 }
 .font-serif {
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-body);
 }
 .font-mono {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   font-size: var(--fs-label);
 }
 .font-mono-sm {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   font-size: var(--fs-label);

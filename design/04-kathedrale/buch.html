@@ -1,0 +1,364 @@
+<!-- ======================================================================
+     RICHTUNG 04 — KATHEDRALE · Fläche: Buch-Detail
+     Der Riesen-Titel ersetzt das Buchcover (Rechte-Problem): eine ganze
+     Viewport-Höhe Titelblatt über dem Era-Artwork, dann das Katalogisat
+     auf der Mittelachse. Studie zu Brief 184, Runde 2 (2026-07-03).
+     ====================================================================== -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kathedrale — A Thousand Sons</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --void:      #0d0d10;
+    --void-2:    #131318;
+    --bone:      #e4ddcb;
+    --dim:       #9a927e;
+    --faint:     #6a6455;
+    --gold:      #a48c52;
+    --blood:     #8e3b32;   /* nur für Antagonisten-Annotationen */
+    --hair:      rgba(228, 221, 203, 0.16);
+    --disp:      "Bodoni Moda", serif;
+    --text:      "Cardo", serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { background: var(--void); }
+  body {
+    font-family: var(--text);
+    color: var(--bone);
+    font-size: 17.5px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--gold); color: var(--void); }
+  a { color: inherit; text-decoration: none; }
+
+  /* Hintergrund: Era-Artwork (Horus Heresy) statt Cover — fix + Scrim */
+  .bg { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: var(--void); }
+  .bg .photo {
+    position: absolute; inset: 0;
+    background: url("../../public/timeline/bg/era-horus-heresy.webp") center 25% / cover no-repeat;
+  }
+  .bg .fade {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 34%, transparent 40%, rgba(13,13,16,0.55) 100%),
+      linear-gradient(180deg,
+        rgba(13,13,16,0.35) 0%,
+        rgba(13,13,16,0.18) 30%,
+        rgba(13,13,16,0.62) 62%,
+        rgba(13,13,16,0.94) 86%,
+        var(--void) 98%);
+  }
+  .bg .scrim { position: absolute; inset: 0; background: var(--void); opacity: 0; will-change: opacity; }
+  .bg .grain {
+    position: absolute; inset: 0; opacity: 0.10; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size: 160px 160px;
+  }
+
+  header.running { text-align: center; padding: 30px 20px 0; }
+  .running .mark {
+    font-family: var(--disp);
+    font-size: 15px; letter-spacing: 0.42em; text-transform: uppercase;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.75);
+  }
+  .running nav {
+    margin-top: 14px;
+    display: flex; justify-content: center; gap: 36px;
+    font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--dim);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.8);
+  }
+  .running nav a:hover { color: var(--bone); }
+  .running nav a.here { color: var(--gold); border-bottom: 1px solid var(--gold); padding-bottom: 4px; }
+
+  /* ── Titelblatt: der Titel IST das Cover ─────────────────────────── */
+  .titlepage {
+    min-height: 88vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: flex-end;
+    text-align: center;
+    padding: 0 20px 8vh;
+  }
+  .titlepage .crumb {
+    font-style: italic; font-size: 14.5px; color: var(--dim);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+  }
+  .titlepage .crumb a:hover { color: var(--gold); }
+  .titlepage .series {
+    margin-top: 30px;
+    font-size: 13px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--gold);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+  }
+  .titlepage h1 {
+    margin-top: 20px;
+    font-family: var(--disp);
+    font-weight: 560;
+    font-size: clamp(58px, 11.5vw, 168px);
+    line-height: 0.96;
+    letter-spacing: 0.005em;
+    max-width: 12ch;
+    text-shadow: 0 3px 34px rgba(0,0,0,0.9);
+  }
+  .titlepage .byline {
+    margin-top: 26px;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--dim);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+  }
+  .titlepage .byline b { font-style: normal; font-weight: 400; color: var(--bone); }
+  .titlepage .cue {
+    margin-top: 6vh;
+    display: inline-flex; flex-direction: column; align-items: center; gap: 12px;
+    color: var(--dim);
+    font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase;
+  }
+  .titlepage .cue::before { content: ""; width: 1px; height: 52px; background: var(--gold); opacity: 0.8; }
+
+  /* ── Katalogisat auf der Achse ───────────────────────────────────── */
+  main { max-width: 820px; margin: 0 auto; padding: 10vh 24px 110px; }
+
+  h2.section {
+    text-align: center;
+    display: flex; align-items: center; gap: 26px;
+    font-size: 12px; letter-spacing: 0.34em; text-transform: uppercase;
+    color: var(--gold); font-weight: 400;
+    margin: 88px 0 30px;
+  }
+  h2.section::before, h2.section::after { content: ""; flex: 1; border-top: 1px solid var(--hair); }
+  h2.section:first-child { margin-top: 0; }
+
+  table.katalogisat {
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-size: 16.5px;
+  }
+  .katalogisat th {
+    text-align: right;
+    font-weight: 400;
+    font-size: 12px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--faint);
+    padding: 9px 26px 9px 0;
+    border-right: 1px solid var(--hair);
+    white-space: nowrap;
+    vertical-align: baseline;
+  }
+  .katalogisat td { padding: 9px 0 9px 26px; vertical-align: baseline; }
+  .katalogisat td .note { font-style: italic; color: var(--faint); font-size: 14.5px; }
+  .katalogisat td.chrono { color: var(--gold); font-variant-numeric: tabular-nums; }
+  .katalogisat td a { border-bottom: 1px solid var(--hair); }
+  .katalogisat td a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+  .actions { text-align: center; padding-top: 34px; }
+  .btn {
+    display: inline-block;
+    font-family: var(--text);
+    font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--bone);
+    background: transparent;
+    border: 0; border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair);
+    padding: 12px 30px 11px;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  .btn:hover { color: var(--gold); border-color: var(--gold); }
+  .btn.primary { border-color: var(--gold); color: var(--gold); }
+  .btn.primary:hover { color: var(--bone); border-color: var(--bone); }
+
+  /* Synopsis: Blocksatz auf schmaler Achse, Eingang in Kapitälchen-Manier */
+  .synopsis { max-width: 60ch; margin: 0 auto; }
+  .synopsis p { margin-bottom: 18px; text-align: justify; hyphens: auto; }
+  .synopsis p:first-of-type::first-line { letter-spacing: 0.14em; text-transform: uppercase; font-size: 15.5px; }
+  .synopsis .aside {
+    font-style: italic; color: var(--dim); text-align: center;
+    border-top: 1px solid var(--hair);
+    padding-top: 16px; margin-top: 26px;
+  }
+  .synopsis .aside a { border-bottom: 1px solid var(--hair); }
+  .synopsis .aside a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+  /* Dramatis Personae: drei Spalten, zentriert */
+  .appendix {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    text-align: center;
+  }
+  .appendix h3 {
+    font-size: 11.5px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); font-weight: 400;
+    margin-bottom: 14px;
+  }
+  .appendix ul { list-style: none; }
+  .appendix li { padding: 6px 0; }
+  .appendix li a:hover { color: var(--gold); }
+  .appendix .role {
+    display: block;
+    font-style: italic; font-size: 13.5px; color: var(--faint);
+  }
+  .appendix .role.antagonist { color: var(--blood); }
+
+  .motifs {
+    margin-top: 88px;
+    text-align: center;
+    font-style: italic;
+    color: var(--dim);
+  }
+  .motifs .sep { color: var(--faint); padding: 0 8px; }
+  .motifs .cw {
+    display: block; margin-top: 14px;
+    font-size: 13.5px; color: var(--faint);
+  }
+
+  footer.colophon {
+    max-width: 860px; margin: 0 auto;
+    border-top: 1px solid var(--hair);
+    padding: 22px 24px 40px;
+    text-align: center;
+    font-style: italic; font-size: 13.5px; color: var(--faint);
+  }
+
+  details.study-note {
+    max-width: 860px; margin: 0 auto 60px;
+    border: 1px solid var(--hair);
+    background: var(--void-2);
+    padding: 16px 22px;
+    font-size: 15px;
+  }
+  details.study-note summary {
+    cursor: pointer;
+    font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold);
+  }
+  details.study-note .body { margin-top: 12px; max-width: 78ch; color: var(--dim); }
+  details.study-note p { margin-bottom: 8px; }
+  details.study-note b { color: var(--bone); font-weight: 700; }
+
+  @media (max-width: 760px) {
+    .appendix { grid-template-columns: 1fr; gap: 30px; }
+    .katalogisat th { padding-right: 14px; }
+    .katalogisat td { padding-left: 14px; }
+    .btn { margin: 6px 4px; }
+  }
+</style>
+
+<div class="bg" aria-hidden="true">
+  <div class="photo"></div>
+  <div class="fade"></div>
+  <div class="scrim" id="scrim"></div>
+  <div class="grain"></div>
+</div>
+
+<header class="running">
+  <div class="mark">Chrono · Lexicanum</div>
+  <nav>
+    <a href="#">Chronicle</a>
+    <a href="map.html">Cartographer</a>
+    <a href="archiv.html" class="here">Archive</a>
+    <a href="#">Ask</a>
+  </nav>
+</header>
+
+<section class="titlepage">
+  <p class="crumb"><a href="archiv.html">← Return to the catalogue</a></p>
+  <p class="series">The Horus Heresy · Book XII</p>
+  <h1>A Thousand Sons</h1>
+  <p class="byline">being an account of the burning of Prospero — by <b>Graham McNeill</b></p>
+  <span class="cue">The record</span>
+</section>
+
+<main>
+
+  <h2 class="section">Katalogisat</h2>
+  <table class="katalogisat">
+    <tr><th>First published</th><td>2010</td></tr>
+    <tr><th>Format</th><td>Novel <span class="note">· doorstopper</span></td></tr>
+    <tr><th>Series</th><td>Original Horus Heresy, XII</td></tr>
+    <tr><th>Setting</th><td class="chrono">001 – 004.M31</td></tr>
+    <tr><th>Anchored on</th><td>The Burning of Prospero <span class="note">— Nikaea as second anchor</span></td></tr>
+    <tr><th>Principal world</th><td><a href="map.html">Prospero</a>, Segmentum Ultima</td></tr>
+    <tr><th>Standing</th><td>4.27 of 5 <span class="note">from 10 635 readings (Goodreads)</span></td></tr>
+    <tr><th>Approach</th><td>Read after the opening trilogy <span class="note">— requires context</span></td></tr>
+  </table>
+
+  <div class="actions">
+    <button class="btn primary">Place on reading list</button>
+    <a class="btn" href="map.html">Locate on the chart</a>
+  </div>
+
+  <h2 class="section">Synopsis</h2>
+  <div class="synopsis">
+    <p>Censured at the Council of Nikaea for the Legion’s open use of psychic sorcery, Magnus the Red withdraws with his Thousand Sons to the crystal city of Tizca on Prospero. There the primarch peers into the warp and glimpses Horus’ coming betrayal, and he hurls his mind across the void to warn the Emperor on Terra — only to crash through the half-built webway gate beneath the Imperial Palace, tearing it open to daemons.</p>
+    <p>Followed through the eyes of Captain Ahzek Ahriman and the chronicler Lemuel Gaumon, the novel charts a tragedy of brilliant minds undone by hubris and good intentions, and ends with the Wolf King’s pyres already kindling over the City of Light.</p>
+    <p class="aside">The archivist notes: paired most naturally with <a href="#">Prospero Burns</a>, which walks the same years in the Wolves’ boots — the two accounts disagree, as accounts of Prospero tend to.</p>
+  </div>
+
+  <h2 class="section">Appendix</h2>
+  <div class="appendix">
+    <div>
+      <h3>Dramatis Personae</h3>
+      <ul>
+        <li><a href="#">Magnus the Red</a> <span class="role">point of view</span></li>
+        <li><a href="#">Ahzek Ahriman</a> <span class="role">point of view</span></li>
+        <li><a href="#">Lemuel Gaumon</a> <span class="role">point of view</span></li>
+        <li><a href="#">Leman Russ</a> <span class="role antagonist">antagonist</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Factions</h3>
+      <ul>
+        <li><a href="#">Thousand Sons</a> <span class="role">primary</span></li>
+        <li><a href="#">Space Wolves</a> <span class="role">supporting</span></li>
+        <li><a href="#">Custodes</a> <span class="role">supporting</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Locations</h3>
+      <ul>
+        <li><a href="map.html">Prospero</a> <span class="role">primary</span></li>
+        <li><a href="#">Tizca</a> <span class="role">primary</span></li>
+        <li><a href="#">Terra</a> <span class="role">supporting</span></li>
+        <li><a href="#">Nikaea</a> <span class="role">supporting</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="motifs">
+    hubris <span class="sep">·</span> betrayal <span class="sep">·</span> faith &amp; doubt <span class="sep">·</span> cosmic horror
+    <span class="cw">The reader is advised: violence, death.</span>
+  </p>
+
+</main>
+
+<footer class="colophon">
+  Chrono · Lexicanum — a fan archive. All works remain the property of their publishers.<br>
+  Background art: the era artwork of the live timeline (<i>era-horus-heresy.webp</i>) — no cover rights needed.
+</footer>
+
+<details class="study-note">
+  <summary>Studien-Notiz · Richtung 04 — Kathedrale</summary>
+  <div class="body">
+    <p><b>Diese Fläche:</b> Der Riesen-Titel als Cover-Ersatz — Philipps Runde-2-Kernidee. Das Titelblatt belegt die volle erste Viewport-Höhe über dem Era-Artwork (M31 → <i>era-horus-heresy.webp</i>): Serienzeile in Gold-Kapitälchen, Titel in Bodoni Moda bis 168&nbsp;px, Verlegerzeile kursiv. Kein Cover, keine Rechte-Frage, maximale Präsenz.</p>
+    <p><b>Danach die Achse:</b> Katalogisat als symmetrische Registertabelle (Rubriken rechtsbündig gegen eine Hairline), Synopsis im Blocksatz auf 60ch mit Versalien-Eingang, Appendix in drei zentrierten Spalten. Antagonisten tragen als einzige Farb-Ausnahme ein stilles Blutrot.</p>
+    <p><b>Kern-Parameter dieser Fläche:</b> Titel-Skala clamp(58px, 11.5vw, 168px); Scrim hebt das Void beim Scrollen auf 0.94; Buttons = Doppel-Hairline; Rollen als kursive Annotationen statt Badges.</p>
+  </div>
+</details>
+
+<script>
+  (function () {
+    var scrim = document.getElementById("scrim");
+    function update() {
+      var h = window.innerHeight * 0.9;
+      scrim.style.opacity = Math.min(0.94, window.scrollY / h).toFixed(3);
+    }
+    window.addEventListener("scroll", update, { passive: true });
+    update();
+  })();
+</script>

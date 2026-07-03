@@ -31,10 +31,10 @@ type ScrollScrimProps = {
  * intentionally NOT gated by prefers-reduced-motion.
  */
 export default function ScrollScrim({
-  className = "catalogue-scrim",
-  varName = "--cat-scrim-opacity",
+  className = "site-scrim",
+  varName = "--scrim-o",
   heroSelector = ".catalogue-hero",
-  maxOpacity = 0.7,
+  maxOpacity = 0.94,
 }: ScrollScrimProps = {}) {
   const ref = useRef<HTMLDivElement>(null);
 

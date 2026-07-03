@@ -1,10 +1,11 @@
 /**
- * Brief 105 — the buy/listen rail rendered under the cover. Server component:
- * every href is built server-side via the geo-localized `buildStoreUrl`, so the
- * links are correct in the SSR HTML with no client JS. Amazon + Black Library
- * always render; Audible (and the audio credit) render only when the book has
- * narrator / co-narrator / full-cast credits.
+ * Brief 105 — the buy/listen actions. Server component: every href is built
+ * server-side via the geo-localized `buildStoreUrl`, so the links are correct
+ * in the SSR HTML with no client JS. Amazon + Black Library always render;
+ * Audible (and the audio credit) render only when the book has narrator /
+ * co-narrator / full-cast credits. Buttons are the house Sternwarte.
  */
+import BtnFx from "@/components/shared/BtnFx";
 import { buildStoreUrl, type StoreRegion } from "@/lib/store-links";
 import AudioCredit, { type AudioCreditData } from "./AudioCredit";
 
@@ -15,8 +16,6 @@ export interface BuyListenActionsProps {
   region: StoreRegion;
   audio: AudioCreditData | null;
 }
-
-const ARROW = "↗"; // ↗
 
 export default function BuyListenActions({
   title,
@@ -32,41 +31,44 @@ export default function BuyListenActions({
 
   return (
     <section className="book-detail__obtain" aria-label="Buy or listen">
-      <div className="book-detail__section-label">{"ACQUIRE"}</div>
+      <h2 className="lx-sect book-detail__sect">Acquire</h2>
       <div className="book-detail__actions">
         <a
-          className="book-detail__action"
+          className="lx-btn lx-btn--primary"
           href={amazonUrl}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <span>Buy on Amazon</span>
-          <span className="book-detail__action-mark" aria-hidden>
-            {ARROW}
+          Buy on Amazon
+          <span className="lx-btn__mark" aria-hidden>
+            ↗
           </span>
+          <BtnFx />
         </a>
         <a
-          className="book-detail__action"
+          className="lx-btn"
           href={blackLibraryUrl}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <span>Black Library</span>
-          <span className="book-detail__action-mark" aria-hidden>
-            {ARROW}
+          Black Library
+          <span className="lx-btn__mark" aria-hidden>
+            ↗
           </span>
+          <BtnFx />
         </a>
         {audibleUrl && (
           <a
-            className="book-detail__action"
+            className="lx-btn"
             href={audibleUrl}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span>Listen on Audible</span>
-            <span className="book-detail__action-mark" aria-hidden>
-              {ARROW}
+            Listen on Audible
+            <span className="lx-btn__mark" aria-hidden>
+              ↗
             </span>
+            <BtnFx />
           </a>
         )}
       </div>

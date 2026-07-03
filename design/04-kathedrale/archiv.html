@@ -1,0 +1,472 @@
+<!-- ======================================================================
+     RICHTUNG 04 — KATHEDRALE · Fläche: Archiv-Liste
+     Das Archiv als Hochschiff: Mittelachse, Prozession, große dunkle Luft.
+     Grimdark, aber serene. Studie zu Brief 184, Runde 2 (2026-07-03).
+     Standalone — Artwork kommt als relativer Pfad aus public/ (Ordner muss
+     im Repo liegen bleiben, sonst fehlt der Hintergrund).
+     ====================================================================== -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kathedrale — Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --void:      #0d0d10;   /* kaltes Stein-Schwarz, kein Blau-Void */
+    --void-2:    #131318;
+    --bone:      #e4ddcb;
+    --dim:       #9a927e;
+    --faint:     #6a6455;
+    --gold:      #a48c52;   /* mattes liturgisches Gold — kein Glow */
+    --hair:      rgba(228, 221, 203, 0.16);
+    --hair-soft: rgba(228, 221, 203, 0.08);
+    --disp:      "Bodoni Moda", serif;
+    --text:      "Cardo", serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { background: var(--void); scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    font-family: var(--text);
+    color: var(--bone);
+    font-size: 17.5px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--gold); color: var(--void); }
+  a { color: inherit; text-decoration: none; }
+
+  /* ── Hintergrund: fixes Artwork + Fade + Scroll-Scrim (Site-Mechanik) ── */
+  .bg { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: var(--void); }
+  .bg .photo {
+    position: absolute; inset: 0;
+    background: url("../../public/img/main-bg.webp") center 30% / cover no-repeat;
+  }
+  .bg .fade {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 34%, transparent 42%, rgba(13,13,16,0.5) 100%),
+      linear-gradient(180deg,
+        rgba(13,13,16,0.30) 0%,
+        rgba(13,13,16,0.12) 26%,
+        rgba(13,13,16,0.55) 58%,
+        rgba(13,13,16,0.92) 82%,
+        var(--void) 96%);
+  }
+  .bg .scrim {
+    position: absolute; inset: 0;
+    background: var(--void);
+    opacity: 0;                     /* wird beim Scrollen vom Skript gehoben */
+    will-change: opacity;
+  }
+  .bg .grain {
+    position: absolute; inset: 0; opacity: 0.10; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size: 160px 160px;
+  }
+
+  /* ── Kopfzeile: Mittelachse ──────────────────────────────────────── */
+  header.running {
+    text-align: center;
+    padding: 30px 20px 0;
+  }
+  .running .mark {
+    font-family: var(--disp);
+    font-size: 15px;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: var(--bone);
+    text-shadow: 0 1px 10px rgba(0,0,0,0.75);
+  }
+  .running nav {
+    margin-top: 14px;
+    display: flex; justify-content: center; gap: 36px;
+    font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--dim);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.8);
+  }
+  .running nav a { padding-bottom: 4px; }
+  .running nav a:hover { color: var(--bone); }
+  .running nav a.here { color: var(--gold); border-bottom: 1px solid var(--gold); }
+
+  /* ── Erster Akt: Masthead im Artwork ─────────────────────────────── */
+  .act-hero {
+    min-height: 92vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: flex-end;
+    text-align: center;
+    padding: 0 20px 9vh;
+  }
+  .act-hero .over {
+    font-size: 12px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--gold);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+  }
+  .act-hero h1 {
+    margin-top: 18px;
+    font-family: var(--disp);
+    font-weight: 480;
+    font-size: clamp(64px, 10vw, 150px);
+    line-height: 0.98;
+    letter-spacing: 0.015em;
+    text-shadow: 0 2px 26px rgba(0,0,0,0.85);
+  }
+  .act-hero h1 em { font-style: italic; font-weight: 420; }
+  .act-hero .edition {
+    margin-top: 22px;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--dim);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+  }
+  .act-hero .edition b { font-style: normal; font-weight: 400; color: var(--bone); }
+  /* Scroll-Cue: Lot-Linie statt Chevron-Animation */
+  .act-hero .cue {
+    margin-top: 7vh;
+    display: inline-flex; flex-direction: column; align-items: center; gap: 12px;
+    color: var(--dim);
+    font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase;
+  }
+  .act-hero .cue::before { content: ""; width: 1px; height: 56px; background: var(--gold); opacity: 0.8; }
+
+  /* ── Schiff: die Liste ────────────────────────────────────────────── */
+  .nave { max-width: 860px; margin: 0 auto; padding: 10vh 24px 110px; }
+
+  /* Register-Zeile (Filter) — eine gesetzte Zeile, keine Chips */
+  .register {
+    text-align: center;
+    font-size: 14.5px;
+    color: var(--dim);
+    padding-bottom: 10px;
+  }
+  .register .lbl { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--faint); padding-right: 14px; }
+  .register a { padding: 0 8px; }
+  .register a:hover { color: var(--bone); }
+  .register a.active { color: var(--gold); }
+  .register a + a::before { content: "·"; color: var(--faint); padding-right: 14px; }
+
+  .seek {
+    display: flex; justify-content: center; align-items: baseline; gap: 16px;
+    padding: 18px 0 0;
+  }
+  .seek input {
+    width: min(420px, 70vw);
+    background: transparent;
+    border: 0; border-bottom: 1px solid var(--hair);
+    color: var(--bone);
+    font-family: var(--text); font-style: italic; font-size: 17px;
+    text-align: center;
+    padding: 6px 4px;
+    outline: none;
+  }
+  .seek input:focus { border-bottom-color: var(--gold); }
+  .seek input::placeholder { color: var(--faint); }
+
+  /* Ären als Joch-Bögen: Name auf der Achse, Hairlines flankieren */
+  .era {
+    margin-top: 96px;
+    text-align: center;
+  }
+  .era .arc {
+    display: flex; align-items: center; gap: 26px;
+    color: var(--gold);
+  }
+  .era .arc::before, .era .arc::after { content: ""; flex: 1; border-top: 1px solid var(--hair); }
+  .era .arc b {
+    font-family: var(--disp);
+    font-weight: 500;
+    font-size: 30px;
+    letter-spacing: 0.02em;
+  }
+  .era .note {
+    display: block;
+    margin-top: 10px;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--dim);
+  }
+
+  /* Prozession der Einträge — alles auf der Mittelachse */
+  ol.procession { list-style: none; }
+  .entry {
+    padding: 64px 0 0;
+    text-align: center;
+  }
+  .entry + .entry::before {
+    content: "";
+    display: block;
+    width: 72px; margin: 0 auto 64px;
+    border-top: 1px solid var(--hair);
+  }
+  .entry .when {
+    font-size: 12.5px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold);
+    font-variant-numeric: tabular-nums;
+  }
+  .entry .when .approx { color: var(--dim); }
+  .entry h3 {
+    margin-top: 14px;
+    font-family: var(--disp);
+    font-weight: 520;
+    font-size: clamp(34px, 4.6vw, 52px);
+    line-height: 1.04;
+    letter-spacing: 0.01em;
+  }
+  .entry h3 a:hover { color: var(--gold); }
+  .entry .byline {
+    margin-top: 10px;
+    font-style: italic;
+    font-size: 16.5px;
+    color: var(--dim);
+  }
+  .entry .excerpt {
+    margin: 14px auto 0;
+    max-width: 56ch;
+    color: var(--dim);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .entry .meta {
+    margin-top: 14px;
+    font-size: 12px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--faint);
+  }
+  .entry .meta b { color: var(--dim); font-weight: 400; }
+
+  /* Schaltflächen: Doppel-Hairline oben/unten, kein Kasten */
+  .btn {
+    display: inline-block;
+    font-family: var(--text);
+    font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--bone);
+    background: transparent;
+    border: 0;
+    border-top: 1px solid var(--hair);
+    border-bottom: 1px solid var(--hair);
+    padding: 12px 34px 11px;
+    cursor: pointer;
+  }
+  .btn:hover { color: var(--gold); border-color: var(--gold); }
+  .btn.primary { border-color: var(--gold); color: var(--gold); }
+  .btn.primary:hover { color: var(--bone); border-color: var(--bone); }
+
+  .continue { text-align: center; padding: 96px 0 0; }
+  .continue .hint {
+    display: block; margin-top: 16px;
+    font-style: italic; font-size: 14.5px; color: var(--faint);
+  }
+
+  footer.colophon {
+    max-width: 860px; margin: 0 auto;
+    border-top: 1px solid var(--hair);
+    padding: 22px 24px 40px;
+    text-align: center;
+    font-style: italic; font-size: 13.5px; color: var(--faint);
+  }
+
+  details.study-note {
+    max-width: 860px; margin: 0 auto 60px;
+    border: 1px solid var(--hair);
+    background: var(--void-2);
+    padding: 16px 22px;
+    font-size: 15px;
+  }
+  details.study-note summary {
+    cursor: pointer;
+    font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold);
+  }
+  details.study-note .body { margin-top: 12px; max-width: 78ch; color: var(--dim); }
+  details.study-note p { margin-bottom: 8px; }
+  details.study-note b { color: var(--bone); font-weight: 700; }
+
+  @media (max-width: 720px) {
+    .running nav { gap: 18px; flex-wrap: wrap; }
+    .act-hero h1 { font-size: clamp(48px, 14vw, 84px); }
+    .nave { padding-top: 8vh; }
+  }
+</style>
+
+<div class="bg" aria-hidden="true">
+  <div class="photo"></div>
+  <div class="fade"></div>
+  <div class="scrim" id="scrim"></div>
+  <div class="grain"></div>
+</div>
+
+<header class="running">
+  <div class="mark">Chrono · Lexicanum</div>
+  <nav>
+    <a href="#">Chronicle</a>
+    <a href="map.html">Cartographer</a>
+    <a href="#" class="here">Archive</a>
+    <a href="#">Ask</a>
+  </nav>
+</header>
+
+<section class="act-hero">
+  <p class="over">A reader’s catalogue of the Warhammer 40,000 library</p>
+  <h1>The <em>Archive</em></h1>
+  <p class="edition"><b>896 works</b> on record — compiled 2026</p>
+  <span class="cue">The catalogue</span>
+</section>
+
+<main class="nave">
+
+  <p class="register">
+    <span class="lbl">Indexed by</span>
+    <a href="#" class="active">Setting, chronological</a>
+    <a href="#">Title</a>
+    <a href="#">Author</a>
+    <a href="#">Release</a>
+  </p>
+  <p class="register">
+    <span class="lbl">Faction</span>
+    <a href="#">All</a>
+    <a href="#" class="active">Thousand Sons</a>
+    <a href="#">Ultramarines</a>
+    <a href="#">Imperial Guard</a>
+    <a href="#">Inquisition</a>
+    <a href="#">…</a>
+  </p>
+  <div class="seek">
+    <input type="text" placeholder="seek a title, an author, a world, a deed …">
+  </div>
+
+  <!-- ── Ära M31 ──────────────────────────────────────────────────── -->
+  <div class="era">
+    <p class="arc"><b>The Horus Heresy</b></p>
+    <span class="note">M30 – M31 · the civil war that made the Imperium</span>
+  </div>
+
+  <ol class="procession">
+    <li class="entry">
+      <p class="when"><span class="approx">c.</span> 963.M30 – 006.M31</p>
+      <h3><a href="buch.html">The First Heretic</a></h3>
+      <p class="byline">Aaron Dembski-Bowden — 2010 · Original Horus Heresy</p>
+      <p class="excerpt">Half a century before Isstvan, the Emperor descends on the freshly compliant world of Khur and razes the city of Monarchia that the Word Bearers had raised in His name, denouncing his most devout son Lorgar for the sin of religion.</p>
+      <p class="meta"><b>Novel</b> · Word Bearers · 4.35 of 5</p>
+    </li>
+
+    <li class="entry">
+      <p class="when"><span class="approx">c.</span> 001.M31</p>
+      <h3><a href="buch.html">Horus Rising</a></h3>
+      <p class="byline">Dan Abnett — 2006 · Original Horus Heresy</p>
+      <p class="excerpt">Two centuries into the Great Crusade, the Emperor has retired to Terra and named his most beloved son Warmaster of the war that will reunite humanity. Captain Garviel Loken trades the certainty of war for the harder business of speaking truth to a brother who has begun to need it.</p>
+      <p class="meta"><b>Novel</b> · Luna Wolves · 4.26 of 5</p>
+    </li>
+
+    <li class="entry">
+      <p class="when">001 – 004.M31</p>
+      <h3><a href="buch.html">A Thousand Sons</a></h3>
+      <p class="byline">Graham McNeill — 2010 · Original Horus Heresy</p>
+      <p class="excerpt">Censured at the Council of Nikaea for the Legion’s open use of psychic sorcery, Magnus the Red withdraws with his Thousand Sons to the crystal city of Tizca on Prospero — a tragedy of brilliant minds undone by hubris and good intentions.</p>
+      <p class="meta"><b>Novel</b> · Thousand Sons · 4.27 of 5</p>
+    </li>
+
+    <li class="entry">
+      <p class="when">004.M31</p>
+      <h3><a href="buch.html">False Gods</a></h3>
+      <p class="byline">Graham McNeill — 2006 · Original Horus Heresy</p>
+      <p class="excerpt">After Ullanor, Horus rides the wave of his own glory and his Legion bleeds for it. When a ritual duel on the feral world of Davin leaves the Warmaster mortally wounded, a long spirit-walk through the warp shows him a future in which the Emperor has discarded the species he built.</p>
+      <p class="meta"><b>Novel</b> · Luna Wolves · 4.15 of 5</p>
+    </li>
+
+    <li class="entry">
+      <p class="when">005 – 006.M31</p>
+      <h3><a href="buch.html">Galaxy in Flames</a></h3>
+      <p class="byline">Ben Counter — 2006 · Original Horus Heresy</p>
+      <p class="excerpt">On the dead-grey world of Isstvan III, four Legions deploy in force against a recalcitrant governor. What they cannot know is that the deployment is the trap: from orbit their own brothers burn the loyalists to ash with virus and atomic fire.</p>
+      <p class="meta"><b>Novel</b> · Sons of Horus · 4.19 of 5</p>
+    </li>
+
+    <li class="entry">
+      <p class="when">005 – 006.M31</p>
+      <h3><a href="buch.html">Fulgrim</a></h3>
+      <p class="byline">Graham McNeill — 2007 · Original Horus Heresy</p>
+      <p class="excerpt">Fulgrim, primarch of the Emperor’s Children, is the finest of the Emperor’s sons: beautiful, brilliant, devoted to perfection. On the murder-world of Laer, a Legion compliance brings home a daemon-bound sword that has been waiting for him.</p>
+      <p class="meta"><b>Novel</b> · Emperor’s Children · 4.05 of 5</p>
+    </li>
+  </ol>
+
+  <!-- ── Ära M41 ──────────────────────────────────────────────────── -->
+  <div class="era">
+    <p class="arc"><b>The Time of Ending</b></p>
+    <span class="note">M41 · the long dusk of the Imperium</span>
+  </div>
+
+  <ol class="procession">
+    <li class="entry">
+      <p class="when">240.M41</p>
+      <h3><a href="buch.html">Xenos</a></h3>
+      <p class="byline">Dan Abnett — 2001 · Inquisitor: Eisenhorn</p>
+      <p class="excerpt">Inquisitor Gregor Eisenhorn of the Ordo Xenos pursues a renegade rogue trader to the ice-world of Hubris and unravels the cult of Pontius Glaw — and learns that Inquisitors can become the thing they hunt.</p>
+      <p class="meta"><b>Novel</b> · Inquisition · not yet rated</p>
+    </li>
+
+    <li class="entry">
+      <p class="when">765.M41</p>
+      <h3><a href="buch.html">First and Only</a></h3>
+      <p class="byline">Dan Abnett — 1999 · Gaunt’s Ghosts</p>
+      <p class="excerpt">Commissar Ibram Gaunt leads the Tanith First-and-Only — sole survivors of a world that burned behind them — through the grinding campaigns of the Sabbat Worlds Crusade.</p>
+      <p class="meta"><b>Novel</b> · Imperial Guard · not yet rated</p>
+    </li>
+
+    <li class="entry">
+      <p class="when"><span class="approx">c.</span> 910.M41</p>
+      <h3><a href="buch.html">The Infinite and the Divine</a></h3>
+      <p class="byline">Robert Rath — 2020 · standalone</p>
+      <p class="excerpt">Trazyn the Infinite guards the galleries of Solemnace like a museum, a fortress and a private joke. Orikan the Diviner breaks in. Their feud stretches across millennia — antique arrogance, deadpan comedy, genuine cosmic stakes.</p>
+      <p class="meta"><b>Novel</b> · Necrons · not yet rated</p>
+    </li>
+
+    <li class="entry">
+      <p class="when">998.M41</p>
+      <h3><a href="buch.html">Helsreach</a></h3>
+      <p class="byline">Aaron Dembski-Bowden — 2010 · Space Marine Battles</p>
+      <p class="excerpt">When the orks of a vast Waaagh! descend on Armageddon, Reclusiarch Grimaldus is charged with holding the sprawling Hive Helsreach against the xenos flood, making his stand in an Imperial temple where faith and fury are all that remain.</p>
+      <p class="meta"><b>Novel</b> · Black Templars · 4.28 of 5</p>
+    </li>
+  </ol>
+
+  <div class="continue">
+    <button class="btn primary">Continue the catalogue</button>
+    <span class="hint">Showing 10 of 896 entries.</span>
+  </div>
+
+</main>
+
+<footer class="colophon">
+  Chrono · Lexicanum — a fan archive. All works remain the property of their publishers.<br>
+  Background art: the site’s commissioned hub artwork (<i>main-bg.webp</i>).
+</footer>
+
+<details class="study-note">
+  <summary>Studien-Notiz · Richtung 04 — Kathedrale</summary>
+  <div class="body">
+    <p><b>Haltung:</b> Das Archiv als Hochschiff — alles auf der Mittelachse, Prozession statt Tabelle, große dunkle Luft zwischen den Einträgen. Grimdark, aber serene: die Autorität kommt aus Symmetrie, Maß und einer Didone mit extremem Strichkontrast, nicht aus Chrome oder Ornament.</p>
+    <p><b>Aus Philipps Runde-2-Vorgaben:</b> Das Site-Artwork bleibt als fixer Hintergrund erhalten (erste Viewport-Höhe = Schwelle), beim Scrollen hebt ein Scrim das Dunkel — exakt die Mechanik der Live-Site (41-site-bg.css / 31-catalogue.css), nur mit neutralkaltem Stein-Schwarz statt Blau-Void.</p>
+    <p><b>Verwirft:</b> Cinzel/Cormorant, Cyan/Glow, Icon-Glyphen, Panel-Karten, Chips — Filter sind eine gesetzte Registerzeile, Buttons zwei Hairlines ohne Kasten.</p>
+    <p><b>Behält:</b> M-Skala als Gold-Marginalie über jedem Titel, Era-Gruppierung als Jochbögen, Datenehrlichkeit („not yet rated", c.-Präfixe), Vier-Tool-Kopfzeile, Korn/Vignette der Site-Hintergründe.</p>
+    <p><b>Kern-Parameter:</b> Bodoni Moda (Display) + Cardo (Text). Stein #0d0d10, Knochen #e4ddcb, genau EIN Akzent: mattes Gold #a48c52 (nie als Fläche, nur Linie + Kapitälchen). Buttons = Doppel-Hairline. Icon-Politik: null.</p>
+  </div>
+</details>
+
+<script>
+  /* Scroll-Scrim wie ScrollScrim der Live-Site: Artwork bleibt fix, das
+     Dunkel kommt beim Scrollen herein. Ohne JS trägt der CSS-Fade allein. */
+  (function () {
+    var scrim = document.getElementById("scrim");
+    function update() {
+      var h = window.innerHeight * 0.9;
+      scrim.style.opacity = Math.min(0.94, window.scrollY / h).toFixed(3);
+    }
+    window.addEventListener("scroll", update, { passive: true });
+    update();
+  })();
+</script>

@@ -12,9 +12,9 @@ import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import type { StoreRegion } from "@/lib/store-links";
 
 const QUICK_REGIONS: { code: StoreRegion; label: string }[] = [
-  { code: "US", label: "US" },
-  { code: "GB", label: "UK" },
-  { code: "DE", label: "DE" },
+  { code: "US", label: "United States" },
+  { code: "GB", label: "United Kingdom" },
+  { code: "DE", label: "Germany" },
 ];
 
 export default function RegionSwitcher({ active }: { active: StoreRegion }) {
@@ -31,7 +31,7 @@ export default function RegionSwitcher({ active }: { active: StoreRegion }) {
 
   return (
     <div className="book-detail__region" role="group" aria-label="Store region">
-      <span className="book-detail__region-label">{`// STORE · ${active}`}</span>
+      <span className="book-detail__region-label">Store region</span>
       <div className="book-detail__region-buttons">
         {QUICK_REGIONS.map((r) => (
           <button

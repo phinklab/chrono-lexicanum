@@ -24,6 +24,22 @@
   text-align: center;
 }
 
+/* Jump-proof route fallback (/archive, /ask). Register/tool-door switches
+   navigate mid-scroll; a viewport-short fallback would collapse the document
+   and the browser would clamp the reader back to the top. The spacer preserves
+   the scroll depth while the cogitator pins to the viewport as a proper
+   loading screen — under the persistent chrome (rail z 60, brand/vox z 25). */
+.route-loading {
+  min-height: 280vh;
+}
+.route-loading .cogitator-loading {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  min-height: 0;
+  background: color-mix(in srgb, var(--cl-void) 88%, transparent);
+}
+
 /* Screen-reader-only stable label (the visible phrases cycle + are aria-hidden,
    which would otherwise spam a live region). */
 .cogitator-loading__sr {
@@ -38,35 +54,45 @@
   border: 0;
 }
 
-/* Auspex motif: a thin gold arc orbiting a slow-pulsing seed. No box-shadow
-   glow — depth comes from the hairline + opacity, not bloom. */
+/* Sternwarte motif — the .lx-btn hover HUD as an endless loop: the origin dot
+   breathes (the button-hover expansion, back and forth) while the two hairline
+   rings turn counter to each other and the whole bloom swells in the dot's
+   rhythm. fxTurn comes from the shared keyframes (00-tokens.css). No
+   box-shadow glow — depth from hairline + opacity, not bloom. */
 .cogitator-loading__core {
   position: relative;
-  width: 58px;
-  height: 58px;
+  width: 110px;
+  height: 110px;
   display: grid;
   place-items: center;
 }
-.cogitator-loading__ring {
+.cogitator-loading__rings {
   position: absolute;
   inset: 0;
-  border-radius: 50%;
-  border: 1px solid var(--cl-ghost);
-  border-top-color: var(--cl-gold);
-  border-right-color: var(--cl-gold-dim);
-  animation: cogitatorSpin 1.4s linear infinite;
+  color: var(--cl-gold);
+  animation: cogitatorBloom 5.4s ease-in-out infinite;
+}
+.cogitator-loading__rings g {
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+}
+.cogitator-loading__rings .fr1 {
+  animation: fxTurn 26s linear infinite;
+}
+.cogitator-loading__rings .fr2 {
+  animation: fxTurn 17s linear infinite reverse;
 }
 .cogitator-loading__seed {
-  width: 8px;
-  height: 8px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   background: var(--cl-gold);
-  animation: cogitatorSeed 1.8s ease-in-out infinite;
+  animation: cogitatorSeed 5.4s ease-in-out infinite;
 }
 
 .cogitator-loading__eyebrow {
   margin: 0;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
   letter-spacing: 0.34em;
   text-transform: uppercase;
@@ -76,7 +102,7 @@
 .cogitator-loading__phrase {
   margin: 0;
   min-height: 1.5em;
-  font-family: var(--font-cinzel), serif;
+  font-family: var(--font-display);
   font-size: clamp(18px, 3.2vw, 27px);
   font-weight: 500;
   letter-spacing: 0.04em;
@@ -100,20 +126,26 @@
   animation: cogitatorScan 2.6s ease-in-out infinite;
 }
 
-@keyframes cogitatorSpin {
-  to {
-    transform: rotate(360deg);
+@keyframes cogitatorBloom {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.82);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(1);
   }
 }
 @keyframes cogitatorSeed {
   0%,
   100% {
-    opacity: 0.35;
-    transform: scale(0.9);
+    opacity: 0.55;
+    transform: scale(1);
   }
   50% {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1.7);
   }
 }
 @keyframes cogitatorPhraseIn {

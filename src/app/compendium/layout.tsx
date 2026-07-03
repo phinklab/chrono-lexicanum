@@ -1,27 +1,19 @@
 /**
- * Compendium shell (Brief 129 — Doorways; restyled Session 142). Wraps the
- * overview (`/compendium`) and every category directory
- * (`/compendium/[category]`) in one gold register frame: a vista backdrop with
- * the /ask + /podcasts readability fade, a lean hero with a Terminus rule, and
- * the persistent category nav with live counts. The teal re-skin is retired —
- * the Compendium reads as the REGISTRVM of the archive (Report 141, idea C2-3),
- * in the same gold language as every other surface.
- *
- * Server component: it loads the per-category counts once (cached, so the active
- * directory page dedupes its own builder call) and hands them to the db-free
- * <CompendiumNav>.
+ * Compendium shell — wraps the overview (`/compendium`) and every category
+ * directory (`/compendium/[category]`): the fixed art, the masthead ("The
+ * Registry / The Compendium") and the Imprimatur foot. The category nav lives
+ * on the directory pages, not here — the overview leads straight into the
+ * doorways (Brief 184).
  */
 import type { Metadata } from "next";
-import { Suspense, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import SiteBackground from "@/components/chrome/SiteBackground";
 import ScrollScrim from "@/components/chrome/ScrollScrim";
-import AuspexSweep from "@/components/chrono/AuspexSweep";
+import AuspexPair from "@/components/chrono/AuspexPair";
 import GhostReadout from "@/components/chrono/GhostReadout";
 import FloatingCoord from "@/components/chrono/FloatingCoord";
-import CompendiumNav from "@/components/compendium/CompendiumNav";
 import RouteScrollCue from "@/components/chrome/RouteScrollCue";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";
-import { loadCompendiumCounts } from "@/lib/compendium/loader";
 
 export const metadata: Metadata = {
   title: "Compendium — Chrono Lexicanum",
@@ -29,37 +21,12 @@ export const metadata: Metadata = {
     "The entity directory of the archive — factions, primarchs, characters, worlds and the authors behind the canon, each a doorway into its books and podcasts.",
 };
 
-const READOUT_LINES = [
-  "· COMPENDIVM · INDEX RERVM",
-  "· V CATEGORIAE · MOUNTED",
-  "· FRACTIO / PERSONA / MVNDVS",
-  "· DOORWAY · LIBRORVM / VOX",
-  "· COGNITIO LINK STABLE",
+const VOX_LINES = [
+  "Compendivm · quinque portae",
+  "Fractio / Persona / Mvndvs",
+  "Doorway · librorvm / vox",
+  "Cognitio link stable",
 ];
-
-/**
- * The count-bearing nav as its own async island: the layout itself must not
- * await `loadCompendiumCounts()` — that await sits ABOVE the page's
- * `loading.tsx` boundary, so on a cold cache fill (the only slow case) it
- * blocked the first paint of the entire shell and the loading state never
- * showed (Report 144 § P.1/P.5). Suspense-wrapped, the hero + tabs paint
- * immediately (count badges blank) and the counts stream in when the shared
- * cached builders resolve.
- *
- * try/catch (Report 144 § R.6): an uncaught loader error here would bubble out
- * of the Suspense boundary into the root error boundary and replace the WHOLE
- * compendium — hero, nav and the child page — with the error page. Counts are
- * decoration; on failure the nav simply renders without badges.
- */
-async function NavWithCounts() {
-  let counts: Record<string, number> | null = null;
-  try {
-    counts = await loadCompendiumCounts();
-  } catch {
-    counts = null;
-  }
-  return <CompendiumNav counts={counts} />;
-}
 
 export default function CompendiumLayout({
   children,
@@ -70,59 +37,33 @@ export default function CompendiumLayout({
     <main className="compendium route-snap">
       <SiteBackground variant="main" position="right bottom" />
       <ScrollScrim
-        className="cmp-scrim"
-        varName="--cmp-scrim-opacity"
+        className="site-scrim"
+        varName="--scrim-o"
         heroSelector=".cmp-hero"
-        maxOpacity={0.79}
+        maxOpacity={0.94}
       />
-
-      {/* Fixed HUD atmosphere — sweep + readout pinned to the viewport so they sit
-          over the crisp top of the scriptorium photo (the /ask + /podcasts skeleton:
-          the masthead carries only the title; the HUD lives outside it). */}
-      <div className="cmp-readout" aria-hidden>
-        <GhostReadout
-          color="var(--cl-gold)"
-          opacity={0.3}
-          lineMs={5200}
-          typeSpeed={80}
-          max={4}
-          lines={READOUT_LINES}
-        />
-      </div>
-      <div className="cmp-hud" aria-hidden>
-        <div className="cmp-hud__sweep">
-          <AuspexSweep r={170} sweepDuration={16} accent="var(--cl-gold)" />
-        </div>
-      </div>
+      <GhostReadout lines={VOX_LINES} />
 
       <header className="cmp-hero route-act">
-        <FloatingCoord
-          x="58%"
-          y="150px"
-          label="ARCHIVVM · RERVM OMNIVM"
-          delay={1.4}
-          lifetime={5}
-          color="var(--cl-gold)"
-          opacity={0.5}
+        <AuspexPair />
+        <FloatingCoord x="9%" y="30%" label="Archivvm · rervm omnivm" delay={7} />
+
+        <p className="cmp-hero__over">The Registry</p>
+        <h1 className="cmp-hero__heading">The Compendium</h1>
+        <p className="cmp-hero__edition">
+          Five doorways into the archive — each one leads to the books and
+          voices that carry its story.
+        </p>
+        <RouteScrollCue
+          className="route-cue--flow"
+          label="Open the registers"
+          target=".cmp-body"
         />
-        <div className="cmp-hero__inner">
-          <p className="cmp-hero__eyebrow">{"COMPENDIVM · INDEX RERVM"}</p>
-          <h1 className="cmp-hero__heading">COMPENDIUM</h1>
-          <div className="cmp-hero__rule" aria-hidden />
-          <p className="cmp-hero__sub">
-            Every faction, world, character and author in the archive — each a
-            doorway into the books and podcasts behind it.
-          </p>
-        </div>
-        <RouteScrollCue label="Open the registers" target=".cmp-body" />
       </header>
 
       <div className="cmp-body route-body-snap">
-        <Suspense fallback={<CompendiumNav counts={null} />}>
-          <NavWithCounts />
-        </Suspense>
         {children}
-        <ArchiveFooter mid="INDEX RERVM OMNIVM" />
+        <ArchiveFooter mid="Five doorways into the archive" />
       </div>
     </main>
   );

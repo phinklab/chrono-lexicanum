@@ -1,0 +1,233 @@
+<!-- ======================================================================
+     design/index.html — Übersicht der Richtungsstudien (Brief 184).
+     Bewusst neutral gehalten: diese Seite ist Gerüst, KEIN Kandidat.
+     Runde 1 (01–03): 2026-07-03 vormittags · Runde 2 (04–06): nach
+     Philipps Review — gothisch/serene/monumental, Artwork-BGs bleiben.
+     Runde 3 (07): 04 Kathedrale gewinnt — Nachbau der Live-Seiten +
+     Gestaltungskanon + Titelschrift-Toggle.
+     Runde 4 (07, in place): Register-Table statt Prozession, Schriften
+     größer, Instrumente (Astrolab + Vermessungspunkte) zurück, Rail-Titel
+     immer sichtbar, Fonts → Italiana / Gilda Display.
+     Runde 5 (07, in place): Register strikt an Live-Struktur (flach, EIN
+     Sort-Control, catalogue-row-Anatomie), Astrolab mittig im Hero +
+     feiner, Fonts → GFS Didot / Oranienbaum.
+     Runde 6 (07, in place): Datensatz als Popup (Kapelle, Live-@modal-
+     Mechanik, Buch-Titelblatt-Sprache), Astrolab ohne Zeiger (Ringe
+     drehen selbst), Buttons mit Gold-Eckbeschlägen, Rail-Rubriken-Strich,
+     Vox-Schreiber, Fonts → Almendra / Old Standard TT / Gloock.
+     Runde 7 (07, in place): Buttons neu — drei Systeme (Sternwarte /
+     Still / Siegel, Studio-Panel), Kapelle mit voller Buch-Sprache
+     (Synopsis + Appendix + Motive + Ouvertüre), dritte Stimme Fragment
+     Mono (Telemetrie), Kurs-Plotter (Route zeichnet sich), Fonts →
+     Cinzel (Default) / Bodoni Moda, Wortmarke fix oben links,
+     Latein nur noch in gesonderten Elementen.
+     Runde 8 (07, in place + neue Blätter): Artefakt-Skizze statt
+     Kurs-Plotter (Servo-Schädel / Bolter zeichnen sich + beschriften
+     sich), Buttons → VIER Systeme (Sternwarte mit Punkt-Expansion /
+     Sternkarte / Sternbild / Still; Siegel + Zacken-Stern raus),
+     Storage-Keys cl08 (Cinzel wieder Vorauswahl), und ALLE weiteren
+     Seiten außer dem Cartographer als Optik-Mocks: hub / chronik /
+     ask / kompendium / fraktion / welt / charakter.
+     Runde 9 (07, in place): geteiltes Fundament praxis.css/praxis.js;
+     Hintergrund = exakt der Live-BG (main-bg/vista, Live-Void #02030a,
+     Grund-Farb-Picker im Studio); Auspex-Zwillinge (MainAuspex-Port,
+     Ringe enger, ohne Sweep) statt Astrolab + Skizzen (Skizzen-Verdikt:
+     raus); Wortmarke ohne Trennpunkt; Cue-Strich fadet nach unten +
+     Lichttropfen; Ask als Slider-Flow + 3-Stufen-Hierarchie; Archiv-
+     Türen Books/Podcasts prominent; Doppelungs-Bereinigung; Titelschrift-
+     Dropdown inkl. fünf Cormorant-Familien; Keys cl09. chronik.html
+     bleibt bewusst auf Runde-8-Stand (Chronicle ignorieren).
+     ====================================================================== -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design-Richtungsstudien — Brief 184</title>
+
+<style>
+  :root {
+    --bg: #f6f5f2;
+    --ink: #23211d;
+    --dim: #6d685f;
+    --line: #d8d4ca;
+    --acc: #354a3f;
+    --off: #9c9587;
+    --mark: #7c2622;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 56px 24px 96px;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; }
+  h1 { font-size: 30px; font-weight: 600; }
+  .sub { color: var(--dim); margin: 8px 0 12px; font-style: italic; }
+  .note {
+    border: 1px solid var(--line);
+    background: #fff;
+    padding: 14px 18px;
+    font-size: 14.5px;
+    color: var(--dim);
+    margin: 22px 0 40px;
+  }
+  .note b { color: var(--ink); }
+
+  h2.round {
+    font-size: 15px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--acc);
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 8px;
+    margin-top: 48px;
+  }
+  h2.round .verdict { font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--dim); font-style: italic; }
+
+  section { border-top: 1px solid var(--line); padding: 30px 0 34px; }
+  section:first-of-type { border-top: 0; }
+  section h3 { font-size: 22px; font-weight: 600; }
+  section h3 .tag {
+    font-size: 12px;
+    font-family: Consolas, monospace;
+    color: var(--acc);
+    border: 1px solid var(--line);
+    padding: 2px 8px;
+    margin-left: 12px;
+    vertical-align: middle;
+    background: #fff;
+  }
+  section h3 .status {
+    font-size: 12px;
+    font-family: Consolas, monospace;
+    color: #fff;
+    background: var(--off);
+    padding: 2px 8px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  section h3 .status.reserved { background: var(--mark); }
+  section p.stance { margin: 10px 0 6px; max-width: 72ch; }
+  section p.params { font-size: 14px; color: var(--dim); max-width: 72ch; }
+  section p.verdict-note { font-size: 14px; color: var(--mark); font-style: italic; max-width: 72ch; margin-top: 8px; }
+  section.retired p.stance, section.retired p.params { color: var(--off); }
+  .files { display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
+  .files a {
+    font-family: Consolas, monospace;
+    font-size: 13.5px;
+    text-decoration: none;
+    color: var(--acc);
+    border: 1px solid var(--line);
+    background: #fff;
+    padding: 8px 16px;
+  }
+  .files a:hover { border-color: var(--acc); }
+  .foot { border-top: 1px solid var(--line); padding-top: 18px; font-size: 13.5px; color: var(--dim); font-style: italic; margin-top: 24px; }
+</style>
+
+<div class="wrap">
+  <h1>Design-Richtungsstudien</h1>
+  <p class="sub">Brief 184 · De-Slop Phase 1 · sieben Runden · 2026-07-03</p>
+
+  <div class="note">
+    <b>Roter Faden:</b> Alle Richtungen zeigen denselben Inhalt — Archivliste (Heresy-/M41-Auswahl), Buch-Detail <i>A&nbsp;Thousand&nbsp;Sons</i>, Karte mit selektiertem <i>Prospero</i> — mit echten Daten aus <code>scripts/seed-data</code>. So vergleicht man Sprachen, nicht Inhalte. Jede Seite trägt unten eine aufklappbare <b>Studien-Notiz</b> (verwirft / behält / Kern-Parameter). Diese Übersichtsseite selbst ist neutrales Gerüst, kein Kandidat.
+    <br><br>
+    <b>Runde 2:</b> Nach Philipps Review von Runde 1 — gesetzt sind jetzt: gothisch, grimdark-aber-serene, kathedral, monumental; die <b>Artwork-Hintergründe der Live-Site bleiben</b> (fixes Bild + Dunkel-Scrim beim Scrollen); der <b>Riesen-Titel ersetzt das Buchcover</b>. Die Studien 04–07 laden das Artwork relativ aus <code>public/</code> — den <code>design/</code>-Ordner dafür im Repo liegen lassen.
+    <br><br>
+    <b>Runde 3–8 (aktuell):</b> <b>04 Kathedrale gewinnt</b> (Philipps „schönste Stellen"-Screenshots: Masthead, Prozession, Synopsis/Appendix). Runde 3 wendet die Sprache an: Nachbau der echten Seiten <i>/archive</i> und <i>/buch</i> + ein <b>Gestaltungskanon</b> (CI-Blatt). Runde 4: echtes <b>Register mit Filtern</b>, Schriften größer, <b>HUD-Instrumente zurück</b>. Runde 5: Register <b>strikt an der Live-Struktur</b>, <b>Astrolab mittig im Hero</b>. Runde 6: Datensatz als <b>Popup („die Kapelle")</b>, Astrolab ohne Zeiger, Rubriken-Strich, Vox-Schreiber. Runde 7: Kapelle mit <b>voller Buch-Sprache</b> (Synopsis, Appendix, Motive, Acquire + Ouvertüre), dritte Schriftstimme <b>Fragment Mono</b> (Karte · Buch · Maschine), Wortmarke fix oben links, Titelschriften <b>Cinzel (Default) / Bodoni Moda</b>. <b>Runde 8 (nach Review):</b> der Kurs-Plotter ist raus (Hintergrund-Verdikt; die Idee lebt als Karten-Feature/Character-Pathing im Kanon § XV) — dafür die <b>Artefakt-Skizze</b>: ein Gerät zeichnet sich Strich für Strich und beschriftet dann seine Einzelteile (Archiv: <b>Servo-Schädel</b> · Buch: <b>Bolter, Godwyn-Pattern</b> mit explodierter Bolt-Patrone). <b>Vier Button-Testversionen</b> über das Studio-Panel: <b>Sternwarte</b> (kein Rahmen — der Punkt vor der Schrift expandiert beim Hover zum HUD; Zacken-Stern raus), <b>Sternkarte</b> (stille Tafel, HUD links versetzt), <b>Sternbild</b> (fünf Sterne verbinden sich hinter der Schrift), <b>Still</b> (Fallback); das Siegel ist raus. Storage-Keys auf cl08 gebumpt (Cinzel + Sternwarte wieder Vorauswahl). Und: <b>alle weiteren Seiten außer dem Cartographer als Optik-Mocks</b> — Hub, Chronicle, Ask (klickbarer Fragebogen-Flow), Compendium und die Entity-Blätter Fraktion/Welt/Charakter (Thousand Sons / Prospero / Magnus), untereinander verlinkt.
+  </div>
+
+  <h2 class="round">Runde 3–9 — zur Review <span class="verdict">· Kathedrale, angewandt auf die echte Site</span></h2>
+
+  <section>
+    <h3>07 · Praxis<span class="tag">dunkel · Nachbau + Kanon · Kathedrale</span></h3>
+    <p class="stance">Die Kathedrale-Sprache trifft die echte Site — alle Seiten außer dem Cartographer, untereinander verlinkt. <b>Runde 9 (nach Philipps Review):</b> Hintergrund = <b>exakt der Live-BG</b> (main-bg.webp right bottom auf Hub/Archiv/Ask/Compendium, vista.webp auf Buch/Entity; Live-Void #02030a — der Grund ist über den <b>Farb-Picker im Studio</b> justierbar). Im Hero stehen die <b>zwei Live-Auspex-Scheiben</b> (MainAuspex-Port: Live-Positionen und -Drehrichtungen, Ringe enger, ohne Sweep) — Astrolab und die selbstzeichnenden Skizzen (Servo-Schädel/Bolter) sind raus. <b>Wortmarke ohne Trennpunkt</b>, der Scroll-Cue fadet nach unten aus und trägt einen Lichttropfen. <b>archiv.html:</b> die Wahl Books/Podcasts ist jetzt das erste, größte Element (zwei Register-Türen). <b>ask.html:</b> Slider-Flow wie live (ein Frage-Pfad, Antwort schiebt weiter, Stationen klickbar) + „One Faction, One Book" in drei klaren Stufen (Faction → Chapter → Entry point). Doppelungen seitenweit bereinigt (Primarchs-Tür, Buch-Facts, Hero-Zählwerte). <b>ci.html</b> ist der Gestaltungskanon (fünfzehn Tafeln, auf Runde 9 nachgezogen). <b>chronik.html</b> bleibt bewusst auf Runde-8-Stand (Chronicle ignorieren, Live gefällt).</p>
+    <p class="params">Geteiltes Fundament praxis.css/praxis.js · Studio-Panel (unten rechts): Titelschrift als <b>Dropdown</b> — Cinzel (Default) / Bodoni Moda / <b>Cormorant / Cormorant Garamond / Infant / SC / Unicase</b> (lokale Webfonts aus design/beispiele) · Button-System Sternwarte (jetzt mit Planeten auf den Ringen) / Sternkarte / Sternbild / Still · <b>Grund-Farb-Picker</b> mit Reset (#02030a) — alles seitenübergreifend, Keys cl09 · Drei Schriftstimmen: Titelschrift · Cardo · Fragment Mono; Größen-Floor 13px (Vox 11.5) · Instrumente: Auspex-Zwillinge (180–440s, gegenläufig), Vermessungspunkte (21s), Vox-Schreiber — alles Linie, Gold, kein Glow.</p>
+    <div class="files">
+      <a href="07-praxis/hub.html">hub.html</a>
+      <a href="07-praxis/archiv.html">archiv.html</a>
+      <a href="07-praxis/buch.html">buch.html</a>
+      <a href="07-praxis/chronik.html">chronik.html</a>
+      <a href="07-praxis/ask.html">ask.html</a>
+      <a href="07-praxis/kompendium.html">kompendium.html</a>
+      <a href="07-praxis/fraktion.html">fraktion.html</a>
+      <a href="07-praxis/welt.html">welt.html</a>
+      <a href="07-praxis/charakter.html">charakter.html</a>
+      <a href="07-praxis/ci.html">ci.html</a>
+    </div>
+  </section>
+
+  <h2 class="round">Runde 2 — entschieden <span class="verdict">· Philipps Review 2026-07-03: 04 gewinnt</span></h2>
+
+  <section>
+    <h3>04 · Kathedrale<span class="tag">dunkel · Mittelachse · serene</span><span class="status" style="background: var(--acc);">Basis für Runde 3</span></h3>
+    <p class="stance">Das Archiv als Hochschiff: alles auf der Mittelachse, Prozession statt Tabelle, große dunkle Luft. Eine Didone mit extremem Strichkontrast trägt die Monumentalität; mattes liturgisches Gold nur als Hairline und Kapitälchen. Die eleganteste, stillste Lesart — Buchtitel bis 168&nbsp;px über dem Era-Artwork.</p>
+    <p class="params">Bodoni Moda + Cardo · Stein #0d0d10 / Knochen #e4ddcb / Gold #a48c52 (+ stilles Blutrot nur für Antagonisten) · Buttons als Doppel-Hairline ohne Kasten · Karte als Votivtafel, drei Marker-Register (Knochen / Blutrot / Kreuz).</p>
+    <p class="verdict-note" style="color: var(--acc);">Philipp: alle drei „schönste Stellen"-Screenshots stammen aus dieser Richtung (Masthead, Prozession, Synopsis/Appendix). Map-Notiz: die Votivtafel liest sich wie eine historische Seekarte („Christopher Columbus") — das, gepaart mit Animation und dem Design der neuen Karte, wäre der Sweet Spot → Input für den Map-Neubau.</p>
+    <div class="files">
+      <a href="04-kathedrale/archiv.html">archiv.html</a>
+      <a href="04-kathedrale/buch.html">buch.html</a>
+      <a href="04-kathedrale/map.html">map.html</a>
+    </div>
+  </section>
+
+  <section>
+    <h3>05 · Kodex<span class="tag">dunkel · Manuskript · gothisch</span><span class="status">zurückgestellt</span></h3>
+    <p class="stance">Das „Lexicanum" wörtlich: ein schwarzes Stundenbuch. Blackletter-Display (modern und lesbar, kein Fraktur-Cosplay), Rubrizierung als authentisches Auszeichnungssystem — Zinnober ordnet, Gold schmückt. Asymmetrischer Manuskript-Satzspiegel mit Glossen in der Marginale; illuminierte Initiale im Buch-Detail; Buchtitel bis 190&nbsp;px in Blackletter.</p>
+    <p class="params">Grenze Gotisch + Alegreya / Alegreya SC · Umbra #110e0a / Tinte #e7dcc2 / Zinnober #b23a27 / Gold #b18d43 · Glossen statt Chips · Karte als Mappa Mundi mit Randglosse statt Popup.</p>
+    <div class="files">
+      <a href="05-kodex/archiv.html">archiv.html</a>
+      <a href="05-kodex/buch.html">buch.html</a>
+      <a href="05-kodex/map.html">map.html</a>
+    </div>
+  </section>
+
+  <section>
+    <h3>06 · Nekropole<span class="tag">dunkel · Monument · grimdark</span><span class="status">zurückgestellt</span></h3>
+    <p class="stance">Das Archiv als Grabhalle: Inschriften-Register auf Basalt, gemeißelte Versalien mit Gravur-Kante (spitze Serifen — Schmiedeeisen, nicht Trajan), römische Ordnungszahlen, ein kalter Verdigris-Akzent. Monumental wie 03, aber still statt laut. Tote Welten tragen auf der Karte das Dagger-Zeichen †.</p>
+    <p class="params">Eczar + Gentium Book Plus · Basalt #0b0c0b / Knochen #dcd6c4 / Verdigris #79a08c / Rost #9c4636 nur fürs Ruinöse · Buttons als Meißel-Doppelrahmen, primär Knochen-Block · Fakten-Fries statt Katalogisat-Tabelle im Hero.</p>
+    <div class="files">
+      <a href="06-nekropole/archiv.html">archiv.html</a>
+      <a href="06-nekropole/buch.html">buch.html</a>
+      <a href="06-nekropole/map.html">map.html</a>
+    </div>
+  </section>
+
+  <h2 class="round">Runde 1 — entschieden <span class="verdict">· Philipps Review 2026-07-03</span></h2>
+
+  <section class="retired">
+    <h3>01 · Folio<span class="tag">licht · Druck · leise</span><span class="status">verworfen</span></h3>
+    <p class="stance">Das Archiv als publiziertes Nachschlagewerk: antiquarischer Bibliothekskatalog, Papier und Druckerschwärze, ein einziger Akzent in Siegelrot.</p>
+    <p class="verdict-note">Philipp: zu sehr Standard-AI-Slop. Verworfen.</p>
+    <div class="files">
+      <a href="01-folio/archiv.html">archiv.html</a>
+      <a href="01-folio/buch.html">buch.html</a>
+      <a href="01-folio/map.html">map.html</a>
+    </div>
+  </section>
+
+  <section class="retired">
+    <h3>02 · Kogitator<span class="tag">dunkel · Instrument · präzise</span><span class="status">verworfen</span></h3>
+    <p class="stance">Das Archiv als Arbeitsinstrument: Datenterminal ohne Cosplay — dichte Tabellen, Feldraster, Statuszeilen, voller kind-Farbkontrakt auf der Karte.</p>
+    <p class="verdict-note">Philipp: wirkt altbacken, ohne Finesse, Eleganz und „gothisch". Verworfen.</p>
+    <div class="files">
+      <a href="02-kogitator/archiv.html">archiv.html</a>
+      <a href="02-kogitator/buch.html">buch.html</a>
+      <a href="02-kogitator/map.html">map.html</a>
+    </div>
+  </section>
+
+  <section class="retired">
+    <h3>03 · Plakat<span class="tag">dunkel · Poster · laut</span><span class="status reserved">außen vor — anderes Projekt</span></h3>
+    <p class="stance">Das Archiv als Plakatwand: Brutalismus, monumentale Versal-Typo, harte Blöcke und Versatz-Schatten. Jede Listenzeile ein kleines Plakat.</p>
+    <p class="verdict-note">Philipp: generell cool, aber unpassend für Warhammer. Bleibt erhalten — die Optik ist ggf. für ein komplett anderes Projekt reserviert. Für Chrono·Lexicanum außen vor; Dateien nicht weiter anfassen.</p>
+    <div class="files">
+      <a href="03-plakat/archiv.html">archiv.html</a>
+      <a href="03-plakat/buch.html">buch.html</a>
+      <a href="03-plakat/map.html">map.html</a>
+    </div>
+  </section>
+
+  <p class="foot">Wegwerf-Arbeitsmaterial mit Lebensdauer bis nach Brief 185 (Ausnahme: 03 Plakat bleibt als Reserve für ein anderes Projekt). Direkt editierbar; Anmerkungen als Kommentar in die Dateien. Map-Daten: <code>data/worlds.js</code> (aus map-worlds.json generiert, 1054 Welten). Hintergründe (Runde 2 + 3): <code>../public/img/main-bg.webp</code>, <code>../public/timeline/bg/era-horus-heresy.webp</code>, <code>../public/img/cartog-holo.webp</code>.</p>
+</div>

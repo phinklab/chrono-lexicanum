@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteBackground from "@/components/chrome/SiteBackground";
-import AuspexSweep from "@/components/chrono/AuspexSweep";
+import AuspexPair from "@/components/chrono/AuspexPair";
 import FloatingCoord from "@/components/chrono/FloatingCoord";
 import GhostReadout from "@/components/chrono/GhostReadout";
 import ScrollScrim from "@/components/chrome/ScrollScrim";
@@ -70,14 +70,12 @@ export default async function PodcastsPage() {
     ...primarchSuggestions,
   ];
 
-  // Honest readout — real holdings, no pseudo-telemetry (the feed/latency
-  // lines died with the lab port, Report 141; sibling of /archive's readout).
-  const readoutLines = [
-    "· VOX · ARCHIVVM SONORVM",
-    `· ${shows.length} ${shows.length === 1 ? "SHOW" : "SHOWS"} · ${totalEpisodes} EPISODES`,
-    "· FEED · RSS DIRECT",
-    "· PLAY / DOWNLOAD / OPEN IN APP",
-    "· COGNITIO LINK STABLE",
+  // Honest vox — real holdings, no pseudo-telemetry.
+  const voxLines = [
+    "Vox · archivvm sonorvm",
+    `${shows.length} ${shows.length === 1 ? "show" : "shows"} · ${totalEpisodes} episodes`,
+    "Feed · RSS direct",
+    "Cognitio link stable",
   ];
 
   // The podcasts index rides /archive's catalogue shell (Brief-less polish
@@ -89,77 +87,55 @@ export default async function PodcastsPage() {
   return (
     <main className="catalogue catalogue--vox">
       <SiteBackground variant="main" position="right bottom" />
+      <GhostReadout lines={voxLines} />
+
       <section
         className="catalogue-hero route-act"
         aria-label="Podcasts — the lore-cast pillar"
       >
-        <ScrollScrim maxOpacity={0.77} />
-        <div className="catalogue-hero__sweep" aria-hidden>
-          <AuspexSweep r={180} sweepDuration={18} accent="var(--cl-gold)" />
-        </div>
-        <div className="werke-hero__readout" aria-hidden>
-          <GhostReadout
-            color="var(--cl-gold)"
-            opacity={0.34}
-            lineMs={5200}
-            typeSpeed={80}
-            max={4}
-            lines={readoutLines}
-          />
-        </div>
-        <FloatingCoord
-          x="42%"
-          y="120px"
-          label="VOX · SEGMENTVM SOLAR"
-          delay={1.2}
-          lifetime={5}
-          color="var(--cl-gold)"
-          opacity={0.55}
+        <ScrollScrim
+          className="site-scrim"
+          varName="--scrim-o"
+          heroSelector=".catalogue-hero"
+          maxOpacity={0.94}
         />
-        <FloatingCoord
-          x="58%"
-          y="220px"
-          label="FEED · RSS DIRECT"
-          delay={3.0}
-          lifetime={5}
-          color="var(--cl-gold)"
-          opacity={0.55}
+        <AuspexPair />
+        <FloatingCoord x="10%" y="32%" label="Vox · Segmentvm Solar" delay={9} />
+
+        <p className="catalogue-hero__over">The Index</p>
+        <h1 className="catalogue-hero__heading">The Archive</h1>
+        <p className="catalogue-hero__edition">
+          {shows.length === 0
+            ? "No podcasts in the database yet."
+            : `${showWord} · ${totalEpisodes} episodes — play in place, download, or open in your app.`}
+        </p>
+        <RouteScrollCue
+          className="route-cue--flow"
+          label="Choose your archive"
+          target=".catalogue-body"
         />
-        <div className="catalogue-hero__title">
-          <div className="catalogue-hero__eyebrow">{"VOX · ARCHIVVM SONORVM"}</div>
-          <h1 className="catalogue-hero__heading">PODCASTS</h1>
-          <div className="catalogue-hero__rule" aria-hidden />
-          <p className="catalogue-hero__sub">
-            {shows.length === 0
-              ? "No podcasts in the database yet."
-              : `${showWord} · ${totalEpisodes} episodes — play in place, download, or open in your app.`}
-          </p>
-        </div>
-        <RouteScrollCue label="Browse the podcasts" target=".catalogue-body" />
       </section>
 
       <div className="catalogue-body route-body-snap">
+        <ArchiveModeToggle
+          active="podcasts"
+          booksLine={`${books.length} novels, novellas & audio dramas`}
+          podcastsLine={`${totalEpisodes} episodes · ${showWord.toLowerCase()}`}
+        />
+
         {searchIndex.length > 0 && (
           <div className="browse-filters" role="group" aria-label="Browse the archive">
             <PodcastsSearch index={searchIndex} />
-            {/* The register fork (WORKS | PODCASTS) leads the controls row, in
-                the same slot as /archive's WerkeFilters — the toggle is the
-                pivot, so it must not move when the views swap. */}
-            <div className="browse-controls">
-              <ArchiveModeToggle active="podcasts" />
-            </div>
           </div>
         )}
 
         {shows.length > 0 && (
-          <div className="catalogue-toolbar">
-            <div className="catalogue-toolbar__left">
-              <span className="catalogue-toolbar__count">
-                {shows.length} · {shows.length === 1 ? "SHOW" : "SHOWS"}
-              </span>
-              <span className="catalogue-toolbar__total">/ {totalEpisodes} episodes</span>
-            </div>
-          </div>
+          <p className="catalogue-census">
+            <b>
+              {shows.length} · {shows.length === 1 ? "show" : "shows"}
+            </b>{" "}
+            / {totalEpisodes} episodes
+          </p>
         )}
 
         {shows.length === 0 ? (

@@ -90,24 +90,12 @@
 }
 
 /* ── Inline affordance on the universal search console ──────────────────────
-   While a pick is navigating, the always-present auspex reticle (rendered by
-   <BrowseSearch> in every skin) tints gold and slowly turns — the box the user
-   is looking at acknowledges the click, in concert with the top beam. The form
-   also carries aria-busy. Reduced motion keeps the tint, drops the spin. */
-.browse-search--pending .browse-search__sigil {
-  color: var(--cl-gold);
-  animation: routeSigilSpin 1.4s linear infinite;
-  transition: color 160ms ease-out;
-}
-@keyframes routeSigilSpin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .browse-search--pending .browse-search__sigil {
-    animation: none;
-  }
+   While a pick is navigating, the seek line's gold underline (the same ::after
+   that answers focus, 61-browse.css) stays filled — the line the user is
+   looking at acknowledges the click, in concert with the top beam. The form
+   also carries aria-busy. */
+.browse-search--pending::after {
+  transform: scaleX(1);
 }
 
 /* ── Modal-slot skeleton ────────────────────────────────────────────────────
@@ -137,7 +125,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label);
   letter-spacing: 0.18em;
   text-transform: uppercase;

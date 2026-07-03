@@ -1,0 +1,340 @@
+<!-- ======================================================================
+     RUNDE 9 — PRAXIS · Nachbau der Live-Seite /buch/[slug]
+     (A Thousand Sons). Runde-9-Korrekturen (Philipps Runde-8-Review):
+     (1) Bolter-Skizze RAUS (Verdikt: die sich zeichnenden SVGs sind
+     grauenvoll) — stattdessen die zwei Live-Auspex-Scheiben, hier in
+     der leisen Ausgabe (--quiet), Ringe enger, ohne Sweep. (2) Hinter-
+     grund = Live-BG: /buch läuft live auf variant="vista" (50% 22%) —
+     der Era-Artwork-Entscheid aus R7/R8 ist zurückgenommen. (3) Die
+     Facts-Zeile im Titelblatt ist raus (Doppelung mit dem Katalogisat
+     direkt darunter — Infoload-Politik). (4) Cue mit fadendem Strich +
+     Lichttropfen, Größen gehoben, Wortmarke ohne Punkt. Geteilte
+     Blöcke: praxis.css/praxis.js (Keys cl09). Diese Seite bleibt
+     zugleich der Inhalt der Kapelle (Popup im Archiv) — kein Fork.
+     ====================================================================== -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Praxis — A Thousand Sons</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cardo:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400..900&family=Fragment+Mono:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="praxis.css">
+
+<style>
+  /* ── Titelblatt: der Titel IST das Cover — gestaffelte Ladeanimation ── */
+  .titlepage {
+    position: relative;
+    min-height: 88vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: flex-end;
+    text-align: center;
+    padding: 0 20px 7vh;
+  }
+  /* Text über dem Instrument — Schichtung wie catalogue-hero__title (z 3) */
+  .titlepage .crumb, .titlepage .over, .titlepage h1,
+  .titlepage .byline, .titlepage .facts, .titlepage .cue {
+    position: relative; z-index: 3;
+  }
+  .titlepage .crumb {
+    font-style: italic; font-size: 16.5px; color: var(--dim);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+    animation: enter 0.9s 0.1s var(--ease) both;
+  }
+  .titlepage .crumb a { transition: color 0.3s; }
+  .titlepage .crumb a:hover { color: var(--gold); }
+  /* Rubrik über dem Titel (Runde 7): das M-Band — die ehrlichste
+     Pre-Headline des Archivs, in der Maschinen-Stimme */
+  .titlepage .over {
+    margin-top: 30px;
+    font-family: var(--mono);
+    font-size: 13.5px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); font-variant-numeric: tabular-nums;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+    animation: enter 1s 0.3s var(--ease) both;
+  }
+  .titlepage h1 {
+    margin-top: 20px;
+    font-family: var(--disp);
+    font-weight: var(--disp-wght-hero);
+    font-optical-sizing: auto;
+    font-size: clamp(58px, 11.5vw, 168px);
+    line-height: 0.96;
+    letter-spacing: var(--disp-track);
+    max-width: 12ch;
+    text-shadow: 0 3px 34px rgba(0,0,0,0.9);
+    animation: enterTitle 1.4s 0.55s var(--ease) both;
+  }
+  .titlepage .byline {
+    margin-top: 26px;
+    font-style: italic;
+    font-size: 21px;
+    color: var(--dim);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+    animation: enter 1s 1s var(--ease) both;
+  }
+  .titlepage .byline a { font-style: normal; font-weight: 400; color: var(--bone); border-bottom: 1px solid var(--hair); transition: color 0.3s, border-color 0.3s; }
+  .titlepage .byline a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+  .titlepage .cue {
+    margin-top: 5vh;
+    animation: enter 1s 1.3s var(--ease) both;
+  }
+
+  /* ── Katalogisat auf der Achse ───────────────────────────────────── */
+  main { max-width: 840px; margin: 0 auto; padding: 9vh 24px 90px; }
+
+  h2.section {
+    text-align: center;
+    display: flex; align-items: center; gap: 26px;
+    font-size: 14.5px; letter-spacing: 0.34em; text-transform: uppercase;
+    color: var(--gold); font-weight: 400;
+    margin: 84px 0 30px;
+  }
+  h2.section::before, h2.section::after {
+    content: ""; flex: 1; border-top: 1px solid var(--hair);
+    transform: scaleX(0);
+    transition: transform 1.15s var(--ease) 0.2s;
+  }
+  h2.section::before { transform-origin: right center; }
+  h2.section::after  { transform-origin: left center; }
+  h2.section.is-seen::before, h2.section.is-seen::after { transform: scaleX(1); }
+  h2.section:first-child { margin-top: 0; }
+
+  table.katalogisat {
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-size: 18px;
+  }
+  .katalogisat th {
+    text-align: right;
+    font-weight: 400;
+    font-size: 13.5px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--faint);
+    padding: 9px 26px 9px 0;
+    border-right: 1px solid var(--hair);
+    white-space: nowrap;
+    vertical-align: baseline;
+  }
+  .katalogisat td { padding: 9px 0 9px 26px; vertical-align: baseline; }
+  .katalogisat td .note { font-style: italic; color: var(--faint); font-size: 16px; }
+  .katalogisat td.chrono { font-family: var(--mono); font-size: 16.5px; color: var(--gold); font-variant-numeric: tabular-nums; }
+  .katalogisat td a { border-bottom: 1px solid var(--hair); transition: color 0.3s, border-color 0.3s; }
+  .katalogisat td a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+  /* ── Acquire — BuyListenActions + RegionSwitcher der Live-Site.
+        Button-Systeme: praxis.css (Studio-Panel). ─────────────────────── */
+  .actions { text-align: center; padding-top: 4px; }
+
+  .credit {
+    text-align: center;
+    margin-top: 20px;
+    font-style: italic; font-size: 17px; color: var(--dim);
+  }
+  .credit b { font-style: normal; font-weight: 400; color: var(--bone); }
+  .region {
+    text-align: center;
+    margin-top: 14px;
+    font-size: 13.5px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--faint);
+  }
+  .region .lbl { padding-right: 14px; }
+  .region a { padding: 0 8px; color: var(--dim); transition: color 0.3s; cursor: pointer; }
+  .region a:hover { color: var(--bone); }
+  .region a.active { color: var(--gold); }
+  .region a + a::before { content: "·"; color: var(--faint); padding-right: 14px; }
+
+  /* ── Synopsis: Blocksatz auf schmaler Achse ──────────────────────── */
+  .synopsis { max-width: 60ch; margin: 0 auto; }
+  .synopsis p { margin-bottom: 18px; text-align: justify; hyphens: auto; }
+  .synopsis p:first-of-type::first-line { letter-spacing: 0.14em; text-transform: uppercase; font-size: 16.5px; }
+  .synopsis .aside {
+    font-style: italic; color: var(--dim); text-align: center;
+    border-top: 1px solid var(--hair);
+    padding-top: 16px; margin-top: 26px;
+  }
+  .synopsis .aside a { border-bottom: 1px solid var(--hair); transition: color 0.3s, border-color 0.3s; }
+  .synopsis .aside a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+  /* ── Appendix: die Chip-Sektionen der Live-Site als Spalten ─────── */
+  .appendix {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    text-align: center;
+  }
+  .appendix h3 {
+    font-size: 13.5px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); font-weight: 400;
+    margin-bottom: 14px;
+  }
+  .appendix ul { list-style: none; }
+  .appendix li { padding: 6px 0; }
+  .appendix li a { transition: color 0.3s; }
+  .appendix li a:hover { color: var(--gold); }
+  .appendix .role {
+    display: block;
+    font-style: italic; font-size: 15.5px; color: var(--faint);
+  }
+  .appendix .role.antagonist { color: var(--blood); }
+
+  /* Facetten der Live-Site → Motiv-Zeile */
+  .motifs {
+    margin-top: 84px;
+    text-align: center;
+    font-style: italic;
+    color: var(--dim);
+  }
+  .motifs .sep { color: var(--faint); padding: 0 8px; }
+  .motifs .cw { display: block; margin-top: 14px; font-size: 15.5px; color: var(--faint); }
+
+  /* Audit-Verweis (Live: book-detail__audit-link) + Kolophon */
+  .audit { text-align: center; margin-top: 60px; }
+  .audit a {
+    font-style: italic; font-size: 15.5px; color: var(--faint);
+    border-bottom: 1px solid transparent;
+    transition: color 0.3s, border-color 0.3s;
+  }
+  .audit a:hover { color: var(--dim); border-bottom-color: var(--hair); }
+
+  footer.colophon {
+    max-width: 900px; margin: 40px auto 0;
+    border-top: 1px solid var(--hair);
+    padding: 22px 24px 40px;
+    text-align: center;
+    font-style: italic; font-size: 15.5px; color: var(--faint);
+  }
+
+  @media (max-width: 760px) {
+    .appendix { grid-template-columns: 1fr; gap: 30px; }
+    .katalogisat th { padding-right: 14px; }
+    .katalogisat td { padding-left: 14px; }
+    .btn { margin: 6px 4px; }
+  }
+</style>
+
+<div class="bg" aria-hidden="true" style="--art: url('../../public/img/vista.webp'); --art-pos: 50% 22%;">
+  <div class="photo"></div>
+  <div class="vignette"></div>
+  <div class="fade"></div>
+  <div class="scrim" id="scrim"></div>
+  <div class="grain"></div>
+</div>
+
+<nav class="rail" aria-label="Primary">
+  <a href="hub.html"><span class="rn">I</span><span class="rt">Home</span></a>
+  <a href="archiv.html" class="here" aria-current="page"><span class="rn">II</span><span class="rt">Archive</span></a>
+  <a href="kompendium.html"><span class="rn">III</span><span class="rt">Compendium</span></a>
+  <a href="ask.html"><span class="rn">IV</span><span class="rt">Ask</span></a>
+  <a href="chronik.html"><span class="rn">V</span><span class="rt">Chronicle</span></a>
+  <a href="#"><span class="rn">VI</span><span class="rt">Cartographer</span></a>
+</nav>
+
+<div class="brand">Chrono Lexicanum</div>
+
+<!-- Vox-Schreiber (GhostReadout-Erbe): Zeilen aus data-lines, praxis.js -->
+<div class="vox" id="vox" aria-hidden="true" data-lines='["Prospero · Segmentvm Vltima","Anchor · Covncil of Nikaea","Tizca · the city of light","Cross-ref · Prospero Bvrns","Datation 001 – 004.M31","Avdio · Martyn Ellis · unabridged"]'></div>
+
+<section class="titlepage">
+  <!-- Die zwei Live-Auspex-Scheiben (Runde 9, ersetzen Astrolab und
+       Bolter-Skizze) — leise Ausgabe für das dichte Titelblatt. -->
+  <div class="auspex-pair auspex-pair--quiet" aria-hidden="true">
+    <div class="aus aus--main" data-auspex="520"></div>
+    <div class="aus aus--sec" data-auspex="300" style="--spa: 360s; --spb: 440s; --spc: 242s;"></div>
+  </div>
+  <span class="survey" style="left: 10%; top: 32%; --d: 9s;" aria-hidden="true">
+    <span class="pt"></span><span class="lead"></span><span class="lbl">Anchor · Council of Nikaea</span>
+  </span>
+
+  <p class="crumb"><a href="archiv.html">← Return to the Archive</a></p>
+  <p class="over">001 – 004.M31 · The Horus Heresy</p>
+  <h1>A Thousand Sons</h1>
+  <p class="byline">being an account of the burning of Prospero — by <a href="#">Graham McNeill</a></p>
+  <span class="cue">The record</span>
+</section>
+
+<main>
+
+  <h2 class="section reveal">Katalogisat</h2>
+  <table class="katalogisat reveal">
+    <tr><th>First published</th><td>2010</td></tr>
+    <tr><th>Format</th><td>Novel <span class="note">· 558 pp.</span></td></tr>
+    <tr><th>Series</th><td>Original Horus Heresy, XII</td></tr>
+    <tr><th>Setting</th><td class="chrono">001 – 004.M31</td></tr>
+    <tr><th>Anchored on</th><td>The Burning of Prospero <span class="note">— Nikaea as second anchor</span></td></tr>
+    <tr><th>Principal world</th><td><a href="welt.html">Prospero</a>, Segmentum Ultima</td></tr>
+    <tr><th>Standing</th><td>4.27 of 5 <span class="note">from 10 635 readings (Goodreads)</span></td></tr>
+    <tr><th>Approach</th><td>Read after the opening trilogy <span class="note">— requires context</span></td></tr>
+    <tr><th>Record</th><td>003 of 896 <span class="note">· archive index</span></td></tr>
+  </table>
+
+  <h2 class="section reveal">Acquire</h2>
+  <div class="actions reveal">
+    <a class="btn primary" href="#">Buy on Amazon<span class="mark">↗</span></a>
+    <a class="btn" href="#">Black Library<span class="mark">↗</span></a>
+    <a class="btn" href="#">Listen on Audible<span class="mark">↗</span></a>
+  </div>
+  <p class="credit reveal">The audio edition is read by <b>Martyn Ellis</b>, unabridged.</p>
+  <p class="region reveal">
+    <span class="lbl">Store region</span>
+    <a class="active">Germany</a><a>United States</a><a>United Kingdom</a>
+  </p>
+
+  <h2 class="section reveal">Synopsis</h2>
+  <div class="synopsis reveal">
+    <p>Censured at the Council of Nikaea for the Legion’s open use of psychic sorcery, Magnus the Red withdraws with his Thousand Sons to the crystal city of Tizca on Prospero. There the primarch peers into the warp and glimpses Horus’ coming betrayal, and he hurls his mind across the void to warn the Emperor on Terra — only to crash through the half-built webway gate beneath the Imperial Palace, tearing it open to daemons.</p>
+    <p>Followed through the eyes of Captain Ahzek Ahriman and the chronicler Lemuel Gaumon, the novel charts a tragedy of brilliant minds undone by hubris and good intentions, and ends with the Wolf King’s pyres already kindling over the City of Light.</p>
+    <p class="aside">The archivist notes: paired most naturally with <a href="#">Prospero Burns</a>, which walks the same years in the Wolves’ boots — the two accounts disagree, as accounts of Prospero tend to.</p>
+  </div>
+
+  <h2 class="section reveal">Appendix</h2>
+  <div class="appendix reveal">
+    <div>
+      <h3>Dramatis Personae</h3>
+      <ul>
+        <li><a href="charakter.html">Magnus the Red</a> <span class="role">point of view</span></li>
+        <li><a href="#">Ahzek Ahriman</a> <span class="role">point of view</span></li>
+        <li><a href="#">Lemuel Gaumon</a> <span class="role">point of view</span></li>
+        <li><a href="#">Leman Russ</a> <span class="role antagonist">antagonist</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Factions</h3>
+      <ul>
+        <li><a href="fraktion.html">Thousand Sons</a> <span class="role">primary</span></li>
+        <li><a href="#">Space Wolves</a> <span class="role">supporting</span></li>
+        <li><a href="#">Custodes</a> <span class="role">supporting</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Locations</h3>
+      <ul>
+        <li><a href="welt.html">Prospero</a> <span class="role">primary</span></li>
+        <li><a href="#">Tizca</a> <span class="role">primary</span></li>
+        <li><a href="#">Terra</a> <span class="role">supporting</span></li>
+        <li><a href="#">Nikaea</a> <span class="role">supporting</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="motifs reveal">
+    hubris <span class="sep">·</span> betrayal <span class="sep">·</span> faith &amp; doubt <span class="sep">·</span> cosmic horror
+    <span class="cw">The reader is advised: violence, death.</span>
+  </p>
+
+  <p class="audit reveal"><a href="#">Provenance &amp; audit record →</a></p>
+
+</main>
+
+<footer class="colophon">
+  Chrono Lexicanum — a fan archive. All works remain the property of their publishers.<br>
+  Background art: the live site&rsquo;s vista artwork (<i>vista.webp</i>, SiteBackground variant="vista") — no cover rights needed.
+</footer>
+
+<details class="study-note">
+  <summary>Studien-Notiz · Runde 9 — Praxis (Nachbau /buch)</summary>
+  <div class="body">
+    <p><b>Runde-9-Korrekturen nach Philipps Review:</b> (1) <b>Bolter-Skizze raus</b> (Verdikt: die sich zeichnenden SVGs sind grauenvoll) — im Titelblatt liegen jetzt die zwei Live-Auspex-Scheiben in der leisen Ausgabe (Opazität 0.34/0.14, Ringe enger, ohne Sweep); der Nikaea-Vermessungspunkt bleibt links. (2) <b>Hintergrund = Live:</b> /buch läuft live auf variant="vista" (50 % 22 %) — der Era-Artwork-Entscheid (era-horus-heresy.webp) aus R7/R8 ist zurückgenommen; das Kolophon nennt jetzt die vista-Quelle. (3) <b>Facts-Zeile raus:</b> „2010 · Novel · Original Horus Heresy № XII" stand im Titelblatt UND als erste drei Katalogisat-Zeilen direkt darunter — der erste Infoload gehört dem Titel, die Fakten dem Katalogisat (Doppelungs-Politik). (4) Cue „The record" mit fadendem Strich + Lichttropfen, Wortmarke ohne Punkt, Größen gehoben (Katalogisat 18 px, Rollen 15.5 px).</p>
+    <p><b>Archivar-Aside:</b> bleibt als von mir verfasstes Muster in der Synopsis (Runde-8-Prüfung: kein Notiz-Feld pro Buch in curation; Kandidat curation.archivistNote für einen Daten-Pass). <b>Rolle dieser Seite:</b> volle Fassung der Titelblatt-Sprache; die Kapelle (Popup im Archiv) rendert denselben Inhalt — kein Fork. Geteilte Blöcke in praxis.css/praxis.js (Keys cl09).</p>
+  </div>
+</details>
+
+<script src="praxis.js"></script>

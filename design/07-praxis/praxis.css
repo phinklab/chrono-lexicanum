@@ -1,0 +1,581 @@
+/* ======================================================================
+   RUNDE 9 — PRAXIS · Geteiltes Fundament aller 07-Blätter.
+   Bis Runde 8 trug jede Seite Kopien derselben Blöcke (Tokens, BG,
+   Rail, Vox, Buttons, Studio-Panel, …); Runde 9 zieht sie hierher,
+   damit Philipps Review-Punkte (Live-BG + Farb-Picker, Live-Auspex,
+   Cormorant-Familien, Cue-Animation, Größen) EINMAL leben.
+   Seiten laden diese Datei VOR ihrem eigenen <style> — Seiten-CSS
+   gewinnt bei gleicher Spezifität. chronik.html bleibt auf dem
+   Runde-8-Stand (Philipps Auftrag: Chronicle ignorieren).
+   ====================================================================== */
+
+/* ── Cormorant-Familien (lokal, design/beispiele/Cormorant_Webfonts_v4.002)
+      Nur die Gewichte, die die Titelschrift wirklich zieht (400–700);
+      Browser laden @font-face lazy — ungenutzte Familien kosten nichts. ── */
+@font-face { font-family: "Cormorant CL"; src: url("../beispiele/Cormorant_Webfonts_v4.002/Cormorant-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Cormorant CL"; src: url("../beispiele/Cormorant_Webfonts_v4.002/Cormorant-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Cormorant CL"; src: url("../beispiele/Cormorant_Webfonts_v4.002/Cormorant-SemiBold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Cormorant CL"; src: url("../beispiele/Cormorant_Webfonts_v4.002/Cormorant-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Cormorant Garamond CL"; src: url("../beispiele/Cormorant_Webfonts_v4.002/CormorantGaramond-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Cormorant Garamond CL"; src: url("../beispiele/Cormorant_Webfonts_v4.002/CormorantGaramond-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Cormorant Garamond CL"; src: url("../beispiele/Cormorant_Webfonts_v4.002/CormorantGaramond-SemiBold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Cormorant Garamond CL"; src: url("../beispiele/Cormorant_Webfonts_v4.002/CormorantGaramond-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Cormorant Infant CL"; src: url("../beispiele/Cormorant_Webfonts_v4.002/CormorantInfant-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Cormorant Infant CL"; src: url("../beispiele/Cormorant_Webfonts_v4.002/CormorantInfant-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Cormorant Infant CL"; src: url("../beispiele/Cormorant_Webfonts_v4.002/CormorantInfant-SemiBold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Cormorant Infant CL"; src: url("../beispiele/Cormorant_Webfonts_v4.002/CormorantInfant-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Cormorant SC CL"; src: url("../beispiele/Cormorant_Webfonts_v4.002/CormorantSC-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Cormorant SC CL"; src: url("../beispiele/Cormorant_Webfonts_v4.002/CormorantSC-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Cormorant SC CL"; src: url("../beispiele/Cormorant_Webfonts_v4.002/CormorantSC-SemiBold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Cormorant SC CL"; src: url("../beispiele/Cormorant_Webfonts_v4.002/CormorantSC-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Cormorant Unicase CL"; src: url("../beispiele/Cormorant_Webfonts_v4.002/CormorantUnicase-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Cormorant Unicase CL"; src: url("../beispiele/Cormorant_Webfonts_v4.002/CormorantUnicase-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Cormorant Unicase CL"; src: url("../beispiele/Cormorant_Webfonts_v4.002/CormorantUnicase-SemiBold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Cormorant Unicase CL"; src: url("../beispiele/Cormorant_Webfonts_v4.002/CormorantUnicase-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+
+/* ── Tokens. Der Grund ist jetzt das Live-Void (#02030a) — Philipps
+      Runde-9-Verdikt: das alte #0d0d10 war zu hell. --void/--void-2
+      werden vom Studio-Farb-Picker (praxis.js) überschrieben; alle
+      Fades komponieren per color-mix aus --void und folgen mit. ── */
+:root {
+  --void:      #02030a;
+  --void-2:    #06080f;
+  --bone:      #e4ddcb;
+  --dim:       #9a927e;
+  --faint:     #6a6455;
+  --gold:      #a48c52;
+  --blood:     #8e3b32;
+  --hair:      rgba(228, 221, 203, 0.16);
+  --hair-soft: rgba(228, 221, 203, 0.08);
+  --text:      "Cardo", serif;
+  --mono:      "Fragment Mono", monospace;
+  --disp:           "Cinzel", serif;
+  --disp-wght-hero: 400;
+  --disp-wght:      470;
+  --disp-track:     0.03em;
+  --disp-em:        normal;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+html[data-font="bodoni"] {
+  --disp: "Bodoni Moda", serif;
+  --disp-wght-hero: 480;
+  --disp-wght: 540;
+  --disp-track: 0.01em;
+  --disp-em: italic;
+}
+/* Cormorant-Familien: leichtere Strichstärke als Cinzel → die Titel
+   laufen auf 500/600, engere Sperrung. Keine Kursiv-Lizenz (--disp-em
+   normal), da nur die Aufrecht-Schnitte geladen sind. */
+html[data-font="cormorant"] {
+  --disp: "Cormorant CL", serif;
+  --disp-wght-hero: 500;
+  --disp-wght: 600;
+  --disp-track: 0.035em;
+  --disp-em: normal;
+}
+html[data-font="cormorant-garamond"] {
+  --disp: "Cormorant Garamond CL", serif;
+  --disp-wght-hero: 500;
+  --disp-wght: 600;
+  --disp-track: 0.035em;
+  --disp-em: normal;
+}
+html[data-font="cormorant-infant"] {
+  --disp: "Cormorant Infant CL", serif;
+  --disp-wght-hero: 500;
+  --disp-wght: 600;
+  --disp-track: 0.035em;
+  --disp-em: normal;
+}
+html[data-font="cormorant-sc"] {
+  --disp: "Cormorant SC CL", serif;
+  --disp-wght-hero: 500;
+  --disp-wght: 600;
+  --disp-track: 0.05em;
+  --disp-em: normal;
+}
+html[data-font="cormorant-unicase"] {
+  --disp: "Cormorant Unicase CL", serif;
+  --disp-wght-hero: 500;
+  --disp-wght: 600;
+  --disp-track: 0.05em;
+  --disp-em: normal;
+}
+
+/* ── Grundgerüst ── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { background: var(--void); scroll-behavior: smooth; }
+body {
+  font-family: var(--text);
+  color: var(--bone);
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--gold); color: var(--void); }
+a { color: inherit; text-decoration: none; }
+
+/* ── Hintergrund — exakt die Live-Mechanik (SiteBackground + 50-hub
+      ::after-Fade): fixes Foto (pro Blatt via --art/--art-pos am
+      .bg-Element), Live-Vignette, Live-Fade (hell oben → Void unten),
+      Scroll-Scrim (JS), Grain 0.12. Alle Void-Stufen per color-mix →
+      der Farb-Picker färbt Fade + Vignette mit. ── */
+.bg { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: var(--void); }
+.bg .photo {
+  position: absolute; inset: 0;
+  background-image: var(--art);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: var(--art-pos, right bottom);
+}
+.bg .vignette {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 38%,
+    transparent 30%,
+    color-mix(in srgb, var(--void) 55%, transparent) 95%);
+}
+.bg .fade {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 30%,
+      transparent 36%,
+      color-mix(in srgb, var(--void) 38%, transparent) 100%),
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--void) 9%, transparent) 0%,
+      color-mix(in srgb, var(--void) 14%, transparent) 18%,
+      color-mix(in srgb, var(--void) 56%, transparent) 38%,
+      color-mix(in srgb, var(--void) 83%, transparent) 58%,
+      color-mix(in srgb, var(--void) 92%, transparent) 78%,
+      var(--void) 100%);
+}
+.bg .scrim { position: absolute; inset: 0; background: var(--void); opacity: 0; will-change: opacity; }
+.bg .grain {
+  position: absolute; inset: 0; opacity: 0.12; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 160px 160px;
+}
+
+/* ── Zahlen-Rail (Rubriken-Strich-Nav) ── */
+.rail {
+  position: fixed; left: 24px; top: 50%; transform: translateY(-50%);
+  z-index: 30;
+  display: flex; flex-direction: column; gap: 22px;
+}
+.rail a { position: relative; display: flex; align-items: baseline; gap: 12px; }
+.rail a::before {
+  content: ""; position: absolute; left: -13px; top: 50%;
+  width: 1px; height: 0;
+  background: var(--gold);
+  transform: translateY(-50%);
+  transition: height 0.5s var(--ease), background 0.3s;
+}
+.rail a:hover::before, .rail a:focus-visible::before { height: 10px; background: var(--hair); }
+.rail a.here::before { height: 20px; background: var(--gold); }
+.rail .rn {
+  width: 26px; text-align: right; flex: none;
+  font-family: var(--mono);
+  font-size: 13px; letter-spacing: 0.1em;
+  color: var(--faint);
+  text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+  transition: color 0.3s;
+}
+.rail .rt {
+  font-size: 13.5px; letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--dim);
+  text-shadow: 0 1px 8px rgba(0,0,0,0.9);
+  transition: color 0.3s, letter-spacing 0.5s var(--ease);
+}
+.rail a:hover .rt, .rail a:focus-visible .rt { color: var(--bone); }
+.rail a.here .rn { color: var(--gold); }
+.rail a.here .rt { color: var(--gold); letter-spacing: 0.3em; }
+@media (max-width: 1180px) { .rail { display: none; } }
+
+/* ── Wortmarke fix oben links — Runde 9: ohne Trennpunkt ── */
+.brand {
+  position: fixed; top: 26px; left: 30px; z-index: 25;
+  font-family: var(--disp);
+  font-weight: var(--disp-wght);
+  font-size: 14px; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--bone);
+  text-shadow: 0 1px 10px rgba(0,0,0,0.85);
+}
+@media (max-width: 640px) { .brand { font-size: 12px; left: 20px; top: 20px; } }
+
+/* ── Vox-Schreiber oben rechts (Zeilen aus data-lines, praxis.js) ── */
+@keyframes voxCh { from { opacity: 0; } }
+@keyframes voxBlink { 50% { opacity: 0.15; } }
+.vox {
+  position: fixed; top: 28px; right: 30px; z-index: 25;
+  pointer-events: none;
+  text-align: right;
+}
+.vox-line {
+  font-family: var(--mono);
+  font-size: 11.5px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--bone);
+  line-height: 2.2;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.9);
+  transition: opacity 1.4s ease, transform 1s var(--ease);
+}
+.vox-line.out { opacity: 0 !important; transform: translateY(-10px); }
+.vox-line .ch { animation: voxCh 0.5s ease both; }
+.vox-caret {
+  display: inline-block; width: 1px; height: 11px; margin-left: 6px;
+  background: var(--gold);
+  vertical-align: -1px;
+  animation: voxBlink 1.6s ease-in-out infinite;
+}
+@media (max-width: 980px) { .vox { display: none; } }
+
+/* ── Auspex-Zwillinge — der Live-Hero-Hintergrund (MainAuspex ×2,
+      50-hub.css). Positionen, Größen, Opazitäten, Drehrichtungen wie
+      live; die konzentrischen Ringe rücken enger zusammen (Philipps
+      Runde-9-Wunsch: „die Circles nicht so weit auseinander").
+      Kein Sweep-Zeiger (Dauerurteil). SVG baut praxis.js. ── */
+@keyframes chronoSpin { to { transform: rotate(360deg); } }
+@keyframes chronoSpinRev { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
+@keyframes blipTw { 50% { opacity: 0.25; } }
+.auspex-pair {
+  position: absolute; inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;              /* Titel liegt darüber (z 3) — Live-Schichtung */
+  color: var(--gold);
+}
+.aus { position: absolute; transform-origin: center; }
+.aus svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.aus--main {
+  --sz: min(58vh, 74vw, 520px);
+  width: var(--sz); height: var(--sz);
+  left: 34%; top: 58%;
+  margin-left: calc(var(--sz) / -2);
+  margin-top: calc(var(--sz) / -2);
+  opacity: 0.5;
+  animation: chronoSpinRev 360s linear infinite;
+}
+.aus--sec {
+  --sz: min(30vh, 38vw, 300px);
+  width: var(--sz); height: var(--sz);
+  left: 62%; top: 46%;
+  margin-left: calc(var(--sz) / -2);
+  margin-top: calc(var(--sz) / -2);
+  opacity: 0.22;
+  animation: chronoSpin 180s linear infinite;
+}
+/* Leisere Ausgabe für Titelblätter mit dichtem Inhalt (Buch/Entity) */
+.auspex-pair--quiet .aus--main { opacity: 0.34; }
+.auspex-pair--quiet .aus--sec { opacity: 0.14; }
+/* Innen-Drehwerke (Dauer pro Blatt über --spa/--spb/--spc justierbar) */
+.aus .sp-a { animation: chronoSpin var(--spa, 240s) linear infinite; transform-box: view-box; transform-origin: 50% 50%; }
+.aus .sp-b { animation: chronoSpinRev var(--spb, 320s) linear infinite; transform-box: view-box; transform-origin: 50% 50%; }
+.aus .sp-c { animation: chronoSpinRev var(--spc, 176s) linear infinite; transform-box: view-box; transform-origin: 50% 50%; }
+.aus .tw { animation: blipTw 9s ease-in-out infinite; animation-delay: var(--tw, 0s); }
+@media (max-width: 980px) {
+  .aus--sec { display: none; }
+  .aus--main { --sz: min(70vh, 86vw, 380px); left: 50%; top: 54%; }
+}
+
+/* ── Vermessungspunkte (FloatingCoord-Erbe) ── */
+@keyframes survey {
+  0%, 100% { opacity: 0; }
+  6%, 40%  { opacity: 0.95; }
+  48%      { opacity: 0; }
+}
+@keyframes surveyRing {
+  0%, 100% { transform: scale(0.35); opacity: 0; }
+  6%       { transform: scale(1); opacity: 0.55; }
+  40%      { transform: scale(1); opacity: 0.55; }
+  48%      { transform: scale(1.15); opacity: 0; }
+}
+.survey {
+  position: absolute;
+  display: flex; align-items: center; gap: 10px;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  animation: survey 21s ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+}
+.survey .pt { position: relative; width: 26px; height: 26px; flex: none; color: var(--gold); }
+.survey .pt::before {
+  content: ""; position: absolute; inset: 0;
+  border: 1px solid currentColor; border-radius: 50%;
+  animation: surveyRing 21s ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+}
+.survey .pt::after {
+  content: ""; position: absolute; left: 50%; top: 50%;
+  width: 5px; height: 5px; margin: -2.5px 0 0 -2.5px;
+  background: currentColor; border-radius: 50%;
+}
+.survey .lead { width: 36px; border-top: 1px dotted var(--gold); opacity: 0.65; }
+.survey .lbl {
+  font-family: var(--mono);
+  font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--dim);
+  text-shadow: 0 1px 8px rgba(0,0,0,0.9);
+  white-space: nowrap;
+}
+@media (max-width: 980px) { .survey, .auspex-pair { display: none; } }
+
+/* ── Lade-/Scroll-Choreografie ── */
+@keyframes enter {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes enterTitle {
+  from { opacity: 0; transform: translateY(28px); letter-spacing: 0.07em; }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes plumb { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes breathe { 50% { opacity: 0.45; } }
+.reveal {
+  opacity: 0; transform: translateY(22px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+}
+.reveal.is-seen { opacity: 1; transform: none; }
+
+/* ── Scroll-Cue — Runde 9: der Strich fadet nach unten aus (das
+      Live-Element aus Philipps Screenshot) und ein Lichttropfen läuft
+      ihn wiederholt hinab — die Bewegung sagt „hier geht es weiter".
+      Seiten setzen nur noch Text + Entrance-Delay auf .cue selbst. ── */
+@keyframes cueDrop {
+  0%, 14%   { background-position: 0 -34px, 0 0; }
+  62%, 100% { background-position: 0 66px, 0 0; }
+}
+.cue {
+  display: inline-flex; flex-direction: column; align-items: center; gap: 12px;
+  color: var(--dim);
+  font-size: 13.5px; letter-spacing: 0.34em; text-transform: uppercase;
+}
+.cue::before {
+  content: ""; width: 1px; height: 60px;
+  background-image:
+    linear-gradient(to bottom, transparent, rgba(228, 221, 203, 0.95) 50%, transparent),
+    linear-gradient(to bottom, var(--gold) 0%, var(--gold) 30%, transparent 96%);
+  background-size: 1px 28px, 1px 100%;
+  background-repeat: no-repeat;
+  background-position: 0 -34px, 0 0;
+  opacity: 0.85;
+  transform-origin: top;
+  animation:
+    plumb 1.2s 1.3s var(--ease) both,
+    cueDrop 3.2s var(--ease) 2.6s infinite;
+}
+
+/* ── Schaltflächen — vier Systeme (Studio-Panel, html[data-btn]).
+      Runde 9 an der Sternwarte: dezente Dauerbewegung — zwei Planeten
+      reiten auf den drehenden Ringen, die Vermessungspunkte glimmen
+      nach der Expansion, der Ruhepunkt atmet kaum merklich. ── */
+@keyframes fxTurn { to { transform: rotate(360deg); } }
+@keyframes dotBreathe { 50% { opacity: 0.55; } }
+@keyframes starTw { 0%, 100% { opacity: 0.9; } 50% { opacity: 0.4; } }
+.btn {
+  position: relative; z-index: 0;
+  display: inline-block;
+  font-family: var(--text);
+  font-size: 13.5px; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--bone);
+  background: transparent;
+  border: 1px solid var(--hair);
+  padding: 13px 34px 12px;
+  margin: 6px 10px;
+  cursor: pointer;
+  transition: color 0.35s, border-color 0.35s, background 0.35s;
+}
+.btn:hover { color: var(--gold); border-color: rgba(164, 140, 82, 0.55); }
+.btn .mark { color: var(--gold); padding-left: 8px; letter-spacing: 0; }
+.btn.primary { color: var(--gold); border-color: rgba(164, 140, 82, 0.55); }
+.btn.primary:hover { color: var(--bone); border-color: var(--gold); }
+
+.btn .fx { display: none; }
+.fx .fx-rings {
+  position: absolute; top: 50%;
+  color: var(--gold);
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.9s var(--ease);
+  z-index: -1;
+}
+.fx .fx-rings g { transform-box: view-box; transform-origin: 50% 50%; }
+.fx .fx-rings .fr1 { animation: fxTurn 26s linear infinite; }
+.fx .fx-rings .fr2 { animation: fxTurn 17s linear infinite reverse; }
+.fx .fx-star {
+  position: absolute; top: 50%;
+  width: 3px; height: 3px; margin: -1.5px 0 0 -1.5px;
+  background: var(--bone); border-radius: 50%;
+  opacity: 0;
+  transition: transform 0.7s var(--ease), opacity 0.45s ease;
+}
+.fx .fx-star.f2 { width: 2px; height: 2px; margin: -1px 0 0 -1px; background: var(--gold); }
+.fx .fx-star.f3 { width: 2.5px; height: 2.5px; margin: -1.25px 0 0 -1.25px; background: var(--gold); }
+.fx .fx-const {
+  position: absolute; left: 50%; top: 50%;
+  width: 150px; height: 40px; margin: -20px 0 0 -75px;
+  color: var(--gold);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+}
+.fx .fx-const polyline { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.15s var(--ease) 0.08s; }
+.fx .fx-const circle { opacity: 0; transition: opacity 0.4s ease; }
+.fx .fx-const .c1 { transition-delay: 0.08s; }
+.fx .fx-const .c2 { transition-delay: 0.3s; }
+.fx .fx-const .c3 { transition-delay: 0.52s; }
+.fx .fx-const .c4 { transition-delay: 0.74s; }
+.fx .fx-const .c5 { transition-delay: 0.98s; }
+
+/* Sternwarte — kein Rahmen; der Punkt vor der Schrift ist der Ursprung */
+[data-btn="orrery"] .btn {
+  border-color: transparent;
+  padding: 13px 30px 12px 46px;
+}
+[data-btn="orrery"] .btn::before {
+  content: ""; position: absolute; left: 24px; top: 50%;
+  width: 4px; height: 4px; margin: -2px 0 0 -2px;
+  background: var(--faint); border-radius: 50%;
+  transition: background 0.4s, transform 0.5s var(--ease);
+  animation: dotBreathe 5.4s ease-in-out infinite;
+}
+[data-btn="orrery"] .btn.primary::before { background: var(--gold); }
+[data-btn="orrery"] .btn:hover { color: var(--gold); border-color: transparent; }
+[data-btn="orrery"] .btn:hover::before { background: var(--gold); transform: scale(1.7); animation: none; }
+[data-btn="orrery"] .btn.primary:hover { color: var(--bone); }
+[data-btn="orrery"] .btn .fx { display: block; position: absolute; inset: 0; pointer-events: none; }
+[data-btn="orrery"] .fx .fx-rings {
+  left: 24px;
+  width: 88px; height: 88px; margin: -44px 0 0 -44px;
+  transform: scale(0.08);
+}
+[data-btn="orrery"] .btn:hover .fx-rings { opacity: 0.45; transform: scale(1); }
+[data-btn="orrery"] .fx .fx-star { left: 24px; }
+[data-btn="orrery"] .btn:hover .fx-star.f1 { transform: translate(-15px, -21px); opacity: 0.9; transition-delay: 0.05s; animation: starTw 5.6s ease-in-out 1.4s infinite; }
+[data-btn="orrery"] .btn:hover .fx-star.f2 { transform: translate(30px, -13px); opacity: 0.9; transition-delay: 0.12s; animation: starTw 6.4s ease-in-out 1.7s infinite; }
+[data-btn="orrery"] .btn:hover .fx-star.f3 { transform: translate(14px, 19px); opacity: 0.85; transition-delay: 0.19s; animation: starTw 7.2s ease-in-out 2s infinite; }
+
+/* Sternkarte — stiller Grund, das HUD liegt links versetzt */
+[data-btn="chart"] .btn {
+  border-color: transparent;
+  background: rgba(228, 221, 203, 0.04);
+}
+[data-btn="chart"] .btn:hover { background: rgba(228, 221, 203, 0.06); color: var(--gold); border-color: transparent; }
+[data-btn="chart"] .btn.primary:hover { color: var(--bone); }
+[data-btn="chart"] .btn .fx { display: block; position: absolute; inset: 0; pointer-events: none; }
+[data-btn="chart"] .fx .fx-rings {
+  left: 22%;
+  width: 112px; height: 112px; margin: -56px 0 0 -56px;
+  transform: scale(0.75);
+}
+[data-btn="chart"] .btn:hover .fx-rings { opacity: 0.38; transform: scale(1); }
+[data-btn="chart"] .fx .fx-star { left: 22%; }
+[data-btn="chart"] .btn:hover .fx-star.f1 { transform: translate(-24px, -19px); opacity: 0.9; transition-delay: 0.05s; }
+[data-btn="chart"] .btn:hover .fx-star.f2 { transform: translate(20px, -26px); opacity: 0.9; transition-delay: 0.12s; }
+[data-btn="chart"] .btn:hover .fx-star.f3 { transform: translate(-12px, 22px); opacity: 0.85; transition-delay: 0.19s; }
+
+/* Sternbild — fünf Sterne verbinden sich hinter der Schrift */
+[data-btn="sign"] .btn .fx { display: block; position: absolute; inset: 0; pointer-events: none; }
+[data-btn="sign"] .btn:hover .fx-const { opacity: 0.75; }
+[data-btn="sign"] .btn:hover .fx-const polyline { stroke-dashoffset: 0; }
+[data-btn="sign"] .btn:hover .fx-const circle { opacity: 1; }
+
+/* ── Imprimatur — Siegel-Lot fadet nach unten (Strich-Regel R9) ── */
+footer.imprimatur {
+  max-width: 900px; margin: 90px auto 0;
+  padding: 0 24px 40px;
+  text-align: center;
+}
+.imprimatur .seal-line {
+  display: block; width: 1px; height: 44px;
+  margin: 0 auto 18px;
+  background: linear-gradient(to bottom, var(--gold) 0%, var(--gold) 40%, transparent 100%);
+  opacity: 0.8;
+}
+.imprimatur .seal-word {
+  font-size: 13.5px; letter-spacing: 0.4em; text-transform: uppercase;
+  color: var(--gold);
+}
+.imprimatur .seal-sub { margin-top: 8px; font-style: italic; font-size: 17px; color: var(--dim); }
+.imprimatur .triad {
+  display: flex; justify-content: space-between; gap: 18px;
+  margin-top: 30px;
+  border-top: 1px solid var(--hair);
+  padding-top: 16px;
+  font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--faint);
+}
+.imprimatur .legal { margin-top: 26px; font-style: italic; font-size: 15px; color: var(--faint); max-width: 62ch; margin-left: auto; margin-right: auto; }
+.imprimatur .law { margin-top: 10px; font-size: 15px; color: var(--dim); }
+.imprimatur .law a { border-bottom: 1px solid var(--hair); transition: color 0.3s, border-color 0.3s; }
+.imprimatur .law a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+@media (max-width: 720px) { .imprimatur .triad { flex-direction: column; gap: 8px; } }
+
+/* ── Studio-Panel (Review-Werkzeug; Markup baut praxis.js) ── */
+.fontpick {
+  position: fixed; right: 18px; bottom: 18px; z-index: 40;
+  display: flex; flex-direction: column; gap: 8px;
+  background: color-mix(in srgb, var(--void-2) 95%, transparent);
+  border: 1px solid var(--hair);
+  padding: 10px 16px;
+  font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+}
+.fontpick .fp-row { display: flex; align-items: center; gap: 12px; }
+.fontpick .fp-lbl { color: var(--faint); min-width: 92px; }
+.fontpick button {
+  background: none; border: 0;
+  color: var(--dim);
+  font-family: var(--text);
+  font-size: inherit; letter-spacing: inherit; text-transform: inherit;
+  cursor: pointer;
+  padding: 2px 0;
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s, border-color 0.3s;
+}
+.fontpick button:hover { color: var(--bone); }
+.fontpick button.on { color: var(--gold); border-bottom-color: var(--gold); }
+.fontpick select {
+  background: var(--void-2);
+  border: 1px solid var(--hair);
+  color: var(--bone);
+  font-family: var(--text);
+  font-size: 13px; letter-spacing: 0.04em; text-transform: none;
+  padding: 3px 8px;
+  cursor: pointer;
+}
+.fontpick select:focus-visible { outline: 1px solid var(--gold); outline-offset: 1px; }
+.fontpick input[type="color"] {
+  width: 30px; height: 20px;
+  padding: 0; border: 1px solid var(--hair);
+  background: none;
+  cursor: pointer;
+}
+.fontpick .fp-hex {
+  font-family: var(--mono);
+  font-size: 11.5px; letter-spacing: 0.06em; text-transform: none;
+  color: var(--dim);
+}
+
+/* ── Studien-Notiz ── */
+details.study-note {
+  max-width: 900px; margin: 40px auto 70px;
+  border: 1px solid var(--hair);
+  background: var(--void-2);
+  padding: 16px 22px;
+  font-size: 16px;
+}
+details.study-note summary {
+  cursor: pointer;
+  font-size: 12.5px; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--gold);
+}
+details.study-note .body { margin-top: 12px; max-width: 78ch; color: var(--dim); }
+details.study-note p { margin-bottom: 8px; }
+details.study-note b { color: var(--bone); font-weight: 700; }
+
+/* ── Reduced motion — geteilte Teile ── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .survey { opacity: 0.9 !important; }
+  .cue::before { background-position: 0 -34px, 0 0; }
+  .vox { display: none; }
+}

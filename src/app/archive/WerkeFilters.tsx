@@ -2,7 +2,6 @@
 
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { useState } from "react";
-import ArchiveModeToggle from "@/components/archive/ArchiveModeToggle";
 import BrowseSearch from "@/components/browse/BrowseSearch";
 import FilterSelect from "@/components/browse/FilterSelect";
 import {
@@ -165,9 +164,6 @@ export default function WerkeFilters({
       />
 
       <div className="browse-controls">
-        {/* The register fork (WORKS | PODCASTS) leads the row — it switches the
-            pillar, the controls after it filter within one (Session 142). */}
-        <ArchiveModeToggle active="books" />
         <FilterSelect
           label="Faction"
           value={faction}

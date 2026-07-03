@@ -1,0 +1,993 @@
+<!-- ======================================================================
+     RUNDE 9 — PRAXIS · Gestaltungskanon (CI-Blatt)
+     Alle Elemente der Live-Site in der Kathedrale-Sprache, jede Tafel
+     mit Live-Zuordnung ("Ersetzt: …"). Runde-9-Korrekturen (Philipps
+     Runde-8-Review): Grund = Live-Void #02030a (§ II aktualisiert;
+     über das Studio pickbar), Wortmarke OHNE Trennpunkt (§ X), § XI
+     ohne Artefakt-Skizze (Verdikt: grauenvoll) — stattdessen die
+     Auspex-Zwillinge (MainAuspex-Port, Ringe enger, ohne Sweep) als
+     Hero-Instrument; Sternwarte-Buttons mit dezenter Dauerbewegung
+     (Planeten auf den Ringen); Cue mit fadendem Strich + Lichttropfen;
+     Typo-Untergrenze auf 12.5–13px gehoben. Geteilte Blöcke leben in
+     praxis.css/praxis.js (Keys cl09; Titelschrift-Dropdown inkl. der
+     fünf lokalen Cormorant-Familien + Grund-Farb-Picker). Auf diesem
+     Blatt ist die Schaltflächen-Zeile des Studios ausgeblendet —
+     § IV zeigt alle vier Systeme nebeneinander (Container-Attribute).
+     ====================================================================== -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Praxis — Gestaltungskanon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cardo:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400..900&family=Fragment+Mono:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="praxis.css">
+
+<style>
+  /* Kanon-Blatt: kein Site-Vox, kein Button-System-Attribut auf html —
+     § IV trägt die Systeme als Container. Die Schaltflächen-Zeile des
+     injizierten Studios ist hier ausgeblendet. */
+  .fontpick .fp-row[aria-label="Schaltfläche"] { display: none; }
+
+  /* ── Dokument-Kopf ────────────────────────────────────────────────── */
+  .canon-head {
+    text-align: center;
+    padding: 14vh 24px 0;
+  }
+  .canon-head .over {
+    font-size: 15px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--gold);
+    animation: enter 1s 0.15s var(--ease) both;
+  }
+  .canon-head h1 {
+    margin-top: 18px;
+    font-family: var(--disp);
+    font-weight: var(--disp-wght-hero);
+    font-optical-sizing: auto;
+    font-size: clamp(56px, 8vw, 110px);
+    line-height: 0.98;
+    letter-spacing: var(--disp-track);
+    animation: enterTitle 1.3s 0.4s var(--ease) both;
+  }
+  .canon-head h1 em { font-style: var(--disp-em); }
+  .canon-head .sub {
+    margin-top: 20px;
+    font-style: italic; font-size: 20px; color: var(--dim);
+    max-width: 62ch; margin-left: auto; margin-right: auto;
+    animation: enter 1s 0.8s var(--ease) both;
+  }
+
+  /* ── Tafeln ───────────────────────────────────────────────────────── */
+  main.canon { max-width: 960px; margin: 0 auto; padding: 4vh 24px 90px; }
+
+  h2.section {
+    text-align: center;
+    display: flex; align-items: center; gap: 26px;
+    font-size: 14.5px; letter-spacing: 0.34em; text-transform: uppercase;
+    color: var(--gold); font-weight: 400;
+    margin: 110px 0 14px;
+  }
+  h2.section::before, h2.section::after {
+    content: ""; flex: 1; border-top: 1px solid var(--hair);
+    transform: scaleX(0);
+    transition: transform 1.15s var(--ease) 0.2s;
+  }
+  h2.section::before { transform-origin: right center; }
+  h2.section::after  { transform-origin: left center; }
+  h2.section.is-seen::before, h2.section.is-seen::after { transform: scaleX(1); }
+
+  .plate-intro {
+    text-align: center;
+    font-style: italic; font-size: 16.5px; color: var(--dim);
+    max-width: 66ch; margin: 0 auto 44px;
+  }
+  .demo { text-align: center; }
+  .anno {
+    margin: 34px auto 0;
+    max-width: 70ch;
+    text-align: center;
+    font-size: 15px; color: var(--faint);
+    border-top: 1px solid var(--hair-soft);
+    padding-top: 14px;
+  }
+  .anno b { color: var(--dim); font-weight: 400; font-style: normal; }
+  .anno .map {
+    display: block; margin-top: 6px;
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+  }
+
+  /* ── § I Grundhaltung ─────────────────────────────────────────────── */
+  .tenets { max-width: 640px; margin: 0 auto; text-align: center; counter-reset: tenet; }
+  .tenets li { list-style: none; padding: 20px 0; }
+  .tenets li + li { border-top: 1px solid var(--hair-soft); }
+  .tenets li::before {
+    counter-increment: tenet;
+    content: counter(tenet, upper-roman);
+    display: block;
+    font-size: 13px; letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .tenets b { display: block; font-family: var(--disp); font-weight: var(--disp-wght); font-size: 23px; margin-bottom: 6px; }
+  .tenets span { font-style: italic; color: var(--dim); font-size: 16.5px; }
+
+  /* ── § II Farbe ───────────────────────────────────────────────────── */
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    text-align: left;
+  }
+  .sw .chip { height: 64px; border: 1px solid var(--hair-soft); }
+  .sw .nm { margin-top: 10px; font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--bone); }
+  .sw .hx { font-size: 13.5px; color: var(--faint); font-variant-numeric: tabular-nums; }
+  .sw .use { margin-top: 4px; font-style: italic; font-size: 14px; color: var(--dim); line-height: 1.45; }
+
+  /* ── § III Typografie ─────────────────────────────────────────────── */
+  .font-compare { text-align: center; }
+  .fc { padding: 28px 0; }
+  .fc + .fc { border-top: 1px solid var(--hair-soft); }
+  .fc .fc-name {
+    font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold);
+  }
+  .fc .fc-name i { color: var(--faint); text-transform: none; letter-spacing: 0.04em; font-size: 14px; }
+  .fc p.spec {
+    margin-top: 12px;
+    font-size: clamp(40px, 6.4vw, 64px);
+    line-height: 1.02;
+    font-optical-sizing: auto;
+  }
+  .fc .fc-note { margin-top: 10px; font-style: italic; font-size: 15px; color: var(--dim); }
+  .fc-cinzel p.spec { font-family: "Cinzel", serif; font-weight: 420; letter-spacing: 0.03em; }
+  .fc-bodoni p.spec { font-family: "Bodoni Moda", serif; font-weight: 540; }
+  /* em-Probe: Bodoni führt eine echte Kursive; Cinzel nicht — die
+     Betonung steht aufrecht (Verhalten von --disp-em) */
+  .fc-bodoni p.spec em { font-style: italic; }
+  .fc-cinzel p.spec em { font-style: normal; }
+  .fc-mono p.spec {
+    font-family: var(--mono);
+    font-size: clamp(18px, 2.6vw, 26px);
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--gold);
+  }
+  .fc-mono p.spec .dim2 { color: var(--dim); }
+
+  .ladder { max-width: 740px; margin: 44px auto 0; text-align: center; }
+  .ladder .rung { padding: 22px 0; }
+  .ladder .rung + .rung { border-top: 1px solid var(--hair-soft); }
+  .ladder .tag {
+    display: block;
+    font-size: 12px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--faint);
+    margin-bottom: 10px;
+  }
+  .ladder .x-hero { font-family: var(--disp); font-weight: var(--disp-wght-hero); font-size: clamp(48px, 7vw, 72px); line-height: 1; }
+  .ladder .x-entry { font-family: var(--disp); font-weight: var(--disp-wght); font-size: 40px; line-height: 1.05; }
+  .ladder .x-row { font-family: var(--disp); font-weight: var(--disp-wght); font-size: 24px; }
+  .ladder .x-era { font-family: var(--disp); font-weight: var(--disp-wght); font-size: 30px; color: var(--gold); }
+  .ladder .x-sect { font-size: 14.5px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--gold); }
+  .ladder .x-body { font-size: 18px; max-width: 56ch; margin: 0 auto; }
+  .ladder .x-lead { font-style: italic; font-size: 20px; color: var(--dim); }
+  .ladder .x-meta { font-size: 13.5px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--faint); }
+  .ladder .x-chrono { font-family: var(--mono); font-size: 13.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-variant-numeric: tabular-nums; }
+  .ladder .x-micro { font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--faint); }
+
+  /* ── § IV Schaltflächen & Verweise — Systeme in praxis.css; hier nur
+        das Demo-Gerüst + der Ruhend-Zustand. ─────────────────────────── */
+  .btn[disabled], .btn.disabled {
+    color: var(--faint); border-color: var(--hair-soft);
+    cursor: not-allowed;
+  }
+
+  .btn-sys { padding: 20px 0; }
+  .btn-sys + .btn-sys { border-top: 1px solid var(--hair-soft); }
+  .btn-sys .cap {
+    display: block; margin-bottom: 12px;
+    font-size: 12px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--faint);
+  }
+  .btn-sys .cap b { color: var(--gold); font-weight: 400; }
+  .linkrow { margin-top: 26px; font-size: 17.5px; }
+  .linkrow a { border-bottom: 1px solid var(--hair); transition: color 0.3s, border-color 0.3s; padding: 0 2px; margin: 0 14px; }
+  .linkrow a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+  .linkrow .quiet { font-style: italic; color: var(--faint); border-bottom-color: transparent; }
+  .linkrow .quiet:hover { color: var(--dim); border-bottom-color: var(--hair); }
+
+  /* ── § V Konsole & Filter ─────────────────────────────────────────── */
+  .seek { display: flex; justify-content: center; padding: 6px 0 0; }
+  .seek-wrap { position: relative; }
+  .seek input {
+    width: min(480px, 70vw);
+    background: transparent;
+    border: 0; border-bottom: 1px solid var(--hair);
+    color: var(--bone);
+    font-family: var(--text); font-style: italic; font-size: 18px;
+    text-align: center;
+    padding: 6px 4px;
+    outline: none;
+  }
+  .seek input::placeholder { color: var(--faint); }
+  .seek-wrap::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0;
+    border-top: 1px solid var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.55s var(--ease);
+  }
+  .seek-wrap:focus-within::after, .seek-wrap.demo-focus::after { transform: scaleX(1); }
+
+  .register {
+    text-align: center;
+    font-size: 16px;
+    color: var(--dim);
+    padding: 12px 0 0;
+  }
+  .register .lbl {
+    font-size: 12.5px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--faint); padding-right: 14px;
+  }
+  .register a { padding: 0 8px; transition: color 0.3s; cursor: pointer; }
+  .register a:hover { color: var(--bone); }
+  .register a.active { color: var(--gold); }
+  .register a + a::before { content: "·"; color: var(--faint); padding-right: 14px; }
+
+  .dd { display: inline-block; text-align: left; vertical-align: top; margin: 24px 26px 0; }
+  .dd .dd-btn {
+    display: inline-block;
+    font-size: 13px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--dim);
+    border-bottom: 1px solid var(--hair);
+    padding: 6px 4px;
+    cursor: pointer;
+    transition: color 0.3s, border-color 0.3s;
+  }
+  .dd .dd-btn:hover { color: var(--bone); border-bottom-color: var(--gold); }
+  .dd .dd-btn b { color: var(--gold); font-weight: 400; padding-left: 8px; }
+  .dd .dd-panel {
+    margin-top: 10px;
+    min-width: 220px;
+    background: var(--void-2);
+    border: 1px solid var(--hair);
+    padding: 8px 0;
+    display: flex; flex-direction: column;
+  }
+  .dd .dd-panel a {
+    padding: 9px 18px;
+    font-size: 15px;
+    color: var(--dim);
+    transition: color 0.25s, background 0.25s;
+    cursor: pointer;
+  }
+  .dd .dd-panel a:hover { color: var(--bone); background: rgba(228, 221, 203, 0.04); }
+  .dd .dd-panel a.on { color: var(--gold); }
+
+  /* ── § VI Auszeichnung ────────────────────────────────────────────── */
+  .marks { font-size: 13.5px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--faint); }
+  .marks p { margin-top: 18px; }
+  .marks b { color: var(--dim); font-weight: 400; }
+  .marks a { color: var(--dim); border-bottom: 1px solid var(--hair); transition: color 0.3s, border-color 0.3s; }
+  .marks a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+  .marks .chrono { font-family: var(--mono); color: var(--gold); font-variant-numeric: tabular-nums; letter-spacing: 0.14em; }
+  .marks .role { font-style: italic; text-transform: none; letter-spacing: 0.04em; font-size: 15.5px; }
+  .marks .role.antagonist { color: var(--blood); }
+  .marks .honest { font-style: italic; text-transform: none; letter-spacing: 0.04em; font-size: 16px; color: var(--faint); }
+
+  /* ── § VII Register — die Live-Struktur (catalogue-row): flache Liste
+        ohne Spaltenkopf, ohne Ären-Zeilen. Runde 6: Klick öffnet die
+        Kapelle (§ VIII) — kein Inline-Aufklappen mehr. ────────────────── */
+  .ledger { text-align: left; border-top: 1px solid var(--hair); }
+  .grid-row {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 3fr) minmax(0, 1.1fr) 62px 96px 22px;
+    gap: 0 18px;
+    align-items: baseline;
+    padding: 16px 12px;
+    border-bottom: 1px solid var(--hair-soft);
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .grid-row:hover, .grid-row.hovered { background: rgba(228, 221, 203, 0.03); }
+  .c-idx { font-family: var(--mono); font-size: 12px; color: var(--faint); font-variant-numeric: tabular-nums; text-align: right; }
+  .c-main { display: flex; flex-direction: column; gap: 3px; }
+  .c-title {
+    font-family: var(--disp); font-weight: var(--disp-wght);
+    font-size: 24px; line-height: 1.12;
+    transition: color 0.3s;
+  }
+  .grid-row:hover .c-title, .grid-row.hovered .c-title { color: var(--gold); }
+  .c-by { font-style: italic; font-size: 15.5px; color: var(--dim); }
+  .c-faction { font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); }
+  .c-year { font-family: var(--mono); font-size: 14px; color: var(--dim); font-variant-numeric: tabular-nums; text-align: right; }
+  .c-format { font-size: 12.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--faint); }
+  .c-mark {
+    display: inline-block;
+    font-size: 13px; color: var(--faint);
+    transition: color 0.3s;
+  }
+  .grid-row:hover .c-mark, .grid-row.hovered .c-mark { color: var(--gold); }
+
+  /* ── § VIII Die Kapelle — der Datensatz als Popup (Live-Mechanik
+        @modal + 64-detail-modal: Scrim + Blur, zentrierte Karte ohne
+        gezeichneten Rahmen, Gold-Terminus). Hier als stehende Probe
+        auf dem Artwork-Grund. ─────────────────────────────────────────── */
+  .chapel-stage {
+    position: relative;
+    padding: 56px 28px;
+    background: url("../../public/img/main-bg.webp") right bottom / cover no-repeat;
+  }
+  .chapel-stage::before {
+    content: ""; position: absolute; inset: 0;
+    background: color-mix(in srgb, var(--void) 78%, transparent);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+  }
+  .chapel-panel {
+    position: relative;
+    display: flex; flex-direction: column;
+    max-width: 720px; margin: 0 auto;
+    background: linear-gradient(180deg,
+      color-mix(in srgb, var(--void-2) 98%, transparent),
+      color-mix(in srgb, var(--void) 99%, transparent));
+    box-shadow:
+      0 30px 90px -20px rgba(0, 0, 0, 0.9),
+      inset 0 1px 0 rgba(228, 221, 203, 0.07);
+    text-align: center;
+  }
+  .chapel-bar {
+    position: relative;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px;
+    padding: 13px 20px;
+  }
+  .chapel-bar::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+    background: linear-gradient(90deg,
+      transparent,
+      rgba(164, 140, 82, 0.4) 16%,
+      rgba(164, 140, 82, 0.4) 84%,
+      transparent);
+  }
+  .chapel-bar span {
+    font-size: 12px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--dim);
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  .chapel-bar span:hover { color: var(--gold); }
+  .chapel-scroll { padding: 46px 40px 52px; }
+  .k-over {
+    font-size: 12.5px; letter-spacing: 0.36em; text-transform: uppercase;
+    color: var(--gold);
+  }
+  .k-title {
+    margin-top: 14px;
+    font-family: var(--disp);
+    font-weight: var(--disp-wght-hero);
+    font-optical-sizing: auto;
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 0.98;
+    letter-spacing: var(--disp-track);
+  }
+  .k-by { margin-top: 16px; font-style: italic; font-size: 18px; color: var(--dim); }
+  .k-by a { font-style: normal; color: var(--bone); border-bottom: 1px solid var(--hair); transition: color 0.3s, border-color 0.3s; }
+  .k-by a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+  .k-chrono {
+    margin-top: 14px;
+    font-family: var(--mono);
+    font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); font-variant-numeric: tabular-nums;
+  }
+  .k-section {
+    display: flex; align-items: center; gap: 22px;
+    max-width: 400px; margin: 42px auto 0;
+    font-size: 12.5px; letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--gold); font-weight: 400;
+  }
+  .k-section::before, .k-section::after { content: ""; flex: 1; border-top: 1px solid var(--hair); }
+  .k-syn {
+    max-width: 50ch;
+    margin: 20px auto 0;
+    text-align: justify; hyphens: auto;
+    font-size: 17px; color: var(--dim);
+  }
+  .k-syn::first-line { letter-spacing: 0.14em; text-transform: uppercase; font-size: 15.5px; }
+  .k-appendix {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+    max-width: 620px; margin: 22px auto 0;
+  }
+  .k-appendix h4 {
+    font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--faint); font-weight: 400;
+    margin-bottom: 10px;
+  }
+  .k-appendix ul { list-style: none; }
+  .k-appendix li { padding: 5px 0; font-size: 16px; }
+  .k-appendix li a:hover { color: var(--gold); }
+  .k-appendix .role { display: block; font-style: italic; font-size: 14px; color: var(--faint); }
+  .k-appendix .role.antagonist { color: var(--blood); }
+  .k-motifs { margin-top: 22px; font-style: italic; font-size: 16px; color: var(--dim); }
+  .k-motifs .sep { color: var(--faint); padding: 0 7px; }
+  .k-actions { margin-top: 20px; }
+  .k-goto { margin-top: 26px; font-style: italic; font-size: 15.5px; color: var(--faint); }
+  .k-goto a { border-bottom: 1px solid transparent; transition: color 0.3s, border-color 0.3s; }
+  .k-goto a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+  /* ── § VIII Blöcke ────────────────────────────────────────────────── */
+  table.katalogisat { margin: 0 auto; border-collapse: collapse; font-size: 17.5px; }
+  .katalogisat th {
+    text-align: right; font-weight: 400;
+    font-size: 13px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--faint);
+    padding: 9px 26px 9px 0;
+    border-right: 1px solid var(--hair);
+    white-space: nowrap;
+  }
+  .katalogisat td { padding: 9px 0 9px 26px; }
+  .katalogisat td .note { font-style: italic; color: var(--faint); font-size: 15.5px; }
+  .katalogisat td.chrono { font-family: var(--mono); font-size: 16px; color: var(--gold); font-variant-numeric: tabular-nums; }
+
+  .aside-note {
+    max-width: 56ch; margin: 40px auto 0;
+    font-style: italic; color: var(--dim); text-align: center;
+    border-top: 1px solid var(--hair);
+    padding-top: 16px;
+  }
+  .aside-note a { border-bottom: 1px solid var(--hair); }
+  .aside-note a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+  .advisory { margin-top: 34px; text-align: center; font-style: italic; font-size: 14.5px; color: var(--faint); }
+  .empty {
+    max-width: 56ch; margin: 40px auto 0;
+    border: 1px solid var(--hair-soft);
+    padding: 26px 20px;
+    text-align: center;
+    font-style: italic; color: var(--dim);
+  }
+  .census {
+    text-align: center; margin-top: 40px;
+    font-size: 13.5px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--faint);
+  }
+  .census b { color: var(--dim); font-weight: 400; }
+
+  /* ── § X Navigation & Chrome — Aktivmarker Runde 6: Rubriken-Strich
+        in der Marginalie (Gold-Lot) statt Unterstrich ─────────────────── */
+  .rail-demo { display: flex; justify-content: center; gap: 90px; align-items: flex-start; }
+  .rail-demo .st { text-align: left; }
+  .rail-demo .cap {
+    display: block; margin-bottom: 16px; text-align: center;
+    font-size: 12px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--faint);
+  }
+  .rail-demo .rail-ex { display: flex; flex-direction: column; gap: 16px; }
+  .rail-demo .rail-ex a { position: relative; display: flex; align-items: baseline; gap: 12px; }
+  .rail-demo .rail-ex a::before {
+    content: ""; position: absolute; left: -13px; top: 50%;
+    width: 1px; height: 0;
+    background: var(--gold);
+    transform: translateY(-50%);
+    transition: height 0.5s var(--ease);
+  }
+  .rail-demo .rn {
+    width: 26px; text-align: right; flex: none;
+    font-size: 13.5px; letter-spacing: 0.14em;
+    color: var(--faint);
+  }
+  .rail-demo .rt {
+    font-size: 12.5px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--dim);
+  }
+  .rail-demo .hovered::before { height: 10px; background: var(--hair); }
+  .rail-demo .hovered .rt { color: var(--bone); }
+  .rail-demo .here::before { height: 20px; }
+  .rail-demo .here .rn { color: var(--gold); }
+  .rail-demo .here .rt { color: var(--gold); letter-spacing: 0.3em; }
+  .wordmark-demo {
+    margin-top: 44px; text-align: center;
+    font-family: var(--disp); font-weight: var(--disp-wght);
+    font-size: 14px; letter-spacing: 0.3em; text-transform: uppercase;
+  }
+  /* Cue-Demo — Runde 9: fadender Strich + Lichttropfen (praxis.css .cue);
+     hier nur der Abstand */
+  .cue-demo-wrap { margin-top: 44px; }
+
+  /* ── § XI Instrumente — Runde 9: die Auspex-Zwillinge (MainAuspex-
+        Port, Ringe enger, ohne Sweep) statt Astrolab + Skizze;
+        Vox-Schreiber-Demo bleibt. ────────────────────────────────────── */
+  .instrument-demo {
+    display: flex; justify-content: center; align-items: center;
+    gap: 90px; flex-wrap: wrap;
+  }
+  .aus-demo { position: relative; width: 280px; height: 280px; color: var(--gold); opacity: 0.6; }
+  .aus-demo .aus { position: static; width: 100%; height: 100%; margin: 0; }
+  .vox-demo { min-width: 240px; min-height: 70px; text-align: right; }
+  .survey { position: static; }
+  .survey-stack { display: flex; flex-direction: column; gap: 34px; }
+
+  /* ── § XII Imprimatur (Siegel-Lot fadet nach unten — praxis.css) ──── */
+  .imprimatur { text-align: center; }
+  .imprimatur .triad { max-width: 760px; margin-left: auto; margin-right: auto; }
+
+  /* ── § XII Auf dem Artwork — Vollbreite-Band ──────────────────────── */
+  .on-art {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-top: 44px;
+    padding: 110px 24px;
+    text-align: center;
+    background: url("../../public/img/main-bg.webp") center 32% / cover no-repeat;
+  }
+  .on-art::before {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg,
+      color-mix(in srgb, var(--void) 72%, transparent) 0%,
+      color-mix(in srgb, var(--void) 38%, transparent) 35%,
+      color-mix(in srgb, var(--void) 50%, transparent) 65%,
+      color-mix(in srgb, var(--void) 85%, transparent) 100%);
+  }
+  .on-art > * { position: relative; }
+  .on-art .over {
+    font-size: 13.5px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--gold);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+  }
+  .on-art h3 {
+    margin-top: 16px;
+    font-family: var(--disp);
+    font-weight: var(--disp-wght-hero);
+    font-size: clamp(44px, 7vw, 92px);
+    line-height: 0.98;
+    letter-spacing: var(--disp-track);
+    text-shadow: 0 2px 26px rgba(0,0,0,0.85);
+  }
+  .on-art h3 em { font-style: var(--disp-em); }
+  .on-art .sub {
+    margin-top: 16px;
+    font-style: italic; font-size: 18px; color: var(--dim);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+  }
+  .on-art .sub b { font-style: normal; font-weight: 400; color: var(--bone); }
+  .on-art .btns { margin-top: 30px; }
+
+  /* ── § XIII Bewegung ──────────────────────────────────────────────── */
+  .motion-demo { text-align: center; padding: 20px 0 0; }
+  .motion-demo .md-over { font-size: 12.5px; letter-spacing: 0.36em; text-transform: uppercase; color: var(--gold); }
+  .motion-demo .md-title { margin-top: 12px; font-family: var(--disp); font-weight: var(--disp-wght); font-size: 44px; line-height: 1; }
+  .motion-demo .md-sub { margin-top: 12px; font-style: italic; font-size: 17px; color: var(--dim); }
+  .motion-demo .md-plumb { display: block; width: 1px; height: 44px; margin: 22px auto 0; background: var(--gold); opacity: 0.8; transform-origin: top; }
+  .motion-demo.play .md-over  { animation: enter 1s 0.15s var(--ease) both; }
+  .motion-demo.play .md-title { animation: enterTitle 1.3s 0.4s var(--ease) both; }
+  .motion-demo.play .md-sub   { animation: enter 1s 0.8s var(--ease) both; }
+  .motion-demo.play .md-plumb { animation: plumb 1.1s 1.05s var(--ease) both; }
+  .replay {
+    margin-top: 34px;
+    display: inline-block;
+    font-family: var(--text);
+    font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--dim);
+    background: transparent;
+    border: 0; border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair);
+    padding: 10px 26px 9px;
+    cursor: pointer;
+    transition: color 0.35s, border-color 0.35s;
+  }
+  .replay:hover { color: var(--gold); border-color: var(--gold); }
+  .motion-rules { max-width: 640px; margin: 44px auto 0; text-align: center; }
+  .motion-rules li { list-style: none; padding: 12px 0; font-style: italic; color: var(--dim); font-size: 16.5px; }
+  .motion-rules li + li { border-top: 1px solid var(--hair-soft); }
+  .motion-rules b { font-style: normal; color: var(--bone); font-weight: 400; }
+
+  footer.colophon {
+    max-width: 900px; margin: 90px auto 0;
+    border-top: 1px solid var(--hair);
+    padding: 22px 24px 40px;
+    text-align: center;
+    font-style: italic; font-size: 15.5px; color: var(--faint);
+  }
+
+  details.study-note { margin-top: 0; }
+
+  @media (max-width: 860px) {
+    .swatches { grid-template-columns: repeat(2, 1fr); }
+    .rail-demo { flex-direction: column; gap: 40px; align-items: center; }
+    .instrument-demo { gap: 40px; }
+    .grid-row { grid-template-columns: 40px minmax(0, 1fr) 62px 22px; }
+    .c-faction, .c-format { display: none; }
+    .chapel-scroll { padding: 34px 20px 40px; }
+  }
+</style>
+
+<div class="bg" aria-hidden="true">
+  <div class="grain"></div>
+</div>
+
+<header class="canon-head">
+  <p class="over">Gestaltungskanon · Kathedrale, angewandt</p>
+  <h1>The <em>Canon</em></h1>
+  <p class="sub">Alle Elemente der Live-Site — neu gesetzt in der Kathedrale-Sprache. Jede Tafel nennt ihr Live-Gegenstück; Grundlage für die finale Justierung, was passt und was nicht.</p>
+</header>
+
+<main class="canon">
+
+  <!-- ═══ § I ═══ -->
+  <h2 class="section reveal">§ I · Grundhaltung</h2>
+  <ol class="tenets reveal">
+    <li><b>Die Mittelachse trägt.</b><span>Zeremonie an der Schwelle (Masthead, Titelblatt), Funktion im Schiff: das Register arbeitet, die Achse rahmt.</span></li>
+    <li><b>Ein Akzent, liturgisch.</b><span>Mattes Gold ordnet (M-Skala, Ären, aktive Zustände, Instrumente). Blutrot spricht nur semantisch. Sonst schweigt die Farbe.</span></li>
+    <li><b>Hairlines statt Kästen.</b><span>Kein Element bekommt eine Box, wenn eine Linie genügt. Buttons sind stille Tafeln, deren Leben im Hover steckt (§ IV); Filter sind gesetzte Zeilen mit ▾-Tafeln.</span></li>
+    <li><b>Typografie statt Icons.</b><span>Null Icon-Glyphen. Zugelassen bleiben zwei typografische Zeichen: ▾ (aufklappen) und ↗ (extern).</span></li>
+    <li><b>Das Artwork ist der Grund.</b><span>Erste Viewport-Höhe = Schwelle im Bild; beim Scrollen hebt der Scrim das Dunkel. Der Riesen-Titel ersetzt das Cover. Instrumente zeichnen darüber, wie auf einer Karte.</span></li>
+    <li><b>Drei Zutaten: Karte, Buch, Maschine.</b><span>Die Entdecker-Seekarte (Astrolab, Routen, Vermessung), das Archiv der Bücher (Titelblatt, Katalogisat, Mittelachse) und das moderne Grimdark der Maschine (Mono-Telemetrie, Vox). Zusammen 40k-Essenz — ohne auf den ersten Blick Sci-Fi zu schreien.</span></li>
+  </ol>
+
+  <!-- ═══ § II ═══ -->
+  <h2 class="section reveal">§ II · Farbe</h2>
+  <p class="plate-intro reveal">Kalte Stein-Schwärzen, ein Knochen-Ton für Text, genau ein Akzent. Keine Verläufe, kein Glow — Tiefe kommt aus dem Artwork und dem Korn.</p>
+  <div class="swatches reveal">
+    <div class="sw"><div class="chip" style="background:#02030a"></div><p class="nm">Void</p><p class="hx">#02030a</p><p class="use">Grund — das Live-Void (Runde 9: das hellere #0d0d10 ist raus; über das Studio pickbar).</p></div>
+    <div class="sw"><div class="chip" style="background:#06080f"></div><p class="nm">Void, gehoben</p><p class="hx">#06080f</p><p class="use">Tafeln, Aufklapp-Panels, Notizen.</p></div>
+    <div class="sw"><div class="chip" style="background:#e4ddcb"></div><p class="nm">Knochen</p><p class="hx">#e4ddcb</p><p class="use">Text, Titel, primäre Linien.</p></div>
+    <div class="sw"><div class="chip" style="background:#9a927e"></div><p class="nm">Halbton</p><p class="hx">#9a927e</p><p class="use">Sekundärtext, Bylines, Kursives.</p></div>
+    <div class="sw"><div class="chip" style="background:#6a6455"></div><p class="nm">Asche</p><p class="hx">#6a6455</p><p class="use">Mikro-Text, Rubriken, Ruhendes.</p></div>
+    <div class="sw"><div class="chip" style="background:#a48c52"></div><p class="nm">Gold</p><p class="hx">#a48c52</p><p class="use">Der eine Akzent: Ordnung, aktive Zustände, Instrumente. Nie als Fläche.</p></div>
+    <div class="sw"><div class="chip" style="background:#8e3b32"></div><p class="nm">Blutrot</p><p class="hx">#8e3b32</p><p class="use">Nur semantisch: Antagonisten, Verlorenes. Nie dekorativ.</p></div>
+    <div class="sw"><div class="chip" style="background:rgba(228,221,203,0.16)"></div><p class="nm">Hairline</p><p class="hx">rgba(228 221 203 / .16)</p><p class="use">Alle Linien; weiche Stufe /.08 für Nebentrenner.</p></div>
+  </div>
+  <p class="anno reveal">Ersetzt die Cyan/Gold/Blood-Mischpalette der Live-Site durch eine Ein-Akzent-Ordnung. Der Grund ist seit Runde 9 das Live-Void (#02030a) — Philipps Verdikt: das alte Grau war zu hell; welche Farbe endgültig trägt, entscheidet der Grund-Farb-Picker im Studio (alle Fades folgen per color-mix).<span class="map">Ersetzt: --cl-cyan · panel/plate-Flächen · übernimmt: --cl-void/--cl-void-2</span></p>
+
+  <!-- ═══ § III ═══ -->
+  <h2 class="section reveal">§ III · Typografie</h2>
+  <p class="plate-intro reveal">Zwei Stimmen: eine monumentale, charaktervolle Titelschrift und Cardo als leise Text- und Kapitälchen-Stimme. Runde 6 verlässt die reine Didone-Spur — drei typologisch verschiedene Kandidaten statt drei Verwandter. Die Titelschrift ist unten rechts umschaltbar; die Wahl wirkt auf das ganze Blatt (und alle 07-Seiten).</p>
+
+  <div class="font-compare reveal">
+    <div class="fc fc-cinzel">
+      <p class="fc-name">Cinzel <i>— Default Runde 7 (die Titelschrift des Live-Originals)</i></p>
+      <p class="spec">A Thousand <em>Sons</em></p>
+      <p class="fc-note">Römische Inschriften-Kapitalis (Natanael Gama) — Kleinbuchstaben rendern als Kapitälchen, dadurch die monumentalste Setzung der Kandidaten. Keine Kursive; <i>em</i>-Betonungen stehen aufrecht. Die finale Titelschrift justiert Philipp händisch.</p>
+    </div>
+    <div class="fc fc-bodoni">
+      <p class="fc-name">Bodoni Moda <i>— Kontroll-Kandidat (Ist der Studie 04)</i></p>
+      <p class="spec">A Thousand <em>Sons</em></p>
+      <p class="fc-note">Rasiermesser-Didone: härtester Strichkontrast, kühlste Autorität. Echte Kursive, variable Achsen (Gewicht + optische Größe).</p>
+    </div>
+    <div class="fc fc-mono">
+      <p class="fc-name">Fragment Mono <i>— dritte Stimme (neu, Runde 7): die Maschine</i></p>
+      <p class="spec">001 – 004.M31 <span class="dim2">· Signatvr 0447 · verified</span></p>
+      <p class="fc-note">Telemetrie-Register: M-Band, Vox-Schreiber, Datensatz-Nummern, Census, Instrument-Labels. Das Mono-Grimdark der Ur-Iteration, zurückgeholt als dritte Zutat neben Karte und Buch — nie für Lesetext, nie für Titel.</p>
+    </div>
+  </div>
+
+  <div class="ladder reveal">
+    <div class="rung"><span class="tag">Seiten-Titel · clamp(64–150px) / Buch bis 168px · Titelschrift</span><p class="x-hero">The Archive</p></div>
+    <div class="rung"><span class="tag">Eintrags-Titel (frei) · clamp(34–52px) · Titelschrift</span><p class="x-entry">The First Heretic</p></div>
+    <div class="rung"><span class="tag">Register-Zeile (Table) · 24px · Titelschrift</span><p class="x-row">The First Heretic</p></div>
+    <div class="rung"><span class="tag">Ären-Titel (Chronicle/Timeline) · 25–30px · Titelschrift, Gold</span><p class="x-era">The Horus Heresy</p></div>
+    <div class="rung"><span class="tag">Sektions-Rubrik · 14.5px / 0.34em · Versalien, Gold</span><p class="x-sect">Synopsis</p></div>
+    <div class="rung"><span class="tag">Lesetext · 18px / 1.6 · Cardo</span><p class="x-body">Censured at the Council of Nikaea for the Legion’s open use of psychic sorcery, Magnus the Red withdraws with his Thousand Sons to Prospero.</p></div>
+    <div class="rung"><span class="tag">Verleger-/Nebenzeile · 20px kursiv · Cardo</span><p class="x-lead">being an account of the burning of Prospero</p></div>
+    <div class="rung"><span class="tag">Meta-Zeile · 13.5px / 0.26em · Versalien</span><p class="x-meta">Novel · Thousand Sons · 4.27 of 5</p></div>
+    <div class="rung"><span class="tag">M-Band / Telemetrie · 13.5px / 0.2em · Fragment Mono, Gold</span><p class="x-chrono">001 – 004.M31 · The Horus Heresy</p></div>
+    <div class="rung"><span class="tag">Mikro / Triade · 13px / 0.24em · Versalien — die Untergrenze</span><p class="x-micro">Fan-made · Non-commercial</p></div>
+  </div>
+  <p class="anno reveal">Drei Stimmen, zwei Leitern wie im Brief-120-System der Live-Site: die Titelschrift für Monumentales, Cardo für Lesbares, Fragment Mono ausschließlich für Telemetrie und Ziffern (M-Band, Nummern, Vox, Census). Runde 9: die Stufen erneut gehoben (Philipps Verdikt: teilweise noch deutlich zu klein) — <b>13px Versalien sind die neue Untergrenze</b> (Vox 11.5px als einzige Ausnahme), Sekundärkursives läuft auf 16–17px, Sektions-Rubriken auf 14.5px. Dazu bietet das Studio die Titelschrift jetzt als <b>Dropdown</b>: Cinzel (Default), Bodoni Moda und die fünf lokalen <b>Cormorant-Familien</b> (Cormorant / Garamond / Infant / SC / Unicase — design/beispiele, @font-face in praxis.css).<span class="map">Ersetzt: --font-cinzel · --font-cormorant · --font-mono-Erbe · --fs-read-* / --fs-label-*</span></p>
+
+  <!-- ═══ § IV ═══ -->
+  <h2 class="section reveal">§ IV · Schaltflächen &amp; Verweise</h2>
+  <p class="plate-intro reveal">Runde 8: vier Systeme zur Wahl — Philipps zwei Sternwarte-Vorgaben (Punkt-Expansion, Links-Versatz), ein eigener neuer Vorschlag und der Fallback; das Siegel ist raus. Auf den Praxis-Seiten schaltet das Studio-Panel unten rechts zwischen ihnen um; hier stehen sie nebeneinander. Alle vier: keine Farbfläche, kein Schatten, kein Glow.</p>
+  <div class="demo reveal">
+    <div class="btn-sys" data-btn="orrery">
+      <span class="cap"><b>Sternwarte</b> — kein Rahmen; der Punkt vor der Schrift expandiert beim Hover zum HUD</span>
+      <a class="btn primary" href="#">Buy on Amazon<span class="mark">↗</span></a>
+      <a class="btn" href="#">Black Library<span class="mark">↗</span></a>
+    </div>
+    <div class="btn-sys" data-btn="chart">
+      <span class="cap"><b>Sternkarte</b> — stille Tafel; das HUD liegt links versetzt hinter der Tafel</span>
+      <a class="btn primary" href="#">Buy on Amazon<span class="mark">↗</span></a>
+      <a class="btn" href="#">Black Library<span class="mark">↗</span></a>
+    </div>
+    <div class="btn-sys" data-btn="sign">
+      <span class="cap"><b>Sternbild</b> — Hairline-Tafel; beim Hover verbinden sich fünf Sterne hinter der Schrift</span>
+      <a class="btn primary" href="#">Buy on Amazon<span class="mark">↗</span></a>
+      <a class="btn" href="#">Black Library<span class="mark">↗</span></a>
+    </div>
+    <div class="btn-sys">
+      <span class="cap"><b>Still</b> — der Fallback: Hairline, Hover färbt nach Gold · trägt ohne JS</span>
+      <a class="btn primary" href="#">Buy on Amazon<span class="mark">↗</span></a>
+      <a class="btn" href="#">Black Library<span class="mark">↗</span></a>
+      <span class="btn disabled" aria-disabled="true">Ruhend</span>
+    </div>
+    <p class="linkrow">
+      <a href="#">Verweis im Text</a>
+      <a class="quiet" href="#">stiller Verweis (audit, Provenienz)</a>
+    </p>
+  </div>
+  <p class="anno reveal"><b>Sternwarte</b> (Philipps Runde-8-Vorgabe): kein Rahmen mehr — vor der Schrift ruht ein Punkt; beim Hover expandiert das HUD sichtbar <b>aus genau diesem Punkt</b> (der Punkt wächst, die Ringe blühen von dort auf, drei Vermessungspunkte strahlen aus ihm heraus — der Zacken-Stern ist raus, nur noch Punkte). <b>Sternkarte</b> (zweite Vorgabe): der stille rahmenlose Grund des alten Siegels; das HUD liegt <b>links versetzt</b> hinter der Tafel statt mittig. <b>Sternbild</b> (eigener neuer Vorschlag): Hairline-Tafel; beim Hover verbinden sich fünf Sterne hinter der Schrift zu einem Sternbild — die Linie zeichnet sich in ~1&nbsp;s, die Punkte blühen gestaffelt auf, beim Verlassen vergeht es. <b>Still</b>: der sofort produktive Fallback. Das Siegel-System ist raus (Verdikt Runde 8). Empfehlung: Sternwarte für Acquire/Primärflächen — sie macht aus jedem Button ein kleines Instrument, ohne Rahmen-Architektur; Sternbild als leiser Kandidat für Sekundärflächen.<span class="map">Ersetzt: lx-btn / Panel-Buttons · catalogue-row__link · book-detail__action</span></p>
+
+  <!-- ═══ § V ═══ -->
+  <h2 class="section reveal">§ V · Konsole &amp; Filter</h2>
+  <div class="demo reveal">
+    <div class="seek"><span class="seek-wrap"><input type="text" placeholder="seek a title, an author, a world, a deed …"></span></div>
+    <div class="seek" style="margin-top: 10px;"><span class="seek-wrap demo-focus"><input type="text" value="prospero"></span></div>
+    <p class="register" style="margin-top: 24px;">
+      <span class="lbl">Archive of</span>
+      <a class="active">Books</a>
+      <a>Podcasts</a>
+    </p>
+    <div>
+      <div class="dd">
+        <span class="dd-btn">Faction — All <b>▾</b></span>
+      </div>
+      <div class="dd">
+        <span class="dd-btn">Faction — All <b>▾</b></span>
+        <div class="dd-panel">
+          <a class="on">All</a>
+          <a>Thousand Sons</a>
+          <a>Ultramarines</a>
+          <a>Imperial Guard</a>
+          <a>Inquisition</a>
+        </div>
+      </div>
+    </div>
+    <p class="register" style="margin-top: 24px;">
+      <span class="lbl">Sort</span>
+      <a>Title A–Z</a>
+      <a>Newest</a>
+      <a class="active">Timeline</a>
+    </p>
+    <p class="register" style="margin-top: 24px;">
+      <span class="lbl">Store region</span>
+      <a class="active">Germany</a><a>United States</a><a>United Kingdom</a>
+    </p>
+  </div>
+  <p class="anno reveal">Die Suchkonsole ist eine gesetzte Zeile: kursiver Prompt, Hairline; der Fokus zieht eine Goldlinie aus der Mitte (zweite Zeile zeigt den Fokus-Zustand). Kurze Wahlmengen sind Register-Zeilen; lange Listen (Fraktionen, Formate) sind Dropdown-Trigger, die eine Stein-Tafel öffnen (rechts: geöffnet). Die <b>Sortierung ist EIN Control</b> — eine Register-Zeile mit drei Zuständen, exakt die Live-Pills; Region folgt demselben Muster. <b>Runde 9:</b> die „Archive of"-Registerzeile oben ist auf /archive NICHT mehr der Archiv-Umschalter — dort tragen jetzt zwei große Register-Türen (Books / Podcasts mit Bestandszeile, Sternwarte-Punkt als Aktiv-Marker) die Wahl als erstes Element des Schiffs; die kleine Zeile bleibt das Muster für nachgeordnete Wahlmengen.<span class="map">Ersetzt: BrowseSearch-Konsole · FilterSelect · ArchiveModeToggle (→ Archiv-Türen) · browse-sort-Pills · RegionSwitcher</span></p>
+
+  <!-- ═══ § VI ═══ -->
+  <h2 class="section reveal">§ VI · Auszeichnung</h2>
+  <div class="demo marks reveal">
+    <p>M-Skala — <span class="chrono">c. 001 – 004.M31</span> <b>· Gold, Fragment Mono, c. für Ungefähres</b></p>
+    <p>Faction-Verweis — <a href="#">Thousand Sons</a> · <a href="#">Space Wolves</a></p>
+    <p>Facette mit Schlüssel — <b>Theme:</b> hubris · <b>Tone:</b> tragic</p>
+    <p>Format als erstes Meta-Glied — <b>Novel</b> · 558 pp.</p>
+    <p>Rollen kursiv — <span class="role">point of view</span> · <span class="role">supporting</span> · <span class="role antagonist">antagonist</span></p>
+    <p>Datenehrlichkeit — <span class="honest">not yet rated · not yet dated</span></p>
+  </div>
+  <p class="anno reveal">Keine Chips, keine Badges: Auszeichnung ist Sprache — Versalien mit Sperrung für Systematisches, Kursive für Menschliches (Rollen, Vorbehalte), Gold nur für die Chronologie. Der Antagonist trägt die einzige rote Silbe des Systems.<span class="map">Ersetzt: catalogue-chip · catalogue-tag (faction/facet) · book-detail__chip</span></p>
+
+  <!-- ═══ § VII ═══ -->
+  <h2 class="section reveal">§ VII · Das Register</h2>
+  <p class="plate-intro reveal">Die Live-Struktur, nur schöner: eine <b>flache Liste</b> ohne Spaltenkopf und ohne Ären-Zwischenzeilen. Zeilen-Anatomie wie die catalogue-row: № / Titel mit Byline / Faction / Jahr / Format / ▾. Runde 6: die Zeile klappt <b>nicht mehr inline auf</b> — der Klick öffnet den Datensatz als Popup (§ VIII, die Kapelle), exakt wie der Live-@modal-Intercept.</p>
+  <div class="ledger reveal">
+    <div class="grid-row">
+      <span class="c-idx">002</span>
+      <span class="c-main">
+        <span class="c-title">Horus Rising</span>
+        <span class="c-by">by Dan Abnett</span>
+      </span>
+      <span class="c-faction">Luna Wolves</span>
+      <span class="c-year">2006</span>
+      <span class="c-format">Novel</span>
+      <span class="c-mark" aria-hidden="true">▾</span>
+    </div>
+    <div class="grid-row hovered">
+      <span class="c-idx">003</span>
+      <span class="c-main">
+        <span class="c-title">A Thousand Sons</span>
+        <span class="c-by">by Graham McNeill</span>
+      </span>
+      <span class="c-faction">Thousand Sons</span>
+      <span class="c-year">2010</span>
+      <span class="c-format">Novel</span>
+      <span class="c-mark" aria-hidden="true">▾</span>
+    </div>
+  </div>
+  <p class="anno reveal">Zeile = eine Buchung im Register: № in Asche, Titel in der Titelschrift (24px) mit kursiver Byline darunter, Faction als Versal-Register, Jahr tabellarisch, Format in Asche; Hover hebt Titel und ▾ nach Gold (zweite Zeile zeigt den Zustand). Der Klick ruft die Kapelle (§ VIII) — kein Inline-Detail, keine Meta-Kette in der Liste. Sortierung lebt ausschließlich im Sort-Control der Filterzeile (§ V). Vollständig in <i>archiv.html</i> (22 Zeilen, flach, mit funktionierendem Popup).<span class="map">Ersetzt: catalogue-list · catalogue-row — Struktur und Klick-Mechanik 1:1, nur Optik neu</span></p>
+
+  <!-- ═══ § VIII ═══ -->
+  <h2 class="section reveal">§ VIII · Die Kapelle</h2>
+  <p class="plate-intro reveal">Der Datensatz als Popup — die Live-Mechanik wörtlich übernommen (@modal-Intercept + 64-detail-modal.css): Scrim + Blur über dem Ursprungskontext, eine zentrierte Karte <b>ohne gezeichneten Rahmen</b> (Schatten + Lichtfang tragen die Kante), die eine Linie ist der Gold-Terminus unter der Leiste. Runde 7: der Inhalt trägt die <b>volle Buch-Sprache</b> — Synopsis, Appendix, Motive, Acquire.</p>
+  <div class="chapel-stage reveal">
+    <div class="chapel-panel">
+      <div class="chapel-bar">
+        <span>‹ Return to the Register</span>
+        <span>Close</span>
+      </div>
+      <div class="chapel-scroll">
+        <p class="k-over">Novel</p>
+        <h3 class="k-title">A Thousand Sons</h3>
+        <p class="k-by">by <a href="#">Graham McNeill</a> · Original Horus Heresy, № XII</p>
+        <p class="k-chrono">001 – 004.M31 · The Horus Heresy</p>
+        <h4 class="k-section">Synopsis</h4>
+        <p class="k-syn">Censured at the Council of Nikaea for the Legion’s open use of psychic sorcery, Magnus the Red withdraws with his Thousand Sons to the crystal city of Tizca on Prospero.</p>
+        <h4 class="k-section">Appendix</h4>
+        <div class="k-appendix">
+          <div><h4>Dramatis Personae</h4><ul>
+            <li><a href="#">Magnus the Red</a> <span class="role">point of view</span></li>
+            <li><a href="#">Leman Russ</a> <span class="role antagonist">antagonist</span></li>
+          </ul></div>
+          <div><h4>Factions</h4><ul>
+            <li><a href="#">Thousand Sons</a> <span class="role">primary</span></li>
+            <li><a href="#">Space Wolves</a> <span class="role">supporting</span></li>
+          </ul></div>
+          <div><h4>Locations</h4><ul>
+            <li><a href="#">Prospero</a> <span class="role">primary</span></li>
+            <li><a href="#">Nikaea</a> <span class="role">supporting</span></li>
+          </ul></div>
+        </div>
+        <p class="k-motifs">hubris <span class="sep">·</span> betrayal <span class="sep">·</span> cosmic horror</p>
+        <h4 class="k-section">Acquire</h4>
+        <div class="k-actions">
+          <a class="btn primary" href="#">Amazon<span class="mark">↗</span></a>
+          <a class="btn" href="#">Black Library<span class="mark">↗</span></a>
+        </div>
+        <p class="k-goto"><a href="buch.html">Open the full record →</a></p>
+      </div>
+    </div>
+  </div>
+  <p class="anno reveal">Anatomie: Leiste mit Zurück + Close, Gold-Terminus, dann die Achse — Rubrik (nur noch das Format: „Novel", <b>ohne „Lectio Brevis"</b>), Riesen-Titel, kursive Byline mit Reihe, <b>M-Band in Fragment Mono + Gold</b>, dann die Sektionen der Buch-Seite: Synopsis (Blocksatz, Versalien-Eingang), <b>Appendix mit Dramatis Personae / Factions / Locations</b> (Rollen kursiv, Antagonist in Blutrot), Motiv-Zeile (Facets), Acquire (§ IV), stiller Verweis auf die volle Akte. Beim Öffnen staffelt sich der Inhalt (Kapellen-Ouvertüre, live in archiv.html). ESC, Scrim-Klick und Close schließen; der Fokus kehrt zur Zeile zurück.<span class="map">Ersetzt: DetailModal (detail-modal-root/-panel/-bar) + BookDetailView im Intercept — jetzt mit vollem Feld-Inventar (factions/locations/characters/facets)</span></p>
+
+  <!-- ═══ § IX ═══ -->
+  <h2 class="section reveal">§ IX · Info-Blöcke</h2>
+  <div class="demo reveal">
+    <table class="katalogisat">
+      <tr><th>First published</th><td>2010</td></tr>
+      <tr><th>Setting</th><td class="chrono">001 – 004.M31</td></tr>
+      <tr><th>Standing</th><td>4.27 of 5 <span class="note">from 10 635 readings</span></td></tr>
+    </table>
+    <p class="aside-note">The archivist notes: paired most naturally with <a href="#">Prospero Burns</a>, which walks the same years in the Wolves’ boots.</p>
+    <p class="advisory">The reader is advised: violence, death.</p>
+    <div class="empty">No works match these filters. Try widening the search.</div>
+    <p class="census"><b>22 · shown</b> / 896 works</p>
+  </div>
+  <p class="anno reveal">Das Katalogisat ist die Registertafel für Fakten (Rubriken rechtsbündig gegen eine Hairline); die Archivar-Notiz spricht kursiv über einer Linie; Leerzustände sind ein stiller Rahmen, kein Alarm; die Zählzeile ersetzt die Toolbar.<span class="map">Ersetzt: book-detail__meta · catalogue-toolbar · catalogue-empty · Hinweis-Panels</span></p>
+
+  <!-- ═══ § X ═══ -->
+  <h2 class="section reveal">§ X · Navigation &amp; Chrome</h2>
+  <div class="demo reveal">
+    <div class="rail-demo">
+      <div class="st">
+        <span class="cap">Rail · Titel immer sichtbar</span>
+        <div class="rail-ex">
+          <a><span class="rn">I</span><span class="rt">Home</span></a>
+          <a class="here"><span class="rn">II</span><span class="rt">Archive</span></a>
+          <a><span class="rn">III</span><span class="rt">Compendium</span></a>
+          <a><span class="rn">IV</span><span class="rt">Ask</span></a>
+        </div>
+      </div>
+      <div class="st">
+        <span class="cap">Hover-Zustand</span>
+        <div class="rail-ex">
+          <a class="hovered"><span class="rn">V</span><span class="rt">Chronicle</span></a>
+        </div>
+      </div>
+    </div>
+    <p class="wordmark-demo">Chrono Lexicanum</p>
+    <div class="cue-demo-wrap"><span class="cue">Search the archive</span></div>
+  </div>
+  <p class="anno reveal">Die linke Rail behält römische Ziffern (jetzt Fragment Mono), die Titel stehen <b>permanent</b>. Aktivmarker: <b>der Rubriken-Strich</b> — ein 1px-Gold-Lot in der Marginalie vor der Zeile, das aus der Mitte wächst; dazu Goldschrift, minimal weiter gesperrt. Hover zeigt ein kürzeres Knochen-Lot und hellt den Titel. Der Unterstrich ist raus — nirgends in der Navigation. <b>Die Wortmarke steht fix oben links und heißt seit Runde 9 „Chrono Lexicanum"</b> — der Trennpunkt ist raus (Verdikt), das stille Gegenstück zum Vox-Schreiber rechts; das Top-Center gehört dem Hero. <b>Der Scroll-Cue (Runde 9, oben live):</b> der Strich fadet nach unten aus — das Live-Strich-Element aus Philipps Referenz — und ein Lichttropfen läuft ihn wiederholt hinab: die Bewegung sagt „hier geht es weiter".<span class="map">Ersetzt: SiteNav (46-site-nav, Hover-Reveal) · RouteScrollCue (Chevron-Kaskade → Tropfen-Lot) · Wortmarken-Setzung</span></p>
+
+  <!-- ═══ § XI ═══ -->
+  <h2 class="section reveal">§ XI · Instrumente</h2>
+  <p class="plate-intro reveal">Runde 9: <b>die Auspex-Zwillinge der Live-Startseite sind das Hero-Instrument</b> — Philipps Verdikt: die Live-Scheiben sehen besser aus als alles Neue. Der Port übernimmt Positionen, Opazitäten und Drehrichtungen der Live-Site; die konzentrischen Ringe rücken in ein engeres Band, der Sweep-Zeiger bleibt draußen (Dauerurteil). Astrolab und Artefakt-Skizzen sind raus. Dazu der <b>Vox-Schreiber</b> (oben rechts auf den Seiten), der Archiv-Telemetrie Zeichen für Zeichen schreibt.</p>
+  <div class="instrument-demo reveal">
+    <div class="aus-demo" aria-hidden="true">
+      <div class="aus" data-auspex="280"></div>
+    </div>
+    <div class="survey-stack">
+      <span class="survey" style="--d: 0s;" aria-hidden="true">
+        <span class="pt"></span><span class="lead"></span><span class="lbl">Route · Segmentvm Ultima</span>
+      </span>
+      <span class="survey" style="--d: 7s;" aria-hidden="true">
+        <span class="pt"></span><span class="lead"></span><span class="lbl">Hit · Baal · M41</span>
+      </span>
+      <span class="survey" style="--d: 14s;" aria-hidden="true">
+        <span class="pt"></span><span class="lead"></span><span class="lbl">Anchor · Council of Nikaea</span>
+      </span>
+    </div>
+    <div class="vox-demo" id="vox" aria-hidden="true" data-lines='["Signatvr 0447 · verified","Cross-ref · Magnus the Red","Rvbrica · The Horus Heresy","Datation 001.M31 · confirmed","Access granted · Lectorivm III"]'></div>
+  </div>
+  <p class="anno reveal"><b>Auspex-Zwillinge (MainAuspex-Port):</b> Tick-Ring dreht vorwärts, Punkte-Ring rückwärts, der Cogitator-Kern schneller rückwärts; Kardinal-Achsen, Peil-Labels (·000/·090/·180/·270), zwei Peil-Bögen, fünf glimmende Kontakte im offenen Mittelfeld. Die statischen Ringe liegen im Band 0.58–0.96 r (live: 0.30–0.96) — <b>enger, wie von Philipp gewünscht</b>; kein Sweep-Zeiger. Auf den Seiten stehen zwei Scheiben an den Live-Positionen (34 %/58 % groß + 62 %/46 % klein, gegenläufig, 360 s/180 s), auf Buch/Entity in der leisen Ausgabe. <b>Vermessungspunkte:</b> Ring blüht um den Punkt, gepunktete Leader-Line, 21-s-Zyklus. <b>Vox-Schreiber</b> (rechts, live): schreibt Telemetrie Zeichen für Zeichen — jedes Zeichen fadet ein, das Gold-Caret blinkt weich, max. drei Zeilen mit Helligkeits-Rampe. Die Artefakt-Skizzen der Runde 8 (Servo-Schädel/Bolter) sind ersatzlos raus (Verdikt: grauenvoll). Alles Linie, Gold, langsam; Latein lebt nur hier, in den Instrumenten.<span class="map">Übernimmt: MainAuspex ×2 (Live-Hub) · FloatingCoord — der Vox-Schreiber ersetzt GhostReadout</span></p>
+
+  <!-- ═══ § XII ═══ -->
+  <h2 class="section reveal">§ XII · Imprimatur</h2>
+  <div class="demo imprimatur reveal">
+    <span class="seal-line" aria-hidden="true"></span>
+    <p class="seal-word">Imprimatur</p>
+    <p class="seal-sub">Chrono Lexicanum — an unofficial fan archive</p>
+    <p class="triad">
+      <span>From darkness, knowledge</span>
+      <span>Click any title to open its record</span>
+      <span>Fan-made · Non-commercial</span>
+    </p>
+    <p class="legal">Unofficial fan project, not endorsed by Games Workshop. Warhammer 40,000 and all associated marks are property of Games Workshop Limited.</p>
+    <p class="law"><a href="#">Impressum</a> · <a href="#">Datenschutz</a></p>
+  </div>
+  <p class="anno reveal">Das Siegel ist die Lot-Linie + das Wort — kein ⚜-Glyph; <b>seit Runde 9 fadet das Lot nach unten aus</b> (die Strich-Regel aus Philipps Live-Referenz — alle dekorativen Lote der Studie folgen ihr). „Imprimatur" bleibt als einzelnes Siegelwort; die Triade spricht englisch, die Unterzeile heißt „Chrono Lexicanum" ohne Trennpunkt. Legal-Zeile der Live-Site wörtlich erhalten.<span class="map">Ersetzt: ArchiveFooter (lx-foot) mit Seal · Triade · Legal-Row</span></p>
+
+  <!-- ═══ § XIII ═══ -->
+  <h2 class="section reveal">§ XIII · Auf dem Artwork</h2>
+  <p class="plate-intro reveal">Dieselben Elemente auf dem Site-Hintergrund — die Probe, dass die Sprache auf dem Bild trägt: Lesbarkeit kommt aus Text-Schatten und dem Fade, nie aus Panels.</p>
+  <section class="on-art reveal">
+    <p class="over">The Index</p>
+    <h3>The <em>Archive</em></h3>
+    <p class="sub">Every book and every voice of the archive, in one register.</p>
+    <div class="btns">
+      <a class="btn primary" href="#">Primär auf Artwork</a>
+      <a class="btn" href="#">Sekundär auf Artwork</a>
+    </div>
+  </section>
+
+  <!-- ═══ § XIV ═══ -->
+  <h2 class="section reveal">§ XIV · Bewegung</h2>
+  <div class="demo reveal">
+    <div class="motion-demo play" id="motionDemo">
+      <p class="md-over">001 – 004.M31 · The Horus Heresy</p>
+      <p class="md-title">A Thousand Sons</p>
+      <p class="md-sub">being an account of the burning of Prospero</p>
+      <span class="md-plumb" aria-hidden="true"></span>
+    </div>
+    <button type="button" class="replay" id="replayBtn">Sequenz wiederholen</button>
+    <ul class="motion-rules">
+      <li><b>Eine Ouvertüre, keine Dauer-Show.</b> Die gestaffelte Ladesequenz des Mastheads ist der eine große Moment; danach nur noch Scroll-Reveals.</li>
+      <li><b>Liturgisches Tempo.</b> 0.7–1.4&nbsp;s auf einer ruhigen Ease (0.22, 1, 0.36, 1), Staffelung ~200–250&nbsp;ms. Nichts hüpft, nichts pulsiert schnell.</li>
+      <li><b>Instrumente drehen in Minuten, nicht Sekunden.</b> Die Auspex-Scheiben drehen gegenläufig (180–440&nbsp;s je Werk, kein Sweep-Zeiger), die Kontakte glimmen im 9-s-Takt, Vermessungspunkte im 21-s-Zyklus — Dekor, das atmet, statt zu blinken.</li>
+      <li><b>Der Vox-Schreiber flüstert.</b> Zeichen faden einzeln ein (~40-ms-Takt), das Gold-Caret blinkt weich, Zeilen steigen und vergehen — Telemetrie als Schrift, kein Ticker.</li>
+      <li><b>Linien zeichnen sich — und faden nach unten.</b> Hairlines wachsen vom Namen nach außen, das Lot von oben nach unten und läuft nach unten in Transparenz aus; am Scroll-Cue fällt ein Lichttropfen den Strich hinab (Runde 9) — Bewegung folgt der Architektur.</li>
+      <li><b>Auch das Popup hat eine Ouvertüre.</b> Die Kapelle staffelt ihren Inhalt bei jedem Öffnen (Rubrik → Titel → Byline → M-Band → Sektionen) — kürzer und leiser als die Seiten-Ouvertüre, aber dieselbe Handschrift.</li>
+      <li><b>Der Scrim gehört zum System.</b> Scrollen dunkelt das Artwork stufenlos ab (Live-Mechanik) — der Übergang Schwelle → Schiff ist die wichtigste Animation der Site.</li>
+      <li><b>Hover ist Färbung — und bei Buttons ein Instrument.</b> Knochen → Gold, 0.35&nbsp;s; die Sternwarte lässt das HUD aus dem Punkt aufblühen, zwei Planeten reiten auf den drehenden Ringen, die Vermessungspunkte glimmen nach der Expansion (Runde 9: dezente Dauerbewegung). Kein Glow, kein Skalieren.</li>
+      <li><b>prefers-reduced-motion</b> schaltet alles ab — der Stand ohne Bewegung ist vollständig.</li>
+    </ul>
+  </div>
+  <p class="anno reveal">Die Scan-/Pulse-/Chrono-Keyframes der Live-Site gehen auf in zwei Registern: der Einzugs-Motion (Ouvertüre, Reveals, Linien) und der Instrumenten-Sprache aus § XI.<span class="map">Ersetzt: --animate-scan · pulse-ring · chrono*-Keyframes · Hub-Chevron</span></p>
+
+  <!-- ═══ § XV ═══ -->
+  <h2 class="section reveal">§ XV · Aha-Momente — Konzepte</h2>
+  <p class="plate-intro reveal">Gebaut sind die Auspex-Zwillinge (§ XI), die Kapellen-Ouvertüre (§ VIII/§ XIV) und die Sternwarte-Buttons mit Planeten-Uhrwerk (§ IV); die Artefakt-Skizzen sind nach Philipps Runde-9-Verdikt raus. Diese Tafel hält fest, was dieselbe Sprache als Nächstes hergibt — moderne Interpretationen von Navigations- und Archivinstrumenten: 40k-Essenz, ohne auf den ersten Blick Sci-Fi zu schreien. Nichts davon ist umgesetzt; jede Zeile ist ein Kandidat für 185 ff.</p>
+  <ul class="motion-rules reveal">
+    <li><b>Kurs-Plotter auf der Karte.</b> Der Runde-7-Plotter ist als Hero-Hintergrund verworfen (Runde 8) — aber datengetrieben auf dem Cartographer bleibt er der richtige Ort: beim Öffnen eines Buchs zeichnet sich die Route zwischen seinen echten Schauplatz-Pins, und Philipps Runde-8-Notiz erweitert ihn zum <b>Character-Pathing</b> (der Weg einer Figur über die Karte, Buch für Buch). Baustein für den Map-Neubau (178), zusammen mit der Columbus-Notiz.</li>
+    <li><b>Die Titel-Passage.</b> Register → Kapelle → volle Akte als eine Bewegung: der Buchtitel wandert morphend vom 24px-Registereintrag in den Riesen-Titel (View-Transitions-API; die Live-Site hat mit @modal-Intercept bereits die halbe Architektur dafür).</li>
+    <li><b>Das Tiefenlot.</b> Auf langen Seiten begleitet ein 1px-Faden die Achse und vermisst den Scroll als M-Skala (M30 oben, M42 unten) — der Scrollbalken als Chronologie-Instrument, in Mono beschriftet.</li>
+    <li><b>Auspex-Triangulation.</b> Fokus/Hover auf einer Registerzeile lässt am Zeilenende drei Haarlinien kurz auf das ▾ konvergieren — die Vermessung „fasst das Ziel auf". Ein 0.4-s-Moment, kein Dauerzustand.</li>
+    <li><b>Die Vox-Störung.</b> Alle paar Minuten verschreibt sich der Vox-Schreiber (zwei, drei Zeichen flackern in Gold), setzt neu an und korrigiert sich — die Maschine ist zehntausend Jahre alt. Grimdark als Verhalten, nicht als Deko.</li>
+    <li><b>Das Mini-Orrery im Katalogisat.</b> Die „Principal world"-Zeile trägt rechts ein 20px-Instrument — ein Punkt umkreist einen Punkt, dieselbe Sprache wie Sternwarte-Buttons und Astrolab, als kleinste Ausbaustufe.</li>
+  </ul>
+  <p class="anno reveal">Auswahlkriterium für alle sechs: sie erweitern die vorhandenen Register (Karte · Buch · Maschine), statt neue Effektfamilien zu eröffnen — und jedes überlebt prefers-reduced-motion, weil es nur Zustand illustriert, nie Information trägt.<span class="map">Kandidaten für: Map-Neubau (178) · Design-Language-Pass (185) · spätere Polish-Runden</span></p>
+
+</main>
+
+<footer class="colophon">
+  Chrono Lexicanum — Gestaltungskanon, Runde 9 (Brief 184). Arbeitsmaterial, kein Site-Code.<br>
+  § VIII und § XIII laden das Site-Artwork relativ aus <i>public/img/main-bg.webp</i>.
+</footer>
+
+<details class="study-note">
+  <summary>Studien-Notiz · Runde 9 — Gestaltungskanon</summary>
+  <div class="body">
+    <p><b>Zweck:</b> Philipps Review-Grundlage für die finale Justierung — jedes Element der Live-Site einmal in der Kathedrale-Sprache, mit Live-Zuordnung („Ersetzt: …") pro Tafel. Was hier bestätigt wird, wandert als Token/Komponenten-Spec in den 185er-Design-Language-Pass.</p>
+    <p><b>Runde-9-Änderungen (Philipps Runde-8-Review):</b> § II: <b>Grund = Live-Void #02030a</b> (das hellere #0d0d10 ist raus); welche Farbe endgültig trägt, entscheidet der neue <b>Grund-Farb-Picker</b> im Studio (setzt --void/--void-2, alle Fades folgen per color-mix). § III: Typo-Untergrenze auf 13px gehoben, Titelschrift als <b>Dropdown mit den fünf Cormorant-Familien</b> (lokale Webfonts). § IV: Sternwarte mit <b>dezenter Dauerbewegung</b> — zwei Planeten reiten auf den drehenden Ringen, die Vermessungspunkte glimmen nach der Expansion, der Ruhepunkt atmet. § X: <b>Wortmarke ohne Trennpunkt</b>; der Scroll-Cue fadet nach unten aus und trägt den Lichttropfen. § XI: <b>Auspex-Zwillinge (MainAuspex-Port) statt Astrolab</b>, Ringe im engeren Band, ohne Sweep; die Artefakt-Skizzen (Servo-Schädel/Bolter) sind ersatzlos raus (Verdikt: grauenvoll). § XII: Siegel-Lot fadet nach unten. Geteilte Blöcke leben jetzt in <b>praxis.css/praxis.js</b> (Keys cl09) — dieses Blatt blendet die Schaltflächen-Zeile des Studios aus, damit § IV alle vier Systeme nebeneinander zeigen kann (html trägt hier kein data-btn).</p>
+    <p><b>Unverändert:</b> § I Tenets inkl. „Drei Zutaten: Karte, Buch, Maschine", § V–IX Register/Kapelle/Info-Blöcke (Kapellen-Farben jetzt color-mix aus --void), § XV Konzepte (Kurs-Plotter bleibt Karten-Kandidat), Latein-Politik. <b>Grund bewusst flach:</b> Elemente werden isoliert auf Void + Korn beurteilt; § VIII (Kapelle) und § XIII machen die Gegenprobe auf dem Artwork. chronik.html bleibt auf Runde-8-Stand (Auftrag: Chronicle ignorieren).</p>
+  </div>
+</details>
+
+<script src="praxis.js"></script>
+<script>
+  (function () {
+    /* Kanon-Blatt: kein Button-System-Attribut auf html - die
+       § IV-Demos tragen data-btn als Container-Attribut, damit alle
+       vier Systeme nebeneinander stehen. praxis.js hat das Attribut
+       gesetzt; hier wird es wieder entfernt (die Schaltflaechen-Zeile
+       des Studios ist per CSS ausgeblendet). */
+    document.documentElement.removeAttribute("data-btn");
+
+    /* § XIV - Ladesequenz wiederholen */
+    var demo = document.getElementById("motionDemo");
+    var replay = document.getElementById("replayBtn");
+    if (demo && replay) {
+      replay.addEventListener("click", function () {
+        demo.classList.remove("play");
+        void demo.offsetWidth; /* Reflow erzwingen, damit die Animation neu startet */
+        demo.classList.add("play");
+      });
+    }
+  })();
+</script>

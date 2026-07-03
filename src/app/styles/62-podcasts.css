@@ -22,8 +22,8 @@ main.podcasts {
   /* Shared gold hairline + hover/active washes, mirroring 31-catalogue.css
    * (.catalogue-row 13% hairline, 0.05 hover). One edit re-tunes the page. */
   --pod-hair: color-mix(in oklch, var(--cl-gold) 13%, transparent);
-  --pod-wash: rgba(201, 166, 90, 0.05);
-  --pod-wash-on: rgba(201, 166, 90, 0.07);
+  --pod-wash: rgba(164, 140, 82, 0.05);
+  --pod-wash-on: rgba(164, 140, 82, 0.07);
 }
 
 /* Page-scoped gold focus ring — overrides the global cyan glow (10-base.css),
@@ -105,7 +105,7 @@ body:has(main.podcasts) .site-bg::after {
 }
 .pod-search__kicker {
   text-align: center;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
   letter-spacing: 0.24em;
   text-transform: uppercase;
@@ -123,17 +123,11 @@ body:has(main.podcasts) .site-bg::after {
 .pod-search .browse-search:focus-within {
   border-bottom-color: var(--cl-gold-dim);
 }
-.pod-search .browse-search__sigil {
-  width: 15px;
-  height: 15px;
-  margin-left: 1px;
-  margin-right: 4px;
-}
 .pod-search .browse-search__input {
   flex: 1;
   min-width: 0;
   text-align: center;
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-body);
   font-size: var(--fs-read);
   font-weight: var(--fw-read);
   letter-spacing: 0.01em;
@@ -153,7 +147,7 @@ body:has(main.podcasts) .browse-suggest {
   border-color: color-mix(in oklch, var(--cl-gold) 30%, transparent);
 }
 body:has(main.podcasts) .browse-suggest__opt.is-active {
-  background: rgba(201, 166, 90, 0.12);
+  background: rgba(164, 140, 82, 0.12);
 }
 body:has(main.podcasts) .browse-suggest__hit {
   color: var(--cl-gold);
@@ -196,13 +190,13 @@ body:has(main.podcasts) .browse-suggest__hit {
   margin-bottom: 20px;
 }
 .pod-toolbar__count {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label-lg);
   letter-spacing: 0.14em;
   color: var(--cl-gold);
 }
 .pod-toolbar__total {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label);
   letter-spacing: 0.08em;
   color: var(--cl-dim);
@@ -216,7 +210,7 @@ body:has(main.podcasts) .browse-suggest__hit {
 .pod-empty {
   padding: 56px 20px;
   text-align: center;
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-body);
   font-style: italic;
   font-size: var(--fs-read);
   font-weight: var(--fw-read);
@@ -269,7 +263,7 @@ body:has(main.podcasts) .browse-suggest__hit {
   place-items: center;
   border: 1px solid var(--cl-faint);
   background: color-mix(in srgb, var(--cl-void) 50%, transparent);
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: 13px;
   letter-spacing: 0.2em;
   color: var(--cl-dim);
@@ -283,7 +277,7 @@ body:has(main.podcasts) .browse-suggest__hit {
 /* Neutral, not gold: this label repeats once per show block, and resting gold
  * is reserved for the single hero eyebrow + live values (house restraint law). */
 .pod-card__kicker {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
   letter-spacing: 0.24em;
   text-transform: uppercase;
@@ -291,7 +285,7 @@ body:has(main.podcasts) .browse-suggest__hit {
 }
 .pod-card__title {
   margin: 6px 0 0;
-  font-family: var(--font-cinzel), serif;
+  font-family: var(--font-display);
   font-weight: 600;
   font-size: clamp(20px, 2.6vw, 26px);
   letter-spacing: 0.04em;
@@ -314,7 +308,7 @@ body:has(main.podcasts) .browse-suggest__hit {
 }
 .pod-card__stats {
   margin: 6px 0 0;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label);
   letter-spacing: 0.1em;
   color: var(--cl-dim);
@@ -342,7 +336,7 @@ body:has(main.podcasts) .browse-suggest__hit {
 }
 .pod-card__latest-date {
   flex: 0 0 auto;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
   letter-spacing: 0.06em;
   color: var(--cl-faint);
@@ -353,7 +347,7 @@ body:has(main.podcasts) .browse-suggest__hit {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-body);
   font-size: var(--fs-read-sm);
   font-weight: var(--fw-read);
   color: var(--cl-dim);
@@ -364,7 +358,7 @@ body:has(main.podcasts) .browse-suggest__hit {
 .pod-card__open {
   margin-top: auto;
   padding-top: 14px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label);
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -386,7 +380,7 @@ body:has(main.podcasts) .browse-suggest__hit {
   color: var(--cl-bone);
   background: transparent;
   padding: 6px 12px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label);
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -395,7 +389,7 @@ body:has(main.podcasts) .browse-suggest__hit {
 }
 .pod-platform:hover {
   color: var(--cl-gold);
-  background: rgba(201, 166, 90, 0.1);
+  background: rgba(164, 140, 82, 0.1);
   border-color: var(--cl-gold-dim);
 }
 .pod-platform:focus-visible {
@@ -429,7 +423,7 @@ body:has(main.podcasts) .browse-suggest__hit {
   place-items: center;
   border: 1px solid var(--cl-faint);
   background: color-mix(in srgb, var(--cl-void) 50%, transparent);
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: 13px;
   letter-spacing: 0.2em;
   color: var(--cl-dim);
@@ -438,7 +432,7 @@ body:has(main.podcasts) .browse-suggest__hit {
   min-width: 0;
 }
 .pod-plate__kicker {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
   letter-spacing: 0.24em;
   text-transform: uppercase;
@@ -446,7 +440,7 @@ body:has(main.podcasts) .browse-suggest__hit {
 }
 .pod-plate__name {
   margin: 6px 0 0;
-  font-family: var(--font-cinzel), serif;
+  font-family: var(--font-display);
   font-weight: 600;
   font-size: clamp(20px, 3vw, 26px);
   letter-spacing: 0.04em;
@@ -454,7 +448,7 @@ body:has(main.podcasts) .browse-suggest__hit {
 }
 .pod-plate__stats {
   margin: 6px 0 0;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label);
   letter-spacing: 0.1em;
   color: var(--cl-dim);
@@ -468,7 +462,7 @@ body:has(main.podcasts) .browse-suggest__hit {
 .pod-plate__back {
   display: inline-block;
   margin: 16px 0 0;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label);
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -531,7 +525,7 @@ body:has(main.podcasts) .browse-suggest__hit {
   background: transparent;
   outline: none;
   color: var(--cl-bone);
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-body);
   font-size: var(--fs-read);
   font-weight: var(--fw-read);
   letter-spacing: 0.01em;
@@ -587,7 +581,7 @@ body:has(main.podcasts) .browse-suggest__hit {
 }
 .pod-filter__status {
   margin-left: auto;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label);
   letter-spacing: 0.1em;
   color: var(--cl-dim);
@@ -600,7 +594,7 @@ body:has(main.podcasts) .browse-suggest__hit {
   background: transparent;
   color: var(--cl-dim);
   padding: 5px 12px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label);
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -613,7 +607,7 @@ body:has(main.podcasts) .browse-suggest__hit {
 }
 .pod-pill.is-active {
   border-color: var(--cl-gold);
-  background: rgba(201, 166, 90, 0.1);
+  background: rgba(164, 140, 82, 0.1);
   color: var(--cl-gold);
 }
 .pod-pill:focus-visible {
@@ -635,7 +629,7 @@ body:has(main.podcasts) .browse-suggest__hit {
   background: transparent;
   color: var(--cl-dim);
   padding: 3px 9px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
   letter-spacing: 0.08em;
   cursor: pointer;
@@ -654,7 +648,7 @@ body:has(main.podcasts) .browse-suggest__hit {
 .pod-archive__empty {
   padding: 48px 20px;
   text-align: center;
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-body);
   font-style: italic;
   font-size: var(--fs-read);
   color: var(--cl-dim);
@@ -711,7 +705,7 @@ body:has(main.podcasts) .browse-suggest__hit {
   outline-offset: -2px;
 }
 .pod-year__chevron {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: 15px;
   line-height: 1;
   color: var(--cl-gold-dim);
@@ -722,13 +716,13 @@ body:has(main.podcasts) .browse-suggest__hit {
   color: var(--cl-gold);
 }
 .pod-year__year {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label-lg);
   letter-spacing: 0.22em;
   color: var(--cl-gold);
 }
 .pod-year__count {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
   letter-spacing: 0.16em;
   color: var(--cl-dim);
@@ -775,13 +769,13 @@ body:has(main.podcasts) .browse-suggest__hit {
    (≤22% glow, no new border — restraint laws). The class is cleared by JS after
    the fade; reduced-motion holds the static mark until then. */
 .pod-ep.is-linked {
-  background: rgba(201, 166, 90, 0.12);
+  background: rgba(164, 140, 82, 0.12);
   box-shadow: inset 3px 0 0 var(--cl-gold);
   animation: podEpLinked 2.4s ease-out both;
 }
 @keyframes podEpLinked {
   0% {
-    background: rgba(201, 166, 90, 0.18);
+    background: rgba(164, 140, 82, 0.18);
     box-shadow: inset 3px 0 0 var(--cl-gold);
   }
   100% {
@@ -830,7 +824,7 @@ body:has(main.podcasts) .browse-suggest__hit {
 }
 
 .pod-ep__date {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label);
   letter-spacing: 0.06em;
   color: var(--cl-dim);
@@ -847,7 +841,7 @@ body:has(main.podcasts) .browse-suggest__hit {
    a clipped one. Same 16px / 0.05em / weight-500 spec as .catalogue-row__title. */
 .pod-ep__title {
   min-width: 0;
-  font-family: var(--font-cinzel), serif;
+  font-family: var(--font-display);
   font-weight: 500;
   font-size: 16px;
   letter-spacing: 0.05em;
@@ -867,7 +861,7 @@ body:has(main.podcasts) .browse-suggest__hit {
   border: 1px solid color-mix(in oklch, var(--cl-gold) 28%, transparent);
   color: var(--cl-bone);
   padding: 1px 8px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -883,7 +877,7 @@ body:has(main.podcasts) .browse-suggest__hit {
   outline-offset: 2px;
 }
 .pod-ep__kind {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label);
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -893,7 +887,7 @@ body:has(main.podcasts) .browse-suggest__hit {
   white-space: nowrap;
 }
 .pod-ep__dur {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label);
   letter-spacing: 0.08em;
   color: var(--cl-faint);
@@ -903,7 +897,7 @@ body:has(main.podcasts) .browse-suggest__hit {
  * catalogue's hover-revealed "Open book →" — so an expanded year never paints a
  * resting column of gold "Listen" links (house restraint law). */
 .pod-ep__dl {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label);
   letter-spacing: 0.14em;
   text-transform: uppercase;

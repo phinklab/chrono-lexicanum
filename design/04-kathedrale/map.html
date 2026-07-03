@@ -1,0 +1,391 @@
+<!-- ======================================================================
+     RICHTUNG 04 — KATHEDRALE · Fläche: Map-Mock (Cartographer)
+     Die Galaxie als dunkle Tafel auf der Mittelachse: feines Gold-Gradnetz,
+     Knochen-Punkte, eine Annotation. Studie zu Brief 184, Runde 2.
+     Standalone — liest echte Koordinaten aus ../data/worlds.js.
+     ====================================================================== -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kathedrale — Cartographer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --void:      #0d0d10;
+    --void-2:    #131318;
+    --bone:      #e4ddcb;
+    --dim:       #9a927e;
+    --faint:     #6a6455;
+    --gold:      #a48c52;
+    --blood:     #8e3b32;
+    --hair:      rgba(228, 221, 203, 0.16);
+    --disp:      "Bodoni Moda", serif;
+    --text:      "Cardo", serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { background: var(--void); }
+  body {
+    font-family: var(--text);
+    color: var(--bone);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--gold); color: var(--void); }
+  a { color: inherit; text-decoration: none; }
+
+  .bg { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: var(--void); }
+  .bg .photo {
+    position: absolute; inset: 0;
+    background: url("../../public/img/cartog-holo.webp") center 30% / cover no-repeat;
+  }
+  .bg .fade {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 30%, transparent 38%, rgba(13,13,16,0.6) 100%),
+      linear-gradient(180deg,
+        rgba(13,13,16,0.35) 0%,
+        rgba(13,13,16,0.2) 24%,
+        rgba(13,13,16,0.7) 54%,
+        rgba(13,13,16,0.95) 78%,
+        var(--void) 92%);
+  }
+  .bg .scrim { position: absolute; inset: 0; background: var(--void); opacity: 0; will-change: opacity; }
+  .bg .grain {
+    position: absolute; inset: 0; opacity: 0.10; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size: 160px 160px;
+  }
+
+  header.running { text-align: center; padding: 30px 20px 0; }
+  .running .mark {
+    font-family: var(--disp);
+    font-size: 15px; letter-spacing: 0.42em; text-transform: uppercase;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.75);
+  }
+  .running nav {
+    margin-top: 14px;
+    display: flex; justify-content: center; gap: 36px;
+    font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--dim);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.8);
+  }
+  .running nav a:hover { color: var(--bone); }
+  .running nav a.here { color: var(--gold); border-bottom: 1px solid var(--gold); padding-bottom: 4px; }
+
+  /* Schwelle: kürzer als beim Archiv — die Karte soll schnell kommen */
+  .act-hero {
+    min-height: 56vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: flex-end;
+    text-align: center;
+    padding: 0 20px 7vh;
+  }
+  .act-hero .over {
+    font-size: 12px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--gold);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+  }
+  .act-hero h1 {
+    margin-top: 16px;
+    font-family: var(--disp);
+    font-weight: 500;
+    font-size: clamp(46px, 6.5vw, 88px);
+    line-height: 1.0;
+    text-shadow: 0 2px 26px rgba(0,0,0,0.85);
+  }
+  .act-hero h1 em { font-style: italic; font-weight: 420; }
+  .act-hero .edition {
+    margin-top: 16px;
+    font-style: italic; font-size: 17px; color: var(--dim);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+  }
+  .act-hero .edition b { font-style: normal; color: var(--bone); }
+
+  main { max-width: 1180px; margin: 0 auto; padding: 4vh 24px 110px; }
+
+  /* Anzeige-Epoche zentriert */
+  .epoch {
+    text-align: center;
+    font-size: 14.5px; color: var(--dim);
+    padding-bottom: 22px;
+  }
+  .epoch .lbl { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--faint); padding-right: 14px; }
+  .epoch a { padding: 0 8px; }
+  .epoch a:hover { color: var(--bone); }
+  .epoch a.active { color: var(--gold); }
+  .epoch a + a::before { content: "·"; color: var(--faint); padding-right: 14px; }
+
+  /* Die Tafel: solide Fläche, Doppel-Hairline-Rahmen */
+  .chart-frame {
+    position: relative;
+    background: var(--void-2);
+    border: 1px solid var(--hair);
+    outline: 1px solid rgba(164, 140, 82, 0.35);
+    outline-offset: 4px;
+  }
+  .chart-wrap { position: relative; width: 100%; aspect-ratio: 1000 / 808.6; }
+  .chart-wrap svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+  /* Annotation: dunkle Karte mit Gold-Hairline, auf Leader-Line */
+  .annotation {
+    position: absolute;
+    left: 51%; top: 38%;
+    width: 240px;
+    background: var(--void);
+    border: 1px solid rgba(164, 140, 82, 0.5);
+    padding: 16px 18px 14px;
+    font-size: 14.5px;
+    text-align: center;
+  }
+  .annotation .name { font-family: var(--disp); font-weight: 520; font-size: 26px; line-height: 1.05; }
+  .annotation .cls { font-style: italic; color: var(--dim); margin: 3px 0 10px; font-size: 13.5px; }
+  .annotation ul { list-style: none; border-top: 1px solid var(--hair); }
+  .annotation li { padding: 6px 0; border-bottom: 1px solid var(--hair); }
+  .annotation li i { color: var(--faint); font-size: 12.5px; }
+  .annotation .more { display: inline-block; margin-top: 10px; font-style: italic; color: var(--gold); }
+  .annotation .more:hover { color: var(--bone); }
+
+  /* Legende: zentrierte Registertabelle */
+  .below { max-width: 720px; margin: 0 auto; padding-top: 44px; }
+  h2.section {
+    display: flex; align-items: center; gap: 26px;
+    font-size: 12px; letter-spacing: 0.34em; text-transform: uppercase;
+    color: var(--gold); font-weight: 400;
+    margin-bottom: 20px;
+  }
+  h2.section::before, h2.section::after { content: ""; flex: 1; border-top: 1px solid var(--hair); }
+
+  table.legend { width: 100%; border-collapse: collapse; font-size: 15.5px; }
+  .legend td { padding: 7px 0; border-bottom: 1px solid var(--hair); vertical-align: middle; }
+  .legend td.sym { width: 44px; }
+  .legend td.sym svg { display: block; }
+  .legend td.n { text-align: right; color: var(--faint); font-variant-numeric: tabular-nums; }
+  .legend td.chk { width: 40px; text-align: right; color: var(--dim); font-size: 13.5px; }
+  .legend tr.off td { opacity: 0.4; }
+
+  .legend-foot {
+    margin-top: 14px;
+    font-style: italic; font-size: 14px; color: var(--faint);
+    text-align: center;
+  }
+
+  footer.colophon {
+    max-width: 860px; margin: 0 auto;
+    border-top: 1px solid var(--hair);
+    padding: 22px 24px 40px;
+    text-align: center;
+    font-style: italic; font-size: 13.5px; color: var(--faint);
+  }
+
+  details.study-note {
+    max-width: 860px; margin: 0 auto 60px;
+    border: 1px solid var(--hair);
+    background: var(--void-2);
+    padding: 16px 22px;
+    font-size: 15px;
+  }
+  details.study-note summary {
+    cursor: pointer;
+    font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold);
+  }
+  details.study-note .body { margin-top: 12px; max-width: 78ch; color: var(--dim); }
+  details.study-note p { margin-bottom: 8px; }
+  details.study-note b { color: var(--bone); font-weight: 700; }
+
+  @media (max-width: 900px) {
+    .annotation { display: none; }
+  }
+</style>
+
+<div class="bg" aria-hidden="true">
+  <div class="photo"></div>
+  <div class="fade"></div>
+  <div class="scrim" id="scrim"></div>
+  <div class="grain"></div>
+</div>
+
+<header class="running">
+  <div class="mark">Chrono · Lexicanum</div>
+  <nav>
+    <a href="#">Chronicle</a>
+    <a href="#" class="here">Cartographer</a>
+    <a href="archiv.html">Archive</a>
+    <a href="#">Ask</a>
+  </nav>
+</header>
+
+<section class="act-hero">
+  <p class="over">The galaxy, surveyed</p>
+  <h1>The <em>Cartographer</em></h1>
+  <p class="edition"><b>1 054 worlds</b> on the chart · 1 332 of 1 685 deeds placed</p>
+</section>
+
+<main>
+
+  <p class="epoch">
+    <span class="lbl">State of the galaxy</span>
+    <a href="#">M30 – M31</a>
+    <a href="#" class="active">to 999.M41</a>
+    <a href="#">All records</a>
+  </p>
+
+  <figure class="chart-frame">
+    <div class="chart-wrap" id="chart">
+      <aside class="annotation" id="annotation">
+        <p class="name">Prospero</p>
+        <p class="cls">Dead World · Segmentum Ultima</p>
+        <ul>
+          <li>A Thousand Sons <i>— primary</i></li>
+          <li>Ahriman: The Omnibus</li>
+          <li>Age of Darkness</li>
+        </ul>
+        <a class="more" href="buch.html">… and 18 further works. Open the record →</a>
+      </aside>
+    </div>
+  </figure>
+
+  <div class="below">
+    <h2 class="section">Legend &amp; Survey</h2>
+    <table class="legend" id="legend"><!-- vom Skript gefüllt --></table>
+    <p class="legend-foot">Marks grow with the number of recorded works upon a world. Worlds of the Ruinous Powers burn in blood-red; a cross marks a world that is no more. All else is bone on stone.</p>
+  </div>
+
+</main>
+
+<footer class="colophon">
+  Chrono · Lexicanum — a fan archive. Coordinates after the community survey.<br>
+  Background art: the Cartographer hall artwork of the live site (<i>cartog-holo.webp</i>).
+</footer>
+
+<details class="study-note">
+  <summary>Studien-Notiz · Richtung 04 — Kathedrale</summary>
+  <div class="body">
+    <p><b>Diese Fläche:</b> Die Karte als dunkle Votivtafel auf der Mittelachse — solide Fläche mit Doppel-Hairline in Gold, feines Gradnetz, Knochen-Punkte. Marker-Sprache reduziert auf drei Register: Knochen (alles Lebende), Blutrot (die Ruinösen Mächte), Kreuz (tote Welten) — die 12 kind-Gruppen bleiben als Legenden-Zählwerk erhalten, aber die Tafel selbst bleibt still. Selektion = Gold-Doppelring + zentrierte Annotationskarte.</p>
+    <p><b>Verwirft:</b> HUD-Chrome, Layer-Panels, Farbcode-Zoo auf der Karte, Glow-Marker, Scan-Effekte.</p>
+    <p><b>Behält:</b> echte Koordinaten, Markergröße = Werkzahl, die kind-Gruppen als Kontrakt (in der Legende), das Cartographer-Artwork der Site als Schwelle über der Tafel.</p>
+  </div>
+</details>
+
+<script src="../data/worlds.js"></script>
+<script>
+  /* Zeichnet die Tafel. Drei Register: Knochen / Blutrot (ruinös) / Kreuz (tot).
+     Bewusst klein und lesbar — Philipp kann Farben und Größen direkt umbauen. */
+  (function () {
+    var NS = "http://www.w3.org/2000/svg";
+    var D = window.CL_WORLDS;
+    var W = 1000, H = 808.6;
+    var BONE = "#e4ddcb", GOLD = "#a48c52", BLOOD = "#8e3b32";
+
+    var el = function (name, attrs) {
+      var n = document.createElementNS(NS, name);
+      for (var k in attrs) n.setAttribute(k, attrs[k]);
+      return n;
+    };
+
+    var svg = el("svg", { viewBox: "0 0 " + W + " " + H });
+    var chart = document.getElementById("chart");
+    chart.insertBefore(svg, chart.firstChild);
+
+    /* Gradnetz in mattem Gold, hauchdünn */
+    for (var x = 100; x < W; x += 100)
+      svg.appendChild(el("line", { x1: x, y1: 0, x2: x, y2: H, stroke: GOLD, "stroke-opacity": 0.10 }));
+    for (var y = 100; y < H; y += 100)
+      svg.appendChild(el("line", { x1: 0, y1: y, x2: W, y2: y, stroke: GOLD, "stroke-opacity": 0.10 }));
+
+    /* Hintergrund-Welten: staubfeine Knochenpunkte */
+    for (var i = 0; i < D.background.length; i++) {
+      var b = D.background[i];
+      svg.appendChild(el("circle", { cx: b[0], cy: b[1], r: 1.0, fill: BONE, "fill-opacity": 0.28 }));
+    }
+
+    /* Drei Register: ruinös = Blutrot, tot = Kreuz, alles andere = Knochen */
+    var RUINOUS = { "chaos-warp": 1 };
+    for (var j = 0; j < D.featured.length; j++) {
+      var w = D.featured[j];
+      var s = 2.2 + Math.min(3.4, Math.log2(1 + w.n));
+      if (w.kind === "dead") {
+        svg.appendChild(el("line", { x1: w.gx - s, y1: w.gy - s, x2: w.gx + s, y2: w.gy + s, stroke: BONE, "stroke-width": 1.1, "stroke-opacity": 0.85 }));
+        svg.appendChild(el("line", { x1: w.gx - s, y1: w.gy + s, x2: w.gx + s, y2: w.gy - s, stroke: BONE, "stroke-width": 1.1, "stroke-opacity": 0.85 }));
+      } else if (RUINOUS[w.kind]) {
+        svg.appendChild(el("circle", { cx: w.gx, cy: w.gy, r: s, fill: BLOOD }));
+      } else {
+        svg.appendChild(el("circle", { cx: w.gx, cy: w.gy, r: s * 0.85, fill: BONE, "fill-opacity": 0.9 }));
+      }
+    }
+
+    /* Regionen: Cardo kursiv, gesperrt, sehr still */
+    for (var r = 0; r < D.regions.length; r++) {
+      var reg = D.regions[r];
+      var t = el("text", {
+        x: reg.gx, y: reg.gy,
+        "text-anchor": "middle",
+        fill: BONE, "fill-opacity": 0.5,
+        "font-family": "'Cardo', serif",
+        "font-style": "italic",
+        "font-size": 15,
+        "letter-spacing": 5,
+      });
+      t.textContent = reg.name.toUpperCase();
+      svg.appendChild(t);
+    }
+
+    /* Selektierte Welt: Prospero — Gold-Doppelring + Leader zur Annotation */
+    var sel = null;
+    for (var f = 0; f < D.featured.length; f++)
+      if (D.featured[f].name === "Prospero") sel = D.featured[f];
+    if (sel) {
+      svg.appendChild(el("circle", { cx: sel.gx, cy: sel.gy, r: 11, fill: "none", stroke: GOLD, "stroke-width": 1.2 }));
+      svg.appendChild(el("circle", { cx: sel.gx, cy: sel.gy, r: 16, fill: "none", stroke: GOLD, "stroke-width": 0.5 }));
+      svg.appendChild(el("line", { x1: sel.gx + 16, y1: sel.gy - 9, x2: sel.gx + 48, y2: sel.gy - 44, stroke: GOLD, "stroke-width": 0.8 }));
+    }
+
+    /* Legende: 12 kind-Gruppen als Zählwerk, Tafel-Register als Symbol */
+    var LEGEND = [
+      ["bone",  "Imperial world",          238, true],
+      ["bone",  "Fortress & forge",        149, true],
+      ["blood", "Ruinous / warp-touched",   95, true],
+      ["bone",  "Xenos world",              62, true],
+      ["bone",  "Necron tomb",              39, true],
+      ["bone",  "Aeldari domain",           16, true],
+      ["cross", "Dead world",               90, true],
+      ["bone",  "Station & bastion",        39, true],
+      ["bone",  "Warp gate",                39, false],
+      ["bone",  "Fleet & flotilla",         28, false],
+      ["bone",  "Unclassified",            246, true],
+    ];
+    var tbl = document.getElementById("legend");
+    for (var l = 0; l < LEGEND.length; l++) {
+      var row = LEGEND[l];
+      var tr = document.createElement("tr");
+      if (!row[3]) tr.className = "off";
+      var sym = document.createElement("td");
+      sym.className = "sym";
+      var s2 = el("svg", { viewBox: "0 0 24 24", width: 24, height: 24 });
+      if (row[0] === "blood") s2.appendChild(el("circle", { cx: 12, cy: 12, r: 3.6, fill: BLOOD }));
+      else if (row[0] === "cross") {
+        s2.appendChild(el("line", { x1: 8.5, y1: 8.5, x2: 15.5, y2: 15.5, stroke: BONE, "stroke-width": 1.2 }));
+        s2.appendChild(el("line", { x1: 8.5, y1: 15.5, x2: 15.5, y2: 8.5, stroke: BONE, "stroke-width": 1.2 }));
+      } else s2.appendChild(el("circle", { cx: 12, cy: 12, r: 3.2, fill: BONE, "fill-opacity": 0.9 }));
+      sym.appendChild(s2);
+      tr.appendChild(sym);
+      tr.insertAdjacentHTML("beforeend",
+        "<td>" + row[1] + "</td><td class='n'>" + row[2] + "</td><td class='chk'>" + (row[3] ? "[×]" : "[&nbsp;&nbsp;]") + "</td>");
+      tbl.appendChild(tr);
+    }
+  })();
+
+  (function () {
+    var scrim = document.getElementById("scrim");
+    function update() {
+      var h = window.innerHeight * 0.9;
+      scrim.style.opacity = Math.min(0.94, window.scrollY / h).toFixed(3);
+    }
+    window.addEventListener("scroll", update, { passive: true });
+    update();
+  })();
+</script>

@@ -1,5 +1,7 @@
 "use client";
 
+import SternwarteRings from "@/components/shared/SternwarteRings";
+
 type ProcessingPanelProps = {
   title: string;
   detail: string;
@@ -15,7 +17,7 @@ export default function ProcessingPanel({ title, detail }: ProcessingPanelProps)
       <div className="lx-rule" aria-hidden />
       <div className="lx-cog">
         <div className="lx-cog__core" aria-hidden>
-          <span className="lx-cog__ring" />
+          <SternwarteRings className="lx-cog__rings" />
           <span className="lx-cog__seed" />
         </div>
         <p className="lx-cog__eyebrow">{"BALLOT SEALED · COGITATOR WEIGHING"}</p>
