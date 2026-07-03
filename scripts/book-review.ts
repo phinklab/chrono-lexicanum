@@ -22,8 +22,8 @@ import { existsSync } from "node:fs";
 import { mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import {
-  discoverAllBatches,
   loadBatchBooks,
+  loadCorpusBooks,
   loadProjectionContext,
   projectBook,
   type ProjectedBook,
@@ -166,25 +166,25 @@ async function cmdPrepare(): Promise<void> {
   await wipeWorkChunks();
 
   const ctx = await loadProjectionContext();
-  const batches = pilot ? [...PILOT_BATCHES] : await discoverAllBatches();
-  const batchBooks = await loadBatchBooks(batches);
-
-  // Pilot = the fixed calibration ids; full sweep = every book the batches carry,
-  // in deterministic (sorted-batch, file-order) sequence.
+  // Pilot = the fixed calibration ids from the FROZEN batch slice (by design);
+  // full sweep = the LIVE effective per-book corpus in deterministic
+  // sorted-filename (= slug) order, so post-migration `/add-book` books are
+  // reviewable (Brief 176 rebind).
+  const reviewBooks = pilot ? await loadBatchBooks([...PILOT_BATCHES]) : loadCorpusBooks();
   let bookIds: string[];
   if (pilot) {
-    const missing = PILOT_BOOK_IDS.filter((id) => !batchBooks.has(id));
+    const missing = PILOT_BOOK_IDS.filter((id) => !reviewBooks.has(id));
     if (missing.length) fail(`pilot books absent from SSOT batches: ${missing.join(", ")}`);
     bookIds = [...PILOT_BOOK_IDS];
   } else {
-    bookIds = [...batchBooks.keys()];
+    bookIds = [...reviewBooks.keys()];
   }
 
-  const projected: ProjectedBook[] = bookIds.map((id) => projectBook(batchBooks.get(id)!, ctx));
+  const projected: ProjectedBook[] = bookIds.map((id) => projectBook(reviewBooks.get(id)!, ctx));
   const chunks = chunkBookIds(bookIds);
   const manifest: Manifest = {
     scope: pilot ? "pilot" : "full",
-    generatedFor: pilot ? "W40K-0001..W40K-0040" : `${bookIds.length} books across ${batches.length} batches`,
+    generatedFor: pilot ? "W40K-0001..W40K-0040" : `${bookIds.length} books (effective per-book corpus)`,
     chunkSize: REVIEW_CHUNK_SIZE,
     chunks: chunks.map((ids, index) => ({ index, bookIds: ids })),
   };

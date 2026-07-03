@@ -2,7 +2,7 @@
 session: 2026-07-02-176
 role: architect
 date: 2026-07-02
-status: open
+status: implemented
 slug: roster-rebind-kleinkram
 parent: null
 links: [2026-06-30-171, 2026-06-14-151, 2026-06-01-112]

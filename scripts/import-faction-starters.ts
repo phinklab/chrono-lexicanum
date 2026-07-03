@@ -5,7 +5,7 @@
  *
  * Pure file I/O — NO DB access (the runtime tool is DB-free; this resolves book
  * titles ahead of build-time). Deterministic: identical (Excel + overrides +
- * roster) → byte-identical JSON. Two sheets:
+ * corpus) → byte-identical JSON. Two sheets:
  *
  *   - `Big Faction`        : Faction | Book | Alternative          (top-level nodes)
  *   - `In-Depth Faction`   : Main faction | Subfaction | Book | Alternative (children)
@@ -16,8 +16,9 @@
  * extra picks. Format markers inline in the title (`(Audiodrama)`, `Series`,
  * `trilogy`, `Omnibus`, `(short story?)`) are pulled best-effort into `kind`/`note`.
  *
- * Title→book resolution is TOLERANT (normalize + fuzzy against the committed
- * `book-roster.json` corpus). High-confidence hits → book slug in the JSON.
+ * Title→book resolution is TOLERANT (normalize + fuzzy against the effective
+ * per-book corpus, `scripts/seed-data/books/*.json` — Brief 176 rebind off the
+ * frozen `book-roster.json`). High-confidence hits → book slug in the JSON.
  * Uncertain / not-found titles are NEVER guessed and NEVER abort the run: they
  * land in the review list for Philipp (the hand-gate), and the pick renders
  * without a link until he supplies a slug via `faction-starters.overrides.json`.
@@ -43,13 +44,15 @@ import {
   type FactionStarterPick,
   type FactionStartersFile,
 } from "@/lib/ask/faction-starters-schema";
+import { loadEffectiveCorpusBooks } from "./refresh/effective-corpus";
 
 // =============================================================================
 // CONSTANTS
 // =============================================================================
 
 const SOURCE_FILE = "scripts/seed-data/source/Warhammer_OFOC_SSOT.xlsx";
-const ROSTER_FILE = "scripts/seed-data/book-roster.json";
+/** Effective per-book corpus (Brief 176) — display name for error messages. */
+const CORPUS_NAME = "scripts/seed-data/books/*.json";
 const OVERRIDES_FILE = "scripts/seed-data/faction-starters.overrides.json";
 const OUTPUT_FILE = "scripts/seed-data/faction-starters.json";
 const REVIEW_FILE = "scripts/seed-data/faction-starters.review.md";
@@ -72,7 +75,8 @@ const DOC =
   "only `children`. Labels are NOT validated against factions.json (verbatim, " +
   "subfactions without a DB faction are allowed). `picks[0]` is primary; reshuffle " +
   "cycles in order. The `book` slug (click target /buch/{slug}) is resolved at " +
-  "convert time against book-roster.json — uncertain/unresolved titles carry no " +
+  "convert time against the per-book corpus (scripts/seed-data/books/) — " +
+  "uncertain/unresolved titles carry no " +
   "`book` and are listed in faction-starters.review.md. Runtime is DB-free. " +
   "DO NOT hand-edit: re-run the convert step.";
 
@@ -254,13 +258,15 @@ interface CorpusIndex {
 }
 
 function buildCorpus(): CorpusIndex {
-  const raw = JSON.parse(readFileSync(ROSTER_FILE, "utf8")) as {
-    books: Array<{ slug: string; title: string }>;
-  };
+  // Effective per-book corpus (Brief 176): every committed
+  // `scripts/seed-data/books/*.json`, i.e. the full migrated corpus plus any
+  // book added via the additive `/add-book` path. Slugs here are the canonical
+  // `works.slug` values (override slugs), so /buch/{slug} links cannot 404.
+  const books = loadEffectiveCorpusBooks();
   const entries: CorpusEntry[] = [];
   const exact = new Map<string, string[]>();
   const slugs = new Set<string>();
-  for (const b of raw.books) {
+  for (const b of books) {
     const norm = normalize(b.title);
     const entry: CorpusEntry = { slug: b.slug, title: b.title, norm, sorted: tokenSorted(norm) };
     entries.push(entry);
@@ -483,7 +489,7 @@ async function build(): Promise<BuildResult> {
       issues.push({
         sheet: OVERRIDES_FILE,
         rowIndex: 0,
-        message: `override "${key}" → "${slug}" is not a known book slug in ${ROSTER_FILE}.`,
+        message: `override "${key}" → "${slug}" is not a known book slug in ${CORPUS_NAME}.`,
       });
     }
   }

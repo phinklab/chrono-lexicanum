@@ -33,12 +33,7 @@ import {
   type EnrichSource,
   type EnrichVerdict,
 } from "./contract";
-import {
-  discoverAllBatches,
-  loadBatchBooks,
-  loadProjectionContext,
-  projectBook,
-} from "./projection";
+import { loadCorpusBooks, loadProjectionContext, projectBook } from "./projection";
 
 const SEED_DIR = resolvePath(process.cwd(), "scripts", "seed-data");
 const QUEUE_PATH = resolvePath(SEED_DIR, "book-review-queue.json");
@@ -87,7 +82,8 @@ interface QueueShape {
 export async function buildWorklist(): Promise<SentinelWork[]> {
   const queue = JSON.parse(await readFile(QUEUE_PATH, "utf8")) as QueueShape;
   const ctx = await loadProjectionContext();
-  const batchBooks = await loadBatchBooks(await discoverAllBatches());
+  // Effective per-book corpus (Brief 176) — replaces the frozen batch sweep.
+  const corpusBooks = loadCorpusBooks();
 
   const byKey = new Map<string, SentinelWork>();
   const seenSource = new Map<string, Set<string>>(); // sentinelKey → book ids already attached
@@ -111,7 +107,7 @@ export async function buildWorklist(): Promise<SentinelWork[]> {
         if (seen.has(book.externalBookId)) continue;
         seen.add(book.externalBookId);
 
-        const bb = batchBooks.get(book.externalBookId);
+        const bb = corpusBooks.get(book.externalBookId);
         const proj = bb ? projectBook(bb, ctx) : null;
         work.sources.push({
           externalBookId: book.externalBookId,

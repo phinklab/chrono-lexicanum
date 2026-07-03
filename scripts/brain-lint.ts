@@ -10,6 +10,9 @@
  *              Raw banners, Decision metadata, Inline diff raw fields,
  *              Orphans (folded into Catalog freshness)
  *   warning  : Stale low-confidence, Brain size budget, Stale claim suspects
+ *   mixed    : Always-read budget (soft → warning, hard → error; Brief 112/B7,
+ *              thresholds in scripts/brain-lint-budgets.ts, mirroring
+ *              brain/CLAUDE.md § "Always-read budgets")
  *
  * Run: `npm run brain:lint` (writes report) or `npm run brain:lint -- --no-write`.
  * CLI: --date=YYYY-MM-DD  override report date
@@ -21,6 +24,8 @@
 import { promises as fs, existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import process from "node:process";
+
+import { checkAlwaysReadBudgets } from "./brain-lint-budgets";
 
 // ============================================================================
 // Constants — single edit point per brief §"Brain-size-Schwellen" note.
@@ -105,6 +110,7 @@ type Category =
   | "Decision metadata"
   | "Stale low-confidence"
   | "Brain size budget"
+  | "Always-read budget"
   | "Inline diff raw fields"
   | "Stale claim suspects"
   | "Faction policy";
@@ -118,6 +124,7 @@ const CATEGORY_ORDER: ReadonlyArray<Category> = [
   "Raw banners",
   "Inline diff raw fields",
   "Brain size budget",
+  "Always-read budget",
   "Stale low-confidence",
   "Stale claim suspects",
   "Faction policy",
@@ -1349,6 +1356,22 @@ async function main(): Promise<void> {
   findings.push(...checkRawBanners(historical, reviews));
   findings.push(...checkStaleLowConfidence(wikiPages, cli.date));
   findings.push(...checkBrainSizeBudget(wikiPages));
+  // Always-read budget (Brief 112 / Board 122-B7): char-based soft/hard budgets
+  // for the session-start floor files. Soft → warning, hard → error.
+  findings.push(
+    ...checkAlwaysReadBudgets((rel) => {
+      const abs = path.join(repoRoot, rel);
+      return existsSync(abs) ? readFileSync(abs, "utf8") : null;
+    }).map(
+      (f): Finding => ({
+        severity: f.severity,
+        category: "Always-read budget",
+        file: f.file,
+        message: f.message,
+        suggestion: f.suggestion,
+      }),
+    ),
+  );
   findings.push(...checkInlineDiffRawFields(wikiPages));
   findings.push(...checkStaleClaimSuspects(wikiPages, repoRoot, pkgScripts, brokenLinks));
   findings.push(...checkFactionPolicy(repoRoot));
