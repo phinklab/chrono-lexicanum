@@ -2,7 +2,7 @@
 session: 2026-07-02-175
 role: architect
 date: 2026-07-02
-status: open
+status: implemented
 slug: podcast-hygiene
 parent: null
 links: [2026-06-29-172, 2026-06-27-168, 2026-06-07-131, 2026-06-08-132, 2026-06-04-128]

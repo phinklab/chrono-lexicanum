@@ -9,13 +9,13 @@ Reproducible via: `PODCAST_LLM_MODEL=claude-sonnet-4-6 npm run ingest:podcast --
 - **Apple id:** 1266540593
 - **Episodes:** 391
 - **Extraction model:** `claude-sonnet-4-6` (prompt version `3f6a5ff87efa`)
-- **Resolved coverage:** 286/391 episodes (73.1%) carry ≥1 resolved tag
-- **Resolved tags:** 663 total — 468 subject, 195 mentioned
-  - by type: 128 character, 446 faction, 89 location
+- **Resolved coverage:** 295/391 episodes (75.4%) carry ≥1 resolved tag
+- **Resolved tags:** 695 total — 493 subject, 202 mentioned
+  - by type: 133 character, 473 faction, 89 location
 - **Episode kinds:** 305 lore, 0 news_recap, 12 interview, 74 other
 - **Show links:** 3 (apple_podcasts, official_website, rss)
 - **Episode links:** 391/391 episodes carry an RSS audio link (`listen`/`rss`/`podcast_rss`)
-- **Distinct unresolved surface-forms:** 189
+- **Distinct unresolved surface-forms:** 133
 
 ## Method (resolution reuse)
 
@@ -36,33 +36,20 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | faction | Knights of Slaughter | 5 |
 | faction | Severan Dominate | 5 |
 | faction | Crimson Armada | 4 |
-| faction | League of Votann | 4 |
 | faction | Bad Moons | 3 |
 | faction | Farsight Enclaves | 3 |
-| faction | Leagues of Votann | 3 |
-| faction | Ork Freebooterz | 3 |
 | location | Spinward Front | 3 |
 | character | Gork | 2 |
 | character | Malice | 2 |
 | character | Mork | 2 |
 | character | Swarmlord | 2 |
 | character | Void Dragon | 2 |
-| faction | Aspect Warriors | 2 |
-| faction | Beast Snagga Boyz | 2 |
-| faction | Evil Sunz | 2 |
-| faction | Freebooterz | 2 |
 | faction | Iron Skulls | 2 |
-| faction | Kabals | 2 |
 | faction | Malice | 2 |
 | faction | Minor Xenos Races | 2 |
 | faction | Necrontyr | 2 |
-| faction | Obliterators | 2 |
 | faction | Old Ones | 2 |
 | faction | Primarchs | 2 |
-| faction | Primaris Space Marines | 2 |
-| faction | Ravenwing | 2 |
-| faction | Space Marine Legions | 2 |
-| faction | War Hounds | 2 |
 | location | Garden of Nurgle | 2 |
 | location | Kokyotos | 2 |
 | location | Kulth | 2 |
@@ -76,86 +63,53 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | character | Christoph | 1 |
 | character | Commander Puretide | 1 |
 | character | Dromlach | 1 |
-| character | Emperor | 1 |
-| character | God Emperor | 1 |
-| character | God-Emperor | 1 |
-| character | Grukk the Face-Eater | 1 |
 | character | Imotekh the Stormlord | 1 |
 | character | Inquisitor Kryptman | 1 |
 | character | Isha | 1 |
 | character | Kais | 1 |
 | character | Khaela Mensha Khaine | 1 |
 | character | Konor Guilliman | 1 |
-| character | Krorks | 1 |
 | character | Kurnous | 1 |
 | character | Malal | 1 |
-| character | Malcador the Sigilite | 1 |
 | character | Marckus | 1 |
 | character | Mon'praus | 1 |
 | character | Old One Eye | 1 |
-| character | Phoenix Lords | 1 |
-| character | Prime Orks | 1 |
 | character | Solomon Zane | 1 |
 | character | Stefan | 1 |
-| character | The Hive Mind | 1 |
 | character | Titus | 1 |
 | character | Urlock Gaur | 1 |
 | character | Varak | 1 |
 | character | Vashtorr the Arkifane | 1 |
-| character | Weirdboyz | 1 |
 | faction | Abhumans | 1 |
 | faction | Abyssal Krakens | 1 |
-| faction | Armageddon Steel Legion | 1 |
 | faction | Astra Crota | 1 |
-| faction | Astral Knights | 1 |
-| faction | Asuryani | 1 |
 | faction | Bleachskullz | 1 |
-| faction | Blood Legions | 1 |
-| faction | Bloodthirsters | 1 |
 | faction | Brass Legion | 1 |
-| faction | Carcharodons Astra | 1 |
 | faction | Chromes | 1 |
 | faction | Cold Traders | 1 |
-| faction | Craftworlds | 1 |
-| faction | Cult of Change | 1 |
-| faction | Cult of Decay | 1 |
-| faction | Cult of Excess | 1 |
 | faction | Cult of the Doomed Ones | 1 |
-| faction | Dark Gods | 1 |
 | faction | Death Songs Chapter | 1 |
-| faction | Deathwing | 1 |
 | faction | Demiurg | 1 |
-| faction | Divisio Militaris | 1 |
 | faction | Doomed Ones | 1 |
 | faction | Eaters of Cities | 1 |
-| faction | Eldar Exodites | 1 |
-| faction | Eldar Rangers | 1 |
 | faction | Elysian Drop Troops | 1 |
 | faction | Enoulians | 1 |
 | faction | Fenrisian Einherjar | 1 |
-| faction | Flash Gitz | 1 |
 | faction | Fra'al | 1 |
 | faction | Galg | 1 |
 | faction | Ghost Wolves | 1 |
-| faction | Haemonculi Covens | 1 |
 | faction | Heretics | 1 |
 | faction | Hive Fleet Grendyllus | 1 |
 | faction | House Arokis | 1 |
 | faction | House Belli Obligatus | 1 |
 | faction | House Koldere | 1 |
-| faction | Inner Circle | 1 |
 | faction | Iron Marines | 1 |
 | faction | Jindarii | 1 |
 | faction | Jokaero | 1 |
-| faction | Kabal of the Black Heart | 1 |
 | faction | Khrave | 1 |
-| faction | Knight Houses | 1 |
-| faction | Kor'vattra | 1 |
 | faction | Lacrymole | 1 |
-| faction | Legions of Excess | 1 |
 | faction | Liber Malleus | 1 |
 | faction | Loota Kult | 1 |
-| faction | Lords of Change | 1 |
 | faction | Lorehammer | 1 |
 | faction | Loxatl | 1 |
 | faction | Medusae | 1 |
@@ -165,26 +119,19 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | faction | Nekulli | 1 |
 | faction | Nicassar | 1 |
 | faction | Nihivokh Dynasty | 1 |
-| faction | Noise Marines | 1 |
 | faction | Nyuserra Dynasty | 1 |
 | faction | Order of the Crimson Lily | 1 |
-| faction | Ordos Majoris | 1 |
 | faction | Oretti | 1 |
-| faction | Palatine Blades | 1 |
 | faction | Phoenix Guard | 1 |
 | faction | Q'orl | 1 |
 | faction | Rak'Gol | 1 |
-| faction | Scintillating Legions | 1 |
 | faction | Slanni | 1 |
 | faction | Slaugth | 1 |
 | faction | Sons of Malice | 1 |
-| faction | Space Marine Chapters | 1 |
 | faction | Sslyth | 1 |
 | faction | Stormbreakers | 1 |
 | faction | Stryxis | 1 |
 | faction | Tarellians | 1 |
-| faction | The Lost and the Damned | 1 |
-| faction | The Order | 1 |
 | faction | The Reforge | 1 |
 | faction | The Unbound | 1 |
 | faction | Thyrrus | 1 |
@@ -192,8 +139,6 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | faction | Vespid | 1 |
 | faction | Viskeon | 1 |
 | faction | Void Hunter Chapter | 1 |
-| faction | Wych Cults | 1 |
-| faction | Xenos Biologis | 1 |
 | faction | Yu'vath | 1 |
 | faction | Zoats | 1 |
 | location | Astronomican | 1 |
@@ -215,7 +160,6 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | location | Startide Nexus | 1 |
 | location | Stavon IX | 1 |
 | location | the Immaterium | 1 |
-| location | the Imperium | 1 |
 | location | Tomb Worlds | 1 |
 | location | Ultima Segmentum | 1 |
 | location | Viđrfold | 1 |
@@ -256,8 +200,7 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 ### 138 - The Votann and Other Technologies
 
 - **Date / kind:** 2025-01-15 · lore
-- **Tags:** `faction:imperium` (mentioned, alias)
-- **Unresolved:** “Leagues of Votann” (faction)
+- **Tags:** `faction:leagues_of_votann` (subject, name, “Leagues of Votann”); `faction:imperium` (mentioned, alias)
 
 ### 172 - Space Wolves, 30k Legion Era
 
@@ -274,4 +217,4 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 
 - **Date / kind:** 2026-01-19 · lore
 - **Tags:** `character:angron` (subject, name); `character:the_emperor` (mentioned, alias, “The Emperor”); `faction:world_eaters` (subject, name, “World Eaters”); `location:nuceria` (subject, name)
-- **Unresolved:** “War Hounds” (faction); “Eaters of Cities” (faction)
+- **Unresolved:** “Eaters of Cities” (faction)

@@ -7,7 +7,7 @@
     "appleId": "1679817767",
     "podcastGuid": "7402e137-e25b-5a58-8cc6-252e308fd905",
     "imageUrl": "https://storage.buzzsprout.com/q6of4by1uqpz2q5d9mmcz5ymepfb?.jpg",
-    "episodeCount": 363,
+    "episodeCount": 367,
     "links": [
       {
         "serviceId": "apple_podcasts",
@@ -95,6 +95,14 @@
       "tags": [
         {
           "type": "character",
+          "canonicalId": "szarekh",
+          "rawName": "The Silent King",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "character",
           "canonicalId": "the_emperor",
           "rawName": "The Emperor",
           "role": "mentioned",
@@ -110,13 +118,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "The Silent King",
-          "axisGuess": "character",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -710,7 +712,7 @@
       "tags": [
         {
           "type": "faction",
-          "canonicalId": "eldar",
+          "canonicalId": "drukhari",
           "rawName": "Drukhari",
           "role": "subject",
           "confidence": 0.9,
@@ -2392,7 +2394,7 @@
       "tags": [
         {
           "type": "faction",
-          "canonicalId": "eldar",
+          "canonicalId": "drukhari",
           "rawName": "Drukhari",
           "role": "subject",
           "confidence": 0.9,
@@ -3200,14 +3202,17 @@
       "season": 1,
       "episode": 86,
       "episodeKind": "lore",
-      "tags": [],
-      "unresolved": [
+      "tags": [
         {
+          "type": "faction",
+          "canonicalId": "leagues_of_votann",
           "rawName": "Leagues of Votann",
-          "axisGuess": "faction",
-          "role": "subject"
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
         }
       ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -4223,14 +4228,17 @@
       "link": null,
       "season": 1,
       "episodeKind": "lore",
-      "tags": [],
-      "unresolved": [
+      "tags": [
         {
+          "type": "faction",
+          "canonicalId": "leagues_of_votann",
           "rawName": "Leagues of Votann",
-          "axisGuess": "faction",
-          "role": "subject"
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
         }
       ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -4250,14 +4258,17 @@
       "link": null,
       "season": 1,
       "episodeKind": "lore",
-      "tags": [],
-      "unresolved": [
+      "tags": [
         {
+          "type": "faction",
+          "canonicalId": "leagues_of_votann",
           "rawName": "Leagues of Votann",
-          "axisGuess": "faction",
-          "role": "subject"
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
         }
       ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -4385,17 +4396,20 @@
           "role": "mentioned",
           "confidence": 1,
           "matchedVia": "canonical-name"
+        },
+        {
+          "type": "location",
+          "canonicalId": "morod",
+          "rawName": "Morod",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
         }
       ],
       "unresolved": [
         {
           "rawName": "Gammat Triskellian",
           "axisGuess": "character",
-          "role": "subject"
-        },
-        {
-          "rawName": "Morod",
-          "axisGuess": "location",
           "role": "subject"
         }
       ],
@@ -4573,11 +4587,6 @@
         }
       ],
       "unresolved": [
-        {
-          "rawName": "Titan Legions",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
         {
           "rawName": "Cult Mechanicus",
           "axisGuess": "faction",
@@ -5064,19 +5073,13 @@
         {
           "type": "faction",
           "canonicalId": "eldar",
-          "rawName": "Aeldari",
-          "role": "mentioned",
+          "rawName": "Aspect Warriors",
+          "role": "subject",
           "confidence": 0.9,
           "matchedVia": "alias"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Aspect Warriors",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -5187,19 +5190,13 @@
         {
           "type": "faction",
           "canonicalId": "eldar",
-          "rawName": "Aeldari",
+          "rawName": "Phoenix Lords",
           "role": "subject",
           "confidence": 0.9,
           "matchedVia": "alias"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Phoenix Lords",
-          "axisGuess": "character",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -5559,6 +5556,14 @@
           "role": "mentioned",
           "confidence": 1,
           "matchedVia": "canonical-name"
+        },
+        {
+          "type": "location",
+          "canonicalId": "arthas_moloch",
+          "rawName": "Arthas Moloch",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
         }
       ],
       "unresolved": [
@@ -5570,11 +5575,6 @@
         {
           "rawName": "Farsight Enclaves",
           "axisGuess": "faction",
-          "role": "subject"
-        },
-        {
-          "rawName": "Arthas Moloch",
-          "axisGuess": "location",
           "role": "subject"
         }
       ],
@@ -6642,6 +6642,14 @@
           "role": "subject",
           "confidence": 1,
           "matchedVia": "canonical-name"
+        },
+        {
+          "type": "location",
+          "canonicalId": "vraks_prime",
+          "rawName": "Vraks",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
         }
       ],
       "unresolved": [
@@ -6659,11 +6667,6 @@
           "rawName": "Vindicare Assassins",
           "axisGuess": "faction",
           "role": "mentioned"
-        },
-        {
-          "rawName": "Vraks",
-          "axisGuess": "location",
-          "role": "subject"
         }
       ],
       "links": [
@@ -6701,6 +6704,14 @@
           "role": "mentioned",
           "confidence": 0.9,
           "matchedVia": "alias"
+        },
+        {
+          "type": "location",
+          "canonicalId": "vraks_prime",
+          "rawName": "Vraks",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
         }
       ],
       "unresolved": [
@@ -6718,11 +6729,6 @@
           "rawName": "Vindicare Assassins",
           "axisGuess": "faction",
           "role": "mentioned"
-        },
-        {
-          "rawName": "Vraks",
-          "axisGuess": "location",
-          "role": "subject"
         }
       ],
       "links": [
@@ -6752,6 +6758,14 @@
           "role": "subject",
           "confidence": 1,
           "matchedVia": "canonical-name"
+        },
+        {
+          "type": "location",
+          "canonicalId": "vraks_prime",
+          "rawName": "Vraks",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
         }
       ],
       "unresolved": [
@@ -6769,11 +6783,6 @@
           "rawName": "Vindicare Assassins",
           "axisGuess": "faction",
           "role": "mentioned"
-        },
-        {
-          "rawName": "Vraks",
-          "axisGuess": "location",
-          "role": "subject"
         }
       ],
       "links": [
@@ -6795,14 +6804,17 @@
       "link": null,
       "season": 1,
       "episodeKind": "lore",
-      "tags": [],
-      "unresolved": [
+      "tags": [
         {
+          "type": "location",
+          "canonicalId": "vraks_prime",
           "rawName": "Vraks",
-          "axisGuess": "location",
-          "role": "subject"
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
         }
       ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -8001,6 +8013,14 @@
           "matchedVia": "canonical-name"
         },
         {
+          "type": "character",
+          "canonicalId": "szarekh",
+          "rawName": "The Silent King",
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
           "type": "faction",
           "canonicalId": "imperial_fists",
           "rawName": "Imperial Fists",
@@ -8051,11 +8071,6 @@
           "rawName": "Vashtorr",
           "axisGuess": "character",
           "role": "subject"
-        },
-        {
-          "rawName": "The Silent King",
-          "axisGuess": "character",
-          "role": "mentioned"
         }
       ],
       "links": [
@@ -8191,7 +8206,7 @@
       "tags": [
         {
           "type": "faction",
-          "canonicalId": "eldar",
+          "canonicalId": "drukhari",
           "rawName": "Drukhari",
           "role": "subject",
           "confidence": 0.9,
@@ -8695,6 +8710,14 @@
         },
         {
           "type": "faction",
+          "canonicalId": "armageddon_steel_legion",
+          "rawName": "Armageddon Steel Legion",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
           "canonicalId": "orks",
           "rawName": "Orks",
           "role": "mentioned",
@@ -8710,13 +8733,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Armageddon Steel Legion",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -8744,17 +8761,20 @@
           "role": "subject",
           "confidence": 0.9,
           "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "adeptus_astartes",
+          "rawName": "Space Marine Legions",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
         }
       ],
       "unresolved": [
         {
           "rawName": "Primarchs",
           "axisGuess": "character",
-          "role": "subject"
-        },
-        {
-          "rawName": "Space Marine Legions",
-          "axisGuess": "faction",
           "role": "subject"
         }
       ],
@@ -8780,7 +8800,7 @@
       "tags": [
         {
           "type": "faction",
-          "canonicalId": "eldar",
+          "canonicalId": "drukhari",
           "rawName": "Drukhari",
           "role": "subject",
           "confidence": 0.9,
@@ -8819,11 +8839,6 @@
         },
         {
           "rawName": "Haemonculus Covens",
-          "axisGuess": "faction",
-          "role": "mentioned"
-        },
-        {
-          "rawName": "Kabals",
           "axisGuess": "faction",
           "role": "mentioned"
         }
@@ -8957,11 +8972,6 @@
         }
       ],
       "unresolved": [
-        {
-          "rawName": "Asuryani",
-          "axisGuess": "faction",
-          "role": "mentioned"
-        },
         {
           "rawName": "Exodites",
           "axisGuess": "faction",
@@ -9218,14 +9228,17 @@
           "role": "mentioned",
           "confidence": 1,
           "matchedVia": "canonical-name"
+        },
+        {
+          "type": "location",
+          "canonicalId": "halo_stars",
+          "rawName": "Halo Stars",
+          "role": "mentioned",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
         }
       ],
       "unresolved": [
-        {
-          "rawName": "Halo Stars",
-          "axisGuess": "location",
-          "role": "mentioned"
-        },
         {
           "rawName": "Segmentum Ultima",
           "axisGuess": "location",
@@ -9546,6 +9559,14 @@
         },
         {
           "type": "faction",
+          "canonicalId": "armageddon_steel_legion",
+          "rawName": "Armageddon Steel Legion",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
           "canonicalId": "astra_militarum",
           "rawName": "Astra Militarum",
           "role": "subject",
@@ -9618,11 +9639,6 @@
         }
       ],
       "unresolved": [
-        {
-          "rawName": "Armageddon Steel Legion",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
         {
           "rawName": "Segmentum Solar",
           "axisGuess": "location",
@@ -10304,7 +10320,16 @@
       "audioUrl": "https://www.buzzsprout.com/1497970/episodes/15938309-the-lost-primarchs-redacted-warhammer-40k-lore.mp3",
       "link": null,
       "episodeKind": "lore",
-      "tags": [],
+      "tags": [
+        {
+          "type": "faction",
+          "canonicalId": "adeptus_astartes",
+          "rawName": "Space Marine Legions",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        }
+      ],
       "unresolved": [
         {
           "rawName": "Lost Primarchs",
@@ -10313,11 +10338,6 @@
         },
         {
           "rawName": "II Legion",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
-        {
-          "rawName": "Space Marine Legions",
           "axisGuess": "faction",
           "role": "subject"
         },
@@ -10509,7 +10529,7 @@
         },
         {
           "type": "faction",
-          "canonicalId": "eldar",
+          "canonicalId": "drukhari",
           "rawName": "Drukhari",
           "role": "subject",
           "confidence": 0.9,
@@ -10797,11 +10817,6 @@
         {
           "rawName": "Sevastus Kranon",
           "axisGuess": "character",
-          "role": "subject"
-        },
-        {
-          "rawName": "Crimson Sabres",
-          "axisGuess": "faction",
           "role": "subject"
         },
         {
@@ -11186,13 +11201,17 @@
       "link": null,
       "season": 1,
       "episodeKind": "lore",
-      "tags": [],
-      "unresolved": [
+      "tags": [
         {
+          "type": "faction",
+          "canonicalId": "leagues_of_votann",
           "rawName": "Leagues of Votann",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [
         {
           "rawName": "Galactic Core",
           "axisGuess": "location",
@@ -13252,6 +13271,14 @@
         },
         {
           "type": "location",
+          "canonicalId": "caldera",
+          "rawName": "Caldera",
+          "role": "mentioned",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "location",
           "canonicalId": "mars",
           "rawName": "Mars",
           "role": "mentioned",
@@ -13263,11 +13290,6 @@
         {
           "rawName": "Kubik",
           "axisGuess": "character",
-          "role": "mentioned"
-        },
-        {
-          "rawName": "Caldera",
-          "axisGuess": "location",
           "role": "mentioned"
         }
       ],
@@ -13988,6 +14010,14 @@
         },
         {
           "type": "faction",
+          "canonicalId": "adeptus_titanicus",
+          "rawName": "Titan Legions",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
           "canonicalId": "white_scars",
           "rawName": "White Scars",
           "role": "subject",
@@ -14003,13 +14033,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Titan Legions",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -14136,15 +14160,17 @@
           "role": "subject",
           "confidence": 1,
           "matchedVia": "canonical-name"
-        }
-      ],
-      "unresolved": [
+        },
         {
+          "type": "location",
+          "canonicalId": "zartak",
           "rawName": "Zartak",
-          "axisGuess": "location",
-          "role": "subject"
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
         }
       ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -14703,6 +14729,14 @@
           "role": "mentioned",
           "confidence": 0.9,
           "matchedVia": "alias"
+        },
+        {
+          "type": "location",
+          "canonicalId": "parmenio",
+          "rawName": "Parmenio",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
         }
       ],
       "unresolved": [
@@ -14724,11 +14758,6 @@
         {
           "rawName": "Sister Iolanth",
           "axisGuess": "character",
-          "role": "subject"
-        },
-        {
-          "rawName": "Parmenio",
-          "axisGuess": "location",
           "role": "subject"
         }
       ],
@@ -14919,6 +14948,14 @@
         },
         {
           "type": "faction",
+          "canonicalId": "astral_claws",
+          "rawName": "Astral Claws",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
           "canonicalId": "red_corsairs",
           "rawName": "Red Corsairs",
           "role": "subject",
@@ -14954,11 +14991,6 @@
         {
           "rawName": "Prince Yriel",
           "axisGuess": "character",
-          "role": "subject"
-        },
-        {
-          "rawName": "Astral Claws",
-          "axisGuess": "faction",
           "role": "subject"
         },
         {
@@ -15365,7 +15397,7 @@
       "tags": [
         {
           "type": "faction",
-          "canonicalId": "eldar",
+          "canonicalId": "drukhari",
           "rawName": "Drukhari",
           "role": "mentioned",
           "confidence": 0.9,
@@ -15444,6 +15476,14 @@
           "matchedVia": "canonical-name"
         },
         {
+          "type": "character",
+          "canonicalId": "grotsnik",
+          "rawName": "Grotsnik",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
           "type": "faction",
           "canonicalId": "black_templars",
           "rawName": "Black Templars",
@@ -15455,6 +15495,22 @@
           "type": "faction",
           "canonicalId": "orks",
           "rawName": "Orks",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "blood_axes",
+          "rawName": "Blood Axes",
+          "role": "mentioned",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "location",
+          "canonicalId": "gabal",
+          "rawName": "Gabal",
           "role": "subject",
           "confidence": 1,
           "matchedVia": "canonical-name"
@@ -15475,23 +15531,8 @@
           "role": "subject"
         },
         {
-          "rawName": "Grotsnik",
-          "axisGuess": "character",
-          "role": "subject"
-        },
-        {
           "rawName": "Marshal Adenauer",
           "axisGuess": "character",
-          "role": "subject"
-        },
-        {
-          "rawName": "Blood Axes",
-          "axisGuess": "faction",
-          "role": "mentioned"
-        },
-        {
-          "rawName": "Gabal",
-          "axisGuess": "location",
           "role": "subject"
         }
       ],
@@ -15554,6 +15595,212 @@
           "serviceId": "rss",
           "kind": "listen",
           "url": "https://www.buzzsprout.com/1497970/episodes/19286906-skitarii-mars-immortal-cyborg-legions-warhammer-40k-lore.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "Buzzsprout-19324978",
+      "title": "CIAPHAS CAIN - HERO OF THE IMPERIUM | Warhammer 40k Lore",
+      "pubDate": "2026-06-10T16:00:00.000Z",
+      "durationSec": 6333,
+      "audioUrl": "https://www.buzzsprout.com/1497970/episodes/19324978-ciaphas-cain-hero-of-the-imperium-warhammer-40k-lore.mp3",
+      "link": null,
+      "season": 1,
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "character",
+          "canonicalId": "ciaphas_cain",
+          "rawName": "Ciaphas Cain",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "character",
+          "canonicalId": "abaddon_the_despoiler",
+          "rawName": "Abaddon the Despoiler",
+          "role": "mentioned",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "character",
+          "canonicalId": "amberley_vail",
+          "rawName": "Amberley Vail",
+          "role": "mentioned",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "inquisition",
+          "rawName": "Inquisition",
+          "role": "mentioned",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "ordo_xenos",
+          "rawName": "Ordo Xenos",
+          "role": "mentioned",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://www.buzzsprout.com/1497970/episodes/19324978-ciaphas-cain-hero-of-the-imperium-warhammer-40k-lore.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "Buzzsprout-19361091",
+      "title": "URIEL VENTRIS: Least Depressed Named Ultramarine | Warhammer 40k Lore",
+      "pubDate": "2026-06-17T16:00:00.000Z",
+      "durationSec": 4726,
+      "audioUrl": "https://www.buzzsprout.com/1497970/episodes/19361091-uriel-ventris-least-depressed-named-ultramarine-warhammer-40k-lore.mp3",
+      "link": null,
+      "season": 1,
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "character",
+          "canonicalId": "uriel_ventris",
+          "rawName": "Uriel Ventris",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "character",
+          "canonicalId": "roboute_guilliman",
+          "rawName": "Roboute Guilliman",
+          "role": "mentioned",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "ultramarines",
+          "rawName": "Ultramarines",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "location",
+          "canonicalId": "calth",
+          "rawName": "Calth",
+          "role": "mentioned",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "location",
+          "canonicalId": "ultramar",
+          "rawName": "Ultramar",
+          "role": "mentioned",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [
+        {
+          "rawName": "Idaeus",
+          "axisGuess": "character",
+          "role": "mentioned"
+        },
+        {
+          "rawName": "Learchus",
+          "axisGuess": "character",
+          "role": "mentioned"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://www.buzzsprout.com/1497970/episodes/19361091-uriel-ventris-least-depressed-named-ultramarine-warhammer-40k-lore.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "Buzzsprout-19395501",
+      "title": "You Have Been Lied To About 40k Orks | Warhammer 40k Lore",
+      "pubDate": "2026-06-24T16:00:00.000Z",
+      "durationSec": 6003,
+      "audioUrl": "https://www.buzzsprout.com/1497970/episodes/19395501-you-have-been-lied-to-about-40k-orks-warhammer-40k-lore.mp3",
+      "link": null,
+      "season": 1,
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "faction",
+          "canonicalId": "orks",
+          "rawName": "Orks",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://www.buzzsprout.com/1497970/episodes/19395501-you-have-been-lied-to-about-40k-orks-warhammer-40k-lore.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "Buzzsprout-19430569",
+      "title": "Carcharodons: The Silent Hunters | Warhammer 40k Lore",
+      "pubDate": "2026-07-01T16:00:00.000Z",
+      "durationSec": 5251,
+      "audioUrl": "https://www.buzzsprout.com/1497970/episodes/19430569-carcharodons-the-silent-hunters-warhammer-40k-lore.mp3",
+      "link": null,
+      "season": 1,
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "faction",
+          "canonicalId": "raven_guard",
+          "rawName": "Raven Guard",
+          "role": "mentioned",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [
+        {
+          "rawName": "Tyberos the Red Wake",
+          "axisGuess": "character",
+          "role": "subject"
+        },
+        {
+          "rawName": "Carcharodon Astra",
+          "axisGuess": "faction",
+          "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://www.buzzsprout.com/1497970/episodes/19430569-carcharodons-the-silent-hunters-warhammer-40k-lore.mp3",
           "sourceKind": "podcast_rss",
           "confidence": 1
         }

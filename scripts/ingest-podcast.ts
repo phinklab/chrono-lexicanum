@@ -58,8 +58,8 @@ import {
 import { EPISODE_PROMPT_VERSION_HASH } from "@/lib/ingestion/podcast/prompt";
 import {
   DEFAULT_SHOW_SLUG,
+  dropExcludedTitles,
   getShow,
-  isTitleExcluded,
   loadRegistry,
   selectShows,
   type PodcastShowConfig,
@@ -190,8 +190,7 @@ async function acquireFeed(
   const { show, episodes } = parseFeed(await fetchFeed(cfg.feedUrl));
   // Title-exclusion (e.g. Lorehammer's "(Video)" twins) — honored at ingest so the
   // artifact/DB never gets them, matching the refresh report. Counted, not silent.
-  const kept = episodes.filter((e) => !isTitleExcluded(e.title, cfg.excludeTitlePatterns));
-  const titleExcluded = episodes.length - kept.length;
+  const { kept, dropped: titleExcluded } = dropExcludedTitles(episodes, cfg.excludeTitlePatterns);
   if (titleExcluded > 0) {
     console.log(
       `title-exclude: dropped ${titleExcluded} of ${episodes.length} episode(s) matching ${JSON.stringify(cfg.excludeTitlePatterns)}`,

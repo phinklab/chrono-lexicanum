@@ -8,13 +8,13 @@ Reproducible via: `PODCAST_LLM_MODEL=claude-sonnet-4-6 npm run ingest:podcast --
 - **Feed:** https://www.youtube.com/feeds/videos.xml?channel_id=UC8RfCCzWsMgNspTI-GTFenQ
 - **Episodes:** 1854
 - **Extraction model:** `claude-sonnet-4-6` (prompt version `3f6a5ff87efa`)
-- **Resolved coverage:** 170/1854 episodes (9.2%) carry ≥1 resolved tag
-- **Resolved tags:** 379 total — 255 subject, 124 mentioned
-  - by type: 52 character, 279 faction, 48 location
-- **Episode kinds:** 191 lore, 17 news_recap, 16 interview, 1630 other
+- **Resolved coverage:** 172/1854 episodes (9.3%) carry ≥1 resolved tag
+- **Resolved tags:** 394 total — 264 subject, 130 mentioned
+  - by type: 55 character, 287 faction, 52 location
+- **Episode kinds:** 192 lore, 17 news_recap, 16 interview, 1629 other
 - **Show links:** 1 (youtube)
 - **Episode links:** 1854/1854 episodes carry a YouTube watch link (`watch`/`youtube`/`youtube`)
-- **Distinct unresolved surface-forms:** 52
+- **Distinct unresolved surface-forms:** 43
 
 ## Method (resolution reuse)
 
@@ -36,7 +36,7 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | character | Goge Vandire | 2 |
 | character | Sebastian Thor | 2 |
 | faction | Men of Iron | 2 |
-| location | Vraks | 2 |
+| location | Koronus Expanse | 2 |
 | character | Centurius | 1 |
 | character | Colonel Bane | 1 |
 | character | Corporal Varlak | 1 |
@@ -48,28 +48,20 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | character | Lyubov | 1 |
 | character | Malice | 1 |
 | character | Mork | 1 |
-| character | Silent King | 1 |
 | character | Sly Marbo | 1 |
 | character | Solaria | 1 |
-| character | The Emperor of Man | 1 |
 | faction | Ambull | 1 |
-| faction | Armageddon Steel Legion | 1 |
 | faction | Death Cult Assassins | 1 |
 | faction | Fire Hawks | 1 |
-| faction | Leagues of Votann | 1 |
 | faction | Mordant Acid Dogs | 1 |
 | faction | Necrontyr | 1 |
 | faction | Sons of Malice | 1 |
-| faction | The Cabal | 1 |
-| faction | Titan Legions | 1 |
-| faction | Van Saar | 1 |
 | location | Atoma Prime | 1 |
 | location | Charadon | 1 |
 | location | Crone Worlds | 1 |
 | location | Daemon Worlds | 1 |
 | location | Gorkamorka | 1 |
 | location | Hive Secundus | 1 |
-| location | Koronus Expanse | 1 |
 | location | Lorn V | 1 |
 | location | Maiden Worlds | 1 |
 | location | Moebian Domain | 1 |
@@ -80,7 +72,6 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | location | Tertium | 1 |
 | location | The Maw | 1 |
 | location | Tomb Worlds | 1 |
-| location | Vraks Prime | 1 |
 | location | Zhao-Arkhad | 1 |
 
 ## Spot-check (10 episodes, evenly spaced)

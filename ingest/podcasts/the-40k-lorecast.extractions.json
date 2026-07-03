@@ -920,6 +920,23 @@
         "mentioned": []
       }
     },
+    "834f3050-0001-46ab-a143-6b5caea3eb99": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Legion of the Damned"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
     "8389f0a6-1c07-4c80-8f7c-784da087b677": {
       "episodeKind": "other",
       "characters": {
@@ -956,6 +973,30 @@
       "locations": {
         "primary": [
           "Lysithea"
+        ],
+        "mentioned": []
+      }
+    },
+    "8a8b390d-c022-4be1-b655-b407a9dab293": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Lorgar",
+          "Emperor of Mankind"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Word Bearers",
+          "Serrated Suns"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Eye of Terror",
+          "Cadia"
         ],
         "mentioned": []
       }
@@ -2849,6 +2890,21 @@
         "mentioned": []
       }
     },
+    "bc46b3cc-dfb0-43d6-88fa-14a34426e965": {
+      "episodeKind": "news_recap",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
     "bfce8a3e-debe-4ec6-afd8-e19c1ccdde7f": {
       "episodeKind": "lore",
       "characters": {
@@ -2919,6 +2975,30 @@
         "primary": [
           "Pluto",
           "Eskrador"
+        ],
+        "mentioned": []
+      }
+    },
+    "ccea1f33-ef34-4da1-951a-150a6f6fee28": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Lorgar",
+          "Erebus"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Word Bearers",
+          "Imperial Heralds",
+          "Covenant of Colchis"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Colchis"
         ],
         "mentioned": []
       }
@@ -3010,6 +3090,24 @@
           "Isstvan V",
           "Terra"
         ]
+      }
+    },
+    "d6c6bed4-d3eb-4feb-9b04-1ed3a6a0ca3c": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": [
+          "Imperium",
+          "Space Marines"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
       }
     },
     "d8584d66-0637-11f0-9e9a-d3ec9457bcb1": {

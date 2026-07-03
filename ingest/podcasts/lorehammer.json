@@ -375,13 +375,7 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "The Lost and the Damned",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -819,13 +813,7 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Primaris Space Marines",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -904,6 +892,14 @@
       "episodeKind": "lore",
       "tags": [
         {
+          "type": "character",
+          "canonicalId": "the_emperor",
+          "rawName": "God Emperor",
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
           "type": "faction",
           "canonicalId": "ecclesiarchy",
           "rawName": "Ecclesiarchy",
@@ -912,13 +908,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "God Emperor",
-          "axisGuess": "character",
-          "role": "mentioned"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -1039,6 +1029,14 @@
       "episodeKind": "lore",
       "tags": [
         {
+          "type": "character",
+          "canonicalId": "grukk_face_rippa",
+          "rawName": "Grukk the Face-Eater",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
           "type": "faction",
           "canonicalId": "orks",
           "rawName": "Orks",
@@ -1047,13 +1045,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Grukk the Face-Eater",
-          "axisGuess": "character",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -1211,13 +1203,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Ordos Majoris",
-          "axisGuess": "faction",
-          "role": "mentioned"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -1415,7 +1401,7 @@
       "tags": [
         {
           "type": "faction",
-          "canonicalId": "eldar",
+          "canonicalId": "drukhari",
           "rawName": "Drukhari",
           "role": "subject",
           "confidence": 0.9,
@@ -1460,6 +1446,14 @@
       "tags": [
         {
           "type": "faction",
+          "canonicalId": "evil_sunz",
+          "rawName": "Evil Sunz",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
           "canonicalId": "goffs",
           "rawName": "Goffs",
           "role": "subject",
@@ -1483,11 +1477,6 @@
         },
         {
           "rawName": "Bad Moons",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
-        {
-          "rawName": "Evil Sunz",
           "axisGuess": "faction",
           "role": "subject"
         }
@@ -2209,11 +2198,6 @@
           "rawName": "Khaela Mensha Khaine",
           "axisGuess": "character",
           "role": "subject"
-        },
-        {
-          "rawName": "Aspect Warriors",
-          "axisGuess": "faction",
-          "role": "subject"
         }
       ],
       "links": [
@@ -2234,14 +2218,17 @@
       "audioUrl": "https://traffic.megaphone.fm/APO2931562252.mp3",
       "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/Bonus-9---Mark-Contracts-the-Obliterator-Virus-e358tdc",
       "episodeKind": "lore",
-      "tags": [],
-      "unresolved": [
+      "tags": [
         {
+          "type": "faction",
+          "canonicalId": "heretic_astartes",
           "rawName": "Obliterators",
-          "axisGuess": "faction",
-          "role": "subject"
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
         }
       ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -2270,13 +2257,7 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Aspect Warriors",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -2327,7 +2308,7 @@
       "tags": [
         {
           "type": "faction",
-          "canonicalId": "eldar",
+          "canonicalId": "drukhari",
           "rawName": "Dark Eldar",
           "role": "subject",
           "confidence": 0.9,
@@ -2342,13 +2323,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Kabals",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -2459,6 +2434,14 @@
           "role": "subject",
           "confidence": 1,
           "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "heretic_astartes",
+          "rawName": "Obliterators",
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
         }
       ],
       "unresolved": [
@@ -2466,11 +2449,6 @@
           "rawName": "Iron Skulls",
           "axisGuess": "faction",
           "role": "subject"
-        },
-        {
-          "rawName": "Obliterators",
-          "axisGuess": "faction",
-          "role": "mentioned"
         }
       ],
       "links": [
@@ -2543,6 +2521,14 @@
       "tags": [
         {
           "type": "faction",
+          "canonicalId": "astral_knights",
+          "rawName": "Astral Knights",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
           "canonicalId": "deathwatch",
           "rawName": "Deathwatch",
           "role": "subject",
@@ -2566,13 +2552,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Astral Knights",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -2704,6 +2684,14 @@
       "episodeKind": "lore",
       "tags": [
         {
+          "type": "character",
+          "canonicalId": "the_emperor",
+          "rawName": "God-Emperor",
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
           "type": "faction",
           "canonicalId": "custodes",
           "rawName": "Adeptus Custodes",
@@ -2712,13 +2700,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "God-Emperor",
-          "axisGuess": "character",
-          "role": "mentioned"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -2769,6 +2751,14 @@
       "tags": [
         {
           "type": "faction",
+          "canonicalId": "adeptus_titanicus",
+          "rawName": "Divisio Militaris",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
           "canonicalId": "mechanicus",
           "rawName": "Adeptus Mechanicus",
           "role": "subject",
@@ -2782,23 +2772,9 @@
           "role": "subject",
           "confidence": 1,
           "matchedVia": "canonical-name"
-        },
-        {
-          "type": "faction",
-          "canonicalId": "adeptus_titanicus",
-          "rawName": "Collegia Titanica",
-          "role": "mentioned",
-          "confidence": 0.9,
-          "matchedVia": "alias"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Divisio Militaris",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -2943,20 +2919,14 @@
       "tags": [
         {
           "type": "faction",
-          "canonicalId": "eldar",
+          "canonicalId": "drukhari",
           "rawName": "Drukhari",
           "role": "subject",
           "confidence": 0.9,
           "matchedVia": "alias"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Haemonculi Covens",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -3015,7 +2985,7 @@
         },
         {
           "type": "faction",
-          "canonicalId": "eldar",
+          "canonicalId": "drukhari",
           "rawName": "Dark Eldar",
           "role": "subject",
           "confidence": 0.9,
@@ -3061,19 +3031,13 @@
         {
           "type": "faction",
           "canonicalId": "tyranids",
-          "rawName": "Tyranids",
-          "role": "subject",
-          "confidence": 1,
-          "matchedVia": "canonical-name"
-        }
-      ],
-      "unresolved": [
-        {
           "rawName": "The Hive Mind",
-          "axisGuess": "character",
-          "role": "subject"
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
         }
       ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -3360,28 +3324,34 @@
       "tags": [
         {
           "type": "faction",
+          "canonicalId": "evil_sunz",
+          "rawName": "Evil Sunz",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
           "canonicalId": "world_eaters",
           "rawName": "World Eaters",
           "role": "subject",
           "confidence": 1,
           "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "orks",
+          "rawName": "Flash Gitz",
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
         }
       ],
       "unresolved": [
         {
-          "rawName": "Evil Sunz",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
-        {
           "rawName": "Farsight Enclaves",
           "axisGuess": "faction",
           "role": "subject"
-        },
-        {
-          "rawName": "Flash Gitz",
-          "axisGuess": "faction",
-          "role": "mentioned"
         }
       ],
       "links": [
@@ -3798,6 +3768,14 @@
         },
         {
           "type": "faction",
+          "canonicalId": "adeptus_astartes",
+          "rawName": "Primaris Space Marines",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
           "canonicalId": "imperium",
           "rawName": "Imperium of Man",
           "role": "mentioned",
@@ -3805,13 +3783,7 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Primaris Space Marines",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -3952,20 +3924,14 @@
       "tags": [
         {
           "type": "faction",
-          "canonicalId": "eldar",
+          "canonicalId": "drukhari",
           "rawName": "Drukhari",
           "role": "subject",
           "confidence": 0.9,
           "matchedVia": "alias"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Wych Cults",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -3988,19 +3954,13 @@
         {
           "type": "faction",
           "canonicalId": "orks",
-          "rawName": "Orks",
-          "role": "subject",
-          "confidence": 1,
-          "matchedVia": "canonical-name"
-        }
-      ],
-      "unresolved": [
-        {
           "rawName": "Weirdboyz",
-          "axisGuess": "character",
-          "role": "subject"
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
         }
       ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -4625,13 +4585,7 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Eldar Exodites",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -4747,19 +4701,13 @@
         {
           "type": "faction",
           "canonicalId": "eldar",
-          "rawName": "Aeldari",
+          "rawName": "Phoenix Lords",
           "role": "subject",
           "confidence": 0.9,
           "matchedVia": "alias"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Phoenix Lords",
-          "axisGuess": "character",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -4807,7 +4755,7 @@
       "tags": [
         {
           "type": "faction",
-          "canonicalId": "eldar",
+          "canonicalId": "drukhari",
           "rawName": "Drukhari",
           "role": "subject",
           "confidence": 0.9,
@@ -4822,13 +4770,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Kabals",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -5258,6 +5200,14 @@
       "tags": [
         {
           "type": "faction",
+          "canonicalId": "carcharodons",
+          "rawName": "Carcharodons Astra",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
           "canonicalId": "inquisition",
           "rawName": "Inquisition",
           "role": "mentioned",
@@ -5265,13 +5215,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Carcharodons Astra",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -5942,6 +5886,14 @@
       "tags": [
         {
           "type": "character",
+          "canonicalId": "malcador_the_sigillite",
+          "rawName": "Malcador the Sigilite",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "character",
           "canonicalId": "the_emperor",
           "rawName": "The Emperor",
           "role": "mentioned",
@@ -5973,13 +5925,7 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Malcador the Sigilite",
-          "axisGuess": "character",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -6183,7 +6129,7 @@
         },
         {
           "type": "faction",
-          "canonicalId": "eldar",
+          "canonicalId": "drukhari",
           "rawName": "Dark Eldar",
           "role": "subject",
           "confidence": 0.9,
@@ -6206,13 +6152,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Kabal of the Black Heart",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -6249,13 +6189,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Kor'vattra",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -6340,14 +6274,17 @@
       "audioUrl": "https://traffic.megaphone.fm/APO2782811123.mp3",
       "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/109---Leagues-of-Votann-Ancestry-e35jlv0",
       "episodeKind": "lore",
-      "tags": [],
-      "unresolved": [
+      "tags": [
         {
+          "type": "faction",
+          "canonicalId": "leagues_of_votann",
           "rawName": "Leagues of Votann",
-          "axisGuess": "faction",
-          "role": "subject"
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
         }
       ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -6366,14 +6303,17 @@
       "audioUrl": "https://traffic.megaphone.fm/APO9997462553.mp3",
       "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/110---Leagues-of-Votann-Truths-and-Society-e358tet",
       "episodeKind": "lore",
-      "tags": [],
-      "unresolved": [
+      "tags": [
         {
+          "type": "faction",
+          "canonicalId": "leagues_of_votann",
           "rawName": "Leagues of Votann",
-          "axisGuess": "faction",
-          "role": "subject"
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
         }
       ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -6523,14 +6463,17 @@
       "audioUrl": "https://traffic.megaphone.fm/APO8028367145.mp3",
       "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/Dadhammer-5---The-Bonds-that-Build-Us-e358tc7",
       "episodeKind": "other",
-      "tags": [],
-      "unresolved": [
+      "tags": [
         {
+          "type": "faction",
+          "canonicalId": "mechanicus",
           "rawName": "Xenos Biologis",
-          "axisGuess": "faction",
-          "role": "mentioned"
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
         }
       ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -7536,11 +7479,6 @@
       ],
       "unresolved": [
         {
-          "rawName": "Beast Snagga Boyz",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
-        {
           "rawName": "Bad Moons",
           "axisGuess": "faction",
           "role": "mentioned"
@@ -7584,11 +7522,6 @@
       ],
       "unresolved": [
         {
-          "rawName": "Beast Snagga Boyz",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
-        {
           "rawName": "Bad Moons",
           "axisGuess": "faction",
           "role": "mentioned"
@@ -7622,23 +7555,7 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Asuryani",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
-        {
-          "rawName": "Eldar Rangers",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
-        {
-          "rawName": "Craftworlds",
-          "axisGuess": "faction",
-          "role": "mentioned"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -7711,6 +7628,14 @@
         },
         {
           "type": "faction",
+          "canonicalId": "adeptus_astartes",
+          "rawName": "Space Marine Chapters",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
           "canonicalId": "imperium",
           "rawName": "Imperium",
           "role": "mentioned",
@@ -7718,18 +7643,7 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Space Marine Chapters",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
-        {
-          "rawName": "Space Marine Legions",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -7759,6 +7673,14 @@
         },
         {
           "type": "faction",
+          "canonicalId": "adeptus_astartes",
+          "rawName": "Space Marine Legions",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
           "canonicalId": "imperium",
           "rawName": "Imperium of Man",
           "role": "mentioned",
@@ -7774,13 +7696,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Space Marine Legions",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -7825,6 +7741,14 @@
           "matchedVia": "canonical-name"
         },
         {
+          "type": "faction",
+          "canonicalId": "order_of_caliban",
+          "rawName": "The Order",
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
           "type": "location",
           "canonicalId": "caliban",
           "rawName": "Caliban",
@@ -7833,13 +7757,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "The Order",
-          "axisGuess": "faction",
-          "role": "mentioned"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -8043,23 +7961,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Deathwing",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
-        {
-          "rawName": "Inner Circle",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
-        {
-          "rawName": "Ravenwing",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -8182,14 +8084,17 @@
       "audioUrl": "https://traffic.megaphone.fm/APO3966042338.mp3",
       "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/Stone-and-Steal-RPG---Part-0-e35ji3d",
       "episodeKind": "other",
-      "tags": [],
-      "unresolved": [
+      "tags": [
         {
+          "type": "faction",
+          "canonicalId": "leagues_of_votann",
           "rawName": "League of Votann",
-          "axisGuess": "faction",
-          "role": "subject"
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
         }
       ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -8208,14 +8113,17 @@
       "audioUrl": "https://traffic.megaphone.fm/APO1049248387.mp3",
       "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/Stone-and-Steal-RPG---Part-1-e358te9",
       "episodeKind": "other",
-      "tags": [],
-      "unresolved": [
+      "tags": [
         {
+          "type": "faction",
+          "canonicalId": "leagues_of_votann",
           "rawName": "League of Votann",
-          "axisGuess": "faction",
-          "role": "subject"
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
         }
       ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -8234,14 +8142,17 @@
       "audioUrl": "https://traffic.megaphone.fm/APO7538937390.mp3",
       "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/Stone-and-Steal-RPG---Part-2-e35jlvs",
       "episodeKind": "other",
-      "tags": [],
-      "unresolved": [
+      "tags": [
         {
+          "type": "faction",
+          "canonicalId": "leagues_of_votann",
           "rawName": "League of Votann",
-          "axisGuess": "faction",
-          "role": "subject"
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
         }
       ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -8260,14 +8171,17 @@
       "audioUrl": "https://traffic.megaphone.fm/APO1941308013.mp3",
       "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/Stone-and-Steal-RPG---Part-3-e358tdf",
       "episodeKind": "other",
-      "tags": [],
-      "unresolved": [
+      "tags": [
         {
+          "type": "faction",
+          "canonicalId": "leagues_of_votann",
           "rawName": "League of Votann",
-          "axisGuess": "faction",
-          "role": "subject"
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
         }
       ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -8385,6 +8299,14 @@
       "tags": [
         {
           "type": "faction",
+          "canonicalId": "leagues_of_votann",
+          "rawName": "Leagues of Votann",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
           "canonicalId": "imperium",
           "rawName": "Imperium",
           "role": "mentioned",
@@ -8392,13 +8314,7 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Leagues of Votann",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -8617,11 +8533,6 @@
       ],
       "unresolved": [
         {
-          "rawName": "Palatine Blades",
-          "axisGuess": "faction",
-          "role": "mentioned"
-        },
-        {
           "rawName": "Phoenix Guard",
           "axisGuess": "faction",
           "role": "mentioned"
@@ -8762,6 +8673,14 @@
         },
         {
           "type": "faction",
+          "canonicalId": "armageddon_steel_legion",
+          "rawName": "Armageddon Steel Legion",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
           "canonicalId": "astra_militarum",
           "rawName": "Astra Militarum",
           "role": "subject",
@@ -8785,13 +8704,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Armageddon Steel Legion",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -8951,24 +8864,13 @@
         {
           "type": "faction",
           "canonicalId": "orks",
-          "rawName": "Orks",
-          "role": "subject",
-          "confidence": 1,
-          "matchedVia": "canonical-name"
-        }
-      ],
-      "unresolved": [
-        {
           "rawName": "Krorks",
-          "axisGuess": "character",
-          "role": "subject"
-        },
-        {
-          "rawName": "Prime Orks",
-          "axisGuess": "character",
-          "role": "subject"
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
         }
       ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -9783,6 +9685,14 @@
           "matchedVia": "canonical-name"
         },
         {
+          "type": "character",
+          "canonicalId": "the_emperor",
+          "rawName": "Emperor",
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
           "type": "faction",
           "canonicalId": "death_guard",
           "rawName": "Death Guard",
@@ -9815,13 +9725,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Emperor",
-          "axisGuess": "character",
-          "role": "mentioned"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -9956,13 +9860,7 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Scintillating Legions",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -9991,13 +9889,7 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Lords of Change",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -10069,18 +9961,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Blood Legions",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
-        {
-          "rawName": "Bloodthirsters",
-          "axisGuess": "faction",
-          "role": "mentioned"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -10117,18 +9998,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Legions of Excess",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
-        {
-          "rawName": "Noise Marines",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -10158,11 +10028,6 @@
         }
       ],
       "unresolved": [
-        {
-          "rawName": "Dark Gods",
-          "axisGuess": "faction",
-          "role": "mentioned"
-        },
         {
           "rawName": "the Warp",
           "axisGuess": "location",
@@ -10417,13 +10282,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Cult of Change",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -10478,23 +10337,21 @@
           "role": "subject",
           "confidence": 1,
           "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "imperium",
+          "rawName": "the Imperium",
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
         }
       ],
       "unresolved": [
         {
-          "rawName": "Cult of Decay",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
-        {
           "rawName": "Garden of Nurgle",
           "axisGuess": "location",
           "role": "subject"
-        },
-        {
-          "rawName": "the Imperium",
-          "axisGuess": "location",
-          "role": "mentioned"
         },
         {
           "rawName": "the Warp",
@@ -10575,13 +10432,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Cult of Excess",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -10965,7 +10816,7 @@
       "tags": [
         {
           "type": "faction",
-          "canonicalId": "eldar",
+          "canonicalId": "drukhari",
           "rawName": "Drukhari",
           "role": "subject",
           "confidence": 0.9,
@@ -12726,6 +12577,14 @@
       "tags": [
         {
           "type": "faction",
+          "canonicalId": "freebooterz",
+          "rawName": "Ork Freebooterz",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
           "canonicalId": "orks",
           "rawName": "Orks",
           "role": "mentioned",
@@ -12733,13 +12592,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Ork Freebooterz",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -12761,6 +12614,14 @@
       "tags": [
         {
           "type": "faction",
+          "canonicalId": "freebooterz",
+          "rawName": "Freebooterz",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
           "canonicalId": "orks",
           "rawName": "Orks",
           "role": "mentioned",
@@ -12768,13 +12629,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Freebooterz",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -12796,6 +12651,14 @@
       "tags": [
         {
           "type": "faction",
+          "canonicalId": "freebooterz",
+          "rawName": "Ork Freebooterz",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
           "canonicalId": "orks",
           "rawName": "Orks",
           "role": "mentioned",
@@ -12803,13 +12666,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Ork Freebooterz",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -12831,6 +12688,14 @@
       "tags": [
         {
           "type": "faction",
+          "canonicalId": "freebooterz",
+          "rawName": "Ork Freebooterz",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
           "canonicalId": "orks",
           "rawName": "Orks",
           "role": "mentioned",
@@ -12838,13 +12703,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Ork Freebooterz",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -12866,6 +12725,14 @@
       "tags": [
         {
           "type": "faction",
+          "canonicalId": "freebooterz",
+          "rawName": "Freebooterz",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
           "canonicalId": "orks",
           "rawName": "Orks",
           "role": "subject",
@@ -12881,13 +12748,7 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Freebooterz",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -12906,14 +12767,17 @@
       "audioUrl": "https://traffic.megaphone.fm/APO4178945805.mp3",
       "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/Bonus-47---Where-Are-They-Now-Lore-Updates-e3ampq4",
       "episodeKind": "lore",
-      "tags": [],
-      "unresolved": [
+      "tags": [
         {
+          "type": "faction",
+          "canonicalId": "imperial_knights",
           "rawName": "Knight Houses",
-          "axisGuess": "faction",
-          "role": "subject"
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
         }
       ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -13424,11 +13288,6 @@
       ],
       "unresolved": [
         {
-          "rawName": "War Hounds",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
-        {
           "rawName": "Eaters of Cities",
           "axisGuess": "faction",
           "role": "mentioned"
@@ -13523,13 +13382,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "War Hounds",
-          "axisGuess": "faction",
-          "role": "mentioned"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -14765,13 +14618,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Ravenwing",
-          "axisGuess": "faction",
-          "role": "mentioned"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",

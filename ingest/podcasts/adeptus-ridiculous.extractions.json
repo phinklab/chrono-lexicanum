@@ -5876,6 +5876,93 @@
         "mentioned": []
       }
     },
+    "Buzzsprout-19324978": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Ciaphas Cain"
+        ],
+        "mentioned": [
+          "Amberley Vail",
+          "Abaddon the Despoiler"
+        ]
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": [
+          "Inquisition",
+          "Ordo Xenos"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "Buzzsprout-19361091": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Uriel Ventris"
+        ],
+        "mentioned": [
+          "Roboute Guilliman",
+          "Learchus",
+          "Idaeus"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Ultramarines"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": [
+          "Calth",
+          "Ultramar"
+        ]
+      }
+    },
+    "Buzzsprout-19395501": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Orks"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "Buzzsprout-19430569": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Tyberos the Red Wake"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Carcharodon Astra"
+        ],
+        "mentioned": [
+          "Raven Guard"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
     "Buzzsprout-6575773": {
       "episodeKind": "lore",
       "characters": {

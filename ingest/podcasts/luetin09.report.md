@@ -6,15 +6,15 @@ Reproducible via: `PODCAST_LLM_MODEL=claude-sonnet-4-6 npm run ingest:podcast --
 
 - **Show:** Luetin09 (slug `luetin09`)
 - **Feed:** https://www.youtube.com/feeds/videos.xml?channel_id=UC8RfCCzWsMgNspTI-GTFenQ
-- **Episodes:** 20
+- **Episodes:** 192
 - **Extraction model:** `claude-sonnet-4-6` (prompt version `3f6a5ff87efa`)
-- **Resolved coverage:** 18/20 episodes (90.0%) carry ≥1 resolved tag
-- **Resolved tags:** 41 total — 31 subject, 10 mentioned
-  - by type: 11 character, 23 faction, 7 location
-- **Episode kinds:** 19 lore, 0 news_recap, 0 interview, 1 other
+- **Resolved coverage:** 169/192 episodes (88.0%) carry ≥1 resolved tag
+- **Resolved tags:** 389 total — 260 subject, 129 mentioned
+  - by type: 55 character, 283 faction, 51 location
+- **Episode kinds:** 192 lore, 0 news_recap, 0 interview, 0 other
 - **Show links:** 1 (youtube)
-- **Episode links:** 20/20 episodes carry a YouTube watch link (`watch`/`youtube`/`youtube`)
-- **Distinct unresolved surface-forms:** 11
+- **Episode links:** 192/192 episodes carry a YouTube watch link (`watch`/`youtube`/`youtube`)
+- **Distinct unresolved surface-forms:** 42
 
 ## Method (resolution reuse)
 
@@ -30,71 +30,99 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 
 | axis (LLM guess) | surface-form | # episodes |
 |---|---|---|
-| character | Yarrick | 2 |
-| character | Cyrus | 1 |
+| faction | Old Ones | 4 |
+| location | the Warp | 4 |
+| location | Nachmund Gauntlet | 3 |
+| character | Goge Vandire | 2 |
+| character | Sebastian Thor | 2 |
+| faction | Men of Iron | 2 |
+| location | Koronus Expanse | 2 |
+| character | Centurius | 1 |
+| character | Colonel Bane | 1 |
+| character | Corporal Varlak | 1 |
+| character | Demetrian Titus | 1 |
+| character | Gork | 1 |
+| character | Grizgutz | 1 |
+| character | Illuminor Szeras | 1 |
+| character | Kryptman | 1 |
 | character | Lyubov | 1 |
-| character | Men of Iron | 1 |
-| character | Thothmek | 1 |
-| faction | Leagues of Votann | 1 |
-| faction | Steel Legion | 1 |
+| character | Malice | 1 |
+| character | Mork | 1 |
+| character | Sly Marbo | 1 |
+| faction | Ambull | 1 |
+| faction | Death Cult Assassins | 1 |
+| faction | Fire Hawks | 1 |
+| faction | Mordant Acid Dogs | 1 |
+| faction | Necrontyr | 1 |
+| faction | Sons of Malice | 1 |
 | location | Atoma Prime | 1 |
-| location | Beta Garmon | 1 |
-| location | Nachmund | 1 |
-| location | Vraks | 1 |
+| location | Charadon | 1 |
+| location | Crone Worlds | 1 |
+| location | Daemon Worlds | 1 |
+| location | Gorkamorka | 1 |
+| location | Hive Secundus | 1 |
+| location | Lorn V | 1 |
+| location | Maiden Worlds | 1 |
+| location | Moebian Domain | 1 |
+| location | Naxos | 1 |
+| location | Nephilim Sector | 1 |
+| location | Rophanon | 1 |
+| location | Ryza | 1 |
+| location | Tertium | 1 |
+| location | The Maw | 1 |
+| location | Tomb Worlds | 1 |
+| location | Zhao-Arkhad | 1 |
 
 ## Spot-check (10 episodes, evenly spaced)
+
+### IMPERIUM OF MAN | Warhammer 40,000 Overview
+
+- **Date / kind:** 2014-12-28 · lore
+- **Tags:** `faction:imperium` (subject, alias, “Imperium of Man”)
+
+### MEGA CITIES - JUDGE DREDD  | Lore / History / Beginner's Guide
+
+- **Date / kind:** 2018-09-06 · lore
+- **Tags:** _none resolved_
+
+### THE EMPEROR OF MAN [3.1] Addendum- Faith & The Warp - WARHAMMER 40,000 Semantics
+
+- **Date / kind:** 2019-05-21 · lore
+- **Tags:** `character:the_emperor` (subject, alias, “Emperor of Mankind”)
+- **Unresolved:** “the Warp” (location)
+
+### THE ZOATS RETURN TO 40K - WIDER IMPLICATIONS | Warhammer 40,000 Lore/History
+
+- **Date / kind:** 2020-01-26 · lore
+- **Tags:** `faction:tyranids` (subject, name)
+
+### 40K - CHRONOSTRIFE WAR - Is it actually M42?? | Warhammer 40,000 Lore/History
+
+- **Date / kind:** 2020-11-06 · lore
+- **Tags:** `faction:imperium` (mentioned, alias, “Imperium of Man”)
+
+### 40K's MOST INSANE & POWERFUL WEAPONS [Part FOUR] | WARHAMMER 40,000 Lore/History
+
+- **Date / kind:** 2021-09-12 · lore
+- **Tags:** `faction:adeptus_astartes` (subject, name, “Adeptus Astartes”); `faction:death_korps_of_krieg` (subject, name, “Death Korps of Krieg”); `faction:emperors_children` (subject, name, “Emperor's Children”); `faction:sisters_of_battle` (subject, alias, “Adepta Sororitas”)
+
+### KNIGHTS OF 40K - DEFENDERS OF THE FARTHEST FRONTIER | Warhammer 40,000 Lore/History
+
+- **Date / kind:** 2022-09-21 · lore
+- **Tags:** `faction:imperial_knights` (subject, name, “Imperial Knights”)
+
+### 40K - DA ORKS 10 BEST SHOOTAS | Warhammer 40,000 Lore/History
+
+- **Date / kind:** 2023-08-19 · lore
+- **Tags:** `faction:orks` (subject, name)
+
+### 40K - KASRKIN ORIGINS - CADIAN SPEC OPS | Warhammer 40,000 Lore/History
+
+- **Date / kind:** 2024-05-18 · lore
+- **Tags:** `faction:kasrkin` (subject, name); `faction:cadian_shock_troops` (mentioned, name, “Cadian Shock Troops”); `location:cadia` (subject, name)
+- **Unresolved:** “Lorn V” (location)
 
 ### YOU'LL NEVER SEE THEM AGAIN? - Imperial Guard Regiments | WARHAMMER 40,000 LORE/DISCUSSION
 
 - **Date / kind:** 2025-03-13 · lore
 - **Tags:** `faction:astra_militarum` (subject, alias, “Astra Militarum”)
-
-### WHAT IF - ASTARTES NEVER EXISTED? | WARHAMMER 40000 LORE/SPECULATION - 40K
-
-- **Date / kind:** 2025-04-23 · lore
-- **Tags:** `faction:adeptus_astartes` (subject, name, “Adeptus Astartes”); `faction:thunder_warriors` (subject, name, “Thunder Warriors”); `faction:imperium` (mentioned, alias, “Imperium of Man”)
-
-### 40K BEGINNERS - TRAITOR ASTARTES [Part 3] | Warhammer 40,000 Lore/History
-
-- **Date / kind:** 2025-05-16 · lore
-- **Tags:** `faction:black_legion` (subject, name, “Black Legion”); `faction:death_guard` (subject, name, “Death Guard”); `faction:emperors_children` (subject, name, “Emperor's Children”); `faction:heretic_astartes` (subject, alias, “Chaos Space Marines”); `faction:sons_of_horus` (subject, name, “Sons of Horus”); `faction:thousand_sons` (subject, name, “Thousand Sons”); `faction:world_eaters` (subject, name, “World Eaters”)
-
-### 40K ARBITES LORE - DARKTIDE DEEP DIVE | Warhammer 40,000 Lore/History
-
-- **Date / kind:** 2025-06-21 · lore
-- **Tags:** `faction:adeptus_arbites` (subject, name, “Adeptus Arbites”)
-- **Unresolved:** “Atoma Prime” (location)
-
-### THE COST OF COURAGE IN M41 - The Tragedy of Lyubov | Warhammer 40,000 Lore/History
-
-- **Date / kind:** 2025-08-13 · lore
-- **Tags:** `faction:blood_pact` (subject, name, “Blood Pact”)
-- **Unresolved:** “Lyubov” (character)
-
-### 40K PRIMARCHS - SANGUINIUS - THE RISE AND FALL OF AN ANGEL | Warhammer 40,000 Lore/History
-
-- **Date / kind:** 2025-09-28 · lore
-- **Tags:** `character:sanguinius` (subject, name); `character:angron` (mentioned, name); `character:ka_bandha` (mentioned, name, “Ka'Bandha”); `faction:blood_angels` (subject, name, “Blood Angels”); `location:baal` (subject, name); `location:signus_prime` (subject, name, “Signus Prime”)
-- **Unresolved:** “Beta Garmon” (location)
-
-### 40K - THE DARK AGE OF AI and THE STC LIE | Warhammer 40,000 Lore/Speculation
-
-- **Date / kind:** 2025-11-26 · lore
-- **Tags:** `character:the_emperor` (mentioned, alias, “Emperor of Mankind”); `faction:mechanicus` (subject, name, “Adeptus Mechanicus”)
-- **Unresolved:** “Men of Iron” (character)
-
-### 40K - THE GREAT NACHMUND WAR [4]: PURIFICATION | Warhammer 40,000 Lore/History
-
-- **Date / kind:** 2025-12-25 · lore
-- **Tags:** `location:vigilus` (subject, name)
-- **Unresolved:** “Nachmund” (location)
-
-### THE RISE & FALL OF HUMAN CIVILIZATIONS [2] - SURVIVORS OF THE APOCALYPSE
-
-- **Date / kind:** 2026-03-22 · other
-- **Tags:** _none resolved_
-
-### 40K - THE SILENT DEATH OF STC - Anything goes now? | Warhammer 40,000 Lore/Discussion
-
-- **Date / kind:** 2026-05-10 · lore
-- **Tags:** `faction:mechanicus` (mentioned, name, “Adeptus Mechanicus”)
