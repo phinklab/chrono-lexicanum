@@ -1,642 +1,182 @@
 /* 50-hub.css
-   Home (/) — three discrete 100dvh "acts" with a firm section snap between
-   them, over the fixed hub.webp + <ScrollScrim>. Session 142 ports the
-   /lab/home_example language (Report 141): GOLD instead of cyan, a Terminus
-   rule under the splash title, Act 2 as a Praefatio — centred head, then a
-   left reading column with a drop-cap initial (.lx-prose/.lx-initial; NO
-   marginalia apparatus — the REF block was cut by maintainer decision), the
-   search over a Terminus underline with an honest holdings line beneath
-   (novels / episodes / podcasts), Act 3 as the grouped registry with roman
-   numerals, Terminus row separators and a hover marginalia gloss, closed by
-   the shared Imprimatur foot (.lx-foot) —
-
-     · Act 1 (--splash)   title pushed LOW into the dark band + the scroll cue
-     · Act 2 (--intro)    Praefatio + the live archive search console
-     · Act 3 (--explore)  "More to explore" — the doorways as a grouped registry
-
-   The fixed photo/scrim and the BottomConsole HUD persist across all three.
-   Snap is desktop-only — mobile falls back to a normal stacked scroll (Act 3's
-   rows would not fit one mandatory-snapped phone). */
+   Home `/` — three acts over the fixed art: splash (the wordmark is the
+   hero), Praefatio with the search console, and the explore registry. */
 
 main.hub {
   position: relative;
-  /* Cancel the global `main { padding-top: var(--top-nav-h) }` (44-nav-frame.css)
-     — like catalogue/ask/chronicle do. WITHOUT this, Act 1 starts 48px (then
-     124px once the nav collapses) below the top, so scroll-snap aligns Act 1's
-     start to the viewport top by scrolling the page DOWN to 48→124px on load:
-     the page opens pre-scrolled with the nav hidden, and the whole snap
-     coordinate system is offset (snap felt broken). The acts pad their own
-     content clear of the fixed nav internally, so main needs no top padding. */
+  /* Cancel the global `main { padding-top: var(--top-nav-h) }` (44-nav-frame). */
   padding-top: 0;
-  /* `clip` — NOT `hidden`. `overflow-x: hidden` computes overflow-y to `auto`,
-     which makes main a nested scroll container that captures the .hub-act snap
-     areas away from the viewport and silently kills the snap. `clip` clips the
-     same horizontal overflow without ever creating a scroll container. */
+  /* `clip`, not `hidden` — hidden would turn main into a scroll container. */
   overflow-x: clip;
 }
 
-/* Firm section snap, scoped to Home only via :has() so no other route inherits
-   it. The document (viewport) is the scroller — so ScrollScrim's window.scrollY
-   keeps driving the scrim — and each .hub-act is a snap stop.
-
-   `mandatory` + `scroll-behavior: smooth`: the page always settles onto an act
-   (proximity was too weak — it only snapped once you were already nearly at the
-   next section), and smooth gives the eased, decelerating arrival instead of an
-   instant jump. The earlier "laggy" read from this pair was the 124px nav-frame
-   offset fighting the snap on every tick — now fixed via main.hub padding-top:0,
-   so mandatory rests cleanly on 0 / 100dvh / 200dvh. scroll-behavior:smooth also
-   drives the cue's click-to-next-act; reduced-motion is honoured by the cue's JS
-   (and the global kill-switch zeroes the chevron animation). */
-html:has(main.hub) {
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-}
-
-/* The viewport is the snap scroller, so NO ancestor of .hub-act may be a scroll
-   container. The global `body { overflow-x: hidden }` (10-base.css) would be one
-   (hidden → overflow-y:auto); re-clip with `clip` on Home so body stays a plain
-   box and the snap areas associate with the viewport, not body. */
-body:has(main.hub) {
-  overflow-x: clip;
-}
-
-/* The live search dropdown (z 40) opens inside Act 2. The BottomConsole is a
-   persistent fixed HUD; drop it to z 1 on Home so a long dropdown still paints
-   ABOVE the telemetry strip. The acts carry no z-index, so they never trap the
-   dropdown in their own stacking context; the console still sits above the
-   fixed photo/scrim (z -1) and the in-flow act content. */
-body:has(main.hub) .bottom-console {
-  z-index: 1;
-}
-
-/* Crisp-top, fade-to-void — the /ask + /werke hero treatment, applied to the
-   FIXED vista so every act sees a bright upper band fading to void at its base.
-   Neutral void only — no cyan halo, no warm gradient, no bloom (restraint #1). */
-body:has(main.hub) .site-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  /* Fade strength reduced 10% (every void stop ×0.9) so the vista reads better
-     through the overlay — maintainer polish 2026-06-19. */
-  background:
-    radial-gradient(
-      ellipse at 50% 30%,
-      transparent 36%,
-      color-mix(in srgb, var(--cl-void) 38%, transparent) 100%
-    ),
-    linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--cl-void) 9%, transparent) 0%,
-      color-mix(in srgb, var(--cl-void) 14%, transparent) 18%,
-      color-mix(in srgb, var(--cl-void) 56%, transparent) 38%,
-      color-mix(in srgb, var(--cl-void) 83%, transparent) 58%,
-      color-mix(in srgb, var(--cl-void) 90%, transparent) 76%
-    );
-}
-
-/* Scroll-darkening scrim — the shared <ScrollScrim>. The fixed vista fades to
-   near-void as the reader snaps from the splash into Acts 2/3 so the search and
-   the tool rows stay legible. SSR default 0 keeps the photo crisp on first
-   paint. Coplanar with .site-bg (z -1) but later in the DOM, so it paints over
-   the photo while staying below all page content. */
-.hub-scrim {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background: var(--cl-void);
-  opacity: var(--hub-scrim-opacity, 0);
-  will-change: opacity;
-}
-
-.hub-readout {
-  position: fixed;
-  top: 96px;
-  right: clamp(16px, 4vw, 48px);
-  width: 260px;
-  z-index: 3;
-  pointer-events: none;
-}
-
-/* ── The act skeleton ──────────────────────────────────────────────────────
-   Each act is at least one viewport tall and snaps to its start. Content is a
-   centred flex column; padding clears the fixed TopNav (top) and the persistent
-   console (bottom). min-height (not height) + dvh means an over-tall act still
-   extends and stays reachable, and the mobile bar collapse never clips it. */
-.hub-act {
+/* ── Act 1 · Splash ──────────────────────────────────────────────────────── */
+.hub-act--splash {
   position: relative;
-  min-height: 100dvh;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+  min-height: 96vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-inline: clamp(20px, 4vw, 48px);
-  padding-top: calc(var(--top-nav-h, 48px) + clamp(16px, 4vh, 40px));
-  padding-bottom: clamp(96px, 14vh, 150px);
-}
-
-/* Act 1 — push the title block + cue to the lower third (the dark fade zone,
-   so CHRONO · LEXICANUM stays legible over the bright vista) and let the auspex
-   discs sit centred behind them. */
-.hub-act--splash {
   justify-content: flex-end;
   text-align: center;
-  padding-bottom: clamp(110px, 16vh, 170px);
+  padding: 0 20px 7vh;
 }
-
-.hub-act--intro,
-.hub-act--explore {
-  justify-content: center;
-}
-
-/* ── Act 1 ambient — the dual rotating MainAuspex (decorative, behind) ─────── */
-.hub-hero__auspex {
-  position: absolute;
-  pointer-events: none;
-}
-.hub-hero__auspex svg {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-/* Primary disc — set left of centre, behind the title's left flank. Centred on
-   its anchor via margins (NOT transform) so the spin keyframe owns `transform`
-   cleanly. */
-.hub-hero__auspex--main {
-  --auspex-size: min(58vh, 74vw, 520px);
-  width: var(--auspex-size);
-  height: var(--auspex-size);
-  left: 34%;
-  top: 58%;
-  margin-left: calc(var(--auspex-size) / -2);
-  margin-top: calc(var(--auspex-size) / -2);
-  /* Gold-on-warm-vista needs more presence than the cyan original did at 0.28 —
-     the discs read as "gone" below ~0.4 (maintainer feedback 2026-06-11). */
-  opacity: 0.5;
-  /* Stay anchored and turn the whole disc — rings, ticks, labels and all —
-     very slowly counter-clockwise, on top of its own internal spins. Replaces
-     the old translate-drift: the maintainer wanted the discs rotating in place
-     (no longer wandering off), the primary opposite the smaller disc. */
-  animation: chronoSpinRev 360s linear infinite;
-  transform-origin: center;
-}
-/* Secondary disc — smaller and dimmer, sitting north-east of the (low, centred)
-   title for parallax depth. Anchored via margins like the primary. */
-.hub-hero__auspex--secondary {
-  --auspex-size: min(30vh, 38vw, 300px);
-  width: var(--auspex-size);
-  height: var(--auspex-size);
-  left: 62%;
-  top: 46%;
-  margin-left: calc(var(--auspex-size) / -2);
-  margin-top: calc(var(--auspex-size) / -2);
-  opacity: 0.22;
-  /* The smaller "middle" disc stays in place and rotates clockwise — the
-     opposite direction to the primary, and a touch quicker than its very-slow
-     turn. */
-  animation: chronoSpin 180s linear infinite;
-  transform-origin: center;
-}
-
-/* ── Act 1 title — now in normal flow, low in the splash act ───────────────── */
-.hub-hero__title {
+.hub-hero__over,
+.hub-hero__heading,
+.hub-hero__edition,
+.hub-hero__cue {
   position: relative;
   z-index: 3;
-  width: min(100%, 980px);
-  text-align: center;
 }
-/* Shared gold // kicker — all three act heads use the same eyebrow. */
-.hub-eyebrow {
+.hub-hero__over {
   margin: 0;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.22em;
+  font-size: 15px;
+  letter-spacing: 0.4em;
   text-transform: uppercase;
   color: var(--cl-gold);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
+  animation: enter 1s 0.15s var(--ease) both;
 }
 .hub-hero__heading {
-  margin: 12px 0 0;
-  font-family: var(--font-cinzel), serif;
+  margin: 18px 0 0;
+  font-family: var(--font-display);
+  font-weight: var(--font-display-wght-hero);
+  font-size: clamp(52px, 8.4vw, 128px);
+  line-height: 1.02;
+  letter-spacing: var(--font-display-track);
+  color: var(--cl-bone);
+  text-shadow: 0 2px 26px rgba(0, 0, 0, 0.85);
+  animation: enterTitle 1.35s 0.4s var(--ease) both;
+}
+.hub-hero__edition {
+  margin: 22px 0 0;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--cl-dim);
+  max-width: 58ch;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
+  animation: enter 1s 0.85s var(--ease) both;
+}
+.hub-hero__edition b {
+  font-style: normal;
   font-weight: 400;
-  font-size: clamp(44px, 4.6vw, 64px);
-  letter-spacing: 0.22em;
-  color: var(--cl-bone);
-  white-space: nowrap;
-  /* Dark shadows only — no cyan bloom behind the resting title (restraint #1
-     + the hub-aesthetic no-glow preference). */
-  text-shadow:
-    0 4px 18px rgba(0, 0, 0, 0.95),
-    0 2px 6px rgba(0, 0, 0, 0.9);
-}
-/* The Terminus rule as title ornament — the cogitator scan-line at rest. */
-.hub-hero__rule {
-  width: min(300px, 52vw);
-  height: 1px;
-  margin: 20px auto 0;
-  background: linear-gradient(90deg, transparent, var(--cl-gold-dim), transparent);
-  opacity: 0.85;
-}
-.hub-hero__sub {
-  margin: 16px auto 0;
-  max-width: 700px;
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-style: italic;
-  font-size: var(--fs-read);
-  /* Lighter than the --fw-read norm: at the promoted size the 500 cut read
-     fat over the vista (maintainer review 2026-06-11). */
-  font-weight: 300;
-  line-height: var(--lh-read);
-  color: var(--cl-bone);
-  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
-}
-
-/* ── Scroll cue — a `// NEXT` kicker + the next act's name + gold chevrons ────
-   Previews what's one snap down. Used at the foot of Act 1 (→ Act 2, in flow)
-   and Act 2 (→ Act 3, floated to the act floor with --floor). */
-.hub-cue {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  margin-top: clamp(24px, 4vh, 48px);
-  padding: 6px 14px;
-  background: none;
-  border: 0;
-  cursor: pointer;
-}
-.hub-cue__kicker {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.26em;
-  text-transform: uppercase;
-  color: color-mix(in oklch, var(--cl-gold) 55%, transparent);
-  transition: color 200ms;
-}
-.hub-cue__label {
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-style: italic;
-  font-size: var(--fs-read);
-  line-height: 1.2;
-  color: var(--cl-bone);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
-  transition: color 200ms;
-}
-.hub-cue:hover .hub-cue__kicker,
-.hub-cue:focus-visible .hub-cue__kicker {
-  color: var(--cl-gold);
-}
-.hub-cue:hover .hub-cue__label,
-.hub-cue:focus-visible .hub-cue__label {
   color: var(--cl-bone);
 }
-.hub-cue__chev {
-  margin-top: 2px;
-  fill: none;
-  stroke: var(--cl-gold);
-  stroke-width: 1.4;
-  /* Capped glow ≤18% alpha (restraint #1). */
-  filter: drop-shadow(0 0 6px rgba(201, 166, 90, 0.18));
-}
-.hub-cue__chev path {
-  opacity: 0;
-  animation: hubDescentChev 2.4s ease-in-out infinite;
-}
-.hub-cue__chev path:nth-child(2) {
-  animation-delay: 0.5s;
-}
-.hub-cue__chev path:nth-child(3) {
-  animation-delay: 1s;
-}
-/* Reduced motion (Report 141 § B5): the 38/53 s auspex drifts and the chevron
-   cascade are infinite ambience. The discs hold their resting frame; the
-   chevrons' keyframe owns their visibility (base opacity 0), so they get a
-   static opacity instead of vanishing — the scroll cue stays readable. */
-@media (prefers-reduced-motion: reduce) {
-  .hub-hero__auspex--main,
-  .hub-hero__auspex--secondary {
-    animation: none;
-  }
-  .hub-cue__chev path {
-    animation: none;
-    opacity: 0.7;
-  }
+.hub-hero__cue {
+  animation: enter 1s 1.15s var(--ease) both;
 }
 
-/* Act-2 cue — its content is centred, so pin the cue to the act floor (above
-   the persistent console). translateX owns the centring; the chevron keyframe
-   only transforms the <path>s, so there is no transform conflict. */
-.hub-cue--floor {
-  position: absolute;
-  left: 50%;
-  bottom: clamp(88px, 13vh, 140px);
-  margin-top: 0;
-  transform: translateX(-50%);
+/* ── Act 2 · Praefatio ───────────────────────────────────────────────────── */
+.hub-nave {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 12vh 24px 0;
+  text-align: center;
 }
-
-/* ── Act 2 holdings line — the cogitator reporting REAL archive counts
-   (novels · episodes · podcasts), centred under the search. .lx-stat carries
-   the type; this only centres it and lifts it off the dark vista. */
-.hub-stat {
-  justify-content: center;
-  margin-top: 14px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+.hub-praefatio {
+  max-width: 58ch;
+  margin: 0 auto;
 }
-
-/* ── Act 2 search — the real archive console over a gold Terminus underline.
-   The same console /werke renders; here it dissolves into a hairline underline
-   with a centred Cormorant query (the .lx-field gesture, kept on the
-   .browse-search anatomy the shared combobox brings along). */
 .hub-search {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-  margin: 0 auto;
+  justify-content: center;
+  padding: 44px 0 0;
 }
-.hub-search__kicker {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.26em;
-  text-transform: uppercase;
-  color: color-mix(in oklch, var(--cl-gold) 55%, var(--cl-dim));
-}
-/* The console dissolves into ONE centred Cormorant query over a Terminus
-   hairline that fades out at both ends — the cogitator scan-line motif
-   (65-loading.css), in gold. No box and no native focus ring: the line is the
-   whole affordance (dim gold at rest → full gold on focus). The sigil (left)
-   and clear × (right) are pinned to the ends so the query stays centred. */
 .hub-search .browse-search {
-  position: relative;
-  width: 100%;
-  max-width: 560px;
-  padding: 0;
-  background: transparent;
-  border: 0;
+  width: min(520px, 74vw);
+}
+.hub-holdings {
+  margin-top: 30px;
   justify-content: center;
 }
-.hub-search .browse-search::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    color-mix(in oklch, var(--cl-gold) 45%, transparent) 26%,
-    color-mix(in oklch, var(--cl-gold) 45%, transparent) 74%,
-    transparent 100%
-  );
-  opacity: 0.75;
-  transition: opacity 200ms, background 200ms;
-}
-.hub-search .browse-search:focus-within::after {
-  opacity: 1;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    var(--cl-gold) 24%,
-    var(--cl-gold) 76%,
-    transparent 100%
-  );
-}
-.hub-search .browse-search__sigil {
-  position: absolute;
-  left: 4px;
-  top: 50%;
-  width: 16px;
-  height: 16px;
-  margin: 0;
-  transform: translateY(-50%);
-  color: var(--cl-gold-dim);
-  pointer-events: none;
-}
-.hub-search .browse-search__input {
-  flex: 1;
-  min-width: 0;
-  text-align: center;
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-size: var(--fs-read-lg);
-  font-weight: var(--fw-read);
-  letter-spacing: 0.01em;
-  padding: 12px 30px;
-  /* The fading underline is the focus affordance — kill the native ring/box
-     that appeared on click (the "komischer blauer Kasten"). */
-  outline: none;
-  box-shadow: none;
-  -webkit-appearance: none;
-  appearance: none;
-}
-.hub-search .browse-search__input:focus,
-.hub-search .browse-search__input:focus-visible {
-  outline: none;
-  box-shadow: none;
-}
-.hub-search .browse-search__input::placeholder {
-  font-style: italic;
-  letter-spacing: 0.01em;
-  text-transform: none;
-  color: var(--cl-dim);
-}
-/* Clear (×) pinned to the right end so it never knocks the centred query off
-   axis; only rendered once there's a value. */
-.hub-search .browse-search__clear {
-  position: absolute;
-  right: 4px;
-  top: 50%;
-  transform: translateY(-50%);
-}
 
-/* ── Act 2 Praefatio — centred head, then the left reading column with its
-   drop-cap initial (.lx-prose/.lx-initial from 42-lex-primitives.css). ─────── */
-.hub-intro {
-  width: 100%;
-  max-width: 760px;
-  margin: 0 auto clamp(20px, 4vh, 36px);
-}
-.hub-intro__head {
-  text-align: center;
-  margin-bottom: clamp(20px, 3.5vh, 34px);
-}
-.hub-intro__heading {
-  margin: 14px 0 0;
-  font-family: var(--font-cinzel), serif;
-  font-weight: 500;
-  font-size: clamp(22px, 2.8vw, 28px);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--cl-bone);
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);
-}
-/* Lift the reading text off the darkened vista. */
-.hub-intro .lx-prose {
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
-}
-
-/* ── Act 3 heading — the doorways masthead ─────────────────────────────────── */
-.hub-tools-head {
-  margin: 0 auto clamp(24px, 4vh, 40px);
-  text-align: center;
-}
-.hub-tools-head__heading {
-  margin: 12px 0 0;
-  font-family: var(--font-cinzel), serif;
-  font-weight: 500;
-  font-size: clamp(22px, 2.8vw, 28px);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--cl-bone);
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);
-}
-
-/* ── Act 3 foot — the shared Imprimatur (.lx-foot via <ArchiveFooter>) sits
-   inside a centred flex act; stretch it so the triad spreads like the rows. */
-.hub-act--explore .lx-foot {
-  width: 100%;
-}
-
-/* ── Act 3 registry — "More to explore" as a grouped index ───────────────────
-   Three plain-language bands (The Library / Browse by Topic / Discover More) of
-   compact single-line rows — roman numeral · title · short description · hover
-   gloss · chevron. Frameless idiom: Terminus separators between rows, gold only
-   on hover/focus, the archivist's marginalia gloss fading in on hover. */
-.hub-explore {
-  width: 100%;
-  max-width: 860px;
+/* ── Act 3 · Explore registry ────────────────────────────────────────────── */
+.hub-explore-shell {
+  max-width: 980px;
   margin: 0 auto;
+  padding: 14vh 24px 0;
 }
 .hub-explore__band {
-  margin: 0;
+  margin-top: 56px;
 }
-/* Band header — a plain-language label with a hairline that fades to nothing on
-   the right (the search / scan-line motif). */
+.hub-explore__band:first-of-type {
+  margin-top: 44px;
+}
 .hub-explore__divider {
   display: flex;
   align-items: center;
-  margin: clamp(16px, 2.6vh, 26px) 0 2px;
+  gap: 22px;
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-label-lg);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
 }
 .hub-explore__divider::after {
   content: "";
   flex: 1;
-  height: 1px;
-  margin-left: 14px;
-  background: linear-gradient(90deg, var(--cl-gold-dim), transparent);
-  opacity: 0.5;
-}
-.hub-explore__divider-label {
-  flex: none;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.26em;
-  text-transform: uppercase;
-  color: color-mix(in oklch, var(--cl-gold) 60%, var(--cl-dim));
+  border-top: 1px solid var(--cl-hair-soft);
 }
 .hub-explore__list {
   list-style: none;
-  margin: 0;
+  margin: 10px 0 0;
   padding: 0;
 }
-.hub-explore__list > li {
-  list-style: none;
-}
 .hub-explore__row {
-  position: relative;
   display: grid;
-  grid-template-columns: 34px minmax(0, 1fr) auto 18px;
+  grid-template-columns: 54px minmax(0, 1.35fr) minmax(0, 1fr) 22px;
+  gap: 0 18px;
   align-items: baseline;
-  gap: 16px;
-  padding: 12px 10px;
+  padding: 17px 14px;
+  border-bottom: 1px solid var(--cl-hair-soft);
   text-decoration: none;
   color: inherit;
+  transition: background 0.3s;
 }
-/* Row separators as Terminus lines instead of a full hairline — li+li keeps
-   the first row of each band clean under its header. */
-.hub-explore__list > li + li .hub-explore__row::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    color-mix(in oklch, var(--cl-gold) 13%, transparent) 18%,
-    color-mix(in oklch, var(--cl-gold) 13%, transparent) 82%,
-    transparent
-  );
-}
-.hub-explore__row--link {
-  transition: background 180ms;
-}
-.hub-explore__row--link:hover {
-  background: rgba(201, 166, 90, 0.05);
+.hub-explore__row--link:hover,
+.hub-explore__row--link:focus-visible {
+  background: rgba(228, 221, 203, 0.03);
 }
 .hub-explore__index {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.18em;
+  font-family: var(--font-mono);
+  font-size: 13px;
   color: var(--cl-faint);
-  transition: color 180ms;
+  text-align: right;
 }
-.hub-explore__row--link:hover .hub-explore__index,
-.hub-explore__row--link:focus-visible .hub-explore__index {
-  color: color-mix(in oklch, var(--cl-gold) 60%, var(--cl-dim));
-}
-/* Title + description: a fixed title column so the descriptions line up; the
-   description fills the rest on one truncated line. */
 .hub-explore__main {
-  min-width: 0;
-  display: grid;
-  grid-template-columns: 200px minmax(0, 1fr);
-  align-items: baseline;
-  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
 .hub-explore__title {
-  font-family: var(--font-cinzel), serif;
-  font-weight: 500;
-  /* Lifted from clamp(15-18) — the registry titles read too small against the
-     page-body scale (maintainer cleanup 2026-06-19). */
-  font-size: clamp(18px, 1.9vw, 22px);
-  letter-spacing: 0.06em;
+  font-family: var(--font-display);
+  font-weight: var(--font-display-wght);
+  font-size: 24px;
+  line-height: 1.12;
   color: var(--cl-bone);
-  white-space: nowrap;
-  transition: color 180ms;
+  transition: color 0.3s;
 }
 .hub-explore__row--link:hover .hub-explore__title,
 .hub-explore__row--link:focus-visible .hub-explore__title {
   color: var(--cl-gold);
 }
 .hub-explore__desc {
-  min-width: 0;
-  font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
-  /* Standard page body (--fs-read) — the serif descriptions ran too small at
-     --fs-read-sm to read comfortably (maintainer cleanup 2026-06-19). */
-  font-size: var(--fs-read);
-  font-weight: var(--fw-read);
-  line-height: 1.4;
+  font-size: 17px;
   color: var(--cl-dim);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
-/* Marginalia gloss — the archivist adds a margin note on hover (C1-3). */
+/* Marginalia gloss: hover-only — the machine register's one Latin licence. */
 .hub-explore__gloss {
-  justify-self: end;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: color-mix(in oklch, var(--cl-gold) 70%, transparent);
+  color: var(--cl-faint);
+  text-align: right;
   opacity: 0;
-  transform: translateX(-4px);
-  transition: opacity 220ms, transform 220ms;
+  transform: translateX(-6px);
+  transition: opacity 0.5s ease, transform 0.5s var(--ease);
 }
 .hub-explore__row--link:hover .hub-explore__gloss,
 .hub-explore__row--link:focus-visible .hub-explore__gloss {
@@ -644,93 +184,27 @@ body:has(main.hub) .site-bg::after {
   transform: none;
 }
 .hub-explore__chevron {
-  justify-self: end;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: 16px;
-  line-height: 1;
   color: var(--cl-faint);
-  transition: color 200ms, transform 200ms;
+  transition: color 0.3s;
 }
 .hub-explore__row--link:hover .hub-explore__chevron,
 .hub-explore__row--link:focus-visible .hub-explore__chevron {
   color: var(--cl-gold);
-  transform: translateX(3px);
-}
-/* Inert rows (no page yet) — muted, with a SOON marker spanning the gloss +
-   chevron slots so it lines up with the live rows' right edge. */
-.hub-explore__row--soon {
-  cursor: default;
-}
-.hub-explore__row--soon .hub-explore__title {
-  color: var(--cl-dim);
-}
-.hub-explore__row--soon .hub-explore__index {
-  color: var(--cl-faint);
 }
 .hub-explore__soon {
-  grid-column: 3 / -1;
-  justify-self: end;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
-  letter-spacing: 0.16em;
+  letter-spacing: 0.2em;
   color: var(--cl-faint);
+  text-align: right;
 }
 
-/* ── Mobile — snap OFF, normal stacked scroll ──────────────────────────────── */
 @media (max-width: 720px) {
-  html:has(main.hub) {
-    scroll-snap-type: none;
-  }
-  .hub-act {
-    min-height: auto;
-    scroll-snap-align: none;
-    padding-top: calc(var(--top-nav-h, 48px) + 24px);
-    padding-bottom: clamp(56px, 12vh, 96px);
-  }
-  .hub-act--splash {
-    /* still a tall splash so the title sits low, but not a forced full screen */
-    min-height: 86vh;
-    padding-bottom: clamp(72px, 16vh, 120px);
-  }
-  .hub-readout {
-    display: none;
-  }
-  /* No snap on mobile → the floated "next" cue has no fixed act floor to sit on;
-     the Act-1 in-flow cue stays. */
-  .hub-cue--floor {
-    display: none;
-  }
-  .hub-hero__auspex--secondary {
-    display: none;
-  }
-  .hub-hero__auspex--main {
-    --auspex-size: min(70vh, 86vw, 380px);
-    left: 50%;
-    top: 54%;
-  }
-  .hub-hero__heading {
-    font-size: clamp(34px, 8vw, 56px);
-    letter-spacing: 0.14em;
-    white-space: normal;
-  }
-  /* Act 3 registry: tighten the index column, drop the hover gloss (no hover
-     on touch) and stack the description under the title (let it wrap) so a row
-     fits a phone cleanly. */
   .hub-explore__row {
-    grid-template-columns: 26px minmax(0, 1fr) 18px;
-    gap: 12px;
+    grid-template-columns: 40px minmax(0, 1fr) 22px;
   }
   .hub-explore__gloss {
     display: none;
-  }
-  .hub-explore__soon {
-    grid-column: 3;
-  }
-  .hub-explore__main {
-    grid-template-columns: 1fr;
-    gap: 2px;
-  }
-  .hub-explore__desc {
-    white-space: normal;
   }
 }

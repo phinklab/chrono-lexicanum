@@ -15,6 +15,8 @@
  * inert/scroll/focus). `role="status"` + the sr-only label carry the a11y; the
  * visible cogitator and Back cue are `aria-hidden`.
  */
+import SternwarteRings from "./SternwarteRings";
+
 export default function DetailModalSkeleton() {
   return (
     <div className="detail-modal-root" data-detail-modal>
@@ -23,7 +25,7 @@ export default function DetailModalSkeleton() {
         <span className="cogitator-loading__sr">Loading…</span>
         <div className="lx-cog" aria-hidden>
           <div className="lx-cog__core">
-            <span className="lx-cog__ring" />
+            <SternwarteRings className="lx-cog__rings" />
             <span className="lx-cog__seed" />
           </div>
           <p className="lx-cog__eyebrow">{"COGNITIO LINK · ESTABLISHING"}</p>

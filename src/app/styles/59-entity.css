@@ -79,7 +79,7 @@ main.entity::before {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label);
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -119,7 +119,7 @@ main.entity::before {
 
 .entity-view__eyebrow {
   margin: 0;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label);
   letter-spacing: 0.24em;
   text-transform: uppercase;
@@ -128,7 +128,7 @@ main.entity::before {
 
 .entity-view__title {
   margin: 14px 0 0;
-  font-family: var(--font-cinzel), serif;
+  font-family: var(--font-display);
   font-weight: 500;
   font-size: clamp(36px, 4vw, 56px);
   letter-spacing: 0.04em;
@@ -139,7 +139,7 @@ main.entity::before {
 
 .entity-view__oneline {
   margin: 16px 0 0;
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-body);
   font-style: italic;
   font-size: var(--fs-read-lg);
   font-weight: var(--fw-read);
@@ -149,7 +149,7 @@ main.entity::before {
 /* Meta-line — 1–3 hoisted facts under the title. */
 .entity-view__meta {
   margin: 18px 0 0;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label-lg);
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -194,7 +194,7 @@ main.entity::before {
 
 .entity-view__blurb-text {
   margin: 0;
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-body);
   /* Standard body (24px desktop) — dropped from the lead-body --fs-read-lg to
      match the book synopsis (maintainer polish 2026-06-19). */
   font-size: var(--fs-read);
@@ -211,7 +211,7 @@ main.entity::before {
   display: inline-flex;
   align-items: center;
   margin-top: 12px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -272,7 +272,7 @@ main.entity::before {
   align-items: center;
   gap: 14px;
   margin: 0 0 10px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label);
   font-weight: 400;
   letter-spacing: 0.24em;
@@ -297,7 +297,7 @@ main.entity::before {
 
 .entity-view__subsection-label {
   margin: 0 0 8px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label);
   font-weight: 400;
   letter-spacing: 0.2em;
@@ -322,7 +322,7 @@ main.entity::before {
 
 .entity-view__fact-term {
   flex: 0 0 150px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label);
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -332,7 +332,7 @@ main.entity::before {
 .entity-view__fact-val {
   margin: 0;
   min-width: 0;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label-lg);
   letter-spacing: 0.04em;
   color: var(--cl-bone);
@@ -368,7 +368,7 @@ main.entity::before {
   gap: 11px;
   margin: 0;
   padding: 9px 2px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label);
   font-weight: 400;
   letter-spacing: 0.2em;
@@ -448,7 +448,7 @@ main.entity::before {
 }
 
 .entity-view__card-title {
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-body);
   font-size: var(--fs-read);
   font-weight: var(--fw-read);
   line-height: 1.22;
@@ -461,7 +461,7 @@ main.entity::before {
 }
 
 .entity-view__card-meta {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -493,7 +493,7 @@ main.entity::before {
 .entity-view__chip {
   display: inline-flex;
   align-items: center;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label);
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -511,7 +511,7 @@ main.entity::before {
 .entity-view__chip--link:hover {
   color: var(--cl-gold);
   border-color: var(--cl-gold-dim);
-  background: rgba(201, 166, 90, 0.08);
+  background: rgba(164, 140, 82, 0.08);
 }
 
 .entity-view__chip--mute {
@@ -527,7 +527,7 @@ main.entity::before {
 
 .entity-view__rail-note {
   margin: 18px 0 0;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -538,7 +538,7 @@ main.entity::before {
 
 .entity-view__empty {
   margin: 32px 0 0;
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-body);
   font-style: italic;
   font-size: var(--fs-read);
   font-weight: var(--fw-read);

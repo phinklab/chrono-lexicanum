@@ -110,6 +110,9 @@ export default function FactionCarousel({
       {/* Jump rail — every faction, the active one marked. Doubles as the
           position indicator and replaces the old vertical roster (no navigation,
           so picking a faction never jumps the page to the top). */}
+      <p className="ofob__step">
+        <span className="ofob__step-n">I</span>Choose your faction
+      </p>
       <div className="ofob__rail-wrap">
         <ul className="ofob__rail" aria-label="Choose a faction">
           {nodes.map((node, i) => {
@@ -151,25 +154,34 @@ export default function FactionCarousel({
           <h2 className="ofob__faction">{faction.label}</h2>
 
           {showChapters && (
-            <div className="ofob__chapters" aria-label={`${faction.label} chapters`}>
-              {facets.map((f, i) => {
-                const active = i === safeFacet;
-                return (
-                  <button
-                    key={f.key}
-                    type="button"
-                    className="ofob__chapter"
-                    data-active={active}
-                    aria-pressed={active}
-                    onClick={() => setFacetIndex(i)}
-                  >
-                    {f.label}
-                  </button>
-                );
-              })}
-            </div>
+            <>
+              <p className="ofob__step">
+                <span className="ofob__step-n">II</span>Narrow to a chapter
+                <span className="ofob__step-note"> — optional</span>
+              </p>
+              <div className="ofob__chapters" aria-label={`${faction.label} chapters`}>
+                {facets.map((f, i) => {
+                  const active = i === safeFacet;
+                  return (
+                    <button
+                      key={f.key}
+                      type="button"
+                      className="ofob__chapter"
+                      data-active={active}
+                      aria-pressed={active}
+                      onClick={() => setFacetIndex(i)}
+                    >
+                      {f.label}
+                    </button>
+                  );
+                })}
+              </div>
+            </>
           )}
 
+          <p className="ofob__step">
+            <span className="ofob__step-n">III</span>Your entry point
+          </p>
           {facet.picks.length > 0 ? (
             <FactionPickPanel
               key={`${faction.slug}:${facet.key}`}

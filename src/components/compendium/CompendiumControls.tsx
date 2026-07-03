@@ -11,10 +11,9 @@
  * The facet axis is parameterised: factions pass `alignment` pills, the other
  * categories pass none and the bar shows only search + sort.
  *
- * Layout mirrors /werke's two-row query console (66-compendium.css dissolves the
- * boxed `.browse-filters` into a column): an elegant serif search line under a
- * cyan hairline on top, the quieter facet/sort pills wrapped in `.browse-controls`
- * below. The leading auspex sigil matches the /werke + /podcasts search mark.
+ * Layout is the shared browse console (61-browse.css): the centred seek line
+ * on top (Enter commits), the quieter facet/sort text options in
+ * `.browse-controls` below.
  */
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { useState, type FormEvent } from "react";
@@ -83,32 +82,24 @@ export default function CompendiumControls({
       aria-label={`Filter the ${noun} directory`}
     >
       <form className="browse-search" role="search" onSubmit={onSearchSubmit}>
-        <svg className="browse-search__sigil" viewBox="0 0 16 16" aria-hidden>
-          <circle
-            cx="8"
-            cy="8"
-            r="5.4"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1"
-          />
-          <path
-            d="M8 0.5v3M8 12.5v3M0.5 8h3M12.5 8h3"
-            stroke="currentColor"
-            strokeWidth="1"
-          />
-        </svg>
         <input
           type="search"
           className="browse-search__input"
           placeholder={`Find a ${noun}…`}
-          aria-label={`Search ${noun}s by name`}
+          aria-label={`Search ${noun}s by name — press Enter to apply`}
           value={q}
           onChange={(e) => setQ(e.target.value)}
         />
-        <button type="submit" className="browse-search__go" aria-label="Search">
-          →
-        </button>
+        {qParam && (
+          <button
+            type="button"
+            className="browse-search__clear"
+            aria-label="Clear search"
+            onClick={() => setParam("q", null)}
+          >
+            ×
+          </button>
+        )}
       </form>
 
       <div className="browse-controls">

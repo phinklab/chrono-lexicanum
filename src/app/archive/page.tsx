@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FORMAT_LABELS } from "@/lib/book-labels";
-import { factionIconClass, primaryRowFaction } from "@/lib/faction-icon";
-import FactionClassIcon from "@/components/chrome/FactionClassIcon";
+import { primaryRowFaction } from "@/lib/faction-icon";
 import SiteBackground from "@/components/chrome/SiteBackground";
-import AuspexSweep from "@/components/chrono/AuspexSweep";
+import AuspexPair from "@/components/chrono/AuspexPair";
 import FloatingCoord from "@/components/chrono/FloatingCoord";
 import GhostReadout from "@/components/chrono/GhostReadout";
 import ScrollScrim from "@/components/chrome/ScrollScrim";
 import RouteScrollCue from "@/components/chrome/RouteScrollCue";
 import CompendiumFocusOpener from "@/components/compendium/CompendiumFocusOpener";
+import ArchiveModeToggle from "@/components/archive/ArchiveModeToggle";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";
 import WerkeFilters from "./WerkeFilters";
 import { bookSlugById, loadBrowseBooks, type BrowseBook } from "./loader";
@@ -27,7 +27,6 @@ import {
   FORMAT_ORDER,
   isFiltered,
   parseWorksParams,
-  type WorksParams,
 } from "./filters";
 
 export const metadata: Metadata = {
@@ -40,39 +39,16 @@ interface WerkePageProps {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }
 
-const READOUT_LINES = [
-  "· ARCHIVVM · LIBRORVM / VOX",
-  "· INDEX MOUNTED · 7 ERAS",
-  "· FILTER · FACTIO / FORMA",
-  "· LECTIO PROFVNDA · READY",
-  "· SORT · TITVLVS / ANNVS / CHRONO",
-  "· COGNITIO LINK STABLE",
+const VOX_LINES = [
+  "Signatvr 0447 · verified",
+  "Cross-ref · Magnus the Red",
+  "Rvbrica · The Horus Heresy",
+  "Access granted · Lectorivm III",
+  "Imprimatvr · Ordo Chronos",
 ];
-
-function formatMBand(startY: number | null, endY: number | null): string | null {
-  if (startY == null && endY == null) return null;
-  const fmt = (v: number) => `M${v.toFixed(3)}`;
-  if (startY != null && endY != null && Math.abs(startY - endY) < 0.001) {
-    return fmt(startY);
-  }
-  if (startY != null && endY != null) return `${fmt(startY)} – ${fmt(endY)}`;
-  return fmt((startY ?? endY) as number);
-}
 
 function formatLabel(format: string | null): string | null {
   return format ? FORMAT_LABELS[format] ?? format : null;
-}
-
-/** Build an `/archive` href that keeps the current filters and overrides one key. */
-function hrefWith(base: WorksParams, key: string, value: string): string {
-  const sp = new URLSearchParams();
-  if (base.q) sp.set("q", base.q);
-  if (base.faction) sp.set("faction", base.faction);
-  if (base.format) sp.set("format", base.format);
-  if (base.facet) sp.set("facet", base.facet);
-  if (base.sort !== "title") sp.set("sort", base.sort);
-  sp.set(key, value);
-  return `/archive?${sp.toString()}`;
 }
 
 export default async function WerkePage({ searchParams }: WerkePageProps) {
@@ -101,9 +77,8 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
   const focusId = Array.isArray(focusRaw) ? focusRaw[0] : focusRaw;
   const focusSlug = focusId ? await bookSlugById(focusId) : null;
 
-  // Filter options reflect what the data actually carries (Brief: "soweit
-  // vorhandene Daten es tragen"). Era was dropped in the polish pass — it lives
-  // on as detail inside each expanded row, not as a top-level filter/column.
+  // Filter options reflect what the data actually carries. Era lives inside
+  // the record popup, not as a top-level filter/column.
   const factionMap = new Map<string, string>();
   for (const b of books) for (const f of b.factions) factionMap.set(f.id, f.name);
   const factionOptions = [...factionMap.entries()]
@@ -144,55 +119,38 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
     <main className="catalogue catalogue--werke">
       <SiteBackground variant="main" position="right bottom" />
       {focusSlug ? <CompendiumFocusOpener href={`/buch/${focusSlug}`} /> : null}
+      <GhostReadout lines={VOX_LINES} />
+
       <section className="catalogue-hero route-act" aria-label="Archive — the media archive">
-        <ScrollScrim maxOpacity={0.77} />
-        <div className="catalogue-hero__sweep" aria-hidden>
-          <AuspexSweep r={180} sweepDuration={18} accent="var(--cl-gold)" />
-        </div>
-        <div className="werke-hero__readout" aria-hidden>
-          <GhostReadout
-            color="var(--cl-gold)"
-            opacity={0.34}
-            lineMs={5200}
-            typeSpeed={80}
-            max={4}
-            lines={READOUT_LINES}
-          />
-        </div>
-        <FloatingCoord
-          x="42%"
-          y="120px"
-          label="ROUTE · SEGMENTVM ULTIMA"
-          delay={1.2}
-          lifetime={5}
-          color="var(--cl-gold)"
-          opacity={0.55}
+        <ScrollScrim
+          className="site-scrim"
+          varName="--scrim-o"
+          heroSelector=".catalogue-hero"
+          maxOpacity={0.94}
         />
-        <FloatingCoord
-          x="58%"
-          y="220px"
-          label="HIT · BAAL · M41"
-          delay={3.0}
-          lifetime={5}
-          color="var(--cl-gold)"
-          opacity={0.55}
+        <AuspexPair />
+        <FloatingCoord x="10%" y="32%" label="Index mounted · VII eras" delay={9} />
+
+        <p className="catalogue-hero__over">The Index</p>
+        <h1 className="catalogue-hero__heading">The Archive</h1>
+        <p className="catalogue-hero__edition">
+          Every book and every voice of the archive, in one register.
+        </p>
+        <RouteScrollCue
+          className="route-cue--flow"
+          label="Choose your archive"
+          target=".catalogue-body"
         />
-        <div className="catalogue-hero__title">
-          <div className="catalogue-hero__eyebrow">{"ARCHIVVM · LIBRORVM ET VOCVM"}</div>
-          <h1 className="catalogue-hero__heading">ARCHIVE</h1>
-          <div className="catalogue-hero__rule" aria-hidden />
-          <p className="catalogue-hero__sub">
-            {books.length === 0
-              ? "No archive records in the database yet."
-              : `${books.length} novels, ${podcastData.episodes.length} podcast episodes and ${podcastData.shows.length} shows in one searchable archive.`}
-          </p>
-        </div>
-        <RouteScrollCue label="Search the archive" target=".catalogue-body" />
       </section>
 
       <div className="catalogue-body route-body-snap">
-        {/* Search console first, centred under the masthead text (maintainer
-            adjustment 2026-06-11); the count line follows below it. */}
+        {/* The archive choice — the first and largest element of the nave. */}
+        <ArchiveModeToggle
+          active="books"
+          booksLine={`${books.length} novels, novellas & audio dramas`}
+          podcastsLine={`${podcastData.episodes.length} episodes · ${podcastData.shows.length} shows`}
+        />
+
         {books.length > 0 && (
           <WerkeFilters
             factions={factionOptions}
@@ -202,17 +160,10 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
           />
         )}
 
-        <div className="catalogue-toolbar">
-          <div className="catalogue-toolbar__left">
-            <span className="catalogue-toolbar__count">{filtered.length} · SHOWN</span>
-            <span className="catalogue-toolbar__total">/ {books.length} works</span>
-            {params.q && (
-              <span className="catalogue-toolbar__query">
-                for <span className="catalogue-toolbar__query-term">“{params.q}”</span>
-              </span>
-            )}
-          </div>
-        </div>
+        <p className="catalogue-census">
+          <b>{filtered.length} · shown</b> / {books.length} works
+          {params.q && <> — for “{params.q}”</>}
+        </p>
 
         {books.length === 0 ? (
           <div className="catalogue-empty">
@@ -224,144 +175,45 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
             the search.
           </div>
         ) : (
-          <ol className="catalogue-list">
+          <ol className="catalogue-list reveal">
             {filtered.map((b, i) => (
               <li key={b.id}>
-                <WorkRow book={b} index={i} params={params} />
+                <WorkRow book={b} index={i} />
               </li>
             ))}
           </ol>
         )}
 
-        <ArchiveFooter mid="CLICK ANY TITLE · LECTIO PROFVNDA" />
+        <ArchiveFooter mid="Click any title to open its record" />
       </div>
     </main>
   );
 }
 
-function WorkRow({
-  book,
-  index,
-  params,
-}: {
-  book: BrowseBook;
-  index: number;
-  params: WorksParams;
-}) {
-  const mBand = formatMBand(book.startY, book.endY);
+/** One register row — the whole row is a link; a soft-nav to /buch/[slug] is
+ *  intercepted by the root @modal slot, so the record opens as a popup over
+ *  the still-mounted register. */
+function WorkRow({ book, index }: { book: BrowseBook; index: number }) {
   const fmt = formatLabel(book.format);
-  const isAudio = book.format === "audio_drama";
-  const isEnriched =
-    typeof book.synopsis === "string" && book.synopsis.trim().length > 0;
-  const metaParts = [
-    fmt,
-    book.pageCount != null ? `${book.pageCount} pp.` : null,
-    book.eraName,
-    mBand,
-    book.releaseYear != null ? String(book.releaseYear) : null,
-  ].filter((v): v is string => Boolean(v));
-
   const rowFaction = primaryRowFaction(book.factions);
-  const primaryFaction = rowFaction?.name ?? null;
 
   return (
-    <details className={`catalogue-row${isEnriched ? " is-enriched" : " is-stub"}`}>
-      <summary className="catalogue-row__summary">
-        <span className="catalogue-row__index">{String(index + 1).padStart(3, "0")}</span>
-        <FactionClassIcon cls={factionIconClass(rowFaction)} label={primaryFaction} />
-        <div className="catalogue-row__main">
-          <span className="catalogue-row__title">{book.title}</span>
-          {book.authors.length > 0 && (
-            <span className="catalogue-row__byline">by {book.authors.join(", ")}</span>
-          )}
-        </div>
-        <span className="catalogue-row__faction" title={primaryFaction ?? undefined}>{primaryFaction ?? "—"}</span>
-        <span className="catalogue-row__year">
-          {book.releaseYear != null ? book.releaseYear : "—"}
-        </span>
-        <div className="catalogue-row__chips">
-          {fmt && (
-            <span className="catalogue-chip catalogue-chip--enriched">
-              {isAudio ? "AUDIO" : fmt}
-            </span>
-          )}
-        </div>
-        <span className="catalogue-row__chevron" aria-hidden>›</span>
-      </summary>
-
-      <div className="catalogue-row__detail">
-        <div className="catalogue-row__cover">
-          {book.coverUrl ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src={book.coverUrl} alt="" loading="lazy" width={140} height={210} />
-          ) : (
-            <div className="catalogue-row__cover-placeholder" aria-hidden>
-              ?
-            </div>
-          )}
-        </div>
-
-        <div className="catalogue-row__body">
-          {metaParts.length > 0 && (
-            <p className="catalogue-row__meta">{metaParts.join(" · ")}</p>
-          )}
-
-          {book.synopsis && (
-            <p className="catalogue-row__synopsis lx-initial">{book.synopsis}</p>
-          )}
-
-          {book.factions.length > 0 && (
-            <div className="catalogue-row__tagrow">
-              <span className="catalogue-row__tagrow-label">Factions</span>
-              <ul className="catalogue-row__tags">
-                {book.factions.map((f) => (
-                  <li key={f.id} className="catalogue-tag catalogue-tag--faction">
-                    <Link href={hrefWith(params, "faction", f.id)}>{f.name}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {book.facets.length > 0 && (
-            <div className="catalogue-row__tagrow">
-              <span className="catalogue-row__tagrow-label">Facets</span>
-              <ul className="catalogue-row__tags">
-                {book.facets.map((f) => (
-                  <li
-                    key={f.id}
-                    className="catalogue-tag catalogue-tag--facet"
-                    title={f.categoryName ?? f.categoryId}
-                  >
-                    <Link href={hrefWith(params, "facet", f.id)}>
-                      {f.categoryName ? (
-                        <>
-                          <span className="catalogue-tag__key">{f.categoryName}:</span>{" "}
-                          {f.name}
-                        </>
-                      ) : (
-                        f.name
-                      )}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          <footer className="catalogue-row__footer">
-            {book.seriesName && (
-              <span className="catalogue-row__series">
-                {book.seriesName}
-                {book.seriesIndex ? ` #${book.seriesIndex}` : ""}
-              </span>
-            )}
-            <Link href={`/buch/${book.slug}`} className="catalogue-row__link">
-              Open book →
-            </Link>
-          </footer>
-        </div>
-      </div>
-    </details>
+    <Link href={`/buch/${book.slug}`} className="catalogue-row">
+      <span className="catalogue-row__index">{String(index + 1).padStart(3, "0")}</span>
+      <span className="catalogue-row__main">
+        <span className="catalogue-row__title">{book.title}</span>
+        {book.authors.length > 0 && (
+          <span className="catalogue-row__byline">by {book.authors.join(", ")}</span>
+        )}
+      </span>
+      <span className="catalogue-row__faction">{rowFaction?.name ?? "—"}</span>
+      <span className="catalogue-row__year">
+        {book.releaseYear != null ? book.releaseYear : "—"}
+      </span>
+      <span className="catalogue-row__format">{fmt ?? "—"}</span>
+      <span className="catalogue-row__chevron" aria-hidden>
+        ▾
+      </span>
+    </Link>
   );
 }

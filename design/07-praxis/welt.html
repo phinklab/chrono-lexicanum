@@ -1,0 +1,308 @@
+<!-- ======================================================================
+     RUNDE 9 — PRAXIS · Nachbau der Live-Seite /welt/[slug]
+     (Prospero) in der Kathedrale-Sprache. Nur Optik + vorstellbare
+     Interaktion. Live-Struktur (EntityView + EntityHeader/Facts/Blurb +
+     RelatedWorks + CrossLinkRail + EntityBackLink): Kopf mit Eyebrow /
+     Name / Tagline / Meta-Zeile, Dossier-Faktentafel, kuratierter Blurb
+     mit Quelle, Related Works nach Gattung gruppiert, Connections-Rail.
+     Übersetzung: Kopf = kompaktes Titelblatt (Riesen-Name als Cover-
+     Ersatz), Dossier = Katalogisat-Tafel, Blurb = Synopsis-Sprache mit
+     stillem Quellen-Verweis, Works = Register-Zeilen, Connections =
+     Querverweis-Zeilen. Gleiche Schablone für welt.html (Prospero) und
+     charakter.html (Magnus) — dieselbe EntityView trägt live alle Arten.
+     Artwork: public/img/vista.webp (wie live). Runde 9: geteiltes
+     Fundament praxis.css/praxis.js (Live-BG + Farb-Picker, Auspex-
+     Zwillinge leise, Cue-Tropfen, cl09) — Details in der Studien-Notiz.
+     ====================================================================== -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Praxis — Prospero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cardo:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400..900&family=Fragment+Mono:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="praxis.css">
+
+<style>
+
+
+
+  /* ── Titelblatt: der Name als Cover-Ersatz ────────────────────────── */
+  .titlepage {
+    position: relative;
+    min-height: 78vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: flex-end;
+    text-align: center;
+    padding: 0 20px 6vh;
+  }
+  .titlepage .crumb, .titlepage .over, .titlepage h1,
+  .titlepage .tagline, .titlepage .meta, .titlepage .cue {
+    position: relative; z-index: 3;
+  }
+  .titlepage .crumb {
+    font-style: italic; font-size: 16.5px; color: var(--dim);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+    animation: enter 0.9s 0.1s var(--ease) both;
+  }
+  .titlepage .crumb a { transition: color 0.3s; }
+  .titlepage .crumb a:hover { color: var(--gold); }
+  .titlepage .over {
+    margin-top: 28px;
+    font-size: 13.5px; letter-spacing: 0.36em; text-transform: uppercase;
+    color: var(--gold);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+    animation: enter 1s 0.3s var(--ease) both;
+  }
+  .titlepage h1 {
+    margin-top: 18px;
+    font-family: var(--disp);
+    font-weight: var(--disp-wght-hero);
+    font-optical-sizing: auto;
+    font-size: clamp(46px, 8vw, 116px);
+    line-height: 0.98;
+    letter-spacing: var(--disp-track);
+    max-width: 14ch;
+    text-shadow: 0 3px 34px rgba(0,0,0,0.9);
+    animation: enterTitle 1.35s 0.55s var(--ease) both;
+  }
+  .titlepage .tagline {
+    margin-top: 22px;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--dim);
+    max-width: 54ch;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+    animation: enter 1s 0.95s var(--ease) both;
+  }
+  .titlepage .cue {
+    margin-top: 4vh;
+    animation: enter 1s 1.35s var(--ease) both;
+  }
+
+  main { max-width: 840px; margin: 0 auto; padding: 8vh 24px 90px; }
+
+  h2.section {
+    text-align: center;
+    display: flex; align-items: center; gap: 26px;
+    font-size: 14.5px; letter-spacing: 0.34em; text-transform: uppercase;
+    color: var(--gold); font-weight: 400;
+    margin: 84px 0 30px;
+  }
+  h2.section::before, h2.section::after {
+    content: ""; flex: 1; border-top: 1px solid var(--hair);
+    transform: scaleX(0);
+    transition: transform 1.15s var(--ease) 0.2s;
+  }
+  h2.section::before { transform-origin: right center; }
+  h2.section::after  { transform-origin: left center; }
+  h2.section.is-seen::before, h2.section.is-seen::after { transform: scaleX(1); }
+  h2.section:first-child { margin-top: 0; }
+
+  /* Dossier: die Katalogisat-Tafel */
+  table.katalogisat {
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-size: 18px;
+  }
+  .katalogisat th {
+    text-align: right;
+    font-weight: 400;
+    font-size: 13.5px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--faint);
+    padding: 9px 26px 9px 0;
+    border-right: 1px solid var(--hair);
+    white-space: nowrap;
+    vertical-align: baseline;
+  }
+  .katalogisat td { padding: 9px 0 9px 26px; vertical-align: baseline; }
+  .katalogisat td .note { font-style: italic; color: var(--faint); font-size: 16px; }
+  .katalogisat td.chrono { font-family: var(--mono); font-size: 16.5px; color: var(--gold); font-variant-numeric: tabular-nums; }
+  .katalogisat td a { border-bottom: 1px solid var(--hair); transition: color 0.3s, border-color 0.3s; }
+  .katalogisat td a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+  /* Blurb: Synopsis-Sprache + stiller Quellen-Verweis */
+  .record { max-width: 60ch; margin: 0 auto; }
+  .record p { text-align: justify; hyphens: auto; color: var(--dim); }
+  .record p::first-line { letter-spacing: 0.14em; text-transform: uppercase; font-size: 16.5px; }
+  .record .cite {
+    margin-top: 16px;
+    text-align: center;
+    font-style: italic; font-size: 15.5px; color: var(--faint);
+  }
+  .record .cite a { border-bottom: 1px solid transparent; transition: color 0.3s, border-color 0.3s; }
+  .record .cite a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+  .record .cite .mark { color: var(--gold); padding-left: 5px; }
+
+  /* Related Works: Register-Zeilen, nach Gattung gruppiert */
+  .works { border-top: 1px solid var(--hair); }
+  .wk-group {
+    display: flex; align-items: baseline; gap: 16px;
+    padding: 22px 14px 6px;
+    font-size: 13px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--faint);
+  }
+  .wk-group b { color: var(--dim); font-weight: 400; }
+  a.wk-row {
+    display: grid;
+    grid-template-columns: 54px minmax(0, 1fr) 64px 22px;
+    gap: 0 18px;
+    align-items: baseline;
+    padding: 14px;
+    border-bottom: 1px solid var(--hair-soft);
+    transition: background 0.3s;
+  }
+  a.wk-row:hover { background: rgba(228, 221, 203, 0.03); }
+  .wk-idx { font-family: var(--mono); font-size: 13px; color: var(--faint); font-variant-numeric: tabular-nums; text-align: right; }
+  .wk-main { display: flex; flex-direction: column; gap: 2px; }
+  .wk-title {
+    font-family: var(--disp); font-weight: var(--disp-wght);
+    font-size: 22px; line-height: 1.15;
+    transition: color 0.3s;
+  }
+  a.wk-row:hover .wk-title { color: var(--gold); }
+  .wk-meta { font-style: italic; font-size: 16.5px; color: var(--dim); }
+  .wk-meta .role { color: var(--faint); }
+  .wk-year { font-family: var(--mono); font-size: 14px; color: var(--dim); font-variant-numeric: tabular-nums; text-align: right; }
+  .wk-mark { font-size: 15px; color: var(--faint); transition: color 0.3s; }
+  a.wk-row:hover .wk-mark { color: var(--gold); }
+  .wk-more { text-align: center; padding: 20px 0 0; font-style: italic; font-size: 16.5px; color: var(--faint); }
+  .wk-act { text-align: center; margin-top: 24px; }
+
+  /* Connections: Querverweis-Zeilen */
+  .xrefs { max-width: 560px; margin: 0 auto; }
+  .xref { display: flex; align-items: baseline; gap: 20px; padding: 12px 0; border-bottom: 1px solid var(--hair-soft); }
+  .xref .xk {
+    flex: none; width: 150px; text-align: right;
+    font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--faint);
+  }
+  .xref .xv { font-size: 18px; }
+  .xref .xv a { border-bottom: 1px solid var(--hair); transition: color 0.3s, border-color 0.3s; }
+  .xref .xv a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+  .xref .xv .sep { color: var(--faint); padding: 0 8px; }
+
+
+
+
+  @media (max-width: 720px) {
+    .katalogisat th { padding-right: 14px; }
+    .katalogisat td { padding-left: 14px; }
+    a.wk-row { grid-template-columns: 40px minmax(0, 1fr) 22px; }
+    .wk-year { display: none; }
+    .xref { flex-direction: column; gap: 4px; }
+    .xref .xk { width: auto; text-align: left; }
+  }
+</style>
+
+<div class="bg" aria-hidden="true" style="--art: url('../../public/img/vista.webp'); --art-pos: 50% 32%;">
+  <div class="photo"></div>
+  <div class="vignette"></div>
+  <div class="fade"></div>
+  <div class="scrim" id="scrim"></div>
+  <div class="grain"></div>
+</div>
+
+<nav class="rail" aria-label="Primary">
+  <a href="hub.html"><span class="rn">I</span><span class="rt">Home</span></a>
+  <a href="archiv.html"><span class="rn">II</span><span class="rt">Archive</span></a>
+  <a href="kompendium.html" class="here" aria-current="page"><span class="rn">III</span><span class="rt">Compendium</span></a>
+  <a href="ask.html"><span class="rn">IV</span><span class="rt">Ask</span></a>
+  <a href="chronik.html"><span class="rn">V</span><span class="rt">Chronicle</span></a>
+  <a href="#"><span class="rn">VI</span><span class="rt">Cartographer</span></a>
+</nav>
+
+<div class="brand">Chrono Lexicanum</div>
+<div class="vox" id="vox" aria-hidden="true" data-lines='["Mvndvs · Prospero", "Segmentvm Vltima · gx 74 gy 22", "Statvs · rvined · 004.M31", "Cross-ref · Tizca · Nikaea", "Coverage · XXI works"]'></div>
+
+<section class="titlepage">
+  <!-- Die zwei Live-Auspex-Scheiben (Runde 9), leise Ausgabe -->
+  <div class="auspex-pair auspex-pair--quiet" aria-hidden="true">
+    <div class="aus aus--main" data-auspex="520"></div>
+    <div class="aus aus--sec" data-auspex="300" style="--spa: 360s; --spb: 440s; --spc: 242s;"></div>
+  </div>
+  <span class="survey" style="left: 10%; top: 30%; --d: 8s;" aria-hidden="true">
+    <span class="pt"></span><span class="lead"></span><span class="lbl">Mvndvs · gx 74 · gy 22</span>
+  </span>
+
+  <p class="crumb"><a href="kompendium.html">← Worlds — the Compendium</a></p>
+  <p class="over">World · Segmentum Ultima</p>
+  <h1>Prospero</h1>
+  <p class="tagline">Homeworld of the Thousand Sons — the City of Light, and the pyre it became.</p>
+  <span class="cue">The dossier</span>
+</section>
+
+<main>
+
+  <h2 class="section reveal">Dossier</h2>
+  <table class="katalogisat reveal">
+    <tr><th>Segmentum</th><td>Ultima</td></tr>
+    <tr><th>Cartographer grid</th><td class="chrono">gx 74 · gy 22</td></tr>
+    <tr><th>Designation</th><td>Ruined world <span class="note">· the Burning of Prospero</span></td></tr>
+    <tr><th>Ruined</th><td class="chrono">004.M31</td></tr>
+    <tr><th>Bound to</th><td><a href="fraktion.html">Thousand Sons</a> <span class="note">· <a href="charakter.html">Magnus the Red</a></span></td></tr>
+    <tr><th>Coverage</th><td>21 works <span class="note">· the archive&rsquo;s eighth most-visited world</span></td></tr>
+  </table>
+
+  <h2 class="section reveal">The Record</h2>
+  <div class="record reveal">
+    <p>The homeworld of the Thousand Sons, destroyed by the Space Wolves in the campaign known as the Burning of Prospero. Its capital Tizca — the City of Light, all glass pyramids and libraries — was the finest repository of knowledge outside Terra, which is precisely why it burned.</p>
+    <p class="cite">Source — <a href="#">Lexicanum<span class="mark">↗</span></a> · curated, confidence 0.95</p>
+  </div>
+
+  <h2 class="section reveal">Related Works</h2>
+  <section class="works reveal">
+    <p class="wk-group"><b>Novels</b> · 4 shown of 17</p>
+    <a class="wk-row" href="buch.html">
+      <span class="wk-idx">001</span>
+      <span class="wk-main"><span class="wk-title">A Thousand Sons</span><span class="wk-meta">Graham McNeill · <span class="role">primary</span></span></span>
+      <span class="wk-year">2010</span>
+      <span class="wk-mark" aria-hidden="true">›</span>
+    </a>
+    <a class="wk-row" href="#">
+      <span class="wk-idx">002</span>
+      <span class="wk-main"><span class="wk-title">Prospero Burns</span><span class="wk-meta">Dan Abnett · <span class="role">primary</span></span></span>
+      <span class="wk-year">2010</span>
+      <span class="wk-mark" aria-hidden="true">›</span>
+    </a>
+    <a class="wk-row" href="#">
+      <span class="wk-idx">003</span>
+      <span class="wk-main"><span class="wk-title">The Crimson King</span><span class="wk-meta">Graham McNeill · <span class="role">supporting</span></span></span>
+      <span class="wk-year">2017</span>
+      <span class="wk-mark" aria-hidden="true">›</span>
+    </a>
+    <a class="wk-row" href="#">
+      <span class="wk-idx">004</span>
+      <span class="wk-main"><span class="wk-title">Ahriman: Exile</span><span class="wk-meta">John French · <span class="role">appears</span></span></span>
+      <span class="wk-year">2013</span>
+      <span class="wk-mark" aria-hidden="true">›</span>
+    </a>
+    <p class="wk-group"><b>Podcast episodes</b> · 1 shown of 4</p>
+    <a class="wk-row" href="#">
+      <span class="wk-idx">005</span>
+      <span class="wk-main"><span class="wk-title">The Burning of Prospero</span><span class="wk-meta">Luetin09 · <span class="role">lore episode</span></span></span>
+      <span class="wk-year">2020</span>
+      <span class="wk-mark" aria-hidden="true">›</span>
+    </a>
+    <p class="wk-more">…and 16 further records in the archive.</p>
+    <p class="wk-act"><a class="btn" href="archiv.html">Browse all 21 works<span class="mark">→</span></a></p>
+  </section>
+
+  <h2 class="section reveal">Cross-References</h2>
+  <div class="xrefs reveal">
+    <div class="xref"><span class="xk">In this system</span><span class="xv"><a href="#">Tizca</a><span class="sep">·</span><a href="#">Nikaea</a></span></div>
+    <div class="xref"><span class="xk">Factions</span><span class="xv"><a href="fraktion.html">Thousand Sons</a><span class="sep">·</span><a href="#">Space Wolves</a></span></div>
+    <div class="xref"><span class="xk">Key characters</span><span class="xv"><a href="charakter.html">Magnus the Red</a><span class="sep">·</span><a href="#">Ahzek Ahriman</a></span></div>
+  </div>
+
+</main>
+
+<details class="study-note">
+  <summary>Studien-Notiz · Runde 9 — Praxis (Nachbau /welt, Entity)</summary>
+  <div class="body">
+    <p><b>Runde 9 (Philipps Review):</b> Hintergrund = Live-BG (vista.webp über Live-Void #02030a + Live-Vignette/-Fade/Grain; Grund über das Studio-Panel pickbar), die zwei Live-Auspex-Scheiben in der leisen Ausgabe statt des kleinen Astrolabs (Ringe enger, ohne Sweep), die Meta-Zeile im Titelblatt ist raus (Doppelung mit dem Dossier direkt darunter — Infoload-Politik), der Cue-Strich fadet nach unten aus + Lichttropfen, Wortmarke ohne Trennpunkt, Schriftgrößen gehoben. Geteilte Blöcke leben in praxis.css/praxis.js (Keys cl09).</p>
+    <p><b>Live-Struktur übersetzt</b> (EntityView + EntityHeader/EntityFacts/EntityBlurb/RelatedWorks/CrossLinkRail/EntityBackLink): der Entity-Kopf wird zum <b>kompakten Titelblatt</b> (Rubrik „World · Segmentum Ultima" statt „MVNDVS · WORLD" — Latein-Politik; Riesen-Name als Cover-Ersatz, kursive Tagline aus dem kuratierten Blurb, Meta-Zeile mit den gehobenen Fakten Sector/Designation). Das <b>Dossier</b> ist die Katalogisat-Tafel der Buch-Seite (gleicher Kontrakt), der <b>Blurb</b> spricht die Synopsis-Sprache mit Versalien-Eingang und stillem Quellen-Verweis (Lexicanum ↗ + Konfidenz — Datenehrlichkeit). <b>Related Works</b> sind Register-Zeilen nach Gattung gruppiert (Rolle kursiv-leise im Meta), die <b>CrossLinkRail</b> wird zur Querverweis-Tafel auf der Mittelachse statt einer Seitenleiste — die Studie hält die Ein-Spalten-Kathedrale durch. Blurb-Text aus location-blurbs.json (Prospero, Konfidenz 0.95); die 21 Werke sind der echte map-worlds-Bestand (n=21), das Cartographer-Grid als Mono-Fakt — der stille Link zur Karte. Schwester-Blätter: fraktion.html (Thousand Sons), charakter.html (Magnus).</p>
+    <p><b>Bewusst weggelassen:</b> CornerAuspex-Deko und „FRACTIO · 1011"-Label (das Astrolab + Vox tragen die Instrumenten-Rolle), Glyph-Sigil-Zeile (Icon-Politik), Overlay-Variante (?focus= im Compendium — die Kapellen-Mechanik aus archiv.html wäre dieselbe Antwort).</p>
+  </div>
+</details>
+
+<script src="praxis.js"></script>

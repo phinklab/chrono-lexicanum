@@ -90,11 +90,6 @@ export default function CompendiumExamplePage() {
     >
       <div className="lex-readout" aria-hidden>
         <GhostReadout
-          color="var(--cl-gold)"
-          opacity={0.3}
-          lineMs={5200}
-          typeSpeed={80}
-          max={4}
           lines={READOUT_LINES}
         />
       </div>
@@ -108,9 +103,6 @@ export default function CompendiumExamplePage() {
         y="150px"
         label="ARCHIVVM · RERVM OMNIVM"
         delay={1.4}
-        lifetime={5}
-        color="var(--cl-gold)"
-        opacity={0.5}
       />
 
       <LexMast

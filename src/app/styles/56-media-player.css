@@ -38,7 +38,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   color: var(--cl-gold);
   pointer-events: none;
 }
@@ -64,7 +64,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label);
   letter-spacing: 0.24em;
   text-transform: uppercase;
@@ -214,7 +214,7 @@
 .media-player__title {
   flex: 1;
   min-width: 0;
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-body);
   font-style: italic;
   /* Pinned to -sm: the player bar is dense chrome — the 22px reading norm
      would blow the 48px bar open. */
@@ -305,7 +305,7 @@
   margin-bottom: 10px;
 }
 .media-player__panel-kicker {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
   letter-spacing: 0.24em;
   text-transform: uppercase;
@@ -324,7 +324,7 @@
   );
 }
 .media-player__panel-sect {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -337,7 +337,7 @@
   display: inline-flex;
   align-items: baseline;
   gap: 5px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -397,7 +397,7 @@
   background: color-mix(in srgb, var(--cl-gold) 6%, transparent);
 }
 .media-player__panel-track-mark {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label);
   letter-spacing: 0.16em;
   color: var(--cl-faint);
@@ -407,7 +407,7 @@
   color: var(--cl-gold);
 }
 .media-player__panel-track-title {
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-body);
   font-style: italic;
   /* Pinned to -sm — dense track rows, same rationale as the bar title. */
   font-size: var(--fs-read-sm);

@@ -134,11 +134,6 @@ export default function ArchiveExamplePage() {
     >
       <div className="lex-readout" aria-hidden>
         <GhostReadout
-          color="var(--cl-gold)"
-          opacity={0.34}
-          lineMs={5200}
-          typeSpeed={80}
-          max={4}
           lines={READOUT_LINES}
         />
       </div>
@@ -150,18 +145,12 @@ export default function ArchiveExamplePage() {
         y="120px"
         label="ROUTE · SEGMENTVM ULTIMA"
         delay={1.2}
-        lifetime={5}
-        color="var(--cl-gold)"
-        opacity={0.55}
       />
       <FloatingCoord
         x="58%"
         y="220px"
         label="HIT · BAAL · M41"
         delay={3.0}
-        lifetime={5}
-        color="var(--cl-gold)"
-        opacity={0.55}
       />
 
       <LexMast

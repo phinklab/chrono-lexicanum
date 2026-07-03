@@ -10,7 +10,7 @@
    overlay, morphed to ×).
 
    Token bridge: the export's parchment/gold/void map onto the house tokens
-   (--cl-bone / --cl-gold / --cl-void; house gold #c9a65a runs warmer than the
+   (--cl-bone / --cl-gold / --cl-void; house gold #a48c52 runs warmer than the
    export's #c9b896 — intended). The cool blue-grey "steel" pair has no project
    token; the literals are scoped to this partial. */
 
@@ -18,9 +18,9 @@
 .site-menu {
   --sm-steel: #7d8799;
   --sm-steel-dim: #566070;
-  --sm-gold-line: rgba(201, 166, 90, 0.22);
-  --sm-mono: var(--font-plex-mono), ui-monospace, monospace;
-  --sm-serif: var(--font-cormorant), Georgia, serif;
+  --sm-gold-line: rgba(164, 140, 82, 0.22);
+  --sm-mono: var(--font-mono);
+  --sm-serif: var(--font-body);
 }
 
 /* ── Burger button ─────────────────────────────────────────────────────── */
@@ -289,7 +289,7 @@
 .site-menu__item a:hover .site-menu__name,
 .site-menu__item a:focus-visible .site-menu__name {
   color: var(--cl-gold);
-  text-shadow: 0 0 28px rgba(201, 166, 90, 0.35);
+  text-shadow: 0 0 28px rgba(164, 140, 82, 0.35);
 }
 .site-menu__item a:hover .site-menu__num {
   color: var(--cl-gold);

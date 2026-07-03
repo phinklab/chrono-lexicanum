@@ -1,0 +1,1051 @@
+<!-- ======================================================================
+     RUNDE 8 — PRAXIS · Nachbau der Live-Seite /timeline (Chronicle) in
+     der Kathedrale-Sprache. Nur Optik + vorstellbare Interaktion, keine
+     tiefe Logik. Live-Struktur (ChronicleStage/CinematicView/IndexView):
+     zwei Ansichten — die Cine-Bühne (ein Event pro Viewport, Era-Band,
+     Dossier + Librarium, Terminus zum Ären-Wechsel) und die Index-
+     Ansicht (flaches Event-Register mit aufklappbarer Zeile). Hier als
+     EINE scrollbare Seite: Bühne oben (#cine), Index darunter (#index),
+     der View-Toggle ist eine Register-Zeile und springt per Anker —
+     genug, um sich beide Modi vorzustellen. Demo-Kapitel: Era III · M31
+     (The Horus Heresy), Artwork public/timeline/bg/era-horus-heresy.webp
+     wie live. Die 3D-Perlenkette der Live-Site wird zur flachen
+     Etappen-Leiste (Punkte + Mono-Daten) — gleiche Information, ruhiger.
+     ====================================================================== -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Praxis — Chronicle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cardo:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400..900&family=Fragment+Mono:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --void:      #0d0d10;
+    --void-2:    #131318;
+    --bone:      #e4ddcb;
+    --dim:       #9a927e;
+    --faint:     #6a6455;
+    --gold:      #a48c52;
+    --blood:     #8e3b32;
+    --hair:      rgba(228, 221, 203, 0.16);
+    --hair-soft: rgba(228, 221, 203, 0.08);
+    --text:      "Cardo", serif;
+    --mono:      "Fragment Mono", monospace;
+    --disp:           "Cinzel", serif;
+    --disp-wght-hero: 400;
+    --disp-wght:      470;
+    --disp-track:     0.03em;
+    --disp-em:        normal;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  html[data-font="bodoni"] {
+    --disp: "Bodoni Moda", serif;
+    --disp-wght-hero: 480;
+    --disp-wght: 540;
+    --disp-track: 0.01em;
+    --disp-em: italic;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { background: var(--void); scroll-behavior: smooth; }
+  body {
+    font-family: var(--text);
+    color: var(--bone);
+    font-size: 18px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--gold); color: var(--void); }
+  a { color: inherit; text-decoration: none; }
+
+  .bg { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: var(--void); }
+  .bg .photo {
+    position: absolute; inset: 0;
+    background: url("../../public/timeline/bg/era-horus-heresy.webp") center 26% / cover no-repeat;
+  }
+  .bg .fade {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 34%, transparent 42%, rgba(13,13,16,0.5) 100%),
+      linear-gradient(180deg,
+        rgba(13,13,16,0.34) 0%,
+        rgba(13,13,16,0.16) 26%,
+        rgba(13,13,16,0.58) 58%,
+        rgba(13,13,16,0.92) 82%,
+        var(--void) 96%);
+  }
+  .bg .scrim { position: absolute; inset: 0; background: var(--void); opacity: 0; will-change: opacity; }
+  .bg .grain {
+    position: absolute; inset: 0; opacity: 0.10; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size: 160px 160px;
+  }
+
+  .rail {
+    position: fixed; left: 24px; top: 50%; transform: translateY(-50%);
+    z-index: 30;
+    display: flex; flex-direction: column; gap: 22px;
+  }
+  .rail a { position: relative; display: flex; align-items: baseline; gap: 12px; }
+  .rail a::before {
+    content: ""; position: absolute; left: -13px; top: 50%;
+    width: 1px; height: 0;
+    background: var(--gold);
+    transform: translateY(-50%);
+    transition: height 0.5s var(--ease), background 0.3s;
+  }
+  .rail a:hover::before, .rail a:focus-visible::before { height: 10px; background: var(--hair); }
+  .rail a.here::before { height: 20px; background: var(--gold); }
+  .rail .rn {
+    width: 26px; text-align: right; flex: none;
+    font-family: var(--mono);
+    font-size: 12px; letter-spacing: 0.1em;
+    color: var(--faint);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+    transition: color 0.3s;
+  }
+  .rail .rt {
+    font-size: 12.5px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--dim);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.9);
+    transition: color 0.3s, letter-spacing 0.5s var(--ease);
+  }
+  .rail a:hover .rt, .rail a:focus-visible .rt { color: var(--bone); }
+  .rail a.here .rn { color: var(--gold); }
+  .rail a.here .rt { color: var(--gold); letter-spacing: 0.3em; }
+  @media (max-width: 1180px) { .rail { display: none; } }
+
+  .brand {
+    position: fixed; top: 26px; left: 30px; z-index: 25;
+    font-family: var(--disp);
+    font-weight: var(--disp-wght);
+    font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--bone);
+    text-shadow: 0 1px 10px rgba(0,0,0,0.85);
+  }
+  .brand .dot { color: var(--gold); padding: 0 5px; letter-spacing: 0; }
+  @media (max-width: 640px) { .brand { font-size: 11px; left: 20px; top: 20px; } }
+
+  @keyframes voxCh { from { opacity: 0; } }
+  @keyframes voxBlink { 50% { opacity: 0.15; } }
+  .vox {
+    position: fixed; top: 28px; right: 30px; z-index: 25;
+    pointer-events: none;
+    text-align: right;
+  }
+  .vox-line {
+    font-family: var(--mono);
+    font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--bone);
+    line-height: 2.2;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.9);
+    transition: opacity 1.4s ease, transform 1s var(--ease);
+  }
+  .vox-line.out { opacity: 0 !important; transform: translateY(-10px); }
+  .vox-line .ch { animation: voxCh 0.5s ease both; }
+  .vox-caret {
+    display: inline-block; width: 1px; height: 10px; margin-left: 6px;
+    background: var(--gold);
+    vertical-align: -1px;
+    animation: voxBlink 1.6s ease-in-out infinite;
+  }
+  @media (max-width: 980px) { .vox { display: none; } }
+
+  /* ── Era-Band: die acht Kapitel als Stationsleiste (Live: EraBand) ── */
+  .eraband {
+    position: relative;
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 96px 24px 0;
+  }
+  .eb-line { position: relative; border-top: 1px solid var(--hair); }
+  .eb-fill {
+    position: absolute; left: 0; top: -1px;
+    width: 34%;
+    border-top: 1px solid var(--gold);
+  }
+  .eb-stops {
+    display: flex; justify-content: space-between;
+    margin-top: 14px;
+    gap: 6px;
+  }
+  .eb-stop {
+    position: relative;
+    background: none; border: 0; cursor: pointer;
+    font-family: var(--text);
+    text-align: center;
+    color: var(--faint);
+    flex: 1;
+    transition: color 0.3s;
+  }
+  .eb-stop::before {
+    content: ""; position: absolute; left: 50%; top: -19px;
+    width: 3px; height: 3px; margin-left: -1.5px;
+    background: var(--faint); border-radius: 50%;
+    transition: background 0.3s, transform 0.3s;
+  }
+  .eb-stop .n {
+    display: block;
+    font-size: 11.5px; letter-spacing: 0.2em; text-transform: uppercase;
+  }
+  .eb-stop .m {
+    display: block; margin-top: 2px;
+    font-family: var(--mono);
+    font-size: 10px; letter-spacing: 0.14em;
+    color: var(--faint);
+  }
+  .eb-stop:hover { color: var(--bone); }
+  .eb-stop.past { color: var(--dim); }
+  .eb-stop.past::before { background: var(--dim); }
+  .eb-stop.on { color: var(--gold); }
+  .eb-stop.on::before { background: var(--gold); transform: scale(1.7); }
+  .eb-stop.on .m { color: var(--gold); }
+  @media (max-width: 900px) {
+    .eb-stop { display: none; }
+    .eb-stop.past, .eb-stop.on { display: block; }
+  }
+
+  /* View-Toggle als Register-Zeile (Live: chron-mode-toggle) */
+  .viewline {
+    display: flex; justify-content: center; align-items: baseline; gap: 12px;
+    margin-top: 22px;
+    font-size: 12.5px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--dim);
+  }
+  .viewline .lbl { color: var(--faint); font-size: 12px; letter-spacing: 0.28em; }
+  .viewline a { padding: 0 8px; transition: color 0.3s; }
+  .viewline a:hover { color: var(--bone); }
+  .viewline a.active { color: var(--gold); }
+  .viewline a + a::before { content: "·"; color: var(--faint); padding-right: 14px; }
+
+  @keyframes enter {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: none; }
+  }
+  @keyframes enterTitle {
+    from { opacity: 0; transform: translateY(28px); letter-spacing: 0.07em; }
+    to   { opacity: 1; transform: none; }
+  }
+  @keyframes plumb { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+  @keyframes breathe { 50% { opacity: 0.45; } }
+
+  /* ── Cine-Bühne: Era-Titel + Event-Dossier ───────────────────────── */
+  .stage {
+    position: relative;
+    min-height: 82vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: flex-end;
+    text-align: center;
+    padding: 0 20px 6vh;
+  }
+  .stage .over {
+    font-family: var(--mono);
+    font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+    animation: enter 1s 0.15s var(--ease) both;
+  }
+  .stage h1 {
+    margin-top: 16px;
+    font-family: var(--disp);
+    font-weight: var(--disp-wght-hero);
+    font-optical-sizing: auto;
+    font-size: clamp(54px, 8.6vw, 132px);
+    line-height: 0.98;
+    letter-spacing: var(--disp-track);
+    text-shadow: 0 2px 26px rgba(0,0,0,0.85);
+    animation: enterTitle 1.35s 0.4s var(--ease) both;
+  }
+  .stage .sub {
+    margin-top: 20px;
+    font-style: italic; font-size: 19px; color: var(--dim);
+    max-width: 62ch;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+    animation: enter 1s 0.85s var(--ease) both;
+  }
+  .stage .tele {
+    margin-top: 16px;
+    font-family: var(--mono);
+    font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--faint);
+    animation: enter 1s 1.05s var(--ease) both;
+  }
+  .stage .tele b { color: var(--dim); font-weight: 400; }
+  .stage .cue {
+    margin-top: 5vh;
+    display: inline-flex; flex-direction: column; align-items: center; gap: 12px;
+    color: var(--dim);
+    font-size: 12.5px; letter-spacing: 0.34em; text-transform: uppercase;
+    animation: enter 1s 1.2s var(--ease) both;
+  }
+  .stage .cue::before {
+    content: ""; width: 1px; height: 52px;
+    background: var(--gold); opacity: 0.8;
+    transform-origin: top;
+    animation: plumb 1.2s 1.35s var(--ease) both, breathe 4.5s 2.8s ease-in-out infinite;
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(22px);
+    transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+  }
+  .reveal.is-seen { opacity: 1; transform: none; }
+
+  main { max-width: 900px; margin: 0 auto; padding: 8vh 24px 90px; }
+
+  h2.section {
+    text-align: center;
+    display: flex; align-items: center; gap: 26px;
+    font-size: 13.5px; letter-spacing: 0.34em; text-transform: uppercase;
+    color: var(--gold); font-weight: 400;
+    margin: 84px 0 30px;
+  }
+  h2.section::before, h2.section::after {
+    content: ""; flex: 1; border-top: 1px solid var(--hair);
+    transform: scaleX(0);
+    transition: transform 1.15s var(--ease) 0.2s;
+  }
+  h2.section::before { transform-origin: right center; }
+  h2.section::after  { transform-origin: left center; }
+  h2.section.is-seen::before, h2.section.is-seen::after { transform: scaleX(1); }
+  h2.section:first-child { margin-top: 0; }
+
+  /* Etappen-Leiste: die Perlenkette der Live-Site, flach übersetzt */
+  .legs {
+    display: flex; align-items: center; justify-content: center;
+    gap: 0;
+    margin: 6px auto 40px;
+    max-width: 640px;
+  }
+  .legs .leg {
+    position: relative;
+    flex: 1; height: 1px;
+    background: var(--hair);
+  }
+  .legs .leg.past { background: rgba(164, 140, 82, 0.5); }
+  .legs .pt {
+    position: relative;
+    width: 5px; height: 5px; flex: none;
+    background: var(--faint); border-radius: 50%;
+  }
+  .legs .pt.past { background: var(--gold); opacity: 0.55; }
+  .legs .pt.on { background: var(--gold); }
+  .legs .pt.on::before {
+    content: ""; position: absolute; inset: -6px;
+    border: 1px solid var(--gold); border-radius: 50%;
+    opacity: 0.6;
+  }
+  .legs .pt .plbl {
+    position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
+    font-family: var(--mono);
+    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--faint);
+    white-space: nowrap;
+  }
+  .legs .pt.on .plbl { color: var(--gold); }
+
+  /* Dossier: das Event in der Buch-Titelblatt-Sprache */
+  .dossier { text-align: center; }
+  .dossier .tier {
+    font-family: var(--mono);
+    font-size: 12.5px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--gold);
+  }
+  .dossier h3 {
+    margin-top: 14px;
+    font-family: var(--disp);
+    font-weight: var(--disp-wght-hero);
+    font-optical-sizing: auto;
+    font-size: clamp(36px, 5.4vw, 64px);
+    line-height: 1;
+    letter-spacing: var(--disp-track);
+  }
+  .dossier .note {
+    max-width: 58ch;
+    margin: 24px auto 0;
+    text-align: justify; hyphens: auto;
+    color: var(--dim);
+  }
+  .dossier .note::first-line { letter-spacing: 0.14em; text-transform: uppercase; font-size: 16px; }
+
+  /* Librarium: media-rows als stille Register-Zeilen */
+  .librarium { max-width: 620px; margin: 34px auto 0; border-top: 1px solid var(--hair); }
+  a.media-row {
+    display: grid;
+    grid-template-columns: 70px minmax(0, 1fr) 22px;
+    gap: 0 18px;
+    align-items: baseline;
+    padding: 13px 12px;
+    border-bottom: 1px solid var(--hair-soft);
+    text-align: left;
+    transition: background 0.3s;
+  }
+  a.media-row:hover { background: rgba(228, 221, 203, 0.03); }
+  .mr-kind {
+    font-family: var(--mono);
+    font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--faint);
+  }
+  .mr-main { display: flex; flex-direction: column; gap: 2px; }
+  .mr-title {
+    font-family: var(--disp); font-weight: var(--disp-wght);
+    font-size: 19px; line-height: 1.15;
+    transition: color 0.3s;
+  }
+  a.media-row:hover .mr-title { color: var(--gold); }
+  .mr-meta { font-style: italic; font-size: 14.5px; color: var(--dim); }
+  .mr-mark { font-size: 14px; color: var(--faint); transition: color 0.3s; }
+  a.media-row:hover .mr-mark { color: var(--gold); }
+
+  /* Terminus: Ären-Wechsel */
+  .terminus {
+    text-align: center;
+    margin-top: 90px;
+    padding-top: 34px;
+    border-top: 1px solid var(--hair);
+  }
+  .terminus .tk {
+    font-family: var(--mono);
+    font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--faint);
+  }
+  .terminus .tn {
+    margin-top: 12px;
+    font-family: var(--disp); font-weight: var(--disp-wght);
+    font-size: 30px;
+  }
+  .terminus .tt { margin-top: 8px; font-style: italic; font-size: 16.5px; color: var(--dim); }
+  .terminus .btn { margin-top: 22px; }
+
+  /* ── Index-Ansicht: flaches Event-Register ───────────────────────── */
+  .idx-head {
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--faint);
+    margin-bottom: 26px;
+  }
+  .idx-head b { color: var(--dim); font-weight: 400; }
+  .ledger { border-top: 1px solid var(--hair); }
+  .ev-row { border-bottom: 1px solid var(--hair-soft); }
+  button.ev-face {
+    display: grid;
+    grid-template-columns: 26px minmax(0, 1.6fr) 130px minmax(0, 2fr) 22px;
+    gap: 0 18px;
+    align-items: baseline;
+    width: 100%;
+    background: none; border: 0;
+    font: inherit; color: inherit; text-align: left;
+    cursor: pointer;
+    padding: 15px 14px;
+    transition: background 0.3s;
+  }
+  button.ev-face:hover, button.ev-face:focus-visible { background: rgba(228, 221, 203, 0.03); }
+  button.ev-face:focus-visible { outline: 1px solid var(--gold); outline-offset: -1px; }
+  .ev-tier { font-size: 12px; color: var(--faint); }
+  .ev-tier.epoch { color: var(--gold); }
+  .ev-title {
+    font-family: var(--disp); font-weight: var(--disp-wght);
+    font-size: 21px; line-height: 1.15;
+    transition: color 0.3s;
+  }
+  button.ev-face:hover .ev-title { color: var(--gold); }
+  .ev-date {
+    font-family: var(--mono);
+    font-size: 12.5px; letter-spacing: 0.08em;
+    color: var(--gold); font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
+  .ev-snip { font-style: italic; font-size: 15px; color: var(--faint); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .ev-mark { font-size: 14px; color: var(--faint); transition: color 0.3s, transform 0.4s var(--ease); display: inline-block; }
+  button.ev-face:hover .ev-mark { color: var(--gold); }
+  .ev-row.open .ev-mark { transform: rotate(90deg); color: var(--gold); }
+  .ev-detail { display: none; padding: 4px 14px 26px; }
+  .ev-row.open .ev-detail { display: block; }
+  .ev-detail .note { max-width: 66ch; color: var(--dim); }
+  .ev-detail .librarium { margin: 20px 0 0; max-width: none; }
+  .ev-detail .goto { margin-top: 20px; font-style: italic; font-size: 15.5px; color: var(--faint); }
+  .ev-detail .goto a { border-bottom: 1px solid transparent; transition: color 0.3s, border-color 0.3s; }
+  .ev-detail .goto a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+  @media (max-width: 860px) {
+    button.ev-face { grid-template-columns: 22px minmax(0, 1fr) 110px 22px; }
+    .ev-snip { display: none; }
+  }
+
+  /* ── Schaltflächen Runde 8 — vier Systeme (Studio-Panel) ──────────── */
+  @keyframes astro-turn { to { transform: rotate(360deg); } }
+  .btn {
+    position: relative; z-index: 0;
+    display: inline-block;
+    font-family: var(--text);
+    font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--bone);
+    background: transparent;
+    border: 1px solid var(--hair);
+    padding: 13px 34px 12px;
+    margin: 6px 10px;
+    cursor: pointer;
+    transition: color 0.35s, border-color 0.35s, background 0.35s;
+  }
+  .btn:hover { color: var(--gold); border-color: rgba(164, 140, 82, 0.55); }
+  .btn .mark { color: var(--gold); padding-left: 8px; letter-spacing: 0; }
+  .btn.primary { color: var(--gold); border-color: rgba(164, 140, 82, 0.55); }
+  .btn.primary:hover { color: var(--bone); border-color: var(--gold); }
+  .btn .fx { display: none; }
+  .fx .fx-rings {
+    position: absolute; top: 50%;
+    color: var(--gold);
+    opacity: 0;
+    transition: opacity 0.6s ease, transform 0.9s var(--ease);
+    z-index: -1;
+  }
+  .fx .fx-rings g { transform-box: view-box; transform-origin: 50% 50%; }
+  .fx .fx-rings .fr1 { animation: astro-turn 26s linear infinite; }
+  .fx .fx-rings .fr2 { animation: astro-turn 17s linear infinite reverse; }
+  .fx .fx-star {
+    position: absolute; top: 50%;
+    width: 3px; height: 3px; margin: -1.5px 0 0 -1.5px;
+    background: var(--bone); border-radius: 50%;
+    opacity: 0;
+    transition: transform 0.7s var(--ease), opacity 0.45s ease;
+  }
+  .fx .fx-star.f2 { width: 2px; height: 2px; margin: -1px 0 0 -1px; background: var(--gold); }
+  .fx .fx-star.f3 { width: 2.5px; height: 2.5px; margin: -1.25px 0 0 -1.25px; background: var(--gold); }
+  .fx .fx-const {
+    position: absolute; left: 50%; top: 50%;
+    width: 150px; height: 40px; margin: -20px 0 0 -75px;
+    color: var(--gold);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: -1;
+  }
+  .fx .fx-const polyline { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.15s var(--ease) 0.08s; }
+  .fx .fx-const circle { opacity: 0; transition: opacity 0.4s ease; }
+  .fx .fx-const .c1 { transition-delay: 0.08s; }
+  .fx .fx-const .c2 { transition-delay: 0.3s; }
+  .fx .fx-const .c3 { transition-delay: 0.52s; }
+  .fx .fx-const .c4 { transition-delay: 0.74s; }
+  .fx .fx-const .c5 { transition-delay: 0.98s; }
+  [data-btn="orrery"] .btn {
+    border-color: transparent;
+    padding: 13px 30px 12px 46px;
+  }
+  [data-btn="orrery"] .btn::before {
+    content: ""; position: absolute; left: 24px; top: 50%;
+    width: 4px; height: 4px; margin: -2px 0 0 -2px;
+    background: var(--faint); border-radius: 50%;
+    transition: background 0.4s, transform 0.5s var(--ease);
+  }
+  [data-btn="orrery"] .btn.primary::before { background: var(--gold); }
+  [data-btn="orrery"] .btn:hover { color: var(--gold); border-color: transparent; }
+  [data-btn="orrery"] .btn:hover::before { background: var(--gold); transform: scale(1.7); }
+  [data-btn="orrery"] .btn.primary:hover { color: var(--bone); }
+  [data-btn="orrery"] .btn .fx { display: block; position: absolute; inset: 0; pointer-events: none; }
+  [data-btn="orrery"] .fx .fx-rings {
+    left: 24px;
+    width: 88px; height: 88px; margin: -44px 0 0 -44px;
+    transform: scale(0.08);
+  }
+  [data-btn="orrery"] .btn:hover .fx-rings { opacity: 0.45; transform: scale(1); }
+  [data-btn="orrery"] .fx .fx-star { left: 24px; }
+  [data-btn="orrery"] .btn:hover .fx-star.f1 { transform: translate(-15px, -21px); opacity: 0.9; transition-delay: 0.05s; }
+  [data-btn="orrery"] .btn:hover .fx-star.f2 { transform: translate(30px, -13px); opacity: 0.9; transition-delay: 0.12s; }
+  [data-btn="orrery"] .btn:hover .fx-star.f3 { transform: translate(14px, 19px); opacity: 0.85; transition-delay: 0.19s; }
+  [data-btn="chart"] .btn {
+    border-color: transparent;
+    background: rgba(228, 221, 203, 0.04);
+  }
+  [data-btn="chart"] .btn:hover { background: rgba(228, 221, 203, 0.06); color: var(--gold); border-color: transparent; }
+  [data-btn="chart"] .btn.primary:hover { color: var(--bone); }
+  [data-btn="chart"] .btn .fx { display: block; position: absolute; inset: 0; pointer-events: none; }
+  [data-btn="chart"] .fx .fx-rings {
+    left: 22%;
+    width: 112px; height: 112px; margin: -56px 0 0 -56px;
+    transform: scale(0.75);
+  }
+  [data-btn="chart"] .btn:hover .fx-rings { opacity: 0.38; transform: scale(1); }
+  [data-btn="chart"] .fx .fx-star { left: 22%; }
+  [data-btn="chart"] .btn:hover .fx-star.f1 { transform: translate(-24px, -19px); opacity: 0.9; transition-delay: 0.05s; }
+  [data-btn="chart"] .btn:hover .fx-star.f2 { transform: translate(20px, -26px); opacity: 0.9; transition-delay: 0.12s; }
+  [data-btn="chart"] .btn:hover .fx-star.f3 { transform: translate(-12px, 22px); opacity: 0.85; transition-delay: 0.19s; }
+  [data-btn="sign"] .btn .fx { display: block; position: absolute; inset: 0; pointer-events: none; }
+  [data-btn="sign"] .btn:hover .fx-const { opacity: 0.75; }
+  [data-btn="sign"] .btn:hover .fx-const polyline { stroke-dashoffset: 0; }
+  [data-btn="sign"] .btn:hover .fx-const circle { opacity: 1; }
+
+  .fontpick {
+    position: fixed; right: 18px; bottom: 18px; z-index: 40;
+    display: flex; flex-direction: column; gap: 7px;
+    background: rgba(19, 19, 24, 0.94);
+    border: 1px solid var(--hair);
+    padding: 10px 16px;
+    font-size: 11.5px; letter-spacing: 0.2em; text-transform: uppercase;
+  }
+  .fontpick .fp-row { display: flex; align-items: center; gap: 12px; }
+  .fontpick .fp-lbl { color: var(--faint); min-width: 92px; }
+  .fontpick button {
+    background: none; border: 0;
+    color: var(--dim);
+    font-family: var(--text);
+    font-size: inherit; letter-spacing: inherit; text-transform: inherit;
+    cursor: pointer;
+    padding: 2px 0;
+    border-bottom: 1px solid transparent;
+    transition: color 0.3s, border-color 0.3s;
+  }
+  .fontpick button:hover { color: var(--bone); }
+  .fontpick button.on { color: var(--gold); border-bottom-color: var(--gold); }
+
+  details.study-note {
+    max-width: 900px; margin: 40px auto 70px;
+    border: 1px solid var(--hair);
+    background: var(--void-2);
+    padding: 16px 22px;
+    font-size: 15.5px;
+  }
+  details.study-note summary {
+    cursor: pointer;
+    font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold);
+  }
+  details.study-note .body { margin-top: 12px; max-width: 78ch; color: var(--dim); }
+  details.study-note p { margin-bottom: 8px; }
+  details.study-note b { color: var(--bone); font-weight: 700; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+    .vox { display: none; }
+  }
+</style>
+
+<div class="bg" aria-hidden="true">
+  <div class="photo"></div>
+  <div class="fade"></div>
+  <div class="scrim" id="scrim"></div>
+  <div class="grain"></div>
+</div>
+
+<nav class="rail" aria-label="Primary">
+  <a href="hub.html"><span class="rn">I</span><span class="rt">Home</span></a>
+  <a href="archiv.html"><span class="rn">II</span><span class="rt">Archive</span></a>
+  <a href="kompendium.html"><span class="rn">III</span><span class="rt">Compendium</span></a>
+  <a href="ask.html"><span class="rn">IV</span><span class="rt">Ask</span></a>
+  <a href="chronik.html" class="here" aria-current="page"><span class="rn">V</span><span class="rt">Chronicle</span></a>
+  <a href="#"><span class="rn">VI</span><span class="rt">Cartographer</span></a>
+</nav>
+
+<div class="brand">Chrono<span class="dot">·</span>Lexicanum</div>
+<div class="vox" id="vox" aria-hidden="true"></div>
+
+<!-- Era-Band: acht Kapitel, Kapitel III aktiv -->
+<nav class="eraband" aria-label="Eras" id="cine">
+  <div class="eb-line"><span class="eb-fill"></span></div>
+  <div class="eb-stops">
+    <button type="button" class="eb-stop past"><span class="n">Deep History</span><span class="m">PRE-M30</span></button>
+    <button type="button" class="eb-stop past"><span class="n">Great Crusade</span><span class="m">M30</span></button>
+    <button type="button" class="eb-stop on" aria-current="true"><span class="n">Horus Heresy</span><span class="m">M31</span></button>
+    <button type="button" class="eb-stop"><span class="n">The Forging</span><span class="m">M32–34</span></button>
+    <button type="button" class="eb-stop"><span class="n">Apostasy</span><span class="m">M35–37</span></button>
+    <button type="button" class="eb-stop"><span class="n">The Waning</span><span class="m">M38–40</span></button>
+    <button type="button" class="eb-stop"><span class="n">Time of Ending</span><span class="m">M41</span></button>
+    <button type="button" class="eb-stop"><span class="n">Indomitus</span><span class="m">M42</span></button>
+  </div>
+  <p class="viewline" role="group" aria-label="View">
+    <span class="lbl">View</span>
+    <a href="#cine" class="active">Cinematic</a>
+    <a href="#index">Index</a>
+  </p>
+</nav>
+
+<!-- Cine-Bühne: das Kapitel -->
+<section class="stage">
+  <p class="over">Era III · M31</p>
+  <h1>The Horus Heresy</h1>
+  <p class="sub">Brother against brother — seven years that broke the galaxy, and the most tightly chronicled decade in the archive.</p>
+  <p class="tele"><b>Entry 4 / 9</b> · era locked · scroll advances the chronicle</p>
+  <span class="cue">Scroll to advance</span>
+</section>
+
+<main>
+
+  <!-- Das Event-Dossier (Cine-Modus: ein Event pro Viewport) -->
+  <h2 class="section reveal">The Dossier</h2>
+
+  <div class="legs reveal" aria-hidden="true">
+    <span class="pt past"><span class="plbl">001</span></span>
+    <span class="leg past"></span>
+    <span class="pt past"><span class="plbl">001</span></span>
+    <span class="leg past"></span>
+    <span class="pt past"><span class="plbl">003</span></span>
+    <span class="leg past"></span>
+    <span class="pt on"><span class="plbl">004.M31</span></span>
+    <span class="leg"></span>
+    <span class="pt"><span class="plbl">005</span></span>
+    <span class="leg"></span>
+    <span class="pt"><span class="plbl">006</span></span>
+    <span class="leg"></span>
+    <span class="pt"><span class="plbl">007</span></span>
+    <span class="leg"></span>
+    <span class="pt"><span class="plbl">014</span></span>
+    <span class="leg"></span>
+    <span class="pt"><span class="plbl">015</span></span>
+  </div>
+
+  <article class="dossier reveal">
+    <p class="tier">Epoch · 004.M31</p>
+    <h3>The Burning of Prospero</h3>
+    <p class="note">Sanctioned to punish Magnus&rsquo; breach of the Edict of Nikaea, the Space Wolves descend on Prospero with the Custodes and the Sisters of Silence at their side. The City of Light burns, the Thousand Sons are broken, and a wound is torn in the loyalist cause that Horus had counted on from the start.</p>
+    <div class="librarium">
+      <a class="media-row" href="buch.html">
+        <span class="mr-kind">Book</span>
+        <span class="mr-main"><span class="mr-title">A Thousand Sons</span><span class="mr-meta">G. McNeill · the fall, from Tizca&rsquo;s side</span></span>
+        <span class="mr-mark" aria-hidden="true">›</span>
+      </a>
+      <a class="media-row" href="#">
+        <span class="mr-kind">Book</span>
+        <span class="mr-main"><span class="mr-title">Prospero Burns</span><span class="mr-meta">D. Abnett · the same years in the Wolves&rsquo; boots</span></span>
+        <span class="mr-mark" aria-hidden="true">›</span>
+      </a>
+      <a class="media-row" href="#">
+        <span class="mr-kind">Podcast</span>
+        <span class="mr-main"><span class="mr-title">The Burning of Prospero</span><span class="mr-meta">Luetin09 · lore episode</span></span>
+        <span class="mr-mark" aria-hidden="true">›</span>
+      </a>
+    </div>
+  </article>
+
+  <!-- Terminus: der Ären-Wechsel -->
+  <div class="terminus reveal">
+    <p class="tk">Era complete</p>
+    <p class="tn">M31 · The Horus Heresy</p>
+    <p class="tt">The Imperium survives — smaller, harder, and forever at war with itself.</p>
+    <a class="btn primary" href="#">Next Era — M32–34 · The Forging<span class="mark">→</span></a>
+  </div>
+
+  <!-- Index-Ansicht: das Event-Register -->
+  <h2 class="section reveal" id="index">The Index</h2>
+  <p class="idx-head reveal"><b>9 entries</b> · Era III · M31 · dashed dates are approximate</p>
+
+  <section class="ledger reveal">
+    <article class="ev-row">
+      <button type="button" class="ev-face">
+        <span class="ev-tier">○</span>
+        <span class="ev-title">The Council of Nikaea</span>
+        <span class="ev-date">001.M31</span>
+        <span class="ev-snip">The Emperor rules on the Librarius question …</span>
+        <span class="ev-mark" aria-hidden="true">›</span>
+      </button>
+      <div class="ev-detail">
+        <p class="note">Summoned to judge the use of psykers in the Legions, the council ends with the Edict: the Librarius disbanded, sorcery forbidden. Magnus bends the knee — and keeps studying.</p>
+        <p class="goto"><a href="#">Open in Cinematic →</a></p>
+      </div>
+    </article>
+    <article class="ev-row">
+      <button type="button" class="ev-face">
+        <span class="ev-tier">◆</span>
+        <span class="ev-title">Horus Falls on Davin</span>
+        <span class="ev-date">c. 002.M31</span>
+        <span class="ev-snip">A blade-wound, a lodge ritual, and the Warmaster rises changed …</span>
+        <span class="ev-mark" aria-hidden="true">›</span>
+      </button>
+      <div class="ev-detail">
+        <p class="note">Wounded by the anathame on Davin&rsquo;s moon, Horus is delivered to the Serpent Lodge. What walks out carries the Warmaster&rsquo;s face and the Four&rsquo;s purpose.</p>
+        <p class="goto"><a href="#">Open in Cinematic →</a></p>
+      </div>
+    </article>
+    <article class="ev-row open">
+      <button type="button" class="ev-face">
+        <span class="ev-tier epoch">◈</span>
+        <span class="ev-title">The Burning of Prospero</span>
+        <span class="ev-date">004.M31</span>
+        <span class="ev-snip">The Wolves descend on the City of Light …</span>
+        <span class="ev-mark" aria-hidden="true">›</span>
+      </button>
+      <div class="ev-detail">
+        <p class="note">Sanctioned to punish Magnus&rsquo; breach of the Edict, the Space Wolves descend on Prospero with the Custodes and the Sisters of Silence. The City of Light burns; the Thousand Sons are broken.</p>
+        <div class="librarium">
+          <a class="media-row" href="buch.html">
+            <span class="mr-kind">Book</span>
+            <span class="mr-main"><span class="mr-title">A Thousand Sons</span><span class="mr-meta">G. McNeill</span></span>
+            <span class="mr-mark" aria-hidden="true">›</span>
+          </a>
+          <a class="media-row" href="#">
+            <span class="mr-kind">Book</span>
+            <span class="mr-main"><span class="mr-title">Prospero Burns</span><span class="mr-meta">D. Abnett</span></span>
+            <span class="mr-mark" aria-hidden="true">›</span>
+          </a>
+        </div>
+        <p class="goto"><a href="#cine">Open in Cinematic →</a></p>
+      </div>
+    </article>
+    <article class="ev-row">
+      <button type="button" class="ev-face">
+        <span class="ev-tier">◆</span>
+        <span class="ev-title">The Isstvan III Atrocity</span>
+        <span class="ev-date">005.M31</span>
+        <span class="ev-snip">The traitor Legions purge their own loyalists …</span>
+        <span class="ev-mark" aria-hidden="true">›</span>
+      </button>
+      <div class="ev-detail">
+        <p class="note">Horus gathers the loyal sons of four Legions on Isstvan III — and virus-bombs them from orbit. The Heresy is no longer deniable.</p>
+        <p class="goto"><a href="#">Open in Cinematic →</a></p>
+      </div>
+    </article>
+    <article class="ev-row">
+      <button type="button" class="ev-face">
+        <span class="ev-tier">◆</span>
+        <span class="ev-title">The Drop Site Massacre</span>
+        <span class="ev-date">006.M31</span>
+        <span class="ev-snip">Seven Legions land at Isstvan V; three walk away …</span>
+        <span class="ev-mark" aria-hidden="true">›</span>
+      </button>
+      <div class="ev-detail">
+        <p class="note">Sent to bring Horus to heel, the loyalist first wave lands into a trap as the second wave turns its guns on its brothers. The Iron Hands lose their primarch; the Raven Guard and Salamanders are shattered.</p>
+        <p class="goto"><a href="#">Open in Cinematic →</a></p>
+      </div>
+    </article>
+    <article class="ev-row">
+      <button type="button" class="ev-face">
+        <span class="ev-tier">◆</span>
+        <span class="ev-title">The Battle of Calth</span>
+        <span class="ev-date">007.M31</span>
+        <span class="ev-snip">The Word Bearers put Ultramar to the torch …</span>
+        <span class="ev-mark" aria-hidden="true">›</span>
+      </button>
+      <div class="ev-detail">
+        <p class="note">Under the veil of joint manoeuvres, the XVII Legion burns Calth&rsquo;s surface and murders the Ultramarines&rsquo; muster — faith turned weapon, brother turned sacrifice.</p>
+        <p class="goto"><a href="#">Open in Cinematic →</a></p>
+      </div>
+    </article>
+    <article class="ev-row">
+      <button type="button" class="ev-face">
+        <span class="ev-tier epoch">◈</span>
+        <span class="ev-title">The Siege of Terra</span>
+        <span class="ev-date">014.M31</span>
+        <span class="ev-snip">The Warmaster reaches the Throneworld …</span>
+        <span class="ev-mark" aria-hidden="true">›</span>
+      </button>
+      <div class="ev-detail">
+        <p class="note">The traitor armada breaks upon the Palace walls. On the Vengeful Spirit, the Emperor destroys Horus — and is carried, broken, to the Golden Throne.</p>
+        <p class="goto"><a href="#">Open in Cinematic →</a></p>
+      </div>
+    </article>
+    <article class="ev-row">
+      <button type="button" class="ev-face">
+        <span class="ev-tier">○</span>
+        <span class="ev-title">The Great Scouring</span>
+        <span class="ev-date">c. 015.M31</span>
+        <span class="ev-snip">The traitors are driven into the Eye …</span>
+        <span class="ev-mark" aria-hidden="true">›</span>
+      </button>
+      <div class="ev-detail">
+        <p class="note">The loyalists answer the Heresy with a decade of retribution, driving the traitor Legions into the Eye of Terror — where they wait.</p>
+        <p class="goto"><a href="#">Open in Cinematic →</a></p>
+      </div>
+    </article>
+  </section>
+
+</main>
+
+<details class="study-note">
+  <summary>Studien-Notiz · Runde 8 — Praxis (Nachbau /timeline, Chronicle)</summary>
+  <div class="body">
+    <p><b>Live-Struktur übersetzt</b> (ChronicleStage + CinematicView + IndexView + EraBand): das <b>Era-Band</b> als Stationsleiste oben (acht Kapitel, Gold-Fill bis zum aktiven Stop, vergangene Ären in Knochen), der <b>View-Toggle</b> (Cinematic/Index) als Register-Zeile statt Pill — springt hier per Anker zwischen den beiden Sektionen. Die Cine-Bühne: Era-Rubrik in Mono („Era III · M31"), Riesen-Titel, kursive Tagline, Telemetrie-Zeile („Entry 4 / 9"). Die <b>3D-Perlenkette</b> der Live-Site wird zur flachen <b>Etappen-Leiste</b> (Punkte + Mono-Daten, der aktive trägt den Vermessungsring) — gleiche Information, im Karten-Register statt im Sci-Fi-Register. Das Event-Dossier spricht die Buch-Titelblatt-Sprache (Tier + Datum als Rubrik, Titelschrift, Blocksatz-Note mit Versalien-Eingang), das <b>Librarium</b> sind stille Register-Zeilen (BOOK/PODCAST in Mono · Titelschrift-Titel · kursives Meta). Terminus mit Next-Era-Button wie live. Die <b>Index-Ansicht</b>: flaches Event-Register (Tier-Zeichen ◈◆○ wie live — Schriftzeichen, keine Icons; Epoch in Gold), Datum in Mono-Gold, Snippet kursiv, eine Zeile aufgeklappt mit Note + Librarium + „Open in Cinematic →"; Zeilen klappen per Klick (reine Demo-Interaktion).</p>
+    <p><b>Bewusst weggelassen:</b> Scroll-Snap/3D-Transforms, Era-Wipe, Ken-Burns, das getippte Dossier (der Vox oben rechts trägt die Typewriter-DNA bereits), Minimap der Index-Ansicht (für die Studie verzichtbar; ihr Konzept — Ära als Achse mit Event-Marken — wäre im 185er-Pass ein Kandidat für das „Tiefenlot" aus Kanon § XV). Events sind kanonisch plausible Demo-Daten der M31-Ära.</p>
+  </div>
+</details>
+
+<div class="fontpick" role="group" aria-label="Studio">
+  <div class="fp-row" role="group" aria-label="Titelschrift">
+    <span class="fp-lbl">Titelschrift</span>
+    <button type="button" data-f="cinzel">Cinzel</button>
+    <button type="button" data-f="bodoni">Bodoni Moda</button>
+  </div>
+  <div class="fp-row" role="group" aria-label="Schaltfläche">
+    <span class="fp-lbl">Schaltfläche</span>
+    <button type="button" data-b="orrery">Sternwarte</button>
+    <button type="button" data-b="chart">Sternkarte</button>
+    <button type="button" data-b="sign">Sternbild</button>
+    <button type="button" data-b="still">Still</button>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    var scrim = document.getElementById("scrim");
+    if (scrim) {
+      var scrimUpdate = function () {
+        var h = window.innerHeight * 0.9;
+        scrim.style.opacity = Math.min(0.94, window.scrollY / h).toFixed(3);
+      };
+      window.addEventListener("scroll", scrimUpdate, { passive: true });
+      scrimUpdate();
+    }
+
+    /* Studio-Panel (Keys cl08, Runde 8) */
+    var FKEY = "cl08-titlefont";
+    var FONTS = ["cinzel", "bodoni"];
+    var fstored = null;
+    try { fstored = window.localStorage.getItem(FKEY); } catch (e) {}
+    if (fstored && FONTS.indexOf(fstored) > -1 && fstored !== "cinzel") {
+      document.documentElement.setAttribute("data-font", fstored);
+    }
+    var fbtns = document.querySelectorAll(".fontpick [data-f]");
+    var fmark = function () {
+      var cur = document.documentElement.getAttribute("data-font") || "cinzel";
+      fbtns.forEach(function (b) {
+        var on = b.getAttribute("data-f") === cur;
+        b.classList.toggle("on", on);
+        b.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+    };
+    fbtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        var f = b.getAttribute("data-f");
+        if (f === "cinzel") {
+          document.documentElement.removeAttribute("data-font");
+        } else {
+          document.documentElement.setAttribute("data-font", f);
+        }
+        try { window.localStorage.setItem(FKEY, f); } catch (e) {}
+        fmark();
+      });
+    });
+    fmark();
+
+    var BKEY = "cl08-btnstyle";
+    var BTNS = ["orrery", "chart", "sign", "still"];
+    var bstored = null;
+    try { bstored = window.localStorage.getItem(BKEY); } catch (e) {}
+    document.documentElement.setAttribute(
+      "data-btn",
+      bstored && BTNS.indexOf(bstored) > -1 ? bstored : "orrery"
+    );
+    var bbtns = document.querySelectorAll(".fontpick [data-b]");
+    var bmark = function () {
+      var cur = document.documentElement.getAttribute("data-btn");
+      bbtns.forEach(function (b) {
+        var on = b.getAttribute("data-b") === cur;
+        b.classList.toggle("on", on);
+        b.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+    };
+    bbtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        document.documentElement.setAttribute("data-btn", b.getAttribute("data-b"));
+        try { window.localStorage.setItem(BKEY, b.getAttribute("data-b")); } catch (e) {}
+        bmark();
+      });
+    });
+    bmark();
+
+    /* HUD-Beschläge pro Button (Runde 8) */
+    document.querySelectorAll(".btn").forEach(function (b) {
+      if (b.querySelector(".fx")) return;
+      var fx = document.createElement("span");
+      fx.className = "fx";
+      fx.setAttribute("aria-hidden", "true");
+      fx.innerHTML =
+        '<svg class="fx-rings" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="0.8">' +
+        '<g class="fr1"><circle cx="60" cy="60" r="56" pathLength="360" stroke-dasharray="0.5 5.5" stroke-opacity="0.8"/></g>' +
+        '<g class="fr2"><circle cx="60" cy="60" r="41" stroke-dasharray="2 7" stroke-opacity="0.5"/></g>' +
+        '<circle cx="60" cy="60" r="27" stroke-opacity="0.35"/>' +
+        "</svg>" +
+        '<i class="fx-star f1"></i><i class="fx-star f2"></i><i class="fx-star f3"></i>' +
+        '<svg class="fx-const" viewBox="0 0 150 40" fill="none" stroke-width="0.7">' +
+        '<polyline pathLength="1" points="8,30 38,12 66,22 102,8 138,26" stroke="currentColor" stroke-opacity="0.6"/>' +
+        '<circle class="c1" cx="8" cy="30" r="1.6" fill="currentColor"/>' +
+        '<circle class="c2" cx="38" cy="12" r="1.2" fill="currentColor"/>' +
+        '<circle class="c3" cx="66" cy="22" r="1.5" fill="currentColor"/>' +
+        '<circle class="c4" cx="102" cy="8" r="1.2" fill="currentColor"/>' +
+        '<circle class="c5" cx="138" cy="26" r="1.8" fill="currentColor"/>' +
+        "</svg>";
+      b.appendChild(fx);
+    });
+
+    /* Index-Register: Zeilen klappen (reine Demo-Interaktion) */
+    document.querySelectorAll(".ev-face").forEach(function (face) {
+      face.addEventListener("click", function () {
+        face.parentNode.classList.toggle("open");
+      });
+    });
+
+    /* Vox-Schreiber — Chronik-Telemetrie */
+    var vox = document.getElementById("vox");
+    if (vox && !reduce) {
+      var LINES = [
+        "Chronica · Linea Temporvm",
+        "Era III · M31 · locked",
+        "Entry IV of IX",
+        "Anchor · Bvrning of Prospero",
+        "Datation 004.M31 · confirmed"
+      ];
+      var RAMP = [0.16, 0.3, 0.55];
+      var li = 0;
+      var rampUpdate = function () {
+        var stable = Array.prototype.filter.call(vox.children, function (el) {
+          return !el.classList.contains("out");
+        });
+        stable.forEach(function (el, i) {
+          el.style.opacity = RAMP[RAMP.length - stable.length + i];
+        });
+      };
+      var addLine = function () {
+        var text = LINES[li % LINES.length];
+        li++;
+        Array.prototype.forEach.call(vox.querySelectorAll(".vox-caret"), function (c) {
+          if (c.parentNode) c.parentNode.removeChild(c);
+        });
+        var line = document.createElement("div");
+        line.className = "vox-line";
+        var caret = document.createElement("span");
+        caret.className = "vox-caret";
+        line.appendChild(caret);
+        vox.appendChild(line);
+        var stable = Array.prototype.filter.call(vox.children, function (el) {
+          return !el.classList.contains("out");
+        });
+        if (stable.length > 3) {
+          var oldest = stable[0];
+          oldest.classList.add("out");
+          setTimeout(function () {
+            if (oldest.parentNode) oldest.parentNode.removeChild(oldest);
+          }, 1200);
+        }
+        rampUpdate();
+        var ci = 0;
+        var typeNext = function () {
+          if (ci >= text.length) { setTimeout(addLine, 3600); return; }
+          var ch = document.createElement("span");
+          ch.className = "ch";
+          ch.textContent = text.charAt(ci);
+          line.insertBefore(ch, caret);
+          ci++;
+          setTimeout(typeNext, 34 + (ci % 3) * 14);
+        };
+        setTimeout(typeNext, 400);
+      };
+      setTimeout(addLine, 1600);
+    }
+
+    var targets = document.querySelectorAll(".reveal");
+    if (reduce || !("IntersectionObserver" in window)) {
+      targets.forEach(function (el) { el.classList.add("is-seen"); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) {
+            en.target.classList.add("is-seen");
+            io.unobserve(en.target);
+          }
+        });
+      }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+      targets.forEach(function (el) { io.observe(el); });
+    }
+  })();
+</script>

@@ -1,0 +1,379 @@
+<!-- ======================================================================
+     RICHTUNG 03 — PLAKAT · Fläche: Buch-Detail (A Thousand Sons)
+     Das Buch als Plakat. Studie zu Brief 184. Standalone.
+     ====================================================================== -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plakat — A Thousand Sons</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --blk:   #141310;
+    --blk-2: #1b1a16;
+    --bone:  #ece5d3;
+    --bone-dim: #b8b1a0;
+    --grey:  #7f7969;
+    --red:   #d5311f;
+    --line:  rgba(236, 229, 211, 0.16);
+    --line-strong: rgba(236, 229, 211, 0.4);
+    --disp: "Anton", sans-serif;
+    --text: "Spectral", serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { background: var(--blk); }
+  body {
+    font-family: var(--text);
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--bone);
+    background: var(--blk);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--red); color: var(--bone); }
+  a { color: inherit; text-decoration: none; }
+
+  .sheet { max-width: 1280px; margin: 0 auto; padding: 0 40px 100px; }
+
+  .strip {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 0;
+    border-bottom: 4px solid var(--bone);
+  }
+  .strip .brand { font-family: var(--disp); font-size: 17px; letter-spacing: 0.12em; text-transform: uppercase; }
+  .strip .brand span { color: var(--red); }
+  .strip nav { display: flex; gap: 26px; font-family: var(--disp); font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .strip nav a { color: var(--bone-dim); padding-bottom: 2px; }
+  .strip nav a:hover { color: var(--bone); }
+  .strip nav a.here { color: var(--red); border-bottom: 3px solid var(--red); }
+
+  .crumb {
+    padding: 22px 0 0;
+    font-style: italic;
+    font-size: 14.5px;
+    color: var(--grey);
+  }
+  .crumb a:hover { color: var(--red); }
+
+  /* ── Plakat-Hero ──────────────────────────────────────────────────── */
+  header.hero {
+    position: relative;
+    padding: 52px 0 44px;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero .series {
+    font-family: var(--disp);
+    font-size: 14px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--bone-dim);
+  }
+  .hero .series b { color: var(--red); font-weight: 400; }
+  .hero h1 {
+    font-family: var(--disp);
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: clamp(72px, 13vw, 176px);
+    line-height: 0.88;
+    letter-spacing: 0.002em;
+    margin: 18px 0 0;
+    max-width: 11ch;
+  }
+  .hero h1 .red { color: var(--red); }
+
+  /* die riesige Zwölf als Plakat-Möbel */
+  .hero .xii {
+    position: absolute;
+    right: 0;
+    top: 30px;
+    font-family: var(--disp);
+    font-size: clamp(120px, 20vw, 260px);
+    line-height: 0.8;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(236, 229, 211, 0.22);
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .hero .authorbar {
+    display: inline-block;
+    margin-top: 26px;
+    background: var(--red);
+    color: var(--bone);
+    font-family: var(--disp);
+    font-size: 16px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 10px 22px 8px;
+  }
+  .hero .sub {
+    margin-top: 14px;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--bone-dim);
+    max-width: 52ch;
+  }
+
+  /* ── Faktenband ───────────────────────────────────────────────────── */
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    border-bottom: 1px solid var(--line);
+  }
+  .facts .cell {
+    padding: 20px 18px 18px;
+    border-right: 1px solid var(--line);
+  }
+  .facts .cell:last-child { border-right: 0; }
+  .facts .k {
+    font-family: var(--disp);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--grey);
+    margin-bottom: 8px;
+  }
+  .facts .v { font-size: 17px; font-weight: 500; }
+  .facts .v.red { color: var(--red); font-family: var(--disp); font-weight: 400; font-size: 19px; letter-spacing: 0.04em; }
+  .facts .v i { color: var(--grey); font-size: 13px; }
+
+  /* ── Textkörper zweispaltig ───────────────────────────────────────── */
+  .body-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: 64px;
+    padding: 48px 0 0;
+  }
+
+  h2.sect {
+    font-family: var(--disp);
+    font-size: 15px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 18px;
+  }
+  h2.sect::after {
+    content: "";
+    display: block;
+    width: 64px;
+    border-bottom: 4px solid var(--red);
+    margin-top: 8px;
+  }
+
+  .syn { font-size: 17.5px; line-height: 1.68; font-weight: 300; max-width: 64ch; }
+  .syn p + p { margin-top: 14px; }
+  .syn p:first-of-type::first-line { font-weight: 500; }
+  .syn .cross {
+    margin-top: 22px;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--bone-dim);
+    border-left: 4px solid var(--red);
+    padding-left: 16px;
+  }
+
+  .btnrow { display: flex; gap: 14px; margin-top: 34px; flex-wrap: wrap; }
+  .btn-dark {
+    display: inline-block;
+    font-family: var(--disp);
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 14px 28px 12px;
+    background: var(--bone);
+    color: var(--blk);
+    border: 0;
+    cursor: pointer;
+    box-shadow: 6px 6px 0 var(--red);
+  }
+  .btn-dark:hover { background: var(--red); color: var(--bone); box-shadow: 6px 6px 0 var(--bone); }
+  .btn-ghost {
+    display: inline-block;
+    font-family: var(--disp);
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 14px 28px 12px;
+    background: transparent;
+    color: var(--bone);
+    border: 2px solid var(--line-strong);
+    cursor: pointer;
+  }
+  .btn-ghost:hover { border-color: var(--red); color: var(--red); }
+
+  /* Personen / Fraktionen / Orte als Plakatlisten */
+  .cast { margin-bottom: 40px; }
+  .cast ul { list-style: none; }
+  .cast li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    padding: 11px 0 9px;
+    border-bottom: 1px solid var(--line);
+  }
+  .cast li .who {
+    font-family: var(--disp);
+    font-size: 19px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+  .cast li:hover .who { color: var(--red); }
+  .cast li .role {
+    font-style: italic;
+    font-size: 13.5px;
+    color: var(--grey);
+    white-space: nowrap;
+  }
+  .cast li .role.ant { color: var(--red); }
+
+  /* Motive als Stempelreihe */
+  .stamps { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+  .stamp {
+    font-family: var(--disp);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 2px solid var(--line-strong);
+    color: var(--bone-dim);
+    padding: 7px 12px 5px;
+  }
+  .stamp:nth-child(3n) { transform: rotate(-1.5deg); }
+  .stamp:nth-child(3n+1) { transform: rotate(1deg); }
+  .stamp.warn { border-color: var(--red); color: var(--red); }
+
+  footer.base {
+    margin-top: 88px;
+    border-top: 4px solid var(--bone);
+    padding-top: 16px;
+    display: flex; justify-content: space-between;
+    font-size: 13px; font-style: italic; color: var(--grey);
+  }
+
+  details.study-note {
+    margin-top: 40px;
+    border: 1px solid var(--line-strong);
+    background: var(--blk-2);
+    padding: 16px 20px;
+    font-size: 15px;
+  }
+  details.study-note summary {
+    cursor: pointer;
+    font-family: var(--disp);
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--red);
+  }
+  details.study-note .body { margin-top: 12px; max-width: 80ch; line-height: 1.6; }
+  details.study-note p { margin-bottom: 8px; }
+  details.study-note b { color: var(--bone); font-weight: 500; }
+
+  @media (max-width: 900px) {
+    .sheet { padding: 0 18px 64px; }
+    .hero .xii { display: none; }
+    .facts { grid-template-columns: 1fr 1fr; }
+    .facts .cell { border-bottom: 1px solid var(--line); }
+    .body-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+</style>
+
+<div class="sheet">
+
+  <div class="strip">
+    <div class="brand">Chrono<span>·</span>Lexicanum</div>
+    <nav>
+      <a href="#">Chronicle</a>
+      <a href="map.html">Cartographer</a>
+      <a href="archiv.html" class="here">Archive</a>
+      <a href="#">Ask</a>
+    </nav>
+  </div>
+
+  <p class="crumb"><a href="archiv.html">← Back to the wall</a> · the Heresy shelf</p>
+
+  <header class="hero">
+    <span class="xii">XII</span>
+    <p class="series">The Horus Heresy · Book <b>Twelve</b></p>
+    <h1>A Thousand <span class="red">Sons</span></h1>
+    <span class="authorbar">Graham McNeill</span>
+    <p class="sub">All is dust. The burning of Prospero, told from the side that lost everything — including, in the end, the truth.</p>
+  </header>
+
+  <section class="facts">
+    <div class="cell"><div class="k">Setting</div><div class="v red">001 – 004.M31</div></div>
+    <div class="cell"><div class="k">Released</div><div class="v">2010</div></div>
+    <div class="cell"><div class="k">Format</div><div class="v">Novel <i>· doorstopper</i></div></div>
+    <div class="cell"><div class="k">Standing</div><div class="v">4.27 <i>· 10 635 readings</i></div></div>
+    <div class="cell"><div class="k">World</div><div class="v"><a href="map.html">Prospero →</a></div></div>
+  </section>
+
+  <div class="body-grid">
+    <div>
+      <h2 class="sect">The matter</h2>
+      <div class="syn">
+        <p>Censured at the Council of Nikaea for the Legion’s open use of psychic sorcery, Magnus the Red withdraws with his Thousand Sons to the crystal city of Tizca on Prospero. There the primarch peers into the warp and glimpses Horus’ coming betrayal, and he hurls his mind across the void to warn the Emperor on Terra — only to crash through the half-built webway gate beneath the Imperial Palace, tearing it open to daemons.</p>
+        <p>Followed through the eyes of Captain Ahzek Ahriman and the chronicler Lemuel Gaumon, the novel charts a tragedy of brilliant minds undone by hubris and good intentions, and ends with the Wolf King’s pyres already kindling over the City of Light.</p>
+        <p class="cross">Read against <a href="#"><u>Prospero Burns</u></a> — the same years in the Wolves’ boots. The two accounts disagree, as accounts of Prospero tend to.</p>
+      </div>
+      <div class="btnrow">
+        <button class="btn-dark">Put it on my list</button>
+        <a class="btn-ghost" href="map.html">Prospero on the map</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="cast">
+        <h2 class="sect">Dramatis personae</h2>
+        <ul>
+          <li><span class="who">Magnus the Red</span><span class="role">point of view</span></li>
+          <li><span class="who">Ahzek Ahriman</span><span class="role">point of view</span></li>
+          <li><span class="who">Lemuel Gaumon</span><span class="role">point of view</span></li>
+          <li><span class="who">Leman Russ</span><span class="role ant">antagonist</span></li>
+        </ul>
+      </div>
+
+      <div class="cast">
+        <h2 class="sect">Factions &amp; worlds</h2>
+        <ul>
+          <li><span class="who">Thousand Sons</span><span class="role">primary</span></li>
+          <li><span class="who">Space Wolves</span><span class="role">supporting</span></li>
+          <li><span class="who">Custodes</span><span class="role">supporting</span></li>
+          <li><span class="who"><a href="map.html">Prospero · Tizca</a></span><span class="role">primary stage</span></li>
+          <li><span class="who">Terra · Nikaea</span><span class="role">supporting</span></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="sect">Register</h2>
+        <div class="stamps">
+          <span class="stamp">Character study</span>
+          <span class="stamp">Philosophical</span>
+          <span class="stamp">Cosmic horror</span>
+          <span class="stamp">Hubris</span>
+          <span class="stamp">Betrayal</span>
+          <span class="stamp">Somber</span>
+          <span class="stamp">Requires context</span>
+          <span class="stamp warn">CW: violence</span>
+          <span class="stamp warn">CW: death</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="base">
+    <span>Chrono · Lexicanum — a fan archive. All works remain the property of their publishers.</span>
+    <span>Poster XII / M3.2026</span>
+  </footer>
+
+  <details class="study-note">
+    <summary>Studien-Notiz · Richtung 03 — Plakat</summary>
+    <div class="body">
+      <p><b>Diese Fläche:</b> Das Buch als Plakat. Der Titel füllt die Wand (Anton, ~13vw), die „XII" steht als Konturziffer im Anschnitt, der Autor läuft als roter Balken. Darunter ein hartes Faktenband in fünf Zellen — die M-Skala in Rot als lauteste Information. Personen und Fraktionen als Plakatlisten in Versal-Anton; Facetten als leicht rotierte Stempel — die einzige „Verzierung" der Richtung, und sie ist rein typografisch.</p>
+      <p><b>Bewusste Grenze:</b> Genau eine Konturschrift-Spielerei (XII), genau eine Rotationsspielerei (Stempel). Alles andere ist strenges Raster — Brutalismus lebt von der Disziplin hinter dem Lärm.</p>
+    </div>
+  </details>
+
+</div>

@@ -23,7 +23,7 @@
 .chron {
   /* DELIBERATE local palette (Report 144 § C.2): these are the prototype's
      own values from the Brief-138 design export and differ from the global
-     tokens (e.g. --void #04060b vs --cl-void #02030a, --gold #c9b896 vs the
+     tokens (e.g. --void #04060b vs --cl-void #050301, --gold #c9b896 vs the
      site gold). The cinematic stage is a scoped port — do NOT "fix" these to
      the global tokens; that would be a design change, not a dedup. */
   --void: #04060b;
@@ -46,8 +46,8 @@
   --vanish-dx: 110px;     /* vanish point offset from the rail (+ = leans right) */
   --eb-pad: 64px;         /* era band end inset */
   --text-x: clamp(120px, 13vw, 260px); /* dossier distance from bottom */
-  --serif: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
-  --mono: var(--font-plex-mono), 'IBM Plex Mono', ui-monospace, monospace;
+  --serif: var(--font-body), 'Cormorant Garamond', Georgia, serif;
+  --mono: var(--font-mono), 'IBM Plex Mono', ui-monospace, monospace;
   /* shared type scale — keep cinematic + index consistent */
   --fs-mono-lg: 13px;   /* dates, kicker rows */
   --fs-mono: 12px;      /* section labels, heads, buttons */
@@ -911,10 +911,12 @@
   transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
 }
 .chron .eb-n {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 15px;
-  letter-spacing: 0.04em;
+  /* Cormorant Unicase (upright — the face has no italic), a step smaller than
+     the surrounding serif so the band reads as waypoints, not headings. */
+  font-family: var(--font-unicase);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.06em;
   margin-top: 2px;
   color: var(--steel-dim);
   white-space: nowrap;
@@ -1001,7 +1003,7 @@
 }
 .chron .cine-band .eb-stop.on .eb-m { color: var(--gold); }
 .chron .cine-band .eb-n {
-  font-size: 18px;
+  font-size: 15px;
   color: var(--parchment-dim);
   text-shadow: 0 1px 10px rgba(0, 0, 0, 0.9);
 }
@@ -1324,7 +1326,7 @@
   text-align: center;
 }
 .chron-empty .ce-kicker {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.34em;
   /* lightened with --steel-dim (WCAG AA, Report 141 § B5); literal because
@@ -1333,7 +1335,7 @@
   margin-bottom: 18px;
 }
 .chron-empty .ce-text {
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-body);
   font-style: italic;
   font-size: 19px;
   line-height: 1.55;

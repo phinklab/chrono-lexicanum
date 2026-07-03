@@ -1,0 +1,340 @@
+<!-- ======================================================================
+     RICHTUNG 02 — KOGITATOR · Fläche: Buch-Detail (A Thousand Sons)
+     Record-Ansicht des Instruments. Studie zu Brief 184. Standalone.
+     ====================================================================== -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kogitator — Record HH-0012</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;1,400&family=Martian+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg:      #0b0d0c;
+    --bg-2:    #101312;
+    --bg-3:    #161a18;
+    --ink:     #d9d6c8;
+    --dim:     #8d897a;
+    --faint:   #565349;
+    --amber:   #e8a33b;
+    --amber-2: #8a6222;
+    --red:     #d4574e;
+    --line:    #262b28;
+    --line-2:  #3a403c;
+    --mono: "Martian Mono", monospace;
+    --sans: "Archivo", sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { background: var(--bg); }
+  body {
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--amber); color: #000; }
+  a { color: inherit; text-decoration: none; }
+
+  .frame { max-width: 1360px; margin: 0 auto; padding: 0 32px 80px; }
+
+  .topbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line-2);
+  }
+  .topbar .id { font-weight: 700; font-size: 13px; letter-spacing: 0.08em; }
+  .topbar .id .div { color: var(--faint); padding: 0 8px; font-weight: 300; }
+  .topbar .id .sect { color: var(--amber); }
+  .topbar nav { display: flex; gap: 4px; font-size: 11px; letter-spacing: 0.1em; }
+  .topbar nav a { padding: 7px 14px; color: var(--dim); border: 1px solid transparent; }
+  .topbar nav a:hover { color: var(--ink); border-color: var(--line-2); }
+  .topbar nav a.here { color: var(--amber); border: 1px solid var(--amber-2); }
+
+  .breadcrumb {
+    padding: 18px 0 0;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--faint);
+  }
+  .breadcrumb a { color: var(--dim); }
+  .breadcrumb a:hover { color: var(--amber); }
+  .breadcrumb .sep { padding: 0 8px; }
+  .breadcrumb .cur { color: var(--amber); }
+
+  /* ── Record-Kopf ──────────────────────────────────────────────────── */
+  .rec-head {
+    margin-top: 26px;
+    border: 1px solid var(--line-2);
+    background: var(--bg-2);
+  }
+  .rec-head .strip {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--line);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--dim);
+  }
+  .rec-head .strip b { color: var(--amber); font-weight: 500; }
+  .rec-head .main { padding: 30px 20px 28px; }
+  .rec-head h1 {
+    font-size: clamp(30px, 4.6vw, 54px);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    max-width: 22ch;
+  }
+  .rec-head .by {
+    margin-top: 12px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--dim);
+  }
+  .rec-head .by b { color: var(--ink); font-weight: 500; }
+
+  /* Feldraster */
+  .fields {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    border-top: 1px solid var(--line);
+  }
+  .fields .cell {
+    padding: 14px 20px 12px;
+    border-right: 1px solid var(--line);
+  }
+  .fields .cell:last-child { border-right: 0; }
+  .fields .k { font-size: 9px; letter-spacing: 0.18em; color: var(--faint); margin-bottom: 6px; }
+  .fields .v { font-size: 13px; color: var(--ink); }
+  .fields .v.hot { color: var(--amber); }
+  .fields .v .sub { color: var(--faint); font-size: 10px; }
+
+  /* ── Hauptraster ──────────────────────────────────────────────────── */
+  .cols {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    gap: 22px;
+    margin-top: 22px;
+    align-items: start;
+  }
+
+  .panel { border: 1px solid var(--line-2); background: var(--bg-2); }
+  .panel .hd {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 10px 18px;
+    border-bottom: 1px solid var(--line);
+    font-size: 10px; letter-spacing: 0.18em;
+    color: var(--dim);
+  }
+  .panel .hd .r { color: var(--faint); }
+  .panel .bd { padding: 18px; }
+
+  .syn {
+    font-family: var(--sans);
+    font-size: 15.5px;
+    line-height: 1.7;
+    color: var(--ink);
+    max-width: 70ch;
+  }
+  .syn p + p { margin-top: 12px; }
+  .syn .note {
+    margin-top: 16px;
+    padding: 12px 14px;
+    border-left: 2px solid var(--amber-2);
+    background: var(--bg-3);
+    color: var(--dim);
+    font-size: 13.5px;
+  }
+
+  table.kv { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .kv td { padding: 8px 0; border-bottom: 1px solid var(--line); vertical-align: baseline; }
+  .kv tr:last-child td { border-bottom: 0; }
+  .kv td.k { color: var(--faint); font-size: 10px; letter-spacing: 0.14em; width: 42%; padding-right: 10px; }
+  .kv td .role { color: var(--faint); font-size: 10px; letter-spacing: 0.1em; padding-left: 6px; }
+  .kv td .ant { color: var(--red); }
+  .kv td a:hover { color: var(--amber); }
+
+  /* Bewertungs-Meter */
+  .meter { display: flex; align-items: baseline; gap: 12px; padding: 4px 0 2px; }
+  .meter .blocks { font-size: 15px; letter-spacing: -0.06em; }
+  .meter .on { color: var(--amber); }
+  .meter .off { color: var(--faint); }
+  .meter .val { font-size: 20px; font-weight: 700; }
+  .meter .n { color: var(--faint); font-size: 10px; letter-spacing: 0.1em; }
+
+  .tagrow { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-size: 10px; letter-spacing: 0.08em;
+    color: var(--dim);
+    border: 1px solid var(--line-2);
+    padding: 4px 9px;
+  }
+  .tag.warn { color: var(--red); border-color: rgba(212, 87, 78, .4); }
+
+  .actions { display: flex; gap: 10px; margin-top: 22px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px; letter-spacing: 0.16em;
+    padding: 10px 20px;
+    border: 1px solid var(--line-2);
+    color: var(--ink);
+    background: transparent;
+    cursor: pointer;
+  }
+  .btn:hover { border-color: var(--amber); color: var(--amber); }
+  .btn.prime { background: var(--amber); border-color: var(--amber); color: #0b0d0c; font-weight: 500; }
+  .btn.prime:hover { background: var(--ink); border-color: var(--ink); }
+
+  .statusline {
+    display: flex; justify-content: space-between; gap: 24px;
+    margin-top: 24px;
+    padding: 10px 14px;
+    border: 1px solid var(--line);
+    background: var(--bg-2);
+    font-size: 10px; letter-spacing: 0.12em;
+    color: var(--faint);
+  }
+  .statusline b { color: var(--dim); font-weight: 400; }
+  .statusline .ok { color: var(--amber); }
+
+  details.study-note {
+    margin-top: 40px;
+    border: 1px solid var(--line-2);
+    background: var(--bg-2);
+    padding: 16px 20px;
+  }
+  details.study-note summary { cursor: pointer; font-size: 10px; letter-spacing: 0.2em; color: var(--amber); }
+  details.study-note .body {
+    margin-top: 14px;
+    font-family: var(--sans);
+    font-size: 14.5px; line-height: 1.65;
+    color: var(--ink);
+    max-width: 82ch;
+  }
+  details.study-note p { margin-bottom: 8px; }
+  details.study-note b { color: var(--amber); font-weight: 500; }
+
+  @media (max-width: 1000px) {
+    .frame { padding: 0 14px 56px; }
+    .fields { grid-template-columns: repeat(3, 1fr); }
+    .fields .cell { border-bottom: 1px solid var(--line); }
+    .cols { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="frame">
+
+  <header class="topbar">
+    <div class="id">CHRONO·LEXICANUM<span class="div">//</span><span class="sect">ARCHIVE</span></div>
+    <nav>
+      <a href="#">CHRONICLE</a>
+      <a href="map.html">CARTOGRAPHER</a>
+      <a href="archiv.html" class="here">ARCHIVE</a>
+      <a href="#">ASK</a>
+    </nav>
+  </header>
+
+  <p class="breadcrumb">
+    <a href="archiv.html">ARCHIVE</a><span class="sep">/</span><a href="archiv.html">RECORDS</a><span class="sep">/</span><span class="cur">HH-0012</span>
+  </p>
+
+  <section class="rec-head">
+    <div class="strip">
+      <span>RECORD <b>HH-0012</b> · BOOK</span>
+      <span>SOURCE <b>EXCEL+LLM</b> · STATE <b>CURATED</b></span>
+    </div>
+    <div class="main">
+      <h1>A THOUSAND SONS</h1>
+      <p class="by">BY <b>GRAHAM McNEILL</b> · THE HORUS HERESY, BOOK XII</p>
+    </div>
+    <div class="fields">
+      <div class="cell"><div class="k">SETTING</div><div class="v hot">001–004.M31</div></div>
+      <div class="cell"><div class="k">RELEASED</div><div class="v">2010</div></div>
+      <div class="cell"><div class="k">FORMAT</div><div class="v">NOVEL <span class="sub">DOORSTOPPER</span></div></div>
+      <div class="cell"><div class="k">ANCHOR EVENT</div><div class="v">BURNING OF PROSPERO <span class="sub">CONF M</span></div></div>
+      <div class="cell"><div class="k">PRINCIPAL WORLD</div><div class="v"><a href="map.html">PROSPERO ↗</a></div></div>
+      <div class="cell"><div class="k">ENTRY POINT?</div><div class="v">NO <span class="sub">REQUIRES CONTEXT</span></div></div>
+    </div>
+  </section>
+
+  <div class="cols">
+    <div class="panel">
+      <div class="hd"><span>SYNOPSIS</span><span class="r">CURATED · 2026</span></div>
+      <div class="bd">
+        <div class="syn">
+          <p>Censured at the Council of Nikaea for the Legion’s open use of psychic sorcery, Magnus the Red withdraws with his Thousand Sons to the crystal city of Tizca on Prospero. There the primarch peers into the warp and glimpses Horus’ coming betrayal, and he hurls his mind across the void to warn the Emperor on Terra — only to crash through the half-built webway gate beneath the Imperial Palace, tearing it open to daemons.</p>
+          <p>Followed through the eyes of Captain Ahzek Ahriman and the chronicler Lemuel Gaumon, the novel charts a tragedy of brilliant minds undone by hubris and good intentions, and ends with the Wolf King’s pyres already kindling over the City of Light.</p>
+          <p class="note">CROSS-REF — Prospero Burns walks the same years in the Wolves’ boots; the two accounts disagree, as accounts of Prospero tend to.</p>
+        </div>
+        <div class="actions">
+          <button class="btn prime">ADD TO READING LIST</button>
+          <a class="btn" href="map.html">SHOW ON CHART</a>
+          <button class="btn">COPY CITATION</button>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="panel">
+        <div class="hd"><span>STANDING</span><span class="r">GOODREADS</span></div>
+        <div class="bd">
+          <div class="meter">
+            <span class="blocks"><span class="on">████████▌</span><span class="off">░</span></span>
+            <span class="val">4.27</span>
+            <span class="n">10 635 RATINGS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" style="margin-top: 22px;">
+        <div class="hd"><span>ENTITIES</span><span class="r">12 LINKED</span></div>
+        <div class="bd">
+          <table class="kv">
+            <tr><td class="k">FACTION</td><td><a href="#">Thousand Sons</a><span class="role">PRI</span></td></tr>
+            <tr><td class="k">FACTION</td><td><a href="#">Space Wolves</a><span class="role">SUP</span></td></tr>
+            <tr><td class="k">FACTION</td><td><a href="#">Custodes</a><span class="role">SUP</span></td></tr>
+            <tr><td class="k">CHARACTER</td><td><a href="#">Magnus the Red</a><span class="role">POV</span></td></tr>
+            <tr><td class="k">CHARACTER</td><td><a href="#">Ahzek Ahriman</a><span class="role">POV</span></td></tr>
+            <tr><td class="k">CHARACTER</td><td><a href="#">Lemuel Gaumon</a><span class="role">POV</span></td></tr>
+            <tr><td class="k">CHARACTER</td><td><a href="#">Leman Russ</a><span class="role ant">ANT</span></td></tr>
+            <tr><td class="k">WORLD</td><td><a href="map.html">Prospero</a><span class="role">PRI</span></td></tr>
+            <tr><td class="k">WORLD</td><td><a href="#">Tizca</a><span class="role">PRI</span></td></tr>
+            <tr><td class="k">WORLD</td><td><a href="#">Terra</a><span class="role">SUP</span></td></tr>
+            <tr><td class="k">WORLD</td><td><a href="#">Aghoru</a><span class="role">SUP</span></td></tr>
+            <tr><td class="k">WORLD</td><td><a href="#">Nikaea</a><span class="role">SUP</span></td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel" style="margin-top: 22px;">
+        <div class="hd"><span>FACETS</span><span class="r">13 SET</span></div>
+        <div class="bd">
+          <div class="tagrow">
+            <span class="tag">CHARACTER STUDY</span><span class="tag">PHILOSOPHICAL</span><span class="tag">SOMBER</span><span class="tag">GRIMDARK</span><span class="tag">HUBRIS</span><span class="tag">BETRAYAL</span><span class="tag">FAITH</span><span class="tag">DOUBT</span><span class="tag">COSMIC HORROR</span><span class="tag">DOORSTOPPER</span><span class="tag">REQUIRES CONTEXT</span><span class="tag warn">CW VIOLENCE</span><span class="tag warn">CW DEATH</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="statusline">
+    <span>RECORD <span class="ok">LOADED</span> · <b>HH-0012</b></span>
+    <span>PREV <b><a href="archiv.html">HORUS RISING</a></b> · NEXT <b><a href="archiv.html">LEGION</a></b></span>
+    <span>SYNCED <b>2026-07-03</b></span>
+  </div>
+
+  <details class="study-note">
+    <summary>STUDIEN-NOTIZ · RICHTUNG 02 — KOGITATOR</summary>
+    <div class="body">
+      <p><b>Diese Fläche:</b> Buch-Detail als Record-Ansicht. Der Kopf ist ein Instrumentenblock: Statuszeile, Titel in Martian Mono 700, darunter ein Feldraster mit sechs Zellen — die Datenbank zeigt stolz, was sie weiß (inkl. Konfidenz und Anker-Event; das ist echte Pipeline-Information dieser Site). Synopsis bewusst in Archivo, damit Lesen und Bedienen zwei klar getrennte Register sind.</p>
+      <p><b>Entitäten-Politik:</b> Fraktionen/Charaktere/Welten als EINE Key-Value-Tabelle mit Typ-Spalte und Rollen-Codes (PRI/SUP/POV/ANT) — keine Icons, keine Farbflächen; Antagonist-Rot ist die einzige Codierung. Rating als Block-Meter statt Sterne.</p>
+    </div>
+  </details>
+
+</div>

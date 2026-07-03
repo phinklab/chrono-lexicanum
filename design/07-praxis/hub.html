@@ -1,0 +1,332 @@
+<!-- ======================================================================
+     RUNDE 9 — PRAXIS · Nachbau der Live-Startseite / (Hub).
+     Runde-9-Korrekturen (Philipps Runde-8-Review): (1) Trennpunkt aus
+     der Wortmarke raus — „Chrono Lexicanum". (2) Hintergrund = exakt
+     die Live-Site: EIN Bild (main-bg.webp, right bottom — page.tsx nutzt
+     variant="main", nicht hub.webp) + Live-Vignette/-Fade/-Grain über
+     dem Live-Void #02030a; Grund-Farbe über das Studio-Panel pickbar.
+     (3) Astrolab raus — stattdessen die ZWEI Live-Auspex-Scheiben
+     (MainAuspex ×2) an den Live-Positionen, Ringe enger, ohne Sweep.
+     (4) Cue mit Lichttropfen-Animation am nach unten fadenden Strich.
+     (5) Schriftgrößen gehoben. Geteilte Blöcke leben jetzt in
+     praxis.css/praxis.js (Keys cl09). Studio: Titelschrift-Dropdown
+     inkl. aller Cormorant-Familien + Grund-Picker.
+     ====================================================================== -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Praxis — Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cardo:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400..900&family=Fragment+Mono:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="praxis.css">
+
+<style>
+  /* ── Akt 1: Splash — die Wortmarke IST das Hero ───────────────────── */
+  .act-hero {
+    position: relative;
+    min-height: 96vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: flex-end;
+    text-align: center;
+    padding: 0 20px 7vh;
+  }
+  .act-hero .over, .act-hero h1, .act-hero .edition, .act-hero .cue {
+    position: relative; z-index: 3;
+  }
+  .act-hero .over {
+    font-size: 15px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--gold);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+    animation: enter 1s 0.15s var(--ease) both;
+  }
+  .act-hero h1 {
+    margin-top: 18px;
+    font-family: var(--disp);
+    font-weight: var(--disp-wght-hero);
+    font-optical-sizing: auto;
+    font-size: clamp(52px, 8.4vw, 128px);
+    line-height: 1.02;
+    letter-spacing: var(--disp-track);
+    text-shadow: 0 2px 26px rgba(0,0,0,0.85);
+    animation: enterTitle 1.35s 0.4s var(--ease) both;
+  }
+  .act-hero .edition {
+    margin-top: 22px;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--dim);
+    max-width: 58ch;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+    animation: enter 1s 0.85s var(--ease) both;
+  }
+  .act-hero .edition b { font-style: normal; font-weight: 400; color: var(--bone); }
+  .act-hero .cue {
+    margin-top: 6vh;
+    animation: enter 1s 1.15s var(--ease) both;
+  }
+
+  /* ── Akt 2: Praefatio — Lesespalte + Suchkonsole + Bestand ────────── */
+  .nave { max-width: 900px; margin: 0 auto; padding: 12vh 24px 0; text-align: center; }
+
+  h2.section {
+    display: flex; align-items: center; gap: 26px;
+    font-size: 14.5px; letter-spacing: 0.34em; text-transform: uppercase;
+    color: var(--gold); font-weight: 400;
+    margin: 0 0 34px;
+  }
+  h2.section::before, h2.section::after {
+    content: ""; flex: 1; border-top: 1px solid var(--hair);
+    transform: scaleX(0);
+    transition: transform 1.15s var(--ease) 0.2s;
+  }
+  h2.section::before { transform-origin: right center; }
+  h2.section::after  { transform-origin: left center; }
+  h2.section.is-seen::before, h2.section.is-seen::after { transform: scaleX(1); }
+
+  .praefatio {
+    max-width: 58ch; margin: 0 auto;
+    text-align: justify; hyphens: auto;
+    color: var(--dim);
+  }
+  .praefatio::first-line { letter-spacing: 0.14em; text-transform: uppercase; font-size: 16.5px; }
+
+  .seek { display: flex; justify-content: center; padding: 44px 0 0; }
+  .seek-wrap { position: relative; }
+  .seek input {
+    width: min(520px, 74vw);
+    background: transparent;
+    border: 0; border-bottom: 1px solid var(--hair);
+    color: var(--bone);
+    font-family: var(--text); font-style: italic; font-size: 19px;
+    text-align: center;
+    padding: 6px 4px;
+    outline: none;
+  }
+  .seek input::placeholder { color: var(--faint); }
+  .seek-wrap::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0;
+    border-top: 1px solid var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.55s var(--ease);
+  }
+  .seek-wrap:focus-within::after { transform: scaleX(1); }
+
+  .holdings {
+    margin-top: 30px;
+    font-family: var(--mono);
+    font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--faint);
+  }
+  .holdings b { color: var(--dim); font-weight: 400; }
+  .holdings span { padding: 0 10px; }
+
+  /* ── Akt 3: Explore — die Türen als gruppiertes Register ─────────── */
+  .explore { max-width: 980px; margin: 0 auto; padding: 14vh 24px 90px; }
+  .exp-group { margin-top: 56px; }
+  .exp-group:first-of-type { margin-top: 44px; }
+  .exp-divider {
+    display: flex; align-items: center; gap: 22px;
+    font-size: 13.5px; letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--faint);
+  }
+  .exp-divider::after { content: ""; flex: 1; border-top: 1px solid var(--hair-soft); }
+  .exp-rows { margin-top: 10px; }
+  a.exp-row {
+    display: grid;
+    grid-template-columns: 54px minmax(0, 1.35fr) minmax(0, 1fr) 22px;
+    gap: 0 18px;
+    align-items: baseline;
+    padding: 17px 14px;
+    border-bottom: 1px solid var(--hair-soft);
+    transition: background 0.3s;
+  }
+  a.exp-row:hover, a.exp-row:focus-visible { background: rgba(228, 221, 203, 0.03); }
+  a.exp-row:focus-visible { outline: 1px solid var(--gold); outline-offset: -1px; }
+  .exp-idx { font-family: var(--mono); font-size: 13px; color: var(--faint); text-align: right; }
+  .exp-main { display: flex; flex-direction: column; gap: 3px; }
+  .exp-title {
+    font-family: var(--disp); font-weight: var(--disp-wght);
+    font-optical-sizing: auto;
+    font-size: 24px; line-height: 1.12;
+    transition: color 0.3s;
+  }
+  a.exp-row:hover .exp-title { color: var(--gold); }
+  .exp-desc { font-style: italic; font-size: 17px; color: var(--dim); }
+  /* Marginalien-Gloss: erscheint erst beim Hover — Maschinen-Register,
+     deshalb (wie Vox/Instrumente) die einzige Latein-Lizenz der Seite */
+  .exp-gloss {
+    font-family: var(--mono);
+    font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--faint);
+    text-align: right;
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity 0.5s ease, transform 0.5s var(--ease);
+  }
+  a.exp-row:hover .exp-gloss, a.exp-row:focus-visible .exp-gloss { opacity: 1; transform: none; }
+  .exp-mark { font-size: 16px; color: var(--faint); transition: color 0.3s; }
+  a.exp-row:hover .exp-mark { color: var(--gold); }
+
+  @media (max-width: 720px) {
+    a.exp-row { grid-template-columns: 40px minmax(0, 1fr) 22px; }
+    .exp-gloss { display: none; }
+  }
+</style>
+
+<div class="bg" aria-hidden="true" style="--art: url('../../public/img/main-bg.webp'); --art-pos: right bottom;">
+  <div class="photo"></div>
+  <div class="vignette"></div>
+  <div class="fade"></div>
+  <div class="scrim" id="scrim"></div>
+  <div class="grain"></div>
+</div>
+
+<nav class="rail" aria-label="Primary">
+  <a href="hub.html" class="here" aria-current="page"><span class="rn">I</span><span class="rt">Home</span></a>
+  <a href="archiv.html"><span class="rn">II</span><span class="rt">Archive</span></a>
+  <a href="kompendium.html"><span class="rn">III</span><span class="rt">Compendium</span></a>
+  <a href="ask.html"><span class="rn">IV</span><span class="rt">Ask</span></a>
+  <a href="chronik.html"><span class="rn">V</span><span class="rt">Chronicle</span></a>
+  <a href="#"><span class="rn">VI</span><span class="rt">Cartographer</span></a>
+</nav>
+
+<!-- Keine fixe Wortmarke auf dem Hub: das Hero IST die Wortmarke. -->
+
+<div class="vox" id="vox" aria-hidden="true" data-lines='["896 records indexed","178 episodes · 6 podcasts","VII erae · V segmenta","Fontes · Lexicanvm / OL / HC","Cognitio link stable"]'></div>
+
+<!-- Akt 1 · Splash -->
+<section class="act-hero">
+  <!-- Die zwei Live-Auspex-Scheiben (MainAuspex ×2, page.tsx):
+       Positionen/Größen/Opazitäten/Drehrichtungen wie live, die
+       Ringe enger gelegt, ohne Sweep-Zeiger. SVG baut praxis.js. -->
+  <div class="auspex-pair" aria-hidden="true">
+    <div class="aus aus--main" data-auspex="520"></div>
+    <div class="aus aus--sec" data-auspex="300" style="--spa: 360s; --spb: 440s; --spc: 242s;"></div>
+  </div>
+  <span class="survey" style="left: 9%; top: 30%; --d: 6s;" aria-hidden="true">
+    <span class="pt"></span><span class="lead"></span><span class="lbl">Route · Segmentvm Vltima</span>
+  </span>
+
+  <p class="over">A Fan Archive of the 41st Millennium</p>
+  <h1>Chrono Lexicanum</h1>
+  <p class="edition"><b>Chart the eras</b>, roam the galaxy, or ask the archive where to begin.</p>
+  <span class="cue">Enter the archive</span>
+</section>
+
+<!-- Akt 2 · Praefatio -->
+<section class="nave">
+  <h2 class="section reveal">What lives in the archive?</h2>
+  <p class="praefatio reveal">A hobby — a fan-built archive of the 41st millennium, made with love for the Black Library and the slow, dark march of the grimdark. Search the catalogue below, or take one of the doorways further down.</p>
+
+  <div class="seek reveal">
+    <span class="seek-wrap"><input type="text" placeholder="search the archive — a title, author or faction …"></span>
+  </div>
+
+  <p class="holdings reveal"><b>896 novels</b><span>·</span>178 episodes · 6 podcasts<span>·</span>7 eras · 5 segmenta</p>
+</section>
+
+<!-- Akt 3 · Explore -->
+<section class="explore">
+  <h2 class="section reveal">More to explore</h2>
+
+  <div class="exp-group reveal">
+    <p class="exp-divider">The Library</p>
+    <div class="exp-rows">
+      <a class="exp-row" href="archiv.html">
+        <span class="exp-idx">I</span>
+        <span class="exp-main"><span class="exp-title">Works</span><span class="exp-desc">Every novel, novella and audio drama in the archive.</span></span>
+        <span class="exp-gloss">Catalogvs · Librorvm</span>
+        <span class="exp-mark" aria-hidden="true">›</span>
+      </a>
+      <a class="exp-row" href="archiv.html">
+        <span class="exp-idx">II</span>
+        <span class="exp-main"><span class="exp-title">Podcasts</span><span class="exp-desc">The second pillar — lore-casts, newest first.</span></span>
+        <span class="exp-gloss">Vox · Archivvm</span>
+        <span class="exp-mark" aria-hidden="true">›</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="exp-group reveal">
+    <p class="exp-divider">Browse by Topic</p>
+    <div class="exp-rows">
+      <a class="exp-row" href="fraktion.html">
+        <span class="exp-idx">III</span>
+        <span class="exp-main"><span class="exp-title">Factions</span><span class="exp-desc">Pick an allegiance and see what sits behind it.</span></span>
+        <span class="exp-gloss">Compendivm · Fractio</span>
+        <span class="exp-mark" aria-hidden="true">›</span>
+      </a>
+      <a class="exp-row" href="kompendium.html">
+        <span class="exp-idx">IV</span>
+        <span class="exp-main"><span class="exp-title">Primarchs</span><span class="exp-desc">The twenty sons of the Emperor who led the Legions.</span></span>
+        <span class="exp-gloss">Compendivm · Primarcha</span>
+        <span class="exp-mark" aria-hidden="true">›</span>
+      </a>
+      <a class="exp-row" href="charakter.html">
+        <span class="exp-idx">V</span>
+        <span class="exp-main"><span class="exp-title">Characters</span><span class="exp-desc">The named who recur across the archive.</span></span>
+        <span class="exp-gloss">Compendivm · Persona</span>
+        <span class="exp-mark" aria-hidden="true">›</span>
+      </a>
+      <a class="exp-row" href="welt.html">
+        <span class="exp-idx">VI</span>
+        <span class="exp-main"><span class="exp-title">Worlds</span><span class="exp-desc">The worlds the stories keep returning to.</span></span>
+        <span class="exp-gloss">Compendivm · Mvndvs</span>
+        <span class="exp-mark" aria-hidden="true">›</span>
+      </a>
+      <a class="exp-row" href="kompendium.html">
+        <span class="exp-idx">VII</span>
+        <span class="exp-main"><span class="exp-title">Authors</span><span class="exp-desc">The writers behind the canon, traced by hand.</span></span>
+        <span class="exp-gloss">Compendivm · Avctor</span>
+        <span class="exp-mark" aria-hidden="true">›</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="exp-group reveal">
+    <p class="exp-divider">Discover More</p>
+    <div class="exp-rows">
+      <a class="exp-row" href="ask.html">
+        <span class="exp-idx">VIII</span>
+        <span class="exp-main"><span class="exp-title">Ask the Archive</span><span class="exp-desc">Four questions to your one entry book.</span></span>
+        <span class="exp-gloss">Interrogatorivm</span>
+        <span class="exp-mark" aria-hidden="true">›</span>
+      </a>
+      <a class="exp-row" href="chronik.html">
+        <span class="exp-idx">IX</span>
+        <span class="exp-main"><span class="exp-title">Chronicle</span><span class="exp-desc">The in-universe timeline, M30 to M42.</span></span>
+        <span class="exp-gloss">Linea Temporvm</span>
+        <span class="exp-mark" aria-hidden="true">›</span>
+      </a>
+      <a class="exp-row" href="#">
+        <span class="exp-idx">X</span>
+        <span class="exp-main"><span class="exp-title">Cartographer</span><span class="exp-desc">Every novel pinned to the world it haunts.</span></span>
+        <span class="exp-gloss">Cartographia</span>
+        <span class="exp-mark" aria-hidden="true">›</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="imprimatur reveal">
+  <span class="seal-line" aria-hidden="true"></span>
+  <p class="seal-word">Imprimatur</p>
+  <p class="seal-sub">Chrono Lexicanum — an unofficial fan archive</p>
+  <p class="triad">
+    <span>From darkness, knowledge</span>
+    <span>Best experienced with sound</span>
+    <span>Fan-made · Non-commercial</span>
+  </p>
+  <p class="legal">Unofficial fan project, not endorsed by Games Workshop. Warhammer 40,000 and all associated marks are property of Games Workshop Limited.</p>
+  <p class="law"><a href="#">Impressum</a> · <a href="#">Datenschutz</a></p>
+</footer>
+
+<details class="study-note">
+  <summary>Studien-Notiz · Runde 9 — Praxis (Nachbau /, Hub)</summary>
+  <div class="body">
+    <p><b>Runde-9-Korrekturen nach Philipps Review:</b> (1) <b>Trennpunkt raus</b> — die Wortmarke heißt „Chrono Lexicanum", im Hero wie im Imprimatur. (2) <b>Hintergrund = Live-Site:</b> page.tsx nutzt variant="main" — also main-bg.webp (right bottom) statt des bisherigen hub.webp, dazu Live-Vignette, Live-Fade und Grain 0.12 über dem Live-Void #02030a (das alte #0d0d10 war zu hell). Der Grund ist über das Studio-Panel pickbar (color-mix-Fades folgen der Wahl). (3) <b>Auspex-Zwillinge statt Astrolab:</b> die zwei Live-Scheiben (MainAuspex ×2) an den Live-Positionen (34 %/58 % + 62 %/46 %), Live-Opazitäten und -Drehrichtungen; die konzentrischen Ringe liegen enger (0.58–0.96 r), der Sweep-Zeiger bleibt draußen (Dauerurteil). (4) <b>Cue-Animation:</b> der Strich vor „Enter the archive" fadet nach unten aus (Live-Strich-Regel) und ein Lichttropfen läuft ihn wiederholt hinab. (5) <b>Schriftgrößen gehoben</b> (Mono-Floor 12–13 px, Beschreibungen 17 px, Register-Titel 24 px). (6) Edition-Zeile entschlackt — Bestände nennt nur noch die Holdings-Zeile (Doppelungs-Politik).</p>
+    <p><b>Geteiltes Fundament:</b> Tokens, BG, Rail, Vox, Auspex, Cue, Buttons, Imprimatur, Studio-Panel leben jetzt in praxis.css/praxis.js (Keys cl09). Das Studio bietet die Titelschrift als Dropdown — Cinzel (Default), Bodoni Moda und die fünf lokalen Cormorant-Familien (Cormorant / Garamond / Infant / SC / Unicase, design/beispiele) — sowie den Grund-Farb-Picker mit Reset (#02030a). chronik.html bleibt bewusst auf Runde-8-Stand (Auftrag: Chronicle ignorieren).</p>
+  </div>
+</details>
+
+<script src="praxis.js"></script>

@@ -1,745 +1,346 @@
 /* 66-compendium.css
-   The Compendium — entity directory (Brief 129 — Doorways), restyled in
-   Session 142 as the REGISTRVM of the archive (Report 141, idea C2-3, ported
-   from /lab/compendium_example). The teal re-skin is retired: gold is the one
-   accent language, Terminus lines (hairlines fading out on both ends) replace
-   hard borders, and the doors are frameless wash cards bounded only by their
-   Terminus base line.
+   /compendium (overview + category directories): the masthead over the fixed
+   art, the doorway register (Factions leading full-width, four doors in a
+   2×2), the category nav (directories only) and the directory rows. */
 
-   Restraint laws: no border-radius; glow ≤ 22% alpha; gold is reserved for the
-   hero eyebrow, hovers, focus, active states and live values — never a resting
-   wall of colour. Structure is carried by bone/dim text and gold-tinted
-   hairlines; atmosphere comes from the backdrop fade, not from halos. */
-
-/* ── Surface + readability backdrop ───────────────────────────────────────── */
-main.compendium {
-  position: relative;
-  min-height: calc(100vh - var(--top-nav-h, 48px));
-  /* Cancel the global `main { padding-top: var(--top-nav-h) }` (44-nav-frame.css)
-     — the masthead clears the fixed TopNav itself, like /ask + /podcasts. */
-  padding: 0 0 56px;
-  overflow-x: clip;
-}
-
-/* Crisp-top, fade-to-void — the SAME gradient /ask + /podcasts use, because the
-   Compendium now shares their masthead skeleton (title parked at 320px, content
-   pulled up -80px). Neutral void only — no cyan halo, no warm gradient. */
-body:has(main.compendium) .site-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(
-      ellipse at 50% 30%,
-      transparent 36%,
-      color-mix(in srgb, var(--cl-void) 42%, transparent) 100%
-    ),
-    linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--cl-void) 10%, transparent) 0%,
-      color-mix(in srgb, var(--cl-void) 16%, transparent) 18%,
-      color-mix(in srgb, var(--cl-void) 62%, transparent) 38%,
-      color-mix(in srgb, var(--cl-void) 92%, transparent) 58%,
-      var(--cl-void) 76%
-    );
-}
-
-/* Scroll-darkening scrim — coplanar with .site-bg (z -1), later in the DOM so it
-   paints over the fixed photo while staying below all content. <ScrollScrim>
-   raises --cmp-scrim-opacity from 0 as the reader scrolls past the masthead, so
-   a long directory scrolling over the fixed photo's crisp top stays legible. */
-.cmp-scrim {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background: var(--cl-void);
-  opacity: var(--cmp-scrim-opacity, 0);
-  will-change: opacity;
-}
-
-/* ── HUD atmosphere (sweep + readout) — the /ask + /podcasts treatment ──────── */
-/* Absolute within the relative <main>, so the HUD anchors to the top of the page
-   and scrolls away with the masthead (like /werke's hero sweep) instead of
-   hovering over the directory as the reader scrolls. */
-.cmp-readout {
-  position: absolute;
-  top: 96px;
-  right: clamp(16px, 4vw, 48px);
-  width: 240px;
-  z-index: 3;
-  pointer-events: none;
-}
-.cmp-hud {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.6;
-}
-.cmp-hud__sweep {
-  position: absolute;
-  left: 50%;
-  top: clamp(300px, 55vh, 820px);
-  width: 360px;
-  height: 360px;
-  transform: translateX(-50%);
-  aspect-ratio: 1;
-}
-@media (max-width: 900px) {
-  .cmp-readout,
-  .cmp-hud {
-    display: none;
-  }
-}
-
-/* ── Masthead ─────────────────────────────────────────────────────────────── */
-/* The SAME skeleton as /ask (.ask-console__mast) + /podcasts (.pod-mast): a
-   clamp(520px,60vh,700px) band with the title parked at 320px, so the title,
-   the HUD above it and the content start all sit at the same heights as the
-   sibling pages. The HUD lives outside (fixed); the masthead carries only the
-   title block and is pointer-transparent. */
+/* ── Masthead ────────────────────────────────────────────────────────────── */
 .cmp-hero {
   position: relative;
-  z-index: 4;
+  min-height: 92vh;
   display: flex;
-  min-height: 100dvh;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  max-width: none;
-  margin: 0;
-  padding: calc(var(--top-nav-h, 48px) + 40px) clamp(18px, 4vw, 48px) clamp(150px, 21vh, 230px);
   text-align: center;
-  pointer-events: auto;
+  padding: 0 20px 8vh;
 }
-.cmp-hero__inner {
+.cmp-hero__over,
+.cmp-hero__heading,
+.cmp-hero__edition,
+.cmp-hero .route-cue--flow {
   position: relative;
+  z-index: 3;
 }
-.cmp-hero__eyebrow {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.22em;
+.cmp-hero__over {
+  margin: 0;
+  font-size: 15px;
+  letter-spacing: 0.4em;
   text-transform: uppercase;
   color: var(--cl-gold);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
+  animation: enter 1s 0.15s var(--ease) both;
 }
 .cmp-hero__heading {
-  margin: 12px auto 0;
-  max-width: 920px;
-  font-family: var(--font-cinzel), serif;
-  font-weight: 400;
-  font-size: clamp(44px, 4.6vw, 64px);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
+  margin: 18px 0 0;
+  font-family: var(--font-display);
+  font-weight: var(--font-display-wght-hero);
+  font-size: clamp(48px, 7.4vw, 112px);
+  line-height: 1;
+  letter-spacing: var(--font-display-track);
   color: var(--cl-bone);
-  /* Gold halo <= 22% alpha (restraint law) + a hard black drop for legibility. */
-  text-shadow:
-    0 0 32px rgba(201, 166, 90, 0.22),
-    0 4px 14px rgba(0, 0, 0, 0.95);
+  text-shadow: 0 2px 26px rgba(0, 0, 0, 0.85);
+  animation: enterTitle 1.35s 0.4s var(--ease) both;
 }
-/* Terminus line as title ornament (.cogitator-loading__scan reference). */
-.cmp-hero__rule {
-  width: min(300px, 52vw);
-  height: 1px;
-  margin: 20px auto 0;
-  background: linear-gradient(90deg, transparent, var(--cl-gold-dim), transparent);
-  opacity: 0.85;
-}
-.cmp-hero__sub {
-  max-width: 640px;
-  margin: 16px auto 0;
-  font-family: var(--font-cormorant), Georgia, serif;
+.cmp-hero__edition {
+  margin: 20px 0 0;
   font-style: italic;
-  font-size: var(--fs-read);
-  font-weight: var(--fw-read);
-  line-height: var(--lh-read);
-  color: var(--cl-bone);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+  font-size: 19.5px;
+  max-width: 58ch;
+  color: var(--cl-dim);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
+  animation: enter 1s 0.85s var(--ease) both;
+}
+.cmp-hero .route-cue--flow {
+  margin-top: 5vh;
+  animation: enter 1s 1.2s var(--ease) both;
 }
 
-/* ── Body shell (pulled up under the masthead, like .pod-body / .ask grid) ─── */
+/* ── Body ────────────────────────────────────────────────────────────────── */
 .cmp-body {
-  position: relative;
-  z-index: 4;
-  max-width: 1180px;
+  max-width: 980px;
   margin: 0 auto;
-  /* As the route-body-snap (min-height:100dvh) flex-centre the nav + doors on
-     the screen instead of pinning them cramped to the top after the first snap.
-     Safe for the tall category directories: when content outgrows the viewport
-     the section grows and the column flows from the top (justify-content:center
-     only bites when it fits — i.e. the overview's door grid). */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: clamp(72px, 11vh, 110px) clamp(20px, 3vw, 48px);
+  padding: 9vh 24px 0;
 }
 
-/* ── Category nav ─────────────────────────────────────────────────────────── */
-/* A persistent row of doorway tabs: the Index plus the five categories, each
-   with a live count, over a Terminus hairline (fading out on both ends). A
-   gold underline marks the active tab; the rest are dim until hovered. */
+/* Category nav — directories only; quiet centred row of links. */
 .cmp-nav {
-  position: relative;
   display: flex;
   flex-wrap: wrap;
-  align-items: stretch;
-  /* The tabs spread to fill the full bar over the Terminus line (real tab-bar
-     posture, maintainer call 2026-06-11); below 960px they wrap, so they fall
-     back to a centered cluster instead of ragged-left. */
-  justify-content: space-between;
-  gap: 2px;
-  margin: 0 0 26px;
-  padding: 0 0 3px;
-}
-@media (max-width: 960px) {
-  .cmp-nav {
-    justify-content: center;
-    gap: 2px 10px;
-  }
-}
-.cmp-nav::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    color-mix(in oklch, var(--cl-gold) 28%, transparent) 10%,
-    color-mix(in oklch, var(--cl-gold) 28%, transparent) 90%,
-    transparent
-  );
-}
-.cmp-nav__tab {
-  display: inline-flex;
+  justify-content: center;
   align-items: baseline;
-  gap: 7px;
-  padding: 9px 14px;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -3px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.18em;
+  gap: 4px 0;
+  margin: 0 0 44px;
+  font-size: var(--fs-label-lg);
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--cl-dim);
+}
+.cmp-nav__tab {
+  padding: 0 9px;
+  color: inherit;
   text-decoration: none;
   white-space: nowrap;
-  transition: color 180ms, border-color 180ms;
+  transition: color 0.3s;
 }
 .cmp-nav__tab:hover {
   color: var(--cl-bone);
 }
 .cmp-nav__tab.is-active {
   color: var(--cl-gold);
-  border-bottom-color: var(--cl-gold);
 }
-.cmp-nav__count {
-  font-size: var(--fs-label-xs);
-  letter-spacing: 0.1em;
+.cmp-nav__tab + .cmp-nav__tab::before {
+  content: "·";
   color: var(--cl-faint);
-}
-.cmp-nav__tab.is-active .cmp-nav__count {
-  color: color-mix(in oklch, var(--cl-gold) 60%, transparent);
+  padding-right: 16px;
 }
 
-/* ── Overview: the hall of doorways ───────────────────────────────────────── */
-/* Frameless washed segments — the /ask "two-segment" treatment. A 2-up grid:
-   Factions featured full-width on top, the other four in a 2×2 below. Each panel
-   carries a whisper of void wash (no border, no radius, no shadow — the /ask
-   `.ask-card` discipline) so it reads as a discrete surface over the backdrop,
-   lifts on hover, and pins its "view all" to the foot. No peek list — a short
-   intro and one quiet coverage stat. */
+/* ── Overview: the doorways ─────────────────────────────────────────────── */
 .cmp-overview {
-  margin: 0;
-}
-.cmp-doors {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(14px, 2vw, 22px);
-}
-.cmp-doors__cell {
-  list-style: none;
-  display: block;
-}
-/* Factions leads — the first segment spans both columns as the featured door;
-   the other four fall into the 2×2 below it. */
-.cmp-doors__cell:first-child {
-  grid-column: 1 / -1;
+  max-width: 900px;
+  margin: 0 auto;
 }
 .cmp-door {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  height: 100%;
-  padding: clamp(20px, 2.4vw, 28px);
-  /* Frameless wash card (accepted treatment 2026-06-11): a whisper of void over
-     the backdrop photo — no border, no radius, no shadow. The only boundary is
-     the Terminus base line below; hover answers in colour, not motion. */
-  background: color-mix(in srgb, var(--cl-void) 25%, transparent);
-  transition: background 180ms;
-}
-.cmp-door::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 1px;
-  color: color-mix(in oklch, var(--cl-gold) 24%, transparent);
-  background: linear-gradient(90deg, transparent, currentColor 22%, currentColor 78%, transparent);
-  transition: color 200ms;
+  display: block;
+  padding: 34px 18px 30px;
+  border-bottom: 1px solid var(--cl-hair-soft);
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.3s;
 }
 .cmp-door:hover {
-  background: rgba(10, 14, 22, 0.45);
-}
-.cmp-door:hover::after {
-  color: color-mix(in oklch, var(--cl-gold) 62%, transparent);
-}
-.cmp-door__head {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-areas:
-    "eyebrow eyebrow"
-    "label   count";
-  align-items: baseline;
-  column-gap: 12px;
-  row-gap: 3px;
-  text-decoration: none;
-}
-/* Stretch the head link's hit area over the whole card so the blurb + stat text
-   between the links is clickable too (Brief 131). `.cmp-door` is the positioned
-   ancestor; the `View all` line is now a plain span, so no nested anchor sits
-   under this overlay. */
-.cmp-door__head::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-}
-.cmp-door__eyebrow {
-  grid-area: eyebrow;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label-xs);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--cl-dim);
+  background: rgba(228, 221, 203, 0.03);
 }
 .cmp-door__label {
-  grid-area: label;
-  font-family: var(--font-cinzel), serif;
-  font-weight: 500;
-  font-size: clamp(21px, 2.4vw, 25px);
-  letter-spacing: 0.06em;
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: var(--font-display-wght);
+  font-size: 40px;
+  line-height: 1.05;
   color: var(--cl-bone);
-  transition: color 180ms;
+  transition: color 0.3s;
 }
 .cmp-door:hover .cmp-door__label {
   color: var(--cl-gold);
 }
-/* The featured Factions segment — more presence: extra padding, a larger title
-   and a gold eyebrow marking it as the flagship register (full top row). */
-.cmp-door--hero {
-  padding: clamp(24px, 3vw, 36px);
-}
 .cmp-door--hero .cmp-door__label {
-  font-size: clamp(25px, 3vw, 32px);
+  font-size: clamp(44px, 6vw, 64px);
 }
-.cmp-door--hero .cmp-door__eyebrow {
-  color: color-mix(in oklch, var(--cl-gold) 60%, var(--cl-dim));
-}
-.cmp-door__count {
-  grid-area: count;
-  justify-self: end;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--cl-dim);
-  white-space: nowrap;
-}
-.cmp-door__blurb {
-  margin: 0;
-  max-width: 62ch;
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-size: var(--fs-read-sm);
-  font-weight: var(--fw-read);
-  line-height: 1.42;
-  color: var(--cl-dim);
-}
-/* The data-forward coverage line — one quiet mono stat where the peek list used
-   to be. The number is the single live gold value; the words rest in dim, and the
-   figure lifts to full gold with the panel on hover. */
 .cmp-door__stat {
-  margin: 0;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--cl-dim);
-}
-.cmp-door__stat-n {
-  color: var(--cl-gold-dim);
-  transition: color 180ms;
-}
-.cmp-door:hover .cmp-door__stat-n {
-  color: var(--cl-gold);
-}
-.cmp-door__pending {
-  margin: 2px 0 0;
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-style: italic;
-  font-size: var(--fs-read-sm);
-  font-weight: var(--fw-read);
-  color: var(--cl-dim);
-}
-/* "View all X →" — gold-leaning at rest, full gold with the hovered door. */
-.cmp-door__all {
-  margin-top: auto;
-  padding-top: 8px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  margin: 10px 0 0;
+  font-family: var(--font-mono);
   font-size: var(--fs-label);
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: color-mix(in oklch, var(--cl-gold) 55%, var(--cl-dim));
-  text-decoration: none;
-  transition: color 180ms;
+  color: var(--cl-faint);
 }
-.cmp-door:hover .cmp-door__all,
-.cmp-door__all:hover,
-.cmp-door__all:focus-visible {
+.cmp-door__stat b {
+  color: var(--cl-gold);
+  font-weight: 400;
+}
+.cmp-door__blurb {
+  max-width: 52ch;
+  margin: 12px auto 0;
+  font-style: italic;
+  font-size: var(--fs-read-sm);
+  color: var(--cl-dim);
+}
+.cmp-door__all {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 13px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+  transition: color 0.3s;
+}
+.cmp-door:hover .cmp-door__all {
   color: var(--cl-gold);
 }
-
-/* Staggered page-load reveal — the segments fade up in sequence (the house
-   chronoFade), keyed off the per-cell `--door-i` set in page.tsx. Motion-gated:
-   reduced-motion readers get them instantly. */
-@media (prefers-reduced-motion: no-preference) {
-  .cmp-doors__cell {
-    animation: chronoFade 0.5s ease-out both;
-    animation-delay: calc(var(--door-i, 0) * 70ms);
+.cmp-doors-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.cmp-doors-grid .cmp-door {
+  border-right: 1px solid var(--cl-hair-soft);
+}
+.cmp-doors-grid .cmp-door:nth-child(2n) {
+  border-right: 0;
+}
+@media (max-width: 720px) {
+  .cmp-doors-grid {
+    grid-template-columns: 1fr;
+  }
+  .cmp-doors-grid .cmp-door {
+    border-right: 0;
   }
 }
 
-/* ── Directory: one category, dense rows ──────────────────────────────────── */
+/* ── Category directory ─────────────────────────────────────────────────── */
 .cmp-directory {
-  margin: 0;
+  max-width: 900px;
+  margin: 0 auto;
 }
 .cmp-cat-intro {
-  margin: 0 0 18px;
+  text-align: center;
+  margin-bottom: 30px;
 }
-/* The category intro is frameless and sits in the gradient's upper-mid band,
-   which is still semi-bright on tall viewports before the scroll-scrim engages —
-   so each line carries a black drop (like the hero) to stay legible on the photo. */
 .cmp-cat-intro__eyebrow {
   margin: 0;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label);
-  letter-spacing: 0.24em;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
   color: var(--cl-gold);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
 }
 .cmp-cat-intro__heading {
-  margin: 8px 0 0;
-  font-family: var(--font-cinzel), serif;
-  font-weight: 500;
-  font-size: clamp(26px, 3.4vw, 36px);
-  letter-spacing: 0.1em;
+  margin: 12px 0 0;
+  font-family: var(--font-display);
+  font-weight: var(--font-display-wght);
+  font-size: clamp(34px, 4.6vw, 54px);
+  line-height: 1.05;
   color: var(--cl-bone);
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
 }
 .cmp-cat-intro__blurb {
-  margin: 8px 0 0;
-  max-width: 64ch;
-  font-family: var(--font-cormorant), Georgia, serif;
+  max-width: 58ch;
+  margin: 12px auto 0;
   font-style: italic;
-  font-size: var(--fs-read);
-  font-weight: var(--fw-read);
-  line-height: 1.45;
+  font-size: var(--fs-read-sm);
   color: var(--cl-dim);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
 }
 
-/* Frameless empty / pending state — centred italic on the void (mirrors
-   .pod-empty); no boxed card, the backdrop shows through. */
 .cmp-empty {
-  padding: 48px 20px;
+  margin: 50px auto 0;
+  max-width: 52ch;
   text-align: center;
-  font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
-  font-size: var(--fs-read);
-  font-weight: var(--fw-read);
-  line-height: 1.5;
-  color: var(--cl-dim);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  font-size: var(--fs-read-sm);
+  color: var(--cl-faint);
 }
 .cmp-empty__lead {
   margin: 0 0 8px;
   font-style: normal;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--cl-gold);
-}
-.cmp-empty p {
-  margin: 0;
-}
-
-/* ── Table header: status line + dissolved search console ─────────────────── */
-/* The directory's "header" is one console band: a live count line, the serif
-   search line, and the facet/sort pills — capped from the rows by a Terminus
-   hairline. The count is the single live gold value; everything else rests in
-   bone/dim and lights gold only on interaction. */
-.cmp-toolbar {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 0 0 14px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  /* Frameless, in the semi-bright band on tall viewports — anchor on the photo. */
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85);
-}
-.cmp-toolbar__count {
   font-size: var(--fs-label-lg);
-  letter-spacing: 0.18em;
-  color: var(--cl-gold);
-}
-.cmp-toolbar__total {
-  font-size: var(--fs-label);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
   color: var(--cl-dim);
 }
-.cmp-toolbar__query {
-  font-size: var(--fs-label);
-  letter-spacing: 0.06em;
+
+/* The census line of the directory. */
+.cmp-toolbar {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 8px;
+  margin: 0 0 18px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-lg);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+}
+.cmp-toolbar__count {
   color: var(--cl-dim);
 }
 .cmp-toolbar__query-term {
   color: var(--cl-gold);
-}
-
-/* The shared `.browse-*` controls (cyan defaults from 61-browse.css) are
-   dissolved here into /werke's two-row query console — in gold. Row 1 is one
-   elegant serif search line over a gold underline (no boxed control); row 2 is
-   the quieter facet + sort pills. A Terminus hairline at the foot separates the
-   whole header band from the rows below. */
-.compendium .browse-filters {
-  position: relative;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 16px;
-  margin: 0 0 22px;
-  padding: 0 0 18px;
-  background: transparent;
-  border: 0;
-}
-.compendium .browse-filters::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    color-mix(in oklch, var(--cl-gold) 22%, transparent) 12%,
-    color-mix(in oklch, var(--cl-gold) 22%, transparent) 88%,
-    transparent
-  );
-}
-.compendium .browse-search {
-  width: 100%;
-  max-width: 540px;
-  padding: 0;
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid color-mix(in oklch, var(--cl-gold) 32%, transparent);
-  transition: border-color 200ms;
-}
-.compendium .browse-search:focus-within {
-  border-bottom-color: var(--cl-gold-dim);
-}
-.compendium .browse-search__sigil {
-  width: 15px;
-  height: 15px;
-  margin-left: 1px;
-  margin-right: 4px;
-  color: var(--cl-gold-dim);
-}
-.compendium .browse-search__input {
-  flex: 1;
-  min-width: 0;
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-size: var(--fs-read);
-  font-weight: var(--fw-read);
-  letter-spacing: 0.01em;
-  padding: 8px 4px;
-}
-.compendium .browse-search__input::placeholder {
-  font-style: italic;
-  letter-spacing: 0.01em;
   text-transform: none;
-  color: var(--cl-dim);
-}
-/* Dissolve the boxed → submit: borderless, gold-dim, lights gold on hover. */
-.compendium .browse-search__go {
-  border: 0;
-  color: var(--cl-gold-dim);
-  padding: 7px 6px;
-}
-.compendium .browse-search__go:hover {
-  background: transparent;
-  color: var(--cl-gold);
-}
-/* Facet + sort pills — the catalogue gold re-skin, scoped to this surface. */
-.compendium .browse-pill {
-  border-color: color-mix(in oklch, var(--cl-gold) 18%, transparent);
-}
-.compendium .browse-pill:hover {
-  border-color: var(--cl-gold-dim);
-}
-.compendium .browse-pill.active {
-  color: var(--cl-gold);
-  border-color: color-mix(in oklch, var(--cl-gold) 34%, transparent);
-  background: rgba(201, 166, 90, 0.1);
-}
-.compendium .browse-facet-chip {
-  color: var(--cl-gold);
-  border-color: var(--cl-gold);
-  background: rgba(201, 166, 90, 0.1);
-}
-.compendium .browse-facet-chip:hover {
-  background: rgba(201, 166, 90, 0.18);
+  letter-spacing: 0.04em;
 }
 
-/* ── Directory: dense rows ────────────────────────────────────────────────── */
+/* Groups (faction alignments). */
 .cmp-groups {
-  display: flex;
-  flex-direction: column;
-  gap: 26px;
+  margin-top: 34px;
 }
-.cmp-group {
-  margin: 0;
+.cmp-group + .cmp-group {
+  margin-top: 44px;
 }
-/* A gold section legend: the alignment name in gold mono on the left, a count on
-   the right, joined by a fading gold rule. Reads as a manifest divider, not a
-   floating `//` comment — the fix for the old weak group header. */
 .cmp-group__label {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 18px;
   margin: 0 0 8px;
-  padding: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
 }
 .cmp-group__name {
-  flex: none;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: color-mix(in oklch, var(--cl-gold) 60%, var(--cl-dim));
+  font-size: var(--fs-label-lg);
+  letter-spacing: 0.32em;
+  color: var(--cl-gold);
 }
 .cmp-group__rule {
-  flex: 1 1 auto;
-  height: 1px;
-  background: linear-gradient(90deg, var(--cl-gold-dim), transparent);
-  opacity: 0.45;
+  flex: 1;
+  border-top: 1px solid var(--cl-hair-soft);
 }
 .cmp-group__count {
-  flex: none;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
   letter-spacing: 0.16em;
-  color: var(--cl-dim);
+  color: var(--cl-faint);
 }
+
 .cmp-rows {
   list-style: none;
   margin: 0;
   padding: 0;
+  border-top: 1px solid var(--cl-hair);
 }
 .cmp-rows > li {
   list-style: none;
-  position: relative;
-}
-/* Row separators as Terminus lines — fading out on both ends. */
-.cmp-rows > li + li::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    color-mix(in oklch, var(--cl-gold) 13%, transparent) 14%,
-    color-mix(in oklch, var(--cl-gold) 13%, transparent) 86%,
-    transparent
-  );
 }
 
-/* The row: a hairline-divided directory line — index, faction dot or category
-   glyph, the entity name in reading serif, a dim kicker (role / allegiance),
-   coverage meta, and a hover-revealed chevron. The whole row is the Link. */
+/* The row: index, faction dot / glyph, name, kicker, coverage, chevron —
+   the whole row is the Link. */
 .cmp-row {
   display: grid;
   grid-template-columns: 44px 18px minmax(0, 1fr) auto auto 16px;
   align-items: center;
   gap: 14px;
-  padding: 11px 14px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--cl-hair-soft);
   text-decoration: none;
-  transition: background 180ms;
+  transition: background 0.3s;
 }
 .cmp-row:hover {
-  background: rgba(201, 166, 90, 0.05);
+  background: rgba(228, 221, 203, 0.03);
 }
 .cmp-row__index {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.16em;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  font-variant-numeric: tabular-nums;
   color: var(--cl-faint);
+  text-align: right;
 }
 .cmp-row__glyph {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: 15px;
   line-height: 1;
   text-align: center;
   color: var(--cl-gold-dim);
 }
 .cmp-row__dot {
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   justify-self: center;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
 }
 .cmp-row__name {
   min-width: 0;
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-size: var(--fs-read);
-  font-weight: var(--fw-read);
-  letter-spacing: 0.01em;
+  font-family: var(--font-display);
+  font-weight: var(--font-display-wght);
+  font-size: 23px;
   color: var(--cl-bone);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  transition: color 180ms;
+  transition: color 0.3s;
 }
 .cmp-row:hover .cmp-row__name {
   color: var(--cl-gold);
 }
 .cmp-row__kicker {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label);
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -751,28 +352,27 @@ body:has(main.compendium) .site-bg::after {
 }
 .cmp-row__meta {
   min-width: 0;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-xs);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   text-align: right;
-  color: var(--cl-dim);
+  color: var(--cl-faint);
   white-space: nowrap;
 }
 .cmp-row__chevron {
   justify-self: end;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1;
   color: var(--cl-faint);
-  transition: color 200ms, transform 200ms;
+  transition: color 0.3s, transform 0.3s;
 }
 .cmp-row:hover .cmp-row__chevron {
   color: var(--cl-gold);
   transform: translateX(2px);
 }
 
-/* ── Curation note (overview) — marginalia apparatus over the void ────────── */
+/* Curation note (overview). */
 .cmp-note {
   margin-top: clamp(34px, 6vh, 54px);
 }
@@ -780,56 +380,12 @@ body:has(main.compendium) .site-bg::after {
   font-style: italic;
 }
 
-/* ── Responsive ───────────────────────────────────────────────────────────── */
-/* Mobile masthead — matches /ask + /podcasts (420px band, title parked at 240px,
-   content pulled up -56px) so the four pages stay aligned on narrow screens too. */
 @media (max-width: 720px) {
-  .cmp-hero {
-    min-height: 100dvh;
-    padding: calc(var(--top-nav-h, 48px) + 40px) 14px clamp(138px, 24vh, 190px);
-  }
-  .cmp-hero__heading {
-    font-size: clamp(40px, 8vw, 56px);
-    letter-spacing: 0.14em;
-  }
-  .cmp-hero__sub {
-    font-size: var(--fs-read-sm);
-  }
-  .cmp-body {
-    padding: calc(var(--top-nav-h, 48px) + 18px) 14px 0;
-  }
-  /* The two-up grid collapses to a single column; the featured door no longer
-     needs to span (every segment is already full-width when stacked). */
-  .cmp-doors {
-    grid-template-columns: 1fr;
-  }
-  .cmp-doors__cell:first-child {
-    grid-column: auto;
-  }
-  .cmp-door {
-    padding: 18px 16px;
-  }
   .cmp-row {
-    grid-template-columns: 32px 14px minmax(0, 1fr) auto 14px;
-    gap: 10px;
-    padding: 11px 10px;
+    grid-template-columns: 34px 16px minmax(0, 1fr) 16px;
   }
-  /* Drop the kicker on narrow screens; name + coverage meta carry the row. */
-  .cmp-row__kicker {
+  .cmp-row__kicker,
+  .cmp-row__meta {
     display: none;
-  }
-}
-
-/* ── Reduced motion ───────────────────────────────────────────────────────── */
-@media (prefers-reduced-motion: reduce) {
-  .cmp-row,
-  .cmp-row__chevron,
-  .cmp-door,
-  .cmp-door__label,
-  .cmp-door__all {
-    transition: none;
-  }
-  .cmp-row:hover .cmp-row__chevron {
-    transform: none;
   }
 }

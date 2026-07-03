@@ -1,0 +1,545 @@
+<!-- ======================================================================
+     RICHTUNG 02 — KOGITATOR · Fläche: Archiv-Liste
+     Das Archiv als Arbeitsinstrument: Datenterminal ohne Cosplay.
+     Studie zu Brief 184. Standalone — per Doppelklick öffnen.
+     ====================================================================== -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kogitator — Archiv</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;1,400&family=Martian+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ── Instrument-Palette — zum Hand-Editieren ──────────────────────── */
+  :root {
+    --bg:      #0b0d0c;
+    --bg-2:    #101312;
+    --bg-3:    #161a18;
+    --ink:     #d9d6c8;
+    --dim:     #8d897a;
+    --faint:   #565349;
+    --amber:   #e8a33b;   /* Phosphor — der EINE Akzent                  */
+    --amber-2: #8a6222;
+    --red:     #d4574e;   /* nur Warnung / Antagonist                    */
+    --line:    #262b28;
+    --line-2:  #3a403c;
+
+    --mono: "Martian Mono", monospace;
+    --sans: "Archivo", sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { background: var(--bg); }
+  body {
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--amber); color: #000; }
+  a { color: inherit; text-decoration: none; }
+
+  .frame { max-width: 1360px; margin: 0 auto; padding: 0 32px 80px; }
+
+  /* ── Kopfleiste ───────────────────────────────────────────────────── */
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line-2);
+  }
+  .topbar .id { font-weight: 700; font-size: 13px; letter-spacing: 0.08em; }
+  .topbar .id .div { color: var(--faint); padding: 0 8px; font-weight: 300; }
+  .topbar .id .sect { color: var(--amber); }
+  .topbar nav { display: flex; gap: 4px; font-size: 11px; letter-spacing: 0.1em; }
+  .topbar nav a { padding: 7px 14px; color: var(--dim); border: 1px solid transparent; }
+  .topbar nav a:hover { color: var(--ink); border-color: var(--line-2); }
+  .topbar nav a.here { color: var(--amber); border: 1px solid var(--amber-2); }
+
+  /* ── Abfragezeile ─────────────────────────────────────────────────── */
+  .query {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin-top: 28px;
+    border: 1px solid var(--line-2);
+    background: var(--bg-2);
+  }
+  .query .lbl {
+    display: flex; align-items: center;
+    padding: 0 16px;
+    font-size: 11px; letter-spacing: 0.14em;
+    color: var(--amber);
+    border-right: 1px solid var(--line);
+    white-space: nowrap;
+  }
+  .query input {
+    flex: 1;
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--ink);
+    background: transparent;
+    border: 0;
+    outline: none;
+    padding: 14px 16px;
+    caret-color: var(--amber);
+  }
+  .query input::placeholder { color: var(--faint); }
+  .query button {
+    font-family: var(--mono);
+    font-size: 11px; letter-spacing: 0.14em;
+    background: var(--amber);
+    color: #0b0d0c;
+    border: 0;
+    padding: 0 26px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .query button:hover { background: var(--ink); }
+
+  /* ── Filterzeile ──────────────────────────────────────────────────── */
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px 0 0;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+  }
+  .filters .f {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    border: 1px solid var(--line-2);
+    padding: 7px 12px;
+    color: var(--dim);
+    cursor: pointer;
+    background: var(--bg-2);
+  }
+  .filters .f b { color: var(--ink); font-weight: 500; }
+  .filters .f:hover { border-color: var(--dim); }
+  .filters .f.set { border-color: var(--amber-2); color: var(--dim); }
+  .filters .f.set b { color: var(--amber); }
+  .filters .f .x { color: var(--faint); padding-left: 4px; }
+  .filters .f.set:hover .x { color: var(--red); }
+  .filters .spacer { flex: 1; }
+  .filters .readout { align-self: center; color: var(--faint); font-size: 11px; }
+  .filters .readout b { color: var(--dim); font-weight: 400; }
+
+  /* ── Datentabelle ─────────────────────────────────────────────────── */
+  table.records {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 12px;
+  }
+  .records thead th {
+    text-align: left;
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--dim);
+    padding: 10px 14px;
+    border-top: 1px solid var(--line-2);
+    border-bottom: 1px solid var(--line-2);
+    white-space: nowrap;
+    background: var(--bg-2);
+  }
+  .records thead th.sorted { color: var(--amber); }
+  .records thead th.sorted::after { content: " ↑"; }
+  .records thead th.num, .records td.num { text-align: right; }
+
+  .records tbody td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: baseline;
+    white-space: nowrap;
+  }
+  .records tbody tr:hover td { background: var(--bg-3); }
+  .records td.idx { color: var(--faint); font-size: 10px; }
+  .records td.title { font-weight: 500; font-size: 13px; white-space: normal; }
+  .records td.title a:hover { color: var(--amber); }
+  .records td.author { color: var(--dim); }
+  .records td.setting { color: var(--amber); font-weight: 400; }
+  .records td.setting .lo { color: var(--faint); }
+  .records td.fmt, .records td.series { color: var(--dim); font-size: 11px; }
+  .records td.rtg { color: var(--dim); font-variant-numeric: tabular-nums; }
+  .records td.rtg .bar { color: var(--amber); letter-spacing: -0.08em; }
+  .records td.rtg .bar-off { color: var(--faint); letter-spacing: -0.08em; }
+  .records td.rtg.none { color: var(--faint); }
+
+  /* Aufgeklappte Zeile */
+  tr.open td { background: var(--bg-3); border-bottom: 0; }
+  tr.open td.title { color: var(--amber); }
+  tr.detail td {
+    background: var(--bg-2);
+    border-bottom: 1px solid var(--line-2);
+    border-left: 2px solid var(--amber);
+    padding: 20px 24px 22px;
+    white-space: normal;
+  }
+  .detail-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: 36px;
+  }
+  .detail-grid .syn {
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink);
+    max-width: 68ch;
+  }
+  .detail-grid .syn p + p { margin-top: 10px; }
+  .detail-side .row { margin-bottom: 14px; }
+  .detail-side .k {
+    font-size: 10px; letter-spacing: 0.16em;
+    color: var(--dim);
+    margin-bottom: 6px;
+  }
+  .detail-side .v { font-size: 12px; line-height: 1.7; }
+  .detail-side .v .role { color: var(--faint); }
+  .detail-side .v .ant { color: var(--red); }
+  .tagrow { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--dim);
+    border: 1px solid var(--line-2);
+    padding: 3px 8px;
+  }
+  .tag.warn { color: var(--red); border-color: rgba(212, 87, 78, .4); }
+  .detail-actions { margin-top: 18px; display: flex; gap: 10px; }
+  .btn {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px; letter-spacing: 0.16em;
+    padding: 9px 18px;
+    border: 1px solid var(--line-2);
+    color: var(--ink);
+    background: transparent;
+    cursor: pointer;
+  }
+  .btn:hover { border-color: var(--amber); color: var(--amber); }
+  .btn.prime { background: var(--amber); border-color: var(--amber); color: #0b0d0c; font-weight: 500; }
+  .btn.prime:hover { background: var(--ink); border-color: var(--ink); color: #0b0d0c; }
+
+  /* ── Statuszeile ──────────────────────────────────────────────────── */
+  .statusline {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: 24px;
+    padding: 10px 14px;
+    border: 1px solid var(--line);
+    background: var(--bg-2);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--faint);
+  }
+  .statusline b { color: var(--dim); font-weight: 400; }
+  .statusline .ok { color: var(--amber); }
+
+  /* ── Studien-Notiz ────────────────────────────────────────────────── */
+  details.study-note {
+    margin-top: 40px;
+    border: 1px solid var(--line-2);
+    background: var(--bg-2);
+    padding: 16px 20px;
+  }
+  details.study-note summary {
+    cursor: pointer;
+    font-size: 10px; letter-spacing: 0.2em;
+    color: var(--amber);
+  }
+  details.study-note .body {
+    margin-top: 14px;
+    font-family: var(--sans);
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--ink);
+    max-width: 82ch;
+  }
+  details.study-note p { margin-bottom: 8px; }
+  details.study-note b { color: var(--amber); font-weight: 500; }
+
+  @media (max-width: 900px) {
+    .frame { padding: 0 14px 56px; }
+    .records td.series, .records th.series, .records td.fmt, .records th.fmt { display: none; }
+    .detail-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="frame">
+
+  <header class="topbar">
+    <div class="id">CHRONO·LEXICANUM<span class="div">//</span><span class="sect">ARCHIVE</span></div>
+    <nav>
+      <a href="#">CHRONICLE</a>
+      <a href="map.html">CARTOGRAPHER</a>
+      <a href="#" class="here">ARCHIVE</a>
+      <a href="#">ASK</a>
+    </nav>
+  </header>
+
+  <div class="query">
+    <span class="lbl">QUERY</span>
+    <input type="text" placeholder="title / author / world / faction …">
+    <button>EXECUTE</button>
+  </div>
+
+  <div class="filters">
+    <span class="f set">FACTION <b>THOUSAND SONS</b><span class="x">✕</span></span>
+    <span class="f">FORMAT <b>ALL</b></span>
+    <span class="f">FACET <b>ALL</b></span>
+    <span class="f">ERA <b>ALL</b></span>
+    <span class="f set">SORT <b>SETTING ASC</b></span>
+    <span class="spacer"></span>
+    <span class="readout"><b>17</b> OF <b>896</b> RECORDS</span>
+  </div>
+
+  <table class="records">
+    <thead>
+      <tr>
+        <th class="num">#</th>
+        <th>TITLE</th>
+        <th>AUTHOR</th>
+        <th class="sorted">SETTING</th>
+        <th class="num">REL</th>
+        <th class="fmt">FORMAT</th>
+        <th class="series">SERIES</th>
+        <th>RATING</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="idx num">001</td>
+        <td class="title"><a href="buch.html">The First Heretic</a></td>
+        <td class="author">Dembski-Bowden</td>
+        <td class="setting"><span class="lo">~</span>963.M30–006.M31</td>
+        <td class="num">2010</td>
+        <td class="fmt">NOVEL</td>
+        <td class="series">Horus Heresy</td>
+        <td class="rtg"><span class="bar">████████▌</span><span class="bar-off">░</span> 4.35</td>
+      </tr>
+      <tr>
+        <td class="idx num">002</td>
+        <td class="title"><a href="buch.html">Horus Rising</a></td>
+        <td class="author">Abnett</td>
+        <td class="setting"><span class="lo">~</span>001.M31</td>
+        <td class="num">2006</td>
+        <td class="fmt">NOVEL</td>
+        <td class="series">Horus Heresy</td>
+        <td class="rtg"><span class="bar">████████▌</span><span class="bar-off">░</span> 4.26</td>
+      </tr>
+
+      <!-- geöffneter Datensatz -->
+      <tr class="open">
+        <td class="idx num">003</td>
+        <td class="title"><a href="buch.html">A Thousand Sons</a></td>
+        <td class="author">McNeill</td>
+        <td class="setting">001–004.M31</td>
+        <td class="num">2010</td>
+        <td class="fmt">NOVEL</td>
+        <td class="series">Horus Heresy</td>
+        <td class="rtg"><span class="bar">████████▌</span><span class="bar-off">░</span> 4.27</td>
+      </tr>
+      <tr class="detail">
+        <td colspan="8">
+          <div class="detail-grid">
+            <div class="syn">
+              <p>Censured at the Council of Nikaea for the Legion’s open use of psychic sorcery, Magnus the Red withdraws with his Thousand Sons to the crystal city of Tizca on Prospero. There the primarch peers into the warp and glimpses Horus’ coming betrayal, and he hurls his mind across the void to warn the Emperor on Terra — only to crash through the half-built webway gate beneath the Imperial Palace, tearing it open to daemons.</p>
+              <p>Followed through the eyes of Captain Ahzek Ahriman and the chronicler Lemuel Gaumon: a tragedy of brilliant minds undone by hubris and good intentions.</p>
+              <div class="detail-actions">
+                <a class="btn prime" href="buch.html">OPEN RECORD</a>
+                <a class="btn" href="map.html">SHOW ON CHART</a>
+                <button class="btn">ADD TO LIST</button>
+              </div>
+            </div>
+            <div class="detail-side">
+              <div class="row">
+                <div class="k">FACTIONS</div>
+                <div class="v">Thousand Sons <span class="role">PRI</span> · Space Wolves <span class="role">SUP</span> · Custodes <span class="role">SUP</span></div>
+              </div>
+              <div class="row">
+                <div class="k">PRINCIPAL WORLDS</div>
+                <div class="v">Prospero · Tizca · Terra · Nikaea</div>
+              </div>
+              <div class="row">
+                <div class="k">FACETS</div>
+                <div class="v tagrow">
+                  <span class="tag">CHARACTER STUDY</span><span class="tag">PHILOSOPHICAL</span><span class="tag">HUBRIS</span><span class="tag">BETRAYAL</span><span class="tag">COSMIC HORROR</span><span class="tag">DOORSTOPPER</span><span class="tag">REQUIRES CONTEXT</span><span class="tag warn">CW VIOLENCE</span><span class="tag warn">CW DEATH</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="k">SOURCE / CONFIDENCE</div>
+                <div class="v">event-anchored · burning_of_prospero · <span class="role">CONF M</span></div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="idx num">004</td>
+        <td class="title"><a href="buch.html">Legion</a></td>
+        <td class="author">Abnett</td>
+        <td class="setting"><span class="lo">~</span>003.M31</td>
+        <td class="num">2008</td>
+        <td class="fmt">NOVEL</td>
+        <td class="series">Horus Heresy</td>
+        <td class="rtg"><span class="bar">████████▍</span><span class="bar-off">░</span> 4.17</td>
+      </tr>
+      <tr>
+        <td class="idx num">005</td>
+        <td class="title"><a href="buch.html">False Gods</a></td>
+        <td class="author">McNeill</td>
+        <td class="setting">004.M31</td>
+        <td class="num">2006</td>
+        <td class="fmt">NOVEL</td>
+        <td class="series">Horus Heresy</td>
+        <td class="rtg"><span class="bar">████████▎</span><span class="bar-off">░</span> 4.15</td>
+      </tr>
+      <tr>
+        <td class="idx num">006</td>
+        <td class="title"><a href="buch.html">The Master of Mankind</a></td>
+        <td class="author">Dembski-Bowden</td>
+        <td class="setting">004–014.M31</td>
+        <td class="num">2017</td>
+        <td class="fmt">NOVEL</td>
+        <td class="series">Horus Heresy</td>
+        <td class="rtg"><span class="bar">████████▍</span><span class="bar-off">░</span> 4.22</td>
+      </tr>
+      <tr>
+        <td class="idx num">007</td>
+        <td class="title"><a href="buch.html">Galaxy in Flames</a></td>
+        <td class="author">Counter</td>
+        <td class="setting">005–006.M31</td>
+        <td class="num">2006</td>
+        <td class="fmt">NOVEL</td>
+        <td class="series">Horus Heresy</td>
+        <td class="rtg"><span class="bar">████████▍</span><span class="bar-off">░</span> 4.19</td>
+      </tr>
+      <tr>
+        <td class="idx num">008</td>
+        <td class="title"><a href="buch.html">Fulgrim</a></td>
+        <td class="author">McNeill</td>
+        <td class="setting">005–006.M31</td>
+        <td class="num">2007</td>
+        <td class="fmt">NOVEL</td>
+        <td class="series">Horus Heresy</td>
+        <td class="rtg"><span class="bar">████████</span><span class="bar-off">░░</span> 4.05</td>
+      </tr>
+      <tr>
+        <td class="idx num">009</td>
+        <td class="title"><a href="buch.html">Know No Fear</a></td>
+        <td class="author">Abnett</td>
+        <td class="setting">007.M31</td>
+        <td class="num">2012</td>
+        <td class="fmt">NOVEL</td>
+        <td class="series">Horus Heresy</td>
+        <td class="rtg"><span class="bar">████████▌</span><span class="bar-off">░</span> 4.30</td>
+      </tr>
+      <tr>
+        <td class="idx num">010</td>
+        <td class="title"><a href="buch.html">Betrayer</a></td>
+        <td class="author">Dembski-Bowden</td>
+        <td class="setting">007–008.M31</td>
+        <td class="num">2013</td>
+        <td class="fmt">NOVEL</td>
+        <td class="series">Horus Heresy</td>
+        <td class="rtg"><span class="bar">████████▊</span><span class="bar-off">░</span> 4.40</td>
+      </tr>
+      <tr>
+        <td class="idx num">011</td>
+        <td class="title"><a href="buch.html">Xenos</a></td>
+        <td class="author">Abnett</td>
+        <td class="setting">240.M41</td>
+        <td class="num">2001</td>
+        <td class="fmt">NOVEL</td>
+        <td class="series">Eisenhorn</td>
+        <td class="rtg none">NOT RATED</td>
+      </tr>
+      <tr>
+        <td class="idx num">012</td>
+        <td class="title"><a href="buch.html">Ravenor</a></td>
+        <td class="author">Abnett</td>
+        <td class="setting">402.M41</td>
+        <td class="num">2004</td>
+        <td class="fmt">NOVEL</td>
+        <td class="series">Ravenor</td>
+        <td class="rtg none">NOT RATED</td>
+      </tr>
+      <tr>
+        <td class="idx num">013</td>
+        <td class="title"><a href="buch.html">First and Only</a></td>
+        <td class="author">Abnett</td>
+        <td class="setting">765.M41</td>
+        <td class="num">1999</td>
+        <td class="fmt">NOVEL</td>
+        <td class="series">Gaunt’s Ghosts</td>
+        <td class="rtg none">NOT RATED</td>
+      </tr>
+      <tr>
+        <td class="idx num">014</td>
+        <td class="title"><a href="buch.html">The Infinite and the Divine</a></td>
+        <td class="author">Rath</td>
+        <td class="setting"><span class="lo">~</span>910.M41</td>
+        <td class="num">2020</td>
+        <td class="fmt">NOVEL</td>
+        <td class="series">—</td>
+        <td class="rtg none">NOT RATED</td>
+      </tr>
+      <tr>
+        <td class="idx num">015</td>
+        <td class="title"><a href="buch.html">For the Emperor</a></td>
+        <td class="author">Mitchell</td>
+        <td class="setting">931.M41</td>
+        <td class="num">2003</td>
+        <td class="fmt">NOVEL</td>
+        <td class="series">Ciaphas Cain</td>
+        <td class="rtg none">NOT RATED</td>
+      </tr>
+      <tr>
+        <td class="idx num">016</td>
+        <td class="title"><a href="buch.html">Soul Hunter</a></td>
+        <td class="author">Dembski-Bowden</td>
+        <td class="setting"><span class="lo">~</span>945.M41</td>
+        <td class="num">2010</td>
+        <td class="fmt">NOVEL</td>
+        <td class="series">Night Lords</td>
+        <td class="rtg"><span class="bar">████████▋</span><span class="bar-off">░</span> 4.36</td>
+      </tr>
+      <tr>
+        <td class="idx num">017</td>
+        <td class="title"><a href="buch.html">Helsreach</a></td>
+        <td class="author">Dembski-Bowden</td>
+        <td class="setting">998.M41</td>
+        <td class="num">2010</td>
+        <td class="fmt">NOVEL</td>
+        <td class="series">SM Battles</td>
+        <td class="rtg"><span class="bar">████████▌</span><span class="bar-off">░</span> 4.28</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="statusline">
+    <span>INDEX <span class="ok">MOUNTED</span> · <b>896</b> WORKS · <b>1054</b> WORLDS · <b>7</b> ERAS</span>
+    <span>FILTER <b>FACTION=THOUSAND-SONS</b> · SORT <b>SETTING ASC</b></span>
+    <span>SYNCED <b>2026-07-03</b></span>
+  </div>
+
+  <details class="study-note">
+    <summary>STUDIEN-NOTIZ · RICHTUNG 02 — KOGITATOR</summary>
+    <div class="body">
+      <p><b>Haltung:</b> Das Archiv als Arbeitsinstrument. Kein Terminal-Cosplay (kein Fake-Latein, keine Scanlines, kein Flackern) — die 40k-Anmutung entsteht allein daraus, dass ein präzises, dichtes Instrument über düstere Inhalte läuft. Vorbild ist eher Flugsicherung/Bloomberg als Retro-CRT.</p>
+      <p><b>Verwirft:</b> Cinzel/Cormorant komplett, das Cyan/Void-Leuchten, dekorative Glyphen und Icon-Sprache, Latin-Readouts, Karten-Panels mit Transparenz, Buttons mit Zier. <b>Behält:</b> die Mono-Label-DNA der Site (radikalisiert zur Hauptschrift), die M-Skala als amberfarbene Datenspalte, Datenehrlichkeit (NOT RATED, ~-Präfix, CONF M), die Filter-als-Token-Idee aus dem Bestand.</p>
+      <p><b>Kern-Parameter:</b> Martian Mono (UI/Labels/Display) + Archivo (Fließtext). Hintergrund #0b0d0c, Tinte #d9d6c8, genau EIN Akzent: Phosphor-Amber #e8a33b; Rot nur als Warnfarbe. Buttons = eckige 1px-Rahmen, Primär = Amber-Block. Icon-Politik: null dekorative Icons; Status über Textcodes (PRI/SUP, CONF M), Bewertung als Block-Meter.</p>
+    </div>
+  </details>
+
+</div>

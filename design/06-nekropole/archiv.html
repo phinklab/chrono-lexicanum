@@ -1,0 +1,483 @@
+<!-- ======================================================================
+     RICHTUNG 06 — NEKROPOLE · Fläche: Archiv-Liste
+     Das Archiv als Monument: Inschriften-Register auf Basalt, gemeißelte
+     Versalien, Verdigris als einziger kalter Akzent, † für das Tote.
+     Monumental, aber still — eine Grabhalle, kein Plakat.
+     Studie zu Brief 184, Runde 2 (2026-07-03).
+     ====================================================================== -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nekropole — Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400..800&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --basalt:    #0b0c0b;
+    --basalt-2:  #111312;
+    --bone:      #dcd6c4;
+    --dim:       #8f8a7b;
+    --faint:     #615d51;
+    --verdigris: #79a08c;   /* oxidierte Bronze — der einzige Akzent */
+    --rust:      #9c4636;   /* nur für das Ruinöse */
+    --hair:      rgba(220, 214, 196, 0.14);
+    --disp:      "Eczar", serif;
+    --text:      "Gentium Book Plus", serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { background: var(--basalt); }
+  body {
+    font-family: var(--text);
+    color: var(--bone);
+    font-size: 17px;
+    line-height: 1.58;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--verdigris); color: var(--basalt); }
+  a { color: inherit; text-decoration: none; }
+
+  .bg { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: var(--basalt); }
+  .bg .photo {
+    position: absolute; inset: 0;
+    background: url("../../public/img/main-bg.webp") center 30% / cover no-repeat;
+    filter: saturate(0.8);
+  }
+  .bg .fade {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 34%, transparent 40%, rgba(11,12,11,0.6) 100%),
+      linear-gradient(180deg,
+        rgba(11,12,11,0.34) 0%,
+        rgba(11,12,11,0.16) 26%,
+        rgba(11,12,11,0.6) 58%,
+        rgba(11,12,11,0.93) 82%,
+        var(--basalt) 96%);
+  }
+  .bg .scrim { position: absolute; inset: 0; background: var(--basalt); opacity: 0; will-change: opacity; }
+  .bg .grain {
+    position: absolute; inset: 0; opacity: 0.12; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size: 160px 160px;
+  }
+
+  header.running {
+    display: flex; justify-content: space-between; align-items: baseline;
+    max-width: 1160px; margin: 0 auto;
+    padding: 28px 28px 0;
+  }
+  .running .mark {
+    font-family: var(--disp); font-weight: 600;
+    font-size: 15px; letter-spacing: 0.3em; text-transform: uppercase;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.8);
+  }
+  .running nav {
+    display: flex; gap: 30px;
+    font-size: 12px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--dim);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.8);
+  }
+  .running nav a:hover { color: var(--bone); }
+  .running nav a.here { color: var(--verdigris); border-bottom: 1px solid var(--verdigris); padding-bottom: 3px; }
+
+  /* ── Schwelle: gemeißelter Titel, linksbündig wie eine Bauinschrift ── */
+  .threshold {
+    min-height: 90vh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    max-width: 1160px; margin: 0 auto;
+    padding: 0 28px 8vh;
+  }
+  .threshold .over {
+    font-family: var(--disp);
+    font-size: 13px; letter-spacing: 0.34em; text-transform: uppercase;
+    color: var(--verdigris);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+  }
+  .threshold h1 {
+    margin-top: 14px;
+    font-family: var(--disp);
+    font-weight: 700;
+    font-size: clamp(64px, 11vw, 158px);
+    line-height: 0.92;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    /* Meißel-Anmutung: dunkler Kern, feine Lichtkante unten */
+    color: var(--bone);
+    text-shadow: 0 3px 30px rgba(0,0,0,0.9), 0 -1px 0 rgba(0,0,0,0.6), 0 1px 0 rgba(255,252,240,0.14);
+  }
+  .threshold .edition {
+    margin-top: 20px;
+    display: flex; flex-wrap: wrap; gap: 0 34px;
+    font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--dim);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+  }
+  .threshold .edition b { color: var(--bone); font-weight: 400; }
+  .threshold .cue {
+    margin-top: 6vh;
+    font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--faint);
+  }
+
+  main { max-width: 1160px; margin: 0 auto; padding: 9vh 28px 110px; }
+
+  /* Filter als Inschriften-Band */
+  .register-band {
+    border-top: 1px solid var(--hair);
+    border-bottom: 1px solid var(--hair);
+    padding: 14px 0;
+    display: flex; flex-wrap: wrap; gap: 8px 30px;
+    font-size: 12.5px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--dim);
+  }
+  .register-band .lbl { color: var(--faint); }
+  .register-band a { padding-bottom: 2px; }
+  .register-band a:hover { color: var(--bone); }
+  .register-band a.active { color: var(--verdigris); border-bottom: 1px solid var(--verdigris); }
+
+  /* Ären: Tafel-Köpfe — Nummer, Name, Spanne */
+  .tablet-head {
+    margin-top: 84px;
+    display: flex; align-items: baseline; gap: 24px;
+    border-bottom: 2px solid var(--bone);
+    padding-bottom: 14px;
+  }
+  .tablet-head .num {
+    font-family: var(--disp); font-weight: 700;
+    font-size: 46px; line-height: 0.9;
+    color: var(--verdigris);
+  }
+  .tablet-head h2 {
+    font-family: var(--disp); font-weight: 600;
+    font-size: clamp(30px, 4vw, 44px);
+    line-height: 1;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+  .tablet-head .note {
+    margin-left: auto;
+    font-style: italic; font-size: 15px; color: var(--dim);
+    font-family: var(--text);
+    letter-spacing: 0; text-transform: none;
+  }
+
+  /* Einträge: Register-Bänder. Numeral links, Titel, Chrono rechts. */
+  ol.registers { list-style: none; }
+  .entry {
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr) 190px;
+    column-gap: 28px;
+    padding: 26px 0;
+    border-bottom: 1px solid var(--hair);
+    align-items: baseline;
+  }
+  .entry:hover { background: linear-gradient(90deg, transparent, rgba(220,214,196,0.03) 12%, rgba(220,214,196,0.03) 88%, transparent); }
+  .entry .num {
+    font-family: var(--disp);
+    font-size: 17px;
+    color: var(--faint);
+    letter-spacing: 0.08em;
+  }
+  .entry h3 {
+    font-family: var(--disp);
+    font-weight: 600;
+    font-size: clamp(26px, 3.2vw, 38px);
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+  }
+  .entry h3 a:hover { color: var(--verdigris); }
+  .entry .byline { margin-top: 4px; font-style: italic; font-size: 15.5px; color: var(--dim); }
+  .entry .excerpt {
+    margin-top: 9px;
+    max-width: 62ch;
+    color: var(--dim);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .entry .meta {
+    margin-top: 10px;
+    font-size: 11.5px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--faint);
+  }
+  .entry .meta b { color: var(--dim); font-weight: 400; }
+  .entry .when {
+    text-align: right;
+    font-family: var(--disp);
+    font-size: 17px;
+    color: var(--verdigris);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.04em;
+  }
+  .entry .when .approx { color: var(--faint); font-family: var(--text); font-style: italic; }
+
+  /* Schaltflächen: gemeißelter Doppelrahmen */
+  .btn {
+    display: inline-block;
+    font-family: var(--disp);
+    font-size: 12px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--bone);
+    background: transparent;
+    border: 1px solid var(--bone);
+    outline: 1px solid var(--hair);
+    outline-offset: 3px;
+    padding: 12px 30px 11px;
+    cursor: pointer;
+  }
+  .btn:hover { color: var(--verdigris); border-color: var(--verdigris); }
+  .btn.primary { background: var(--bone); color: var(--basalt); }
+  .btn.primary:hover { background: var(--verdigris); border-color: var(--verdigris); color: var(--basalt); }
+
+  .continue { text-align: center; padding: 84px 0 0; }
+  .continue .hint {
+    display: block; margin-top: 16px;
+    font-style: italic; font-size: 14.5px; color: var(--faint);
+  }
+
+  footer.colophon {
+    max-width: 1160px; margin: 64px auto 0;
+    border-top: 1px solid var(--hair);
+    padding: 20px 28px 40px;
+    display: flex; justify-content: space-between; gap: 20px;
+    font-style: italic; font-size: 13.5px; color: var(--faint);
+  }
+
+  details.study-note {
+    max-width: 1160px; margin: 0 auto 60px;
+    border: 1px solid var(--hair);
+    background: var(--basalt-2);
+    padding: 16px 22px;
+    font-size: 15px;
+  }
+  details.study-note summary {
+    cursor: pointer;
+    font-family: var(--disp);
+    font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--verdigris);
+  }
+  details.study-note .body { margin-top: 12px; max-width: 78ch; color: var(--dim); }
+  details.study-note p { margin-bottom: 8px; }
+  details.study-note b { color: var(--bone); font-weight: 700; }
+
+  @media (max-width: 860px) {
+    .entry { grid-template-columns: 1fr; row-gap: 4px; }
+    .entry .num { display: none; }
+    .entry .when { text-align: left; }
+    .tablet-head { flex-wrap: wrap; }
+    .tablet-head .note { margin-left: 0; width: 100%; }
+    .threshold h1 { font-size: clamp(48px, 14vw, 92px); }
+  }
+</style>
+
+<div class="bg" aria-hidden="true">
+  <div class="photo"></div>
+  <div class="fade"></div>
+  <div class="scrim" id="scrim"></div>
+  <div class="grain"></div>
+</div>
+
+<header class="running">
+  <div class="mark">Chrono · Lexicanum</div>
+  <nav>
+    <a href="#">Chronicle</a>
+    <a href="map.html">Cartographer</a>
+    <a href="#" class="here">Archive</a>
+    <a href="#">Ask</a>
+  </nav>
+</header>
+
+<section class="threshold">
+  <p class="over">Chrono · Lexicanum — a reader’s monument to the Warhammer 40,000 library</p>
+  <h1>The Archive</h1>
+  <p class="edition">
+    <span><b>896</b> works on record</span>
+    <span>compiled <b>MMXXVI</b></span>
+    <span>every deed dated on the <b>M-scale</b></span>
+  </p>
+  <p class="cue">↓ The registers</p>
+</section>
+
+<main>
+
+  <div class="register-band">
+    <span class="lbl">Indexed by</span>
+    <a href="#" class="active">Setting</a>
+    <a href="#">Title</a>
+    <a href="#">Author</a>
+    <a href="#">Release</a>
+    <span class="lbl">· Faction</span>
+    <a href="#">All</a>
+    <a href="#" class="active">Thousand Sons</a>
+    <a href="#">Ultramarines</a>
+    <a href="#">Inquisition</a>
+    <a href="#">…</a>
+    <span class="lbl">· Format</span>
+    <a href="#" class="active">All</a>
+    <a href="#">Novels</a>
+    <a href="#">Audio</a>
+  </div>
+
+  <!-- ── Tafel I: M31 ─────────────────────────────────────────────── -->
+  <div class="tablet-head">
+    <span class="num">I</span>
+    <h2>The Horus Heresy</h2>
+    <span class="note">M30 – M31 · the civil war that made the Imperium</span>
+  </div>
+
+  <ol class="registers">
+    <li class="entry">
+      <span class="num">I</span>
+      <div>
+        <h3><a href="buch.html">The First Heretic</a></h3>
+        <p class="byline">Aaron Dembski-Bowden — 2010 · Original Horus Heresy</p>
+        <p class="excerpt">Half a century before Isstvan, the Emperor razes the city of Monarchia that the Word Bearers had raised in His name, denouncing his most devout son Lorgar for the sin of religion.</p>
+        <p class="meta"><b>Novel</b> · Word Bearers · 4.35 of 5</p>
+      </div>
+      <span class="when"><span class="approx">c.</span> 963.M30 – 006.M31</span>
+    </li>
+
+    <li class="entry">
+      <span class="num">II</span>
+      <div>
+        <h3><a href="buch.html">Horus Rising</a></h3>
+        <p class="byline">Dan Abnett — 2006 · Original Horus Heresy</p>
+        <p class="excerpt">Two centuries into the Great Crusade, Captain Garviel Loken trades the certainty of war for the harder business of speaking truth to a brother who has begun to need it.</p>
+        <p class="meta"><b>Novel</b> · Luna Wolves · 4.26 of 5</p>
+      </div>
+      <span class="when"><span class="approx">c.</span> 001.M31</span>
+    </li>
+
+    <li class="entry">
+      <span class="num">III</span>
+      <div>
+        <h3><a href="buch.html">A Thousand Sons</a></h3>
+        <p class="byline">Graham McNeill — 2010 · Original Horus Heresy</p>
+        <p class="excerpt">Censured at Nikaea, Magnus the Red withdraws with his Thousand Sons to the crystal city of Tizca on Prospero — a tragedy of brilliant minds undone by hubris and good intentions.</p>
+        <p class="meta"><b>Novel</b> · Thousand Sons · 4.27 of 5</p>
+      </div>
+      <span class="when">001 – 004.M31</span>
+    </li>
+
+    <li class="entry">
+      <span class="num">IV</span>
+      <div>
+        <h3><a href="buch.html">False Gods</a></h3>
+        <p class="byline">Graham McNeill — 2006 · Original Horus Heresy</p>
+        <p class="excerpt">A ritual duel on the feral world of Davin leaves the Warmaster mortally wounded; he rises restored in body, broken in faith.</p>
+        <p class="meta"><b>Novel</b> · Luna Wolves · 4.15 of 5</p>
+      </div>
+      <span class="when">004.M31</span>
+    </li>
+
+    <li class="entry">
+      <span class="num">V</span>
+      <div>
+        <h3><a href="buch.html">Galaxy in Flames</a></h3>
+        <p class="byline">Ben Counter — 2006 · Original Horus Heresy</p>
+        <p class="excerpt">On the dead-grey world of Isstvan III, four Legions burn their own loyalists to ash with virus and atomic fire. The Heresy is no longer a rumour.</p>
+        <p class="meta"><b>Novel</b> · Sons of Horus · 4.19 of 5</p>
+      </div>
+      <span class="when">005 – 006.M31</span>
+    </li>
+
+    <li class="entry">
+      <span class="num">VI</span>
+      <div>
+        <h3><a href="buch.html">Fulgrim</a></h3>
+        <p class="byline">Graham McNeill — 2007 · Original Horus Heresy</p>
+        <p class="excerpt">On the murder-world of Laer, a Legion compliance brings home a daemon-bound sword that has been waiting for him. The blade is patient.</p>
+        <p class="meta"><b>Novel</b> · Emperor’s Children · 4.05 of 5</p>
+      </div>
+      <span class="when">005 – 006.M31</span>
+    </li>
+  </ol>
+
+  <!-- ── Tafel II: M41 ────────────────────────────────────────────── -->
+  <div class="tablet-head">
+    <span class="num">II</span>
+    <h2>The Time of Ending</h2>
+    <span class="note">M41 · the long dusk of the Imperium</span>
+  </div>
+
+  <ol class="registers">
+    <li class="entry">
+      <span class="num">VII</span>
+      <div>
+        <h3><a href="buch.html">Xenos</a></h3>
+        <p class="byline">Dan Abnett — 2001 · Inquisitor: Eisenhorn</p>
+        <p class="excerpt">Inquisitor Gregor Eisenhorn pursues a renegade to the ice-world of Hubris — and learns that Inquisitors can become the thing they hunt.</p>
+        <p class="meta"><b>Novel</b> · Inquisition · not yet rated</p>
+      </div>
+      <span class="when">240.M41</span>
+    </li>
+
+    <li class="entry">
+      <span class="num">VIII</span>
+      <div>
+        <h3><a href="buch.html">First and Only</a></h3>
+        <p class="byline">Dan Abnett — 1999 · Gaunt’s Ghosts</p>
+        <p class="excerpt">Commissar Ibram Gaunt leads the Tanith First-and-Only — sole survivors of a world that burned behind them — through the Sabbat Worlds Crusade.</p>
+        <p class="meta"><b>Novel</b> · Imperial Guard · not yet rated</p>
+      </div>
+      <span class="when">765.M41</span>
+    </li>
+
+    <li class="entry">
+      <span class="num">IX</span>
+      <div>
+        <h3><a href="buch.html">The Infinite and the Divine</a></h3>
+        <p class="byline">Robert Rath — 2020 · standalone</p>
+        <p class="excerpt">Trazyn the Infinite and Orikan the Diviner feud across millennia — antique arrogance, deadpan comedy, genuine cosmic stakes.</p>
+        <p class="meta"><b>Novel</b> · Necrons · not yet rated</p>
+      </div>
+      <span class="when"><span class="approx">c.</span> 910.M41</span>
+    </li>
+
+    <li class="entry">
+      <span class="num">X</span>
+      <div>
+        <h3><a href="buch.html">Helsreach</a></h3>
+        <p class="byline">Aaron Dembski-Bowden — 2010 · Space Marine Battles</p>
+        <p class="excerpt">Reclusiarch Grimaldus holds Hive Helsreach against the ork flood, making his stand in an Imperial temple where faith and fury are all that remain.</p>
+        <p class="meta"><b>Novel</b> · Black Templars · 4.28 of 5</p>
+      </div>
+      <span class="when">998.M41</span>
+    </li>
+  </ol>
+
+  <div class="continue">
+    <button class="btn primary">Continue the registers</button>
+    <span class="hint">Showing 10 of 896 entries. The masons of the Lexicanum cut on.</span>
+  </div>
+
+</main>
+
+<footer class="colophon">
+  <span>Chrono · Lexicanum — a fan archive. All works remain the property of their publishers.</span>
+  <span>Background art: the site’s hub artwork (<i>main-bg.webp</i>)</span>
+</footer>
+
+<details class="study-note">
+  <summary>Studien-Notiz · Richtung 06 — Nekropole</summary>
+  <div class="body">
+    <p><b>Haltung:</b> Das Archiv als Monument — Inschriften-Register auf Basalt, gemeißelte Eczar-Versalien (spitze Serifen: Schmiedeeisen, nicht Trajan), römische Ordnungszahlen, ein einziger kalter Akzent in Verdigris (oxidierte Bronze). Monumental wie Richtung 03 (Plakat), aber still statt laut: Grabhalle, kein Marktplatz. Die grimdark-polige Antwort auf „kathedral, serene, monumental".</p>
+    <p><b>Aus Philipps Runde-2-Vorgaben:</b> Artwork als fixe Schwelle (leicht entsättigt Richtung Stein), Scroll-Scrim dunkelt zum Basalt; Riesen-Titel gemeißelt (dunkler Kern + 1px-Lichtkante unten — Gravur, kein Glow).</p>
+    <p><b>Verwirft:</b> Cinzel/Cormorant, Cyan/Gold-Zoo, Icons, Chips, Signalrot-Plakatflächen, jede Bewegung außer Hover.</p>
+    <p><b>Behält:</b> M-Skala als Verdigris-Spalte rechts (tabellarisch), Era-Gruppierung als Tafeln I/II, Datenehrlichkeit, Vier-Tool-Kopfzeile, Markergröße-Prinzip der Map.</p>
+    <p><b>Kern-Parameter:</b> Eczar (Display) + Gentium Book Plus (Text). Basalt #0b0c0b, Knochen #dcd6c4, Verdigris #79a08c, Rost #9c4636 nur fürs Ruinöse. Buttons = Doppelrahmen (Meißelkante), primär Knochen-Block.</p>
+  </div>
+</details>
+
+<script>
+  (function () {
+    var scrim = document.getElementById("scrim");
+    function update() {
+      var h = window.innerHeight * 0.9;
+      scrim.style.opacity = Math.min(0.94, window.scrollY / h).toFixed(3);
+    }
+    window.addEventListener("scroll", update, { passive: true });
+    update();
+  })();
+</script>

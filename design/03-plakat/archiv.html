@@ -1,0 +1,453 @@
+<!-- ======================================================================
+     RICHTUNG 03 — PLAKAT · Fläche: Archiv-Liste
+     Das Archiv als Plakatwand der Schwarzen Bibliothek. Studie zu
+     Brief 184. Standalone — per Doppelklick öffnen.
+     ====================================================================== -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plakat — Archiv</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+
+<style>
+  /* ── Plakat-Palette — zum Hand-Editieren ──────────────────────────── */
+  :root {
+    --blk:   #141310;
+    --blk-2: #1b1a16;
+    --bone:  #ece5d3;
+    --bone-dim: #b8b1a0;
+    --grey:  #7f7969;
+    --red:   #d5311f;   /* Signal — die EINE Akzentfarbe                 */
+    --line:  rgba(236, 229, 211, 0.16);
+    --line-strong: rgba(236, 229, 211, 0.4);
+
+    --disp: "Anton", sans-serif;
+    --text: "Spectral", serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { background: var(--blk); }
+  body {
+    font-family: var(--text);
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--bone);
+    background: var(--blk);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--red); color: var(--bone); }
+  a { color: inherit; text-decoration: none; }
+
+  .sheet { max-width: 1280px; margin: 0 auto; padding: 0 40px 100px; }
+
+  /* ── Kopfstrip ────────────────────────────────────────────────────── */
+  .strip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 4px solid var(--bone);
+  }
+  .strip .brand {
+    font-family: var(--disp);
+    font-size: 17px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .strip .brand span { color: var(--red); }
+  .strip nav { display: flex; gap: 26px; font-family: var(--disp); font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .strip nav a { color: var(--bone-dim); padding-bottom: 2px; }
+  .strip nav a:hover { color: var(--bone); }
+  .strip nav a.here { color: var(--red); border-bottom: 3px solid var(--red); }
+
+  /* ── Plakatkopf ───────────────────────────────────────────────────── */
+  header.poster {
+    padding: 54px 0 10px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 32px;
+    align-items: end;
+  }
+  .poster h1 {
+    font-family: var(--disp);
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: clamp(90px, 15vw, 200px);
+    line-height: 0.86;
+    letter-spacing: 0.005em;
+  }
+  .poster h1 .red { color: var(--red); }
+  .poster .side {
+    padding-bottom: 16px;
+    font-size: 15px;
+    color: var(--bone-dim);
+    border-left: 4px solid var(--red);
+    padding-left: 18px;
+  }
+  .poster .side b { color: var(--bone); font-weight: 500; }
+  .poster .side .big {
+    display: block;
+    font-family: var(--disp);
+    font-size: 42px;
+    line-height: 1;
+    color: var(--bone);
+    margin-bottom: 6px;
+  }
+
+  /* ── Filterband ───────────────────────────────────────────────────── */
+  .band {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: 36px;
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .band .lbl {
+    font-family: var(--disp);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--grey);
+    margin-right: 8px;
+  }
+  .chip {
+    font-family: var(--disp);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 8px 16px 7px;
+    border: 1px solid var(--line-strong);
+    color: var(--bone-dim);
+    cursor: pointer;
+  }
+  .chip:hover { color: var(--bone); border-color: var(--bone); }
+  .chip.on { background: var(--red); border-color: var(--red); color: var(--bone); }
+  .band .free {
+    flex: 1;
+    min-width: 180px;
+    font-family: var(--text);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--bone);
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--line-strong);
+    padding: 6px 4px;
+    outline: none;
+  }
+  .band .free:focus { border-bottom-color: var(--red); }
+  .band .free::placeholder { color: var(--grey); }
+
+  /* ── Plakatliste ──────────────────────────────────────────────────── */
+  ol.wall { list-style: none; counter-reset: n; margin-top: 8px; }
+
+  .row {
+    counter-increment: n;
+    display: grid;
+    grid-template-columns: 86px minmax(0, 1fr) 210px;
+    align-items: baseline;
+    gap: 24px;
+    padding: 26px 0 22px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .row .n {
+    font-family: var(--disp);
+    font-size: 20px;
+    color: var(--grey);
+  }
+  .row .n::before { content: counter(n, decimal-leading-zero); }
+  .row h3 {
+    font-family: var(--disp);
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: clamp(30px, 4.4vw, 56px);
+    line-height: 0.98;
+    letter-spacing: 0.005em;
+  }
+  .row h3 a { display: inline-block; }
+  .row:hover h3 a { color: var(--red); }
+  .row:hover .n { color: var(--red); }
+  .row .meta {
+    text-align: right;
+    font-style: italic;
+    font-size: 14.5px;
+    color: var(--grey);
+    line-height: 1.55;
+  }
+  .row .meta b { font-style: normal; font-weight: 500; color: var(--bone-dim); }
+  .row .meta .when { display: block; color: var(--bone); font-style: normal; font-size: 15px; }
+
+  /* Feature-Block: aufgerissenes Plakat */
+  .feature {
+    margin: 40px 0;
+    background: var(--red);
+    color: var(--blk);
+    padding: 40px 44px 38px;
+    position: relative;
+    box-shadow: 10px 10px 0 rgba(236, 229, 211, 0.14);
+  }
+  .feature .over {
+    font-family: var(--disp);
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blk);
+    opacity: .75;
+  }
+  .feature h3 {
+    font-family: var(--disp);
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: clamp(52px, 8vw, 110px);
+    line-height: 0.88;
+    margin: 10px 0 4px;
+  }
+  .feature .grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 40px;
+    margin-top: 18px;
+  }
+  .feature p.syn {
+    font-size: 16.5px;
+    line-height: 1.6;
+    font-weight: 500;
+    max-width: 62ch;
+  }
+  .feature .facts { font-size: 15px; line-height: 1.8; }
+  .feature .facts b { font-weight: 600; }
+  .feature .facts .k {
+    font-family: var(--disp);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: .7;
+    display: inline-block;
+    width: 92px;
+  }
+  .feature .stamp {
+    position: absolute;
+    top: 34px;
+    right: 40px;
+    font-family: var(--disp);
+    font-size: 15px;
+    letter-spacing: 0.1em;
+    border: 3px solid var(--blk);
+    padding: 8px 14px 6px;
+    transform: rotate(4deg);
+    text-transform: uppercase;
+  }
+  .btnrow { display: flex; gap: 14px; margin-top: 24px; }
+  .btn {
+    font-family: var(--disp);
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 12px 24px 10px;
+    border: 2px solid var(--blk);
+    color: var(--blk);
+    background: transparent;
+    cursor: pointer;
+  }
+  .btn:hover { background: var(--blk); color: var(--red); }
+  .btn.fill { background: var(--blk); color: var(--bone); }
+  .btn.fill:hover { color: var(--red); }
+
+  /* Buttons außerhalb des Features (auf Schwarz) */
+  .more-row { text-align: center; padding: 48px 0 0; }
+  .btn-dark {
+    display: inline-block;
+    font-family: var(--disp);
+    font-size: 14px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 15px 34px 13px;
+    background: var(--bone);
+    color: var(--blk);
+    border: 0;
+    cursor: pointer;
+    box-shadow: 6px 6px 0 var(--red);
+  }
+  .btn-dark:hover { background: var(--red); color: var(--bone); box-shadow: 6px 6px 0 var(--bone); }
+  .more-row .hint { display: block; margin-top: 16px; font-style: italic; color: var(--grey); font-size: 14px; }
+
+  footer.base {
+    margin-top: 80px;
+    border-top: 4px solid var(--bone);
+    padding-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--grey);
+  }
+
+  details.study-note {
+    margin-top: 40px;
+    border: 1px solid var(--line-strong);
+    background: var(--blk-2);
+    padding: 16px 20px;
+    font-size: 15px;
+  }
+  details.study-note summary {
+    cursor: pointer;
+    font-family: var(--disp);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--red);
+  }
+  details.study-note .body { margin-top: 12px; max-width: 80ch; line-height: 1.6; }
+  details.study-note p { margin-bottom: 8px; }
+  details.study-note b { color: var(--bone); font-weight: 500; }
+
+  @media (max-width: 860px) {
+    .sheet { padding: 0 18px 64px; }
+    header.poster { grid-template-columns: 1fr; }
+    .row { grid-template-columns: 48px 1fr; }
+    .row .meta { grid-column: 2; text-align: left; }
+    .feature { padding: 26px 22px; }
+    .feature .grid { grid-template-columns: 1fr; }
+    .feature .stamp { display: none; }
+  }
+</style>
+
+<div class="sheet">
+
+  <div class="strip">
+    <div class="brand">Chrono<span>·</span>Lexicanum</div>
+    <nav>
+      <a href="#">Chronicle</a>
+      <a href="map.html">Cartographer</a>
+      <a href="#" class="here">Archive</a>
+      <a href="#">Ask</a>
+    </nav>
+  </div>
+
+  <header class="poster">
+    <h1>The<br>Arch<span class="red">ive.</span></h1>
+    <div class="side">
+      <span class="big">896</span>
+      <b>works of the Black Library,</b> indexed, dated and placed upon the galaxy — every novel a poster on the wall of the 41st millennium.
+    </div>
+  </header>
+
+  <div class="band">
+    <span class="lbl">Show</span>
+    <span class="chip on">All eras</span>
+    <span class="chip">Heresy · M31</span>
+    <span class="chip">Dark Millennium · M41</span>
+    <span class="lbl" style="margin-left:18px">Faction</span>
+    <span class="chip">Astartes</span>
+    <span class="chip on">Thousand Sons</span>
+    <span class="chip">Guard</span>
+    <span class="chip">Xenos</span>
+    <input class="free" type="text" placeholder="or seek a title, an author, a world …">
+  </div>
+
+  <ol class="wall">
+    <li class="row">
+      <span class="n"></span>
+      <h3><a href="buch.html">The First Heretic</a></h3>
+      <p class="meta"><span class="when">c. 963.M30 – 006.M31</span><b>Aaron Dembski-Bowden</b> · 2010<br>Horus Heresy · 4.35 of 5</p>
+    </li>
+    <li class="row">
+      <span class="n"></span>
+      <h3><a href="buch.html">Horus Rising</a></h3>
+      <p class="meta"><span class="when">c. 001.M31</span><b>Dan Abnett</b> · 2006<br>Horus Heresy · 4.26 of 5</p>
+    </li>
+  </ol>
+
+  <!-- Feature: aufgerissenes Plakat -->
+  <section class="feature">
+    <span class="stamp">Book XII</span>
+    <p class="over">Featured — the Heresy shelf</p>
+    <h3>A Thousand<br>Sons</h3>
+    <div class="grid">
+      <p class="syn">Censured at Nikaea for the Legion’s open sorcery, Magnus the Red withdraws to the crystal city of Tizca — then hurls his mind across the void to warn the Emperor, and tears the webway open to daemons. A tragedy of brilliant minds undone by hubris and good intentions, ending under the Wolf King’s pyres.</p>
+      <div class="facts">
+        <div><span class="k">Author</span><b>Graham McNeill</b>, 2010</div>
+        <div><span class="k">Setting</span><b>001 – 004.M31</b> · Prospero</div>
+        <div><span class="k">Standing</span><b>4.27 of 5</b> · 10 635 readings</div>
+        <div><span class="k">Register</span>character study · philosophical · cosmic horror</div>
+        <div class="btnrow">
+          <a class="btn fill" href="buch.html">Open the book</a>
+          <a class="btn" href="map.html">Prospero on the map</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ol class="wall" style="counter-reset: n 3;">
+    <li class="row">
+      <span class="n"></span>
+      <h3><a href="buch.html">Legion</a></h3>
+      <p class="meta"><span class="when">c. 003.M31</span><b>Dan Abnett</b> · 2008<br>Horus Heresy · 4.17 of 5</p>
+    </li>
+    <li class="row">
+      <span class="n"></span>
+      <h3><a href="buch.html">Fulgrim</a></h3>
+      <p class="meta"><span class="when">005 – 006.M31</span><b>Graham McNeill</b> · 2007<br>Horus Heresy · 4.05 of 5</p>
+    </li>
+    <li class="row">
+      <span class="n"></span>
+      <h3><a href="buch.html">Know No Fear</a></h3>
+      <p class="meta"><span class="when">007.M31</span><b>Dan Abnett</b> · 2012<br>Horus Heresy · 4.30 of 5</p>
+    </li>
+    <li class="row">
+      <span class="n"></span>
+      <h3><a href="buch.html">Betrayer</a></h3>
+      <p class="meta"><span class="when">007 – 008.M31</span><b>Aaron Dembski-Bowden</b> · 2013<br>Horus Heresy · 4.40 of 5</p>
+    </li>
+    <li class="row">
+      <span class="n"></span>
+      <h3><a href="buch.html">Xenos</a></h3>
+      <p class="meta"><span class="when">240.M41</span><b>Dan Abnett</b> · 2001<br>Eisenhorn · not yet rated</p>
+    </li>
+    <li class="row">
+      <span class="n"></span>
+      <h3><a href="buch.html">First and Only</a></h3>
+      <p class="meta"><span class="when">765.M41</span><b>Dan Abnett</b> · 1999<br>Gaunt’s Ghosts · not yet rated</p>
+    </li>
+    <li class="row">
+      <span class="n"></span>
+      <h3><a href="buch.html">The Infinite and the Divine</a></h3>
+      <p class="meta"><span class="when">c. 910.M41</span><b>Robert Rath</b> · 2020<br>standalone · not yet rated</p>
+    </li>
+    <li class="row">
+      <span class="n"></span>
+      <h3><a href="buch.html">Soul Hunter</a></h3>
+      <p class="meta"><span class="when">c. 945.M41</span><b>Aaron Dembski-Bowden</b> · 2010<br>Night Lords · 4.36 of 5</p>
+    </li>
+    <li class="row">
+      <span class="n"></span>
+      <h3><a href="buch.html">Helsreach</a></h3>
+      <p class="meta"><span class="when">998.M41</span><b>Aaron Dembski-Bowden</b> · 2010<br>Space Marine Battles · 4.28 of 5</p>
+    </li>
+  </ol>
+
+  <div class="more-row">
+    <button class="btn-dark">Show the next hundred</button>
+    <span class="hint">12 of 896 on the wall — the Archive is deep.</span>
+  </div>
+
+  <footer class="base">
+    <span>Chrono · Lexicanum — a fan archive. All works remain the property of their publishers.</span>
+    <span>No. 41 / M3.2026</span>
+  </footer>
+
+  <details class="study-note">
+    <summary>Studien-Notiz · Richtung 03 — Plakat</summary>
+    <div class="body">
+      <p><b>Haltung:</b> Das Archiv als Plakatwand — Schweizer Brutalismus trifft Black-Library-Wucht. Die Typografie selbst ist das Artwork; jede Zeile der Liste ist ein kleines Plakat, das Feature-Buch reißt als roter Block die Wand auf. Von den drei Richtungen die lauteste.</p>
+      <p><b>Verwirft:</b> jede Fantasy-Schrift (Cinzel/Cormorant), alle Icons und Rauten, Panels/Karten, Glow, das Cyan komplett, dekorative Zwischentöne — es gibt nur Schwarz, Knochen, Signalrot. <b>Behält:</b> die M-Skala prominent (jetzt als Datumszeile über den Meta-Angaben), Era-Filter-Idee als Chips, Rating in Textform, die Dunkelheit des Bestands — aber flach statt leuchtend.</p>
+      <p><b>Kern-Parameter:</b> Anton (Display/UI-Labels) + Spectral (Text/Meta, kursiv als zweite Stimme). Schwarz #141310, Knochen #ece5d3, Signal #d5311f. Buttons = harte Blöcke mit Versatz-Schatten (Offset statt Blur). Icon-Politik: null — Nummern, Balken und Stempel-Rahmen übernehmen die Auszeichnung.</p>
+    </div>
+  </details>
+
+</div>

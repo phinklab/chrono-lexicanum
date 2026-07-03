@@ -1,0 +1,1578 @@
+<!-- ======================================================================
+     RUNDE 9 — PRAXIS · Nachbau der Live-Seite /archive.
+     Runde-9-Korrekturen (Philipps Runde-8-Review): (1) Servo-Schädel-
+     Skizze RAUS (Verdikt: die sich zeichnenden SVGs sind grauenvoll) —
+     stattdessen die zwei Live-Auspex-Scheiben an den Live-Positionen
+     (Ringe enger, ohne Sweep). (2) „Archive of Books / Podcasts"
+     DEUTLICH präsenter: die Wahl ist jetzt das erste Element des
+     Schiffs — zwei große Register-Türen; die kleine Filterzeilen-
+     Variante ist raus. (3) Hintergrund = Live-BG (main-bg.webp, right
+     bottom, Live-Void #02030a + Live-Fades; Grund pickbar). (4) Cue
+     „Search the archive" mit nach unten fadendem Strich + Licht-
+     tropfen. (5) Schriftgrößen gehoben, Trennpunkt der Wortmarke raus.
+     Geteilte Blöcke leben in praxis.css/praxis.js (Keys cl09).
+     Kapelle (Popup-Datensatz) unverändert aus Runde 8.
+     ====================================================================== -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Praxis — Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cardo:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400..900&family=Fragment+Mono:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="praxis.css">
+
+<style>
+  /* ── Erster Akt: Masthead im Artwork (Ladeanimation, gestaffelt) ──── */
+  .act-hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: flex-end;
+    text-align: center;
+    padding: 0 20px 8vh;
+  }
+  /* Text über dem Instrument — Schichtung wie catalogue-hero__title (z 3) */
+  .act-hero .over, .act-hero h1, .act-hero .edition, .act-hero .cue {
+    position: relative; z-index: 3;
+  }
+  .act-hero .over {
+    font-size: 15px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--gold);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+    animation: enter 1s 0.15s var(--ease) both;
+  }
+  .act-hero h1 {
+    margin-top: 18px;
+    font-family: var(--disp);
+    font-weight: var(--disp-wght-hero);
+    font-optical-sizing: auto;
+    font-size: clamp(64px, 10vw, 150px);
+    line-height: 0.98;
+    letter-spacing: var(--disp-track);
+    text-shadow: 0 2px 26px rgba(0,0,0,0.85);
+    animation: enterTitle 1.35s 0.4s var(--ease) both;
+  }
+  .act-hero h1 em { font-style: var(--disp-em); font-weight: var(--disp-wght-hero); }
+  .act-hero .edition {
+    margin-top: 22px;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--dim);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+    animation: enter 1s 0.85s var(--ease) both;
+  }
+  .act-hero .edition b { font-style: normal; font-weight: 400; color: var(--bone); }
+  .act-hero .cue {
+    margin-top: 6vh;
+    animation: enter 1s 1.15s var(--ease) both;
+  }
+
+  /* ── Schiff: Archiv-Türen, Konsole, Filter, Register-Tafel ───────── */
+  .nave { max-width: 1120px; margin: 0 auto; padding: 9vh 24px 90px; }
+
+  /* Die Archiv-Wahl — Runde 9: DEUTLICH präsenter. Books / Podcasts
+     als erstes Element des Schiffs, zwei große Register-Türen mit dem
+     Sternwarte-Punkt als Aktiv-Marker; die kleine „Archive of"-Zeile
+     im Filter ist dafür raus. */
+  .arch-doors {
+    display: grid; grid-template-columns: 1fr 1fr;
+    max-width: 760px; margin: 0 auto 64px;
+    border-top: 1px solid var(--hair);
+    border-bottom: 1px solid var(--hair);
+  }
+  button.arch-door {
+    position: relative;
+    background: none; border: 0; cursor: pointer;
+    font: inherit; color: inherit;
+    padding: 34px 20px 30px;
+    text-align: center;
+    transition: background 0.3s;
+  }
+  button.arch-door + button.arch-door { border-left: 1px solid var(--hair-soft); }
+  button.arch-door:hover { background: rgba(228, 221, 203, 0.03); }
+  button.arch-door:focus-visible { outline: 1px solid var(--gold); outline-offset: -1px; }
+  .arch-door .ad-kicker {
+    display: block;
+    font-family: var(--mono);
+    font-size: 12.5px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--faint);
+    transition: color 0.3s;
+  }
+  .arch-door .ad-kicker::before {
+    content: ""; display: inline-block;
+    width: 4px; height: 4px; margin-right: 10px;
+    vertical-align: 2px;
+    background: var(--faint); border-radius: 50%;
+    transition: background 0.3s, transform 0.4s var(--ease);
+  }
+  .arch-door .ad-title {
+    display: block;
+    margin-top: 10px;
+    font-family: var(--disp); font-weight: var(--disp-wght);
+    font-optical-sizing: auto;
+    font-size: clamp(34px, 4.6vw, 48px);
+    line-height: 1.05;
+    transition: color 0.3s;
+  }
+  .arch-door .ad-count {
+    display: block;
+    margin-top: 8px;
+    font-style: italic; font-size: 16.5px; color: var(--dim);
+  }
+  button.arch-door:hover .ad-title { color: var(--gold); }
+  button.arch-door.active .ad-kicker { color: var(--gold); }
+  button.arch-door.active .ad-kicker::before { background: var(--gold); transform: scale(1.6); }
+  button.arch-door.active .ad-title { color: var(--gold); }
+  @media (max-width: 640px) {
+    .arch-doors { grid-template-columns: 1fr; }
+    button.arch-door + button.arch-door { border-left: 0; border-top: 1px solid var(--hair-soft); }
+  }
+
+  .seek { display: flex; justify-content: center; padding: 0 0 6px; }
+  .seek-wrap { position: relative; }
+  .seek input {
+    width: min(520px, 74vw);
+    background: transparent;
+    border: 0; border-bottom: 1px solid var(--hair);
+    color: var(--bone);
+    font-family: var(--text); font-style: italic; font-size: 19px;
+    text-align: center;
+    padding: 6px 4px;
+    outline: none;
+  }
+  .seek input::placeholder { color: var(--faint); }
+  .seek-wrap::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0;
+    border-top: 1px solid var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.55s var(--ease);
+  }
+  .seek-wrap:focus-within::after { transform: scaleX(1); }
+
+  /* Filterzeile: Dropdown-Trigger + EIN Sort-Control (der Register-
+     Toggle ist Runde 9 in die großen Archiv-Türen gewandert) */
+  .filterbar {
+    display: flex; justify-content: center; align-items: baseline;
+    gap: 34px; flex-wrap: wrap;
+    padding: 22px 0 0;
+    font-size: 14px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--dim);
+  }
+  .filterbar .lbl { color: var(--faint); padding-right: 4px; letter-spacing: 0.28em; font-size: 13px; }
+  .filterbar .opt { padding: 0 6px; transition: color 0.3s; cursor: pointer; }
+  .filterbar .opt:hover { color: var(--bone); }
+  .filterbar .opt.active { color: var(--gold); }
+  .filterbar .opt + .opt::before { content: "·"; color: var(--faint); padding-right: 12px; }
+  .filterbar .dd-btn {
+    border-bottom: 1px solid var(--hair);
+    padding: 4px 4px 5px;
+    cursor: pointer;
+    transition: color 0.3s, border-color 0.3s;
+    white-space: nowrap;
+  }
+  .filterbar .dd-btn:hover { color: var(--bone); border-bottom-color: var(--gold); }
+  .filterbar .dd-btn b { color: var(--gold); font-weight: 400; padding-left: 8px; }
+
+  .census {
+    text-align: center;
+    margin-top: 26px;
+    font-family: var(--mono);
+    font-size: 13.5px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--faint);
+  }
+  .census b { color: var(--dim); font-weight: 400; }
+
+  /* ── Das Register: die Catalogue-Liste der Live-Site — flach, ohne
+        Spaltenkopf, ohne Ären-Zwischenzeilen. Zeilen-Anatomie wie
+        catalogue-row: № / Titel + Byline / Faction / Year / Format / ▾.
+        Runde 6: Klick öffnet den Datensatz als POPUP (die Kapelle) —
+        exakt die Live-Mechanik (@modal-Intercept). ───────────────────── */
+  .ledger { margin-top: 34px; border-top: 1px solid var(--hair); }
+  .grid-row {
+    display: grid;
+    grid-template-columns: 54px minmax(0, 3fr) minmax(0, 1.1fr) 64px 110px 22px;
+    gap: 0 18px;
+    align-items: baseline;
+    padding: 0 14px;
+  }
+  button.row-face {
+    width: 100%;
+    background: none; border: 0;
+    font: inherit; color: inherit; text-align: left;
+    cursor: pointer;
+    padding-top: 16px; padding-bottom: 16px;
+    border-bottom: 1px solid var(--hair-soft);
+    transition: background 0.3s;
+  }
+  button.row-face:hover, button.row-face:focus-visible { background: rgba(228, 221, 203, 0.03); }
+  button.row-face:focus-visible { outline: 1px solid var(--gold); outline-offset: -1px; }
+  .c-idx { font-family: var(--mono); font-size: 13px; color: var(--faint); font-variant-numeric: tabular-nums; text-align: right; }
+  .c-main { display: flex; flex-direction: column; gap: 3px; }
+  .c-title {
+    font-family: var(--disp); font-weight: var(--disp-wght);
+    font-optical-sizing: auto;
+    font-size: 24px; line-height: 1.12;
+    transition: color 0.3s;
+  }
+  button.row-face:hover .c-title { color: var(--gold); }
+  .c-by { font-style: italic; font-size: 17px; color: var(--dim); }
+  .c-faction { font-size: 13.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); }
+  .c-year { font-family: var(--mono); font-size: 14.5px; color: var(--dim); font-variant-numeric: tabular-nums; text-align: right; }
+  .c-format { font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--faint); }
+  .c-mark {
+    display: inline-block;
+    font-size: 14px; color: var(--faint);
+    transition: color 0.3s;
+  }
+  button.row-face:hover .c-mark { color: var(--gold); }
+
+  .truncation {
+    text-align: center;
+    padding: 70px 0 0;
+    font-style: italic; font-size: 16.5px; color: var(--faint);
+  }
+
+  /* ── Die Kapelle: der Datensatz als Popup — Live-Mechanik
+        (64-detail-modal: Scrim + Blur, zentrierte Karte, kein gezeichneter
+        Rahmen, Gold-Terminus unter der Leiste), Inhalt in der
+        Buch-Titelblatt-Sprache auf der Mittelachse. ────────────────────── */
+  @keyframes chapelFade { from { opacity: 0; } }
+  @keyframes chapelRise {
+    from { opacity: 0; transform: translateY(16px) scale(0.99); }
+    to   { opacity: 1; transform: none; }
+  }
+  .chapel {
+    position: fixed; inset: 0; z-index: 60;
+    display: grid; place-items: center;
+    padding: 24px;
+  }
+  .chapel[hidden] { display: none; }
+  .chapel-scrim {
+    position: absolute; inset: 0;
+    background: color-mix(in srgb, var(--void) 78%, transparent);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    animation: chapelFade 0.25s ease-out both;
+  }
+  .chapel-panel {
+    position: relative; z-index: 1;
+    display: flex; flex-direction: column;
+    width: min(940px, 94vw);
+    max-height: 90vh;
+    background: linear-gradient(180deg,
+      color-mix(in srgb, var(--void-2) 98%, transparent),
+      color-mix(in srgb, var(--void) 99%, transparent));
+    box-shadow:
+      0 30px 90px -20px rgba(0, 0, 0, 0.9),
+      inset 0 1px 0 rgba(228, 221, 203, 0.07);
+    animation: chapelRise 0.3s var(--ease) both;
+  }
+  .chapel-bar {
+    position: relative; flex: 0 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px;
+    padding: 13px 20px;
+  }
+  /* Terminus — die eine gezeichnete Linie der Kapelle (Live-Restraint:
+     kein Rahmen; die Karte trägt Schatten + Lichtfang) */
+  .chapel-bar::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+    background: linear-gradient(90deg,
+      transparent,
+      rgba(164, 140, 82, 0.4) 16%,
+      rgba(164, 140, 82, 0.4) 84%,
+      transparent);
+  }
+  .chapel-bar button {
+    background: none; border: 0;
+    font-family: var(--text);
+    font-size: 13px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--dim);
+    cursor: pointer;
+    padding: 6px 2px;
+    transition: color 0.3s;
+  }
+  .chapel-bar button:hover, .chapel-bar button:focus-visible { color: var(--gold); }
+  .chapel-bar button:focus-visible { outline: 1px solid var(--gold); outline-offset: 2px; }
+  .chapel-scroll {
+    flex: 1 1 auto; min-height: 0;
+    overflow-y: auto; overscroll-behavior: contain;
+    padding: 56px 56px 64px;
+    text-align: center;
+  }
+  /* Kapellen-Ouvertüre (Runde 7): der Inhalt staffelt sich bei jedem
+     Öffnen — die Template-Knoten werden frisch eingesetzt, die
+     Animationen starten mit dem Einsetzen. */
+  .chapel-scroll > * { animation: enter 0.7s 0.34s var(--ease) both; }
+  .chapel-scroll .k-over { animation: enter 0.6s 0.05s var(--ease) both; }
+  .chapel-scroll .k-title { animation: enterTitle 0.9s 0.12s var(--ease) both; }
+  .chapel-scroll .k-by { animation: enter 0.7s 0.2s var(--ease) both; }
+  .chapel-scroll .k-chrono { animation: enter 0.7s 0.27s var(--ease) both; }
+  .k-over {
+    font-size: 13.5px; letter-spacing: 0.36em; text-transform: uppercase;
+    color: var(--gold);
+  }
+  .k-title {
+    margin-top: 14px;
+    font-family: var(--disp);
+    font-weight: var(--disp-wght-hero);
+    font-optical-sizing: auto;
+    font-size: clamp(40px, 6vw, 76px);
+    line-height: 0.98;
+    letter-spacing: var(--disp-track);
+  }
+  .k-by { margin-top: 16px; font-style: italic; font-size: 19px; color: var(--dim); }
+  .k-by a { font-style: normal; color: var(--bone); border-bottom: 1px solid var(--hair); transition: color 0.3s, border-color 0.3s; }
+  .k-by a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+  .k-chrono {
+    margin-top: 14px;
+    font-family: var(--mono);
+    font-size: 13.5px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); font-variant-numeric: tabular-nums;
+  }
+  .k-chrono .unknown { font-family: var(--text); font-style: italic; text-transform: none; letter-spacing: 0.04em; color: var(--faint); }
+  /* Sektions-Rubriken in der Kapelle — die Buch-Sprache (Hairline-
+     Flügel), auf Popup-Maß verkleinert */
+  .k-section {
+    display: flex; align-items: center; gap: 22px;
+    max-width: 440px; margin: 46px auto 0;
+    font-size: 13.5px; letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--gold); font-weight: 400;
+  }
+  .k-section::before, .k-section::after { content: ""; flex: 1; border-top: 1px solid var(--hair); }
+  .k-syn {
+    max-width: 54ch;
+    margin: 22px auto 0;
+    text-align: justify; hyphens: auto;
+    font-size: 17.5px; color: var(--dim);
+  }
+  .k-syn::first-line { letter-spacing: 0.14em; text-transform: uppercase; font-size: 16px; }
+  .k-appendix {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 680px; margin: 24px auto 0;
+  }
+  .k-appendix h4 {
+    font-size: 13px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--faint); font-weight: 400;
+    margin-bottom: 10px;
+  }
+  .k-appendix ul { list-style: none; }
+  .k-appendix li { padding: 5px 0; font-size: 17px; }
+  .k-appendix li a { transition: color 0.3s; }
+  .k-appendix li a:hover { color: var(--gold); }
+  .k-appendix .role { display: block; font-style: italic; font-size: 15px; color: var(--faint); }
+  .k-appendix .role.antagonist { color: var(--blood); }
+  .k-motifs { margin-top: 24px; font-style: italic; font-size: 17px; color: var(--dim); }
+  .k-motifs .sep { color: var(--faint); padding: 0 7px; }
+  .k-actions { margin-top: 22px; }
+  .k-goto { margin-top: 30px; font-style: italic; font-size: 16.5px; color: var(--faint); }
+  .k-goto a { border-bottom: 1px solid transparent; transition: color 0.3s, border-color 0.3s; }
+  .k-goto a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+  @media (max-width: 960px) {
+    .grid-row { grid-template-columns: 44px minmax(0, 1fr) 64px 22px; }
+    .c-faction, .c-format { display: none; }
+  }
+  @media (max-width: 640px) {
+    .grid-row { grid-template-columns: 40px minmax(0, 1fr) 22px; }
+    .c-year { display: none; }
+    .act-hero h1 { font-size: clamp(48px, 14vw, 84px); }
+    .chapel { padding: 0; }
+    .chapel-panel { width: 100vw; height: 100%; max-height: 100vh; }
+    .chapel-scroll { padding: 40px 20px 50px; }
+    .k-appendix { grid-template-columns: 1fr; gap: 22px; }
+  }
+</style>
+
+<div class="bg" aria-hidden="true" style="--art: url('../../public/img/main-bg.webp'); --art-pos: right bottom;">
+  <div class="photo"></div>
+  <div class="vignette"></div>
+  <div class="fade"></div>
+  <div class="scrim" id="scrim"></div>
+  <div class="grain"></div>
+</div>
+
+<nav class="rail" aria-label="Primary">
+  <a href="hub.html"><span class="rn">I</span><span class="rt">Home</span></a>
+  <a href="archiv.html" class="here" aria-current="page"><span class="rn">II</span><span class="rt">Archive</span></a>
+  <a href="kompendium.html"><span class="rn">III</span><span class="rt">Compendium</span></a>
+  <a href="ask.html"><span class="rn">IV</span><span class="rt">Ask</span></a>
+  <a href="chronik.html"><span class="rn">V</span><span class="rt">Chronicle</span></a>
+  <a href="#"><span class="rn">VI</span><span class="rt">Cartographer</span></a>
+</nav>
+
+<div class="brand">Chrono Lexicanum</div>
+
+<!-- Vox-Schreiber (GhostReadout-Erbe): Zeilen aus data-lines, praxis.js -->
+<div class="vox" id="vox" aria-hidden="true" data-lines='["Signatvr 0447 · verified","Cross-ref · Magnus the Red","Rvbrica · The Horus Heresy","Datation 001.M31 · confirmed","Access granted · Lectorivm III","Folio 558 · complete","Imprimatvr · Ordo Chronos"]'></div>
+
+<section class="act-hero">
+  <!-- Die zwei Live-Auspex-Scheiben (Runde 9, ersetzen Astrolab und
+       Servo-Schädel-Skizze): Live-Positionen und -Drehrichtungen,
+       Ringe enger, ohne Sweep. SVG baut praxis.js. -->
+  <div class="auspex-pair" aria-hidden="true">
+    <div class="aus aus--main" data-auspex="520"></div>
+    <div class="aus aus--sec" data-auspex="300" style="--spa: 360s; --spb: 440s; --spc: 242s;"></div>
+  </div>
+  <!-- Vermessungspunkt (FloatingCoord-Erbe) -->
+  <span class="survey" style="left: 10%; top: 32%; --d: 9s;" aria-hidden="true">
+    <span class="pt"></span><span class="lead"></span><span class="lbl">Index mounted · VII eras</span>
+  </span>
+
+  <p class="over">The Index</p>
+  <h1>The <em>Archive</em></h1>
+  <p class="edition">Every book and every voice of the archive, in one register.</p>
+  <span class="cue">Choose your archive</span>
+</section>
+
+<main class="nave">
+
+  <!-- Die Archiv-Wahl — das erste und größte Element des Schiffs -->
+  <div class="arch-doors reveal" role="group" aria-label="Choose an archive">
+    <button type="button" class="arch-door active" id="doorBooks">
+      <span class="ad-kicker">Archive I</span>
+      <span class="ad-title">Books</span>
+      <span class="ad-count">896 novels, novellas &amp; audio dramas</span>
+    </button>
+    <button type="button" class="arch-door" id="doorPods">
+      <span class="ad-kicker">Archive II</span>
+      <span class="ad-title">Podcasts</span>
+      <span class="ad-count">178 episodes · 6 shows</span>
+    </button>
+  </div>
+
+  <div class="seek reveal">
+    <span class="seek-wrap"><input type="text" placeholder="seek a title, an author, a world, a deed …"></span>
+  </div>
+
+  <div class="filterbar reveal">
+    <span class="dd-btn">Faction — All<b>▾</b></span>
+    <span class="dd-btn">Format — All<b>▾</b></span>
+    <span><span class="lbl">Sort</span> <span class="opt">Title A–Z</span><span class="opt">Newest</span><span class="opt active">Timeline</span></span>
+  </div>
+
+  <p class="census reveal" id="census"><b>22 · shown</b> / 896 works</p>
+
+  <section class="ledger reveal">
+
+    <article class="row">
+      <button type="button" class="grid-row row-face">
+        <span class="c-idx">001</span>
+        <span class="c-main">
+          <span class="c-title">The First Heretic</span>
+          <span class="c-by">by Aaron Dembski-Bowden</span>
+        </span>
+        <span class="c-faction">Word Bearers</span>
+        <span class="c-year">2010</span>
+        <span class="c-format">Novel</span>
+        <span class="c-mark" aria-hidden="true">▾</span>
+      </button>
+      <template class="row-data">
+        <p class="k-over">Novel</p>
+        <h3 class="k-title">The First Heretic</h3>
+        <p class="k-by">by <a href="#">Aaron Dembski-Bowden</a> · Original Horus Heresy, № XIV</p>
+        <p class="k-chrono">c. 963.M30 – 006.M31 · The Horus Heresy</p>
+        <h4 class="k-section">Synopsis</h4>
+        <p class="k-syn">Half a century before Isstvan, the Emperor razes the city of Monarchia that the Word Bearers had raised in His name, denouncing his most devout son Lorgar for the sin of religion. The Legion’s answer, decades in the making, is the first and deepest treachery.</p>
+        <h4 class="k-section">Appendix</h4>
+        <div class="k-appendix">
+          <div><h4>Dramatis Personae</h4><ul>
+            <li><a href="#">Argel Tal</a> <span class="role">point of view</span></li>
+            <li><a href="#">Lorgar</a> <span class="role">point of view</span></li>
+            <li><a href="#">Ingethel</a> <span class="role antagonist">antagonist</span></li>
+          </ul></div>
+          <div><h4>Factions</h4><ul>
+            <li><a href="#">Word Bearers</a> <span class="role">primary</span></li>
+            <li><a href="#">Custodes</a> <span class="role">supporting</span></li>
+            <li><a href="#">Ultramarines</a> <span class="role">supporting</span></li>
+          </ul></div>
+          <div><h4>Locations</h4><ul>
+            <li><a href="#">Monarchia</a> <span class="role">primary</span></li>
+            <li><a href="#">Colchis</a> <span class="role">supporting</span></li>
+            <li><a href="#">Isstvan V</a> <span class="role">supporting</span></li>
+          </ul></div>
+        </div>
+        <p class="k-motifs">faith &amp; doubt <span class="sep">·</span> corruption <span class="sep">·</span> zealotry</p>
+        <h4 class="k-section">Acquire</h4>
+        <div class="k-actions">
+          <a class="btn primary" href="#">Amazon<span class="mark">↗</span></a>
+          <a class="btn" href="#">Black Library<span class="mark">↗</span></a>
+          <a class="btn" href="#">Audible<span class="mark">↗</span></a>
+        </div>
+        <p class="k-goto"><a href="buch.html">Open the full record →</a></p>
+      </template>
+    </article>
+
+    <article class="row">
+      <button type="button" class="grid-row row-face">
+        <span class="c-idx">002</span>
+        <span class="c-main">
+          <span class="c-title">Horus Rising</span>
+          <span class="c-by">by Dan Abnett</span>
+        </span>
+        <span class="c-faction">Luna Wolves</span>
+        <span class="c-year">2006</span>
+        <span class="c-format">Novel</span>
+        <span class="c-mark" aria-hidden="true">▾</span>
+      </button>
+      <template class="row-data">
+        <p class="k-over">Novel</p>
+        <h3 class="k-title">Horus Rising</h3>
+        <p class="k-by">by <a href="#">Dan Abnett</a> · Original Horus Heresy, № I</p>
+        <p class="k-chrono">c. 001.M31 · The Horus Heresy</p>
+        <h4 class="k-section">Synopsis</h4>
+        <p class="k-syn">Two centuries into the Great Crusade, the Emperor has retired to Terra and named his most beloved son Warmaster. Captain Garviel Loken trades the certainty of war for the harder business of speaking truth to a brother who has begun to need it.</p>
+        <h4 class="k-section">Appendix</h4>
+        <div class="k-appendix">
+          <div><h4>Dramatis Personae</h4><ul>
+            <li><a href="#">Garviel Loken</a> <span class="role">point of view</span></li>
+            <li><a href="#">Horus</a> <span class="role">appears</span></li>
+            <li><a href="#">Saul Tarvitz</a> <span class="role">appears</span></li>
+          </ul></div>
+          <div><h4>Factions</h4><ul>
+            <li><a href="#">Luna Wolves</a> <span class="role">primary</span></li>
+            <li><a href="#">Emperor’s Children</a> <span class="role">supporting</span></li>
+            <li><a href="#">Blood Angels</a> <span class="role">supporting</span></li>
+          </ul></div>
+          <div><h4>Locations</h4><ul>
+            <li><a href="#">Sixty-Three-Nineteen</a> <span class="role">primary</span></li>
+            <li><a href="#">Murder</a> <span class="role">supporting</span></li>
+            <li><a href="#">Xenobia</a> <span class="role">supporting</span></li>
+          </ul></div>
+        </div>
+        <p class="k-motifs">brotherhood <span class="sep">·</span> truth &amp; myth <span class="sep">·</span> ambition</p>
+        <h4 class="k-section">Acquire</h4>
+        <div class="k-actions">
+          <a class="btn primary" href="#">Amazon<span class="mark">↗</span></a>
+          <a class="btn" href="#">Black Library<span class="mark">↗</span></a>
+          <a class="btn" href="#">Audible<span class="mark">↗</span></a>
+        </div>
+        <p class="k-goto"><a href="buch.html">Open the full record →</a></p>
+      </template>
+    </article>
+
+    <article class="row">
+      <button type="button" class="grid-row row-face">
+        <span class="c-idx">003</span>
+        <span class="c-main">
+          <span class="c-title">A Thousand Sons</span>
+          <span class="c-by">by Graham McNeill</span>
+        </span>
+        <span class="c-faction">Thousand Sons</span>
+        <span class="c-year">2010</span>
+        <span class="c-format">Novel</span>
+        <span class="c-mark" aria-hidden="true">▾</span>
+      </button>
+      <template class="row-data">
+        <p class="k-over">Novel</p>
+        <h3 class="k-title">A Thousand Sons</h3>
+        <p class="k-by">by <a href="#">Graham McNeill</a> · Original Horus Heresy, № XII</p>
+        <p class="k-chrono">001 – 004.M31 · The Horus Heresy</p>
+        <h4 class="k-section">Synopsis</h4>
+        <p class="k-syn">Censured at the Council of Nikaea for the Legion’s open use of psychic sorcery, Magnus the Red withdraws with his Thousand Sons to the crystal city of Tizca on Prospero. There the primarch peers into the warp, glimpses Horus’ coming betrayal, and hurls his mind across the void to warn the Emperor — through the half-built webway gate beneath the Imperial Palace.</p>
+        <h4 class="k-section">Appendix</h4>
+        <div class="k-appendix">
+          <div><h4>Dramatis Personae</h4><ul>
+            <li><a href="#">Magnus the Red</a> <span class="role">point of view</span></li>
+            <li><a href="#">Ahzek Ahriman</a> <span class="role">point of view</span></li>
+            <li><a href="#">Lemuel Gaumon</a> <span class="role">point of view</span></li>
+            <li><a href="#">Leman Russ</a> <span class="role antagonist">antagonist</span></li>
+          </ul></div>
+          <div><h4>Factions</h4><ul>
+            <li><a href="#">Thousand Sons</a> <span class="role">primary</span></li>
+            <li><a href="#">Space Wolves</a> <span class="role">supporting</span></li>
+            <li><a href="#">Custodes</a> <span class="role">supporting</span></li>
+          </ul></div>
+          <div><h4>Locations</h4><ul>
+            <li><a href="#">Prospero</a> <span class="role">primary</span></li>
+            <li><a href="#">Tizca</a> <span class="role">primary</span></li>
+            <li><a href="#">Nikaea</a> <span class="role">supporting</span></li>
+            <li><a href="#">Terra</a> <span class="role">supporting</span></li>
+          </ul></div>
+        </div>
+        <p class="k-motifs">hubris <span class="sep">·</span> betrayal <span class="sep">·</span> faith &amp; doubt <span class="sep">·</span> cosmic horror</p>
+        <h4 class="k-section">Acquire</h4>
+        <div class="k-actions">
+          <a class="btn primary" href="#">Amazon<span class="mark">↗</span></a>
+          <a class="btn" href="#">Black Library<span class="mark">↗</span></a>
+          <a class="btn" href="#">Audible<span class="mark">↗</span></a>
+        </div>
+        <p class="k-goto"><a href="buch.html">Open the full record →</a></p>
+      </template>
+    </article>
+
+    <article class="row">
+      <button type="button" class="grid-row row-face">
+        <span class="c-idx">004</span>
+        <span class="c-main">
+          <span class="c-title">Prospero Burns</span>
+          <span class="c-by">by Dan Abnett</span>
+        </span>
+        <span class="c-faction">Space Wolves</span>
+        <span class="c-year">2010</span>
+        <span class="c-format">Novel</span>
+        <span class="c-mark" aria-hidden="true">▾</span>
+      </button>
+      <template class="row-data">
+        <p class="k-over">Novel</p>
+        <h3 class="k-title">Prospero Burns</h3>
+        <p class="k-by">by <a href="#">Dan Abnett</a> · Original Horus Heresy, № XV</p>
+        <p class="k-chrono">c. 001 – 004.M31 · The Horus Heresy</p>
+        <h4 class="k-section">Synopsis</h4>
+        <p class="k-syn">The Burning of Prospero from the Wolves’ side: the remembrancer Kasper Hawser lives among the Vlka Fenryka as the Legion is aimed — deliberately — at its brother.</p>
+        <h4 class="k-section">Appendix</h4>
+        <div class="k-appendix">
+          <div><h4>Dramatis Personae</h4><ul>
+            <li><a href="#">Kasper Hawser</a> <span class="role">point of view</span></li>
+            <li><a href="#">Leman Russ</a> <span class="role">appears</span></li>
+            <li><a href="#">Bjorn</a> <span class="role">appears</span></li>
+          </ul></div>
+          <div><h4>Factions</h4><ul>
+            <li><a href="#">Space Wolves</a> <span class="role">primary</span></li>
+            <li><a href="#">Thousand Sons</a> <span class="role">supporting</span></li>
+          </ul></div>
+          <div><h4>Locations</h4><ul>
+            <li><a href="#">Fenris</a> <span class="role">primary</span></li>
+            <li><a href="#">Prospero</a> <span class="role">primary</span></li>
+            <li><a href="#">Terra</a> <span class="role">supporting</span></li>
+          </ul></div>
+        </div>
+        <p class="k-motifs">memory <span class="sep">·</span> deceit <span class="sep">·</span> brotherhood</p>
+        <h4 class="k-section">Acquire</h4>
+        <div class="k-actions">
+          <a class="btn primary" href="#">Amazon<span class="mark">↗</span></a>
+          <a class="btn" href="#">Black Library<span class="mark">↗</span></a>
+          <a class="btn" href="#">Audible<span class="mark">↗</span></a>
+        </div>
+        <p class="k-goto"><a href="buch.html">Open the full record →</a></p>
+      </template>
+    </article>
+
+    <article class="row">
+      <button type="button" class="grid-row row-face">
+        <span class="c-idx">005</span>
+        <span class="c-main">
+          <span class="c-title">False Gods</span>
+          <span class="c-by">by Graham McNeill</span>
+        </span>
+        <span class="c-faction">Luna Wolves</span>
+        <span class="c-year">2006</span>
+        <span class="c-format">Novel</span>
+        <span class="c-mark" aria-hidden="true">▾</span>
+      </button>
+      <template class="row-data">
+        <p class="k-over">Novel</p>
+        <h3 class="k-title">False Gods</h3>
+        <p class="k-by">by <a href="#">Graham McNeill</a> · Original Horus Heresy, № II</p>
+        <p class="k-chrono">004.M31 · The Horus Heresy</p>
+        <h4 class="k-section">Synopsis</h4>
+        <p class="k-syn">A ritual duel on the feral world of Davin leaves the Warmaster mortally wounded; a long spirit-walk through the warp shows him a future in which the Emperor has discarded the species he built.</p>
+        <h4 class="k-section">Appendix</h4>
+        <div class="k-appendix">
+          <div><h4>Dramatis Personae</h4><ul>
+            <li><a href="#">Garviel Loken</a> <span class="role">point of view</span></li>
+            <li><a href="#">Horus</a> <span class="role">point of view</span></li>
+            <li><a href="#">Erebus</a> <span class="role antagonist">antagonist</span></li>
+          </ul></div>
+          <div><h4>Factions</h4><ul>
+            <li><a href="#">Sons of Horus</a> <span class="role">primary</span></li>
+            <li><a href="#">Word Bearers</a> <span class="role">supporting</span></li>
+          </ul></div>
+          <div><h4>Locations</h4><ul>
+            <li><a href="#">Davin</a> <span class="role">primary</span></li>
+            <li><a href="#">Terra</a> <span class="role">supporting</span></li>
+          </ul></div>
+        </div>
+        <p class="k-motifs">corruption <span class="sep">·</span> prophecy <span class="sep">·</span> ambition</p>
+        <h4 class="k-section">Acquire</h4>
+        <div class="k-actions">
+          <a class="btn primary" href="#">Amazon<span class="mark">↗</span></a>
+          <a class="btn" href="#">Black Library<span class="mark">↗</span></a>
+          <a class="btn" href="#">Audible<span class="mark">↗</span></a>
+        </div>
+        <p class="k-goto"><a href="buch.html">Open the full record →</a></p>
+      </template>
+    </article>
+
+    <article class="row">
+      <button type="button" class="grid-row row-face">
+        <span class="c-idx">006</span>
+        <span class="c-main">
+          <span class="c-title">Galaxy in Flames</span>
+          <span class="c-by">by Ben Counter</span>
+        </span>
+        <span class="c-faction">Sons of Horus</span>
+        <span class="c-year">2006</span>
+        <span class="c-format">Novel</span>
+        <span class="c-mark" aria-hidden="true">▾</span>
+      </button>
+      <template class="row-data">
+        <p class="k-over">Novel</p>
+        <h3 class="k-title">Galaxy in Flames</h3>
+        <p class="k-by">by <a href="#">Ben Counter</a> · Original Horus Heresy, № III</p>
+        <p class="k-chrono">005 – 006.M31 · The Horus Heresy</p>
+        <h4 class="k-section">Synopsis</h4>
+        <p class="k-syn">On the dead-grey world of Isstvan III, four Legions deploy against a recalcitrant governor. The deployment is the trap: from orbit their own brothers burn the loyalists to ash with virus and atomic fire.</p>
+        <h4 class="k-section">Appendix</h4>
+        <div class="k-appendix">
+          <div><h4>Dramatis Personae</h4><ul>
+            <li><a href="#">Saul Tarvitz</a> <span class="role">point of view</span></li>
+            <li><a href="#">Garviel Loken</a> <span class="role">point of view</span></li>
+            <li><a href="#">Horus</a> <span class="role antagonist">antagonist</span></li>
+          </ul></div>
+          <div><h4>Factions</h4><ul>
+            <li><a href="#">Sons of Horus</a> <span class="role">primary</span></li>
+            <li><a href="#">Emperor’s Children</a> <span class="role">supporting</span></li>
+            <li><a href="#">Death Guard</a> <span class="role">supporting</span></li>
+          </ul></div>
+          <div><h4>Locations</h4><ul>
+            <li><a href="#">Isstvan III</a> <span class="role">primary</span></li>
+            <li><a href="#">Choral City</a> <span class="role">primary</span></li>
+          </ul></div>
+        </div>
+        <p class="k-motifs">betrayal <span class="sep">·</span> sacrifice <span class="sep">·</span> loyalty</p>
+        <h4 class="k-section">Acquire</h4>
+        <div class="k-actions">
+          <a class="btn primary" href="#">Amazon<span class="mark">↗</span></a>
+          <a class="btn" href="#">Black Library<span class="mark">↗</span></a>
+          <a class="btn" href="#">Audible<span class="mark">↗</span></a>
+        </div>
+        <p class="k-goto"><a href="buch.html">Open the full record →</a></p>
+      </template>
+    </article>
+
+    <article class="row">
+      <button type="button" class="grid-row row-face">
+        <span class="c-idx">007</span>
+        <span class="c-main">
+          <span class="c-title">The Flight of the Eisenstein</span>
+          <span class="c-by">by James Swallow</span>
+        </span>
+        <span class="c-faction">Death Guard</span>
+        <span class="c-year">2007</span>
+        <span class="c-format">Novel</span>
+        <span class="c-mark" aria-hidden="true">▾</span>
+      </button>
+      <template class="row-data">
+        <p class="k-over">Novel</p>
+        <h3 class="k-title">The Flight of the Eisenstein</h3>
+        <p class="k-by">by <a href="#">James Swallow</a> · Original Horus Heresy, № IV</p>
+        <p class="k-chrono">005 – 006.M31 · The Horus Heresy</p>
+        <h4 class="k-section">Synopsis</h4>
+        <p class="k-syn">Battle-Captain Nathaniel Garro breaks from the Isstvan trap and runs the frigate Eisenstein through the warp to carry the warning to Terra.</p>
+        <h4 class="k-section">Appendix</h4>
+        <div class="k-appendix">
+          <div><h4>Dramatis Personae</h4><ul>
+            <li><a href="#">Nathaniel Garro</a> <span class="role">point of view</span></li>
+            <li><a href="#">Euphrati Keeler</a> <span class="role">appears</span></li>
+            <li><a href="#">Mortarion</a> <span class="role antagonist">antagonist</span></li>
+          </ul></div>
+          <div><h4>Factions</h4><ul>
+            <li><a href="#">Death Guard</a> <span class="role">primary</span></li>
+            <li><a href="#">Imperial Fists</a> <span class="role">supporting</span></li>
+          </ul></div>
+          <div><h4>Locations</h4><ul>
+            <li><a href="#">Isstvan III</a> <span class="role">primary</span></li>
+            <li><a href="#">Luna</a> <span class="role">supporting</span></li>
+            <li><a href="#">Terra</a> <span class="role">supporting</span></li>
+          </ul></div>
+        </div>
+        <p class="k-motifs">loyalty <span class="sep">·</span> faith <span class="sep">·</span> flight</p>
+        <h4 class="k-section">Acquire</h4>
+        <div class="k-actions">
+          <a class="btn primary" href="#">Amazon<span class="mark">↗</span></a>
+          <a class="btn" href="#">Black Library<span class="mark">↗</span></a>
+          <a class="btn" href="#">Audible<span class="mark">↗</span></a>
+        </div>
+        <p class="k-goto"><a href="buch.html">Open the full record →</a></p>
+      </template>
+    </article>
+
+    <article class="row">
+      <button type="button" class="grid-row row-face">
+        <span class="c-idx">008</span>
+        <span class="c-main">
+          <span class="c-title">Fulgrim</span>
+          <span class="c-by">by Graham McNeill</span>
+        </span>
+        <span class="c-faction">Emperor’s Children</span>
+        <span class="c-year">2007</span>
+        <span class="c-format">Novel</span>
+        <span class="c-mark" aria-hidden="true">▾</span>
+      </button>
+      <template class="row-data">
+        <p class="k-over">Novel</p>
+        <h3 class="k-title">Fulgrim</h3>
+        <p class="k-by">by <a href="#">Graham McNeill</a> · Original Horus Heresy, № V</p>
+        <p class="k-chrono">005 – 006.M31 · The Horus Heresy</p>
+        <h4 class="k-section">Synopsis</h4>
+        <p class="k-syn">Fulgrim is the finest of the Emperor’s sons: beautiful, brilliant, devoted to perfection. On the murder-world of Laer, a Legion compliance brings home a daemon-bound sword that has been waiting for him.</p>
+        <h4 class="k-section">Appendix</h4>
+        <div class="k-appendix">
+          <div><h4>Dramatis Personae</h4><ul>
+            <li><a href="#">Fulgrim</a> <span class="role">point of view</span></li>
+            <li><a href="#">Solomon Demeter</a> <span class="role">point of view</span></li>
+            <li><a href="#">Ferrus Manus</a> <span class="role">appears</span></li>
+          </ul></div>
+          <div><h4>Factions</h4><ul>
+            <li><a href="#">Emperor’s Children</a> <span class="role">primary</span></li>
+            <li><a href="#">Iron Hands</a> <span class="role">supporting</span></li>
+            <li><a href="#">Eldar</a> <span class="role">supporting</span></li>
+          </ul></div>
+          <div><h4>Locations</h4><ul>
+            <li><a href="#">Laeran</a> <span class="role">primary</span></li>
+            <li><a href="#">Isstvan V</a> <span class="role">primary</span></li>
+          </ul></div>
+        </div>
+        <p class="k-motifs">perfection <span class="sep">·</span> corruption <span class="sep">·</span> tragedy</p>
+        <h4 class="k-section">Acquire</h4>
+        <div class="k-actions">
+          <a class="btn primary" href="#">Amazon<span class="mark">↗</span></a>
+          <a class="btn" href="#">Black Library<span class="mark">↗</span></a>
+          <a class="btn" href="#">Audible<span class="mark">↗</span></a>
+        </div>
+        <p class="k-goto"><a href="buch.html">Open the full record →</a></p>
+      </template>
+    </article>
+
+    <article class="row">
+      <button type="button" class="grid-row row-face">
+        <span class="c-idx">009</span>
+        <span class="c-main">
+          <span class="c-title">Legion</span>
+          <span class="c-by">by Dan Abnett</span>
+        </span>
+        <span class="c-faction">Alpha Legion</span>
+        <span class="c-year">2008</span>
+        <span class="c-format">Novel</span>
+        <span class="c-mark" aria-hidden="true">▾</span>
+      </button>
+      <template class="row-data">
+        <p class="k-over">Novel</p>
+        <h3 class="k-title">Legion</h3>
+        <p class="k-by">by <a href="#">Dan Abnett</a> · Original Horus Heresy, № VII</p>
+        <p class="k-chrono">c. 005.M31 · The Horus Heresy</p>
+        <h4 class="k-section">Synopsis</h4>
+        <p class="k-syn">Two Legions in one shadow: the Alpha Legion takes a compliance on Nurth while the Cabal makes it an offer about the coming war.</p>
+        <h4 class="k-section">Appendix</h4>
+        <div class="k-appendix">
+          <div><h4>Dramatis Personae</h4><ul>
+            <li><a href="#">John Grammaticus</a> <span class="role">point of view</span></li>
+            <li><a href="#">Peto Soneka</a> <span class="role">point of view</span></li>
+            <li><a href="#">Alpharius</a> <span class="role">appears</span></li>
+          </ul></div>
+          <div><h4>Factions</h4><ul>
+            <li><a href="#">Alpha Legion</a> <span class="role">primary</span></li>
+            <li><a href="#">Imperial Army</a> <span class="role">primary</span></li>
+            <li><a href="#">The Cabal</a> <span class="role">supporting</span></li>
+          </ul></div>
+          <div><h4>Locations</h4><ul>
+            <li><a href="#">Nurth</a> <span class="role">primary</span></li>
+            <li><a href="#">Mon Lo</a> <span class="role">supporting</span></li>
+          </ul></div>
+        </div>
+        <p class="k-motifs">secrecy <span class="sep">·</span> identity <span class="sep">·</span> sacrifice</p>
+        <h4 class="k-section">Acquire</h4>
+        <div class="k-actions">
+          <a class="btn primary" href="#">Amazon<span class="mark">↗</span></a>
+          <a class="btn" href="#">Black Library<span class="mark">↗</span></a>
+          <a class="btn" href="#">Audible<span class="mark">↗</span></a>
+        </div>
+        <p class="k-goto"><a href="buch.html">Open the full record →</a></p>
+      </template>
+    </article>
+
+    <article class="row">
+      <button type="button" class="grid-row row-face">
+        <span class="c-idx">010</span>
+        <span class="c-main">
+          <span class="c-title">Mechanicum</span>
+          <span class="c-by">by Graham McNeill</span>
+        </span>
+        <span class="c-faction">Mechanicum</span>
+        <span class="c-year">2008</span>
+        <span class="c-format">Novel</span>
+        <span class="c-mark" aria-hidden="true">▾</span>
+      </button>
+      <template class="row-data">
+        <p class="k-over">Novel</p>
+        <h3 class="k-title">Mechanicum</h3>
+        <p class="k-by">by <a href="#">Graham McNeill</a> · Original Horus Heresy, № IX</p>
+        <p class="k-chrono">c. 005 – 006.M31 · The Horus Heresy</p>
+        <h4 class="k-section">Synopsis</h4>
+        <p class="k-syn">On Mars, the Death of Innocence: the Warmaster’s agents split the Priesthood and the forges burn — the Heresy’s quietest front.</p>
+        <h4 class="k-section">Appendix</h4>
+        <div class="k-appendix">
+          <div><h4>Dramatis Personae</h4><ul>
+            <li><a href="#">Dalia Cythera</a> <span class="role">point of view</span></li>
+            <li><a href="#">Koriel Zeth</a> <span class="role">appears</span></li>
+            <li><a href="#">Kelbor-Hal</a> <span class="role antagonist">antagonist</span></li>
+          </ul></div>
+          <div><h4>Factions</h4><ul>
+            <li><a href="#">Mechanicum</a> <span class="role">primary</span></li>
+            <li><a href="#">Knights of Taranis</a> <span class="role">supporting</span></li>
+          </ul></div>
+          <div><h4>Locations</h4><ul>
+            <li><a href="#">Mars</a> <span class="role">primary</span></li>
+            <li><a href="#">Magma City</a> <span class="role">supporting</span></li>
+            <li><a href="#">Noctis Labyrinth</a> <span class="role">supporting</span></li>
+          </ul></div>
+        </div>
+        <p class="k-motifs">knowledge <span class="sep">·</span> schism <span class="sep">·</span> the god in the machine</p>
+        <h4 class="k-section">Acquire</h4>
+        <div class="k-actions">
+          <a class="btn primary" href="#">Amazon<span class="mark">↗</span></a>
+          <a class="btn" href="#">Black Library<span class="mark">↗</span></a>
+          <a class="btn" href="#">Audible<span class="mark">↗</span></a>
+        </div>
+        <p class="k-goto"><a href="buch.html">Open the full record →</a></p>
+      </template>
+    </article>
+
+    <article class="row">
+      <button type="button" class="grid-row row-face">
+        <span class="c-idx">011</span>
+        <span class="c-main">
+          <span class="c-title">Know No Fear</span>
+          <span class="c-by">by Dan Abnett</span>
+        </span>
+        <span class="c-faction">Ultramarines</span>
+        <span class="c-year">2012</span>
+        <span class="c-format">Novel</span>
+        <span class="c-mark" aria-hidden="true">▾</span>
+      </button>
+      <template class="row-data">
+        <p class="k-over">Novel</p>
+        <h3 class="k-title">Know No Fear</h3>
+        <p class="k-by">by <a href="#">Dan Abnett</a> · Original Horus Heresy, № XIX</p>
+        <p class="k-chrono">007.M31 · The Horus Heresy</p>
+        <h4 class="k-section">Synopsis</h4>
+        <p class="k-syn">Calth. The Word Bearers’ ambush catches the XIII Legion mid-muster — the betrayal timed to the minute, told as a log.</p>
+        <h4 class="k-section">Appendix</h4>
+        <div class="k-appendix">
+          <div><h4>Dramatis Personae</h4><ul>
+            <li><a href="#">Remus Ventanus</a> <span class="role">point of view</span></li>
+            <li><a href="#">Roboute Guilliman</a> <span class="role">point of view</span></li>
+            <li><a href="#">Kor Phaeron</a> <span class="role antagonist">antagonist</span></li>
+          </ul></div>
+          <div><h4>Factions</h4><ul>
+            <li><a href="#">Ultramarines</a> <span class="role">primary</span></li>
+            <li><a href="#">Word Bearers</a> <span class="role">supporting</span></li>
+          </ul></div>
+          <div><h4>Locations</h4><ul>
+            <li><a href="#">Calth</a> <span class="role">primary</span></li>
+            <li><a href="#">Ultramar</a> <span class="role">supporting</span></li>
+          </ul></div>
+        </div>
+        <p class="k-motifs">betrayal <span class="sep">·</span> reckoning <span class="sep">·</span> order</p>
+        <h4 class="k-section">Acquire</h4>
+        <div class="k-actions">
+          <a class="btn primary" href="#">Amazon<span class="mark">↗</span></a>
+          <a class="btn" href="#">Black Library<span class="mark">↗</span></a>
+          <a class="btn" href="#">Audible<span class="mark">↗</span></a>
+        </div>
+        <p class="k-goto"><a href="buch.html">Open the full record →</a></p>
+      </template>
+    </article>
+
+    <article class="row">
+      <button type="button" class="grid-row row-face">
+        <span class="c-idx">012</span>
+        <span class="c-main">
+          <span class="c-title">Betrayer</span>
+          <span class="c-by">by Aaron Dembski-Bowden</span>
+        </span>
+        <span class="c-faction">World Eaters</span>
+        <span class="c-year">2012</span>
+        <span class="c-format">Novel</span>
+        <span class="c-mark" aria-hidden="true">▾</span>
+      </button>
+      <template class="row-data">
+        <p class="k-over">Novel</p>
+        <h3 class="k-title">Betrayer</h3>
+        <p class="k-by">by <a href="#">Aaron Dembski-Bowden</a> · Original Horus Heresy, № XXIV</p>
+        <p class="k-chrono">c. 007 – 008.M31 · The Horus Heresy</p>
+        <h4 class="k-section">Synopsis</h4>
+        <p class="k-syn">Armatura and the Shadow Crusade: Angron unbound, Lorgar at his shoulder, and the World Eaters’ long descent given its full tragedy.</p>
+        <h4 class="k-section">Appendix</h4>
+        <div class="k-appendix">
+          <div><h4>Dramatis Personae</h4><ul>
+            <li><a href="#">Khârn</a> <span class="role">point of view</span></li>
+            <li><a href="#">Argel Tal</a> <span class="role">point of view</span></li>
+            <li><a href="#">Angron</a> <span class="role">appears</span></li>
+            <li><a href="#">Lorgar</a> <span class="role">appears</span></li>
+          </ul></div>
+          <div><h4>Factions</h4><ul>
+            <li><a href="#">World Eaters</a> <span class="role">primary</span></li>
+            <li><a href="#">Word Bearers</a> <span class="role">primary</span></li>
+            <li><a href="#">Ultramarines</a> <span class="role">supporting</span></li>
+          </ul></div>
+          <div><h4>Locations</h4><ul>
+            <li><a href="#">Armatura</a> <span class="role">primary</span></li>
+            <li><a href="#">Nuceria</a> <span class="role">primary</span></li>
+            <li><a href="#">Ultramar</a> <span class="role">supporting</span></li>
+          </ul></div>
+        </div>
+        <p class="k-motifs">rage <span class="sep">·</span> brotherhood <span class="sep">·</span> tragedy</p>
+        <h4 class="k-section">Acquire</h4>
+        <div class="k-actions">
+          <a class="btn primary" href="#">Amazon<span class="mark">↗</span></a>
+          <a class="btn" href="#">Black Library<span class="mark">↗</span></a>
+          <a class="btn" href="#">Audible<span class="mark">↗</span></a>
+        </div>
+        <p class="k-goto"><a href="buch.html">Open the full record →</a></p>
+      </template>
+    </article>
+
+    <article class="row">
+      <button type="button" class="grid-row row-face">
+        <span class="c-idx">013</span>
+        <span class="c-main">
+          <span class="c-title">Xenos</span>
+          <span class="c-by">by Dan Abnett</span>
+        </span>
+        <span class="c-faction">Inquisition</span>
+        <span class="c-year">2001</span>
+        <span class="c-format">Novel</span>
+        <span class="c-mark" aria-hidden="true">▾</span>
+      </button>
+      <template class="row-data">
+        <p class="k-over">Novel</p>
+        <h3 class="k-title">Xenos</h3>
+        <p class="k-by">by <a href="#">Dan Abnett</a> · Eisenhorn, № I</p>
+        <p class="k-chrono">240.M41 · The Time of Ending</p>
+        <h4 class="k-section">Synopsis</h4>
+        <p class="k-syn">Inquisitor Gregor Eisenhorn pursues a renegade rogue trader to the ice-world of Hubris and unravels the cult of Pontius Glaw — and learns that Inquisitors can become the thing they hunt.</p>
+        <h4 class="k-section">Appendix</h4>
+        <div class="k-appendix">
+          <div><h4>Dramatis Personae</h4><ul>
+            <li><a href="#">Gregor Eisenhorn</a> <span class="role">point of view</span></li>
+            <li><a href="#">Godwyn Fischig</a> <span class="role">appears</span></li>
+            <li><a href="#">Pontius Glaw</a> <span class="role antagonist">antagonist</span></li>
+          </ul></div>
+          <div><h4>Factions</h4><ul>
+            <li><a href="#">Inquisition</a> <span class="role">primary</span></li>
+            <li><a href="#">Adeptus Arbites</a> <span class="role">supporting</span></li>
+          </ul></div>
+          <div><h4>Locations</h4><ul>
+            <li><a href="#">Hubris</a> <span class="role">primary</span></li>
+            <li><a href="#">Gudrun</a> <span class="role">supporting</span></li>
+            <li><a href="#">Damask</a> <span class="role">supporting</span></li>
+          </ul></div>
+        </div>
+        <p class="k-motifs">obsession <span class="sep">·</span> heresy <span class="sep">·</span> pursuit</p>
+        <h4 class="k-section">Acquire</h4>
+        <div class="k-actions">
+          <a class="btn primary" href="#">Amazon<span class="mark">↗</span></a>
+          <a class="btn" href="#">Black Library<span class="mark">↗</span></a>
+          <a class="btn" href="#">Audible<span class="mark">↗</span></a>
+        </div>
+        <p class="k-goto"><a href="buch.html">Open the full record →</a></p>
+      </template>
+    </article>
+
+    <article class="row">
+      <button type="button" class="grid-row row-face">
+        <span class="c-idx">014</span>
+        <span class="c-main">
+          <span class="c-title">First and Only</span>
+          <span class="c-by">by Dan Abnett</span>
+        </span>
+        <span class="c-faction">Imperial Guard</span>
+        <span class="c-year">1999</span>
+        <span class="c-format">Novel</span>
+        <span class="c-mark" aria-hidden="true">▾</span>
+      </button>
+      <template class="row-data">
+        <p class="k-over">Novel</p>
+        <h3 class="k-title">First and Only</h3>
+        <p class="k-by">by <a href="#">Dan Abnett</a> · Gaunt’s Ghosts, № I</p>
+        <p class="k-chrono">765.M41 · The Time of Ending</p>
+        <h4 class="k-section">Synopsis</h4>
+        <p class="k-syn">Commissar Ibram Gaunt leads the Tanith First-and-Only — sole survivors of a world that burned behind them — through the grinding campaigns of the Sabbat Worlds Crusade.</p>
+        <h4 class="k-section">Appendix</h4>
+        <div class="k-appendix">
+          <div><h4>Dramatis Personae</h4><ul>
+            <li><a href="#">Ibram Gaunt</a> <span class="role">point of view</span></li>
+            <li><a href="#">Colm Corbec</a> <span class="role">appears</span></li>
+            <li><a href="#">Elim Rawne</a> <span class="role">appears</span></li>
+          </ul></div>
+          <div><h4>Factions</h4><ul>
+            <li><a href="#">Imperial Guard</a> <span class="role">primary</span></li>
+            <li><a href="#">Inquisition</a> <span class="role">supporting</span></li>
+          </ul></div>
+          <div><h4>Locations</h4><ul>
+            <li><a href="#">Menazoid Epsilon</a> <span class="role">primary</span></li>
+            <li><a href="#">Fortis Binary</a> <span class="role">supporting</span></li>
+            <li><a href="#">Tanith</a> <span class="role">supporting</span></li>
+          </ul></div>
+        </div>
+        <p class="k-motifs">brotherhood <span class="sep">·</span> sacrifice <span class="sep">·</span> attrition</p>
+        <h4 class="k-section">Acquire</h4>
+        <div class="k-actions">
+          <a class="btn primary" href="#">Amazon<span class="mark">↗</span></a>
+          <a class="btn" href="#">Black Library<span class="mark">↗</span></a>
+          <a class="btn" href="#">Audible<span class="mark">↗</span></a>
+        </div>
+        <p class="k-goto"><a href="buch.html">Open the full record →</a></p>
+      </template>
+    </article>
+
+    <article class="row">
+      <button type="button" class="grid-row row-face">
+        <span class="c-idx">015</span>
+        <span class="c-main">
+          <span class="c-title">Titanicus</span>
+          <span class="c-by">by Dan Abnett</span>
+        </span>
+        <span class="c-faction">Adeptus Mechanicus</span>
+        <span class="c-year">2008</span>
+        <span class="c-format">Novel</span>
+        <span class="c-mark" aria-hidden="true">▾</span>
+      </button>
+      <template class="row-data">
+        <p class="k-over">Novel</p>
+        <h3 class="k-title">Titanicus</h3>
+        <p class="k-by">by <a href="#">Dan Abnett</a> · Standalone, Sabbat Worlds</p>
+        <p class="k-chrono">c. 772.M41 · The Time of Ending</p>
+        <h4 class="k-section">Synopsis</h4>
+        <p class="k-syn">When the forge world of Orestes is invaded, the god-machines of Legio Invicta walk — war at the scale of city-killers.</p>
+        <h4 class="k-section">Appendix</h4>
+        <div class="k-appendix">
+          <div><h4>Dramatis Personae</h4><ul>
+            <li><a href="#">Erik Varco</a> <span class="role">point of view</span></li>
+            <li><a href="#">Moderati Tarses</a> <span class="role">point of view</span></li>
+            <li><a href="#">Executor Crusius</a> <span class="role">appears</span></li>
+          </ul></div>
+          <div><h4>Factions</h4><ul>
+            <li><a href="#">Adeptus Mechanicus</a> <span class="role">primary</span></li>
+            <li><a href="#">Legio Invicta</a> <span class="role">primary</span></li>
+            <li><a href="#">Imperial Guard</a> <span class="role">supporting</span></li>
+          </ul></div>
+          <div><h4>Locations</h4><ul>
+            <li><a href="#">Orestes</a> <span class="role">primary</span></li>
+            <li><a href="#">Argentum Hive</a> <span class="role">supporting</span></li>
+          </ul></div>
+        </div>
+        <p class="k-motifs">war at scale <span class="sep">·</span> faith in the machine <span class="sep">·</span> duty</p>
+        <h4 class="k-section">Acquire</h4>
+        <div class="k-actions">
+          <a class="btn primary" href="#">Amazon<span class="mark">↗</span></a>
+          <a class="btn" href="#">Black Library<span class="mark">↗</span></a>
+          <a class="btn" href="#">Audible<span class="mark">↗</span></a>
+        </div>
+        <p class="k-goto"><a href="buch.html">Open the full record →</a></p>
+      </template>
+    </article>
+
+    <article class="row">
+      <button type="button" class="grid-row row-face">
+        <span class="c-idx">016</span>
+        <span class="c-main">
+          <span class="c-title">Double Eagle</span>
+          <span class="c-by">by Dan Abnett</span>
+        </span>
+        <span class="c-faction">Imperial Navy</span>
+        <span class="c-year">2004</span>
+        <span class="c-format">Novel</span>
+        <span class="c-mark" aria-hidden="true">▾</span>
+      </button>
+      <template class="row-data">
+        <p class="k-over">Novel</p>
+        <h3 class="k-title">Double Eagle</h3>
+        <p class="k-by">by <a href="#">Dan Abnett</a> · Standalone, Sabbat Worlds</p>
+        <p class="k-chrono">773.M41 · The Time of Ending</p>
+        <h4 class="k-section">Synopsis</h4>
+        <p class="k-syn">The air war over Enothis: Imperial Navy pilots against the Blood Pact — a Battle of Britain in the Sabbat Worlds.</p>
+        <h4 class="k-section">Appendix</h4>
+        <div class="k-appendix">
+          <div><h4>Dramatis Personae</h4><ul>
+            <li><a href="#">Oskar Viltry</a> <span class="role">point of view</span></li>
+            <li><a href="#">Bree Jagdea</a> <span class="role">point of view</span></li>
+          </ul></div>
+          <div><h4>Factions</h4><ul>
+            <li><a href="#">Imperial Navy</a> <span class="role">primary</span></li>
+            <li><a href="#">Blood Pact</a> <span class="role">supporting</span></li>
+          </ul></div>
+          <div><h4>Locations</h4><ul>
+            <li><a href="#">Enothis</a> <span class="role">primary</span></li>
+            <li><a href="#">Theda</a> <span class="role">supporting</span></li>
+          </ul></div>
+        </div>
+        <p class="k-motifs">duty <span class="sep">·</span> attrition <span class="sep">·</span> grace under fire</p>
+        <h4 class="k-section">Acquire</h4>
+        <div class="k-actions">
+          <a class="btn primary" href="#">Amazon<span class="mark">↗</span></a>
+          <a class="btn" href="#">Black Library<span class="mark">↗</span></a>
+          <a class="btn" href="#">Audible<span class="mark">↗</span></a>
+        </div>
+        <p class="k-goto"><a href="buch.html">Open the full record →</a></p>
+      </template>
+    </article>
+
+    <article class="row">
+      <button type="button" class="grid-row row-face">
+        <span class="c-idx">017</span>
+        <span class="c-main">
+          <span class="c-title">The Infinite and the Divine</span>
+          <span class="c-by">by Robert Rath</span>
+        </span>
+        <span class="c-faction">Necrons</span>
+        <span class="c-year">2020</span>
+        <span class="c-format">Novel</span>
+        <span class="c-mark" aria-hidden="true">▾</span>
+      </button>
+      <template class="row-data">
+        <p class="k-over">Novel</p>
+        <h3 class="k-title">The Infinite and the Divine</h3>
+        <p class="k-by">by <a href="#">Robert Rath</a> · Standalone</p>
+        <p class="k-chrono">c. 910.M41 · The Time of Ending</p>
+        <h4 class="k-section">Synopsis</h4>
+        <p class="k-syn">Trazyn the Infinite guards the galleries of Solemnace like a museum, a fortress and a private joke. Orikan the Diviner breaks in. Their feud stretches across millennia.</p>
+        <h4 class="k-section">Appendix</h4>
+        <div class="k-appendix">
+          <div><h4>Dramatis Personae</h4><ul>
+            <li><a href="#">Trazyn the Infinite</a> <span class="role">point of view</span></li>
+            <li><a href="#">Orikan the Diviner</a> <span class="role">point of view</span></li>
+          </ul></div>
+          <div><h4>Factions</h4><ul>
+            <li><a href="#">Necrons</a> <span class="role">primary</span></li>
+          </ul></div>
+          <div><h4>Locations</h4><ul>
+            <li><a href="#">Solemnace</a> <span class="role">primary</span></li>
+            <li><a href="#">Mandragora</a> <span class="role">supporting</span></li>
+          </ul></div>
+        </div>
+        <p class="k-motifs">rivalry <span class="sep">·</span> obsession <span class="sep">·</span> deep time</p>
+        <h4 class="k-section">Acquire</h4>
+        <div class="k-actions">
+          <a class="btn primary" href="#">Amazon<span class="mark">↗</span></a>
+          <a class="btn" href="#">Black Library<span class="mark">↗</span></a>
+          <a class="btn" href="#">Audible<span class="mark">↗</span></a>
+        </div>
+        <p class="k-goto"><a href="buch.html">Open the full record →</a></p>
+      </template>
+    </article>
+
+    <article class="row">
+      <button type="button" class="grid-row row-face">
+        <span class="c-idx">018</span>
+        <span class="c-main">
+          <span class="c-title">For the Emperor</span>
+          <span class="c-by">by Sandy Mitchell</span>
+        </span>
+        <span class="c-faction">Imperial Guard</span>
+        <span class="c-year">2003</span>
+        <span class="c-format">Novel</span>
+        <span class="c-mark" aria-hidden="true">▾</span>
+      </button>
+      <template class="row-data">
+        <p class="k-over">Novel</p>
+        <h3 class="k-title">For the Emperor</h3>
+        <p class="k-by">by <a href="#">Sandy Mitchell</a> · Ciaphas Cain, № I</p>
+        <p class="k-chrono">c. 931.M41 · The Time of Ending</p>
+        <h4 class="k-section">Synopsis</h4>
+        <p class="k-syn">Commissar Ciaphas Cain, self-professed coward, is assigned to a Valhallan regiment and stumbles into a genestealer plot — comedy against the grimdark grain.</p>
+        <h4 class="k-section">Appendix</h4>
+        <div class="k-appendix">
+          <div><h4>Dramatis Personae</h4><ul>
+            <li><a href="#">Ciaphas Cain</a> <span class="role">point of view</span></li>
+            <li><a href="#">Amberley Vail</a> <span class="role">point of view</span></li>
+            <li><a href="#">Jurgen</a> <span class="role">appears</span></li>
+          </ul></div>
+          <div><h4>Factions</h4><ul>
+            <li><a href="#">Imperial Guard</a> <span class="role">primary</span></li>
+            <li><a href="#">Inquisition</a> <span class="role">supporting</span></li>
+            <li><a href="#">T’au</a> <span class="role">supporting</span></li>
+          </ul></div>
+          <div><h4>Locations</h4><ul>
+            <li><a href="#">Gravalax</a> <span class="role">primary</span></li>
+          </ul></div>
+        </div>
+        <p class="k-motifs">wit <span class="sep">·</span> cowardice &amp; courage <span class="sep">·</span> intrigue</p>
+        <h4 class="k-section">Acquire</h4>
+        <div class="k-actions">
+          <a class="btn primary" href="#">Amazon<span class="mark">↗</span></a>
+          <a class="btn" href="#">Black Library<span class="mark">↗</span></a>
+          <a class="btn" href="#">Audible<span class="mark">↗</span></a>
+        </div>
+        <p class="k-goto"><a href="buch.html">Open the full record →</a></p>
+      </template>
+    </article>
+
+    <article class="row">
+      <button type="button" class="grid-row row-face">
+        <span class="c-idx">019</span>
+        <span class="c-main">
+          <span class="c-title">Nightbringer</span>
+          <span class="c-by">by Graham McNeill</span>
+        </span>
+        <span class="c-faction">Ultramarines</span>
+        <span class="c-year">2002</span>
+        <span class="c-format">Novel</span>
+        <span class="c-mark" aria-hidden="true">▾</span>
+      </button>
+      <template class="row-data">
+        <p class="k-over">Novel</p>
+        <h3 class="k-title">Nightbringer</h3>
+        <p class="k-by">by <a href="#">Graham McNeill</a> · Ultramarines, № I</p>
+        <p class="k-chrono">c. 997.M41 · The Time of Ending</p>
+        <h4 class="k-section">Synopsis</h4>
+        <p class="k-syn">Captain Uriel Ventris inherits the Fourth Company and a mission to Pavonis, where something older than the Imperium stirs.</p>
+        <h4 class="k-section">Appendix</h4>
+        <div class="k-appendix">
+          <div><h4>Dramatis Personae</h4><ul>
+            <li><a href="#">Uriel Ventris</a> <span class="role">point of view</span></li>
+            <li><a href="#">Ario Barzano</a> <span class="role">appears</span></li>
+            <li><a href="#">Kasimir de Valtos</a> <span class="role antagonist">antagonist</span></li>
+          </ul></div>
+          <div><h4>Factions</h4><ul>
+            <li><a href="#">Ultramarines</a> <span class="role">primary</span></li>
+            <li><a href="#">Inquisition</a> <span class="role">supporting</span></li>
+            <li><a href="#">Necrons</a> <span class="role">supporting</span></li>
+          </ul></div>
+          <div><h4>Locations</h4><ul>
+            <li><a href="#">Pavonis</a> <span class="role">primary</span></li>
+          </ul></div>
+        </div>
+        <p class="k-motifs">duty <span class="sep">·</span> corruption <span class="sep">·</span> ancient evil</p>
+        <h4 class="k-section">Acquire</h4>
+        <div class="k-actions">
+          <a class="btn primary" href="#">Amazon<span class="mark">↗</span></a>
+          <a class="btn" href="#">Black Library<span class="mark">↗</span></a>
+          <a class="btn" href="#">Audible<span class="mark">↗</span></a>
+        </div>
+        <p class="k-goto"><a href="buch.html">Open the full record →</a></p>
+      </template>
+    </article>
+
+    <article class="row">
+      <button type="button" class="grid-row row-face">
+        <span class="c-idx">020</span>
+        <span class="c-main">
+          <span class="c-title">Storm of Iron</span>
+          <span class="c-by">by Graham McNeill</span>
+        </span>
+        <span class="c-faction">Iron Warriors</span>
+        <span class="c-year">2002</span>
+        <span class="c-format">Novel</span>
+        <span class="c-mark" aria-hidden="true">▾</span>
+      </button>
+      <template class="row-data">
+        <p class="k-over">Novel</p>
+        <h3 class="k-title">Storm of Iron</h3>
+        <p class="k-by">by <a href="#">Graham McNeill</a> · Standalone</p>
+        <p class="k-chrono">c. 997.M41 · The Time of Ending</p>
+        <h4 class="k-section">Synopsis</h4>
+        <p class="k-syn">The Iron Warriors lay siege to the citadel of Hydra Cordatus — the archive’s definitive study of the engineered cruelty of a Chaos siege.</p>
+        <h4 class="k-section">Appendix</h4>
+        <div class="k-appendix">
+          <div><h4>Dramatis Personae</h4><ul>
+            <li><a href="#">Honsou</a> <span class="role">point of view</span></li>
+            <li><a href="#">Forrix</a> <span class="role">appears</span></li>
+            <li><a href="#">Kroeger</a> <span class="role">appears</span></li>
+          </ul></div>
+          <div><h4>Factions</h4><ul>
+            <li><a href="#">Iron Warriors</a> <span class="role">primary</span></li>
+            <li><a href="#">Imperial Guard</a> <span class="role">supporting</span></li>
+          </ul></div>
+          <div><h4>Locations</h4><ul>
+            <li><a href="#">Hydra Cordatus</a> <span class="role">primary</span></li>
+          </ul></div>
+        </div>
+        <p class="k-motifs">siegecraft <span class="sep">·</span> cruelty <span class="sep">·</span> ambition</p>
+        <h4 class="k-section">Acquire</h4>
+        <div class="k-actions">
+          <a class="btn primary" href="#">Amazon<span class="mark">↗</span></a>
+          <a class="btn" href="#">Black Library<span class="mark">↗</span></a>
+          <a class="btn" href="#">Audible<span class="mark">↗</span></a>
+        </div>
+        <p class="k-goto"><a href="buch.html">Open the full record →</a></p>
+      </template>
+    </article>
+
+    <article class="row">
+      <button type="button" class="grid-row row-face">
+        <span class="c-idx">021</span>
+        <span class="c-main">
+          <span class="c-title">Helsreach</span>
+          <span class="c-by">by Aaron Dembski-Bowden</span>
+        </span>
+        <span class="c-faction">Black Templars</span>
+        <span class="c-year">2010</span>
+        <span class="c-format">Novel</span>
+        <span class="c-mark" aria-hidden="true">▾</span>
+      </button>
+      <template class="row-data">
+        <p class="k-over">Novel</p>
+        <h3 class="k-title">Helsreach</h3>
+        <p class="k-by">by <a href="#">Aaron Dembski-Bowden</a> · Space Marine Battles</p>
+        <p class="k-chrono">998.M41 · The Time of Ending</p>
+        <h4 class="k-section">Synopsis</h4>
+        <p class="k-syn">When the orks of a vast Waaagh! descend on Armageddon, Reclusiarch Grimaldus holds Hive Helsreach against the xenos flood — his stand made in an Imperial temple where faith and fury are all that remain.</p>
+        <h4 class="k-section">Appendix</h4>
+        <div class="k-appendix">
+          <div><h4>Dramatis Personae</h4><ul>
+            <li><a href="#">Grimaldus</a> <span class="role">point of view</span></li>
+            <li><a href="#">Artarion</a> <span class="role">appears</span></li>
+            <li><a href="#">Andrej</a> <span class="role">appears</span></li>
+          </ul></div>
+          <div><h4>Factions</h4><ul>
+            <li><a href="#">Black Templars</a> <span class="role">primary</span></li>
+            <li><a href="#">Orks</a> <span class="role">supporting</span></li>
+            <li><a href="#">Legio Invigilata</a> <span class="role">supporting</span></li>
+          </ul></div>
+          <div><h4>Locations</h4><ul>
+            <li><a href="#">Armageddon</a> <span class="role">primary</span></li>
+            <li><a href="#">Hive Helsreach</a> <span class="role">primary</span></li>
+          </ul></div>
+        </div>
+        <p class="k-motifs">faith <span class="sep">·</span> endurance <span class="sep">·</span> the last stand</p>
+        <h4 class="k-section">Acquire</h4>
+        <div class="k-actions">
+          <a class="btn primary" href="#">Amazon<span class="mark">↗</span></a>
+          <a class="btn" href="#">Black Library<span class="mark">↗</span></a>
+          <a class="btn" href="#">Audible<span class="mark">↗</span></a>
+        </div>
+        <p class="k-goto"><a href="buch.html">Open the full record →</a></p>
+      </template>
+    </article>
+
+    <article class="row">
+      <button type="button" class="grid-row row-face">
+        <span class="c-idx">022</span>
+        <span class="c-main">
+          <span class="c-title">Fifteen Hours</span>
+          <span class="c-by">by Mitchel Scanlon</span>
+        </span>
+        <span class="c-faction">Imperial Guard</span>
+        <span class="c-year">2005</span>
+        <span class="c-format">Novel</span>
+        <span class="c-mark" aria-hidden="true">▾</span>
+      </button>
+      <template class="row-data">
+        <p class="k-over">Novel</p>
+        <h3 class="k-title">Fifteen Hours</h3>
+        <p class="k-by">by <a href="#">Mitchel Scanlon</a> · Standalone</p>
+        <p class="k-chrono"><span class="unknown">not yet dated</span></p>
+        <h4 class="k-section">Synopsis</h4>
+        <p class="k-syn">A conscript lands on the wrong world: the life expectancy of a Guardsman on Broucheroc, measured out in hours.</p>
+        <h4 class="k-section">Appendix</h4>
+        <div class="k-appendix">
+          <div><h4>Dramatis Personae</h4><ul>
+            <li><a href="#">Arvin Larn</a> <span class="role">point of view</span></li>
+          </ul></div>
+          <div><h4>Factions</h4><ul>
+            <li><a href="#">Imperial Guard</a> <span class="role">primary</span></li>
+            <li><a href="#">Orks</a> <span class="role">supporting</span></li>
+          </ul></div>
+          <div><h4>Locations</h4><ul>
+            <li><a href="#">Broucheroc</a> <span class="role">primary</span></li>
+          </ul></div>
+        </div>
+        <p class="k-motifs">futility <span class="sep">·</span> innocence lost <span class="sep">·</span> attrition</p>
+        <h4 class="k-section">Acquire</h4>
+        <div class="k-actions">
+          <a class="btn primary" href="#">Amazon<span class="mark">↗</span></a>
+          <a class="btn" href="#">Black Library<span class="mark">↗</span></a>
+          <a class="btn" href="#">Audible<span class="mark">↗</span></a>
+        </div>
+        <p class="k-goto"><a href="buch.html">Open the full record →</a></p>
+      </template>
+    </article>
+  </section>
+
+  <p class="truncation">The mock ends here — the live register continues through all 896 records.</p>
+
+</main>
+
+<footer class="imprimatur reveal">
+  <span class="seal-line" aria-hidden="true"></span>
+  <p class="seal-word">Imprimatur</p>
+  <p class="seal-sub">Chrono Lexicanum — an unofficial fan archive</p>
+  <p class="triad">
+    <span>From darkness, knowledge</span>
+    <span>Click any title to open its record</span>
+    <span>Fan-made · Non-commercial</span>
+  </p>
+  <p class="legal">Unofficial fan project, not endorsed by Games Workshop. Warhammer 40,000 and all associated marks are property of Games Workshop Limited.</p>
+  <p class="law"><a href="#">Impressum</a> · <a href="#">Datenschutz</a></p>
+</footer>
+
+<!-- Die Kapelle: der Datensatz als Popup (Live-Mechanik @modal /
+     64-detail-modal). Inhalt kommt pro Zeile aus dem <template>. -->
+<div class="chapel" id="chapel" hidden>
+  <div class="chapel-scrim" data-close aria-hidden="true"></div>
+  <div class="chapel-panel" role="dialog" aria-modal="true" aria-label="Record">
+    <div class="chapel-bar">
+      <button type="button" data-close>‹ Return to the Register</button>
+      <button type="button" class="chapel-close" data-close>Close</button>
+    </div>
+    <div class="chapel-scroll" id="chapelBody"></div>
+  </div>
+</div>
+
+<details class="study-note">
+  <summary>Studien-Notiz · Runde 9 — Praxis (Nachbau /archive)</summary>
+  <div class="body">
+    <p><b>Runde-9-Korrekturen nach Philipps Review:</b> (1) <b>Servo-Schädel-Skizze raus</b> (Verdikt: die sich zeichnenden SVGs sind grauenvoll) — im Hero stehen jetzt die <b>zwei Live-Auspex-Scheiben</b> (MainAuspex ×2 der Startseite) an den Live-Positionen mit Live-Drehrichtungen; die konzentrischen Ringe liegen enger (0.58–0.96 r), kein Sweep-Zeiger. (2) <b>„Archive of Books / Podcasts" deutlich präsenter:</b> die Wahl ist das erste Element des Schiffs — zwei große Register-Türen (Mono-Kicker mit Sternwarte-Punkt als Aktiv-Marker, Titelschrift-Tür-Name, Bestandszeile); die kleine „Archive of"-Zeile in der Filterleiste ist dafür raus, die Hero-Edition nennt keine Zählwerte mehr (Doppelungs-Politik: Zahlen wohnen in den Türen). Klick wechselt Tür + Census (Mock). (3) <b>Hintergrund = Live-Site:</b> main-bg.webp right bottom + Live-Vignette/-Fade/Grain über #02030a, Grund pickbar (Studio). (4) <b>Cue „Choose your archive":</b> Strich fadet nach unten, Lichttropfen läuft ihn hinab. (5) <b>Schriftgrößen gehoben</b> (Census/Idx 13+, Bylines 17, Kapelle einen Schritt größer). Wortmarke ohne Trennpunkt.</p>
+    <p><b>Geteiltes Fundament:</b> Tokens/BG/Rail/Vox/Auspex/Cue/Buttons/Imprimatur/Studio leben in praxis.css/praxis.js (Keys cl09; Titelschrift-Dropdown inkl. der fünf Cormorant-Familien, Grund-Farb-Picker). <b>Unverändert:</b> Kapelle (Popup-Datensatz mit Ouvertüre), Register-Struktur strikt live, Rubriken-Strich-Nav, Icon-Politik (nur ▾ und ↗), Datenehrlichkeit. Archivist-Notes bleiben ungebaut (Runde-8-Prüfung: kein Datenfeld).</p>
+  </div>
+</details>
+
+<script src="praxis.js"></script>
+<script>
+  (function () {
+    /* Die Archiv-Türen — Books / Podcasts (Mock: Tür + Census wechseln) */
+    var doors = document.querySelectorAll(".arch-door");
+    var census = document.getElementById("census");
+    doors.forEach(function (d) {
+      d.addEventListener("click", function () {
+        doors.forEach(function (o) { o.classList.remove("active"); });
+        d.classList.add("active");
+        if (census) {
+          census.innerHTML = d.id === "doorPods"
+            ? "<b>178 · episodes</b> / 6 shows — podcast register is a mock"
+            : "<b>22 · shown</b> / 896 works";
+        }
+      });
+    });
+
+    /* Die Kapelle — Datensatz-Popup (Live-Mechanik: Scrim-Klick, Close,
+       ESC schließen; Fokus wandert hinein und kehrt zur Zeile zurück). */
+    var chapel = document.getElementById("chapel");
+    var chapelBody = document.getElementById("chapelBody");
+    var lastTrigger = null;
+    var openChapel = function (html, trigger) {
+      chapelBody.innerHTML = html;
+      window.praxisDecorate(chapelBody);
+      chapelBody.scrollTop = 0;
+      chapel.hidden = false;
+      document.body.style.overflow = "hidden";
+      lastTrigger = trigger;
+      var c = chapel.querySelector(".chapel-close");
+      if (c) c.focus();
+    };
+    var closeChapel = function () {
+      if (chapel.hidden) return;
+      chapel.hidden = true;
+      document.body.style.overflow = "";
+      if (lastTrigger) { lastTrigger.focus(); lastTrigger = null; }
+    };
+    document.querySelectorAll(".ledger .row").forEach(function (row) {
+      var face = row.querySelector(".row-face");
+      var data = row.querySelector(".row-data");
+      if (!face || !data) return;
+      face.addEventListener("click", function () {
+        openChapel(data.innerHTML, face);
+      });
+    });
+    chapel.querySelectorAll("[data-close]").forEach(function (el) {
+      el.addEventListener("click", closeChapel);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeChapel();
+    });
+  })();
+</script>

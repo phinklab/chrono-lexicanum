@@ -71,11 +71,6 @@ export default function AskExamplePage() {
     >
       <div className="lex-readout" aria-hidden>
         <GhostReadout
-          color="var(--cl-gold)"
-          opacity={0.28}
-          lineMs={5200}
-          typeSpeed={78}
-          max={4}
           lines={READOUT_LINES}
         />
       </div>
@@ -84,18 +79,12 @@ export default function AskExamplePage() {
         y="120px"
         label="QUERY · PVBLIC"
         delay={1.2}
-        lifetime={5}
-        color="var(--cl-gold)"
-        opacity={0.5}
       />
       <FloatingCoord
         x="58%"
         y="220px"
         label="PROFILE · I OF V"
         delay={3}
-        lifetime={5}
-        color="var(--cl-gold)"
-        opacity={0.5}
       />
 
       <LexMast

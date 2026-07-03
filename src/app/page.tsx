@@ -1,10 +1,10 @@
+import AuspexPair from "@/components/chrono/AuspexPair";
 import FloatingCoord from "@/components/chrono/FloatingCoord";
 import GhostReadout from "@/components/chrono/GhostReadout";
-import MainAuspex from "@/components/chrono/MainAuspex";
 import SiteBackground from "@/components/chrome/SiteBackground";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";
 import ScrollScrim from "@/components/chrome/ScrollScrim";
-import HeroScrollCue from "@/components/home/HeroScrollCue";
+import RouteScrollCue from "@/components/chrome/RouteScrollCue";
 import HomeSearch from "@/components/home/HomeSearch";
 import HomeExplore from "@/components/home/HomeExplore";
 import HubScrollReset from "@/components/home/HubScrollReset";
@@ -46,154 +46,81 @@ export default async function HubPage() {
     ...primarchSuggestions,
   ];
 
-  // The readout carries REAL holdings instead of pseudo-telemetry (the
-  // warp-tide/voltage lines died with the lab port, Report 141).
-  const readoutLines = [
-    `· ${novelCount} RECORDS INDEXED`,
-    `· ${podcastCount} PODCASTS · ${episodeCount} EPISODES`,
-    "· 7 ERAS · 5 SEGMENTA",
-    "· SOURCES · LEXICANVM / OL / HC",
-    "· COGNITIO LINK STABLE",
+  // The vox scribe carries REAL holdings instead of pseudo-telemetry.
+  const voxLines = [
+    `${novelCount} records indexed`,
+    `${episodeCount} episodes · ${podcastCount} podcasts`,
+    "VII erae · V segmenta",
+    "Fontes · Lexicanvm / OL / HC",
+    "Cognitio link stable",
   ];
 
-  // Three full-viewport "acts" with firm (mandatory) scroll-snap between them:
-  // 1 splash → 2 Praefatio + search → 3 the grouped doorways. The fixed
-  // hub.webp + <ScrollScrim> sit behind all three.
+  // Three acts: 1 splash (the wordmark IS the hero) → 2 Praefatio + search →
+  // 3 the grouped doorways. The fixed art + ScrollScrim sit behind all three.
   return (
     <main className="hub">
       <HubScrollReset />
       <SiteBackground variant="main" position="right bottom" />
       <ScrollScrim
-        className="hub-scrim"
-        varName="--hub-scrim-opacity"
+        className="site-scrim"
+        varName="--scrim-o"
         heroSelector=".hub-act--splash"
-        maxOpacity={0.77}
+        maxOpacity={0.94}
       />
+      <GhostReadout lines={voxLines} />
 
-      <div className="hub-readout" aria-hidden>
-        <GhostReadout
-          color="var(--cl-gold)"
-          opacity={0.5}
-          lineMs={5200}
-          typeSpeed={82}
-          max={4}
-          lines={readoutLines}
-        />
-      </div>
-
-      {/* ── Act 1 · Splash — title pushed low into the dark band, cue at base ── */}
+      {/* ── Act 1 · Splash ─────────────────────────────────────────────── */}
       <section
         className="hub-act hub-act--splash"
         aria-label="Chrono Lexicanum — the archive"
       >
-        <FloatingCoord
-          x="42%"
-          y="120px"
-          label="ROUTE · SEGMENTVM ULTIMA"
-          delay={1.2}
-          lifetime={5}
-          color="var(--cl-gold)"
-          opacity={0.7}
-        />
-        <FloatingCoord
-          x="58%"
-          y="220px"
-          label="HIT · NOVA TERRA · M42.347"
-          delay={3}
-          lifetime={5}
-          color="var(--cl-gold)"
-          opacity={0.6}
-        />
-        <FloatingCoord
-          x="26%"
-          y="34%"
-          label="SCAN · SEGMENTVM OBSCVRVS"
-          delay={5.4}
-          lifetime={5}
-          color="var(--cl-gold)"
-          opacity={0.55}
-        />
+        <AuspexPair />
+        <FloatingCoord x="9%" y="30%" label="Route · Segmentvm Vltima" delay={6} />
 
-        <div className="hub-hero__auspex hub-hero__auspex--main" aria-hidden>
-          <MainAuspex
-            size={520}
-            accent="var(--cl-gold)"
-            spinDur={240}
-            spinRevDur={320}
-            sweepDur={28}
-          />
-        </div>
-        <div className="hub-hero__auspex hub-hero__auspex--secondary" aria-hidden>
-          <MainAuspex
-            size={320}
-            accent="var(--cl-gold)"
-            spinDur={360}
-            spinRevDur={440}
-            sweepDur={36}
-          />
-        </div>
-
-        <div className="hub-hero__title">
-          <p className="hub-eyebrow">{"ARCHIVVM · COGITATOR ACTIVVS"}</p>
-          <h1 className="hub-hero__heading">CHRONO LEXICANUM</h1>
-          <div className="hub-hero__rule" aria-hidden />
-          <p className="hub-hero__sub">
-            A fan-made non-official guide to Warhammer 40,000 stories: books,
-            podcasts, factions, worlds and characters in one archive. Chart the
-            eras, roam the galaxy, browse the Compendium — or Ask the Archive
-            where to begin.
-          </p>
-        </div>
-
-        <HeroScrollCue label="Enter the archive" target=".hub-act--intro" />
+        <p className="hub-hero__over">A Fan Archive of the 41st Millennium</p>
+        <h1 className="hub-hero__heading">Chrono Lexicanum</h1>
+        <p className="hub-hero__edition">
+          <b>Chart the eras</b>, roam the galaxy, or ask the archive where to
+          begin.
+        </p>
+        <RouteScrollCue
+          className="route-cue--flow hub-hero__cue"
+          label="Enter the archive"
+          target=".hub-act--intro"
+        />
       </section>
 
-      {/* ── Act 2 · Praefatio — the reading column with initial + live search ── */}
+      {/* ── Act 2 · Praefatio — reading column + live search + holdings ── */}
       <section className="hub-act hub-act--intro" aria-label="What lives in the archive?">
-        <div className="hub-intro">
-          <div className="hub-intro__head">
-            <p className="hub-eyebrow">{"PRAEFATIO"}</p>
-            <h2 className="hub-intro__heading">What lives in the archive?</h2>
-          </div>
-          <p className="lx-prose lx-initial">
+        <div className="hub-nave">
+          <h2 className="lx-sect reveal">What lives in the archive?</h2>
+          <p className="lx-prose lx-initial hub-praefatio reveal">
             A hobby — a fan-built archive of the 41st millennium, made with love
             for the Black Library and the slow, dark march of the grimdark.
-            Search the catalogue below, or take one of the doorways further down;
-            the hope is simple, that the cogitator gives you exactly the book you
-            didn&rsquo;t know you wanted next.
+            Search the catalogue below, or take one of the doorways further
+            down.
+          </p>
+
+          <HomeSearch index={searchIndex} />
+
+          <p className="lx-stat hub-holdings reveal">
+            <b>{novelCount} novels</b>
+            <span>
+              {episodeCount} episodes · {podcastCount} podcasts
+            </span>
+            <span>7 eras · 5 segmenta</span>
           </p>
         </div>
-
-        <HomeSearch index={searchIndex} />
-
-        <p className="lx-stat hub-stat">
-          <b>{novelCount} NOVELS</b>
-          <span>
-            {episodeCount} EPISODES · {podcastCount} PODCASTS
-          </span>
-          <span>7 ERAS · 5 SEGMENTA</span>
-        </p>
-
-        <HeroScrollCue
-          label="More to explore"
-          target=".hub-act--explore"
-          className="hub-cue--floor"
-        />
       </section>
 
-      {/* ── Act 3 · More to explore — the doorways as a grouped registry ─────── */}
-      <section
-        className="hub-act hub-act--explore"
-        aria-label="More to explore"
-      >
-        <div className="hub-tools-head">
-          <p className="hub-eyebrow">{"EXPLORA"}</p>
-          <h2 className="hub-tools-head__heading">More to explore</h2>
+      {/* ── Act 3 · More to explore — the doorways as a grouped registry ─ */}
+      <section className="hub-act hub-act--explore" aria-label="More to explore">
+        <div className="hub-explore-shell">
+          <h2 className="lx-sect reveal">More to explore</h2>
+          <HomeExplore />
         </div>
 
-        <HomeExplore />
-
-        <ArchiveFooter mid="BEST EXPERIENCED WITH SOUND" />
+        <ArchiveFooter mid="Best experienced with sound" />
       </section>
     </main>
   );

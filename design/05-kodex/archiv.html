@@ -1,0 +1,481 @@
+<!-- ======================================================================
+     RICHTUNG 05 — KODEX · Fläche: Archiv-Liste
+     Das Lexicanum wörtlich genommen: ein schwarzes Stundenbuch. Blackletter-
+     Display, Rubrizierung (rote Auszeichnung), Gold-Initialen, Marginalien.
+     Asymmetrischer Manuskript-Satzspiegel. Studie zu Brief 184, Runde 2.
+     ====================================================================== -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kodex — Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@300..700&family=Alegreya:ital,wght@0,400..800;1,400..700&family=Alegreya+SC:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --umbra:     #110e0a;   /* warmes Manuskript-Schwarz, flach — kein Verlauf */
+    --umbra-2:   #17130d;
+    --ink:       #e7dcc2;
+    --dim:       #a3937a;
+    --faint:     #6f6250;
+    --rubric:    #b23a27;   /* Zinnober der Rubrikatoren */
+    --gold:      #b18d43;   /* Blattgold, matt */
+    --hair:      rgba(231, 220, 194, 0.15);
+    --disp:      "Grenze Gotisch", serif;
+    --text:      "Alegreya", serif;
+    --sc:        "Alegreya SC", serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { background: var(--umbra); }
+  body {
+    font-family: var(--text);
+    color: var(--ink);
+    font-size: 17.5px;
+    line-height: 1.58;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--rubric); color: var(--ink); }
+  a { color: inherit; text-decoration: none; }
+
+  .bg { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: var(--umbra); }
+  .bg .photo {
+    position: absolute; inset: 0;
+    background: url("../../public/img/main-bg.webp") center 30% / cover no-repeat;
+  }
+  .bg .fade {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 34%, transparent 42%, rgba(17,14,10,0.55) 100%),
+      linear-gradient(180deg,
+        rgba(17,14,10,0.32) 0%,
+        rgba(17,14,10,0.14) 26%,
+        rgba(17,14,10,0.58) 58%,
+        rgba(17,14,10,0.93) 82%,
+        var(--umbra) 96%);
+  }
+  .bg .scrim { position: absolute; inset: 0; background: var(--umbra); opacity: 0; will-change: opacity; }
+  .bg .grain {
+    position: absolute; inset: 0; opacity: 0.11; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size: 160px 160px;
+  }
+
+  /* Laufender Titel: Manuskript-Kopfzeile, links Werk, rechts Register */
+  header.running {
+    display: flex; justify-content: space-between; align-items: baseline;
+    max-width: 1120px; margin: 0 auto;
+    padding: 26px 28px 0;
+  }
+  .running .mark {
+    font-family: var(--disp); font-weight: 500;
+    font-size: 21px;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.8);
+  }
+  .running nav {
+    display: flex; gap: 26px;
+    font-family: var(--sc);
+    font-size: 14px; letter-spacing: 0.14em;
+    color: var(--dim);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.8);
+  }
+  .running nav a:hover { color: var(--ink); }
+  .running nav a.here { color: var(--rubric); border-bottom: 1px solid var(--rubric); padding-bottom: 3px; }
+
+  /* Schwelle: Incipit unten links im Artwork — asymmetrisch, Manuskript */
+  .incipit {
+    min-height: 90vh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    max-width: 1120px; margin: 0 auto;
+    padding: 0 28px 9vh;
+  }
+  .incipit .rubric {
+    font-family: var(--sc);
+    font-size: 15px; letter-spacing: 0.2em;
+    color: var(--rubric);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+  }
+  .incipit h1 {
+    margin-top: 10px;
+    font-family: var(--disp);
+    font-weight: 480;
+    font-size: clamp(68px, 11vw, 164px);
+    line-height: 0.94;
+    text-shadow: 0 3px 30px rgba(0,0,0,0.9);
+  }
+  .incipit .edition {
+    margin-top: 18px;
+    max-width: 52ch;
+    font-style: italic; font-size: 18px; color: var(--dim);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+  }
+  .incipit .edition b { font-style: normal; color: var(--ink); }
+  .incipit .cue {
+    margin-top: 6vh;
+    font-family: var(--sc);
+    font-size: 13px; letter-spacing: 0.22em;
+    color: var(--gold);
+  }
+
+  /* Satzspiegel: Textblock links, Glossen-Marginale rechts */
+  main { max-width: 1120px; margin: 0 auto; padding: 9vh 28px 110px; }
+
+  .folio { display: grid; grid-template-columns: minmax(0, 1fr) 240px; column-gap: 56px; }
+  .folio > .margin { grid-column: 2; }
+
+  /* Register (Filter) als rubrizierte Zeilen */
+  .register { font-size: 15px; color: var(--dim); padding-bottom: 6px; }
+  .register .lbl {
+    font-family: var(--sc);
+    font-size: 13px; letter-spacing: 0.2em;
+    color: var(--rubric);
+    padding-right: 14px;
+  }
+  .register a { padding: 0 7px; }
+  .register a:hover { color: var(--ink); }
+  .register a.active { color: var(--gold); border-bottom: 1px solid var(--gold); }
+  .register a + a::before { content: "·"; color: var(--faint); padding-right: 12px; }
+
+  .seek { display: flex; gap: 14px; align-items: baseline; padding: 16px 0 0; }
+  .seek input {
+    flex: 1; max-width: 460px;
+    background: transparent;
+    border: 0; border-bottom: 1px solid var(--hair);
+    color: var(--ink);
+    font-family: var(--text); font-style: italic; font-size: 17px;
+    padding: 6px 2px;
+    outline: none;
+  }
+  .seek input:focus { border-bottom-color: var(--gold); }
+  .seek input::placeholder { color: var(--faint); }
+
+  /* Ären: Gold-Versal + rubrizierter Titel */
+  .era-head {
+    margin: 88px 0 20px;
+    display: flex; align-items: baseline; gap: 18px;
+  }
+  .era-head .versal {
+    font-family: var(--disp);
+    font-weight: 600;
+    font-size: 58px;
+    line-height: 0.8;
+    color: var(--gold);
+  }
+  .era-head h2 {
+    font-family: var(--disp);
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 1;
+  }
+  .era-head .note {
+    font-family: var(--sc);
+    font-size: 13.5px; letter-spacing: 0.16em;
+    color: var(--rubric);
+  }
+  .era-head .lead { flex: 1; border-bottom: 1px solid var(--hair); }
+
+  /* Einträge: Kodex-Absätze mit Glosse in der Marginale */
+  ol.codex { list-style: none; }
+  .entry {
+    display: grid; grid-template-columns: minmax(0, 1fr) 240px; column-gap: 56px;
+    padding: 30px 0;
+    border-bottom: 1px solid var(--hair);
+  }
+  .entry .rubric-line {
+    font-family: var(--sc);
+    font-size: 13.5px; letter-spacing: 0.18em;
+    color: var(--rubric);
+    font-variant-numeric: tabular-nums;
+  }
+  .entry h3 {
+    margin-top: 6px;
+    font-family: var(--disp);
+    font-weight: 500;
+    font-size: clamp(30px, 3.6vw, 44px);
+    line-height: 1.02;
+  }
+  .entry h3 a:hover { color: var(--gold); }
+  .entry .byline { margin-top: 5px; font-style: italic; font-size: 16px; color: var(--dim); }
+  .entry .excerpt {
+    margin-top: 10px;
+    max-width: 60ch;
+    color: var(--dim);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  /* Glosse: kleine kursive Randnotiz, oben am Eintrag ausgerichtet */
+  .entry .gloss {
+    padding-top: 8px;
+    font-size: 14px;
+    font-style: italic;
+    color: var(--faint);
+    line-height: 1.5;
+    border-top: 1px solid transparent;
+  }
+  .entry .gloss b {
+    display: block;
+    font-family: var(--sc); font-style: normal; font-weight: 400;
+    font-size: 13px; letter-spacing: 0.16em;
+    color: var(--dim);
+  }
+  .entry .gloss .stars { color: var(--gold); font-style: normal; }
+
+  /* Schaltflächen: Zinnober-Text in Gold-Hairline-Rahmen */
+  .btn {
+    display: inline-block;
+    font-family: var(--sc);
+    font-size: 14px; letter-spacing: 0.18em;
+    color: var(--ink);
+    background: transparent;
+    border: 1px solid var(--hair);
+    padding: 10px 26px 9px;
+    cursor: pointer;
+  }
+  .btn:hover { border-color: var(--gold); color: var(--gold); }
+  .btn.primary { border-color: var(--rubric); color: var(--rubric); }
+  .btn.primary:hover { background: var(--rubric); color: var(--umbra); }
+
+  .continue { text-align: center; padding: 72px 0 0; }
+  .continue .hint { display: block; margin-top: 14px; font-style: italic; font-size: 14.5px; color: var(--faint); }
+
+  footer.colophon {
+    max-width: 1120px; margin: 60px auto 0;
+    border-top: 1px solid var(--hair);
+    padding: 20px 28px 40px;
+    display: flex; justify-content: space-between; gap: 20px;
+    font-style: italic; font-size: 13.5px; color: var(--faint);
+  }
+
+  details.study-note {
+    max-width: 1120px; margin: 0 auto 60px;
+    border: 1px solid var(--hair);
+    background: var(--umbra-2);
+    padding: 16px 22px;
+    font-size: 15px;
+  }
+  details.study-note summary {
+    cursor: pointer;
+    font-family: var(--sc);
+    font-size: 13px; letter-spacing: 0.2em;
+    color: var(--rubric);
+  }
+  details.study-note .body { margin-top: 12px; max-width: 78ch; color: var(--dim); }
+  details.study-note p { margin-bottom: 8px; }
+  details.study-note b { color: var(--ink); font-weight: 700; }
+
+  @media (max-width: 920px) {
+    .folio, .entry { grid-template-columns: 1fr; }
+    .entry .gloss { padding-top: 10px; border-top: 0; }
+    .entry .gloss b { display: inline; padding-right: 10px; }
+    .incipit h1 { font-size: clamp(52px, 14vw, 96px); }
+  }
+</style>
+
+<div class="bg" aria-hidden="true">
+  <div class="photo"></div>
+  <div class="fade"></div>
+  <div class="scrim" id="scrim"></div>
+  <div class="grain"></div>
+</div>
+
+<header class="running">
+  <div class="mark">Chrono · Lexicanum</div>
+  <nav>
+    <a href="#">Chronicle</a>
+    <a href="map.html">Cartographer</a>
+    <a href="#" class="here">Archive</a>
+    <a href="#">Ask</a>
+  </nav>
+</header>
+
+<section class="incipit">
+  <p class="rubric">Here begins the catalogue of the Warhammer 40,000 library</p>
+  <h1>The Archive</h1>
+  <p class="edition"><b>896 works</b> on record, set down in this codex — compiled in the year 2026 of the old reckoning.</p>
+  <p class="cue">↓ Turn to the first leaf</p>
+</section>
+
+<main>
+
+  <div class="folio">
+    <div>
+      <p class="register">
+        <span class="lbl">Indexed by</span>
+        <a href="#" class="active">Setting, chronological</a>
+        <a href="#">Title</a>
+        <a href="#">Author</a>
+        <a href="#">Release</a>
+      </p>
+      <p class="register">
+        <span class="lbl">Faction</span>
+        <a href="#">All</a>
+        <a href="#" class="active">Thousand Sons</a>
+        <a href="#">Ultramarines</a>
+        <a href="#">Imperial Guard</a>
+        <a href="#">Inquisition</a>
+        <a href="#">…</a>
+      </p>
+      <div class="seek">
+        <input type="text" placeholder="seek a title, an author, a world, a deed …">
+        <button class="btn">Consult</button>
+      </div>
+    </div>
+    <p class="margin gloss" style="font-style: italic; color: var(--faint); font-size: 14px; padding-top: 8px;">The margins of this codex carry the glosses: format, faction, standing. The text block carries the works themselves.</p>
+  </div>
+
+  <!-- ── Liber I: M31 ─────────────────────────────────────────────── -->
+  <div class="era-head">
+    <span class="versal">H</span>
+    <h2>The Horus Heresy</h2>
+    <div class="lead"></div>
+    <span class="note">M30 – M31 · the civil war that made the Imperium</span>
+  </div>
+
+  <ol class="codex">
+    <li class="entry">
+      <div>
+        <p class="rubric-line">c. 963.M30 – 006.M31</p>
+        <h3><a href="buch.html">The First Heretic</a></h3>
+        <p class="byline">Aaron Dembski-Bowden — 2010 · Original Horus Heresy</p>
+        <p class="excerpt">Half a century before Isstvan, the Emperor descends on the freshly compliant world of Khur and razes the city of Monarchia that the Word Bearers had raised in His name, denouncing his most devout son Lorgar for the sin of religion. Shamed and adrift, the XVII Legion begins a Pilgrimage to find any truth that might fill the void.</p>
+      </div>
+      <p class="gloss"><b>Novel · Word Bearers</b> standing <span class="stars">4.35</span> of 5, from 10 455 readings</p>
+    </li>
+
+    <li class="entry">
+      <div>
+        <p class="rubric-line">c. 001.M31</p>
+        <h3><a href="buch.html">Horus Rising</a></h3>
+        <p class="byline">Dan Abnett — 2006 · Original Horus Heresy</p>
+        <p class="excerpt">Two centuries into the Great Crusade, the Emperor has retired to Terra and named his most beloved son Warmaster of the war that will reunite humanity. Newly chosen for the Mournival, Captain Garviel Loken trades the certainty of war for the harder business of speaking truth to a brother who has begun to need it.</p>
+      </div>
+      <p class="gloss"><b>Novel · Luna Wolves</b> standing <span class="stars">4.26</span> of 5, from 41 579 readings — the gate through which every reader of the Heresy passes</p>
+    </li>
+
+    <li class="entry">
+      <div>
+        <p class="rubric-line">001 – 004.M31</p>
+        <h3><a href="buch.html">A Thousand Sons</a></h3>
+        <p class="byline">Graham McNeill — 2010 · Original Horus Heresy</p>
+        <p class="excerpt">Censured at the Council of Nikaea for the Legion’s open use of psychic sorcery, Magnus the Red withdraws with his Thousand Sons to the crystal city of Tizca on Prospero. There the primarch peers into the warp and glimpses Horus’ coming betrayal — a tragedy of brilliant minds undone by hubris and good intentions.</p>
+      </div>
+      <p class="gloss"><b>Novel · Thousand Sons</b> standing <span class="stars">4.27</span> of 5, from 10 635 readings — pair with <i>Prospero Burns</i>; the two accounts disagree</p>
+    </li>
+
+    <li class="entry">
+      <div>
+        <p class="rubric-line">004.M31</p>
+        <h3><a href="buch.html">False Gods</a></h3>
+        <p class="byline">Graham McNeill — 2006 · Original Horus Heresy</p>
+        <p class="excerpt">After Ullanor, Horus rides the wave of his own glory and his Legion bleeds for it. When a ritual duel on the feral world of Davin leaves the Warmaster mortally wounded, a long spirit-walk through the warp shows Horus a future in which the Emperor has discarded the species he built.</p>
+      </div>
+      <p class="gloss"><b>Novel · Luna Wolves</b> standing <span class="stars">4.15</span> of 5, from 28 641 readings</p>
+    </li>
+
+    <li class="entry">
+      <div>
+        <p class="rubric-line">005 – 006.M31</p>
+        <h3><a href="buch.html">Galaxy in Flames</a></h3>
+        <p class="byline">Ben Counter — 2006 · Original Horus Heresy</p>
+        <p class="excerpt">On the dead-grey world of Isstvan III, four Legions deploy in force against a recalcitrant governor. What they cannot know is that the deployment is the trap: from orbit their own brothers burn the loyalists to ash with virus and atomic fire. The Horus Heresy is no longer a rumour.</p>
+      </div>
+      <p class="gloss"><b>Novel · Sons of Horus</b> standing <span class="stars">4.19</span> of 5, from 24 749 readings</p>
+    </li>
+
+    <li class="entry">
+      <div>
+        <p class="rubric-line">005 – 006.M31</p>
+        <h3><a href="buch.html">Fulgrim</a></h3>
+        <p class="byline">Graham McNeill — 2007 · Original Horus Heresy</p>
+        <p class="excerpt">Fulgrim, primarch of the Emperor’s Children, is the finest of the Emperor’s sons: beautiful, brilliant, devoted to perfection. On the murder-world of Laer, a Legion compliance brings home a daemon-bound sword that has been waiting for him. The blade is patient — and the Legion turns slowly, exquisitely, to excess.</p>
+      </div>
+      <p class="gloss"><b>Novel · Emperor’s Children</b> standing <span class="stars">4.05</span> of 5, from 17 163 readings</p>
+    </li>
+  </ol>
+
+  <!-- ── Liber II: M41 ────────────────────────────────────────────── -->
+  <div class="era-head">
+    <span class="versal">E</span>
+    <h2>The Time of Ending</h2>
+    <div class="lead"></div>
+    <span class="note">M41 · the long dusk of the Imperium</span>
+  </div>
+
+  <ol class="codex">
+    <li class="entry">
+      <div>
+        <p class="rubric-line">240.M41</p>
+        <h3><a href="buch.html">Xenos</a></h3>
+        <p class="byline">Dan Abnett — 2001 · Inquisitor: Eisenhorn</p>
+        <p class="excerpt">Inquisitor Gregor Eisenhorn of the Ordo Xenos pursues a renegade rogue trader to the ice-world of Hubris and unravels the cult of Pontius Glaw. Along the way he learns that Inquisitors can become the thing they hunt, and that the slow seduction of useful means is how heretics first persuade themselves.</p>
+      </div>
+      <p class="gloss"><b>Novel · Inquisition</b> not yet rated — the rubricator has left this margin empty</p>
+    </li>
+
+    <li class="entry">
+      <div>
+        <p class="rubric-line">765.M41</p>
+        <h3><a href="buch.html">First and Only</a></h3>
+        <p class="byline">Dan Abnett — 1999 · Gaunt’s Ghosts</p>
+        <p class="excerpt">Commissar Ibram Gaunt leads the Tanith First-and-Only — sole survivors of a world that burned behind them — through the grinding campaigns of the Sabbat Worlds Crusade, toward a clue buried under the Necromantic ice of Menazoid Epsilon and enemies wearing his own uniform.</p>
+      </div>
+      <p class="gloss"><b>Novel · Imperial Guard</b> not yet rated</p>
+    </li>
+
+    <li class="entry">
+      <div>
+        <p class="rubric-line">c. 910.M41</p>
+        <h3><a href="buch.html">The Infinite and the Divine</a></h3>
+        <p class="byline">Robert Rath — 2020 · standalone</p>
+        <p class="excerpt">Trazyn the Infinite guards the galleries of Solemnace like a museum, a fortress and a private joke. Orikan the Diviner breaks in. Their feud stretches across millennia, through lawsuits before the Triarch Council, uneasy alliances, and a human world that both will regret.</p>
+      </div>
+      <p class="gloss"><b>Novel · Necrons</b> not yet rated — antique arrogance, deadpan comedy, cosmic stakes</p>
+    </li>
+
+    <li class="entry">
+      <div>
+        <p class="rubric-line">998.M41</p>
+        <h3><a href="buch.html">Helsreach</a></h3>
+        <p class="byline">Aaron Dembski-Bowden — 2010 · Space Marine Battles</p>
+        <p class="excerpt">When the orks of a vast Waaagh! descend on Armageddon, Reclusiarch Grimaldus is charged with holding the sprawling Hive Helsreach against the xenos flood. As the greenskins keep coming and the defenders dwindle, he resolves to sell their lives at a terrible price.</p>
+      </div>
+      <p class="gloss"><b>Novel · Black Templars</b> standing <span class="stars">4.28</span> of 5, from 4 535 readings</p>
+    </li>
+  </ol>
+
+  <div class="continue">
+    <button class="btn primary">Turn the leaf — continue the catalogue</button>
+    <span class="hint">Showing 10 of 896 entries. The scribes of the Lexicanum write on.</span>
+  </div>
+
+</main>
+
+<footer class="colophon">
+  <span>Chrono · Lexicanum — a fan archive. All works remain the property of their publishers.</span>
+  <span>Background art: the site’s hub artwork (<i>main-bg.webp</i>)</span>
+</footer>
+
+<details class="study-note">
+  <summary>Studien-Notiz · Richtung 05 — Kodex</summary>
+  <div class="body">
+    <p><b>Haltung:</b> Das „Lexicanum" wörtlich: ein schwarzes Stundenbuch. Blackletter-Display (Grenze Gotisch — moderne, lesbare Gotische, kein Fraktur-Cosplay), Rubrizierung als authentisches Auszeichnungssystem (Zinnoberrot für Ordnendes — so haben mittelalterliche Schreiber wirklich markiert), Gold-Versalien für Ären, Glossen in der Marginale statt Meta-Chips. Asymmetrischer Satzspiegel: Textblock + Marginalspalte.</p>
+    <p><b>Aus Philipps Runde-2-Vorgaben:</b> Artwork bleibt als fixe Schwelle (Incipit unten links im Bild), Scroll-Scrim dunkelt zum Manuskript-Schwarz — warmes flaches Umbra, bewusst KEIN Verlaufs-Amber (dokumentierte Abneigung).</p>
+    <p><b>Verwirft:</b> Cinzel/Cormorant, Icon-Glyphen, Chips/Badges (→ Glossen), Panel-Chrome, jede Sci-Fi-HUD-Anleihe.</p>
+    <p><b>Behält:</b> M-Skala als Rubrik-Zeile über jedem Titel, Era-Gruppierung (als Bücher des Kodex mit Gold-Versal), Datenehrlichkeit („the rubricator has left this margin empty"), Vier-Tool-Kopfzeile.</p>
+    <p><b>Kern-Parameter:</b> Grenze Gotisch (Display) + Alegreya / Alegreya SC (Text/Auszeichnung). Umbra #110e0a, Tinte #e7dcc2, ZWEI ererbte Akzente mit fester Rollenteilung: Zinnober #b23a27 (ordnet), Gold #b18d43 (schmückt). Buttons = Hairline-Rahmen, primär Zinnober.</p>
+  </div>
+</details>
+
+<script>
+  (function () {
+    var scrim = document.getElementById("scrim");
+    function update() {
+      var h = window.innerHeight * 0.9;
+      scrim.style.opacity = Math.min(0.94, window.scrollY / h).toFixed(3);
+    }
+    window.addEventListener("scroll", update, { passive: true });
+    update();
+  })();
+</script>

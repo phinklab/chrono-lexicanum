@@ -21,7 +21,7 @@
 
 .legal__eyebrow {
   margin: 0;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
   letter-spacing: 0.34em;
   text-transform: uppercase;
@@ -30,7 +30,7 @@
 
 .legal__title {
   margin: 14px 0 0;
-  font-family: var(--font-cinzel), serif;
+  font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(26px, 4.6vw, 40px);
   letter-spacing: 0.09em;
@@ -48,7 +48,7 @@
 /* Version stamp under the rule ("STAND · …") — only the privacy page uses it. */
 .legal__stand {
   margin: 16px 0 0;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
   letter-spacing: 0.24em;
   text-transform: uppercase;
@@ -73,7 +73,7 @@
   align-items: baseline;
   gap: 12px;
   margin: 0 0 6px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-label);
   font-weight: 400;
   letter-spacing: 0.26em;
@@ -94,7 +94,7 @@
 
 .legal__p {
   margin: 0 0 14px;
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-body);
   font-size: var(--fs-read-sm);
   font-weight: var(--fw-read);
   line-height: var(--lh-read);
@@ -124,7 +124,7 @@
 /* Postal / contact block — mono, non-italic: data, not prose. */
 .legal__address {
   margin: 0 0 14px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-style: normal;
   font-size: var(--fs-label-lg);
   letter-spacing: 0.06em;
@@ -146,7 +146,7 @@
 .legal__list {
   margin: 0 0 14px;
   padding-left: 22px;
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-body);
   font-size: var(--fs-read-sm);
   font-weight: var(--fw-read);
   line-height: var(--lh-read);
@@ -167,7 +167,7 @@
   margin: 18px 0 0;
   padding-left: 16px;
   border-left: 1px solid var(--cl-ghost);
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-body);
   font-style: italic;
   font-size: var(--fs-read-xs);
   line-height: var(--lh-read);
@@ -187,7 +187,7 @@
   display: flex;
   align-items: baseline;
   gap: 8px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: 9px;
   letter-spacing: 0.22em;
   text-transform: uppercase;

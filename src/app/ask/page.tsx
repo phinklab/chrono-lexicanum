@@ -32,13 +32,12 @@ interface AskPageProps {
  */
 const DEEPER_LIMIT = 24;
 
-const ASK_READOUT_LINES = [
-  "· ARCHIVE · WHERE TO BEGIN",
-  "· TWO WAYS IN · ONLINE",
-  "· IV QVAESTIONES · FLAT PROFILE",
-  "· VNA FACTIO · VNVS LIBER",
-  "· RECOMMENDATION ENGINE READY",
-  "· ARCHIVE QUERY IS SERVER-SIDE",
+const ASK_VOX_LINES = [
+  "Interrogatorivm · online",
+  "IV qvaestiones · flat profile",
+  "Vna factio · vnvs liber",
+  "Cogitator · ranking ready",
+  "Qvery is server-side",
 ];
 
 function readDeeperFlag(params: Record<string, string | string[] | undefined>): boolean {
@@ -92,40 +91,17 @@ export default async function AskPage({ searchParams }: AskPageProps) {
     <main className="ask route-snap">
       <SiteBackground variant="main" position="right bottom" />
       <ScrollScrim
-        className="ask-scrim"
-        varName="--ask-scrim-opacity"
+        className="site-scrim"
+        varName="--scrim-o"
         heroSelector=".ask-console__mast"
-        maxOpacity={0.77}
+        maxOpacity={0.94}
       />
-
-      <div className="ask-readout" aria-hidden>
-        <GhostReadout
-          color="var(--cl-gold)"
-          opacity={0.28}
-          lineMs={5200}
-          typeSpeed={78}
-          max={4}
-          lines={ASK_READOUT_LINES}
-        />
-      </div>
-
+      <GhostReadout lines={ASK_VOX_LINES} />
       <FloatingCoord
-        x="42%"
-        y="120px"
-        label="QUERY · PVBLIC"
-        delay={1.2}
-        lifetime={5}
-        color="var(--cl-gold)"
-        opacity={0.5}
-      />
-      <FloatingCoord
-        x="58%"
-        y="220px"
-        label={`PROFILE · ${answeredCount} OF ${ASK_QUESTIONS.length}`}
-        delay={3}
-        lifetime={5}
-        color="var(--cl-gold)"
-        opacity={0.5}
+        x="9%"
+        y="30%"
+        label={`Profile · ${answeredCount} of ${ASK_QUESTIONS.length}`}
+        delay={7}
       />
 
       <AskClient
@@ -139,7 +115,7 @@ export default async function AskPage({ searchParams }: AskPageProps) {
       />
 
       <div className="ask-foot">
-        <ArchiveFooter mid="QVATTVOR QVAESTIONES" />
+        <ArchiveFooter mid="Four questions · one doorway" />
       </div>
     </main>
   );

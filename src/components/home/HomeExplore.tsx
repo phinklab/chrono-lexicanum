@@ -148,7 +148,7 @@ export default function HomeExplore() {
   return (
     <nav className="hub-explore" aria-label="Explore the archive — grouped index">
       {BANDS.map((band) => (
-        <section className="hub-explore__band" key={band.name}>
+        <section className="hub-explore__band reveal" key={band.name}>
           <p className="hub-explore__divider" aria-hidden>
             <span className="hub-explore__divider-label">{band.name}</span>
           </p>

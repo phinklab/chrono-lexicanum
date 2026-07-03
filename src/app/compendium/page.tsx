@@ -7,7 +7,6 @@
  * reachable, but the start view is a hall of doorways (no longer a peek list).
  * The shared hero + nav come from the layout.
  */
-import type { CSSProperties } from "react";
 import Link from "next/link";
 import { COMPENDIUM_CATEGORIES } from "@/lib/compendium/categories";
 import { loadCategoryItems } from "@/lib/compendium/loader";
@@ -25,11 +24,6 @@ import { loadCategoryItems } from "@/lib/compendium/loader";
 // category pages are dynamic anyway (searchParams) and pull from the same
 // cached loaders.
 export const dynamic = "force-dynamic";
-
-function countCopy(n: number, noun: string, pending: boolean): string {
-  if (pending && n === 0) return "Curation in progress";
-  return `${n} ${n === 1 ? noun : `${noun}s`}`;
-}
 
 /**
  * The "data-forward" line under a segment's intro: one quiet coverage stat
@@ -62,6 +56,47 @@ function statLine(
   }
 }
 
+function Door({
+  category: c,
+  count,
+  sumWeight,
+  hero,
+}: {
+  category: (typeof COMPENDIUM_CATEGORIES)[number];
+  count: number;
+  sumWeight: number;
+  hero?: boolean;
+}) {
+  const stat = statLine(c.slug, sumWeight);
+  return (
+    <Link
+      href={`/compendium/${c.slug}`}
+      className={`cmp-door${hero ? " cmp-door--hero" : ""}`}
+    >
+      <h3 className="cmp-door__label">{c.label}</h3>
+      {/* Exactly ONE figure line per door (Brief 184: minimise the first
+          info load) — holdings in gold, coverage behind it. */}
+      <p className="cmp-door__stat">
+        {c.pending && count === 0 ? (
+          "Curation in progress — this doorway opens soon"
+        ) : (
+          <>
+            <b>{count}</b> {count === 1 ? c.noun : `${c.noun}s`}
+            {stat && (
+              <>
+                {" "}
+                · {stat.n} {stat.rest}
+              </>
+            )}
+          </>
+        )}
+      </p>
+      <p className="cmp-door__blurb">{c.blurb}</p>
+      <span className="cmp-door__all">View all {c.label} →</span>
+    </Link>
+  );
+}
+
 export default async function CompendiumOverview() {
   const doors = await Promise.all(
     COMPENDIUM_CATEGORIES.map(async (c) => {
@@ -71,53 +106,21 @@ export default async function CompendiumOverview() {
     }),
   );
 
+  // Factions leads (richest, most-linked) — featured full-width; the rest
+  // fall into the 2×2 grid below.
+  const [heroDoor, ...rest] = doors;
+
   return (
     <section className="cmp-overview" aria-label="Compendium categories">
-      <ul className="cmp-doors">
-        {doors.map(({ category: c, count, sumWeight }, i) => {
-          const href = `/compendium/${c.slug}`;
-          const stat = statLine(c.slug, sumWeight);
-          // Factions leads (richest, most-linked) — featured full-width; the rest
-          // fall into the 2×2 below. The CSS keys the span + accents off `--hero`.
-          const cls = i === 0 ? "cmp-door cmp-door--hero" : "cmp-door";
-          return (
-            <li
-              key={c.slug}
-              className="cmp-doors__cell"
-              style={{ "--door-i": i } as CSSProperties}
-            >
-              <article className={cls}>
-                <Link href={href} className="cmp-door__head">
-                  {/* The folio-range Registrvm eyebrow is retired — the live
-                      coverage figure (appearances / works credited) leads as the
-                      pretitle now (maintainer cleanup 2026-06-19). */}
-                  {stat ? (
-                    <span className="cmp-door__eyebrow">
-                      <span className="cmp-door__stat-n">{stat.n}</span> {stat.rest}
-                    </span>
-                  ) : null}
-                  <span className="cmp-door__label">{c.label}</span>
-                  <span className="cmp-door__count">
-                    {countCopy(count, c.noun, Boolean(c.pending))}
-                  </span>
-                </Link>
-
-                <p className="cmp-door__blurb">{c.blurb}</p>
-
-                {!stat && c.pending ? (
-                  <p className="cmp-door__pending">
-                    The roster is being curated — this doorway opens soon.
-                  </p>
-                ) : null}
-
-                {/* Visual CTA only — the whole card is the link via the
-                    stretched `.cmp-door__head::after`. */}
-                <span className="cmp-door__all">View all {c.label} →</span>
-              </article>
-            </li>
-          );
-        })}
-      </ul>
+      <h2 className="lx-sect reveal">The Doorways</h2>
+      <div className="reveal">
+        <Door {...heroDoor} hero />
+        <div className="cmp-doors-grid">
+          {rest.map((d) => (
+            <Door key={d.category.slug} {...d} />
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

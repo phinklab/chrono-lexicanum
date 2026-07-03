@@ -1,700 +1,442 @@
 /* 58-ask-booklist.css
-   Ask funnel — the interrogation protocol (Report 141, ideas C2-4 + C3-3,
-   ported live from /lab/ask_example): roman ordinal as ornament, frameless
-   ballot matrix ◇ → ◆, PROTOCOLLVM status rail, cogitator interstitial and
-   the verdict as rank dossier + runner cards. Gold language throughout; the
-   shared primitives (.lx-*) live in 42-lex-primitives.css. */
+   The Ask questionnaire: the question path (rail + gold fill + revisitable
+   stops), one visible question as a ballot with the Sternwarte dot, the
+   cogitator interstitial, and the verdict (Rank-I dossier, runner rows,
+   staged reveal, responsa, foot links). Shared primitives: 42-lex-primitives. */
 
-/* Frameless wash surface — kept for the error/empty states. Accent is gold
-   now; the cyan phase of this page is retired. */
+/* Frameless wash surface — kept for the error/empty states. */
 .ask-card {
-  --row-accent: var(--cl-gold);
   position: relative;
   border: 0;
-  background: color-mix(in srgb, var(--cl-void) 25%, transparent);
-}
-
-/* Mono eyebrow shared with the hub cards (reads its accent from the nearest
-   --row-accent, falling back to cyan for not-yet-migrated consumers). */
-.card-eyebrow {
-  margin: 0;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.26em;
-  text-transform: uppercase;
-  color: var(--row-accent, var(--cl-cyan));
-}
-
-/* ---- Question stage: prompt + single-column ballot ----
-   The ordinal kicker is retired (maintainer rework 2026-06-19) — the timeline
-   above the stage carries position; the question leads with its prompt. */
-
-.ask-q__prompt {
-  margin: 0 0 8px;
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-weight: 500;
-  font-size: clamp(28px, 3.6vw, 38px);
-  line-height: 1.25;
-  color: var(--ix-parchment);
-}
-
-.ask-q__hint {
-  margin: 0;
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-style: italic;
-  font-size: var(--fs-read-sm);
-  font-weight: var(--fw-read);
-  color: var(--ix-steel);
-}
-
-/* Ballot — frameless options ◇ → ◆, one full-width row per option so the
-   four answers read as a list, not a matrix (single-column redesign). */
-/* Ballot as the index .row list — hairline-divided, no resting fill; the wash +
-   glyph carry hover/selected (maintainer polish 2026-06-19). */
-.ask-ballot {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
-  margin: clamp(18px, 3vh, 28px) 0 0;
-  padding: 0;
-  border: 0;
-  min-inline-size: 0; /* fieldset default min-width fix */
-}
-
-.ask-opt {
-  position: relative;
-  display: block;
-  padding: 15px 12px 15px 16px;
-  text-align: left;
-  background: transparent;
-  border: 0;
-  border-top: 1px solid var(--ix-hair);
-  color: inherit;
-  cursor: pointer;
-  transition: background 180ms;
-}
-
-/* Selection rule — the diamond glyph is retired (Brief 166); a gold left bar
-   carries the chosen state, drawn only on hover/selected so the resting list
-   stays clean. */
-.ask-opt::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 10px;
-  bottom: 10px;
-  width: 2px;
-  background: var(--ix-gold);
-  opacity: 0;
-  transition: opacity 180ms;
-}
-
-/* First row sits flush — no leading hairline (the index .row recipe). */
-.ask-opt:first-of-type {
-  border-top: 0;
-}
-
-.ask-opt:hover {
-  background: var(--ix-hover);
-}
-
-.ask-opt:hover::before {
-  opacity: 0.4;
-}
-
-.ask-opt:focus-visible {
-  outline: 1px solid var(--ix-gold);
-  outline-offset: -1px;
-}
-
-.ask-opt__body {
-  min-width: 0;
-  display: block;
-}
-
-.ask-opt__label {
-  display: block;
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-weight: var(--fw-read);
-  font-size: var(--fs-read);
-  line-height: 1.35;
-  color: var(--ix-parchment);
-}
-
-.ask-opt__sub {
-  display: block;
-  margin-top: 6px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ix-steel);
-}
-
-.ask-opt[data-selected="true"] {
-  background: var(--ix-active);
-}
-
-.ask-opt[data-selected="true"]::before {
-  opacity: 1;
-}
-
-.ask-opt[data-selected="true"] .ask-opt__label {
-  color: var(--ix-gold);
-}
-
-.ask-opt[data-selected="true"] .ask-opt__sub {
-  color: var(--ix-steel);
-}
-
-/* ---- Question timeline — the chronicle era-band, recast for the funnel ----
-   Replaces the roman stepper (maintainer rework 2026-06-19): one horizontal
-   Terminus rail, five marks, a gold progress fill that advances with the
-   reader. Each mark is a button that revisits its question and names its topic;
-   the dot state carries answered / here / coming. Mirrors the .era-band recipe
-   in 67-chronicle-cinematic.css, recoloured to the funnel's --ix-* palette.
-   --atl-n (stop count) and --atl-fill (0–1 progress) come from the component;
-   --atl-edge centres the rail between the first and last mark. */
-.ask-timeline {
-  --atl-edge: calc(50% / var(--atl-n, 5));
-  position: relative;
-  height: 58px;
-  margin: 0 0 clamp(20px, 3vh, 28px);
-}
-
-/* the rail + its gold fill, both pinned at mark-centre height */
-.ask-timeline__line,
-.ask-timeline__fill {
-  position: absolute;
-  top: 10px;
-  height: 1px;
-  pointer-events: none;
-}
-.ask-timeline__line {
-  left: var(--atl-edge);
-  right: var(--atl-edge);
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(125, 135, 153, 0.3) 8%,
-    rgba(125, 135, 153, 0.3) 92%,
-    transparent
-  );
-}
-.ask-timeline__fill {
-  left: var(--atl-edge);
-  width: calc((100% - var(--atl-edge) * 2) * var(--atl-fill, 0));
-  background: var(--ix-gold);
-  box-shadow: 0 0 8px rgba(201, 184, 150, 0.5);
-  opacity: 0.85;
-  transition: width 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
-}
-
-/* equal columns; each centres its mark over the rail with the topic below */
-.ask-timeline__stops {
-  position: relative;
-  z-index: 1;
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(var(--atl-n, 5), minmax(0, 1fr));
-  margin: 0;
-  padding: 0;
-}
-.ask-timeline__stops > li {
-  list-style: none;
-  min-width: 0;
-}
-
-.ask-tl-stop__btn {
-  width: 100%;
-  display: grid;
-  justify-items: center;
-  gap: 9px;
-  padding: 0 4px;
-  border: 0;
-  background: transparent;
-  color: inherit;
-  cursor: pointer;
-}
-
-/* the mark sits on the rail; its void fill masks the hairline behind it */
-.ask-tl-stop__mark {
-  width: 11px;
-  height: 11px;
-  margin-top: 5px;
-  border-radius: 50%;
-  border: 1px solid var(--ix-steel);
-  background: var(--cl-void);
-  transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
-}
-
-.ask-tl-stop__label {
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-style: italic;
-  font-size: var(--fs-read-sm);
-  font-weight: var(--fw-read);
-  line-height: 1.3;
-  color: var(--ix-steel-dim);
-  transition: color 0.25s;
-}
-
-/* hover — brighten the mark + label, the era-band stop's response */
-.ask-tl-stop__btn:hover .ask-tl-stop__mark {
-  border-color: var(--ix-gold);
-}
-.ask-tl-stop__btn:hover .ask-tl-stop__label {
-  color: var(--ix-parchment);
-}
-
-/* answered (behind the cursor) — gold-dim filled dot, settled label */
-.ask-tl-stop.done .ask-tl-stop__mark {
-  border-color: var(--ix-gold-line);
-  background: rgba(201, 184, 150, 0.3);
-}
-.ask-tl-stop.done .ask-tl-stop__label {
-  color: var(--ix-steel);
-}
-
-/* here — the live mark: solid gold, a calm glow, parchment label */
-.ask-tl-stop.on .ask-tl-stop__mark {
-  border-color: var(--ix-gold);
-  background: var(--ix-gold);
-  box-shadow: 0 0 0 5px rgba(201, 184, 150, 0.12), 0 0 18px rgba(201, 184, 150, 0.55);
-}
-.ask-tl-stop.on .ask-tl-stop__label {
-  color: var(--ix-parchment);
-}
-
-/* ---- Processing — cogitator interstitial ---- */
-
-.ask-processing .lx-rule {
-  margin: clamp(12px, 2vh, 20px) 0;
-}
-
-.ask-processing__detail {
-  margin: 4px 0 0;
-  max-width: 520px;
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-style: italic;
-  font-size: var(--fs-read-sm);
-  font-weight: var(--fw-read);
-  line-height: var(--lh-read);
-  color: var(--cl-dim);
-}
-
-/* ---- Empty / error states ---- */
-
-.ask-empty {
-  padding: clamp(26px, 4vw, 44px);
-}
-
-.ask-empty h2 {
-  margin: 0;
-  font-family: var(--font-cinzel), serif;
-  font-size: clamp(25px, 3.4vw, 40px);
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  color: var(--cl-bone);
-}
-
-.ask-empty p {
-  margin: 10px 0 0;
-  max-width: 640px;
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-size: var(--fs-read);
-  font-style: italic;
-  font-weight: var(--fw-read);
-  line-height: var(--lh-read);
-  color: var(--cl-dim);
-}
-
-.ask-empty__actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 14px;
-  margin-top: 22px;
-}
-
-/* ---- Verdict — rank dossier + runner cards ---- */
-
-.ask-results__head {
-  position: relative;
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 18px;
-  padding-bottom: 14px;
-  margin-bottom: clamp(20px, 3.5vh, 32px);
-}
-
-.ask-results__head::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--ix-gold-line), transparent);
-  opacity: 0.6;
-}
-
-.ask-results__title {
-  margin: 0;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  font-weight: 400;
-  letter-spacing: 0.26em;
-  text-transform: uppercase;
-  color: var(--ix-gold);
-}
-
-.ask-results__count {
-  flex: none;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ix-gold);
-}
-
-/* Verdict list — rank I spans the full width as dossier, the runners sit in a
-   two-column card grid beneath it. */
-.ask-verdict-list {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(14px, 2vw, 22px);
-  margin: 0;
-  padding: 0;
-}
-
-.ask-verdict-list > li {
-  list-style: none;
-  min-width: 0;
-  display: grid;
-}
-
-.ask-verdict-list > li.ask-verdict-list__prime {
-  grid-column: 1 / -1;
-}
-
-/* Interstitial rows (length divider, deeper-cut divider) span both columns and
-   don't draw the card grid's box — they only carry the labelled rule. */
-.ask-verdict-list > li.ask-verdict-list__divider {
-  grid-column: 1 / -1;
-  display: block;
-}
-
-.ask-runner {
-  height: 100%;
-}
-
-/* Runner cards (Ranks II+) recoloured into the index vocabulary — the lx-card
-   wash → transparent with an index hairline foot, muted-gold/steel/parchment
-   accents (maintainer polish 2026-06-19). Scoped to the funnel; the global
-   .lx-card primitive is untouched. */
-.ask-runner {
-  background: transparent;
-}
-.ask-runner::after {
-  color: var(--ix-gold-line);
-}
-.ask-runner:hover {
-  background: var(--ix-hover);
-}
-.ask-runner:hover::after {
-  color: color-mix(in oklch, var(--ix-gold) 55%, transparent);
-}
-.ask-runner .lx-card__folio {
-  color: var(--ix-steel);
-}
-.ask-runner .lx-card__eyebrow {
-  color: var(--ix-steel-dim);
-}
-.ask-runner .lx-card__title {
-  color: var(--ix-parchment);
-}
-.ask-runner:hover .lx-card__title {
-  color: var(--ix-gold);
-}
-.ask-runner .lx-card__snip,
-.ask-runner .lx-card__meta {
-  color: var(--ix-steel);
-}
-
-.ask-prime {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: clamp(22px, 4.5vw, 52px);
-  align-items: start;
-  padding: clamp(8px, 1.5vh, 16px) 0 clamp(14px, 2.5vh, 24px);
-}
-
-.ask-prime__rank {
+  padding: 26px 22px;
   text-align: center;
 }
-
-.ask-prime__rank .n {
-  display: block;
-  font-family: var(--font-cinzel), serif;
-  font-weight: 400;
-  font-size: clamp(64px, 9vw, 96px);
-  line-height: 0.9;
-  color: color-mix(in oklch, var(--ix-gold) 45%, transparent);
+.ask-card h2 {
+  margin: 10px 0 0;
+  font-size: clamp(24px, 3vw, 32px);
+  color: var(--cl-bone);
 }
-
-.ask-prime__rank .cap {
-  display: block;
-  margin-top: 12px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label-xs);
-  letter-spacing: 0.3em;
+.ask-card p {
+  margin: 10px auto 0;
+  max-width: 52ch;
+  color: var(--cl-dim);
+}
+.card-eyebrow {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: var(--ix-steel);
+  color: var(--cl-gold);
+}
+.ask-empty__actions {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
 }
 
-.ask-prime__kicker {
+/* ── The question path ──────────────────────────────────────────────────── */
+.ask-timeline {
+  position: relative;
+  max-width: 560px;
+  margin: 0 auto 10px;
+}
+.ask-timeline__line {
+  display: block;
+  border-top: 1px solid var(--cl-hair);
+}
+.ask-timeline__fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: calc(var(--atl-fill, 0) * 100%);
+  border-top: 1px solid var(--cl-gold);
+  transition: width 0.7s var(--ease);
+}
+.ask-timeline__stops {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 8px 14px;
-  margin: 0 0 10px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--ix-steel);
-}
-
-.ask-prime__tier {
-  color: var(--ix-gold);
-}
-
-.ask-prime__title {
-  margin: 0 0 12px;
-  font-family: var(--font-cinzel), serif;
-  font-weight: 500;
-  font-size: clamp(28px, 3.6vw, 38px);
-  letter-spacing: 0.04em;
-  color: var(--ix-parchment);
-}
-
-.ask-prime__note {
-  max-width: 56ch;
-  /* Standard body (24px desktop) — pinned to match the book synopsis / entity
-     blurb so the verdict's lead prose reads at the same size (maintainer polish
-     2026-06-19). Wins over .lx-prose by loading later at equal specificity. */
-  font-size: var(--fs-read);
-}
-
-.ask-prime__chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 16px 0 20px;
+  list-style: none;
+  margin: 12px 0 0;
   padding: 0;
-  list-style: none;
 }
-
-.ask-prime__chips > li {
-  list-style: none;
-}
-
-/* Honest no-exact-match note: gold key, no accent box, no closing line
-   (line-budget trim 2026-06-12 — the head rule above already frames it). */
-.ask-results__note {
-  display: grid;
-  gap: 8px;
-  margin: 0 0 clamp(18px, 3vh, 26px);
-}
-
-.ask-results__note-key {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+.ask-tl-stop__btn {
+  position: relative;
+  background: none;
+  border: 0;
+  padding: 2px 0;
+  font-family: var(--font-body);
   font-size: var(--fs-label);
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--ix-gold);
+  color: var(--cl-faint);
+  cursor: pointer;
+  transition: color 0.3s;
 }
-
-.ask-results__note > span:last-child {
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-size: var(--fs-read);
-  font-style: italic;
-  font-weight: var(--fw-read);
-  line-height: var(--lh-read);
-  color: var(--ix-parchment-dim);
+.ask-tl-stop__mark {
+  position: absolute;
+  left: 50%;
+  top: -19px;
+  width: 3px;
+  height: 3px;
+  margin-left: -1.5px;
+  background: var(--cl-faint);
+  border-radius: 50%;
+  transition: background 0.3s, transform 0.3s;
 }
-
-.ask-results__note em {
-  font-style: normal;
+.ask-tl-stop.done .ask-tl-stop__btn {
+  color: var(--cl-dim);
+}
+.ask-tl-stop.done .ask-tl-stop__btn:hover {
   color: var(--cl-bone);
 }
-
-/* Divider between length-matching picks and the strong-but-different rest. */
-.ask-results__divider {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 6px 12px;
-  margin: clamp(22px, 4vh, 32px) 0 clamp(14px, 2.5vh, 20px);
-  padding-top: 16px;
+.ask-tl-stop.done .ask-tl-stop__mark {
+  background: var(--cl-gold);
+}
+.ask-tl-stop.on .ask-tl-stop__btn {
+  color: var(--cl-gold);
+}
+.ask-tl-stop.on .ask-tl-stop__mark {
+  background: var(--cl-gold);
+  transform: scale(1.7);
 }
 
-.ask-results__divider::before {
+.ask-stage__body {
+  margin-top: 40px;
+}
+
+/* ── One question: prompt + ballot with the Sternwarte dot ──────────────── */
+.ask-question {
+  max-width: 560px;
+  margin: 0 auto;
+}
+.ask-q__prompt {
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: var(--font-display-wght);
+  font-size: 28px;
+  line-height: 1.25;
+  color: var(--cl-bone);
+}
+.ask-q__hint {
+  margin: 6px 0 0;
+  text-align: center;
+  font-style: italic;
+  font-size: var(--fs-read-xs);
+  color: var(--cl-faint);
+}
+.ask-ballot {
+  margin: 22px 0 0;
+  padding: 0;
+  border: 0;
+  border-top: 1px solid var(--cl-hair-soft);
+}
+.ask-opt {
+  position: relative;
+  display: block;
+  width: 100%;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--cl-hair-soft);
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  padding: 13px 16px 13px 38px;
+  transition: background 0.3s;
+}
+.ask-opt:hover,
+.ask-opt:focus-visible {
+  background: rgba(228, 221, 203, 0.03);
+}
+.ask-opt::before {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--ix-gold-line), transparent);
-  opacity: 0.5;
+  left: 16px;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  margin-top: -2px;
+  background: var(--cl-faint);
+  border-radius: 50%;
+  transition: background 0.3s, transform 0.45s var(--ease);
 }
-
-.ask-results__divider-label {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--ix-gold);
-}
-
-.ask-results__divider-note {
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-size: var(--fs-read-sm);
-  font-style: italic;
-  font-weight: var(--fw-read);
-  color: var(--ix-steel);
-}
-
-.ask-results__divider em {
-  font-style: normal;
-  color: var(--cl-dim);
-}
-
-/* ---- Staged reveal controls — Load more (+3) → Browse deeper (live) ---- */
-
-.ask-verdict__more {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 14px 18px;
-  margin-top: clamp(20px, 3.5vh, 30px);
-}
-
-/* "Load more" reuses the hairline .lx-btn (already transparent) — present but
-   subordinate to the prime's framed "Open record" exit, so it doesn't compete
-   for the eye. The +N count rides in gold mono. */
-.ask-verdict__more-btn span {
-  margin-left: 2px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.12em;
-  color: var(--ix-gold);
-}
-
-.ask-verdict__deeper {
-  letter-spacing: 0.2em;
-}
-
-.ask-verdict__deeper-note {
-  margin: 0;
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-size: var(--fs-read-sm);
-  font-style: italic;
-  font-weight: var(--fw-read);
-  color: var(--ix-steel);
-}
-
-.ask-results__empty {
-  padding: 24px 0;
-}
-
-.ask-results__empty h3 {
-  margin: 0;
-  font-family: var(--font-cinzel), serif;
-  font-weight: 500;
+.ask-opt__label {
+  display: block;
   font-size: 20px;
   color: var(--cl-bone);
+  transition: color 0.3s;
 }
-
-.ask-results__empty p {
-  margin: 8px 0 0;
-  font-family: var(--font-cormorant), Georgia, serif;
+.ask-opt__sub {
+  display: block;
   font-style: italic;
-  font-size: var(--fs-read);
-  font-weight: var(--fw-read);
-  line-height: var(--lh-read);
+  font-size: var(--fs-read-xs);
+  color: var(--cl-faint);
+}
+.ask-opt:hover .ask-opt__label {
+  color: var(--cl-gold);
+}
+.ask-opt[data-selected="true"]::before {
+  background: var(--cl-gold);
+  transform: scale(1.7);
+}
+.ask-opt[data-selected="true"] .ask-opt__label {
+  color: var(--cl-gold);
+}
+.ask-opt[data-selected="true"] .ask-opt__sub {
   color: var(--cl-dim);
 }
 
-/* Sealed answers echo under the verdict — whitespace-separated, no opening
-   line (line-budget trim 2026-06-12). */
-.ask-responsa {
+/* Stage foot: Back / status / Reset. */
+.ask-stage__nav {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px 14px;
-  margin: clamp(22px, 4vh, 32px) 0 0;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label-xs);
-  letter-spacing: 0.12em;
+  justify-content: center;
+  align-items: baseline;
+  gap: 26px;
+  margin-top: 30px;
+}
+.ask-stage__nav-status {
+  font-style: italic;
+  font-size: var(--fs-read-xs);
+  color: var(--cl-faint);
+}
+.ask-footlink {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 17.5px;
+  color: var(--cl-faint);
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s, border-color 0.3s;
+}
+.ask-footlink:hover:not(:disabled) {
+  color: var(--cl-gold);
+  border-bottom-color: var(--cl-gold);
+}
+.ask-footlink:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* ── The verdict ────────────────────────────────────────────────────────── */
+.ask-results__title {
+  margin-top: 74px;
+}
+.ask-results__count {
+  margin: 0 0 34px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-lg);
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--cl-faint);
 }
-
-.ask-responsa .k {
-  color: var(--ix-gold);
+.ask-results__count b {
+  color: var(--cl-dim);
+  font-weight: 400;
 }
-
-.ask-responsa .v {
-  color: var(--ix-steel);
+.ask-results__empty {
+  text-align: center;
+  font-style: italic;
+  color: var(--cl-faint);
 }
-
-/* ---- Footer + quiet links ---- */
-
-.ask-footer {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-top: 18px;
-  padding-top: 16px;
+.ask-results__note {
+  margin: 0 0 26px;
+  text-align: center;
+  font-style: italic;
+  font-size: var(--fs-read-xs);
+  color: var(--cl-dim);
 }
-
-.ask-footer__spacer {
-  flex: 1;
-}
-
-.ask-footlink {
-  appearance: none;
-  border: 0;
-  background: transparent;
-  color: color-mix(in oklch, var(--cl-gold) 45%, var(--cl-dim));
-  cursor: pointer;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 5px 2px;
-  transition: color 180ms;
-}
-
-.ask-footlink:hover:not(:disabled),
-.ask-footlink:focus-visible {
+.ask-results__note-key {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.24em;
   color: var(--cl-gold);
 }
 
-.ask-footlink:disabled {
-  color: var(--cl-ghost);
-  cursor: not-allowed;
+.ask-verdict-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ask-verdict-list__divider {
+  padding: 26px 0 10px;
+}
+.ask-results__divider {
+  margin: 0;
+  text-align: center;
+}
+.ask-results__divider-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cl-gold);
+}
+.ask-results__divider-note {
+  display: block;
+  margin-top: 4px;
+  font-style: italic;
+  font-size: var(--fs-read-xs);
+  color: var(--cl-faint);
+}
+
+/* Rank I — the dossier. */
+.ask-prime {
+  text-align: center;
+  margin-bottom: 44px;
+}
+.ask-prime__kicker {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-lg);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cl-gold);
+}
+.ask-prime__title {
+  margin: 12px 0 0;
+  font-family: var(--font-display);
+  font-weight: var(--font-display-wght-hero);
+  font-size: clamp(38px, 5.6vw, 66px);
+  line-height: 1;
+  letter-spacing: var(--font-display-track);
+  color: var(--cl-bone);
+}
+.ask-prime__by {
+  margin: 14px 0 0;
+  font-style: italic;
+  font-size: 18.5px;
+  color: var(--cl-dim);
+}
+.ask-prime__note {
+  max-width: 54ch;
+  margin: 20px auto 0;
+  text-align: justify;
+  hyphens: auto;
+  font-size: var(--fs-read-sm);
+  color: var(--cl-dim);
+}
+.ask-prime__why {
+  margin: 18px 0 0;
+  font-style: italic;
+  font-size: var(--fs-read-sm);
+  color: var(--cl-dim);
+}
+.ask-prime__why-sep {
+  color: var(--cl-faint);
+}
+.ask-prime__act {
+  margin: 20px 0 0;
+}
+
+/* Ranks II+ — register rows. */
+.ask-runner {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr) 22px;
+  gap: 0 18px;
+  align-items: baseline;
+  padding: 15px 14px;
+  border-top: 1px solid var(--cl-hair-soft);
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.3s;
+}
+.ask-runner:hover {
+  background: rgba(228, 221, 203, 0.03);
+}
+.ask-runner__rank {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+  text-align: right;
+}
+.ask-runner__main {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.ask-runner__title {
+  font-family: var(--font-display);
+  font-weight: var(--font-display-wght);
+  font-size: 22px;
+  line-height: 1.15;
+  color: var(--cl-bone);
+  transition: color 0.3s;
+}
+.ask-runner:hover .ask-runner__title {
+  color: var(--cl-gold);
+}
+.ask-runner__meta {
+  font-style: italic;
+  font-size: var(--fs-read-xs);
+  color: var(--cl-dim);
+}
+.ask-runner__mark {
+  font-size: 15px;
+  color: var(--cl-faint);
+  transition: color 0.3s;
+}
+.ask-runner:hover .ask-runner__mark {
+  color: var(--cl-gold);
+}
+
+.ask-verdict__more {
+  text-align: center;
+  margin-top: 30px;
+}
+.ask-verdict__deeper {
+  display: inline-block;
+  margin-top: 18px;
+  font-style: italic;
+  font-size: 17.5px;
+  color: var(--cl-faint);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s, border-color 0.3s;
+}
+.ask-verdict__deeper:hover {
+  color: var(--cl-gold);
+  border-bottom-color: var(--cl-gold);
+}
+.ask-verdict__deeper-note {
+  margin: 14px 0 0;
+  font-style: italic;
+  font-size: var(--fs-read-xs);
+  color: var(--cl-faint);
+}
+
+/* Responsa + foot. */
+.ask-responsa {
+  margin: 44px 0 0;
+  text-align: center;
+  font-size: var(--fs-label-xl);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+}
+.ask-responsa b {
+  color: var(--cl-bone);
+  font-weight: 400;
+  letter-spacing: 0.16em;
+}
+.ask-footer {
+  display: flex;
+  justify-content: center;
+  gap: 26px;
+  margin-top: 16px;
 }
 
 .ask-sr-only {
@@ -707,46 +449,4 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
-}
-
-@media (max-width: 720px) {
-  /* Four topic labels don't fit a phone — keep the dotted rail and name only the
-     live stop, so the reader still knows where they are. */
-  .ask-timeline {
-    height: 44px;
-  }
-  .ask-tl-stop:not(.on) .ask-tl-stop__label {
-    display: none;
-  }
-
-  .ask-verdict-list {
-    grid-template-columns: 1fr;
-  }
-
-  .ask-prime {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  .ask-prime__rank {
-    text-align: left;
-  }
-
-  .ask-prime__rank .n {
-    display: inline;
-    font-size: 48px;
-  }
-
-  .ask-prime__rank .cap {
-    display: inline;
-    margin-left: 12px;
-  }
-
-  .ask-empty {
-    padding: 16px;
-  }
-
-  .ask-footer__spacer {
-    display: none;
-  }
 }
