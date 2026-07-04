@@ -21,7 +21,7 @@ supersedes: ./why-haiku-not-sonnet.md
 
 # Why Sonnet (current major), not Haiku 4.5
 
-**Status:** historical artefact + reactivation guard post-CC-Direct-Curation. Supersedes [`./why-haiku-not-sonnet.md`](./why-haiku-not-sonnet.md), die als Stub mit Story-Continuity-Pointer erhalten bleibt. Operative Wahrheit seit Brief 061 ist [`./why-cc-direct-curation.md`](./why-cc-direct-curation.md): die V2-LLM-Stage läuft nicht mehr als aktiver Bulk-Backfill-Pfad. Falls diese Stage reaktiviert wird, bleibt Sonnet die Default-Wahl gegenüber Haiku.
+**Status:** historical artefact + reactivation guard post-CC-Direct-Curation. Supersedes [`./why-haiku-not-sonnet.md`](./why-haiku-not-sonnet.md), die als Stub mit Story-Continuity-Pointer erhalten bleibt. Operative Wahrheit seit Brief 061 ist [`./why-cc-direct-curation.md`](./why-cc-direct-curation.md): die V2-LLM-Stage läuft nicht mehr als aktiver Bulk-Backfill-Pfad. Falls diese Stage reaktiviert wird, bleibt Sonnet die Default-Wahl gegenüber Haiku. **⚠ Post-177 (2026-07-03):** die V2-LLM-Stage ist im Dead-Code-Sweep **physisch gelöscht** — „Reaktivierung" hieße Rebuild aus git-Historie, nicht Env-Flip. Die Modell-Leitplanke (Sonnet vor Haiku) gilt weiter, falls je rekonstruiert wird.
 
 ## Context
 

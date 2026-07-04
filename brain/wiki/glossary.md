@@ -37,6 +37,8 @@ confidence: high
 
 ## Pipeline
 
+> ⚠ **Retired-Subsystem (Brief 177, 2026-07-03).** Der V1-Crawler + die V2-LLM-Engine sind physisch gelöscht; die Begriffe in diesem Abschnitt (Pipeline-Engine, Aux-Source, Manual-Protection-Comparator, SourceCrawler, batched-3e, die Crawl-`source_kind`-Werte) sind **historisch**. Lebender Ingest = Per-Buch-SSOT (`apply:book`) + Podcast-Delta + Weekly-Refresh — siehe [`./pipeline-state.md`](./pipeline-state.md) (Retirement-Banner).
+
 **Pipeline-Engine.** The core merge logic in `src/lib/ingestion/merge.ts` + `field-priority.ts` + `dry-run.ts`. Input: `SourcePayload[]` from N source crawlers. Output: `MergedBook` with field-by-field-resolved values + `fieldOrigins` audit trail. Extensible: new source pairs add a `SourceCrawler` to the engine without engine refactor (verified 3a → 3b → 3c).
 
 **Aux-Source.** Crawler used for *enrichment*, not for discovery. Contrasts with Wikipedia (the discovery source). Aux-Sources in 3b: Open Library (hard-facts: cover/ISBN/pageCount), Hardcover (soft-facts: tags/rating). Lexicanum is more of an enrichment source than discovery (URL-probing, not master-list parsing).

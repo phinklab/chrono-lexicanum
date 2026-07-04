@@ -125,10 +125,10 @@ Numeric: `confidence numeric(3,2)` (0–1.00); `M-scale numeric(10,3)` for in-un
 | `src/db/schema.ts` | Drizzle table definitions — single source of truth |
 | `src/db/client.ts` | Cached Postgres connection (postgres-js, SSL required, max=10, prepare=false for pg-bouncer) |
 | `src/db/migrations/` | Auto-generated SQL, committed |
-| `src/lib/ingestion/` | Pipeline (21 modules) — see [`./pipeline-state.md`](./pipeline-state.md) |
+| `src/lib/ingestion/` | ⚠ Post-177: nur noch `podcast/**` (live) + `types`/`diff-reader` (Dashboard) + `hardcover`-Rating-Rest; V1/V2-Crawler gelöscht — see [`./pipeline-state.md`](./pipeline-state.md) |
 | `scripts/seed.ts` | Loads `seed-data/*.json` into Postgres |
 | `scripts/migrate.ts` | Programmatic Drizzle migrator (used by `vercel-build`) |
-| `scripts/ingest-backfill.ts` | Pipeline CLI entry (`tsx --env-file=.env.local scripts/ingest-backfill.ts --limit N --offset M`) |
+| ~~`scripts/ingest-backfill.ts`~~ | ⚠ Gelöscht (Brief 177). Korpus-Pflege heute: `apply:book` (per-Buch-SSOT), `/add-book`, `/weekly-db-update` |
 | `scripts/atlas-regen.ts` | Postgres → external `chrono-atlas/` Obsidian vault (post-049) |
 | `ingest/.last-run/` | Committed dry-run diff JSON outputs |
 | `ingest/.llm-cache/` | Gitignored LLM response cache, keyed by slug + prompt-version-hash |

@@ -17,6 +17,12 @@ Differences from neighbouring docs:
 
 ## Open
 
+- **SiteLegal-Zeile: vorläufiger Platz unter dem MediaPlayer** (2026-07-02,
+  Impl 179). Die site-weite `IMPRESSUM · DATENSCHUTZ`-Mono-Zeile (`SiteLegal.tsx`,
+  fixed unten links, 9px, faint) ist ein vorläufiger Philipp-Entscheid für die
+  footerlosen Desktop-Flächen (Map/Timeline/Entities). Polish-Optionen laut
+  Impl-Report: gestalteter Slot im Rail-Fuß oder Entity-Footer. Beim 178er-
+  Map-Neubau prüfen, ob sie mit Map-Chrome unten links kollidiert.
 - **MediaPlayer: rAF-Tick läuft auch idle/paused auf jeder Seite** (2026-07-02,
   Status-quo-Review K23). Der Tick baut pro Frame den 96-Bar-SVG-Pfad neu, auch
   wenn nichts spielt (der reduced-motion-Guard existiert, greift aber nur für
