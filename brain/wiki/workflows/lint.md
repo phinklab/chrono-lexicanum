@@ -50,7 +50,7 @@ Errors are deterministic: schema violations, broken links, missing files, raw pa
 
 ## Categories
 
-The script (`scripts/brain-lint.ts`) implements ten categories. The blocking ones are explicit; warnings are conservative-by-default.
+The script (`scripts/brain-lint.ts`) implements eleven categories (incl. 9b Always-read char budget, B7/Brief 176). The blocking ones are explicit; warnings are conservative-by-default.
 
 ### 1. Frontmatter (blocking)
 
@@ -122,6 +122,19 @@ Soft limits on body line count (frontmatter excluded; `log.md` and `index.md` ex
 | Other wiki pages | 300 |
 
 Limits live as `SIZE_LIMITS` constants at the top of `scripts/brain-lint.ts` — calibrated against the May-2026 post-051-Slim Brain. Adjust there when the Brain grows organically.
+
+### 9b. Always-read char budget (mixed: soft→warning, hard→error)
+
+Char-basierte Budgets für die Always-Read-Dateien (Token ≈ chars/4), separat vom zeilen-basierten Size-Budget oben — implementiert in `scripts/brain-lint-budgets.ts` (pures Modul, fixture-getestet via `test:brain-lint-budgets`), verdrahtet als eigene Kategorie in `brain-lint.ts`. Werte spiegeln `brain/CLAUDE.md` § „Always-read budgets" (per 112er-Spec kein Markdown-Parsing): Soft → warning (+ Messwert in der Message), Hard → error, fehlende Always-Read-Datei → error. `open-questions.md` zusätzlich: > 5 offene Items → warning.
+
+| Datei | Soft / warn | Hard / error |
+|---|---|---|
+| `project-state.md` | 25.000 | 45.000 |
+| `open-questions.md` | 16.000 · oder >5 offene Items | 28.000 |
+| `sessions/README.md` | 14.000 | 24.000 |
+| `index.md` | 24.000 | 36.000 |
+
+(B7, Brief 176. `sessions/README.md` riss zeitweise das Soft-Budget → dokumentiertes Warning; der Kopf-Konsolidierungs-Pass 2026-07-04 hat es wieder gesenkt.)
 
 ### 10. Stale claim suspects (warning, intentionally narrow in v1)
 

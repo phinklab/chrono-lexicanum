@@ -51,7 +51,7 @@ Damit ist die V2-LLM-Stage **de-facto ausgemustert** für den aktiven Bulk-Backf
 
 **Option B**, mit zwei expliziten Konsequenzen:
 
-1. **V2-LLM-Stage bleibt im Repo, wird aber nicht gewartet.** `src/lib/ingestion/v2/llm/{enrich,prompt,parse}.ts`, `PROMPT_VERSION_HASH_V2`, `WEB_SEARCH_TOOL_V2`-Konfiguration, V2-Cache-Files unter `ingest/.llm-cache/*.v2.json` bleiben unangetastet. Kein Active-Maintenance, aber auch keine Löschung — der Code ist die Reaktivierungs-Sicherung (Option A) und das historische Artefakt der 054–055-Pipeline-Phase.
+1. ~~**V2-LLM-Stage bleibt im Repo, wird aber nicht gewartet.**~~ **⚠ Überholt seit Brief 177 (2026-07-03, PR #214): die V2-LLM-Stage ist physisch GELÖSCHT.** `src/lib/ingestion/v2/llm/{enrich,prompt,parse}.ts` + die gesamte V2/V1-Ingestion-Engine wurden im Dead-Code-Sweep entfernt (43 Dateien, −8.994 LOC). Die ursprüngliche „Reaktivierungs-Sicherung (Option A)" existiert damit **nicht mehr im Working-Tree** — eine Reaktivierung der strukturierten Pipeline (Revisit-Trigger unten) hieße heute **Rebuild aus der git-Historie**, nicht „Flag umlegen". Der Rest der Entscheidung (Option B = CC-Direct-Curation als operativer Pfad) steht unverändert; Kontext des Ausbaus in [`../pipeline-state.md`](../pipeline-state.md) (Retirement-Banner) + `sessions/2026-07-03-177-impl-dead-code-sweep.md`.
 2. **Operative Pipeline ist:** Excel-SSOT-Roster ([`./why-excel-ssot-not-crawl.md`](./why-excel-ssot-not-crawl.md)) → `claude -p`-Subsession produziert `manual-overrides-ssot-w40k-NNN.json` → `scripts/apply-override.ts` schreibt in die DB → alle 50 Bücher eigener Resolver-Pass durch separate Cowork-Architect-Session + CC-Implementer-Brief.
 
 Operativ-Pfad-Details:

@@ -147,12 +147,7 @@ git commit -m "Schema: <what changed>"
 git push
 ```
 
-Pipeline runs (Phase 3, dry-run):
-```bash
-npm run ingest:backfill -- --limit 50 --offset 40
-# Inspect ingest/.last-run/backfill-YYYYMMDD-HHMM.diff.json
-# Or browse /ingest dashboard route
-```
+> ⚠ **Retired (Brief 177, 2026-07-03).** Die frühere Crawler-Pipeline (`npm run ingest:backfill`, V1/V2-Engine) ist ausgebaut. Korpus-Pflege läuft heute per-Buch: `npm run apply:book -- --slug <slug>` bzw. `--all` (Teil von `db:sync`), neue Bücher über den `/add-book`-Runbook, Podcasts über `/add-podcast(-episode)`, laufende Wartung über `/weekly-db-update`. Das `/ingest`-Dashboard rendert nur noch eingefrorene `ingest/.last-run/*.diff.json` (Historie).
 
 ## Operations
 
