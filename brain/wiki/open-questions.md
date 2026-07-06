@@ -2,9 +2,10 @@
 title: Open questions (next-brief queue)
 type: overview
 created: 2026-05-09
-updated: 2026-07-04
+updated: 2026-07-06
 sources:
   - ../../sessions/README.md
+  - ../../sessions/2026-07-05-178-impl-map-cartographer.md
   - ../../sessions/archive/2026-06/2026-06-28-170-impl-per-book-ssot.md
   - ../../sessions/archive/2026-06/2026-06-30-171-impl-per-book-ssot-migration.md
   - ../../sessions/archive/2026-06/2026-06-10-137-impl-timeline-data-foundation.md
@@ -37,4 +38,4 @@ Format per item: **(N) <Title>** with `Owner: …` (who has to act) · `Sessions
 
 ---
 
-*(Queue aktuell: (16b/c). 18a ist durch Brief 170 Teil A geliefert, 18b durch Brief 171 Teil B geschlossen (beide gemergt) — beide aus der Queue, siehe Kopfnotiz. Die Wave 154–163 (Buch-Reviewer + Stage 3 + Gate F/L + Product-Wave) hat **keine** neue OQ geöffnet — die ADR-Backfill-Schuld aus 154/155 ist im Koordinations-Pass 2026-06-24 abgearbeitet (`decisions/book-reviewer-no-apply-path.md` + `log.md`). Auch die Wave 174–184 (Map-Daten 174/183, Hygiene 175/176/177, CI-Gate 180, Design-Reset 184) hat **keine** neue OQ geöffnet. Neue Items aus Impl-Reports kommen wie gewohnt nummeriert dazu.)*
+*(Queue aktuell: (16b/c). 18a ist durch Brief 170 Teil A geliefert, 18b durch Brief 171 Teil B geschlossen (beide gemergt) — beide aus der Queue, siehe Kopfnotiz. Die Wave 154–163 (Buch-Reviewer + Stage 3 + Gate F/L + Product-Wave) hat **keine** neue OQ geöffnet — die ADR-Backfill-Schuld aus 154/155 ist im Koordinations-Pass 2026-06-24 abgearbeitet (`decisions/book-reviewer-no-apply-path.md` + `log.md`). Auch die Wave 174–184 (Map-Daten 174/183, Hygiene 175/176/177, CI-Gate 180, Design-Reset 184) **und der Map-Neubau 178** (gemergt 2026-07-06) haben **keine** neue OQ geöffnet — die 178-Follow-ups (Direction-Panel einbrennen, Episoden-Anker, Zoneneditor, Blurb-Filler) sind kleiner Product-Kleinkram in `worklist.md`, keine Architektur-OQ. Neue Items aus Impl-Reports kommen wie gewohnt nummeriert dazu.)*

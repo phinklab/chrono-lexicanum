@@ -1673,3 +1673,21 @@ Von Philipp beauftragter „wo stehen wir"-Pass gegen den echten Git-Stand (`git
 **Offen bei Philipp (manuelle Ops):** `apply:podcast --show` für 4 Shows (+10 Episoden, 175) · `db:migrate` für Migration `0015` (180) · Weekly-Refresh-PR #200 (2026-W27) reviewen · optional `db:drift` read-only.
 
 **Edits (Cowork, uncommitted — reiten im nächsten CC-Koordinations-PR):** `sessions/README.md` (5 Statusflips → implemented, Kopf konsolidiert), `project-state.md` (Header/Latest state/What's running/What's open/Next likely brief), `worklist.md` (§ A Punkte 2–4 erledigt, § B-1/B-2 erledigt, § E + § F), `open-questions.md` (Datum), `index.md` (Daten + One-Liner), `pipeline-state.md`/`glossary.md`/`architecture.md`/`onboarding.md`/`decisions/why-cc-direct-curation.md`/`decisions/why-sonnet-not-haiku.md` (177-Rollup), `workflows/lint.md` (Always-read-budget-Kategorie), `log.md` (dieser Eintrag). Keine Code-/DB-Änderungen. OQ 16b/c unverändert.
+
+---
+
+## 2026-07-06 · Ingest · Impl 178 gelesen + gebucht (Map-Neubau „Cartographer" live)
+
+Von Philipp beauftragter „wir sind von der Doku gerade nicht auf dem aktuellen Stand"-Pass. Einziger ungelesener Report seit dem 07-04-Rollup: `2026-07-05-178-impl-map-cartographer.md` (complete). Jede Brain-Seite führte 178 noch als „nächster Cowork-Schnitt" — das war der ganze Delta.
+
+**Gegen den Code verifiziert (nicht nur aus dem Report):** `src/lib/map/*` (7 Module) + `src/components/cartographer/*` (17 Dateien) + `src/app/styles/55-map.css` existieren; `src/components/map/**` + `src/lib/galaxy/**` sind **weg**; `src/app/map/page.tsx` baut den Payload aus `map-worlds.json` und ist admin-read-frei (statisch). Deckt sich mit dem Report.
+
+**Merge-Stand (Philipp bestätigt, Cowork fasst kein git an):** **178 ist auf `main` gemergt** (2026-07-06; PR-Nr. nicht erfragt).
+
+**Befund 178:** `/map` neu gebaut — Studie „Maledictum" nativ auf dem vollen `map-worlds.json` (**1054 Welten**, DB-frei, buildzeit-gebündelt, `/map` **statisch** prerendered). Alte Hologramm-Disc + `src/lib/galaxy` + `/lab/cartographer` + Prototyp gelöscht → **K11 gelöst** (Map-Editor war null-gated im öffentlichen Bundle). Cicatrix-Raster statisch (Lag-Fix), billiges Rift-Leben hinter „Rift unrest"-Toggle (default aus); alle 1054 Kontakte klickbar (Popup Blurb + aufklappbare Werkliste); Segment-Keile nach den Referenzkarten in `design/beispiele/` vermessen; bildbasierte Warpsturm-Formen **zurückgebaut** (Philipp-Veto) → Hand-Kurations-Zoneneditor als Handover. **P14 komplett (A/A.2/B), P15 eingefaltet.** Follow-ups (klein, Product): Direction-Panel einbrennen, Episoden-Anker-Kompat, Vermesser-Modus (K11-Rest), Blurb-Filler auf 24 Welten. Transienter `/fraktion`-Prerender-Fehler im ersten Build (SSG-DB-Contention, nicht kartenbezogen) — beobachten, falls er auf Vercel reproduziert.
+
+**Maintainer-Ops (Stand 04.07.):** apply:podcast (4 Shows) / db:migrate 0015 / Weekly-PR #200 — Philipp „weiß nicht mehr genau" → in allen Listen als **„Stand 2026-07-06 unklar, bitte gegenprüfen"** markiert statt erledigt/offen zu raten.
+
+**Buchhaltung:** README-Tabelle: neue 178-impl-Zeile (Brief lief als Plan-Mode-Plan, kein sessions-arch-File); Kopf 07-06 (178 in „gemergt", Forward-Queue startet bei 181); Budget-Trim — die acht voll-gemergten Alt-Zeilen 166–173 aus der aktiven Tabelle entfernt (Historie bleibt in `archive/` + hier), 14 Zeilen bleiben. 121-Board-Zeile: P14/178 → erledigt, 181 = nächster Schnitt.
+
+**Edits (Cowork, uncommitted — reiten im nächsten CC-Koordinations-PR):** `project-state.md` (Header/Latest-state mit 178-Lead + Kondensat Design/Hygiene/Reviewer, What's running `/map`, What's open, Next likely brief → 181, Kleinkram-178-Zeile, maintainer-ops-Softening), `sessions/README.md` (Kopf, 178-Zeile, 166–173-Trim, 121-Board-Zeile), `worklist.md` (§ A P14 erledigt + 181 startbar, § E Map-A11y-Note auf `cartographer/*`, § F drei neue/aktualisierte Merker), `index.md` (Frontmatter + 3 One-Liner + log-/self-Daten), `open-questions.md` (Datum + Kopfnotiz — keine neue OQ), `log.md` (dieser Eintrag). Keine Code-/DB-Änderungen. OQ 16b/c unverändert.
