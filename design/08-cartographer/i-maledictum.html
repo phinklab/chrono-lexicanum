@@ -1,0 +1,2214 @@
+<!-- ======================================================================
+     CARTOGRAPHER-STUDIE I — MALEDICTUM  (Runde 5, nach H-Review)
+     H weitergebaut. Cicatrix nach dem ORIGINAL (CicatrixSpine.tsx der
+     Live-Map): reguläres X-Raster im brick-Pattern, an den Korridor
+     geclippt; in Zell-Runs flammen häretische Wörter auf (Glitch-
+     Lettern), Hover faded das Zeichen aus, Totenköpfe + INTERDICTED-
+     Label mit ausgesparten Zonen; zehn Blitze in Warp-Farben, dazu in
+     Fassung II ein enges warp-getöntes Band am Riss (kein G-Wash).
+     Kurs-Karten + Welt-Popup in der Live-Site-Sprache
+     (rahmenlose Glasfläche, Schatten + Lichtkante, KEINE Border-Strokes,
+     kein Gold-Streifen), Schrift überall größer (Legende, Popups,
+     Planetennamen, Karten). Kurslinien fließen jetzt dauerhaft
+     (marschierende Punkte). Vermesser-Schweif als EIN Canvas-Bild mit
+     kontinuierlichem Verlauf (gedithert, kein Banding), rotierend hinter
+     einem Segmentkanten-Clip — kein Segment-Sprung, keine Teile mehr.
+     Nihilus/Lumen-Schatten
+     mit RADIALEN Kanten von Terra aus (statt 90°-Ecken) und riesig
+     dimensioniert — keine Overlay-Kanten mehr beim Pannen. Gelbstich
+     der Segment-Flächen raus. Census: "Linked records only"-Toggle;
+     Staub feiner (LCG-Streuung in Größe + Helligkeit). Popup zeigt
+     Secondary/Tertiary Classification (worlds.js v4). Alles Englisch.
+     Brief 178. Standalone — echte Daten aus ../data/worlds.js (v4).
+     ====================================================================== -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cartographer I — Maledictum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@400;500;600&family=Cinzel:wght@400..700&family=Cardo:ital,wght@0,400;0,700;1,400&family=Fragment+Mono:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --void:      #030201;
+    --void-2:    #080705;
+    --bone:      #e4ddcb;
+    --dim:       #9a927e;
+    --faint:     #6a6455;
+    --gold:      #a48c52;
+    --gold-dim:  #6f5c33;
+    --blood:     #8e3b32;
+    --ice:       #9ce6ff;
+    --warp-v:    #8a68c4;
+    --warp-m:    #b05070;
+    --warp-b:    #5f74b8;
+    --warp-l:    #cbb3ee;
+    --hair:      rgba(228, 221, 203, 0.16);
+    --hair-soft: rgba(228, 221, 203, 0.08);
+    --plate:     rgba(10, 8, 4, 0.84);
+    --disp:      "Cormorant SC", "Cinzel", serif;
+    --text:      "Cardo", serif;
+    --mono:      "Fragment Mono", ui-monospace, monospace;
+    --ease:      cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; overflow: hidden; background: var(--void); }
+  body {
+    font-family: var(--text);
+    color: var(--bone);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--gold); color: var(--void); }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+  /* Grund dunkler als Runde 2 — Lesbarkeit beim Reinzoomen.
+     Regie-Panel steuert: --bgBright (Artwork-Helligkeit), --veilA
+     (Schleier-Deckkraft), body.nobg (Artwork ganz aus). */
+  :root { --bgBright: 0.2; --veilA: 0.82; }
+  .bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+  .bg .photo {
+    position: absolute; inset: 0;
+    background: url("../../public/img/cartog-holo.webp") 50% 38% / cover no-repeat;
+    filter: brightness(var(--bgBright)) saturate(0.7);
+  }
+  body.nobg .bg .photo { display: none; }
+  .bg .veil {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 44%, transparent 28%, rgba(5,3,1,var(--veilA)) 100%);
+  }
+  .bg .grain {
+    position: absolute; inset: 0; opacity: var(--grainA, 0.09); mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size: 160px 160px;
+  }
+
+  .rule { position: fixed; left: 0; right: 0; height: 7px; z-index: 5; pointer-events: none; opacity: 0.5; }
+  .rule.top { top: 0; background: repeating-linear-gradient(90deg, var(--hair) 0 1px, transparent 1px 28px); }
+  .rule.bot { bottom: 0; background: repeating-linear-gradient(90deg, var(--hair) 0 1px, transparent 1px 28px); }
+
+  .deg {
+    position: fixed; z-index: 5; pointer-events: none;
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.32em;
+    color: var(--faint); opacity: 0.75;
+  }
+  .deg.n { top: 12px; left: 50%; transform: translateX(-50%); }
+  .deg.s { bottom: 12px; left: 50%; transform: translateX(-50%); }
+  .deg.e { right: 10px; top: 50%; transform: translateY(-50%); writing-mode: vertical-rl; }
+  .deg.w { left: 10px; top: 50%; transform: translateY(-50%); writing-mode: vertical-rl; }
+
+  .brand {
+    position: fixed; top: 22px; left: 26px; z-index: 40;
+    font-family: var(--disp); font-weight: 500;
+    font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--bone); text-shadow: 0 1px 8px rgba(0,0,0,0.8);
+  }
+  .brand:hover { color: var(--gold); }
+
+  .stage { position: fixed; inset: 0; z-index: 1; }
+  .stage svg { width: 100%; height: 100%; display: block; cursor: grab; touch-action: none; }
+  .stage svg.dragging { cursor: grabbing; }
+
+  .pi { transform: scale(var(--ik, 1)); transform-box: fill-box; transform-origin: center; }
+  .w  { cursor: pointer; }
+  .w .halo { fill: transparent; }
+  .w .glyph { transition: transform 0.35s var(--ease); transform-box: fill-box; transform-origin: center; }
+  .w:hover .glyph { transform: scale(1.35); }
+
+  .lbl {
+    font-family: var(--text); font-style: italic;
+    fill: var(--bone);
+    font-size: calc(14.5px * var(--ik, 1));
+    transform: translateY(calc(-14px * var(--ik, 1)));
+    text-anchor: middle; pointer-events: none;
+    paint-order: stroke; stroke: rgba(3,2,1,0.9); stroke-width: calc(2.5px * var(--ik, 1));
+    opacity: 0.8; transition: opacity 0.6s var(--ease);
+  }
+  .lbl.big { font-style: normal; font-family: var(--disp); font-size: calc(16px * var(--ik, 1)); letter-spacing: 0.08em; }
+  svg[data-band="0"] .lbl.t1, svg[data-band="0"] .lbl.t2 { opacity: 0; }
+  svg[data-band="1"] .lbl.t2 { opacity: 0; }
+  svg[data-band="2"] .lbl { opacity: 0.94; }
+
+  .rgn {
+    font-family: var(--text); font-style: italic;
+    fill: var(--gold); fill-opacity: 0.6;
+    font-size: calc(14.5px * var(--ik, 1));
+    letter-spacing: calc(4px * var(--ik, 1));
+    text-anchor: middle; cursor: pointer;
+    paint-order: stroke; stroke: rgba(3,2,1,0.85); stroke-width: calc(2.5px * var(--ik, 1));
+  }
+  .rgn:hover { fill-opacity: 1; }
+
+  .segname {
+    font-family: var(--disp); font-weight: 400;
+    fill: var(--bone); fill-opacity: 0.085;
+    letter-spacing: 0.4em; text-anchor: middle;
+    pointer-events: none; text-transform: uppercase;
+  }
+
+  /* ── Polar-Rahmen: Portolan-Zartheit (Runde-3-Feedback) ── */
+  #polar { pointer-events: none; }
+  #polar .ring  { fill: none; stroke: var(--bone); stroke-opacity: 0.09; }
+  #polar .ring.solar { stroke: var(--gold); stroke-opacity: 0.3; }
+  #polar .spoke { stroke: var(--bone); stroke-opacity: 0.045; }
+  #polar .tick  { stroke: var(--bone); stroke-opacity: 0.08; }
+  /* Runde 5: KEINE Flächenfüllung mehr — der Bone-Hauch legte einen
+     Gelbstich über die vier Außensegmente, den der Solar-Kern nicht hatte */
+  #polar .wedge { fill: none; stroke: var(--gold); stroke-opacity: 0.3; }
+
+  /* ── Warpstürme: pulsen, Zeichen funkeln, das Auge wirbelt ── */
+  .storm { transform-box: fill-box; transform-origin: center; animation: stormBreath 13s ease-in-out infinite; }
+  .storm.s2 { animation-delay: 5.5s; }
+  @keyframes stormBreath {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50%      { opacity: 1; transform: scale(1.09); }
+  }
+  .whirl { animation: iTurn 260s linear infinite; transform-box: fill-box; transform-origin: center; }
+  .sx0 { animation: rfF 5.5s ease-in-out infinite; }
+  .sx1 { animation: rfF 7s ease-in-out 2.4s infinite; }
+
+  /* ── Great Rift: DREI schaltbare Sturm-Fassungen (Regie-Panel).
+     Der grossflächige Nebel-Wash aus G ist raus — er lag über den
+     Labels der Kartenmitte (Runde-4-Feedback, Lesbarkeit wie F). ── */
+  .rf { pointer-events: none; }
+  @keyframes rfF { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+  .rv { display: none; }
+  svg[data-storm="1"] #rv1, svg[data-storm="2"] #rv2, svg[data-storm="3"] #rv3 { display: block; }
+  .wblob { transform-box: fill-box; transform-origin: center; pointer-events: none; }
+  .wb0 { animation: wBreath 13s ease-in-out infinite; }
+  .wb1 { animation: wBreath 17s ease-in-out 4s infinite; }
+  .wb2 { animation: wBreath 21s ease-in-out 9s infinite; }
+  @keyframes wBreath {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50%      { opacity: 0.7; transform: scale(1.08); }
+  }
+  .riftflow { animation: riftFlow 26s linear infinite; }
+  @keyframes riftFlow { to { stroke-dashoffset: -84; } }
+  .rcrack { animation: rfF 14s ease-in-out infinite; }
+  .rvein0 { animation: rfF 8s ease-in-out 1.2s infinite; }
+  .rvein1 { animation: rfF 10.5s ease-in-out 4.4s infinite; }
+  .rvein2 { animation: rfF 12.5s ease-in-out 7s infinite; }
+  /* Runde 5: enges warp-getöntes Band am Riss (Fassung II) — atmet leise.
+     Bewusst schmal + dunkel gehalten, das ist KEIN G-Nebel-Wash. */
+  .rvband { animation: rvBand 19s ease-in-out infinite; }
+  @keyframes rvBand { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
+  /* Blitzfarbe kommt jetzt vom Element (Warp-Palette), nicht mehr aus der Klasse */
+  .warc { fill: none; opacity: 0; pointer-events: none; }
+  .wa0 { animation: warcF 11s linear 2s infinite; }
+  .wa1 { animation: warcF 14s linear 6s infinite; }
+  .wa2 { animation: warcF 17s linear 10.5s infinite; }
+  .wa3 { animation: warcF 9s linear 0.6s infinite; }
+  .wa4 { animation: warcF 12.5s linear 4.1s infinite; }
+  .wa5 { animation: warcF 15.5s linear 8.3s infinite; }
+  @keyframes warcF {
+    0%   { opacity: 0; }
+    1%   { opacity: 0.75; }
+    2%   { opacity: 0.12; }
+    3%   { opacity: 0.6; }
+    4.5% { opacity: 0; }
+    100% { opacity: 0; }
+  }
+  /* Interdicted-Raster nach dem ORIGINAL (CicatrixSpine der Live-Map,
+     Runde 5): reguläres X-Raster im Korridor, Zellen glitchen selten
+     KURZ weg (kein Dauerpuls), Hover FADED das Zeichen AUS, und
+     Wort-Zellen (.cor) weichen den häretischen Lettern. */
+  .rfx { cursor: crosshair; }
+  .rfx .xg { opacity: var(--o, 0.8); transition: opacity 0.45s ease-out; }
+  .rfx:hover .xg, .rfx.cor .xg { opacity: 0; }
+  @keyframes rfG {
+    0%, 15% { opacity: 1; } 16% { opacity: 0.1; } 17%, 41% { opacity: 1; }
+    42% { opacity: 0.45; } 43%, 70% { opacity: 1; } 71% { opacity: 0.75; }
+    72%, 100% { opacity: 1; }
+  }
+  .rfsk { opacity: 0; pointer-events: none; }
+  @keyframes rfSk {
+    0%, 30% { opacity: 0; } 34%, 55% { opacity: 0.85; } 58% { opacity: 0.2; }
+    62% { opacity: 0.9; } 66%, 100% { opacity: 0; }
+  }
+  .rflbl { pointer-events: none; }
+  @keyframes rfLb { 0%, 32% { opacity: 1; } 33% { opacity: 0.2; } 34%, 100% { opacity: 1; } }
+  .riftlbl { font-family: var(--mono); fill: var(--blood); pointer-events: none; }
+
+  /* ── Schwarmfeld (Leviathan) + Grab-Dynastie (Sautekh): Areale ── */
+  .lev, .nec { pointer-events: none; }
+  .lev .lv-lens { animation: levBreath 18s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+  @keyframes levBreath { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
+  .lv0 { animation: rfF 7.5s ease-in-out 0.8s infinite; }
+  .lv1 { animation: rfF 9.5s ease-in-out 4s infinite; }
+  .lv2 { animation: rfF 12s ease-in-out 6.5s infinite; }
+  .levlbl { font-family: var(--mono); fill: var(--ice); letter-spacing: 0.3em; pointer-events: none; }
+  .nec .nc-border { animation: levBreath 22s ease-in-out 3s infinite; }
+  .nc0 { animation: rfF 8s ease-in-out 1.2s infinite; }
+  .nc1 { animation: rfF 10.5s ease-in-out 4.6s infinite; }
+  .nc2 { animation: rfF 13s ease-in-out 8s infinite; }
+
+  /* ── Terra: das Auspex-Werk (Philipps Liebling — bleibt) ── */
+  #inst .i-ticks { animation: iTurn 220s linear infinite; transform-origin: center; transform-box: fill-box; }
+  #inst .i-dash  { animation: iTurnRev 140s linear infinite; transform-origin: center; transform-box: fill-box; }
+  #inst .i-orbitA { animation: iTurn 160s linear infinite; transform-origin: center; transform-box: fill-box; }
+  #inst .i-riderA { animation: iTurn 70s linear infinite; transform-origin: center; transform-box: fill-box; }
+  #inst .i-riderB { animation: iTurnRev 105s linear infinite; transform-origin: center; transform-box: fill-box; }
+  @keyframes iTurn { to { transform: rotate(360deg); } }
+  @keyframes iTurnRev { to { transform: rotate(-360deg); } }
+  #inst .i-blip { animation: blipTw 9s ease-in-out infinite; }
+  #inst .i-blip.b2 { animation-delay: 3.2s; }
+  @keyframes blipTw { 0%, 100% { opacity: 0.25; } 50% { opacity: 0.9; } }
+
+  /* ── Routen: zeichnen sich Station für Station (Runde-3-Wunsch) ── */
+  [data-kg], .w, .rgn, .segname, #fields { transition: opacity 0.7s var(--ease); }
+  svg[data-route] [data-kg^="d-"] { opacity: 0.07; }
+  svg[data-route] .w:not(.rt-hi) { opacity: 0.12; }
+  svg[data-route] .rgn, svg[data-route] .segname, svg[data-route] #fields { opacity: 0.22; }
+  .rt-hi .lbl { opacity: 1 !important; }
+  .route { display: none; pointer-events: none; }
+  .route.on { display: block; }
+  /* Ein Bein je Etappe: Bein i zeichnet, sobald Station i erblüht ist */
+  .routeDraw {
+    stroke-dasharray: 1; stroke-dashoffset: 1;
+    animation: rtDraw 1.1s linear both;
+    animation-delay: calc(var(--i) * 1.45s + 0.35s);
+  }
+  @keyframes rtDraw { to { stroke-dashoffset: 0; } }
+  /* Runde 5: die Linie LEBT auch nach dem Zeichnen — die Punkte
+     marschieren dauerhaft in Fahrtrichtung (Konvoi-Geste) */
+  .rtFly { animation: rtFly 7s linear infinite; }
+  @keyframes rtFly { to { stroke-dashoffset: -62; } }
+  .rt-st {
+    transform-box: fill-box; transform-origin: center;
+    opacity: 0; animation: rtSt 0.7s var(--ease) both;
+    animation-delay: calc(var(--i) * 1.45s);
+  }
+  @keyframes rtSt {
+    from { opacity: 0; transform: scale(0.3); }
+    60%  { opacity: 0.95; }
+    to   { opacity: 0.8; transform: scale(1); }
+  }
+  .rt-lbl {
+    font-family: var(--mono); fill: var(--gold); letter-spacing: 0.24em;
+    opacity: 0; animation: rtLbl 1s var(--ease) both;
+  }
+  @keyframes rtLbl { to { opacity: 0.85; } }
+
+  /* ── Kurs-Karten: kinoreife Kurzbeschreibung je Station.
+     Runde 5: in der LIVE-SITE-POPUP-SPRACHE (64-detail-modal.css /
+     maprail__pop) — rahmenlose, fast-opake Glasfläche, Tiefe über
+     Drop-Shadow + Bone-Lichtkante oben, Cinzel-Kicker mit Gold-
+     Terminus-Hairline. KEIN Border-Stroke, KEIN Gold-Streifen. ── */
+  .ccard {
+    position: fixed; z-index: 18; width: 268px;
+    background: linear-gradient(180deg, rgba(9,8,6,0.97), rgba(5,3,1,0.98));
+    box-shadow: 0 26px 70px -18px rgba(0,0,0,0.88), inset 0 1px 0 rgba(228,221,203,0.07);
+    border-radius: 4px;
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    padding: 12px 15px 11px;
+    opacity: 0; transform: translateY(10px);
+    transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+    pointer-events: none;
+  }
+  .ccard.show { opacity: 1; transform: none; }
+  .ccard .ck {
+    position: relative;
+    font-family: var(--disp); font-size: 12.5px; letter-spacing: 0.2em;
+    color: var(--gold); text-transform: uppercase;
+    padding-bottom: 7px; margin-bottom: 7px;
+  }
+  .ccard .ck::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+    background: linear-gradient(90deg, rgba(164,140,82,0.35), rgba(164,140,82,0.1) 72%, transparent);
+  }
+  .ccard .ct {
+    font-size: 14.5px; font-style: italic;
+    color: var(--dim); line-height: 1.5;
+  }
+  .ccard .cpg {
+    pointer-events: auto; display: inline-block; margin-top: 8px;
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.2em;
+    color: var(--faint); text-transform: uppercase;
+  }
+  .ccard .cpg:hover { color: var(--gold); }
+
+  /* ── Selektion: Ringwerk blüht AUS dem Punkt (BtnFx-Geste) ── */
+  #sel .blm { animation: selBloom 0.65s var(--ease) both; transform-box: fill-box; transform-origin: center; }
+  @keyframes selBloom {
+    from { opacity: 0; transform: scale(0.15); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  #sel .r-dash { animation: iTurn 24s linear infinite; transform-origin: center; transform-box: fill-box; }
+  #sel .r-tick { animation: iTurnRev 38s linear infinite; transform-origin: center; transform-box: fill-box; }
+  #sel .rd { transform-box: fill-box; transform-origin: center; animation: rdIn 0.5s var(--ease) both; animation-delay: calc(var(--i) * 36ms); }
+  @keyframes rdIn {
+    from { opacity: 0; transform: scale(0.2); }
+    to   { opacity: 0.9; transform: scale(1); }
+  }
+  #sel .sst1 { animation: sst1 0.9s var(--ease) 0.05s both, sstTw 5.6s ease-in-out 1.4s infinite; }
+  #sel .sst2 { animation: sst2 0.9s var(--ease) 0.14s both, sstTw 6.4s ease-in-out 1.7s infinite; }
+  #sel .sst3 { animation: sst3 0.9s var(--ease) 0.22s both, sstTw 7.2s ease-in-out 2s infinite; }
+  @keyframes sst1 { from { opacity: 0; transform: translate(0,0); } 60% { opacity: 0.9; } to { opacity: 0.85; transform: translate(-16px, -22px); } }
+  @keyframes sst2 { from { opacity: 0; transform: translate(0,0); } 60% { opacity: 0.9; } to { opacity: 0.85; transform: translate(24px, -15px); } }
+  @keyframes sst3 { from { opacity: 0; transform: translate(0,0); } 60% { opacity: 0.85; } to { opacity: 0.8; transform: translate(14px, 20px); } }
+  @keyframes sstTw { 0%, 100% { opacity: 0.85; } 50% { opacity: 0.25; } }
+
+  /* ── Instrumente: Lumen Astronomican + Imperium Nihilus ── */
+  #lumenG, #nihilusG { display: none; pointer-events: none; }
+  svg.lumen #lumenG { display: block; }
+  svg.nihilus #nihilusG { display: block; }
+  .lm-veil { animation: lmFade 2s var(--ease) both; }
+  .lm-grow { animation: lmGrow 1.6s var(--ease) both; transform-box: fill-box; transform-origin: center; }
+  @keyframes lmGrow { from { opacity: 0; transform: scale(0.12); } to { opacity: 1; transform: scale(1); } }
+  @keyframes lmFade { from { opacity: 0; } to { opacity: 1; } }
+  .lm-rim { animation: lmPulse 12s ease-in-out 1.6s infinite; }
+  @keyframes lmPulse { 0%, 100% { stroke-opacity: 0.32; } 50% { stroke-opacity: 0.55; } }
+  .lm-lbl { font-family: var(--mono); fill: var(--gold); letter-spacing: 0.26em; animation: lmFade 1.4s var(--ease) 0.9s both; }
+  /* Das Licht endet am Rift: jenseits davon frisst der Warp es auf */
+  .lm-dark { animation: lmFade 2.4s var(--ease) both; }
+  .lm-lbl.dev { fill: var(--warp-l); }
+  .nh-shade { animation: lmFade 1.6s var(--ease) both, nhShimmer 18s ease-in-out 1.6s infinite; }
+  @keyframes nhShimmer { 0%, 100% { opacity: 1; } 50% { opacity: 0.8; } }
+  .nh-lbl { font-family: var(--mono); fill: var(--warp-l); letter-spacing: 0.4em; animation: lmFade 1.4s var(--ease) 0.5s both; }
+  .nh-lbl.sanctus { fill: var(--gold); }
+
+  /* ── Zoom-Schleier: Top-100 zuerst, Rest ab Band 1 ── */
+  svg[data-band="0"]:not(.show-all) .w.vb1 { opacity: 0; pointer-events: none; }
+
+  /* ── Ouvertüre ── */
+  .overture {
+    position: fixed; inset: 0; z-index: 30;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; pointer-events: none;
+    background: radial-gradient(ellipse at 50% 46%, rgba(3,2,1,0.46) 0%, rgba(3,2,1,0.12) 54%, transparent 78%);
+    transition: opacity 1.1s var(--ease), visibility 1.1s;
+  }
+  .overture .over {
+    font-family: var(--mono);
+    font-size: 11px; letter-spacing: 0.42em; text-transform: uppercase;
+    color: var(--gold);
+  }
+  .overture h1 {
+    margin-top: 16px;
+    font-family: var(--disp); font-weight: 500;
+    font-size: clamp(54px, 7.5vw, 102px); line-height: 1;
+    text-shadow: 0 2px 32px rgba(0,0,0,0.9);
+  }
+  .overture h1 em { font-style: italic; font-weight: 400; }
+  .overture .edition { margin-top: 16px; font-style: italic; font-size: 17.5px; color: var(--dim); }
+  .overture .edition b { font-style: normal; color: var(--bone); font-weight: 400; }
+  .overture .hint {
+    margin-top: 24px;
+    font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.3em;
+    color: var(--faint); text-transform: uppercase;
+  }
+  .overture .hint .dot { color: var(--gold); animation: hintDot 2.4s ease-in-out infinite; }
+  @keyframes hintDot { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+  body.on .overture { opacity: 0; visibility: hidden; }
+
+  .overture .over, .overture h1, .overture .edition, .overture .hint {
+    opacity: 0; transform: translateY(12px);
+    animation: enter 1s var(--ease) forwards;
+  }
+  .overture h1 { animation-delay: 0.12s; }
+  .overture .edition { animation-delay: 0.28s; }
+  .overture .hint { animation-delay: 0.5s; }
+  @keyframes enter { to { opacity: 1; transform: none; } }
+
+  /* ── Kartusche — Runde 5: Live-Site-Fläche (rahmenlos, Schatten +
+     Lichtkante statt Border) und Schrift eine Stufe größer überall ── */
+  .cartouche {
+    position: fixed; left: 26px; bottom: 26px; z-index: 20;
+    width: 348px; max-height: calc(100vh - 110px); overflow-y: auto;
+    background: linear-gradient(180deg, rgba(9,8,6,0.94), rgba(5,3,1,0.96));
+    box-shadow: 0 26px 70px -18px rgba(0,0,0,0.85), inset 0 1px 0 rgba(228,221,203,0.06);
+    border-radius: 4px;
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    padding: 16px 19px 13px;
+    opacity: 0; transform: translateY(14px);
+    transition: opacity 0.9s var(--ease) 0.25s, transform 0.9s var(--ease) 0.25s;
+    scrollbar-width: thin; scrollbar-color: var(--gold-dim) transparent;
+  }
+  body.on .cartouche { opacity: 1; transform: none; }
+  .cartouche .c-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    border-bottom: 1px solid var(--hair); padding-bottom: 9px;
+  }
+  .cartouche .c-title { font-family: var(--disp); font-weight: 500; font-size: 21px; letter-spacing: 0.06em; }
+  .cartouche .c-status {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; color: var(--faint);
+  }
+  .cartouche .c-status .live { color: var(--gold); animation: hintDot 2.4s ease-in-out infinite; }
+  .cartouche .c-census {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+    color: var(--dim); text-transform: uppercase;
+    padding: 9px 0 2px; text-align: center;
+  }
+
+  .seek {
+    display: flex; align-items: center; gap: 8px;
+    border-bottom: 1px solid var(--hair);
+    padding-bottom: 6px; margin: 8px 0 11px;
+  }
+  .seek input {
+    flex: 1; background: none; border: 0; outline: 0;
+    font-family: var(--text); font-style: italic; font-size: 16px; color: var(--bone);
+  }
+  .seek input::placeholder { color: var(--faint); font-style: italic; }
+  .seek .go { font-family: var(--mono); font-size: 11px; color: var(--faint); }
+  .seek:focus-within { border-color: var(--gold-dim); }
+  .seek:focus-within .go { color: var(--gold); }
+
+  .c-cap {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.3em;
+    color: var(--faint); text-transform: uppercase;
+    margin: 11px 0 4px;
+  }
+
+  .segrow {
+    display: flex; flex-wrap: wrap; gap: 3px 10px; justify-content: center;
+    font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--dim);
+    margin-bottom: 2px;
+  }
+  .segrow button { color: inherit; letter-spacing: inherit; padding: 2px 0; }
+  .segrow button:hover { color: var(--gold); }
+
+  .routes { display: flex; flex-direction: column; gap: 1px; }
+  .rt {
+    position: relative; text-align: left;
+    font-size: 16px; font-style: italic; color: var(--dim);
+    padding: 4px 2px 4px 20px;
+    transition: color 0.3s;
+  }
+  .rt::before {
+    content: ""; position: absolute; left: 5px; top: 50%;
+    width: 4px; height: 4px; margin: -2px 0 0 -2px;
+    background: var(--faint); border-radius: 50%;
+    transition: background 0.4s, transform 0.5s var(--ease);
+  }
+  .rt:hover { color: var(--bone); }
+  .rt:hover::before { background: var(--gold); transform: scale(1.6); }
+  .rt.on { color: var(--gold); }
+  .rt.on::before { background: var(--gold); transform: scale(1.7); }
+  .rt .rt-tag { font-style: normal; font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--faint); padding-left: 8px; }
+
+  /* ── Census: Filter über die 70 Primary Classifications der SSOT.
+     Gruppen (= kind) mit Zählwerk + Toggle, Unterpunkte klappen auf
+     (Runde-4-Wunsch: filterbar, ohne die Übersicht zu fluten). ── */
+  .cgrp { border-bottom: 1px solid var(--hair-soft); }
+  .cgrp-h { display: flex; align-items: center; gap: 7px; padding: 4.5px 0; }
+  .cgrp-h .car {
+    width: 15px; flex: none; text-align: center;
+    font-family: var(--mono); font-size: 11px; color: var(--faint);
+    transition: transform 0.35s var(--ease), color 0.3s;
+  }
+  .cgrp.open .cgrp-h .car { transform: rotate(90deg); color: var(--gold); }
+  .cgrp-h .car:hover { color: var(--gold); }
+  .cgrp-h .sym { width: 20px; flex: none; display: flex; align-items: center; }
+  .cgrp-h .gname { flex: 1; text-align: left; font-size: 16.5px; transition: color 0.3s; }
+  .cgrp-h .gname:hover { color: var(--gold); }
+  .cgrp-h .n {
+    font-family: var(--mono); font-size: 12px; color: var(--faint);
+    font-variant-numeric: tabular-nums;
+  }
+  .cgrp.off .sym, .cgrp.off .gname, .cgrp.off .n { opacity: 0.32; }
+  .cgrp.part .n { color: var(--gold); }
+  .csub { display: none; padding: 1px 0 7px 22px; }
+  .cgrp.open .csub { display: block; }
+  .crow {
+    display: flex; width: 100%; justify-content: space-between; align-items: baseline; gap: 10px;
+    font-size: 15px; font-style: italic; color: var(--dim);
+    padding: 2.5px 0; text-align: left; transition: color 0.3s;
+  }
+  .crow:hover { color: var(--gold); }
+  .crow.off { opacity: 0.32; text-decoration: line-through; text-decoration-color: var(--faint); }
+  .crow .n { font-family: var(--mono); font-size: 11.5px; font-style: normal; color: var(--faint); }
+  .cx {
+    display: flex; width: 100%; align-items: center; gap: 7px;
+    font-size: 16px; font-style: italic; color: var(--dim);
+    padding: 5px 0; border-bottom: 1px solid var(--hair-soft);
+    text-align: left; transition: color 0.3s;
+  }
+  .cx:hover { color: var(--gold); }
+  .cx .pad { width: 15px; flex: none; }
+  .cx .sym { width: 20px; flex: none; display: flex; align-items: center; }
+  .cx .lab { flex: 1; }
+  .cx .n { font-family: var(--mono); font-size: 12px; font-style: normal; color: var(--faint); }
+  .cx.off { opacity: 0.4; }
+  .cx.on { color: var(--gold); }
+
+  .c-foot {
+    margin-top: 9px; text-align: center;
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em;
+    color: var(--faint); text-transform: uppercase;
+  }
+
+  /* ── Klick-Tooltip am Pin, Werke als Links.
+     Runde 5: Live-Site-Popup-Fläche (rahmenlos, Schatten + Lichtkante,
+     KEIN Border-Stroke), Schrift größer, Platz für Secondary/Tertiary
+     Classification (SSOT-Spalten C/D, worlds.js v4). ── */
+  .pop {
+    position: fixed; z-index: 25; width: 304px;
+    background: linear-gradient(180deg, rgba(9,8,6,0.97), rgba(5,3,1,0.98));
+    box-shadow: 0 30px 80px -20px rgba(0,0,0,0.88), inset 0 1px 0 rgba(228,221,203,0.07);
+    border-radius: 4px;
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    padding: 14px 17px 13px;
+    opacity: 0; visibility: hidden; transform: translateY(6px);
+    transition: opacity 0.45s var(--ease), transform 0.45s var(--ease), visibility 0.45s;
+    pointer-events: none;
+  }
+  .pop.open { opacity: 1; visibility: visible; transform: none; pointer-events: auto; }
+  .pop .pp-close {
+    position: absolute; top: 9px; right: 11px;
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.2em; color: var(--faint);
+  }
+  .pop .pp-close:hover { color: var(--gold); }
+  .pop .pp-tele {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.24em;
+    text-transform: uppercase; color: var(--gold);
+  }
+  .pop .pp-name { font-family: var(--disp); font-weight: 500; font-size: 27px; line-height: 1.05; margin-top: 5px; }
+  .pop .pp-cls { font-style: italic; color: var(--dim); font-size: 15px; margin-top: 3px; }
+  .pop .pp-cls2 { font-style: italic; color: var(--faint); font-size: 13.5px; margin-top: 2px; }
+  .pop .pp-cls2 b { font-style: normal; font-weight: 400; color: var(--dim); }
+  .pop .pp-coords {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em;
+    color: var(--faint); margin-top: 7px;
+  }
+  .pop .pp-rule { height: 1px; margin: 10px 0 2px; background: linear-gradient(90deg, rgba(164,140,82,0.4), rgba(164,140,82,0.12) 72%, transparent); }
+  .pop ul { list-style: none; }
+  .pop li { border-bottom: 1px solid var(--hair-soft); font-size: 15px; line-height: 1.4; }
+  .pop li a { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 6px 2px; }
+  .pop li i { color: var(--faint); font-size: 13px; }
+  .pop li a .k {
+    font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.18em;
+    color: var(--faint); white-space: nowrap; transition: color 0.3s;
+  }
+  .pop li a:hover .t, .pop li a:hover .k { color: var(--gold); }
+  .pop .pp-more { display: inline-block; margin-top: 9px; font-style: italic; color: var(--gold); font-size: 14.5px; }
+  .pop .pp-more:hover { color: var(--bone); }
+
+  .zoomer {
+    position: fixed; right: 26px; bottom: 26px; z-index: 20;
+    display: flex; flex-direction: column; gap: 1px;
+  }
+  .zoomer button {
+    width: 34px; height: 34px;
+    border: 1px solid var(--hair);
+    background: var(--plate);
+    font-family: var(--mono); font-size: 14px; color: var(--dim);
+    transition: color 0.3s, border-color 0.3s;
+  }
+  .zoomer button:hover { color: var(--gold); border-color: var(--gold-dim); }
+
+  .readout {
+    position: fixed; right: 72px; bottom: 30px; z-index: 20;
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em;
+    color: var(--faint); text-align: right;
+  }
+  .readout .mag { color: var(--dim); transition: color 0.5s; }
+  .readout .mag.bump { color: var(--gold); }
+
+  details.study-note {
+    position: fixed; left: 26px; top: 54px; z-index: 40;
+    max-width: 400px; font-size: 14px;
+  }
+  details.study-note summary {
+    cursor: pointer; list-style: none;
+    font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.24em;
+    text-transform: uppercase; color: var(--faint);
+  }
+  details.study-note summary:hover { color: var(--gold); }
+  details.study-note .body {
+    margin-top: 10px; padding: 14px 16px;
+    background: var(--plate); border: 1px solid var(--hair);
+    color: var(--dim); font-size: 13.5px; line-height: 1.55;
+    max-height: 60vh; overflow-y: auto;
+  }
+  details.study-note b { color: var(--bone); font-weight: 700; }
+  details.study-note p + p { margin-top: 6px; }
+
+  /* ── Regie-Panel: Sichtproben für Philipp (Runde-4-Wunsch) ── */
+  details.debug {
+    position: fixed; right: 26px; top: 22px; z-index: 40;
+    width: 250px; text-align: right;
+  }
+  details.debug summary {
+    cursor: pointer; list-style: none;
+    font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.24em;
+    text-transform: uppercase; color: var(--faint);
+  }
+  details.debug summary:hover { color: var(--gold); }
+  details.debug .body {
+    margin-top: 10px; padding: 12px 14px;
+    background: var(--plate); border: 1px solid var(--hair);
+    text-align: left;
+  }
+  .dbg-row {
+    display: flex; align-items: center; gap: 8px;
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--dim);
+    padding: 5px 0;
+  }
+  .dbg-row + .dbg-row { border-top: 1px solid var(--hair-soft); }
+  .dbg-row .lab { flex: 1; }
+  .dbg-row .val { color: var(--faint); font-size: 9.5px; min-width: 30px; text-align: right; }
+  .dbg-row input[type="range"] {
+    width: 86px; accent-color: var(--gold);
+    background: transparent; cursor: pointer;
+  }
+  .dbg-row input[type="checkbox"] { accent-color: var(--gold); cursor: pointer; }
+  .dbg-row .swi {
+    font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em;
+    color: var(--dim); border: 1px solid var(--hair); padding: 2px 6px;
+    transition: color 0.3s, border-color 0.3s;
+  }
+  .dbg-row .swi:hover { color: var(--gold); border-color: var(--gold-dim); }
+  .dbg-row .swi.on { color: var(--gold); border-color: var(--gold); }
+
+  /* Immer zuletzt: Route-/Linsen-Stationen und die Selektion gewinnen */
+  #chart .w.rt-hi, #chart .w.sel-on { opacity: 1 !important; pointer-events: auto; }
+  #chart .w:hover .lbl { opacity: 1; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .storm, .whirl { animation: none; opacity: 0.7; }
+    .sx0, .sx1 { animation: none; }
+    .rfx .xg, .rcrack, .rvein0, .rvein1, .rvein2 { animation: none; }
+    .rvband { animation: none; opacity: 0.7; }
+    .wblob { animation: none; opacity: 0.5; }
+    .warc { animation: none; opacity: 0; }
+    .riftflow, .rtFly { animation: none; }
+    .ccard { transition: none; }
+    .lev .lv-lens { animation: none; opacity: 0.7; }
+    .lv0, .lv1, .lv2, .nc0, .nc1, .nc2 { animation: none; }
+    .nec .nc-border { animation: none; }
+    #inst .i-ticks, #inst .i-dash, #inst .i-orbitA, #inst .i-riderA, #inst .i-riderB { animation: none; }
+    #inst .i-blip { animation: none; opacity: 0.5; }
+    .routeDraw { animation: none; stroke-dashoffset: 0; }
+    .rt-st { animation: none; opacity: 0.8; }
+    .rt-lbl { animation: none; opacity: 0.85; }
+    #sel .blm { animation: none; opacity: 1; }
+    #sel .r-dash, #sel .r-tick { animation: none; }
+    #sel .rd { animation: none; opacity: 0.9; }
+    #sel .sst1, #sel .sst2, #sel .sst3 { animation: none; opacity: 0; }
+    .lm-veil, .lm-grow, .lm-lbl, .lm-dark, .nh-shade, .nh-lbl { animation: none; opacity: 1; }
+    .lm-rim { animation: none; }
+    .overture .over, .overture h1, .overture .edition, .overture .hint { animation: none; opacity: 1; transform: none; }
+    .overture .hint .dot, .cartouche .c-status .live { animation: none; }
+    .overture, .cartouche, .pop { transition: none; }
+    .lbl { transition: none; }
+    .w .glyph { transition: none; }
+  }
+
+  @media (max-width: 900px) {
+    .cartouche { display: none; }
+    .pop { width: 250px; }
+  }
+</style>
+
+<div class="bg" aria-hidden="true">
+  <div class="photo"></div>
+  <div class="veil"></div>
+  <div class="grain"></div>
+</div>
+
+<div class="rule top" aria-hidden="true"></div>
+<div class="rule bot" aria-hidden="true"></div>
+<span class="deg n" aria-hidden="true">000</span>
+<span class="deg e" aria-hidden="true">090</span>
+<span class="deg s" aria-hidden="true">180</span>
+<span class="deg w" aria-hidden="true">270</span>
+
+<a class="brand" href="../07-praxis/hub.html">Chrono Lexicanum</a>
+
+<div class="stage">
+  <svg id="chart" data-band="0" data-storm="2"></svg>
+</div>
+
+<section class="overture" id="overture" aria-hidden="true">
+  <p class="over">Chartae Imperialis &middot; Maledictum</p>
+  <h1>The <em>Cartographer</em></h1>
+  <p class="edition"><b>1 054 worlds</b> upon the chart &middot; 1 332 of 1 685 records placed</p>
+  <p class="hint"><span class="dot">&#9679;</span>&ensp;drag to survey &middot; scroll to magnify &middot; click a world</p>
+</section>
+
+<aside class="cartouche" id="cartouche">
+  <div class="c-head">
+    <p class="c-title">The Cartographer</p>
+    <p class="c-status"><span class="live">&#9679;</span> AUSPEX</p>
+  </div>
+  <p class="c-census">1 054 contacts &middot; 154 recorded</p>
+  <div class="seek">
+    <input id="seek" type="text" placeholder="Seek a world&hellip;" spellcheck="false">
+    <span class="go">RET</span>
+  </div>
+  <p class="c-cap">Segmenta</p>
+  <div class="segrow" id="segrow"></div>
+  <p class="c-cap">Courses &middot; toggle to trace</p>
+  <div class="routes" id="routes"></div>
+  <p class="c-cap">Instruments of the chart</p>
+  <div class="routes" id="instruments"></div>
+  <p class="c-cap">Census &middot; filter the classifications</p>
+  <div id="census"></div>
+  <p class="c-foot">1 332 / 1 685 records placed</p>
+</aside>
+
+<div class="pop" id="pop" aria-hidden="true">
+  <button class="pp-close" id="ppclose">&times;</button>
+  <p class="pp-tele" id="pptele">Contact confirmed</p>
+  <h3 class="pp-name" id="ppname">&nbsp;</h3>
+  <p class="pp-cls" id="ppcls">&nbsp;</p>
+  <p class="pp-cls2" id="ppcls2" hidden></p>
+  <p class="pp-coords" id="ppcoords"></p>
+  <div class="pp-rule"></div>
+  <ul id="ppworks"></ul>
+  <a class="pp-more" id="ppmore" href="../07-praxis/buch.html">Open the record &rarr;</a>
+</div>
+
+<div class="zoomer">
+  <button id="zin" title="Magnify">+</button>
+  <button id="zout" title="Withdraw">&minus;</button>
+  <button id="zfit" title="Full sweep">&#8962;</button>
+</div>
+<p class="readout"><span id="coords"></span><br><span class="mag" id="mag">MAG 1.00&times;</span></p>
+
+<div id="ccards" aria-hidden="true"></div>
+
+<details class="debug" open>
+  <summary>Direction &middot; proofs</summary>
+  <div class="body">
+    <label class="dbg-row"><span class="lab">Backdrop art</span><input type="checkbox" id="dbgBg" checked></label>
+    <div class="dbg-row"><span class="lab">Veil</span><input type="range" id="dbgVeil" min="0" max="100" value="82"><span class="val" id="dbgVeilV">0.82</span></div>
+    <div class="dbg-row"><span class="lab">Brightness</span><input type="range" id="dbgBright" min="5" max="60" value="20"><span class="val" id="dbgBrightV">0.20</span></div>
+    <div class="dbg-row"><span class="lab">Grain</span><input type="range" id="dbgGrain" min="0" max="30" value="9"><span class="val" id="dbgGrainV">0.09</span></div>
+    <div class="dbg-row"><span class="lab">Warp storm</span>
+      <button class="swi" data-storm="1">I</button>
+      <button class="swi on" data-storm="2">II</button>
+      <button class="swi" data-storm="3">III</button>
+    </div>
+  </div>
+</details>
+
+<details class="study-note">
+  <summary>Studien-Notiz &middot; I — Maledictum (Runde 5)</summary>
+  <div class="body">
+    <p><b>Cicatrix nach dem Original</b> (CicatrixSpine der Live-Map): das <b>X-Raster IST die Notation</b> — reguläre Zeichen im triangular/brick-Pattern (live default), an den Korridor geclippt, Deckkraft fällt zur Kante. In Runs benachbarter Zellen <b>flammen häretische Wörter auf</b> (DESPAIR, HERESY, ABANDONHOPE, … — Buchstaben glitchen durch Okkult-Zeichen rein und raus, die X-e weichen solange). <b>Hover FADED das Zeichen aus</b> (wie im Original, statt Aufblühen). Dazu <b>Totenköpfe</b> auf der Spine und drei horizontale <b>INTERDICTED-Label</b> mit ausgesparten Raster-Zonen. Die <b>zehn Blitze in wechselnden Warp-Farben</b> bleiben. Fassung II (Riss + warp-getöntes Band) ist Default; Fassung I zeigt das Raster pur (Original-treueste Ansicht), III die Nebel-Probe.</p>
+    <p><b>Live-Site-Sprache für alle Flächen:</b> Kurs-Karten, Welt-Popup und Kartusche tragen jetzt die Popup-Fläche der echten Seite (64-detail-modal): rahmenlose, fast-opake Glasfläche, Tiefe über Drop-Shadow + Bone-Lichtkante, Cinzel-Kicker mit Gold-Terminus-Hairline. <b>Kein Border-Stroke, kein Gold-Streifen mehr.</b> Schrift überall eine Stufe größer — Legende, Popup, Kurs-Karten, Planetennamen.</p>
+    <p><b>Kurslinien fließen:</b> nach dem Etappen-Zeichnen marschieren die Punkte dauerhaft in Fahrtrichtung (Konvoi-Geste).</p>
+    <p><b>Vermesser-Schweif = EIN BILD:</b> der Verlauf wird einmalig per Canvas gerechnet (kontinuierlicher Winkel-Verlauf, gedithert — kein Banding möglich) und rotiert dann als ein einziges Bild hinter einem Clip aus der Segmentkanten-Silhouette. Keine Einzelteile, kein per-Frame-Neubau, kein Sprung an Segmentgrenzen. Die Leitlinie bleibt Vektor.</p>
+    <p><b>Nihilus/Lumen radial:</b> die Schattenkanten laufen jetzt als <b>Strahlen von Terra</b> durch die beiden Rift-Enden (statt 90°-Ecken) und die Flächen sind riesig dimensioniert — beim Pannen tauchen keine Overlay-Kanten mehr auf. Das Welt-Popup zeigt <b>Secondary/Tertiary Classification</b> der SSOT (worlds.js v4; z.&nbsp;B. Vigilus: War World / Genestealer Infested).</p>
+    <p><b>Census:</b> neuer <b>„Linked records only"-Toggle</b> — zeigt nur Klassifikationen samt Welten, die Bücher/Podcast-Folgen verlinkt haben (Staub fällt dann weg, Zählwerk zählt nur Verzeichnete). <b>Gelbstich der Segment-Flächen raus</b> (Flächenfüllung entfernt). <b>Staub feiner:</b> LCG-Streuung in Größe und Helligkeit, immer deutlich unter den Werk-Pins. Alles Englisch („Star-dust").</p>
+    <p><b>Regie-Panel</b> (nur Studie): Backdrop an/aus, Veil, Brightness, <b>Grain</b> (für den Körnigkeits-Vergleich mit/ohne Artwork), Sturm-Fassung I/II/III.</p>
+  </div>
+</details>
+
+<script src="../data/worlds.js"></script>
+<script>
+(function () {
+  "use strict";
+  var NS = "http://www.w3.org/2000/svg";
+  var D = window.CL_WORLDS;
+  var W = 1000, H = 808.6;
+  var BONE = "#e4ddcb", GOLD = "#a48c52", BLOOD = "#8e3b32", ICE = "#9ce6ff";
+  var WV = "#8a68c4", WM = "#b05070", WB = "#5f74b8", WL = "#cbb3ee";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var TERRA = { x: 333.4, y: 401.95 };
+
+  function el(name, attrs, parent) {
+    var n = document.createElementNS(NS, name);
+    for (var k in attrs) n.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(n);
+    return n;
+  }
+  function txt(node, s) { node.textContent = s; return node; }
+  /* deterministische Streuung (kein Math.random: stabile Karte) */
+  function lcg(seed) {
+    var s = seed >>> 0;
+    return function () { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; };
+  }
+
+  var svg = document.getElementById("chart");
+  var defs = el("defs", {}, svg);
+  var cam = el("g", { id: "cam" }, svg);
+
+  /* Punkt-Gradnetz (Sternenkarten-Textur — bleibt) */
+  var grid = el("g", {}, cam);
+  for (var gx = 50; gx < W; gx += 50)
+    for (var gy = 50; gy < H; gy += 50)
+      el("circle", { cx: gx, cy: gy, r: 0.6, fill: BONE, "fill-opacity": gx % 100 === 0 && gy % 100 === 0 ? 0.13 : 0.06 }, grid);
+
+  /* ════ Polar-Rahmen: Solar-Kern + vier gestufte Keile — jetzt zarter ════ */
+  function pp(aDeg, r) {
+    var a = (aDeg * Math.PI) / 180;
+    return [TERRA.x + Math.cos(a) * r, TERRA.y + Math.sin(a) * r];
+  }
+  function arcTo(d, r, aFrom, aTo, sweep) {
+    var p = pp(aTo, r);
+    var large = Math.abs(aTo - aFrom) > 180 ? 1 : 0;
+    return d + " A " + r + " " + r + " 0 " + large + " " + sweep + " " + p[0].toFixed(1) + " " + p[1].toFixed(1);
+  }
+  function wedgePath(r0, steps) {
+    var a0 = steps[0].a0, a1 = steps[steps.length - 1].a1;
+    var s0 = pp(a0, r0);
+    var d = "M " + s0[0].toFixed(1) + " " + s0[1].toFixed(1);
+    d = arcTo(d, r0, a0, a1, 1);
+    var q = pp(a1, steps[steps.length - 1].r);
+    d += " L " + q[0].toFixed(1) + " " + q[1].toFixed(1);
+    for (var i = steps.length - 1; i >= 0; i--) {
+      d = arcTo(d, steps[i].r, steps[i].a1, steps[i].a0, 0);
+      if (i > 0) {
+        var j = pp(steps[i].a0, steps[i - 1].r);
+        d += " L " + j[0].toFixed(1) + " " + j[1].toFixed(1);
+      }
+    }
+    return d + " Z";
+  }
+  var polar = el("g", { id: "polar" }, cam);
+  var RINGS = [215, 300, 385];
+  for (var ri = 0; ri < RINGS.length; ri++)
+    el("circle", { class: "ring", cx: TERRA.x, cy: TERRA.y, r: RINGS[ri], "vector-effect": "non-scaling-stroke" }, polar);
+  el("circle", { class: "ring solar", cx: TERRA.x, cy: TERRA.y, r: 130, "vector-effect": "non-scaling-stroke" }, polar);
+  for (var sp = 0; sp < 360; sp += 30) {
+    var pA = pp(sp, 130), pB = pp(sp, 385);
+    el("line", { class: "spoke", x1: pA[0], y1: pA[1], x2: pB[0], y2: pB[1], "vector-effect": "non-scaling-stroke" }, polar);
+  }
+  for (var tk = 0; tk < 360; tk += 5) {
+    var tA = pp(tk, 381), tB = pp(tk, 385);
+    el("line", { class: "tick", x1: tA[0], y1: tA[1], x2: tB[0], y2: tB[1], "vector-effect": "non-scaling-stroke" }, polar);
+  }
+  var WEDGES = [
+    [{ a0: -152, a1: -118, r: 330 }, { a0: -118, a1: -84, r: 362 }, { a0: -84, a1: -52, r: 318 }],
+    [{ a0: -52, a1: -14, r: 600 }, { a0: -14, a1: 30, r: 668 }, { a0: 30, a1: 63, r: 590 }],
+    [{ a0: 63, a1: 100, r: 340 }, { a0: 100, a1: 143, r: 305 }],
+    [{ a0: 143, a1: 175, r: 300 }, { a0: 175, a1: 208, r: 336 }],
+  ];
+  var STEPS = [];
+  for (var wi = 0; wi < WEDGES.length; wi++) {
+    el("path", { class: "wedge", d: wedgePath(130, WEDGES[wi]), "vector-effect": "non-scaling-stroke" }, polar);
+    for (var ws = 0; ws < WEDGES[wi].length; ws++) STEPS.push(WEDGES[wi][ws]);
+  }
+
+  /* Vermesser-Strich: wird weiter unten NACH den Feldern angelegt —
+     in G lag er darunter und ersoff im Sturm (Runde-4-Feedback) */
+
+  /* Segmentum-Wasserzeichen (bleiben — Philipps Liebling) */
+  var SEGS = [
+    { name: "Segmentum Solar",     x: 360, y: 372, fs: 26, jump: { x: 360, y: 395, k: 2.1 } },
+    { name: "Segmentum Obscurus",  x: 262, y: 152, fs: 30, jump: { x: 262, y: 165, k: 2.0 } },
+    { name: "Segmentum Pacificus", x: 172, y: 470, fs: 26, jump: { x: 172, y: 500, k: 2.0 } },
+    { name: "Segmentum Tempestus", x: 350, y: 668, fs: 30, jump: { x: 350, y: 650, k: 1.9 } },
+    { name: "Ultima Segmentum",    x: 745, y: 448, fs: 46, jump: { x: 760, y: 460, k: 1.5 } },
+  ];
+  for (var s = 0; s < SEGS.length; s++)
+    txt(el("text", { class: "segname", x: SEGS[s].x, y: SEGS[s].y, "font-size": SEGS[s].fs }, cam), SEGS[s].name);
+
+  /* ════ Warpfelder: Stürme + Great Rift als Warpsturm ════ */
+  var fields = el("g", { id: "fields" }, cam);
+
+  function radial(id, stops) {
+    var g = el("radialGradient", { id: id }, defs);
+    for (var i = 0; i < stops.length; i++)
+      el("stop", { offset: stops[i][0], "stop-color": stops[i][1], "stop-opacity": stops[i][2] }, g);
+  }
+  radial("stormW1", [["0%", WM, 0.34], ["45%", WV, 0.14], ["100%", WV, 0]]);
+  radial("stormW2", [["0%", WB, 0.3], ["50%", WV, 0.12], ["100%", WV, 0]]);
+  radial("wgV", [["0%", WV, 0.32], ["55%", WV, 0.12], ["100%", WV, 0]]);
+  radial("wgM", [["0%", WM, 0.3], ["55%", WM, 0.11], ["100%", WM, 0]]);
+  radial("wgB", [["0%", WB, 0.28], ["55%", WB, 0.1], ["100%", WB, 0]]);
+
+  function xMark(parent, x, y, s, op, cls, color) {
+    el("path", {
+      class: cls || "rf",
+      d: "M " + (x - s) + " " + (y - s) + " L " + (x + s) + " " + (y + s) +
+         " M " + (x - s) + " " + (y + s) + " L " + (x + s) + " " + (y - s),
+      stroke: color || BLOOD, "stroke-width": 0.9, "stroke-opacity": op,
+      fill: "none", "vector-effect": "non-scaling-stroke",
+    }, parent);
+  }
+  function storm(cx, cy, R, count, seed, s2, grad, cols, whirl) {
+    var g = el("g", { class: "storm" + (s2 ? " s2" : "") }, fields);
+    el("circle", { cx: cx, cy: cy, r: R, fill: "url(#" + grad + ")" }, g);
+    var inner = whirl ? el("g", { class: "whirl" }, g) : g;
+    if (whirl) el("circle", { cx: cx, cy: cy, r: R + 4, fill: "none", stroke: "none" }, inner); /* Gegengewicht */
+    var rnd = lcg(seed);
+    for (var i = 0; i < count; i++) {
+      var a = rnd() * Math.PI * 2, rr = Math.pow(rnd(), 0.6) * R * 0.92;
+      xMark(inner, cx + Math.cos(a) * rr, cy + Math.sin(a) * rr, 1 + rnd() * 1.1, 0.22 + rnd() * 0.3, "sx sx" + (i % 2), cols[i % cols.length]);
+    }
+  }
+  storm(260.3, 232.5, 30, 26, 41, false, "stormW1", [BLOOD, WV, WM], true); /* Eye of Terror — wirbelt */
+  storm(558.2, 409.9, 19, 13, 97, true, "stormW2", [WB, WV, BLOOD], false); /* The Maelstrom */
+
+  /* Great Rift: Rückgrat + DREI schaltbare Sturm-Fassungen (Regie-Panel).
+     Gemeinsam in allen Fassungen (Runde 5, nach dem ORIGINAL der
+     Live-Map): das reguläre X-Raster mit häretischen Wörtern,
+     Totenköpfen und INTERDICTED-Labeln, dazu die Blitze. Der
+     G-Nebel-Wash ist nur noch als halbierte Probe in Fassung III. */
+  var RIFT_D = "M 262 228 C 350 200, 430 198, 516 232 S 596 330, 618 428 S 662 546, 716 588";
+  var spine = el("path", { id: "riftSpine", d: RIFT_D, fill: "none", stroke: "none" }, defs);
+  var riftG = el("g", {}, fields);
+  (function () {
+    var L = spine.getTotalLength();
+    function at(t) { return spine.getPointAtLength(t * L); }
+    function frameAt(t) {
+      var p = at(t), p2 = spine.getPointAtLength(Math.min(L, t * L + 2));
+      var tx2 = p2.x - p.x, ty2 = p2.y - p.y;
+      var tl = Math.hypot(tx2, ty2) || 1;
+      return { p: p, tx: tx2 / tl, ty: ty2 / tl, nx: -ty2 / tl, ny: tx2 / tl };
+    }
+    var rv1 = el("g", { id: "rv1", class: "rv" }, riftG);
+    var rv2 = el("g", { id: "rv2", class: "rv" }, riftG);
+    var rv3 = el("g", { id: "rv3", class: "rv" }, riftG);
+
+    /* Fassung I — Hochwerk (Default, F-treu): nur der Warpfluss */
+    el("path", {
+      class: "riftflow", d: RIFT_D, fill: "none",
+      stroke: WL, "stroke-opacity": 0.3, "stroke-dasharray": "1.5 9",
+      "stroke-linecap": "round", "vector-effect": "non-scaling-stroke",
+    }, rv1);
+
+    /* Fassung II — Riss (Runde 5: DEFAULT, mit mehr Warp-Farbe):
+       enges warp-getöntes Band am Riss (zwei weichgezeichnete Konturen —
+       bewusst schmal + dunkel, KEIN G-Wash), gezackter Hauptriss + Adern
+       in der ganzen Warp-Palette, dazu die Warpfluss-Linie. */
+    (function () {
+      var bandBlur = el("filter", { id: "rvBlur", x: "-30%", y: "-30%", width: "160%", height: "160%" }, defs);
+      el("feGaussianBlur", { stdDeviation: 5 }, bandBlur);
+      var band = el("g", { class: "rvband", filter: "url(#rvBlur)" }, rv2);
+      el("path", { d: RIFT_D, fill: "none", stroke: WV, "stroke-width": 30, "stroke-opacity": 0.09, "stroke-linecap": "round" }, band);
+      el("path", { d: RIFT_D, fill: "none", stroke: WM, "stroke-width": 13, "stroke-opacity": 0.11, "stroke-linecap": "round" }, band);
+      var rnd = lcg(733);
+      function jag(off, segs, amp, cls, color, op, wdt) {
+        var d = "";
+        for (var i = 0; i <= segs; i++) {
+          var t = i / segs;
+          var q = frameAt(Math.min(0.999, t));
+          var half = 9 + 17 * Math.sin(Math.PI * t);
+          var wob = (rnd() - 0.5) * amp;
+          var x = q.p.x + q.nx * (off * half + wob), y = q.p.y + q.ny * (off * half + wob);
+          d += (i === 0 ? "M " : " L ") + x.toFixed(1) + " " + y.toFixed(1);
+        }
+        el("path", {
+          class: cls, d: d, fill: "none", stroke: color,
+          "stroke-width": wdt, "stroke-opacity": op,
+          "stroke-linejoin": "bevel", "vector-effect": "non-scaling-stroke",
+        }, rv2);
+      }
+      jag(0, 46, 3.4, "rcrack", WM, 0.6, 1);
+      jag(0.42, 34, 4.5, "rvein0", WV, 0.38, 0.7);
+      jag(-0.45, 30, 5, "rvein1", WB, 0.34, 0.7);
+      jag(-0.2, 36, 3.8, "rvein0", WM, 0.26, 0.65);
+      jag(0.8, 24, 6, "rvein2", WV, 0.24, 0.6);
+      jag(-0.85, 22, 6, "rvein2", WB, 0.2, 0.6);
+      el("path", {
+        class: "riftflow", d: RIFT_D, fill: "none",
+        stroke: WL, "stroke-opacity": 0.28, "stroke-dasharray": "1.5 9",
+        "stroke-linecap": "round", "vector-effect": "non-scaling-stroke",
+      }, rv2);
+    })();
+
+    /* Fassung III — Glut: die G-Nebelfelder, halbiert (Vergleichsprobe) */
+    (function () {
+      var HUES = ["url(#wgV)", "url(#wgM)", "url(#wgB)"];
+      for (var bl = 0; bl < 7; bl++) {
+        var bt = 0.08 + bl * 0.14;
+        var bp = at(bt);
+        var br = (9 + 17 * Math.sin(Math.PI * bt)) * 1.3;
+        el("circle", { class: "wblob wb" + (bl % 3), cx: bp.x.toFixed(1), cy: bp.y.toFixed(1), r: br.toFixed(1), fill: HUES[bl % 3] }, rv3);
+      }
+      el("path", {
+        class: "riftflow", d: RIFT_D, fill: "none",
+        stroke: WL, "stroke-opacity": 0.26, "stroke-dasharray": "1.5 9",
+        "stroke-linecap": "round", "vector-effect": "non-scaling-stroke",
+      }, rv3);
+    })();
+
+    /* ── Cicatrix nach dem ORIGINAL (CicatrixSpine.tsx der Live-Map,
+       Runde 5): das X-Raster IST die Notation — reguläre Zeichen im
+       triangular/brick-Pattern (live default), an den Korridor
+       geclippt, Deckkraft fällt zur Kante. In Runs benachbarter
+       Zellen flammen häretische Wörter auf (Buchstaben glitchen durch
+       Okkult-Zeichen, die X-e weichen solange). Hover FADED das
+       Zeichen aus. Totenköpfe punktieren die Spine, drei INTERDICTED-
+       Label mit ausgesparten Raster-Zonen. ── */
+    var GLITCH = "█▓▒░╳╋╬@#$&*?¥¤ΨΩΞ◊◆☩✠⛧§×!¿";
+    var WORDS = ["DESPAIR", "HERESY", "CORRUPTED", "OBLIVION", "BETRAYAL", "NOMERCY",
+      "ALLISLOST", "BLOODAWAITS", "THEEND", "DECEIVER", "BLASPHEMY", "DAMNATION",
+      "ABANDONHOPE", "NIGHTFALLS", "BURN", "THELONGWAR", "WITNESSUS", "CHAINSBREAK",
+      "FATEUNBOUND", "RUIN", "COLDFIRE", "CHOIRBROKEN", "GODSDEAD"];
+    var FR = [];
+    for (var fi = 0; fi < 60; fi++) {
+      var fq = frameAt(Math.min(0.999, fi / 59));
+      FR.push({ x: fq.p.x, y: fq.p.y, nx: fq.nx, ny: fq.ny, t: fi / 59 });
+    }
+    function corrW(t2) { return 6 + 13.5 * Math.sin(Math.PI * t2) + 2.8 * Math.sin(2 * Math.PI * t2); }
+    /* Korridor-Polygon + Punkt-Test (Original-Verfahren) */
+    var poly = [];
+    for (var pi2 = 0; pi2 < FR.length; pi2++) {
+      var w1 = corrW(FR[pi2].t);
+      poly.push([FR[pi2].x + FR[pi2].nx * w1, FR[pi2].y + FR[pi2].ny * w1]);
+    }
+    for (var pi3 = FR.length - 1; pi3 >= 0; pi3--) {
+      var w2 = corrW(FR[pi3].t);
+      poly.push([FR[pi3].x - FR[pi3].nx * w2, FR[pi3].y - FR[pi3].ny * w2]);
+    }
+    function inPoly(px2, py2) {
+      var inside = false;
+      for (var ii = 0, jj = poly.length - 1; ii < poly.length; jj = ii++) {
+        var xi = poly[ii][0], yi = poly[ii][1], xj = poly[jj][0], yj = poly[jj][1];
+        if (yi > py2 !== yj > py2 && px2 < ((xj - xi) * (py2 - yi)) / (yj - yi) + xi) inside = !inside;
+      }
+      return inside;
+    }
+    var bb = [Infinity, Infinity, -Infinity, -Infinity];
+    for (var pb = 0; pb < poly.length; pb++) {
+      bb[0] = Math.min(bb[0], poly[pb][0]); bb[1] = Math.min(bb[1], poly[pb][1]);
+      bb[2] = Math.max(bb[2], poly[pb][0]); bb[3] = Math.max(bb[3], poly[pb][1]);
+    }
+    /* drei Label-Zonen werden aus dem Raster ausgespart (Original) */
+    var LDEF = [{ tt: 0.18, dy: 0 }, { tt: 0.5, dy: -17 }, { tt: 0.82, dy: 0 }];
+    var zones = [];
+    for (var lz = 0; lz < LDEF.length; lz++) {
+      var lf = FR[Math.floor(LDEF[lz].tt * (FR.length - 1))];
+      zones.push({ x: lf.x, y: lf.y + LDEF[lz].dy, idx: Math.floor(LDEF[lz].tt * (FR.length - 1)) });
+    }
+    function inZone(px2, py2) {
+      for (var zi = 0; zi < zones.length; zi++)
+        if (Math.abs(px2 - zones[zi].x) < 29 && py2 > zones[zi].y - 3 && py2 < zones[zi].y + 7.5) return true;
+      return false;
+    }
+    function nearSpine(px2, py2) {
+      var bd = Infinity, bi = 0;
+      for (var si = 0; si < FR.length; si++) {
+        var ddx = px2 - FR[si].x, ddy = py2 - FR[si].y, d2 = ddx * ddx + ddy * ddy;
+        if (d2 < bd) { bd = d2; bi = si; }
+      }
+      return { dist: Math.sqrt(bd), hw: corrW(bi / (FR.length - 1)) };
+    }
+    /* triangular/brick-Raster — das live-default-Pattern */
+    var SX = 4.8, SY = 4.2;
+    var rnd = lcg(4242);
+    var rowsMap = {};
+    var gy0 = Math.floor(bb[1] / SY) * SY, gx0 = Math.floor(bb[0] / SX) * SX;
+    var rowI = 0;
+    for (var cy = gy0; cy <= bb[3]; cy += SY) {
+      var xoff = rowI % 2 === 1 ? SX / 2 : 0;
+      for (var cx2 = gx0 + xoff; cx2 <= bb[2]; cx2 += SX) {
+        if (!inPoly(cx2, cy) || inZone(cx2, cy)) continue;
+        var nsp = nearSpine(cx2, cy);
+        var fade = Math.pow(1 - Math.min(1, nsp.dist / Math.max(0.5, nsp.hw)), 1.2);
+        var op = (0.9 + rnd() * 0.1) * (0.38 + 0.62 * fade);
+        var s = 0.82 * (0.85 + 0.15 * fade);
+        var cg = el("g", { class: "rfx", transform: "translate(" + cx2.toFixed(1) + " " + cy.toFixed(1) + ")" }, riftG);
+        var xg = el("g", { class: "xg", style: "--o:" + op.toFixed(2) }, cg);
+        el("circle", { r: 2.4, fill: "transparent", stroke: "none" }, xg);
+        var xf = el("g", { class: "xf" }, xg);
+        if (!reduce)
+          xf.setAttribute("style", "animation: rfG " + (6 + rnd() * 5).toFixed(1) + "s linear " + (rnd() * 9).toFixed(1) + "s infinite");
+        el("path", {
+          d: "M " + (-s).toFixed(2) + " " + (-s).toFixed(2) + " L " + s.toFixed(2) + " " + s.toFixed(2) +
+             " M " + (-s).toFixed(2) + " " + s.toFixed(2) + " L " + s.toFixed(2) + " " + (-s).toFixed(2),
+          stroke: BLOOD, "stroke-width": 0.85, fill: "none", "vector-effect": "non-scaling-stroke",
+        }, xf);
+        var rk = cy.toFixed(2);
+        (rowsMap[rk] = rowsMap[rk] || []).push({ x: cx2, y: cy, el: cg });
+      }
+      rowI++;
+    }
+    /* Runs: >=5 benachbarte Zellen einer Zeile tragen die Wörter */
+    var runs = [];
+    for (var rk2 in rowsMap) {
+      var arr = rowsMap[rk2];
+      arr.sort(function (a2, b2) { return a2.x - b2.x; });
+      var st3 = 0;
+      for (var ri3 = 1; ri3 <= arr.length; ri3++) {
+        if (ri3 === arr.length || arr[ri3].x - arr[ri3 - 1].x > SX * 1.6) {
+          if (ri3 - st3 >= 5) runs.push(arr.slice(st3, ri3));
+          st3 = ri3;
+        }
+      }
+    }
+    /* Wort-Engine (Original-Taktung): 3 Slots, Buchstaben glitchen rein,
+       halten, glitchen raus; die X-e der Zellen weichen solange */
+    var wordsG = el("g", { "pointer-events": "none" }, riftG);
+    if (!reduce && runs.length) (function () {
+      var wrnd = lcg(91234);
+      var slots = [null, null, null];
+      var seeded = false;
+      var t0w = performance.now();
+      function mkSlot(now) {
+        for (var tr = 0; tr < 30; tr++) {
+          var word = WORDS[Math.floor(wrnd() * WORDS.length)];
+          var run = null;
+          for (var rt = 0; rt < 16; rt++) {
+            var cand = runs[Math.floor(wrnd() * runs.length)];
+            if (cand && cand.length >= word.length) { run = cand; break; }
+          }
+          if (!run) continue;
+          var s0 = Math.floor(wrnd() * (run.length - word.length + 1));
+          var cs = run.slice(s0, s0 + word.length);
+          var clash = false;
+          for (var si2 = 0; si2 < slots.length; si2++) {
+            var o2 = slots[si2];
+            if (!o2 || o2.done) continue;
+            for (var ci6 = 0; ci6 < cs.length; ci6++)
+              if (o2.cells.indexOf(cs[ci6]) >= 0) clash = true;
+          }
+          if (clash) continue;
+          var hold = 1.5 + wrnd() * 0.9;
+          var slot = { word: word, cells: cs, begin: now, fadeIn: 0.55, hold: hold, fadeOut: 0.6,
+                       total: 0.55 + hold + 0.6, restartAt: now + 0.55 + hold + 0.6 + 3.5 + wrnd() * 6.5,
+                       els: [], done: false };
+          for (var li2 = 0; li2 < cs.length; li2++) {
+            cs[li2].el.classList.add("cor");
+            slot.els.push(el("text", {
+              x: cs[li2].x.toFixed(1), y: (cs[li2].y + 0.7).toFixed(1),
+              fill: BLOOD, "font-family": "Fragment Mono, monospace", "font-size": 1.9,
+              "font-weight": 700, "text-anchor": "middle", opacity: 0,
+            }, wordsG));
+          }
+          return slot;
+        }
+        return null;
+      }
+      function killSlot(sl2) {
+        for (var i2 = 0; i2 < sl2.cells.length; i2++) sl2.cells[i2].el.classList.remove("cor");
+        for (var i3 = 0; i3 < sl2.els.length; i3++) wordsG.removeChild(sl2.els[i3]);
+        sl2.els = [];
+        sl2.done = true;
+      }
+      setInterval(function () {
+        var now = (performance.now() - t0w) / 1000;
+        for (var i4 = 0; i4 < slots.length; i4++) {
+          var sl = slots[i4];
+          if (!sl) { slots[i4] = mkSlot(seeded ? now : 0.4 + i4 * 1.8); continue; }
+          var e2 = now - sl.begin;
+          if (!sl.done && e2 > sl.total) killSlot(sl);
+          if (now >= sl.restartAt) { slots[i4] = mkSlot(now); continue; }
+          if (sl.done || e2 < 0) continue;
+          for (var li3 = 0; li3 < sl.word.length; li3++) {
+            var ttt = e2 - 0.045 * li3;
+            var te = sl.els[li3];
+            if (ttt < 0) { te.setAttribute("opacity", 0); continue; }
+            var opc, ch, actual = sl.word[li3];
+            if (ttt < sl.fadeIn) {
+              opc = (ttt / sl.fadeIn) * 0.9;
+              var ix = Math.floor(ttt * 30 + li3 * 13 + i4 * 7);
+              ch = ix % 5 === 4 ? actual : GLITCH[ix % GLITCH.length];
+            } else if (ttt < sl.fadeIn + sl.hold) {
+              opc = 0.9;
+              var ix2 = Math.floor((ttt - sl.fadeIn) * 6 + li3 * 5 + i4 * 3);
+              ch = (ix2 + li3 * 7) % 13 === 0 ? GLITCH[ix2 % GLITCH.length] : actual;
+            } else {
+              var kk = (ttt - sl.fadeIn - sl.hold) / sl.fadeOut;
+              opc = (1 - kk) * 0.9;
+              var ix3 = Math.floor(ttt * 28 + li3 * 11 + i4 * 5);
+              ch = ix3 % 6 === 5 ? actual : GLITCH[ix3 % GLITCH.length];
+            }
+            te.setAttribute("opacity", Math.max(0, opc).toFixed(2));
+            te.textContent = ch;
+          }
+        }
+        seeded = true;
+      }, 90);
+    })();
+    /* Totenköpfe punktieren die Spine (Original-Geste) */
+    var skrnd = lcg(9099);
+    var SKT = [0.18, 0.4, 0.62, 0.86];
+    var VOID0 = "#030201";
+    for (var sk = 0; sk < SKT.length; sk++) {
+      var sf = frameAt(SKT[sk]);
+      var sgn2 = sk % 2 === 0 ? 1 : -1;
+      var sg2 = el("g", {
+        class: "rfsk",
+        transform: "translate(" + (sf.p.x + sf.nx * sgn2 * 2.6).toFixed(1) + " " + (sf.p.y + sf.ny * sgn2 * 2.6).toFixed(1) + ") scale(2.6)",
+      }, riftG);
+      if (reduce) sg2.setAttribute("style", "opacity:0.5");
+      else sg2.setAttribute("style", "animation: rfSk " + (6 + skrnd() * 4).toFixed(1) + "s linear " + (skrnd() * 6).toFixed(1) + "s infinite");
+      el("path", { d: "M -0.42 -0.2 C -0.42 -0.58 -0.22 -0.62 0 -0.62 C 0.22 -0.62 0.42 -0.58 0.42 -0.2 L 0.42 0.08 L 0.3 0.14 L 0.28 0.3 L 0.18 0.36 L 0.08 0.3 L 0 0.36 L -0.08 0.3 L -0.18 0.36 L -0.28 0.3 L -0.3 0.14 L -0.42 0.08 Z", fill: BLOOD }, sg2);
+      el("circle", { cx: -0.18, cy: -0.16, r: 0.13, fill: VOID0 }, sg2);
+      el("circle", { cx: 0.18, cy: -0.16, r: 0.13, fill: VOID0 }, sg2);
+      el("path", { d: "M -0.05 0.02 L 0.05 0.02 L 0 0.14 Z", fill: VOID0 }, sg2);
+      el("rect", { x: -0.02, y: 0.18, width: 0.04, height: 0.14, fill: VOID0 }, sg2);
+    }
+    /* Drei INTERDICTED-Label, horizontal wie im Original */
+    for (var lb = 0; lb < LDEF.length; lb++) {
+      var zf = zones[lb];
+      var lg2 = el("g", {
+        class: "rflbl",
+        transform: "translate(" + zf.x.toFixed(1) + " " + zf.y.toFixed(1) + ")",
+      }, riftG);
+      if (!reduce) lg2.setAttribute("style", "animation: rfLb " + (7 + lb * 2) + "s linear " + (lb * 1.7).toFixed(1) + "s infinite");
+      txt(el("text", { class: "riftlbl", y: 0.6, "font-size": 4.2, "text-anchor": "middle", "fill-opacity": 0.72, "letter-spacing": "0.19em" }, lg2), "✠ INTERDICTED ZONE ✠");
+      txt(el("text", { class: "riftlbl", y: 5.4, "font-size": 2.6, "text-anchor": "middle", "fill-opacity": 0.45, "letter-spacing": "0.42em" }, lg2), "CICATRIX MALEDICTUM · M42." + ((zf.idx * 7 + 13) % 1000));
+    }
+
+    /* Blitze: kurze Zickzack-Adern, zucken selten (alle Fassungen).
+       Runde 5: zehn statt vier, Farben wechseln durch die Warp-Palette. */
+    var BT = [0.06, 0.15, 0.25, 0.36, 0.46, 0.56, 0.66, 0.76, 0.86, 0.94];
+    var BCOL = [WL, WV, WM, WB, WL, WM, WV, WB, WL, WV];
+    var brnd = lcg(509);
+    for (var bo = 0; bo < BT.length; bo++) {
+      var q2f = frameAt(BT[bo]);
+      var bnx = q2f.nx, bny = q2f.ny, tx2 = q2f.tx, ty2 = q2f.ty;
+      var sign = brnd() > 0.5 ? 1 : -1;
+      var px = q2f.p.x, py = q2f.p.y, d = "M " + px.toFixed(1) + " " + py.toFixed(1);
+      for (var sg = 0; sg < 4; sg++) {
+        sign = -sign;
+        px += bnx * sign * (3 + brnd() * 4) + tx2 * (brnd() * 7 - 2);
+        py += bny * sign * (3 + brnd() * 4) + ty2 * (brnd() * 7 - 2);
+        d += " L " + px.toFixed(1) + " " + py.toFixed(1);
+      }
+      el("path", {
+        class: "warc wa" + (bo % 6), d: d, stroke: BCOL[bo],
+        "stroke-width": (0.55 + brnd() * 0.35).toFixed(2), "vector-effect": "non-scaling-stroke",
+      }, riftG);
+    }
+  })();
+  /* Leviathan: Schwarmfeld am Ostrand — Beschriftung jetzt IM Feld */
+  (function () {
+    var lev = el("g", { class: "lev", transform: "rotate(14 872 285)" }, fields);
+    el("ellipse", {
+      class: "lv-lens", cx: 872, cy: 285, rx: 46, ry: 100,
+      fill: "none", stroke: ICE, "stroke-opacity": 0.14,
+      "stroke-dasharray": "2 5", "vector-effect": "non-scaling-stroke",
+    }, lev);
+    var rnd = lcg(613);
+    for (var i = 0; i < 34; i++) {
+      var a = rnd() * Math.PI * 2, rr = Math.sqrt(rnd());
+      var x = 872 + Math.cos(a) * 40 * rr, y = 285 + Math.sin(a) * 92 * rr;
+      el("path", {
+        class: "lv" + (i % 3),
+        d: "M " + (x - 1.6) + " " + (y + 1.1) + " L " + x + " " + (y - 1.4) + " L " + (x + 1.6) + " " + (y + 1.1),
+        stroke: ICE, "stroke-opacity": 0.12 + rnd() * 0.16, fill: "none", "vector-effect": "non-scaling-stroke",
+      }, lev);
+    }
+    txt(el("text", { class: "levlbl", x: 872, y: 276, "font-size": 6.5, "text-anchor": "middle", "fill-opacity": 0.42 }, lev), "HIVE FLEET");
+    txt(el("text", { class: "levlbl", x: 872, y: 286, "font-size": 6.5, "text-anchor": "middle", "fill-opacity": 0.42 }, lev), "LEVIATHAN");
+    txt(el("text", { class: "levlbl", x: 872, y: 296, "font-size": 5, "text-anchor": "middle", "fill-opacity": 0.28 }, lev), "XENOS ACTIVITY");
+  })();
+
+  /* Sautekh-Dynastie: gestufte Grab-Geometrie im Norden Ultimas */
+  (function () {
+    var nec = el("g", { class: "nec" }, fields);
+    el("path", {
+      class: "nc-border",
+      d: "M 652 162 L 676 162 L 676 150 L 712 150 L 712 158 L 748 158 L 748 180 L 756 180 L 756 204 L 726 204 L 726 216 L 682 216 L 682 208 L 652 208 Z",
+      fill: "rgba(156,230,255,0.02)", stroke: ICE, "stroke-opacity": 0.16,
+      "stroke-dasharray": "3 3", "vector-effect": "non-scaling-stroke",
+    }, nec);
+    var rnd = lcg(911);
+    for (var i = 0; i < 12; i++) {
+      var x = 660 + rnd() * 88, y = 158 + rnd() * 52;
+      var g = el("g", { class: "nc" + (i % 3) }, nec);
+      el("line", { x1: x, y1: y - 1.6, x2: x, y2: y + 1.6, stroke: ICE, "stroke-width": 0.8, "stroke-opacity": 0.3 + rnd() * 0.2, "vector-effect": "non-scaling-stroke" }, g);
+      el("circle", { cx: x, cy: y - 2.6, r: 0.6, fill: ICE, "fill-opacity": 0.4 }, g);
+    }
+    txt(el("text", { class: "levlbl", x: 704, y: 180, "font-size": 7, "text-anchor": "middle", "fill-opacity": 0.42 }, nec), "SAUTEKH DYNASTY");
+    txt(el("text", { class: "levlbl", x: 704, y: 190, "font-size": 5.5, "text-anchor": "middle", "fill-opacity": 0.3 }, nec), "TOMB WORLDS STIR · M41");
+  })();
+
+  /* ════ Pins: Kind-Icons (klein — Planeten bleiben Planeten).
+     Staub jetzt in Gruppen JE KLASSIFIKATION (Census-Filter, Runde 4);
+     der data-kg-Präfix "d-" hält die Route-Dimmung am Leben. ════ */
+  var kindGroups = {};
+  function kg(key) {
+    if (!kindGroups[key]) kindGroups[key] = el("g", { "data-kg": key }, cam);
+    return kindGroups[key];
+  }
+
+  /* Staub mit LCG-Streuung (Runde 5): manche Körner kleiner, manche einen
+     Hauch heller — aber IMMER deutlich unter den Werk-Pins (die stehen
+     bei r≥2.2 und fill-opacity 0.9) */
+  var drnd = lcg(422);
+  for (var b = 0; b < D.background.length; b++) {
+    var bgw = D.background[b];
+    var g = el("g", { transform: "translate(" + bgw[0] + " " + bgw[1] + ")" }, kg("d-c" + bgw[3]));
+    var dr = 0.55 + drnd() * 0.55, dop = 0.1 + drnd() * 0.18;
+    if (drnd() < 0.09) { dr = 0.95 + drnd() * 0.3; dop = 0.3 + drnd() * 0.12; }
+    el("circle", { class: "pi", r: dr.toFixed(2), fill: BONE, "fill-opacity": dop.toFixed(2) }, g);
+  }
+
+  function glyph(parent, kind, s) {
+    var g = el("g", { class: "glyph" }, parent);
+    switch (kind) {
+      case "chaos-warp": /* achtstrahliger Chaosstern */
+        for (var c8 = 0; c8 < 8; c8++) {
+          var ca = (Math.PI * c8) / 4, cl = c8 % 2 === 0 ? s : s * 0.55;
+          el("line", { x1: 0, y1: 0, x2: Math.cos(ca) * cl, y2: Math.sin(ca) * cl, stroke: BLOOD, "stroke-width": 0.9 }, g);
+        }
+        el("circle", { r: s * 0.28, fill: BLOOD }, g);
+        break;
+      case "dead": /* das Kreuz (bleibt) */
+        el("line", { x1: -s, y1: -s, x2: s, y2: s, stroke: BONE, "stroke-width": 1.1, "stroke-opacity": 0.8 }, g);
+        el("line", { x1: -s, y1: s, x2: s, y2: -s, stroke: BONE, "stroke-width": 1.1, "stroke-opacity": 0.8 }, g);
+        break;
+      case "imperial-military": /* Festung: Punkt im Goldring */
+        el("circle", { r: s * 0.55, fill: BONE }, g);
+        el("circle", { r: s + 1.2, fill: "none", stroke: GOLD, "stroke-width": 0.8 }, g);
+        break;
+      case "station": /* Bastion: Quadrat + Kernpunkt */
+        el("rect", { x: -s * 0.85, y: -s * 0.85, width: s * 1.7, height: s * 1.7, fill: "none", stroke: GOLD, "stroke-width": 0.9 }, g);
+        el("circle", { r: 0.8, fill: GOLD, "fill-opacity": 0.8 }, g);
+        break;
+      case "fleet": /* Flotte: Kiel-Dreieck */
+        el("path", { d: "M 0 " + (-s * 1.1) + " L " + s + " " + s + " L 0 " + (s * 0.45) + " L " + (-s) + " " + s + " Z", fill: "none", stroke: GOLD, "stroke-width": 0.9 }, g);
+        break;
+      case "gate": /* Tor: Raute + Kernpunkt */
+        el("rect", { x: -s * 0.8, y: -s * 0.8, width: s * 1.6, height: s * 1.6, fill: "none", stroke: GOLD, "stroke-width": 0.9, transform: "rotate(45)" }, g);
+        el("circle", { r: 0.7, fill: GOLD, "fill-opacity": 0.8 }, g);
+        break;
+      case "necron": /* Grabwelt: Ring + Monolith-Strich */
+        el("circle", { r: s * 0.85, fill: "none", stroke: ICE, "stroke-width": 0.8, "stroke-opacity": 0.65 }, g);
+        el("line", { x1: 0, y1: -s, x2: 0, y2: s, stroke: ICE, "stroke-width": 0.8, "stroke-opacity": 0.65 }, g);
+        break;
+      case "aeldari": /* Weltenschiff: geneigte Linse + Kern */
+        el("ellipse", { rx: s * 0.55, ry: s * 1.15, fill: "none", stroke: ICE, "stroke-width": 0.8, "stroke-opacity": 0.65, transform: "rotate(30)" }, g);
+        el("circle", { r: 0.6, fill: ICE, "fill-opacity": 0.5 }, g);
+        break;
+      case "xenos": /* Xenos: Dreieck + Kern */
+        el("path", { d: "M 0 " + s + " L " + s + " " + (-s) + " L " + (-s) + " " + (-s) + " Z", fill: "none", stroke: ICE, "stroke-width": 0.9, "stroke-opacity": 0.65 }, g);
+        el("circle", { r: 0.6, fill: ICE, "fill-opacity": 0.5 }, g);
+        break;
+      default:
+        el("circle", { r: s * 0.85, fill: BONE, "fill-opacity": kind === "unclassified" ? 0.62 : 0.92 }, g);
+    }
+  }
+
+  /* Zoom-Schleier: Top-100 (nach Werkzahl) sofort, Rest ab Band 1 */
+  var ns = [];
+  for (var nf = 0; nf < D.featured.length; nf++)
+    if (D.featured[nf].kind !== "region") ns.push(D.featured[nf].n);
+  ns.sort(function (a, b) { return b - a; });
+  var vbCut = ns[Math.min(99, ns.length - 1)];
+
+  var pinByName = {}, pinByIdx = {};
+  for (var f = 0; f < D.featured.length; f++) {
+    var w = D.featured[f];
+    if (w.kind === "region") continue;
+    var size = 2.2 + Math.min(3.6, Math.log2(1 + w.n));
+    var cls = "w" + (w.n <= vbCut ? " vb1" : "");
+    var pg = el("g", { class: cls, transform: "translate(" + w.gx + " " + w.gy + ")", "data-i": f, "data-kind": w.kind, "data-c": w.c }, kg("f-" + w.kind));
+    var pi = el("g", { class: "pi" }, pg);
+    el("circle", { class: "halo", r: 13 }, pi);
+    glyph(pi, w.kind, size);
+    var tier = w.n >= 15 ? 0 : w.n >= 4 ? 1 : 2;
+    txt(el("text", { class: "lbl t" + tier + (tier === 0 ? " big" : "") }, pg), w.name);
+    if (!pinByName[w.name]) pinByName[w.name] = pg;
+    pinByIdx[f] = pg;
+  }
+
+  var regionWorks = {};
+  for (var rf = 0; rf < D.featured.length; rf++)
+    if (D.featured[rf].kind === "region") regionWorks[D.featured[rf].name] = rf;
+  for (var rg = 0; rg < D.regions.length; rg++) {
+    var reg = D.regions[rg];
+    var attrs = { class: "rgn", x: reg.gx, y: reg.gy };
+    if (regionWorks[reg.name] !== undefined) attrs["data-i"] = regionWorks[reg.name];
+    txt(el("text", attrs, cam), reg.name.toUpperCase());
+  }
+
+  /* ════ Instrumente: Lumen Astronomican + Imperium Nihilus.
+     Das Licht ist hell — und es wird VOM RIFT VERSCHLUCKT. Eine Maske
+     schneidet die Lichtscheibe am Sturmband weich ab; jenseits davon
+     liegt Schwärze („Lux Devorata").
+     Runde 5: die Schattenkanten laufen als STRAHLEN VON TERRA durch die
+     beiden Rift-Enden (das Licht geht von Terra aus — also enden auch
+     seine Kanten radial, keine 90°-Ecken mehr), und die Region schließt
+     erst an einem Fernkreis r=2600 weit außerhalb jedes Pan-Bereichs —
+     beim Verschieben tauchen keine Overlay-Kanten mehr auf. ════ */
+  var NIHILUS_D = (function () {
+    var A = { x: 262, y: 228 }, B = { x: 716, y: 588 }, RFAR = 2600;
+    function far(P) {
+      var dx = P.x - TERRA.x, dy = P.y - TERRA.y, l = Math.hypot(dx, dy);
+      return { x: TERRA.x + (dx / l) * RFAR, y: TERRA.y + (dy / l) * RFAR };
+    }
+    var bf = far(B), af = far(A);
+    return RIFT_D + " L " + bf.x.toFixed(1) + " " + bf.y.toFixed(1) +
+           " A " + RFAR + " " + RFAR + " 0 0 0 " + af.x.toFixed(1) + " " + af.y.toFixed(1) + " Z";
+  })();
+  var lumenG = el("g", { id: "lumenG" }, cam);
+  (function () {
+    var LR = 470;
+    var veil = el("radialGradient", { id: "lmVeil", gradientUnits: "userSpaceOnUse", cx: TERRA.x, cy: TERRA.y, r: LR * 1.36 }, defs);
+    el("stop", { offset: "0%", "stop-color": "#020103", "stop-opacity": 0 }, veil);
+    el("stop", { offset: "70%", "stop-color": "#020103", "stop-opacity": 0 }, veil);
+    el("stop", { offset: "84%", "stop-color": "#020103", "stop-opacity": 0.32 }, veil);
+    el("stop", { offset: "100%", "stop-color": "#020103", "stop-opacity": 0.52 }, veil);
+    var light = el("radialGradient", { id: "lmLight", gradientUnits: "userSpaceOnUse", cx: TERRA.x, cy: TERRA.y, r: LR }, defs);
+    el("stop", { offset: "0%", "stop-color": GOLD, "stop-opacity": 0.14 }, light);
+    el("stop", { offset: "55%", "stop-color": GOLD, "stop-opacity": 0.06 }, light);
+    el("stop", { offset: "88%", "stop-color": GOLD, "stop-opacity": 0.02 }, light);
+    el("stop", { offset: "100%", "stop-color": GOLD, "stop-opacity": 0 }, light);
+    /* Maske: weiss = Licht darf leben; das Rift-Band (weich verwischt)
+       und die Nihilus-Seite schlucken es */
+    /* Blur-Region eng um das Rift definieren (userSpaceOnUse), NICHT
+       prozentual — die Nihilus-Fläche ist jetzt riesig (Fernkreis) */
+    var blur = el("filter", { id: "lmBlur", filterUnits: "userSpaceOnUse", x: -2400, y: -2350, width: 5600, height: 5500 }, defs);
+    el("feGaussianBlur", { stdDeviation: 7 }, blur);
+    var mask = el("mask", { id: "lmMask", maskUnits: "userSpaceOnUse", x: -2400, y: -2350, width: 5600, height: 5500 }, defs);
+    el("rect", { x: -2400, y: -2350, width: 5600, height: 5500, fill: "#fff" }, mask);
+    el("path", { d: NIHILUS_D, fill: "#000", filter: "url(#lmBlur)" }, mask);
+    el("path", { d: RIFT_D, fill: "none", stroke: "#000", "stroke-width": 30, "stroke-linecap": "round", filter: "url(#lmBlur)" }, mask);
+    el("rect", { class: "lm-veil", x: -2400, y: -2350, width: 5600, height: 5500, fill: "url(#lmVeil)" }, lumenG);
+    /* Jenseits des Rifts: der Warp frisst das Licht — Schwärze */
+    el("path", { class: "lm-dark", d: NIHILUS_D, fill: "#010002", "fill-opacity": 0.5 }, lumenG);
+    var grow = el("g", { class: "lm-grow", mask: "url(#lmMask)" }, lumenG);
+    el("circle", { cx: TERRA.x, cy: TERRA.y, r: LR, fill: "url(#lmLight)" }, grow);
+    el("circle", { class: "lm-rim", cx: TERRA.x, cy: TERRA.y, r: LR, fill: "none", stroke: GOLD, "stroke-opacity": 0.32, "stroke-dasharray": "1 6", "vector-effect": "non-scaling-stroke" }, grow);
+    txt(el("text", { class: "lm-lbl", x: 700, y: 655, "font-size": 7, "text-anchor": "middle", "fill-opacity": 0.5 }, lumenG), "FINIS LUCIS ASTRONOMICI");
+    txt(el("text", { class: "lm-lbl", x: 700, y: 665, "font-size": 5.5, "text-anchor": "middle", "fill-opacity": 0.35 }, lumenG), "BEYOND: THE BLIND VOID");
+    txt(el("text", { class: "lm-lbl dev", x: 690, y: 322, "font-size": 7, "text-anchor": "middle", "fill-opacity": 0.5 }, lumenG), "LUX DEVORATA");
+    txt(el("text", { class: "lm-lbl dev", x: 690, y: 332, "font-size": 5.5, "text-anchor": "middle", "fill-opacity": 0.35 }, lumenG), "THE WARP DEVOURS THE LIGHT");
+  })();
+
+  var nihilusG = el("g", { id: "nihilusG" }, cam);
+  (function () {
+    var nh = el("linearGradient", { id: "nhG", gradientUnits: "userSpaceOnUse", x1: 300, y1: 500, x2: 900, y2: 0 }, defs);
+    el("stop", { offset: "0%", "stop-color": "#281442", "stop-opacity": 0.14 }, nh);
+    el("stop", { offset: "45%", "stop-color": "#281442", "stop-opacity": 0.3 }, nh);
+    el("stop", { offset: "100%", "stop-color": "#281442", "stop-opacity": 0.44 }, nh);
+    el("path", {
+      class: "nh-shade",
+      d: NIHILUS_D,
+      fill: "url(#nhG)",
+    }, nihilusG);
+    txt(el("text", { class: "nh-lbl", x: 760, y: 118, "font-size": 13, "text-anchor": "middle", "fill-opacity": 0.42 }, nihilusG), "IMPERIUM NIHILUS");
+    txt(el("text", { class: "nh-lbl", x: 760, y: 132, "font-size": 6.5, "text-anchor": "middle", "fill-opacity": 0.28 }, nihilusG), "THE DARK IMPERIUM · BEYOND THE RIFT");
+    txt(el("text", { class: "nh-lbl sanctus", x: 286, y: 588, "font-size": 10, "text-anchor": "middle", "fill-opacity": 0.3 }, nihilusG), "IMPERIUM SANCTUS");
+  })();
+
+  /* ════ Routen: zeichnen sich Station für Station.
+     Runde 4: jede Station bekommt einen kinoreifen Akt-Text (Karte
+     neben dem Planeten, getaktet mit dem Streckenzug). ════ */
+  var ROUTES = [
+    { id: "r1", name: "Indomitus — Guilliman's Crusade", tag: "M42",
+      stations: ["Macragge", "Terra", "Baal", "Vigilus"],
+      acts: [
+        "The Avenging Son wakes from ten thousand years of silence — a primarch walks among the living again.",
+        "Guilliman kneels before the Golden Throne, and rises as Regent of the Imperium. The Indomitus Crusade is sworn.",
+        "The crusade breaks the leviathan’s grip on the home of the Blood Angels — salvation on wings of fire.",
+        "At the Nachmund Gate the crusade holds the last stable passage into the darkened half of the Imperium.",
+      ],
+      legs: [
+        "M 876.9 676 C 700 560, 470 470, 333.4 402",
+        "M 333.4 402 C 440 330, 565 262, 672.9 227.7",
+        "M 672.9 227.7 C 555 208, 425 220, 316.2 234.3",
+      ],
+      lbl: { x: 590, y: 505, t: "INDOMITUS" } },
+    { id: "r2", name: "The Path of Heresy", tag: "M31",
+      stations: ["Davin", "Istvaan III", "Istvaan V", "Molech", "Terra"],
+      acts: [
+        "On a plague-moon the Warmaster falls — and rises again, remade by powers older than the Imperium.",
+        "Horus purges his own legions: virus bombs turn a world of loyal sons to glass and ash.",
+        "The Dropsite Massacre — seven legions make planetfall, three are betrayed. The Heresy is written in blood.",
+        "At the gate of the gods Horus seizes for himself the power the Emperor once refused.",
+        "The Siege. Sanguinius falls; the Emperor ascends the Throne — victory at the price of forever.",
+      ],
+      legs: [
+        "M 544.3 419.6 C 535 330, 515 215, 496 161",
+        "M 496 161 L 490 155",
+        "M 490 155 C 497 196, 500 232, 500 269.2",
+        "M 500 269.2 C 450 315, 392 362, 333.4 402",
+      ],
+      lbl: { x: 552, y: 300, t: "VIA HORUS" } },
+  ];
+  var routeGroups = {}, routeHi = [];
+  for (var ro = 0; ro < ROUTES.length; ro++) (function (rt) {
+    var g = el("g", { class: "route" }, cam);
+    for (var li = 0; li < rt.legs.length; li++) {
+      var mid = "m-" + rt.id + "-" + li;
+      var mask = el("mask", { id: mid }, defs);
+      el("path", { d: rt.legs[li], fill: "none", stroke: "#fff", "stroke-width": 8, pathLength: 1, class: "routeDraw", style: "--i:" + li }, mask);
+      /* Runde 5: .rtFly lässt die Punkte dauerhaft in Fahrtrichtung
+         marschieren (Dash etwas länger, damit die Bewegung lesbar ist) */
+      el("path", {
+        class: "rtFly",
+        d: rt.legs[li], fill: "none", stroke: GOLD, "stroke-opacity": 0.9,
+        "stroke-width": 1.7, "stroke-dasharray": "1.6 4.6", "stroke-linecap": "round",
+        "vector-effect": "non-scaling-stroke", mask: "url(#" + mid + ")",
+      }, g);
+    }
+    for (var st = 0; st < rt.stations.length; st++) {
+      var pw = pinByName[rt.stations[st]];
+      if (!pw) continue;
+      var m = /translate\(([\d.]+) ([\d.]+)\)/.exec(pw.getAttribute("transform"));
+      el("circle", {
+        class: "rt-st", style: "--i:" + st,
+        cx: +m[1], cy: +m[2], r: 8, fill: "none",
+        stroke: GOLD, "stroke-width": 1, "vector-effect": "non-scaling-stroke",
+      }, g);
+      el("circle", {
+        class: "rt-st", style: "--i:" + st,
+        cx: +m[1], cy: +m[2], r: 1.4, fill: GOLD, stroke: "none",
+      }, g);
+    }
+    var lblEl = txt(el("text", { class: "rt-lbl", x: rt.lbl.x, y: rt.lbl.y, "font-size": 9, "text-anchor": "middle" }, g), rt.lbl.t);
+    lblEl.style.animationDelay = (rt.legs.length * 1.45 + 0.4).toFixed(2) + "s";
+    routeGroups[rt.id] = g;
+  })(ROUTES[ro]);
+
+  var activeRoute = null;
+  function clearHi() {
+    for (var i = 0; i < routeHi.length; i++) routeHi[i].classList.remove("rt-hi");
+    routeHi = [];
+  }
+  function hiWorlds(names) {
+    for (var i = 0; i < names.length; i++) {
+      var p = pinByName[names[i]];
+      if (p) { p.classList.add("rt-hi"); routeHi.push(p); }
+    }
+  }
+
+  /* ── Kurs-Karten: kinoreife Stations-Texte (Runde 4).
+     HTML-Overlay, folgt Pan/Zoom; Stationen mit Grid-Abstand < 26
+     clustern zu EINER Karte mit Weiter-Pfeil (Istvaan III/V). ── */
+  var ccardsBox = document.getElementById("ccards");
+  var ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII"];
+  var cardObjs = [], cardTimers = [];
+  function clearCards() {
+    for (var i = 0; i < cardTimers.length; i++) clearTimeout(cardTimers[i]);
+    cardTimers = []; cardObjs = [];
+    ccardsBox.innerHTML = "";
+  }
+  function renderCard(cl) {
+    var a = cl.acts[cl.page];
+    cl.el.querySelector(".ck").textContent = "ACT " + (ROMAN[a.i] || a.i + 1) + " · " + a.name.toUpperCase();
+    cl.el.querySelector(".ct").textContent = a.text;
+    if (cl.pgEl) cl.pgEl.textContent = (cl.page + 1) + " / " + cl.acts.length + " · NEXT →";
+  }
+  function placeCards() {
+    for (var i = 0; i < cardObjs.length; i++) {
+      var cl = cardObjs[i];
+      var sx = tx + cl.gx * k, sy = ty + cl.gy * k;
+      var cw = cl.el.offsetWidth || 232, ch = cl.el.offsetHeight || 84;
+      var px = sx + 24, py = sy - ch / 2;
+      if (px + cw > vw - 12) px = sx - 24 - cw;
+      py = Math.max(12, Math.min(vh - ch - 12, py));
+      cl.el.style.left = px + "px"; cl.el.style.top = py + "px";
+    }
+  }
+  function buildCards(rt) {
+    clearCards();
+    var sts = [];
+    for (var i = 0; i < rt.stations.length; i++) {
+      var pw = pinByName[rt.stations[i]];
+      if (!pw) continue;
+      var m = /translate\(([\d.]+) ([\d.]+)\)/.exec(pw.getAttribute("transform"));
+      sts.push({ name: rt.stations[i], text: (rt.acts && rt.acts[i]) || "", i: i, gx: +m[1], gy: +m[2] });
+    }
+    var clusters = [];
+    for (var s = 0; s < sts.length; s++) {
+      var hit = null;
+      for (var c = 0; c < clusters.length; c++)
+        if (Math.hypot(clusters[c].gx - sts[s].gx, clusters[c].gy - sts[s].gy) < 26) { hit = clusters[c]; break; }
+      if (hit) hit.acts.push(sts[s]);
+      else clusters.push({ gx: sts[s].gx, gy: sts[s].gy, acts: [sts[s]], page: 0 });
+    }
+    for (var c2 = 0; c2 < clusters.length; c2++) (function (cl) {
+      var div = document.createElement("div");
+      div.className = "ccard";
+      div.innerHTML = "<p class='ck'></p><p class='ct'></p>";
+      cl.el = div; cl.pgEl = null;
+      if (cl.acts.length > 1) {
+        var pg = document.createElement("button");
+        pg.className = "cpg";
+        pg.addEventListener("click", function () {
+          cl.page = (cl.page + 1) % cl.acts.length;
+          renderCard(cl);
+          placeCards();
+        });
+        div.appendChild(pg);
+        cl.pgEl = pg;
+      }
+      ccardsBox.appendChild(div);
+      renderCard(cl);
+      var delay = reduce ? 0 : cl.acts[0].i * 1450 + 950;
+      cardTimers.push(setTimeout(function () { div.classList.add("show"); }, delay));
+      cardObjs.push(cl);
+    })(clusters[c2]);
+    placeCards();
+  }
+
+  function setRoute(id) {
+    activeRoute = activeRoute === id ? null : id;
+    clearHi();
+    clearCards();
+    for (var r in routeGroups) routeGroups[r].classList.toggle("on", r === activeRoute);
+    var btns = document.querySelectorAll(".rt[data-rt]");
+    for (var bi = 0; bi < btns.length; bi++) btns[bi].classList.toggle("on", btns[bi].getAttribute("data-rt") === activeRoute);
+    if (activeRoute) {
+      svg.setAttribute("data-route", activeRoute);
+      var rt = null;
+      for (var ri2 = 0; ri2 < ROUTES.length; ri2++) if (ROUTES[ri2].id === activeRoute) rt = ROUTES[ri2];
+      hiWorlds(rt.stations);
+      buildCards(rt);
+    } else svg.removeAttribute("data-route");
+  }
+  var routesBox = document.getElementById("routes");
+  for (var rb = 0; rb < ROUTES.length; rb++) (function (rt) {
+    var b = document.createElement("button");
+    b.className = "rt";
+    b.setAttribute("data-rt", rt.id);
+    b.innerHTML = rt.name + "<span class='rt-tag'>" + rt.tag + "</span>";
+    b.addEventListener("click", function () { condense(); setRoute(rt.id); });
+    routesBox.appendChild(b);
+  })(ROUTES[rb]);
+
+  /* Instrumente-Schalter */
+  var instBox = document.getElementById("instruments");
+  function instButton(name, tag, cls) {
+    var b = document.createElement("button");
+    b.className = "rt";
+    b.innerHTML = name + "<span class='rt-tag'>" + tag + "</span>";
+    b.addEventListener("click", function () {
+      condense();
+      svg.classList.toggle(cls);
+      b.classList.toggle("on", svg.classList.contains(cls));
+    });
+    instBox.appendChild(b);
+    return b;
+  }
+  instButton("Lumen Astronomican", "PSYKANA", "lumen");
+  instButton("Imperium Nihilus", "M42", "nihilus");
+
+  /* ════ Vermesser-Strich, Runde 5 NEU: der Schweif ist EIN BILD mit
+     kontinuierlichem Winkel-Verlauf (einmalig per Canvas gerechnet,
+     gedithert — kein Banding, keine Einzelteile), das als Ganzes
+     rotiert; ein Clip aus der Segmentkanten-Silhouette schneidet es an
+     jeder Peilung auf die Keil-Außenkante. Kein per-Frame-Neubau →
+     kein Sprung an den Segmentgrenzen. Die Leitlinie bleibt Vektor.
+     Liegt weiter ÜBER Feldern und Instrumenten. ════ */
+  function outerR(aDeg) {
+    var a = ((aDeg + 152) % 360 + 360) % 360 - 152;
+    for (var i = 0; i < STEPS.length; i++)
+      if (a >= STEPS[i].a0 && a < STEPS[i].a1) return STEPS[i].r;
+    return 385;
+  }
+  (function () {
+    var R0 = 34, RMAX = 700;
+    /* Clip: Segmentkanten-Silhouette (1°-Abtastung; Sehnenfehler < 0.03;
+       an jeder Keil-Grenze wird der exakte Radialsprung eingefügt)
+       + Loch um Terra (evenodd) */
+    var d = "", prevR = null;
+    for (var a = -152; a <= 208; a++) {
+      var r = outerR(a === 208 ? 207.99 : a);
+      if (prevR !== null && Math.abs(r - prevR) > 0.5) {
+        var q0 = pp(a, prevR);
+        d += " L " + q0[0].toFixed(1) + " " + q0[1].toFixed(1);
+      }
+      var p = pp(a, r);
+      d += (d ? " L " : "M ") + p[0].toFixed(1) + " " + p[1].toFixed(1);
+      prevR = r;
+    }
+    d += " Z M " + (TERRA.x + R0) + " " + TERRA.y +
+         " A " + R0 + " " + R0 + " 0 1 0 " + (TERRA.x - R0) + " " + TERRA.y +
+         " A " + R0 + " " + R0 + " 0 1 0 " + (TERRA.x + R0) + " " + TERRA.y + " Z";
+    var clip = el("clipPath", { id: "sweepClip" }, defs);
+    el("path", { d: d, "clip-rule": "evenodd" }, clip);
+    var clipG = el("g", { "clip-path": "url(#sweepClip)", "pointer-events": "none" }, cam);
+    var rot = el("g", { transform: "translate(" + TERRA.x + " " + TERRA.y + ")" }, clipG);
+    /* Der Schweif ist EIN BILD, keine Teile: ein echter, kontinuierlicher
+       Winkel-Verlauf, einmalig per Canvas gerechnet (pro Pixel, mit
+       leichtem Dither — das bricht die 8-bit-Alphastufen, also kein
+       Banding), danach rotiert nur noch das fertige Bild. */
+    var TAIL = 34; /* Grad Schweif, blendet auf exakt 0 */
+    var SIZE = 1024, HALF = SIZE / 2;
+    var cv = document.createElement("canvas");
+    cv.width = cv.height = SIZE;
+    var c2d = cv.getContext("2d");
+    var img = c2d.createImageData(SIZE, SIZE);
+    var pxd = img.data, nrnd = lcg(64);
+    for (var yy = 0; yy < SIZE; yy++) {
+      for (var xx = 0; xx < SIZE; xx++) {
+        /* 0° = +x (Leitlinie); Rotation läuft im Uhrzeigersinn, der
+           Schweif hängt dahinter, also bei negativen Winkeln */
+        var ang = (Math.atan2(yy - HALF, xx - HALF) * 180) / Math.PI;
+        var o = 0;
+        if (ang <= 0 && ang >= -TAIL) {
+          var tt = -ang / TAIL;
+          o = 255 * 0.09 * Math.pow(1 - tt, 1.55) + (nrnd() - 0.5) * 2.2;
+        }
+        var k4 = (yy * SIZE + xx) * 4;
+        pxd[k4] = 164; pxd[k4 + 1] = 140; pxd[k4 + 2] = 82; /* GOLD */
+        pxd[k4 + 3] = Math.max(0, Math.min(255, Math.round(o)));
+      }
+    }
+    c2d.putImageData(img, 0, 0);
+    el("image", {
+      href: cv.toDataURL("image/png"),
+      x: -RMAX, y: -RMAX, width: RMAX * 2, height: RMAX * 2,
+    }, rot);
+    el("line", { x1: R0, y1: 0, x2: RMAX, y2: 0, stroke: GOLD, "stroke-opacity": 0.24, "vector-effect": "non-scaling-stroke" }, rot);
+    function setSweep(aDeg) {
+      rot.setAttribute("transform", "translate(" + TERRA.x + " " + TERRA.y + ") rotate(" + aDeg.toFixed(3) + ")");
+    }
+    setSweep(-90);
+    if (!reduce) {
+      var t0s = performance.now();
+      (function sweepStep(now) {
+        setSweep(-90 + (360 * (now - t0s)) / 60000);
+        requestAnimationFrame(sweepStep);
+      })(t0s);
+    }
+  })();
+
+  /* Terra: Auspex-Werk (bleibt — und blüht als Geste an jeder Selektion) */
+  var inst = el("g", { id: "inst", transform: "translate(" + TERRA.x + " " + TERRA.y + ")", "pointer-events": "none" }, cam);
+  var ticks = el("g", { class: "i-ticks" }, inst);
+  for (var t = 0; t < 48; t++) {
+    var a = (Math.PI * 2 * t) / 48;
+    var inner = t % 4 === 0 ? 23 : 25.5;
+    el("line", {
+      x1: Math.cos(a) * inner, y1: Math.sin(a) * inner,
+      x2: Math.cos(a) * 27, y2: Math.sin(a) * 27,
+      stroke: GOLD, "stroke-opacity": t % 4 === 0 ? 0.55 : 0.3, "vector-effect": "non-scaling-stroke",
+    }, ticks);
+  }
+  el("circle", { class: "i-dash", r: 19, fill: "none", stroke: GOLD, "stroke-opacity": 0.4, "stroke-dasharray": "2.5 3.5", "vector-effect": "non-scaling-stroke" }, inst);
+  el("ellipse", { class: "i-orbitA", rx: 33, ry: 12, fill: "none", stroke: BONE, "stroke-opacity": 0.18, "stroke-dasharray": "1.5 3", "vector-effect": "non-scaling-stroke" }, inst);
+  var riderA = el("g", { class: "i-riderA" }, inst);
+  el("circle", { cx: 19, cy: 0, r: 1.4, fill: GOLD, "fill-opacity": 0.9 }, riderA);
+  el("circle", { cx: -19, cy: 0, r: 1.4, fill: "none", stroke: "none" }, riderA);
+  var riderB = el("g", { class: "i-riderB" }, inst);
+  el("circle", { cx: 27, cy: 0, r: 1, fill: BONE, "fill-opacity": 0.7 }, riderB);
+  el("circle", { cx: -27, cy: 0, r: 1, fill: "none", stroke: "none" }, riderB);
+  el("line", { x1: -4, y1: 0, x2: 4, y2: 0, stroke: BONE, "stroke-opacity": 0.7, "vector-effect": "non-scaling-stroke" }, inst);
+  el("line", { x1: 0, y1: -4, x2: 0, y2: 4, stroke: BONE, "stroke-opacity": 0.7, "vector-effect": "non-scaling-stroke" }, inst);
+  el("circle", { class: "i-blip", cx: 12, cy: -14, r: 1.2, fill: GOLD }, inst);
+  el("circle", { class: "i-blip b2", cx: -16, cy: 9, r: 1.2, fill: GOLD }, inst);
+
+  /* ════ Selektion: Ringwerk blüht aus dem Punkt + Werkpunkte + Sterne ════ */
+  var sel = el("g", { id: "sel", style: "display:none" }, cam);
+  var selPi = el("g", { class: "pi" }, sel);
+  var selBloom = el("g", { class: "blm" }, selPi);
+  el("circle", { r: 30, fill: "none", stroke: "none" }, selBloom); /* Gegengewicht */
+  el("circle", { class: "r-dash", r: 12, fill: "none", stroke: GOLD, "stroke-width": 1, "stroke-dasharray": "4 3" }, selBloom);
+  var selTick = el("g", { class: "r-tick" }, selBloom);
+  for (var st2 = 0; st2 < 8; st2++) {
+    var sa = (Math.PI * 2 * st2) / 8;
+    el("line", {
+      x1: Math.cos(sa) * 20, y1: Math.sin(sa) * 20,
+      x2: Math.cos(sa) * 22, y2: Math.sin(sa) * 22,
+      stroke: GOLD, "stroke-width": 0.7, "stroke-opacity": 0.7,
+    }, selTick);
+  }
+  var dotRing = el("g", {}, selBloom);
+
+  function buildDots(n) {
+    dotRing.innerHTML = "";
+    var count = Math.min(n, 24);
+    for (var i = 0; i < count; i++) {
+      var a = -Math.PI / 2 + (Math.PI * 2 * i) / count;
+      el("circle", {
+        class: "rd", style: "--i:" + i,
+        cx: Math.cos(a) * 16, cy: Math.sin(a) * 16, r: 0.9,
+        fill: GOLD, "fill-opacity": 0.9,
+      }, dotRing);
+    }
+    /* drei Vermessungssterne (BtnFx-Geste) — Neubau startet die Animation neu */
+    el("circle", { class: "sst sst1", r: 1.5, fill: BONE }, dotRing);
+    el("circle", { class: "sst sst2", r: 1, fill: GOLD }, dotRing);
+    el("circle", { class: "sst sst3", r: 1.2, fill: GOLD }, dotRing);
+  }
+
+  /* ════ Kamera ════ */
+  var vw, vh, k0, tx, ty, k;
+  function measure() { vw = innerWidth; vh = innerHeight; k0 = Math.min(vw / W, vh / H) * 0.93; }
+  var lastBand = "0";
+  function apply() {
+    cam.setAttribute("transform", "translate(" + tx + " " + ty + ") scale(" + k + ")");
+    svg.style.setProperty("--ik", 1 / k);
+    var band = k < k0 * 1.7 ? 0 : k < k0 * 3.1 ? 1 : 2;
+    if (String(band) !== lastBand) {
+      lastBand = String(band);
+      svg.setAttribute("data-band", band);
+      mag.classList.add("bump");
+      clearTimeout(apply._t);
+      apply._t = setTimeout(function () { mag.classList.remove("bump"); }, 700);
+    }
+    mag.textContent = "MAG " + (k / k0).toFixed(2) + "×";
+    placePop();
+    placeCards();
+  }
+  function home() { k = k0; tx = (vw - W * k) / 2; ty = (vh - H * k) / 2; apply(); }
+  var mag = document.getElementById("mag");
+  measure(); home();
+  addEventListener("resize", function () { measure(); apply(); });
+
+  function clampK(x) { return Math.max(k0 * 0.75, Math.min(k0 * 9, x)); }
+  function zoomAt(mx, my, factor) {
+    var nk = clampK(k * factor);
+    tx = mx - ((mx - tx) * nk) / k;
+    ty = my - ((my - ty) * nk) / k;
+    k = nk; apply();
+  }
+
+  var flying = null;
+  function flyTo(gxT, gyT, kT, ms) {
+    if (reduce) { k = clampK(kT); tx = vw / 2 - gxT * k; ty = vh / 2 - gyT * k; apply(); return; }
+    var st = { tx: tx, ty: ty, k: k };
+    var eK = clampK(kT);
+    var e = { tx: vw / 2 - gxT * eK, ty: vh / 2 - gyT * eK, k: eK };
+    var t0 = performance.now(), dur = ms || 1000;
+    cancelAnimationFrame(flying);
+    (function step(now) {
+      var p = Math.min(1, (now - t0) / dur);
+      var u = 1 - Math.pow(1 - p, 3);
+      tx = st.tx + (e.tx - st.tx) * u; ty = st.ty + (e.ty - st.ty) * u; k = st.k + (e.k - st.k) * u;
+      apply();
+      if (p < 1) flying = requestAnimationFrame(step);
+    })(t0);
+  }
+
+  var armed = false;
+  function condense() { if (!armed) { armed = true; document.body.classList.add("on"); } }
+
+  var drag = null;
+  svg.addEventListener("pointerdown", function (e) {
+    condense();
+    /* Treffer JETZT merken: setPointerCapture leitet pointerup aufs SVG um,
+       e.target ist dort nie der Pin (der Runde-2-Tooltip-Bug). */
+    drag = { x: e.clientX, y: e.clientY, tx: tx, ty: ty, moved: false,
+             hit: e.target.closest ? e.target.closest("[data-i]") : null };
+    svg.setPointerCapture(e.pointerId);
+    svg.classList.add("dragging");
+  });
+  svg.addEventListener("pointermove", function (e) {
+    var p = toGrid(e.clientX, e.clientY);
+    coords.textContent = "X " + Math.round(p.sx) + " · Y " + Math.round(p.sy);
+    if (!drag) return;
+    var dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+    if (Math.abs(dx) + Math.abs(dy) > 4) drag.moved = true;
+    tx = drag.tx + dx; ty = drag.ty + dy; apply();
+  });
+  svg.addEventListener("pointerup", function () {
+    svg.classList.remove("dragging");
+    if (drag && !drag.moved) {
+      if (drag.hit) select(+drag.hit.getAttribute("data-i"));
+      else closePop();
+    }
+    drag = null;
+  });
+  svg.addEventListener("wheel", function (e) {
+    e.preventDefault(); condense();
+    zoomAt(e.clientX, e.clientY, Math.exp(-e.deltaY * 0.0016));
+  }, { passive: false });
+
+  function toGrid(cx, cy) {
+    var gxp = (cx - tx) / k, gyp = (cy - ty) / k;
+    return { gx: gxp, gy: gyp, sx: (gxp * 7028.206) / 1000 + 2.794, sy: (gyp * 7028.206) / 1000 + 515 };
+  }
+  var coords = document.getElementById("coords");
+
+  document.getElementById("zin").addEventListener("click", function () { condense(); zoomAt(vw / 2, vh / 2, 1.45); });
+  document.getElementById("zout").addEventListener("click", function () { condense(); zoomAt(vw / 2, vh / 2, 1 / 1.45); });
+  document.getElementById("zfit").addEventListener("click", function () { condense(); flyTo(W / 2, H / 2, k0, 800); closePop(); });
+
+  /* ════ Tooltip am Pin: alle Infos + Werke als Links ════ */
+  var pop = document.getElementById("pop");
+  var selIdx = -1, selPin = null;
+  var KIND_LABEL = {
+    "imperial": "Imperial world", "imperial-military": "Fortress world",
+    "chaos-warp": "Domain of the Ruinous Powers", "dead": "Dead world",
+    "xenos": "Xenos world", "necron": "Necron tomb world", "aeldari": "Aeldari domain",
+    "station": "Station", "gate": "Warp gate", "fleet": "Fleet", "unclassified": "Unclassified",
+    "region": "Region of the chart",
+  };
+  function placePop() {
+    /* selIdx ist beim ersten apply() noch undefined (var-Hoisting) —
+       der Guard muss auch das abfangen, sonst stirbt das ganze Skript. */
+    if (!(selIdx >= 0)) return;
+    var w = D.featured[selIdx];
+    if (!w) return;
+    var sx = tx + w.gx * k, sy = ty + w.gy * k;
+    var pw = pop.offsetWidth || 282, ph = pop.offsetHeight || 220;
+    var px = sx + 26, py = sy - 24;
+    if (px + pw > vw - 14) px = sx - 26 - pw;
+    py = Math.max(14, Math.min(vh - ph - 14, py));
+    pop.style.left = px + "px"; pop.style.top = py + "px";
+  }
+  function select(i) {
+    var w = D.featured[i];
+    if (!w) return;
+    if (selPin) selPin.classList.remove("sel-on");
+    selPin = pinByIdx[i] || null;
+    if (selPin) selPin.classList.add("sel-on");
+    selIdx = i;
+    document.getElementById("pptele").textContent = w.kind === "region" ? "Regional contact" : "Contact confirmed";
+    document.getElementById("ppname").textContent = w.name;
+    /* echte Primary Classification aus der SSOT; Regionen und
+       "Unclassified" fallen auf das kind-Label zurück */
+    var clsName = w.kind !== "region" && w.c >= 0 && D.cls[w.c] !== "Unclassified" ? D.cls[w.c] : KIND_LABEL[w.kind];
+    document.getElementById("ppcls").textContent = clsName + " · Segmentum " + w.seg;
+    /* Secondary/Tertiary Classification (SSOT-Spalten C/D, worlds.js v4) */
+    var cls2El = document.getElementById("ppcls2");
+    var extra = [];
+    if (w.c2) extra.push("<b>" + w.c2 + "</b> — secondary");
+    if (w.c3) extra.push("<b>" + w.c3 + "</b> — tertiary");
+    if (extra.length) { cls2El.innerHTML = extra.join(" · "); cls2El.hidden = false; }
+    else { cls2El.hidden = true; }
+    document.getElementById("ppcoords").textContent =
+      "X " + Math.round((w.gx * 7028.206) / 1000 + 2.794) + " · Y " + Math.round((w.gy * 7028.206) / 1000 + 515) +
+      " · " + w.n + " " + (w.n === 1 ? "RECORD" : "RECORDS");
+    var ul = document.getElementById("ppworks");
+    ul.innerHTML = "";
+    for (var j = 0; j < w.works.length; j++) {
+      var li = document.createElement("li");
+      var a = document.createElement("a");
+      a.href = "../07-praxis/buch.html";
+      a.innerHTML = "<span class='t'>" + w.works[j] + (j === 0 ? " <i>&mdash; primary</i>" : "") + "</span>" +
+        "<span class='k'>LIBER &rarr;</span>";
+      li.appendChild(a);
+      ul.appendChild(li);
+    }
+    var rest = w.n - w.works.length;
+    document.getElementById("ppmore").textContent =
+      rest > 0 ? "… and " + rest + " further " + (rest === 1 ? "work" : "works") + ". Open the record →" : "Open the record →";
+    /* Neuaufbau der Blüte: display-Toggle startet die Animationen neu */
+    sel.style.display = "none";
+    sel.getBoundingClientRect();
+    sel.setAttribute("transform", "translate(" + w.gx + " " + w.gy + ")");
+    buildDots(w.n);
+    sel.style.display = "";
+    pop.classList.add("open");
+    flyTo(w.gx, w.gy, Math.max(k, k0 * 2.4), 900);
+  }
+  function closePop() {
+    pop.classList.remove("open");
+    sel.style.display = "none";
+    selIdx = -1;
+    if (selPin) { selPin.classList.remove("sel-on"); selPin = null; }
+  }
+  document.getElementById("ppclose").addEventListener("click", closePop);
+
+  /* ════ Kartusche ════ */
+  var segrow = document.getElementById("segrow");
+  for (var sj = 0; sj < SEGS.length; sj++) (function (seg) {
+    var b = document.createElement("button");
+    b.textContent = seg.name.replace("Segmentum ", "").replace(" Segmentum", "");
+    b.addEventListener("click", function () { condense(); flyTo(seg.jump.x, seg.jump.y, k0 * seg.jump.k, 1100); });
+    segrow.appendChild(b);
+  })(SEGS[sj]);
+
+  /* ════ Census-Filter: die 70 Primary Classifications der SSOT-Excel,
+     gebündelt in die elf kind-Gruppen (Runde 4 — ersetzt Legende UND
+     Index Astartes). Gruppen-Klick schaltet alles, der Pfeil klappt
+     die Unterpunkte auf, jede Klassifikation ist einzeln schaltbar. ════ */
+  var GROUPS = [
+    ["imperial", "Imperial worlds"],
+    ["imperial-military", "Fortress & forge"],
+    ["station", "Stations & bastions"],
+    ["fleet", "Fleets & flotillas"],
+    ["chaos-warp", "Ruinous / warp-touched"],
+    ["gate", "Warp gates"],
+    ["aeldari", "Aeldari domains"],
+    ["necron", "Necron dynasties"],
+    ["xenos", "Xenos empires"],
+    ["dead", "Dead & destroyed"],
+    ["unclassified", "Unclassified"],
+  ];
+  var clsCount = [], clsFeat = [];
+  for (var ci = 0; ci < D.cls.length; ci++) { clsCount[ci] = 0; clsFeat[ci] = 0; }
+  for (var cb = 0; cb < D.background.length; cb++) clsCount[D.background[cb][3]]++;
+  var featTotal = 0;
+  for (var cf = 0; cf < D.featured.length; cf++)
+    if (D.featured[cf].kind !== "region") { clsCount[D.featured[cf].c]++; clsFeat[D.featured[cf].c]++; featTotal++; }
+
+  /* worksOnly (Runde 5): nur Klassifikationen samt Welten, die Bücher/
+     Podcast-Folgen verlinkt haben — Staub (per Definition werklos)
+     fällt dann komplett weg, das Zählwerk zählt nur Verzeichnete. */
+  var hiddenCls = {}, dustOff = false, worksOnly = false;
+  function cnt(ci) { return worksOnly ? clsFeat[ci] : clsCount[ci]; }
+  function applyCensus() {
+    for (var ci2 = 0; ci2 < D.cls.length; ci2++) {
+      var gd = kindGroups["d-c" + ci2];
+      if (gd) gd.style.display = worksOnly || dustOff || hiddenCls[ci2] ? "none" : "";
+    }
+    for (var fp = 0; fp < D.featured.length; fp++) {
+      var pin = pinByIdx[fp];
+      if (!pin) continue;
+      pin.style.display = hiddenCls[D.featured[fp].c] ? "none" : "";
+    }
+  }
+
+  var censusBox = document.getElementById("census");
+  var censusSync = []; /* je Gruppe/Zeile: Zählwerk + Sichtbarkeit nachziehen */
+
+  (function () {
+    var b = document.createElement("button");
+    b.className = "cx";
+    b.innerHTML = "<span class='pad'></span><span class='sym'><svg viewBox='-8 -8 16 16' width='18' height='18'>" +
+      "<circle r='2.8' fill='none' stroke='" + GOLD + "' stroke-width='1'></circle><circle r='1' fill='" + GOLD + "'></circle>" +
+      "</svg></span><span class='lab'>Linked records only</span><span class='n'>" + featTotal + "</span>";
+    b.addEventListener("click", function () {
+      worksOnly = !worksOnly;
+      b.classList.toggle("on", worksOnly);
+      for (var i = 0; i < censusSync.length; i++) censusSync[i]();
+      applyCensus();
+    });
+    censusBox.appendChild(b);
+  })();
+  for (var gi = 0; gi < GROUPS.length; gi++) (function (grp) {
+    var kindI = D.kinds.indexOf(grp[0]);
+    var members = [];
+    for (var ci3 = 0; ci3 < D.cls.length; ci3++)
+      if (D.clsKind[ci3] === kindI && clsCount[ci3] > 0) members.push(ci3);
+    if (!members.length) return;
+    members.sort(function (a, b2) { return clsCount[b2] - clsCount[a]; });
+
+    var box = document.createElement("div");
+    box.className = "cgrp";
+    var head = document.createElement("div");
+    head.className = "cgrp-h";
+    var car = document.createElement("button");
+    car.className = "car";
+    car.textContent = "▸";
+    car.title = "Expand";
+    var sym = document.createElement("span");
+    sym.className = "sym";
+    var s2 = el("svg", { viewBox: "-8 -8 16 16", width: 18, height: 18 });
+    glyph(s2, grp[0], 3.4);
+    sym.appendChild(s2);
+    var nameB = document.createElement("button");
+    nameB.className = "gname";
+    nameB.textContent = grp[1];
+    var nEl = document.createElement("span");
+    nEl.className = "n";
+    head.appendChild(car); head.appendChild(sym); head.appendChild(nameB); head.appendChild(nEl);
+    box.appendChild(head);
+
+    var sub = document.createElement("div");
+    sub.className = "csub";
+    var rows = {};
+    for (var mi = 0; mi < members.length; mi++) (function (ci4) {
+      var r = document.createElement("button");
+      r.className = "crow";
+      r.innerHTML = "<span>" + D.cls[ci4] + "</span><span class='n'></span>";
+      r.addEventListener("click", function () {
+        hiddenCls[ci4] = !hiddenCls[ci4];
+        r.classList.toggle("off", !!hiddenCls[ci4]);
+        applyCensus();
+        syncGroup();
+      });
+      rows[ci4] = r;
+      sub.appendChild(r);
+    })(members[mi]);
+    box.appendChild(sub);
+
+    /* Zählwerk + Sichtbarkeit: unter worksOnly zählen nur verzeichnete
+       Welten; Zeilen/Gruppen ohne verzeichnete Welt verschwinden */
+    function syncGroup() {
+      var offN = 0, vis = 0, total = 0, memN = 0;
+      for (var i = 0; i < members.length; i++) {
+        var ci5 = members[i], c = cnt(ci5);
+        var gone = worksOnly && clsFeat[ci5] === 0;
+        rows[ci5].style.display = gone ? "none" : "";
+        rows[ci5].querySelector(".n").textContent = c;
+        if (gone) continue;
+        memN++;
+        total += c;
+        if (hiddenCls[ci5]) offN++; else vis += c;
+      }
+      box.style.display = memN === 0 ? "none" : "";
+      box.classList.toggle("off", memN > 0 && offN === memN);
+      box.classList.toggle("part", offN > 0 && offN < memN);
+      nEl.textContent = offN ? vis + " / " + total : String(total);
+    }
+    censusSync.push(syncGroup);
+    car.addEventListener("click", function () { box.classList.toggle("open"); });
+    nameB.addEventListener("click", function () {
+      var allOff = true;
+      for (var i2 = 0; i2 < members.length; i2++) if (!hiddenCls[members[i2]]) { allOff = false; break; }
+      for (var i3 = 0; i3 < members.length; i3++) {
+        hiddenCls[members[i3]] = !allOff;
+        rows[members[i3]].classList.toggle("off", !allOff);
+      }
+      applyCensus();
+      syncGroup();
+    });
+    syncGroup();
+    censusBox.appendChild(box);
+  })(GROUPS[gi]);
+
+  /* Staub-Zeile: alle unverzeichneten Welten auf einmal.
+     Unter worksOnly gegenstandslos — die Zeile verschwindet dann. */
+  (function () {
+    var b = document.createElement("button");
+    b.className = "cx";
+    b.innerHTML = "<span class='pad'></span><span class='sym'><svg viewBox='-8 -8 16 16' width='18' height='18'><circle r='1.4' fill='" + BONE + "' fill-opacity='0.4'></circle></svg></span>" +
+      "<span class='lab'>Star-dust — unrecorded</span><span class='n'>" + D.background.length + "</span>";
+    b.addEventListener("click", function () {
+      dustOff = !dustOff;
+      b.classList.toggle("off", dustOff);
+      applyCensus();
+    });
+    censusSync.push(function () { b.style.display = worksOnly ? "none" : ""; });
+    censusBox.appendChild(b);
+  })();
+
+  /* Zoom-Schleier-Zeile: alle Verzeichneten sofort zeigen */
+  (function () {
+    var total = 0;
+    for (var i = 0; i < D.featured.length; i++) if (D.featured[i].kind !== "region") total++;
+    var b = document.createElement("button");
+    b.className = "cx";
+    b.innerHTML = "<span class='pad'></span><span class='sym'><svg viewBox='-8 -8 16 16' width='18' height='18'>" +
+      "<circle cx='-4' r='1.1' fill='" + GOLD + "'></circle><circle r='1.1' fill='" + GOLD + "' fill-opacity='0.6'></circle><circle cx='4' r='1.1' fill='" + GOLD + "' fill-opacity='0.3'></circle>" +
+      "</svg></span><span class='lab'>Reveal the full census</span><span class='n'>" + total + "</span>";
+    b.addEventListener("click", function () {
+      svg.classList.toggle("show-all");
+      b.classList.toggle("on", svg.classList.contains("show-all"));
+    });
+    censusBox.appendChild(b);
+  })();
+
+  document.getElementById("seek").addEventListener("keydown", function (e) {
+    if (e.key !== "Enter") return;
+    var q = this.value.trim().toLowerCase();
+    if (!q) return;
+    var best = -1;
+    for (var i = 0; i < D.featured.length; i++) {
+      var n = D.featured[i].name.toLowerCase();
+      if (n === q) { best = i; break; }
+      if (best < 0 && n.indexOf(q) === 0) best = i;
+      if (best < 0 && n.indexOf(q) >= 0) best = i;
+    }
+    if (best >= 0) { condense(); select(best); }
+  });
+
+  addEventListener("keydown", function (e) { if (e.key === "Escape") closePop(); });
+
+  /* ════ Regie-Panel: Sichtproben (nur Studie, fliegt in der App raus) ════ */
+  (function () {
+    var root = document.documentElement;
+    document.getElementById("dbgBg").addEventListener("change", function () {
+      document.body.classList.toggle("nobg", !this.checked);
+    });
+    var veil = document.getElementById("dbgVeil"), veilV = document.getElementById("dbgVeilV");
+    veil.addEventListener("input", function () {
+      var v = +this.value / 100;
+      root.style.setProperty("--veilA", String(v));
+      veilV.textContent = v.toFixed(2);
+    });
+    var br = document.getElementById("dbgBright"), brV = document.getElementById("dbgBrightV");
+    br.addEventListener("input", function () {
+      var v = +this.value / 100;
+      root.style.setProperty("--bgBright", String(v));
+      brV.textContent = v.toFixed(2);
+    });
+    var gr = document.getElementById("dbgGrain"), grV = document.getElementById("dbgGrainV");
+    gr.addEventListener("input", function () {
+      var v = +this.value / 100;
+      root.style.setProperty("--grainA", String(v));
+      grV.textContent = v.toFixed(2);
+    });
+    var swis = document.querySelectorAll(".dbg-row .swi");
+    function pick() {
+      svg.setAttribute("data-storm", this.getAttribute("data-storm"));
+      for (var j = 0; j < swis.length; j++) swis[j].classList.toggle("on", swis[j] === this);
+    }
+    for (var i = 0; i < swis.length; i++) swis[i].addEventListener("click", pick);
+  })();
+})();
+</script>

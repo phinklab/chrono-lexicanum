@@ -8,7 +8,7 @@
 Three tools, one archive:
 
 - **Chronicle** — interactive in-universe timeline of the novels, from the Great Crusade to the Indomitus Era.
-- **Cartographer** — galaxy map with sectors, worlds, and book-pins, filterable by year.
+- **Cartographer** — a full-galaxy chart of 1 054 catalog worlds with work pins, curated courses, and a census filter over the SSOT classifications.
 - **Ask the Archive** — five questions, then ranked recommendations for your next read.
 
 ## For collaborators

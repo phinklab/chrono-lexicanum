@@ -1,364 +1,1796 @@
-/* 55-map.css
-   Extracted verbatim from globals.css (CSS-consolidation pass 1). */
+/* 55-map.css — Cartographer (Brief 178, Neubau nach Studie I "Maledictum",
+   design/08-cartographer/i-maledictum.html Runde 5). Kompletter Rewrite —
+   die alte Hologramm-Disc-Map (maprail/voyages/world-tooltip) ist Geschichte.
 
-/* ── /map (Cartographer port) ─────────────────────────────────────
-   Animations + print rules for the SVG galaxy hologram. Names are
-   `map`-prefixed to avoid colliding with any other route's keyframes. */
+   Alle Klassen tragen das cg-Präfix. Die Karte spricht Kathedrale-Tokens
+   (--cl-*, --font-*); Warp-Farben + Glasflächen sind kartenlokal.
 
-/* The holo-chamber backdrop runs FAR darker than the raw artwork — the HUD
-   must own the foreground, the chamber is barely-there ambience (0.55 and
-   then 0.3 still competed with the disc; Philipp, Session 150 eyeballing
-   rounds 2–3). Brightness (not a void wash) keeps the dais glow's hue alive
-   in the murk. */
+   Performance-Vertrag (Session-Notiz "ultra laggy"): das Cicatrix-Raster
+   (~900 Zellen) ist STATISCH. Teures Rift-Leben (Blitze, Wort-Glitch,
+   Adern-Atmen) läuft NUR unter `.cg-chart.unrest` (Direction-Panel-Probe,
+   default aus). Die per-Zellen-Animationen der Studie shippen nie. */
+
+.map-route {
+  --cg-warp-v: #8a68c4;
+  --cg-warp-m: #b05070;
+  --cg-warp-b: #5f74b8;
+  --cg-warp-l: #cbb3ee;
+  --cg-glass: linear-gradient(180deg, rgba(9, 8, 6, 0.94), rgba(5, 3, 1, 0.96));
+  --cg-glass-shadow: 0 26px 70px -18px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(228, 221, 203, 0.06);
+  font-family: var(--font-body);
+  color: var(--cl-bone);
+}
+
+/* ── Route-Chrome: Observatoriums-Foto dimmen (Direction-Panel-Var),
+   Backdrop-Toggle, Burger statt Desktop-Rail ─────────────────────────── */
 .map-route .site-bg__photo {
-  filter: brightness(0.18);
+  filter: brightness(var(--cg-bright, 0.2)) saturate(0.7);
+}
+html.cg-nobg .map-route .site-bg__photo {
+  display: none;
+}
+/* Entscheid „SiteBrand + Burger bleiben": auf der Karte navigiert der
+   Burger auch auf Desktop-Breiten; die linke Rail läge mitten im Chart. */
+@media (min-width: 1180px) {
+  body.cg-on-map .site-nav {
+    display: none;
+  }
+  body.cg-on-map .site-burger {
+    display: flex;
+  }
+  body.cg-on-map .site-menu {
+    display: grid;
+  }
 }
 
-@keyframes mapTwinkle {
-  0%, 100% { opacity: 0.3; transform: scale(1); }
-  50%      { opacity: 1;   transform: scale(1.4); }
+/* ── Schleier + Korn über dem Foto (Studie: .bg .veil/.grain) ──────────── */
+.cg-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 44%, transparent 28%, rgba(5, 3, 1, var(--cg-veil, 0.82)) 100%);
+}
+.cg-grainlayer {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: var(--cg-grain, 0.09);
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 160px 160px;
 }
 
-@keyframes mapMoteDrift {
-  0%   { transform: translateZ(-40px) translate(0, 0); }
-  100% { transform: translateZ(40px)  translate(8px, -6px); }
+/* ── Kartenrand: Maßlinien + Gradzahlen ────────────────────────────────── */
+.cg-rule {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 7px;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0.5;
+  background: repeating-linear-gradient(90deg, var(--cl-hair) 0 1px, transparent 1px 28px);
+}
+.cg-rule.top {
+  top: 0;
+}
+.cg-rule.bot {
+  bottom: 0;
+}
+.cg-deg {
+  position: fixed;
+  z-index: 5;
+  pointer-events: none;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  color: var(--cl-faint);
+  opacity: 0.75;
+}
+.cg-deg.n {
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.cg-deg.s {
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.cg-deg.e {
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+}
+.cg-deg.w {
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
 }
 
-@keyframes mapPulse {
-  0%, 100% { opacity: 1;   transform: scale(1); }
-  50%      { opacity: 0.4; transform: scale(0.7); }
+/* ── Bühne ─────────────────────────────────────────────────────────────── */
+.cg-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+}
+.cg-stage svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: grab;
+  touch-action: none;
+}
+.cg-stage svg.dragging {
+  cursor: grabbing;
 }
 
-@keyframes mapRadarSpin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+/* ── Pins: Counter-Scale hält 1054 Zeichen konstant groß ───────────────── */
+.cg-pi {
+  transform: scale(var(--cg-ik, 1));
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.cg-w {
+  cursor: pointer;
+}
+.cg-w .halo {
+  fill: transparent;
+}
+.cg-w .glyph {
+  transition: transform 0.35s var(--ease);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.cg-w:hover .glyph {
+  transform: scale(1.35);
 }
 
-@keyframes mapHoloFlicker {
-  0%, 100% { opacity: 0; }
-  48%      { opacity: 0; }
-  50%      { opacity: 0.05; }
-  52%      { opacity: 0; }
-  70%      { opacity: 0.03; }
-  72%      { opacity: 0; }
+/* Namen sind Teil des data-pin-Targets — sichtbare Labels sind klickbar;
+   ausgeblendete Stufen schalten pointer-events mit ab, damit unsichtbarer
+   Text keine Klicks stiehlt. */
+.cg-lbl {
+  font-family: var(--font-body);
+  font-style: italic;
+  fill: var(--cl-bone);
+  font-size: calc(14.5px * var(--cg-ik, 1));
+  transform: translateY(calc(-14px * var(--cg-ik, 1)));
+  text-anchor: middle;
+  cursor: pointer;
+  paint-order: stroke;
+  stroke: rgba(3, 2, 1, 0.9);
+  stroke-width: calc(2.5px * var(--cg-ik, 1));
+  opacity: 0.8;
+  transition: opacity 0.6s var(--ease);
+}
+.cg-lbl.big {
+  font-style: normal;
+  font-family: var(--font-display);
+  font-size: calc(16px * var(--cg-ik, 1));
+  letter-spacing: 0.08em;
+}
+.cg-lbl.dust {
+  font-size: calc(12.5px * var(--cg-ik, 1));
+  transform: translateY(calc(-10px * var(--cg-ik, 1)));
+  opacity: 0.68;
+}
+.cg-chart[data-band="0"] .cg-lbl.t1,
+.cg-chart[data-band="0"] .cg-lbl.t2 {
+  opacity: 0;
+  pointer-events: none;
+}
+.cg-chart[data-band="1"] .cg-lbl.t2 {
+  opacity: 0;
+  pointer-events: none;
+}
+.cg-chart[data-band="2"] .cg-lbl {
+  opacity: 0.94;
+}
+.cg-chart .cg-w:hover .cg-lbl {
+  opacity: 1;
 }
 
-@keyframes mapFadeInUp {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
+/* Zoom-Schleier: Top-100 zuerst, Rest ab Band 1 oder „Reveal the full census" */
+.cg-chart[data-band="0"]:not(.show-all) .cg-w.vb1 {
+  opacity: 0;
+  pointer-events: none;
 }
 
-@keyframes mapDiveAtmospherePulse {
-  0%   { opacity: 0; }
-  35%  { opacity: 0.55; }
-  65%  { opacity: 0.45; }
-  100% { opacity: 0; }
+.cg-rgn {
+  font-family: var(--font-body);
+  font-style: italic;
+  fill: var(--cl-gold);
+  fill-opacity: 0.6;
+  font-size: calc(14.5px * var(--cg-ik, 1));
+  letter-spacing: calc(4px * var(--cg-ik, 1));
+  text-anchor: middle;
+  cursor: pointer;
+  paint-order: stroke;
+  stroke: rgba(3, 2, 1, 0.85);
+  stroke-width: calc(2.5px * var(--cg-ik, 1));
+}
+.cg-rgn:hover {
+  fill-opacity: 1;
 }
 
-.map-route .map-holo-flicker {
-  animation: mapHoloFlicker 10s infinite;
-  /* Fade-in/out is driven by data-anims on the hologram root. ease-in keeps
-     the return-from-segmentum subtle. */
-  transition: opacity 1s ease-in;
+.cg-segname {
+  font-family: var(--font-display);
+  font-weight: 400;
+  fill: var(--cl-bone);
+  fill-opacity: 0.085;
+  letter-spacing: 0.4em;
+  text-anchor: middle;
+  pointer-events: none;
+  text-transform: uppercase;
 }
 
-/* Anims-Gate: while inside a segmentum (and during dive/surface transitions
-   + a 1s settle window after surfacing), the holo flicker is paused and
-   invisible. It uses mix-blend-mode: overlay on a full-bleed primary-colour
-   layer, which produced visible blinking on Back-to-Galactic. */
-.map-route__hologram[data-anims="off"] .map-holo-flicker {
-  animation-play-state: paused;
+/* ── Polar-Rahmen: Portolan-Zartheit; keine Keil-Füllung (Gelbstich raus,
+   Runde 5) ─────────────────────────────────────────────────────────────── */
+.cg-polar .ring {
+  fill: none;
+  stroke: var(--cl-bone);
+  stroke-opacity: 0.09;
+}
+.cg-polar .ring.solar {
+  stroke: var(--cl-gold);
+  stroke-opacity: 0.3;
+}
+.cg-polar .spoke {
+  stroke: var(--cl-bone);
+  stroke-opacity: 0.045;
+}
+.cg-polar .tick {
+  stroke: var(--cl-bone);
+  stroke-opacity: 0.08;
+}
+.cg-polar .wedge {
+  fill: none;
+  stroke: var(--cl-gold);
+  stroke-opacity: 0.3;
+}
+
+/* ── Warpstürme: atmen, Zeichen funkeln, das Auge wirbelt ──────────────── */
+.cg-storm {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: cgStormBreath 13s ease-in-out infinite;
+}
+.cg-storm.s2 {
+  animation-delay: 5.5s;
+}
+@keyframes cgStormBreath {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.09);
+  }
+}
+.cg-whirl {
+  animation: cgTurn 260s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.cg-sx.sx0 {
+  animation: cgFlicker 5.5s ease-in-out infinite;
+}
+.cg-sx.sx1 {
+  animation: cgFlicker 7s ease-in-out 2.4s infinite;
+}
+@keyframes cgFlicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+@keyframes cgTurn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes cgTurnRev {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+/* ── Great Rift: drei schaltbare Fassungen (data-storm), Raster statisch ── */
+.cg-riftG,
+.cg-lev,
+.cg-nec {
+  pointer-events: none;
+}
+.cg-rv {
+  display: none;
+}
+.cg-chart[data-storm="1"] #cg-rv1,
+.cg-chart[data-storm="2"] #cg-rv2,
+.cg-chart[data-storm="3"] #cg-rv3 {
+  display: block;
+}
+.cg-riftflow {
+  animation: cgRiftFlow 26s linear infinite;
+}
+@keyframes cgRiftFlow {
+  to {
+    stroke-dashoffset: -84;
+  }
+}
+/* Fassung II: Band + Adern — statisch; Atmen/Flackern nur unter .unrest */
+.cg-rvband {
+  opacity: 0.75;
+}
+.cg-chart.unrest .cg-rvband {
+  animation: cgBandBreath 19s ease-in-out infinite;
+}
+@keyframes cgBandBreath {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.cg-chart.unrest .cg-rcrack {
+  animation: cgFlicker 14s ease-in-out infinite;
+}
+.cg-chart.unrest .cg-rvein0 {
+  animation: cgFlicker 8s ease-in-out 1.2s infinite;
+}
+.cg-chart.unrest .cg-rvein1 {
+  animation: cgFlicker 10.5s ease-in-out 4.4s infinite;
+}
+.cg-chart.unrest .cg-rvein2 {
+  animation: cgFlicker 12.5s ease-in-out 7s infinite;
+}
+/* Fassung III: Nebel-Probe — statisch gedimmt, atmet nur unter .unrest */
+.cg-wblob {
+  opacity: 0.55;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.cg-chart.unrest .cg-wblob.wb0 {
+  animation: cgBlobBreath 13s ease-in-out infinite;
+}
+.cg-chart.unrest .cg-wblob.wb1 {
+  animation: cgBlobBreath 17s ease-in-out 4s infinite;
+}
+.cg-chart.unrest .cg-wblob.wb2 {
+  animation: cgBlobBreath 21s ease-in-out 9s infinite;
+}
+@keyframes cgBlobBreath {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.08);
+  }
+}
+/* Totenköpfe: statisch präsent; flackern nur unter .unrest */
+.cg-rfsk {
+  opacity: 0.5;
+}
+.cg-chart.unrest .cg-rfsk {
+  opacity: 0;
+  animation: cgSkull var(--dur, 8s) linear var(--del, 0s) infinite;
+}
+@keyframes cgSkull {
+  0%,
+  30% {
+    opacity: 0;
+  }
+  34%,
+  55% {
+    opacity: 0.85;
+  }
+  58% {
+    opacity: 0.2;
+  }
+  62% {
+    opacity: 0.9;
+  }
+  66%,
+  100% {
+    opacity: 0;
+  }
+}
+.cg-rflbl .cg-riftlbl {
+  font-family: var(--font-mono);
+  fill: var(--cl-blood);
+}
+.cg-chart.unrest .cg-rflbl {
+  animation: cgLblBlink var(--dur, 7s) linear var(--del, 0s) infinite;
+}
+@keyframes cgLblBlink {
+  0%,
+  32% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 0.2;
+  }
+  34%,
+  100% {
+    opacity: 1;
+  }
+}
+/* Blitze: ohne .unrest unsichtbar (Studien-Basisopacity 0) */
+.cg-warc {
   opacity: 0;
 }
-
-/* Reduced motion (Report 141 § B5): the holo flicker is pure ambience on a
-   mix-blend-mode overlay — without its keyframe it must stay dark, exactly
-   like the data-anims="off" state above. */
-@media (prefers-reduced-motion: reduce) {
-  .map-route .map-holo-flicker {
-    animation: none;
+.cg-chart.unrest .cg-warc.wa0 {
+  animation: cgArc 11s linear 2s infinite;
+}
+.cg-chart.unrest .cg-warc.wa1 {
+  animation: cgArc 14s linear 6s infinite;
+}
+.cg-chart.unrest .cg-warc.wa2 {
+  animation: cgArc 17s linear 10.5s infinite;
+}
+.cg-chart.unrest .cg-warc.wa3 {
+  animation: cgArc 9s linear 0.6s infinite;
+}
+.cg-chart.unrest .cg-warc.wa4 {
+  animation: cgArc 12.5s linear 4.1s infinite;
+}
+.cg-chart.unrest .cg-warc.wa5 {
+  animation: cgArc 15.5s linear 8.3s infinite;
+}
+@keyframes cgArc {
+  0% {
+    opacity: 0;
+  }
+  1% {
+    opacity: 0.75;
+  }
+  2% {
+    opacity: 0.12;
+  }
+  3% {
+    opacity: 0.6;
+  }
+  4.5% {
+    opacity: 0;
+  }
+  100% {
     opacity: 0;
   }
 }
 
-/* Lightweight atmospheric overlay for the dive transition. Pulses in/out over
-   the dive duration (700 ms), peaking between 35–65 % of the animation —
-   exactly the window where the CSS-transform tween is at its highest motion.
-   Outside that window the overlay is invisible, so the user sees the galactic
-   before-state and the landed segmentum after-state unobstructed. Pure radial
-   vignette tinted by theme.bg0; no text, no settle phase, no opaque centre. */
-.map-dive-atmosphere {
-  position: absolute;
-  inset: 0;
-  z-index: 8;
+/* ── Areale: Leviathan-Schwarm + Sautekh-Dynastie ──────────────────────── */
+.cg-lev .lv-lens {
+  animation: cgLevBreath 18s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@keyframes cgLevBreath {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.cg-lev .lv0 {
+  animation: cgFlicker 7.5s ease-in-out 0.8s infinite;
+}
+.cg-lev .lv1 {
+  animation: cgFlicker 9.5s ease-in-out 4s infinite;
+}
+.cg-lev .lv2 {
+  animation: cgFlicker 12s ease-in-out 6.5s infinite;
+}
+.cg-levlbl {
+  font-family: var(--font-mono);
+  fill: var(--cl-cyan);
+  letter-spacing: 0.3em;
   pointer-events: none;
-  background: radial-gradient(
-    ellipse at 50% 50%,
-    transparent 0%,
-    transparent 38%,
-    color-mix(in srgb, var(--map-atmosphere-bg, #050301) 70%, transparent) 78%,
-    color-mix(in srgb, var(--map-atmosphere-bg, #050301) 92%, transparent) 100%
-  );
+}
+.cg-nec .nc-border {
+  animation: cgLevBreath 22s ease-in-out 3s infinite;
+}
+.cg-nec .nc0 {
+  animation: cgFlicker 8s ease-in-out 1.2s infinite;
+}
+.cg-nec .nc1 {
+  animation: cgFlicker 10.5s ease-in-out 4.6s infinite;
+}
+.cg-nec .nc2 {
+  animation: cgFlicker 13s ease-in-out 8s infinite;
+}
+
+/* ── Terra: das Auspex-Werk ────────────────────────────────────────────── */
+.cg-inst .i-ticks {
+  animation: cgTurn 220s linear infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+.cg-inst .i-dash {
+  animation: cgTurnRev 140s linear infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+.cg-inst .i-orbitA {
+  animation: cgTurn 160s linear infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+.cg-inst .i-riderA {
+  animation: cgTurn 70s linear infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+.cg-inst .i-riderB {
+  animation: cgTurnRev 105s linear infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+.cg-inst .i-blip {
+  animation: cgBlip 9s ease-in-out infinite;
+}
+.cg-inst .i-blip.b2 {
+  animation-delay: 3.2s;
+}
+@keyframes cgBlip {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+/* ── Kurse: Etappen zeichnen sich, Punkte marschieren dauerhaft ────────── */
+[data-dust],
+.cg-w,
+.cg-rgn,
+.cg-segname,
+#cg-fields {
+  transition: opacity 0.7s var(--ease);
+}
+.cg-chart[data-route] [data-dust] {
+  opacity: 0.07;
+}
+.cg-chart[data-route] .cg-w:not(.rt-hi) {
+  opacity: 0.12;
+}
+.cg-chart[data-route] .cg-rgn,
+.cg-chart[data-route] .cg-segname,
+.cg-chart[data-route] #cg-fields {
+  opacity: 0.22;
+}
+.cg-w.rt-hi .cg-lbl {
+  opacity: 1 !important;
+}
+.cg-chart .cg-w.rt-hi,
+.cg-chart .cg-w.sel-on {
+  opacity: 1 !important;
+  pointer-events: auto;
+}
+.cg-course {
+  pointer-events: none;
+}
+.cg-routeDraw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: cgRouteDraw 1.1s linear both;
+  animation-delay: calc(var(--i) * 1.45s + 0.35s);
+}
+@keyframes cgRouteDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.cg-rtFly {
+  animation: cgRtFly 7s linear infinite;
+}
+@keyframes cgRtFly {
+  to {
+    stroke-dashoffset: -62;
+  }
+}
+.cg-rt-st {
+  transform-box: fill-box;
+  transform-origin: center;
   opacity: 0;
-  animation: mapDiveAtmospherePulse 700ms cubic-bezier(.22, 1, .36, 1) both;
+  animation: cgRtStation 0.7s var(--ease) both;
+  animation-delay: calc(var(--i) * 1.45s);
+}
+@keyframes cgRtStation {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  60% {
+    opacity: 0.95;
+  }
+  to {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+}
+.cg-rt-lbl {
+  font-family: var(--font-mono);
+  fill: var(--cl-gold);
+  letter-spacing: 0.24em;
+  opacity: 0;
+  animation: cgRtLbl 1s var(--ease) both;
+}
+@keyframes cgRtLbl {
+  to {
+    opacity: 0.85;
+  }
 }
 
-/* Print stylesheet — verbatim port of the prototype's @media print block,
-   scoped to .map-route so it never bleeds into other pages. */
-@media print {
-  @page { size: A4 landscape; margin: 0; }
-  html, body { background: #000 !important; overflow: visible !important; }
-  .map-route [data-no-drag],
-  .map-route .twk-panel,
-  .map-route .twk-toggle,
-  .map-route .twk-gear,
-  .map-route button { display: none !important; }
-  .map-route .map-holo-flicker { display: none !important; }
+/* ── Selektion: Ringwerk blüht aus dem Punkt (BtnFx-Geste) ─────────────── */
+.cg-sel .blm {
+  animation: cgSelBloom 0.65s var(--ease) both;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@keyframes cgSelBloom {
+  from {
+    opacity: 0;
+    transform: scale(0.15);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.cg-sel .r-dash {
+  animation: cgTurn 24s linear infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+.cg-sel .r-tick {
+  animation: cgTurnRev 38s linear infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+.cg-sel .rd {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: cgDotIn 0.5s var(--ease) both;
+  animation-delay: calc(var(--i) * 36ms);
+}
+@keyframes cgDotIn {
+  from {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  to {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+}
+.cg-sel .sst1 {
+  animation:
+    cgSst1 0.9s var(--ease) 0.05s both,
+    cgSstTw 5.6s ease-in-out 1.4s infinite;
+}
+.cg-sel .sst2 {
+  animation:
+    cgSst2 0.9s var(--ease) 0.14s both,
+    cgSstTw 6.4s ease-in-out 1.7s infinite;
+}
+.cg-sel .sst3 {
+  animation:
+    cgSst3 0.9s var(--ease) 0.22s both,
+    cgSstTw 7.2s ease-in-out 2s infinite;
+}
+@keyframes cgSst1 {
+  from {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+  60% {
+    opacity: 0.9;
+  }
+  to {
+    opacity: 0.85;
+    transform: translate(-16px, -22px);
+  }
+}
+@keyframes cgSst2 {
+  from {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+  60% {
+    opacity: 0.9;
+  }
+  to {
+    opacity: 0.85;
+    transform: translate(24px, -15px);
+  }
+}
+@keyframes cgSst3 {
+  from {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+  60% {
+    opacity: 0.85;
+  }
+  to {
+    opacity: 0.8;
+    transform: translate(14px, 20px);
+  }
+}
+@keyframes cgSstTw {
+  0%,
+  100% {
+    opacity: 0.85;
+  }
+  50% {
+    opacity: 0.25;
+  }
 }
 
-/* Map transition windows (2026-05-28, Round 7 — label-shrink + bg-recovery fix):
- * GalaxyHologram sets two coordinated <html> attributes for the duration of
- * the transition (700 ms dive / 460 ms surface):
- *   data-map-transitioning — currently only signals the dive/surface window
- *     for the .map-dive-atmosphere overlay; photo and grain stay at their
- *     natural opacities throughout, so nothing snaps at finish_transition.
- *   data-map-quiet — performance rules: backdrop-filters drop, media-player
- *     wave/bars hide.
- * Round 6 dimmed photo+grain during the window to set atmosphere; that
- * created a visible recovery-dip at t=460 ms (surface) when the override fell
- * away and a 240 ms linear ramp ran on the photo/grain opacities. Round 7
- * reverts to a constant background pedestal — the .map-dive-atmosphere
- * vignette carries the dive feel locally over the disc and does not bleed
- * into recovery. */
-/* Round 7 (2026-05-28): data-map-quiet ist im Markup noch gesetzt, aber die
- * CSS-Rules sind hier abgeschaltet. Vorher: backdrop-filter wurde an Chrome-
- * Elementen während der Map-Transition deaktiviert + media-player wave/bars
- * auf opacity 0 — beides snapte instant an finish_transition zurück und
- * trug zum „filters werden re-applied"-Cut bei. Modern Chromium komponiert
- * backdrop-filter GPU-beschleunigt, der Perf-Gewinn lohnt den Snap nicht. */
-
-/* ── Floating control rail (right side, frameless) — Session 158 ──────────
-   The five viewer-facing map controls as a floating menu set off from the RIGHT
-   edge; popovers fly out to the LEFT. Moved off the left edge so the global
-   SiteNav rail (46-site-nav.css) owns the left. Gold language: text buttons,
-   fading hairline separators, glass popovers, no drawn frame. The popover
-   bodies reuse the global .twk-* control classes (mounted by TweaksPanel). */
-@keyframes maprailPopIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+/* ── Instrumente: Lumen Astronomican + Imperium Nihilus ────────────────── */
+#cg-lumenG,
+#cg-nihilusG {
+  display: none;
+  pointer-events: none;
 }
-.maprail {
+.cg-chart.lumen #cg-lumenG {
+  display: block;
+}
+.cg-chart.nihilus #cg-nihilusG {
+  display: block;
+}
+#cg-lumenG .lm-veil {
+  animation: cgFadeIn 2s var(--ease) both;
+}
+#cg-lumenG .lm-grow {
+  animation: cgGrow 1.6s var(--ease) both;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@keyframes cgGrow {
+  from {
+    opacity: 0;
+    transform: scale(0.12);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes cgFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+#cg-lumenG .lm-rim {
+  animation: cgRimPulse 12s ease-in-out 1.6s infinite;
+}
+@keyframes cgRimPulse {
+  0%,
+  100% {
+    stroke-opacity: 0.32;
+  }
+  50% {
+    stroke-opacity: 0.55;
+  }
+}
+.cg-lm-lbl {
+  font-family: var(--font-mono);
+  fill: var(--cl-gold);
+  letter-spacing: 0.26em;
+  animation: cgFadeIn 1.4s var(--ease) 0.9s both;
+}
+.cg-lm-lbl.dev {
+  fill: var(--cg-warp-l);
+}
+#cg-lumenG .lm-dark {
+  animation: cgFadeIn 2.4s var(--ease) both;
+}
+#cg-nihilusG .nh-shade {
+  animation:
+    cgFadeIn 1.6s var(--ease) both,
+    cgNhShimmer 18s ease-in-out 1.6s infinite;
+}
+@keyframes cgNhShimmer {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+.cg-nh-lbl {
+  font-family: var(--font-mono);
+  fill: var(--cg-warp-l);
+  letter-spacing: 0.4em;
+  animation: cgFadeIn 1.4s var(--ease) 0.5s both;
+}
+.cg-nh-lbl.sanctus {
+  fill: var(--cl-gold);
+}
+
+/* ── Ouvertüre ─────────────────────────────────────────────────────────── */
+.cg-overture {
   position: fixed;
-  right: 40px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 6;
+  inset: 0;
+  z-index: 30;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  pointer-events: none;
-}
-.maprail > * { pointer-events: auto; }
-
-.maprail__item { position: relative; }
-/* fading hairline separators between items — the gold-language rule, no box.
-   Right-rail mirror: solid at the screen (right) edge, fading inward (left). */
-.maprail__item + .maprail__item::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 12%;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(164, 140, 82, 0.22) 55%,
-    rgba(164, 140, 82, 0.22) 100%
-  );
-}
-
-.maprail__btn {
-  width: 100%;
-  display: flex;
   align-items: center;
-  /* Right-rail: the dot leads at the screen edge, label flush-right. */
-  flex-direction: row;
-  justify-content: flex-end;
-  gap: 10px;
-  padding: 11px 4px 11px 16px;
-  background: none;
-  border: none;
-  cursor: pointer;
+  justify-content: center;
+  text-align: center;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 46%, rgba(3, 2, 1, 0.46) 0%, rgba(3, 2, 1, 0.12) 54%, transparent 78%);
+  transition:
+    opacity 1.1s var(--ease),
+    visibility 1.1s;
+}
+.cg-overture.off {
+  opacity: 0;
+  visibility: hidden;
+}
+.cg-overture .over {
   font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.22em;
+  font-size: 11px;
+  letter-spacing: 0.42em;
   text-transform: uppercase;
   color: var(--cl-gold);
-  opacity: 0.72;
-  white-space: nowrap;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
-  transition: color 0.2s ease, opacity 0.2s ease;
 }
-.maprail__btn:hover { opacity: 1; color: var(--cl-bone); }
-.maprail__btn:focus-visible {
-  outline: 1px solid var(--cl-gold);
-  outline-offset: 2px;
-  opacity: 1;
+.cg-overture h1 {
+  margin-top: 16px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(54px, 7.5vw, 102px);
+  line-height: 1;
+  text-shadow: 0 2px 32px rgba(0, 0, 0, 0.9);
 }
-.maprail__btn.is-active { opacity: 1; color: var(--cl-bone); }
+.cg-overture h1 em {
+  font-style: italic;
+  font-weight: 400;
+}
+.cg-overture .edition {
+  margin-top: 16px;
+  font-style: italic;
+  font-size: 17.5px;
+  color: var(--cl-dim);
+}
+.cg-overture .edition b {
+  font-style: normal;
+  color: var(--cl-bone);
+  font-weight: 400;
+}
+.cg-overture .hint {
+  margin-top: 24px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.3em;
+  color: var(--cl-faint);
+  text-transform: uppercase;
+}
+.cg-overture .hint .dot {
+  color: var(--cl-gold);
+  animation: cgHintDot 2.4s ease-in-out infinite;
+}
+@keyframes cgHintDot {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.cg-overture .over,
+.cg-overture h1,
+.cg-overture .edition,
+.cg-overture .hint {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: cgEnter 1s var(--ease) forwards;
+}
+.cg-overture h1 {
+  animation-delay: 0.12s;
+}
+.cg-overture .edition {
+  animation-delay: 0.28s;
+}
+.cg-overture .hint {
+  animation-delay: 0.5s;
+}
+@keyframes cgEnter {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
 
-.maprail__dot {
-  width: 6px;
-  height: 6px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  border: 1px solid color-mix(in srgb, var(--cl-gold) 55%, transparent);
-  background: transparent;
-  transition: background 0.2s ease, box-shadow 0.2s ease;
-}
-.maprail__btn.is-active .maprail__dot {
-  background: var(--cl-gold);
-  box-shadow: 0 0 8px var(--cl-gold);
-}
-
-/* Left-flyout popover — frameless glass, depth via drop shadow + top
-   light-catch, no drawn border. The rail sits at the right edge, so popovers
-   open toward the galaxy (left). */
-.maprail__pop {
-  position: absolute;
-  right: 100%;
-  left: auto;
-  top: 50%;
-  transform: translateY(-50%);
-  margin-right: 16px;
-  width: 312px;
-  max-height: 80vh;
+/* ── Kartusche: Live-Site-Glasfläche (rahmenlos, Schatten + Lichtkante) ── */
+.cg-cartouche {
+  position: fixed;
+  left: 26px;
+  bottom: 26px;
+  z-index: 20;
+  width: 348px;
+  max-height: calc(100vh - 110px);
   overflow-y: auto;
-  padding: 18px 20px 20px;
-  /* Site popup surface (64-detail-modal.css): near-opaque dark, no drawn frame,
-     depth from the drop shadow + a faint bone top light-catch. */
-  background: linear-gradient(180deg, rgba(6, 9, 16, 0.98) 0%, rgba(2, 4, 10, 0.99) 100%);
-  box-shadow:
-    0 30px 80px -20px rgba(0, 0, 0, 0.85),
-    inset 0 1px 0 rgba(232, 220, 192, 0.06);
+  background: var(--cg-glass);
+  box-shadow: var(--cg-glass-shadow);
   border-radius: 4px;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  animation: maprailPopIn 0.18s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  padding: 16px 19px 13px;
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.9s var(--ease) 0.25s,
+    transform 0.9s var(--ease) 0.25s;
+  scrollbar-width: thin;
+  scrollbar-color: var(--cl-gold-dim) transparent;
 }
-.maprail__pop-head {
-  position: relative;
-  /* Cinzel small-caps title — the site's popup heading voice, not a mono label. */
+.cg-cartouche.on {
+  opacity: 1;
+  transform: none;
+}
+.cg-cartouche .c-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--cl-hair);
+  padding-bottom: 9px;
+}
+.cg-cartouche .c-title {
   font-family: var(--font-display);
-  font-size: var(--fs-label-lg);
-  font-weight: 400;
+  font-weight: 500;
+  font-size: 21px;
+  letter-spacing: 0.06em;
+}
+.cg-cartouche .c-status {
+  font-family: var(--font-mono);
+  font-size: 10px;
   letter-spacing: 0.2em;
+  color: var(--cl-faint);
+}
+.cg-cartouche .c-status .live {
+  color: var(--cl-gold);
+  animation: cgHintDot 2.4s ease-in-out infinite;
+}
+.cg-cartouche .c-census {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--cl-dim);
+  text-transform: uppercase;
+  padding: 9px 0 2px;
+  text-align: center;
+}
+.cg-cartouche .seek {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--cl-hair);
+  padding-bottom: 6px;
+  margin: 8px 0 11px;
+}
+.cg-cartouche .seek input {
+  flex: 1;
+  background: none;
+  border: 0;
+  outline: 0;
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--cl-bone);
+}
+.cg-cartouche .seek input::placeholder {
+  color: var(--cl-faint);
+  font-style: italic;
+}
+.cg-cartouche .seek .go {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--cl-faint);
+}
+.cg-cartouche .seek:focus-within {
+  border-color: var(--cl-gold-dim);
+}
+.cg-cartouche .seek:focus-within .go {
+  color: var(--cl-gold);
+}
+.cg-cartouche .c-cap {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--cl-faint);
+  text-transform: uppercase;
+  margin: 11px 0 4px;
+}
+.cg-cartouche .segrow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px 10px;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+  margin-bottom: 2px;
+}
+.cg-cartouche .segrow button {
+  color: inherit;
+  letter-spacing: inherit;
+  padding: 2px 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+}
+.cg-cartouche .segrow button:hover {
+  color: var(--cl-gold);
+}
+.cg-cartouche .routes {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.cg-cartouche .rt {
+  position: relative;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-style: italic;
+  color: var(--cl-dim);
+  padding: 4px 2px 4px 20px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.cg-cartouche .rt::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  margin: -2px 0 0 -2px;
+  background: var(--cl-faint);
+  border-radius: 50%;
+  transition:
+    background 0.4s,
+    transform 0.5s var(--ease);
+}
+.cg-cartouche .rt:hover {
+  color: var(--cl-bone);
+}
+.cg-cartouche .rt:hover::before {
+  background: var(--cl-gold);
+  transform: scale(1.6);
+}
+.cg-cartouche .rt.on {
+  color: var(--cl-gold);
+}
+.cg-cartouche .rt.on::before {
+  background: var(--cl-gold);
+  transform: scale(1.7);
+}
+.cg-cartouche .rt .rt-tag {
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--cl-faint);
+  padding-left: 8px;
+}
+.cg-cartouche .c-foot {
+  margin-top: 9px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  color: var(--cl-faint);
+  text-transform: uppercase;
+}
+
+/* ── Census-Filter ─────────────────────────────────────────────────────── */
+.cg-census .chead {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--cl-gold-dim);
+  padding: 3px 0 2px;
+}
+.cg-census .chead.groups {
+  margin-top: 12px;
+}
+.cg-census .cx .lab .hint,
+.cg-census .cgrp-h .gname .hint {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  font-style: italic;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--cl-faint);
+  line-height: 1.35;
+}
+.cg-census .cgrp {
+  border-bottom: 1px solid var(--cl-hair-soft);
+}
+.cg-census .cgrp-h {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4.5px 0;
+}
+.cg-census .cgrp-h .car {
+  width: 15px;
+  flex: none;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--cl-faint);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  transition:
+    transform 0.35s var(--ease),
+    color 0.3s;
+}
+.cg-census .cgrp.open .cgrp-h .car {
+  transform: rotate(90deg);
+  color: var(--cl-gold);
+}
+.cg-census .cgrp-h .car:hover {
+  color: var(--cl-gold);
+}
+.cg-census .cgrp-h .sym {
+  width: 20px;
+  flex: none;
+  display: flex;
+  align-items: center;
+}
+.cg-census .cgrp-h .gname {
+  flex: 1;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: 16.5px;
+  color: var(--cl-bone);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.cg-census .cgrp-h .gname:hover {
+  color: var(--cl-gold);
+}
+.cg-census .cgrp-h .n {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--cl-faint);
+  font-variant-numeric: tabular-nums;
+}
+.cg-census .cgrp.off .sym,
+.cg-census .cgrp.off .gname,
+.cg-census .cgrp.off .n {
+  opacity: 0.32;
+}
+.cg-census .cgrp.part .n {
+  color: var(--cl-gold);
+}
+.cg-census .csub {
+  padding: 1px 0 7px 22px;
+}
+.cg-census .crow {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-style: italic;
+  color: var(--cl-dim);
+  padding: 2.5px 0;
+  text-align: left;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.cg-census .crow:hover {
+  color: var(--cl-gold);
+}
+.cg-census .crow.off {
+  opacity: 0.32;
+  text-decoration: line-through;
+  text-decoration-color: var(--cl-faint);
+}
+.cg-census .crow .n {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-style: normal;
+  color: var(--cl-faint);
+}
+.cg-census .cx {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-style: italic;
+  color: var(--cl-dim);
+  padding: 5px 0;
+  border: 0;
+  border-bottom: 1px solid var(--cl-hair-soft);
+  text-align: left;
+  background: none;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.cg-census .cx:hover {
+  color: var(--cl-gold);
+}
+.cg-census .cx .pad {
+  width: 15px;
+  flex: none;
+}
+.cg-census .cx .sym {
+  width: 20px;
+  flex: none;
+  display: flex;
+  align-items: center;
+}
+.cg-census .cx .lab {
+  flex: 1;
+}
+.cg-census .cx .n {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-style: normal;
+  color: var(--cl-faint);
+}
+.cg-census .cx.off {
+  opacity: 0.4;
+}
+.cg-census .cx.on {
+  color: var(--cl-gold);
+}
+
+/* ── Welt-Popup: Live-Site-Fläche, Werkliste scrollt intern ────────────── */
+.cg-pop {
+  position: fixed;
+  z-index: 25;
+  width: 344px;
+  background: linear-gradient(180deg, rgba(9, 8, 6, 0.97), rgba(5, 3, 1, 0.98));
+  box-shadow:
+    0 30px 80px -20px rgba(0, 0, 0, 0.88),
+    inset 0 1px 0 rgba(228, 221, 203, 0.07);
+  border-radius: 4px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 14px 17px 13px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition:
+    opacity 0.45s var(--ease),
+    transform 0.45s var(--ease),
+    visibility 0.45s;
+  pointer-events: none;
+}
+.cg-pop.open {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  pointer-events: auto;
+}
+.cg-pop .pp-close {
+  position: absolute;
+  top: 9px;
+  right: 11px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  color: var(--cl-faint);
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.cg-pop .pp-close:hover {
+  color: var(--cl-gold);
+}
+.cg-pop .pp-tele {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--cl-gold);
-  padding-bottom: 12px;
-  margin-bottom: 14px;
 }
-/* Terminus hairline under the popover heading — the gold-language popup rule. */
-.maprail__pop-head::after {
+.cg-pop .pp-name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 31px;
+  line-height: 1.05;
+  margin-top: 5px;
+}
+.cg-pop .pp-cls {
+  font-style: italic;
+  color: var(--cl-dim);
+  font-size: 17px;
+  margin-top: 4px;
+}
+.cg-pop .pp-cls2 {
+  font-style: italic;
+  color: var(--cl-faint);
+  font-size: 15.5px;
+  margin-top: 2px;
+}
+.cg-pop .pp-cls2 b {
+  font-style: normal;
+  font-weight: 400;
+  color: var(--cl-dim);
+}
+.cg-pop .pp-rule {
+  height: 1px;
+  margin: 10px 0 2px;
+  background: linear-gradient(90deg, rgba(164, 140, 82, 0.4), rgba(164, 140, 82, 0.12) 72%, transparent);
+}
+/* Kurations-Blurb — derselbe Satz, mit dem die große Entity-Ansicht öffnet */
+.cg-pop .pp-blurb {
+  margin-top: 9px;
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--cl-dim);
+}
+.cg-pop .pp-blurb.missing {
+  color: var(--cl-faint);
+}
+/* Dust-Welten: stille Zeile statt Aufklappliste */
+.cg-pop .pp-norec {
+  margin-top: 11px;
+  padding-top: 6px;
+  border-top: 1px solid var(--cl-hair-soft);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+}
+/* Aufklappzeile „Literature & podcasts" */
+.cg-pop .pp-works-toggle {
+  display: flex;
+  width: 100%;
+  align-items: baseline;
+  gap: 7px;
+  margin-top: 11px;
+  padding: 6px 0 5px;
+  border: 0;
+  border-top: 1px solid var(--cl-hair-soft);
+  background: none;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+  text-align: left;
+  transition: color 0.3s;
+}
+.cg-pop .pp-works-toggle:hover {
+  color: var(--cl-gold);
+}
+.cg-pop .pp-works-toggle .car {
+  flex: none;
+  transition: transform 0.35s var(--ease);
+}
+.cg-pop .pp-works-toggle.open .car {
+  transform: rotate(90deg);
+}
+.cg-pop .pp-works-toggle.open {
+  color: var(--cl-dim);
+}
+.cg-pop .pp-works-toggle .lab {
+  flex: 1;
+}
+.cg-pop .pp-works-toggle .n {
+  font-variant-numeric: tabular-nums;
+}
+.cg-pop ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 38vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--cl-gold-dim) transparent;
+}
+.cg-pop li {
+  border-bottom: 1px solid var(--cl-hair-soft);
+  font-size: 16.5px;
+  line-height: 1.4;
+}
+.cg-pop li a {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  padding: 6px 2px;
+  color: inherit;
+  text-decoration: none;
+}
+.cg-pop li i {
+  color: var(--cl-faint);
+  font-size: 14px;
+}
+.cg-pop li a .k {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--cl-faint);
+  white-space: nowrap;
+  transition: color 0.3s;
+}
+.cg-pop li a:hover .t,
+.cg-pop li a:hover .k {
+  color: var(--cl-gold);
+}
+.cg-pop .pp-more {
+  display: inline-block;
+  margin-top: 9px;
+  font-style: italic;
+  font-family: var(--font-body);
+  color: var(--cl-gold);
+  font-size: 16.5px;
+  text-decoration: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.cg-pop .pp-more:hover {
+  color: var(--cl-bone);
+}
+
+/* ── Kurs-Karten ───────────────────────────────────────────────────────── */
+.cg-ccard {
+  position: fixed;
+  z-index: 18;
+  width: 268px;
+  background: linear-gradient(180deg, rgba(9, 8, 6, 0.97), rgba(5, 3, 1, 0.98));
+  box-shadow:
+    0 26px 70px -18px rgba(0, 0, 0, 0.88),
+    inset 0 1px 0 rgba(228, 221, 203, 0.07);
+  border-radius: 4px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 12px 15px 11px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.8s var(--ease),
+    transform 0.8s var(--ease);
+  pointer-events: none;
+}
+.cg-ccard.show {
+  opacity: 1;
+  transform: none;
+}
+.cg-ccard .ck {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: 12.5px;
+  letter-spacing: 0.2em;
+  color: var(--cl-gold);
+  text-transform: uppercase;
+  padding-bottom: 7px;
+  margin-bottom: 7px;
+}
+.cg-ccard .ck::after {
   content: "";
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    rgba(164, 140, 82, 0.22),
-    rgba(164, 140, 82, 0.08) 72%,
-    transparent
-  );
+  background: linear-gradient(90deg, rgba(164, 140, 82, 0.35), rgba(164, 140, 82, 0.1) 72%, transparent);
 }
-.maprail__voyages {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 6px;
-}
-
-/* The popover bodies reuse the global .twk-* control primitives, which are sized
-   and voiced for the compact bottom-right gear. Inside a flyout they must read
-   like the REST OF THE SITE's popups (the centred detail-modal), not like a dev
-   panel — so restyle them in-place to the site reading scale + type voices
-   (Plex Mono tracked labels, Cormorant hints, gold reserved for accents/values).
-   Session 160. */
-.maprail__pop .twk-row { gap: 9px; padding: 3px 0; }
-.maprail__pop .twk-lbl {
-  font-family: var(--font-mono);
-  font-size: var(--fs-label);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--cl-bone);
-}
-.maprail__pop .twk-val {
-  font-family: var(--font-mono);
-  font-size: var(--fs-label);
-  letter-spacing: 0.04em;
-  color: var(--cl-gold);
-}
-.maprail__pop .twk-sect {
-  font-family: var(--font-mono);
-  font-size: var(--fs-label-xs);
-  letter-spacing: 0.26em;
-  color: color-mix(in srgb, var(--cl-gold) 72%, transparent);
-  padding: 16px 0 8px;
-}
-.maprail__pop .twk-field {
-  height: 38px;
-  font-size: var(--fs-label-lg);
-  letter-spacing: 0.04em;
-  color: var(--cl-bone);
-}
-.maprail__pop .twk-seg { padding: 3px; }
-.maprail__pop .twk-seg button {
-  font-size: var(--fs-label);
-  letter-spacing: 0.1em;
-  min-height: 32px;
-}
-.maprail__pop .twk-btn {
-  height: 40px;
-  font-size: var(--fs-label);
-  letter-spacing: 0.16em;
-}
-.maprail__pop .twk-slider { height: 4px; margin: 11px 0; }
-.maprail__pop .twk-hint {
-  font-family: var(--font-body);
-  font-size: var(--fs-read-sm);
+.cg-ccard .ct {
+  font-size: 14.5px;
+  font-style: italic;
+  color: var(--cl-dim);
   line-height: 1.5;
 }
+.cg-ccard .cpg {
+  pointer-events: auto;
+  display: inline-block;
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.2em;
+  color: var(--cl-faint);
+  text-transform: uppercase;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.cg-ccard .cpg:hover {
+  color: var(--cl-gold);
+}
 
-/* Voyages route overlay — a gentle fade as the dimming + path appear. */
-@keyframes voyagesFadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+/* ── Zoomer + Readout ──────────────────────────────────────────────────── */
+.cg-zoomer {
+  position: fixed;
+  right: 26px;
+  bottom: 26px;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
 }
-.voyages-overlay {
-  animation: voyagesFadeIn 0.35s ease-out both;
+.cg-zoomer button {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--cl-hair);
+  background: var(--cl-plate);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--cl-dim);
+  cursor: pointer;
+  transition:
+    color 0.3s,
+    border-color 0.3s;
 }
+.cg-zoomer button:hover {
+  color: var(--cl-gold);
+  border-color: var(--cl-gold-dim);
+}
+.cg-readout {
+  position: fixed;
+  right: 72px;
+  bottom: 30px;
+  z-index: 20;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  color: var(--cl-faint);
+  text-align: right;
+}
+.cg-readout .mag {
+  color: var(--cl-dim);
+  transition: color 0.5s;
+}
+.cg-readout .mag.bump {
+  color: var(--cl-gold);
+}
+
+/* ── Direction-Panel (Session-Entscheidungshilfe — fliegt nach dem
+   Richtungs-Entscheid wieder raus) ─────────────────────────────────────── */
+.cg-debug {
+  position: fixed;
+  right: 26px;
+  top: 64px;
+  z-index: 40;
+  width: 250px;
+  text-align: right;
+}
+.cg-debug summary {
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+}
+.cg-debug summary::-webkit-details-marker {
+  display: none;
+}
+.cg-debug summary:hover {
+  color: var(--cl-gold);
+}
+.cg-debug .body {
+  margin-top: 10px;
+  padding: 12px 14px;
+  background: var(--cl-plate);
+  border: 1px solid var(--cl-hair);
+  text-align: left;
+}
+.cg-debug .dbg-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+  padding: 5px 0;
+}
+.cg-debug .dbg-row + .dbg-row {
+  border-top: 1px solid var(--cl-hair-soft);
+}
+.cg-debug .dbg-row .lab {
+  flex: 1;
+}
+.cg-debug .dbg-row .val {
+  color: var(--cl-faint);
+  font-size: 9.5px;
+  min-width: 30px;
+  text-align: right;
+}
+.cg-debug .dbg-row input[type="range"] {
+  width: 86px;
+  accent-color: var(--cl-gold);
+  background: transparent;
+  cursor: pointer;
+}
+.cg-debug .dbg-row input[type="checkbox"] {
+  accent-color: var(--cl-gold);
+  cursor: pointer;
+}
+.cg-debug .dbg-row .swi {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--cl-dim);
+  border: 1px solid var(--cl-hair);
+  background: none;
+  padding: 2px 6px;
+  cursor: pointer;
+  transition:
+    color 0.3s,
+    border-color 0.3s;
+}
+.cg-debug .dbg-row .swi:hover {
+  color: var(--cl-gold);
+  border-color: var(--cl-gold-dim);
+}
+.cg-debug .dbg-row .swi.on {
+  color: var(--cl-gold);
+  border-color: var(--cl-gold);
+}
+
+/* ── reduced-motion: alles steht still ─────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  .voyages-overlay { animation: none; }
+  .cg-storm,
+  .cg-whirl,
+  .cg-sx.sx0,
+  .cg-sx.sx1,
+  .cg-riftflow,
+  .cg-rtFly,
+  .cg-lev .lv-lens,
+  .cg-lev .lv0,
+  .cg-lev .lv1,
+  .cg-lev .lv2,
+  .cg-nec .nc-border,
+  .cg-nec .nc0,
+  .cg-nec .nc1,
+  .cg-nec .nc2,
+  .cg-inst .i-ticks,
+  .cg-inst .i-dash,
+  .cg-inst .i-orbitA,
+  .cg-inst .i-riderA,
+  .cg-inst .i-riderB,
+  .cg-inst .i-blip,
+  .cg-chart.unrest .cg-rvband,
+  .cg-chart.unrest .cg-rcrack,
+  .cg-chart.unrest .cg-rvein0,
+  .cg-chart.unrest .cg-rvein1,
+  .cg-chart.unrest .cg-rvein2,
+  .cg-chart.unrest .cg-wblob,
+  .cg-chart.unrest .cg-rfsk,
+  .cg-chart.unrest .cg-rflbl,
+  .cg-sel .r-dash,
+  .cg-sel .r-tick,
+  #cg-lumenG .lm-rim,
+  #cg-nihilusG .nh-shade,
+  .cg-overture .hint .dot,
+  .cg-cartouche .c-status .live {
+    animation: none;
+  }
+  .cg-storm {
+    opacity: 0.7;
+  }
+  .cg-inst .i-blip {
+    opacity: 0.5;
+  }
+  .cg-chart.unrest .cg-rfsk {
+    opacity: 0.5;
+  }
+  .cg-warc,
+  .cg-chart.unrest .cg-warc {
+    animation: none;
+    opacity: 0;
+  }
+  .cg-routeDraw {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .cg-rt-st {
+    animation: none;
+    opacity: 0.8;
+  }
+  .cg-rt-lbl {
+    animation: none;
+    opacity: 0.85;
+  }
+  .cg-sel .blm {
+    animation: none;
+    opacity: 1;
+  }
+  .cg-sel .rd {
+    animation: none;
+    opacity: 0.9;
+  }
+  .cg-sel .sst1,
+  .cg-sel .sst2,
+  .cg-sel .sst3 {
+    animation: none;
+    opacity: 0;
+  }
+  #cg-lumenG .lm-veil,
+  #cg-lumenG .lm-grow,
+  #cg-lumenG .lm-dark,
+  .cg-lm-lbl,
+  .cg-nh-lbl {
+    animation: none;
+    opacity: 1;
+  }
+  .cg-overture .over,
+  .cg-overture h1,
+  .cg-overture .edition,
+  .cg-overture .hint {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .cg-overture,
+  .cg-cartouche,
+  .cg-pop,
+  .cg-ccard {
+    transition: none;
+  }
+  .cg-lbl,
+  .cg-w .glyph {
+    transition: none;
+  }
 }
 
-/* World codex tooltip — rise + fade as it anchors next to the clicked planet
-   (mirrors the site's detail-modal entrance, 64-detail-modal.css). */
-@keyframes worldTooltipIn {
-  from { opacity: 0; transform: translateY(8px) scale(0.99); }
-  to   { opacity: 1; transform: none; }
-}
-.world-tooltip {
-  animation: worldTooltipIn 0.24s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-}
-@media (prefers-reduced-motion: reduce) {
-  .world-tooltip { animation: none; }
-}
-
-@media (max-width: 760px) {
-  .maprail { right: 14px; }
-  .maprail__btn { font-size: 11px; letter-spacing: 0.16em; padding-right: 10px; }
-  .maprail__pop { width: min(300px, 82vw); }
+/* ── Schmale Viewports: Karte bleibt, Kartusche weicht ─────────────────── */
+@media (max-width: 900px) {
+  .cg-cartouche {
+    display: none;
+  }
+  .cg-pop {
+    width: 250px;
+  }
+  .cg-debug {
+    top: 56px;
+    right: 16px;
+  }
 }
