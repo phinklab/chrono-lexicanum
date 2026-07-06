@@ -1,75 +1,49 @@
 "use client";
 
 /**
- * GreatRift — the Cicatrix Maledictum after the ORIGINAL (CicatrixSpine of
- * the old live map, Studie I Runde 5): the ×-raster IS the notation —
- * regular marks in the brick pattern, clipped to the corridor, opacity
- * falling toward the edge; skulls on the spine, three INTERDICTED labels
- * with cut-out raster zones. Three switchable storm veils (data-storm I/II/
- * III) share the raster.
+ * GreatRift — the Cicatrix Maledictum as portolan notation (178b Runde 6,
+ * "back to the roots"): the corridor is ONE closed path filled with the
+ * a-portolan red 45°-hatch pattern („Hic svnt daemones") plus a quiet
+ * dashed outline; skulls on the spine, three INTERDICTED labels. The three
+ * switchable storm veils (Fassungen I–III: flow line, band + jags, blobs)
+ * are retired — they stacked always-on animation and per-frame raster cost
+ * onto the zone (the "flicker at the Interdicted Zone", Runden 5–6).
  *
  * ⚠ Shipped STATIC by default (Brief 178 session): the study animated all
  * ~900 cells with individual CSS keyframes — the prime suspect for the
  * "ultra laggy" report — and that variant is deliberately NOT shipped.
  * The "Rift unrest" direction proof re-enables only the CHEAP life:
- * the word-glitch engine (≤3 slots × ~12 letters), ten lightning arcs and
- * the slow vein/band breathing — never the per-cell animations.
+ * the word-glitch engine (≤3 slots × ~12 letters) and ten lightning arcs.
  */
 
-import { useEffect, useRef } from "react";
-import type { CSSProperties, RefObject } from "react";
+import { memo, useEffect, useRef } from "react";
+import type { CSSProperties } from "react";
 
 import {
   BLOOD,
   GLITCH,
-  RIFT_D,
   RIFT_WORDS,
   SKULL_PATH,
   VOID0,
-  WARP_B,
-  WARP_L,
-  WARP_M,
-  WARP_V,
   riftGeometry,
-  xMarkPath,
   type RiftCell,
 } from "./chart-geometry";
 
 const SVG_NS = "http://www.w3.org/2000/svg";
 
-function RiftFlow({ opacity }: { opacity: number }) {
-  return (
-    <path
-      className="cg-riftflow"
-      d={RIFT_D}
-      fill="none"
-      stroke={WARP_L}
-      strokeOpacity={opacity}
-      strokeDasharray="1.5 9"
-      strokeLinecap="round"
-      vectorEffect="non-scaling-stroke"
-    />
-  );
-}
-
 /**
  * The word-glitch engine (mounted only under "Rift unrest"): heretic words
- * flame up in runs of adjacent cells — letters glitch through occult signs,
- * the ×-marks yield while a word holds. Direct DOM writes on a 90 ms tick,
- * exactly the study's cadence; touches ≤3 × 13 text nodes per tick.
+ * flame up in runs of adjacent cells — letters glitch through occult signs
+ * over a redaction bar that blanks the hatch beneath (the raster is a few
+ * merged paths since Runde 5, individual cells can't hide anymore). Direct
+ * DOM writes on a 90 ms tick, exactly the study's cadence.
  */
-function RiftWords({ cellsGRef, cells, runs }: {
-  cellsGRef: RefObject<SVGGElement | null>;
-  cells: RiftCell[];
-  runs: number[][];
-}) {
+function RiftWords({ cells, runs }: { cells: RiftCell[]; runs: number[][] }) {
   const wordsGRef = useRef<SVGGElement | null>(null);
 
   useEffect(() => {
     const wordsG = wordsGRef.current;
-    const cellsG = cellsGRef.current;
-    if (!wordsG || !cellsG) return;
-    const cellEls = cellsG.children;
+    if (!wordsG) return;
 
     interface Slot {
       word: string;
@@ -80,6 +54,7 @@ function RiftWords({ cellsGRef, cells, runs }: {
       fadeOut: number;
       total: number;
       restartAt: number;
+      bg: SVGRectElement;
       els: SVGTextElement[];
       done: boolean;
     }
@@ -94,13 +69,6 @@ function RiftWords({ cellsGRef, cells, runs }: {
     const slots: (Slot | null)[] = [null, null, null];
     let seeded = false;
     const t0 = performance.now();
-
-    const setCellHidden = (idx: number, hidden: boolean) => {
-      const el = cellEls[idx] as SVGElement | undefined;
-      if (!el) return;
-      if (hidden) el.style.opacity = "0";
-      else el.style.removeProperty("opacity");
-    };
 
     const mkSlot = (now: number): Slot | null => {
       for (let tr = 0; tr < 30; tr++) {
@@ -121,6 +89,17 @@ function RiftWords({ cellsGRef, cells, runs }: {
         );
         if (clash) continue;
         const hold = 1.5 + wrnd() * 0.9;
+        // Redaction bar under the letters — blanks the hatch for the word.
+        const first = cells[cellIdx[0]];
+        const last = cells[cellIdx[cellIdx.length - 1]];
+        const bg = document.createElementNS(SVG_NS, "rect");
+        bg.setAttribute("x", (first.x - 1.7).toFixed(1));
+        bg.setAttribute("y", (first.y - 1.6).toFixed(1));
+        bg.setAttribute("width", (last.x - first.x + 3.4).toFixed(1));
+        bg.setAttribute("height", "3.4");
+        bg.setAttribute("fill", VOID0);
+        bg.setAttribute("opacity", "0");
+        wordsG.appendChild(bg);
         const slot: Slot = {
           word,
           cellIdx,
@@ -130,11 +109,11 @@ function RiftWords({ cellsGRef, cells, runs }: {
           fadeOut: 0.6,
           total: 0.55 + hold + 0.6,
           restartAt: now + 0.55 + hold + 0.6 + 3.5 + wrnd() * 6.5,
+          bg,
           els: [],
           done: false,
         };
         for (const ci of cellIdx) {
-          setCellHidden(ci, true);
           const cell = cells[ci];
           const te = document.createElementNS(SVG_NS, "text");
           te.setAttribute("x", cell.x.toFixed(1));
@@ -154,7 +133,7 @@ function RiftWords({ cellsGRef, cells, runs }: {
     };
 
     const killSlot = (sl: Slot) => {
-      for (const ci of sl.cellIdx) setCellHidden(ci, false);
+      sl.bg.remove();
       for (const el of sl.els) el.remove();
       sl.els = [];
       sl.done = true;
@@ -175,6 +154,14 @@ function RiftWords({ cellsGRef, cells, runs }: {
           continue;
         }
         if (sl.done || e < 0) continue;
+        // Bar follows the word envelope (in — hold — out).
+        const env =
+          e < sl.fadeIn
+            ? e / sl.fadeIn
+            : e < sl.fadeIn + sl.hold
+              ? 1
+              : Math.max(0, 1 - (e - sl.fadeIn - sl.hold) / sl.fadeOut);
+        sl.bg.setAttribute("opacity", (env * 0.85).toFixed(2));
         for (let li = 0; li < sl.word.length; li++) {
           const t = e - 0.045 * li;
           const te = sl.els[li];
@@ -211,95 +198,43 @@ function RiftWords({ cellsGRef, cells, runs }: {
       for (const sl of slots) if (sl && !sl.done) killSlot(sl);
       wordsG.replaceChildren();
     };
-  }, [cellsGRef, cells, runs]);
+  }, [cells, runs]);
 
   return <g ref={wordsGRef} pointerEvents="none" />;
 }
 
-export default function GreatRift({ riftLife }: { riftLife: boolean }) {
+/** memo (178b): a root state change (selection, filter) must not reconcile
+ *  this subtree. Only `riftLife` re-renders it. */
+export default memo(function GreatRift({ riftLife }: { riftLife: boolean }) {
   const geo = riftGeometry();
-  const cellsGRef = useRef<SVGGElement | null>(null);
 
   return (
-    <g className="cg-riftG">
+    <g className="cg-riftG" pointerEvents="none">
       <defs>
-        <radialGradient id="cg-wgV">
-          <stop offset="0%" stopColor={WARP_V} stopOpacity={0.32} />
-          <stop offset="55%" stopColor={WARP_V} stopOpacity={0.12} />
-          <stop offset="100%" stopColor={WARP_V} stopOpacity={0} />
-        </radialGradient>
-        <radialGradient id="cg-wgM">
-          <stop offset="0%" stopColor={WARP_M} stopOpacity={0.3} />
-          <stop offset="55%" stopColor={WARP_M} stopOpacity={0.11} />
-          <stop offset="100%" stopColor={WARP_M} stopOpacity={0} />
-        </radialGradient>
-        <radialGradient id="cg-wgB">
-          <stop offset="0%" stopColor={WARP_B} stopOpacity={0.28} />
-          <stop offset="55%" stopColor={WARP_B} stopOpacity={0.1} />
-          <stop offset="100%" stopColor={WARP_B} stopOpacity={0} />
-        </radialGradient>
-        <filter id="cg-rvBlur" x="-30%" y="-30%" width="160%" height="160%">
-          <feGaussianBlur stdDeviation={5} />
-        </filter>
+        {/* Die a-portolan-Schraffur 1:1 (5×5-Kachel, 45°, eine Blutlinie) —
+            userSpaceOnUse: die Textur klebt an der Karte wie Tusche. */}
+        <pattern
+          id="cg-riftHatch"
+          width={5}
+          height={5}
+          patternUnits="userSpaceOnUse"
+          patternTransform="rotate(45)"
+        >
+          <line x1={0} y1={0} x2={0} y2={5} stroke={BLOOD} strokeWidth={0.8} strokeOpacity={0.5} />
+        </pattern>
       </defs>
 
-      {/* Fassung I — Hochwerk: raster pur, nur der Warpfluss */}
-      <g id="cg-rv1" className="cg-rv">
-        <RiftFlow opacity={0.3} />
-      </g>
-
-      {/* Fassung II — Riss (Default): enges warp-getöntes Band + gezackter
-          Hauptriss + Adern in der Warp-Palette */}
-      <g id="cg-rv2" className="cg-rv">
-        <g className="cg-rvband" filter="url(#cg-rvBlur)">
-          <path d={RIFT_D} fill="none" stroke={WARP_V} strokeWidth={30} strokeOpacity={0.09} strokeLinecap="round" />
-          <path d={RIFT_D} fill="none" stroke={WARP_M} strokeWidth={13} strokeOpacity={0.11} strokeLinecap="round" />
-        </g>
-        {geo.jags.map((j, i) => (
-          <path
-            key={i}
-            className={`cg-${j.cls}`}
-            d={j.d}
-            fill="none"
-            stroke={j.color}
-            strokeWidth={j.width}
-            strokeOpacity={j.op}
-            strokeLinejoin="bevel"
-            vectorEffect="non-scaling-stroke"
-          />
-        ))}
-        <RiftFlow opacity={0.28} />
-      </g>
-
-      {/* Fassung III — Glut: die halbierte G-Nebel-Probe */}
-      <g id="cg-rv3" className="cg-rv">
-        {geo.blobs.map((b, i) => (
-          <circle
-            key={i}
-            className={`cg-wblob wb${b.cls}`}
-            cx={b.x.toFixed(1)}
-            cy={b.y.toFixed(1)}
-            r={b.r.toFixed(1)}
-            fill={`url(#cg-wg${["V", "M", "B"][b.cls]})`}
-          />
-        ))}
-        <RiftFlow opacity={0.26} />
-      </g>
-
-      {/* Das X-Raster — statisch, keine per-Zellen-Animationen. */}
-      <g ref={cellsGRef} className="cg-riftgrid" pointerEvents="none">
-        {geo.cells.map((c, i) => (
-          <path
-            key={i}
-            d={xMarkPath(c.x, c.y, c.s)}
-            stroke={BLOOD}
-            strokeWidth={0.85}
-            fill="none"
-            opacity={c.op.toFixed(2)}
-            vectorEffect="non-scaling-stroke"
-          />
-        ))}
-      </g>
+      {/* Der Korridor als EIN schraffiertes Feld mit stiller Strichel-Kontur
+          („Hic svnt daemones") — statisch, kein per-Frame-Raster mehr. */}
+      <path
+        className="cg-riftcorr"
+        d={geo.corridor}
+        fill="url(#cg-riftHatch)"
+        stroke={BLOOD}
+        strokeOpacity={0.4}
+        strokeDasharray="3 3"
+        vectorEffect="non-scaling-stroke"
+      />
 
       {/* Totenköpfe auf der Spine */}
       {geo.skulls.map((sk, i) => (
@@ -347,7 +282,7 @@ export default function GreatRift({ riftLife }: { riftLife: boolean }) {
         />
       ))}
 
-      {riftLife && <RiftWords cellsGRef={cellsGRef} cells={geo.cells} runs={geo.runs} />}
+      {riftLife && <RiftWords cells={geo.cells} runs={geo.runs} />}
     </g>
   );
-}
+});

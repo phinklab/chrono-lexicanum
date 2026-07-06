@@ -76,9 +76,6 @@ export interface MapPayload {
   contacts: number;
   /** Featured count incl. region pins ("154 recorded"). */
   recorded: number;
-  /** Top-100 works-count threshold: pins with n ≤ vbCut hide at zoom band 0
-   *  unless "Reveal the full census" is on. */
-  vbCut: number;
 }
 
 /**
@@ -160,12 +157,6 @@ export function buildMapPayload(file: MapWorldsFile): MapPayload {
     }
   }
 
-  const ns = featured
-    .filter((f) => f.kind !== "region")
-    .map((f) => f.n)
-    .sort((a, b) => b - a);
-  const vbCut = ns[Math.min(99, ns.length - 1)] ?? 0;
-
   return {
     kinds: MAP_WORLD_KINDS,
     cls,
@@ -177,6 +168,5 @@ export function buildMapPayload(file: MapWorldsFile): MapPayload {
     coverage: { placed: file.coverage.placedWorkEdges, total: file.coverage.totalWorkEdges },
     contacts: file.worlds.length,
     recorded: featured.length,
-    vbCut,
   };
 }

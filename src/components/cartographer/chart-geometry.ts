@@ -362,14 +362,6 @@ export interface RiftBolt {
   cls: number;
 }
 
-export interface JagLine {
-  d: string;
-  cls: string;
-  color: string;
-  op: number;
-  width: number;
-}
-
 export interface RiftGeometry {
   cells: RiftCell[];
   /** Runs of ≥5 adjacent cells in one row — word slots (indices into cells). */
@@ -377,8 +369,9 @@ export interface RiftGeometry {
   zones: RiftZone[];
   skulls: RiftSkull[];
   bolts: RiftBolt[];
-  jags: JagLine[];
-  blobs: { x: number; y: number; r: number; cls: number }[];
+  /** Closed corridor outline (the ± corrW offset of the spine) — the
+   *  portolan hatch fill (178b Runde 6). */
+  corridor: string;
 }
 
 function corrW(t: number): number {
@@ -406,6 +399,9 @@ export function riftGeometry(): RiftGeometry {
     const w2 = corrW(FR[i].t);
     poly.push([FR[i].x - FR[i].nx * w2, FR[i].y - FR[i].ny * w2]);
   }
+  const corridor =
+    poly.map(([px, py], i) => `${i === 0 ? "M" : "L"} ${px.toFixed(1)} ${py.toFixed(1)}`).join(" ") +
+    " Z";
   const inPoly = (px: number, py: number): boolean => {
     let inside = false;
     for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
@@ -528,39 +524,7 @@ export function riftGeometry(): RiftGeometry {
     return { d, color: BCOL[bo], width: 0.55 + brnd() * 0.35, cls: bo % 6 };
   });
 
-  // Fassung II: jagged main crack + veins in the full warp palette
-  const jrnd = lcg(733);
-  const jag = (off: number, segs: number, amp: number, cls: string, color: string, op: number, width: number): JagLine => {
-    let d = "";
-    for (let i = 0; i <= segs; i++) {
-      const t = i / segs;
-      const q = riftFrameAt(Math.min(0.999, t));
-      const half = 9 + 17 * Math.sin(Math.PI * t);
-      const wob = (jrnd() - 0.5) * amp;
-      const x = q.x + q.nx * (off * half + wob);
-      const y = q.y + q.ny * (off * half + wob);
-      d += (i === 0 ? "M " : " L ") + x.toFixed(1) + " " + y.toFixed(1);
-    }
-    return { d, cls, color, op, width };
-  };
-  const jags: JagLine[] = [
-    jag(0, 46, 3.4, "rcrack", WARP_M, 0.6, 1),
-    jag(0.42, 34, 4.5, "rvein0", WARP_V, 0.38, 0.7),
-    jag(-0.45, 30, 5, "rvein1", WARP_B, 0.34, 0.7),
-    jag(-0.2, 36, 3.8, "rvein0", WARP_M, 0.26, 0.65),
-    jag(0.8, 24, 6, "rvein2", WARP_V, 0.24, 0.6),
-    jag(-0.85, 22, 6, "rvein2", WARP_B, 0.2, 0.6),
-  ];
-
-  // Fassung III: the halved G-nebula probe
-  const blobs = Array.from({ length: 7 }, (_, bl) => {
-    const bt = 0.08 + bl * 0.14;
-    const bp = riftFrameAt(bt);
-    const br = (9 + 17 * Math.sin(Math.PI * bt)) * 1.3;
-    return { x: bp.x, y: bp.y, r: br, cls: bl % 3 };
-  });
-
-  riftGeo = { cells, runs, zones, skulls, bolts, jags, blobs };
+  riftGeo = { cells, runs, zones, skulls, bolts, corridor };
   return riftGeo;
 }
 
@@ -610,6 +574,7 @@ export function stormMarks(
 export function xMarkPath(x: number, y: number, s: number): string {
   return `M ${x - s} ${y - s} L ${x + s} ${y + s} M ${x - s} ${y + s} L ${x + s} ${y - s}`;
 }
+
 
 /* ══════════ Areas: Leviathan swarm + Sautekh dynasty ══════════ */
 
@@ -674,36 +639,3 @@ export function dustScatter(count: number): DustLook[] {
   });
 }
 
-/* ══════════ Surveyor sweep: clip silhouette + tail image params ══════════ */
-
-export const SWEEP_R0 = 34;
-export const SWEEP_RMAX = 700;
-export const SWEEP_TAIL_DEG = 34;
-export const SWEEP_PERIOD_MS = 60000;
-
-let sweepClipD: string | null = null;
-
-/** Segment-edge silhouette (1° sampling, chord error < 0.03) with a hole
- *  around Terra (evenodd) — clips the rotating tail image to the wedge
- *  outline at every bearing. */
-export function sweepClipPath(): string {
-  if (sweepClipD) return sweepClipD;
-  let d = "";
-  let prevR: number | null = null;
-  for (let a = 136.5; a <= 496.5; a++) {
-    const r = outerR(a === 496.5 ? 496.49 : a);
-    if (prevR !== null && Math.abs(r - prevR) > 0.5) {
-      const q0 = pp(a, prevR);
-      d += ` L ${q0[0].toFixed(1)} ${q0[1].toFixed(1)}`;
-    }
-    const p = pp(a, r);
-    d += (d ? " L " : "M ") + p[0].toFixed(1) + " " + p[1].toFixed(1);
-    prevR = r;
-  }
-  d +=
-    ` Z M ${TX + SWEEP_R0} ${TY}` +
-    ` A ${SWEEP_R0} ${SWEEP_R0} 0 1 0 ${TX - SWEEP_R0} ${TY}` +
-    ` A ${SWEEP_R0} ${SWEEP_R0} 0 1 0 ${TX + SWEEP_R0} ${TY} Z`;
-  sweepClipD = d;
-  return sweepClipD;
-}

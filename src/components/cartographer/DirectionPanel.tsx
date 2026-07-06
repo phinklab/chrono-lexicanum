@@ -4,9 +4,10 @@
  * DirectionPanel — the "Direction · proofs" sight-check panel carried over
  * from the studies for the live review (Brief 178 session note: Philipp
  * decides in the browser what ships). Controls the backdrop art, veil,
- * brightness, grain, the storm variant I/II/III and "Rift unrest" — the
- * cheap rift life (word glitch + lightning + vein breathing; the study's
- * per-cell raster animations stay unshipped, they were the lag driver).
+ * brightness, grain and "Rift unrest" — the cheap rift life (word glitch +
+ * lightning; the study's per-cell raster animations stay unshipped, they
+ * were the lag driver). The storm variant switcher I/II/III is retired
+ * (178b Runde 6: Fassungen deleted, the rift is portolan hatch now).
  *
  * Remove this component (and its state fields) once the direction is fixed.
  */
@@ -16,13 +17,11 @@ interface DirectionPanelProps {
   veil: number;
   bright: number;
   grain: number;
-  storm: 1 | 2 | 3;
   riftLife: boolean;
   onBgArt: (v: boolean) => void;
   onVeil: (v: number) => void;
   onBright: (v: number) => void;
   onGrain: (v: number) => void;
-  onStorm: (v: 1 | 2 | 3) => void;
   onRiftLife: (v: boolean) => void;
 }
 
@@ -31,13 +30,11 @@ export default function DirectionPanel({
   veil,
   bright,
   grain,
-  storm,
   riftLife,
   onBgArt,
   onVeil,
   onBright,
   onGrain,
-  onStorm,
   onRiftLife,
 }: DirectionPanelProps) {
   return (
@@ -80,14 +77,6 @@ export default function DirectionPanel({
             onChange={(e) => onGrain(Number(e.target.value) / 100)}
           />
           <span className="val">{grain.toFixed(2)}</span>
-        </div>
-        <div className="dbg-row">
-          <span className="lab">Warp storm</span>
-          {([1, 2, 3] as const).map((v) => (
-            <button key={v} className={`swi${storm === v ? " on" : ""}`} onClick={() => onStorm(v)}>
-              {["I", "II", "III"][v - 1]}
-            </button>
-          ))}
         </div>
         <label className="dbg-row">
           <span className="lab">Rift unrest</span>

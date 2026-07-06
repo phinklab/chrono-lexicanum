@@ -6,11 +6,13 @@
  * 11 kind groups with counters + toggles; sub-rows fold out, every
  * classification switches individually.
  *
- * Session-Nachtrag 178 (rearrange): the three display toggles sit together
- * at the top under a "Display" caption; the classification groups follow
- * under their own caption, ordered by population (largest first) instead of
- * the old hardcoded thematic order. Group order is computed from the full
+ * Session-Nachtrag 178 (rearrange): the display toggles sit together at the
+ * top under a "Display" caption; the classification groups follow under
+ * their own caption, ordered by population (largest first) instead of the
+ * old hardcoded thematic order. Group order is computed from the full
  * catalog counts so it never jumps when "Linked records only" flips.
+ * "All worlds at every zoom" is gone (178b Runde 7) — every recorded world
+ * shows at every zoom now, so the toggle had nothing left to reveal.
  */
 
 import { useMemo, useState } from "react";
@@ -39,12 +41,10 @@ interface CensusProps {
   hiddenCls: ReadonlySet<number>;
   worksOnly: boolean;
   dustOff: boolean;
-  showAll: boolean;
   onToggleCls: (ci: number) => void;
   onSetCls: (cis: number[], hidden: boolean) => void;
   onToggleWorksOnly: () => void;
   onToggleDust: () => void;
-  onToggleShowAll: () => void;
 }
 
 export default function Census({
@@ -52,12 +52,10 @@ export default function Census({
   hiddenCls,
   worksOnly,
   dustOff,
-  showAll,
   onToggleCls,
   onSetCls,
   onToggleWorksOnly,
   onToggleDust,
-  onToggleShowAll,
 }: CensusProps) {
   const [open, setOpen] = useState<ReadonlySet<string>>(new Set());
 
@@ -76,6 +74,14 @@ export default function Census({
   }, [payload]);
 
   const cnt = (ci: number) => (worksOnly ? clsFeat[ci] : clsCount[ci]);
+
+  // Select/unselect-all toggle: `visibleCis` mirrors exactly the rows the
+  // census renders; the toggle flips every classification in one click.
+  const visibleCis = payload.cls
+    .map((_, ci) => ci)
+    .filter((ci) => clsCount[ci] > 0 && (!worksOnly || clsFeat[ci] > 0));
+  const allOff = visibleCis.length > 0 && visibleCis.every((ci) => hiddenCls.has(ci));
+  const allCis = payload.cls.map((_, ci) => ci);
 
   // Largest population first — stable against the worksOnly toggle.
   const ordered = useMemo(() => {
@@ -101,10 +107,7 @@ export default function Census({
             <circle r={1} fill={GOLD} />
           </svg>
         </span>
-        <span className="lab">
-          Linked records only
-          <i className="hint">hide everything without books or podcasts</i>
-        </span>
+        <span className="lab">Only worlds with records</span>
         <span className="n">{featTotal}</span>
       </button>
       {!worksOnly && (
@@ -115,30 +118,20 @@ export default function Census({
               <circle r={1.4} fill={BONE} fillOpacity={0.4} />
             </svg>
           </span>
-          <span className="lab">
-            Star-dust — unrecorded worlds
-            <i className="hint">faint dots: no linked work in the archive yet</i>
-          </span>
+          <span className="lab">Star-dust — unrecorded worlds</span>
           <span className="n">{payload.dust.length}</span>
         </button>
       )}
-      <button className={`cx${showAll ? " on" : ""}`} onClick={onToggleShowAll}>
-        <span className="pad" />
-        <span className="sym">
-          <svg viewBox="-8 -8 16 16" width={18} height={18}>
-            <circle cx={-4} r={1.1} fill={GOLD} />
-            <circle r={1.1} fill={GOLD} fillOpacity={0.6} />
-            <circle cx={4} r={1.1} fill={GOLD} fillOpacity={0.3} />
-          </svg>
-        </span>
-        <span className="lab">
-          Reveal the full census
-          <i className="hint">show every recorded world even at wide zoom</i>
-        </span>
-        <span className="n">{featTotal}</span>
-      </button>
-
-      <p className="chead groups">Census — by classification</p>
+      <p className="chead groups">
+        <span>By classification</span>
+        <button
+          className="creset"
+          onClick={() => onSetCls(allCis, !allOff)}
+          title={allOff ? "Show every classification" : "Hide every classification, then pick the ones you want"}
+        >
+          {allOff ? "select all" : "unselect all"}
+        </button>
+      </p>
       {ordered.map(({ kind, label }) => {
         const kindI = payload.kinds.indexOf(kind);
         const members = payload.cls

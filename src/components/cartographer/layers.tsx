@@ -105,8 +105,9 @@ export function labelTier(n: number): 0 | 1 | 2 {
 /* ── Star-dust: 900 unrecorded worlds, grouped per classification so the
    census can veil them without touching individual nodes. Every dot is a
    real catalog contact (Session-Nachtrag 178): data-pin makes it clickable,
-   the transparent halo gives it a tappable hit area, the t2 label surfaces
-   its name at deep zoom / on hover. ─────────────────────────────────────── */
+   the transparent halo gives it a tappable hit area. Dust ranks BELOW every
+   recorded world (178b Runde 7): the layer sits at 60 % opacity until band 3
+   — the zoom where the t3 label makes its name readable. ────────────────── */
 
 interface DustLayerProps {
   payload: MapPayload;
@@ -143,7 +144,7 @@ export const DustLayer = memo(function DustLayer({ payload, hiddenCls, dustOff, 
                 <circle className="halo" r={9} />
                 <circle className="glyph" r={d.r.toFixed(2)} fill={BONE} fillOpacity={d.op.toFixed(2)} />
               </g>
-              <text className="cg-lbl t2 dust">{d.name}</text>
+              <text className="cg-lbl t3 dust">{d.name}</text>
             </g>
           ))}
         </g>
@@ -157,23 +158,23 @@ export const DustLayer = memo(function DustLayer({ payload, hiddenCls, dustOff, 
 interface PinLayerProps {
   featured: FeaturedWorld[];
   hiddenCls: ReadonlySet<number>;
-  vbCut: number;
   /** Station names of the active course (kept bright + labeled). */
   hiNames: ReadonlySet<string> | null;
-  selectedId: string | null;
 }
 
-export const PinLayer = memo(function PinLayer({ featured, hiddenCls, vbCut, hiNames, selectedId }: PinLayerProps) {
+/** NOTE (178b, Label-Flicker): the selection highlight (`sel-on`) is applied
+ *  imperatively from CartographerRoot — deliberately NOT a prop here, so a
+ *  selection change never re-renders this layer.
+ *  Every recorded world is visible at every zoom (178b Runde 7) — the old
+ *  top-100 veil (`vb1` + "All worlds at every zoom") hid book-carrying
+ *  worlds while dust stayed on, the wrong way around. */
+export const PinLayer = memo(function PinLayer({ featured, hiddenCls, hiNames }: PinLayerProps) {
   return (
     <g className="cg-pins">
       {featured.map((f) => {
         if (f.kind === "region") return null;
         const tier = labelTier(f.n);
-        const cls =
-          "cg-w" +
-          (f.n <= vbCut ? " vb1" : "") +
-          (hiNames?.has(f.name) ? " rt-hi" : "") +
-          (selectedId === f.id ? " sel-on" : "");
+        const cls = "cg-w" + (hiNames?.has(f.name) ? " rt-hi" : "");
         return (
           <g
             key={f.id}

@@ -21,6 +21,8 @@ export interface CameraDriver {
   getCenterRel(): { gx: number; gy: number; kr: number };
   /** Grid → stage-viewport pixels (fixed-position overlays). */
   worldToScreen(gx: number, gy: number): { x: number; y: number };
+  /** Client pixels → grid (zone-editor vertex drags). */
+  screenToWorld(sx: number, sy: number): { gx: number; gy: number };
   getViewport(): { vw: number; vh: number };
   getK(): number;
   getK0(): number;
@@ -30,6 +32,8 @@ export class ChartBus {
   driver: CameraDriver | null = null;
 
   private listeners = new Set<FrameListener>();
+
+  private flightListeners = new Set<(active: boolean) => void>();
 
   /** Installed/cleared by ChartStage's mount effect. */
   setDriver(driver: CameraDriver | null): void {
@@ -45,6 +49,17 @@ export class ChartBus {
   /** ChartStage calls this once per applied camera frame. */
   emitFrame(): void {
     for (const cb of this.listeners) cb();
+  }
+
+  /** Eased flight started/ended — overlays duck out of the way (world panel
+   *  fades during the flight instead of racing pinned across the chart). */
+  onFlightChange(cb: (active: boolean) => void): () => void {
+    this.flightListeners.add(cb);
+    return () => this.flightListeners.delete(cb);
+  }
+
+  emitFlightChange(active: boolean): void {
+    for (const cb of this.flightListeners) cb(active);
   }
 
   zoomAtCenter(factor: number): void {

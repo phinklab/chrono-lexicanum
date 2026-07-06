@@ -43,6 +43,19 @@ html.cg-nobg .map-route .site-bg__photo {
   }
 }
 
+/* Auf der Karte wandert der Brand in die Mitte des Nordrands („Chrono
+   Lexicanum · Tabula") — die linke Flanke gehört jetzt der Legende. Der
+   „000"-Gradmarker ist dafür aus dem Markup genommen. */
+body.cg-on-map .site-brand {
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 15px;
+}
+body.cg-on-map .site-brand .site-brand__map {
+  color: var(--cl-gold);
+}
+
 /* ── Schleier + Korn über dem Foto (Studie: .bg .veil/.grain) ──────────── */
 .cg-veil {
   position: fixed;
@@ -89,11 +102,6 @@ html.cg-nobg .map-route .site-bg__photo {
   color: var(--cl-faint);
   opacity: 0.75;
 }
-.cg-deg.n {
-  top: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-}
 .cg-deg.s {
   bottom: 12px;
   left: 50%;
@@ -124,6 +132,11 @@ html.cg-nobg .map-route .site-bg__photo {
   display: block;
   cursor: grab;
   touch-action: none;
+  /* Chart-Labels sind klickbar, nie selektierbar — ein Drag darf keine
+     Textmarkierung über die Karte ziehen (Belt zu preventDefault am
+     pointerdown in ChartStage). */
+  user-select: none;
+  -webkit-user-select: none;
 }
 .cg-stage svg.dragging {
   cursor: grabbing;
@@ -146,58 +159,105 @@ html.cg-nobg .map-route .site-bg__photo {
   transform-box: fill-box;
   transform-origin: center;
 }
-.cg-w:hover .glyph {
+/* Hover nur bei ruhender Kamera: während Pan/Zoom/Flug schiebt sich die
+   Karte unter dem stehenden Cursor durch — jeder passierende Pin würde
+   sonst Label-/Glyph-Transitions zünden (Massen-Flickern, 178b). */
+.cg-chart:not(.moving) .cg-w:hover .glyph {
   transform: scale(1.35);
+}
+/* Die Selektion HÄLT den Hover-Look (178b Runde 2, Klick-Flicker): beim
+   Klick übernimmt `sel-on` (synchron gesetzt) nahtlos von `:hover`, bevor
+   `.moving` die Hover-Regeln gated — Glyph und Label pulsen nicht mehr.
+   Nebeneffekt: die gewählte Welt zeigt ihren Namen in jedem Zoom-Band. */
+.cg-chart .cg-w.sel-on .glyph {
+  transform: scale(1.35);
+}
+.cg-chart .cg-w.sel-on .cg-lbl {
+  opacity: 1 !important;
+  /* Auch gegen die display:none-Band-Gates: der Name der gewählten Welt
+     bleibt in jedem Zoom-Band stehen. */
+  display: inline !important;
+  pointer-events: auto;
 }
 
 /* Namen sind Teil des data-pin-Targets — sichtbare Labels sind klickbar;
    ausgeblendete Stufen schalten pointer-events mit ab, damit unsichtbarer
-   Text keine Klicks stiehlt. */
+   Text keine Klicks stiehlt.
+
+   Counter-Scale über TRANSFORM, nicht über calc()-font-size (178b Runde 4):
+   eine --cg-ik-Änderung recalct dann nur Transforms — die calc()-Variante
+   erzwang pro Zoom-Frame ein Text-RELAYOUT aller ~1050 Labels (gemessen:
+   375 ms-Frame-Stalls beim Band-Wechsel = „alle Elemente flickern").
+   Transform-Origin ist der SVG-Default (lokaler Ursprung = Pin-Zentrum);
+   px-identisch zur alten Optik verifiziert. translateY sitzt HINTER scale,
+   damit der Offset mitskaliert (k·ik = 1 → konstant 14 Screen-px). */
 .cg-lbl {
   font-family: var(--font-body);
   font-style: italic;
   fill: var(--cl-bone);
-  font-size: calc(14.5px * var(--cg-ik, 1));
-  transform: translateY(calc(-14px * var(--cg-ik, 1)));
+  font-size: 14.5px;
+  transform: scale(var(--cg-ik, 1)) translateY(-14px);
   text-anchor: middle;
   cursor: pointer;
   paint-order: stroke;
   stroke: rgba(3, 2, 1, 0.9);
-  stroke-width: calc(2.5px * var(--cg-ik, 1));
+  stroke-width: 2.5px;
   opacity: 0.8;
   transition: opacity 0.6s var(--ease);
+}
+/* Frisch eingeblendete Stufen (display: none → inline) faden ein; beim
+   Band-VERLASSEN poppen sie bewusst sofort weg (kein allow-discrete):
+   ein verzögerter display-Flip von ~900 Labels käme sonst 0,6 s nach der
+   Band-Grenze als zweiter Recalc-Batch mitten in die Zoom-Geste. */
+@starting-style {
+  .cg-chart .cg-lbl {
+    opacity: 0;
+  }
 }
 .cg-lbl.big {
   font-style: normal;
   font-family: var(--font-display);
-  font-size: calc(16px * var(--cg-ik, 1));
+  font-size: 16px;
   letter-spacing: 0.08em;
 }
 .cg-lbl.dust {
-  font-size: calc(12.5px * var(--cg-ik, 1));
-  transform: translateY(calc(-10px * var(--cg-ik, 1)));
+  font-size: 12.5px;
+  transform: scale(var(--cg-ik, 1)) translateY(-10px);
   opacity: 0.68;
 }
+/* display: none nimmt ausgeblendete Stufen komplett aus Recalc + Paint —
+   bei Band 0 sind das ~900 Dust- und t1/t2-Labels pro Kamera-Frame.
+   Namens-Treppe nach Wichtigkeit (178b Runde 7): t0 (≥15 Werke) immer,
+   t1 (≥4) ab Band 1, t2 (1–3) ab Band 2, Dust-Namen (t3) erst Band 3 —
+   eine Welt mit Buch bekommt ihren Namen sichtbar VOR einer ohne. */
 .cg-chart[data-band="0"] .cg-lbl.t1,
-.cg-chart[data-band="0"] .cg-lbl.t2 {
+.cg-chart[data-band="0"] .cg-lbl.t2,
+.cg-chart[data-band="0"] .cg-lbl.t3,
+.cg-chart[data-band="1"] .cg-lbl.t2,
+.cg-chart[data-band="1"] .cg-lbl.t3,
+.cg-chart[data-band="2"] .cg-lbl.t3 {
   opacity: 0;
   pointer-events: none;
+  display: none;
 }
-.cg-chart[data-band="1"] .cg-lbl.t2 {
-  opacity: 0;
-  pointer-events: none;
-}
-.cg-chart[data-band="2"] .cg-lbl {
+.cg-chart[data-band="2"] .cg-lbl,
+.cg-chart[data-band="3"] .cg-lbl {
   opacity: 0.94;
 }
-.cg-chart .cg-w:hover .cg-lbl {
+.cg-chart:not(.moving) .cg-w:hover .cg-lbl {
   opacity: 1;
 }
 
-/* Zoom-Schleier: Top-100 zuerst, Rest ab Band 1 oder „Reveal the full census" */
-.cg-chart[data-band="0"]:not(.show-all) .cg-w.vb1 {
-  opacity: 0;
-  pointer-events: none;
+/* Star-dust weicht zurück (178b Runde 7): unbelegte Welten stehen auf 60 %
+   Deckkraft, solange ihre Namen unlesbar sind — volle Präsenz erst in
+   Band 3, wenn die t3-Labels aufgehen. Aufgezeichnete Welten sind dagegen
+   in JEDEM Band voll da (der alte Top-100-Schleier `vb1` + „All worlds at
+   every zoom" versteckte Buch-Welten, während Dust sichtbar blieb). */
+.cg-dust {
+  transition: opacity 0.6s var(--ease);
+}
+.cg-chart:not([data-band="3"]) .cg-dust {
+  opacity: 0.6;
 }
 
 .cg-rgn {
@@ -213,7 +273,7 @@ html.cg-nobg .map-route .site-bg__photo {
   stroke: rgba(3, 2, 1, 0.85);
   stroke-width: calc(2.5px * var(--cg-ik, 1));
 }
-.cg-rgn:hover {
+.cg-chart:not(.moving) .cg-rgn:hover {
   fill-opacity: 1;
 }
 
@@ -304,81 +364,11 @@ html.cg-nobg .map-route .site-bg__photo {
   }
 }
 
-/* ── Great Rift: drei schaltbare Fassungen (data-storm), Raster statisch ── */
+/* ── Great Rift: Portolan-Schraffur-Korridor, statisch (Runde 6) ────────── */
 .cg-riftG,
 .cg-lev,
 .cg-nec {
   pointer-events: none;
-}
-.cg-rv {
-  display: none;
-}
-.cg-chart[data-storm="1"] #cg-rv1,
-.cg-chart[data-storm="2"] #cg-rv2,
-.cg-chart[data-storm="3"] #cg-rv3 {
-  display: block;
-}
-.cg-riftflow {
-  animation: cgRiftFlow 26s linear infinite;
-}
-@keyframes cgRiftFlow {
-  to {
-    stroke-dashoffset: -84;
-  }
-}
-/* Fassung II: Band + Adern — statisch; Atmen/Flackern nur unter .unrest */
-.cg-rvband {
-  opacity: 0.75;
-}
-.cg-chart.unrest .cg-rvband {
-  animation: cgBandBreath 19s ease-in-out infinite;
-}
-@keyframes cgBandBreath {
-  0%,
-  100% {
-    opacity: 0.55;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-.cg-chart.unrest .cg-rcrack {
-  animation: cgFlicker 14s ease-in-out infinite;
-}
-.cg-chart.unrest .cg-rvein0 {
-  animation: cgFlicker 8s ease-in-out 1.2s infinite;
-}
-.cg-chart.unrest .cg-rvein1 {
-  animation: cgFlicker 10.5s ease-in-out 4.4s infinite;
-}
-.cg-chart.unrest .cg-rvein2 {
-  animation: cgFlicker 12.5s ease-in-out 7s infinite;
-}
-/* Fassung III: Nebel-Probe — statisch gedimmt, atmet nur unter .unrest */
-.cg-wblob {
-  opacity: 0.55;
-  transform-box: fill-box;
-  transform-origin: center;
-}
-.cg-chart.unrest .cg-wblob.wb0 {
-  animation: cgBlobBreath 13s ease-in-out infinite;
-}
-.cg-chart.unrest .cg-wblob.wb1 {
-  animation: cgBlobBreath 17s ease-in-out 4s infinite;
-}
-.cg-chart.unrest .cg-wblob.wb2 {
-  animation: cgBlobBreath 21s ease-in-out 9s infinite;
-}
-@keyframes cgBlobBreath {
-  0%,
-  100% {
-    opacity: 0.4;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.7;
-    transform: scale(1.08);
-  }
 }
 /* Totenköpfe: statisch präsent; flackern nur unter .unrest */
 .cg-rfsk {
@@ -411,6 +401,11 @@ html.cg-nobg .map-route .site-bg__photo {
 .cg-rflbl .cg-riftlbl {
   font-family: var(--font-mono);
   fill: var(--cl-blood);
+  /* Dunkler Kontur-Saum: die Label liegen jetzt AUF der Schraffur (die
+     Zell-Aussparungen der Raster-Fassung sind Geschichte). */
+  paint-order: stroke;
+  stroke: rgba(3, 2, 1, 0.85);
+  stroke-width: 0.7;
 }
 .cg-chart.unrest .cg-rflbl {
   animation: cgLblBlink var(--dur, 7s) linear var(--del, 0s) infinite;
@@ -841,7 +836,15 @@ html.cg-nobg .map-route .site-bg__photo {
   justify-content: center;
   text-align: center;
   pointer-events: none;
-  background: radial-gradient(ellipse at 50% 46%, rgba(3, 2, 1, 0.46) 0%, rgba(3, 2, 1, 0.12) 54%, transparent 78%);
+  /* Deutlich dunkler als die Karte selbst (178b Runde 2): solange die
+     Ouvertüre steht, muss „The Cartographer" + Text lesbar sein und die
+     Karte nur durchschimmern. Erste Interaktion hebt den Schleier. */
+  background: radial-gradient(
+    ellipse at 50% 46%,
+    rgba(3, 2, 1, 0.88) 0%,
+    rgba(3, 2, 1, 0.74) 58%,
+    rgba(3, 2, 1, 0.56) 100%
+  );
   transition:
     opacity 1.1s var(--ease),
     visibility 1.1s;
@@ -872,7 +875,7 @@ html.cg-nobg .map-route .site-bg__photo {
 .cg-overture .edition {
   margin-top: 16px;
   font-style: italic;
-  font-size: 17.5px;
+  font-size: var(--fs-read-sm);
   color: var(--cl-dim);
 }
 .cg-overture .edition b {
@@ -925,14 +928,16 @@ html.cg-nobg .map-route .site-bg__photo {
   }
 }
 
-/* ── Kartusche: Live-Site-Glasfläche (rahmenlos, Schatten + Lichtkante) ── */
+/* ── Kartusche: Live-Site-Glasfläche (rahmenlos, Schatten + Lichtkante).
+   Sitzt OBEN links (178b Runde 2) — unten links dockt der Music-Player;
+   die max-height hält den unteren Rand von seinem Dock frei. ───────────── */
 .cg-cartouche {
   position: fixed;
   left: 26px;
-  bottom: 26px;
+  top: 84px;
   z-index: 20;
   width: 348px;
-  max-height: calc(100vh - 110px);
+  max-height: calc(100vh - 84px - 128px);
   overflow-y: auto;
   background: var(--cg-glass);
   box-shadow: var(--cg-glass-shadow);
@@ -941,7 +946,7 @@ html.cg-nobg .map-route .site-bg__photo {
   backdrop-filter: blur(10px);
   padding: 16px 19px 13px;
   opacity: 0;
-  transform: translateY(14px);
+  transform: translateY(-14px);
   transition:
     opacity 0.9s var(--ease) 0.25s,
     transform 0.9s var(--ease) 0.25s;
@@ -962,27 +967,8 @@ html.cg-nobg .map-route .site-bg__photo {
 .cg-cartouche .c-title {
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: 21px;
+  font-size: 24px;
   letter-spacing: 0.06em;
-}
-.cg-cartouche .c-status {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  color: var(--cl-faint);
-}
-.cg-cartouche .c-status .live {
-  color: var(--cl-gold);
-  animation: cgHintDot 2.4s ease-in-out infinite;
-}
-.cg-cartouche .c-census {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  color: var(--cl-dim);
-  text-transform: uppercase;
-  padding: 9px 0 2px;
-  text-align: center;
 }
 .cg-cartouche .seek {
   display: flex;
@@ -994,12 +980,13 @@ html.cg-nobg .map-route .site-bg__photo {
 }
 .cg-cartouche .seek input {
   flex: 1;
+  min-width: 0;
   background: none;
   border: 0;
   outline: 0;
   font-family: var(--font-body);
   font-style: italic;
-  font-size: 16px;
+  font-size: var(--fs-read-xs);
   color: var(--cl-bone);
 }
 .cg-cartouche .seek input::placeholder {
@@ -1017,37 +1004,122 @@ html.cg-nobg .map-route .site-bg__photo {
 .cg-cartouche .seek:focus-within .go {
   color: var(--cl-gold);
 }
-.cg-cartouche .c-cap {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.3em;
-  color: var(--cl-faint);
-  text-transform: uppercase;
-  margin: 11px 0 4px;
+/* Live-Suche: Kandidatenliste unter dem Seek-Feld (inline im scrollenden
+   Kartuschen-Fluss, eigener interner Scroll ab ~8 Zeilen) */
+.cg-cartouche .seeklist {
+  margin: -6px 0 11px;
+  max-height: 248px;
+  overflow-y: auto;
+  border-bottom: 1px solid var(--cl-hair-soft);
+  scrollbar-width: thin;
+  scrollbar-color: var(--cl-gold-dim) transparent;
 }
-.cg-cartouche .segrow {
+.cg-cartouche .skitem {
   display: flex;
-  flex-wrap: wrap;
-  gap: 3px 10px;
-  justify-content: center;
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  width: 100%;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: var(--fs-read-2xs);
+  font-style: italic;
   color: var(--cl-dim);
-  margin-bottom: 2px;
-}
-.cg-cartouche .segrow button {
-  color: inherit;
-  letter-spacing: inherit;
-  padding: 2px 0;
+  padding: 3px 4px;
+  text-align: left;
   background: none;
   border: 0;
   cursor: pointer;
-  font: inherit;
+  transition: color 0.2s;
 }
-.cg-cartouche .segrow button:hover {
+.cg-cartouche .skitem:hover,
+.cg-cartouche .skitem.cur {
   color: var(--cl-gold);
+}
+.cg-cartouche .skitem.cur {
+  background: rgba(228, 221, 203, 0.05);
+}
+.cg-cartouche .skitem .nm {
+  flex: 1;
+  min-width: 0;
+}
+.cg-cartouche .skitem .tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-style: normal;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+  white-space: nowrap;
+}
+.cg-cartouche .skmore {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+  padding: 5px 4px 7px;
+}
+/* Sektions-Header: volle Zeile, kräftiger als die alten c-caps (Philipp:
+   „Überschriften zu klein"), rechts ein goldenes Status-Badge, damit eine
+   zugeklappte Sektion nie einen aktiven Zustand versteckt. */
+.cg-cartouche .c-sec {
+  display: flex;
+  width: 100%;
+  align-items: baseline;
+  gap: 9px;
+  padding: 10px 0 9px;
+  border: 0;
+  border-bottom: 1px solid var(--cl-hair-soft);
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+  transition: color 0.3s;
+}
+.cg-cartouche .c-sec:hover {
+  color: var(--cl-gold);
+}
+.cg-cartouche .c-sec .car {
+  flex: none;
+  width: 12px;
+  font-size: 11px;
+  color: var(--cl-faint);
+  transition:
+    transform 0.35s var(--ease),
+    color 0.3s;
+}
+.cg-cartouche .c-sec.open .car {
+  transform: rotate(90deg);
+  color: var(--cl-gold);
+}
+.cg-cartouche .c-sec .lab {
+  flex: 1;
+}
+.cg-cartouche .c-sec .note {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--cl-gold);
+}
+.cg-cartouche .c-body {
+  padding: 7px 0 10px;
+  border-bottom: 1px solid var(--cl-hair-soft);
+}
+/* Der Sektions-Body schließt selbst mit einer Haarlinie — die letzte
+   Census-Gruppe braucht keine eigene direkt darüber. */
+.cg-cartouche .c-body .cgrp:last-child {
+  border-bottom: 0;
+}
+.cg-cartouche .c-hint {
+  font-family: var(--font-body);
+  font-size: var(--fs-read-2xs);
+  font-style: italic;
+  color: var(--cl-faint);
+  line-height: 1.4;
+  margin-bottom: 5px;
 }
 .cg-cartouche .routes {
   display: flex;
@@ -1058,7 +1130,7 @@ html.cg-nobg .map-route .site-bg__photo {
   position: relative;
   text-align: left;
   font-family: var(--font-body);
-  font-size: 16px;
+  font-size: var(--fs-read-xs);
   font-style: italic;
   color: var(--cl-dim);
   padding: 4px 2px 4px 20px;
@@ -1103,20 +1175,10 @@ html.cg-nobg .map-route .site-bg__photo {
   color: var(--cl-faint);
   padding-left: 8px;
 }
-.cg-cartouche .c-foot {
-  margin-top: 9px;
-  text-align: center;
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  letter-spacing: 0.16em;
-  color: var(--cl-faint);
-  text-transform: uppercase;
-}
-
 /* ── Census-Filter ─────────────────────────────────────────────────────── */
 .cg-census .chead {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.26em;
   text-transform: uppercase;
   color: var(--cl-gold-dim);
@@ -1124,12 +1186,31 @@ html.cg-nobg .map-route .site-bg__photo {
 }
 .cg-census .chead.groups {
   margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
 }
-.cg-census .cx .lab .hint,
+/* Select/Unselect-all-Toggle: alle Klassifikationen an bzw. aus */
+.cg-census .creset {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.cg-census .creset:hover {
+  color: var(--cl-gold);
+}
 .cg-census .cgrp-h .gname .hint {
   display: block;
   font-family: var(--font-body);
-  font-size: 12.5px;
+  font-size: var(--fs-read-2xs);
   font-style: italic;
   letter-spacing: 0;
   text-transform: none;
@@ -1176,7 +1257,7 @@ html.cg-nobg .map-route .site-bg__photo {
   flex: 1;
   text-align: left;
   font-family: var(--font-body);
-  font-size: 16.5px;
+  font-size: var(--fs-read-xs);
   color: var(--cl-bone);
   background: none;
   border: 0;
@@ -1210,7 +1291,7 @@ html.cg-nobg .map-route .site-bg__photo {
   align-items: baseline;
   gap: 10px;
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: var(--fs-read-2xs);
   font-style: italic;
   color: var(--cl-dim);
   padding: 2.5px 0;
@@ -1240,7 +1321,7 @@ html.cg-nobg .map-route .site-bg__photo {
   align-items: center;
   gap: 7px;
   font-family: var(--font-body);
-  font-size: 16px;
+  font-size: var(--fs-read-xs);
   font-style: italic;
   color: var(--cl-dim);
   padding: 5px 0;
@@ -1284,7 +1365,7 @@ html.cg-nobg .map-route .site-bg__photo {
 .cg-pop {
   position: fixed;
   z-index: 25;
-  width: 344px;
+  width: 362px;
   background: linear-gradient(180deg, rgba(9, 8, 6, 0.97), rgba(5, 3, 1, 0.98));
   box-shadow:
     0 30px 80px -20px rgba(0, 0, 0, 0.88),
@@ -1307,6 +1388,14 @@ html.cg-nobg .map-route .site-bg__photo {
   visibility: visible;
   transform: none;
   pointer-events: auto;
+}
+/* Während eines Kamera-Flugs duckt sich das Popup weg (schnell raus, am
+   Ziel wieder mit der normalen 0.45s-Blende rein) — muss NACH .open stehen. */
+.cg-pop.inflight {
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+  transition-duration: 0.18s;
 }
 .cg-pop .pp-close {
   position: absolute;
@@ -1340,13 +1429,13 @@ html.cg-nobg .map-route .site-bg__photo {
 .cg-pop .pp-cls {
   font-style: italic;
   color: var(--cl-dim);
-  font-size: 17px;
+  font-size: var(--fs-read-sm);
   margin-top: 4px;
 }
 .cg-pop .pp-cls2 {
   font-style: italic;
   color: var(--cl-faint);
-  font-size: 15.5px;
+  font-size: var(--fs-read-xs);
   margin-top: 2px;
 }
 .cg-pop .pp-cls2 b {
@@ -1363,7 +1452,7 @@ html.cg-nobg .map-route .site-bg__photo {
 .cg-pop .pp-blurb {
   margin-top: 9px;
   font-style: italic;
-  font-size: 17px;
+  font-size: var(--fs-read);
   line-height: 1.55;
   color: var(--cl-dim);
 }
@@ -1431,7 +1520,7 @@ html.cg-nobg .map-route .site-bg__photo {
 }
 .cg-pop li {
   border-bottom: 1px solid var(--cl-hair-soft);
-  font-size: 16.5px;
+  font-size: var(--fs-read-sm);
   line-height: 1.4;
 }
 .cg-pop li a {
@@ -1445,7 +1534,7 @@ html.cg-nobg .map-route .site-bg__photo {
 }
 .cg-pop li i {
   color: var(--cl-faint);
-  font-size: 14px;
+  font-size: var(--fs-read-2xs);
 }
 .cg-pop li a .k {
   font-family: var(--font-mono);
@@ -1465,7 +1554,7 @@ html.cg-nobg .map-route .site-bg__photo {
   font-style: italic;
   font-family: var(--font-body);
   color: var(--cl-gold);
-  font-size: 16.5px;
+  font-size: var(--fs-read-xs);
   text-decoration: none;
   background: none;
   border: 0;
@@ -1480,7 +1569,7 @@ html.cg-nobg .map-route .site-bg__photo {
 .cg-ccard {
   position: fixed;
   z-index: 18;
-  width: 268px;
+  width: 296px;
   background: linear-gradient(180deg, rgba(9, 8, 6, 0.97), rgba(5, 3, 1, 0.98));
   box-shadow:
     0 26px 70px -18px rgba(0, 0, 0, 0.88),
@@ -1499,6 +1588,16 @@ html.cg-nobg .map-route .site-bg__photo {
 .cg-ccard.show {
   opacity: 1;
   transform: none;
+}
+/* Welt-Popup offen: Karten treten beiseite (schneller raus als rein) und
+   kommen zurück, sobald das Popup schließt. Muss NACH .show stehen. */
+.cg-ccard.hide {
+  opacity: 0;
+  transform: translateY(8px);
+  transition-duration: 0.3s;
+}
+.cg-ccard.hide .cpg {
+  pointer-events: none;
 }
 .cg-ccard .ck {
   position: relative;
@@ -1520,7 +1619,7 @@ html.cg-nobg .map-route .site-bg__photo {
   background: linear-gradient(90deg, rgba(164, 140, 82, 0.35), rgba(164, 140, 82, 0.1) 72%, transparent);
 }
 .cg-ccard .ct {
-  font-size: 14.5px;
+  font-size: var(--fs-read-sm);
   font-style: italic;
   color: var(--cl-dim);
   line-height: 1.5;
@@ -1653,26 +1752,352 @@ html.cg-nobg .map-route .site-bg__photo {
   accent-color: var(--cl-gold);
   cursor: pointer;
 }
-.cg-debug .dbg-row .swi {
+
+/* ── Zonen (Hand-Kuration via /map?zones=edit → src/lib/map/zones.json) ── */
+.cg-zones {
+  pointer-events: none;
+}
+.cg-zone .zshape {
+  fill: rgba(138, 104, 196, 0.1);
+  stroke: var(--cg-warp-m);
+  stroke-opacity: 0.55;
+  stroke-width: 1;
+  stroke-dasharray: 2 5;
+}
+/* Interdiction-Zonen sprechen die Portolan-Sprache des Rifts (178b Runde 7):
+   dieselbe rote 45°-Schraffur (#cg-riftHatch, definiert in GreatRift, immer
+   gemountet) + Strichel-Kontur statt des flachen roten Overlays. */
+.cg-zone.interdiction .zshape {
+  fill: url(#cg-riftHatch);
+  stroke: var(--cl-blood);
+  stroke-opacity: 0.4;
+  stroke-dasharray: 3 3;
+  vector-effect: non-scaling-stroke;
+}
+.cg-zone.region .zshape {
+  fill: rgba(164, 140, 82, 0.05);
+  stroke: var(--cl-gold);
+  stroke-opacity: 0.4;
+  stroke-width: 0.8;
+  stroke-dasharray: 1 6;
+}
+.cg-zone-lbl {
+  font-family: var(--font-mono);
+  font-size: calc(10px * var(--cg-ik, 1));
+  letter-spacing: calc(3px * var(--cg-ik, 1));
+  text-anchor: middle;
+  text-transform: uppercase;
+  pointer-events: none;
+  fill: var(--cg-warp-l);
+  fill-opacity: 0.85;
+}
+.cg-zone.interdiction .cg-zone-lbl {
+  fill: var(--cl-blood);
+  fill-opacity: 1;
+}
+.cg-zone.region .cg-zone-lbl {
+  fill: var(--cl-gold);
+  fill-opacity: 0.8;
+}
+/* Hive-Fleet + Necron-Dynastie sprechen die Xenos-Palette der Areale
+   (cg-lev/cg-nec): Eis-Cyan, unterschiedliche Strichsprache. */
+.cg-zone.hive-fleet .zshape {
+  fill: rgba(156, 230, 255, 0.05);
+  stroke: var(--cl-cyan);
+  stroke-opacity: 0.4;
+  stroke-width: 0.8;
+  stroke-dasharray: 1 4;
+}
+.cg-zone.hive-fleet .cg-zone-lbl {
+  fill: var(--cl-cyan);
+  fill-opacity: 0.75;
+}
+.cg-zone.necron-dynasty .zshape {
+  fill: rgba(156, 230, 255, 0.03);
+  stroke: var(--cl-cyan);
+  stroke-opacity: 0.35;
+  stroke-width: 0.8;
+  stroke-dasharray: 3 3;
+}
+.cg-zone.necron-dynasty .cg-zone-lbl {
+  fill: var(--cl-cyan);
+  fill-opacity: 0.6;
+}
+
+/* Dev-only-Einstieg in den Editor (CartographerRoot rendert ihn nur unter
+   NODE_ENV=development — im Prod-Build existiert der Knopf nicht). */
+.cg-zed-toggle {
+  position: fixed;
+  right: 26px;
+  bottom: 150px;
+  z-index: 20;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+  text-decoration: none;
+  border: 1px dashed var(--cl-hair);
+  background: var(--cl-plate);
+  padding: 6px 9px;
+  transition:
+    color 0.3s,
+    border-color 0.3s;
+}
+.cg-zed-toggle:hover {
+  color: var(--cl-gold);
+  border-color: var(--cl-gold-dim);
+}
+
+/* ── Zonen-Editor: Handles im Chart + Panel rechts ─────────────────────── */
+.cg-zed-layer .zidle {
+  opacity: 0.55;
+}
+.cg-zed-layer .zwire {
+  fill: none;
+  stroke: var(--cl-bone);
+  stroke-opacity: 0.25;
+  stroke-width: calc(1px * var(--cg-ik, 1));
+  stroke-dasharray: calc(3px * var(--cg-ik, 1)) calc(3px * var(--cg-ik, 1));
+  pointer-events: none;
+}
+.cg-zed-layer .zh {
+  fill: rgba(7, 5, 2, 0.9);
+  stroke: var(--cl-gold);
+  stroke-width: 1.2;
+  cursor: grab;
+}
+.cg-zed-layer .zh:hover,
+.cg-zed-layer .zh.sel {
+  fill: var(--cl-gold);
+}
+/* Mid-Handles („⊕"): auf jeder Kantenmitte, fügen beim Anfassen einen Punkt
+   ein und ziehen direkt weiter — groß genug, um gefunden zu werden. */
+.cg-zed-layer .zmid {
+  cursor: crosshair;
+}
+.cg-zed-layer .zm {
+  fill: rgba(7, 5, 2, 0.75);
+  stroke: var(--cl-gold-dim);
+  stroke-width: 1;
+  stroke-dasharray: 2.5 2;
+}
+.cg-zed-layer .zm-plus {
+  fill: none;
+  stroke: var(--cl-dim);
+  stroke-width: 0.9;
+  pointer-events: none;
+}
+.cg-zed-layer .zmid:hover .zm {
+  stroke: var(--cl-gold);
+  fill: rgba(164, 140, 82, 0.35);
+}
+.cg-zed-layer .zmid:hover .zm-plus {
+  stroke: var(--cl-bone);
+}
+.cg-zed {
+  position: fixed;
+  right: 26px;
+  top: 100px;
+  z-index: 40;
+  width: 278px;
+  max-height: calc(100vh - 210px);
+  overflow-y: auto;
+  background: var(--cg-glass);
+  box-shadow: var(--cg-glass-shadow);
+  border-radius: 4px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 13px 15px 12px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--cl-gold-dim) transparent;
+}
+.cg-zed .zed-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 17px;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--cl-hair);
+  padding-bottom: 7px;
+  margin-bottom: 7px;
+}
+.cg-zed .zed-draft {
   font-family: var(--font-mono);
   font-size: 9px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cl-gold);
+}
+.cg-zed .zed-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.cg-zed .zed-pick {
+  flex: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  min-width: 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-read-2xs);
+  font-style: italic;
   color: var(--cl-dim);
-  border: 1px solid var(--cl-hair);
+  text-align: left;
   background: none;
-  padding: 2px 6px;
+  border: 0;
+  padding: 3px 0;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.cg-zed .zed-pick:hover,
+.cg-zed .zed-row.on .zed-pick {
+  color: var(--cl-gold);
+}
+.cg-zed .zed-pick .pub {
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--cl-gold-dim);
+  border-radius: 50%;
+  align-self: center;
+}
+.cg-zed .zed-pick .pub.on {
+  background: var(--cl-gold);
+  border-color: var(--cl-gold);
+}
+.cg-zed .zed-pick .nm {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cg-zed .zed-pick i {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  color: var(--cl-faint);
+  white-space: nowrap;
+}
+.cg-zed .zed-x {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--cl-faint);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.cg-zed .zed-x:hover {
+  color: var(--cl-blood);
+}
+.cg-zed .zed-add,
+.cg-zed .zed-actions button {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+  background: none;
+  border: 1px solid var(--cl-hair);
+  padding: 5px 9px;
   cursor: pointer;
   transition:
     color 0.3s,
     border-color 0.3s;
 }
-.cg-debug .dbg-row .swi:hover {
+.cg-zed .zed-add {
+  margin: 7px 0 4px;
+}
+.cg-zed .zed-add:hover,
+.cg-zed .zed-actions button:hover {
   color: var(--cl-gold);
   border-color: var(--cl-gold-dim);
 }
-.cg-debug .dbg-row .swi.on {
-  color: var(--cl-gold);
-  border-color: var(--cl-gold);
+.cg-zed .zed-form {
+  margin-top: 8px;
+  border-top: 1px solid var(--cl-hair-soft);
+  padding-top: 8px;
+}
+.cg-zed .zed-f {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 3px 0;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+}
+.cg-zed .zed-f span {
+  flex: none;
+  width: 44px;
+}
+.cg-zed .zed-f input,
+.cg-zed .zed-f select {
+  flex: 1;
+  min-width: 0;
+  background: rgba(228, 221, 203, 0.05);
+  border: 1px solid var(--cl-hair-soft);
+  color: var(--cl-bone);
+  font-family: var(--font-body);
+  font-size: var(--fs-read-2xs);
+  padding: 2px 7px;
+  outline: 0;
+}
+.cg-zed .zed-f select option {
+  background: #090806;
+}
+.cg-zed .zed-f input:focus,
+.cg-zed .zed-f select:focus {
+  border-color: var(--cl-gold-dim);
+}
+.cg-zed .zed-c {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 0;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+  cursor: pointer;
+}
+.cg-zed .zed-c input {
+  accent-color: var(--cl-gold);
+  cursor: pointer;
+}
+.cg-zed .zed-actions {
+  display: flex;
+  gap: 5px;
+  margin-top: 10px;
+}
+.cg-zed .zed-actions button {
+  flex: 1;
+}
+.cg-zed .zed-help {
+  margin-top: 9px;
+  font-family: var(--font-body);
+  font-size: var(--fs-read-2xs);
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--cl-faint);
+}
+.cg-zed .zed-help b {
+  font-weight: 400;
+  color: var(--cl-dim);
+}
+.cg-zed .zed-help code {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-style: normal;
 }
 
 /* ── reduced-motion: alles steht still ─────────────────────────────────── */
@@ -1681,7 +2106,6 @@ html.cg-nobg .map-route .site-bg__photo {
   .cg-whirl,
   .cg-sx.sx0,
   .cg-sx.sx1,
-  .cg-riftflow,
   .cg-rtFly,
   .cg-lev .lv-lens,
   .cg-lev .lv0,
@@ -1697,20 +2121,13 @@ html.cg-nobg .map-route .site-bg__photo {
   .cg-inst .i-riderA,
   .cg-inst .i-riderB,
   .cg-inst .i-blip,
-  .cg-chart.unrest .cg-rvband,
-  .cg-chart.unrest .cg-rcrack,
-  .cg-chart.unrest .cg-rvein0,
-  .cg-chart.unrest .cg-rvein1,
-  .cg-chart.unrest .cg-rvein2,
-  .cg-chart.unrest .cg-wblob,
   .cg-chart.unrest .cg-rfsk,
   .cg-chart.unrest .cg-rflbl,
   .cg-sel .r-dash,
   .cg-sel .r-tick,
   #cg-lumenG .lm-rim,
   #cg-nihilusG .nh-shade,
-  .cg-overture .hint .dot,
-  .cg-cartouche .c-status .live {
+  .cg-overture .hint .dot {
     animation: none;
   }
   .cg-storm {
@@ -1787,7 +2204,7 @@ html.cg-nobg .map-route .site-bg__photo {
     display: none;
   }
   .cg-pop {
-    width: 250px;
+    width: 272px;
   }
   .cg-debug {
     top: 56px;

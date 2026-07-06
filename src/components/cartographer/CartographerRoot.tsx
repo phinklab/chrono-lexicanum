@@ -25,13 +25,13 @@ import DirectionPanel from "./DirectionPanel";
 import GreatRift from "./GreatRift";
 import RoutesLayer from "./RoutesLayer";
 import Selection from "./Selection";
-import Sweep from "./Sweep";
 import WorldPanel from "./WorldPanel";
 import { ChartBus } from "./chart-bus";
-import type { SegmentumMark } from "./chart-geometry";
 import { Areas, GridDots, PolarFrame, SegmentumWatermarks, Storms, TerraInstrument } from "./decor";
 import { DustLayer, PinLayer, RegionLabels } from "./layers";
 import { LumenNihilus } from "./LumenNihilus";
+import ZoneEditor from "./ZoneEditor";
+import { ZonesLayer } from "./ZonesLayer";
 
 interface CgState {
   condensed: boolean;
@@ -39,12 +39,10 @@ interface CgState {
   hiddenCls: ReadonlySet<number>;
   dustOff: boolean;
   worksOnly: boolean;
-  showAll: boolean;
   courseId: string | null;
   lumen: boolean;
   nihilus: boolean;
   /* Direction proofs (defaults = the study's approved slider positions). */
-  storm: 1 | 2 | 3;
   riftLife: boolean;
   bgArt: boolean;
   veil: number;
@@ -58,11 +56,9 @@ const INITIAL: CgState = {
   hiddenCls: new Set<number>(),
   dustOff: false,
   worksOnly: false,
-  showAll: false,
   courseId: null,
   lumen: false,
   nihilus: false,
-  storm: 2,
   riftLife: false,
   bgArt: true,
   veil: 0.82,
@@ -77,11 +73,9 @@ type CgAction =
   | { type: "setCls"; cis: number[]; hidden: boolean }
   | { type: "toggleDust" }
   | { type: "toggleWorksOnly" }
-  | { type: "toggleShowAll" }
   | { type: "course"; id: string }
   | { type: "toggleLumen" }
   | { type: "toggleNihilus" }
-  | { type: "storm"; v: 1 | 2 | 3 }
   | { type: "riftLife"; v: boolean }
   | { type: "bgArt"; v: boolean }
   | { type: "veil"; v: number }
@@ -112,8 +106,6 @@ function reducer(state: CgState, action: CgAction): CgState {
       return { ...state, dustOff: !state.dustOff };
     case "toggleWorksOnly":
       return { ...state, worksOnly: !state.worksOnly };
-    case "toggleShowAll":
-      return { ...state, showAll: !state.showAll };
     case "course":
       return {
         ...state,
@@ -124,8 +116,6 @@ function reducer(state: CgState, action: CgAction): CgState {
       return { ...state, condensed: true, lumen: !state.lumen };
     case "toggleNihilus":
       return { ...state, condensed: true, nihilus: !state.nihilus };
-    case "storm":
-      return { ...state, storm: action.v };
     case "riftLife":
       return { ...state, riftLife: action.v };
     case "bgArt":
@@ -149,6 +139,13 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
     () => false,
   );
   const reduce = useReducedMotion();
+  // Zone-editor flag (?zones=edit) — client-only, same snapshot pattern as
+  // the mount gate (the hash writer preserves location.search).
+  const zoneEdit = useSyncExternalStore(
+    emptySubscribe,
+    () => new URLSearchParams(window.location.search).get("zones") === "edit",
+    () => false,
+  );
   const [state, dispatch] = useReducer(reducer, INITIAL);
   const bus = useMemo(() => new ChartBus(), []);
   const magRef = useRef<HTMLSpanElement | null>(null);
@@ -164,8 +161,25 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
     [activeCourse],
   );
 
+  /* Selection highlight, imperative (178b, Label-Flicker): `sel-on` is NOT a
+     PinLayer prop — a selection change must never re-render the 1000+-label
+     layers. Applied synchronously on select (before the flight's `.moving`
+     class gates the hover rules, so the hover-look hands over to `sel-on`
+     without a single transition frame) and repaired after every commit. */
+  const applySelClass = useCallback((id: string | null) => {
+    const chart = document.querySelector(".cg-chart");
+    if (!chart) return;
+    for (const el of chart.querySelectorAll(".cg-w.sel-on")) {
+      if (el.getAttribute("data-pin") !== id) el.classList.remove("sel-on");
+    }
+    if (id) {
+      chart.querySelector(`.cg-w[data-pin="${CSS.escape(id)}"]`)?.classList.add("sel-on");
+    }
+  }, []);
+
   const selectWorld = useCallback(
     (id: string | null, fly = true) => {
+      applySelClass(id);
       dispatch({ type: "select", id });
       if (!id || !fly) return;
       const w = source.detail(id);
@@ -174,47 +188,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
         bus.flyTo(w.gx, w.gy, Math.max(driver.getK(), driver.getK0() * 2.4), 900);
       }
     },
-    [bus, source],
-  );
-
-  const seek = useCallback(
-    (query: string) => {
-      // Exact featured > exact dust > partial featured > partial dust —
-      // the seek covers all 1054 contacts, not just the recorded ones.
-      const q = query.toLowerCase();
-      let exact: string | null = null;
-      let partial: string | null = null;
-      for (const f of payload.featured) {
-        const n = f.name.toLowerCase();
-        if (n === q) {
-          exact = f.id;
-          break;
-        }
-        if (!partial && (n.startsWith(q) || n.includes(q))) partial = f.id;
-      }
-      if (!exact) {
-        for (const d of payload.dust) {
-          const n = d[4].toLowerCase();
-          if (n === q) {
-            exact = d[3];
-            break;
-          }
-          if (!partial && (n.startsWith(q) || n.includes(q))) partial = d[3];
-        }
-      }
-      const best = exact ?? partial;
-      if (best) selectWorld(best);
-    },
-    [payload, selectWorld],
-  );
-
-  const jump = useCallback(
-    (seg: SegmentumMark) => {
-      dispatch({ type: "condense" });
-      const driver = bus.driver;
-      if (driver) bus.flyTo(seg.jump.x, seg.jump.y, driver.getK0() * seg.jump.k, 1100);
-    },
-    [bus],
+    [bus, source, applySelClass],
   );
 
   /* ── Route-scoped chrome: body class (burger statt Rail), scroll lock ── */
@@ -273,11 +247,17 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
   /* ── Escape closes the popup ── */
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") dispatch({ type: "select", id: null });
+      if (e.key === "Escape") selectWorld(null);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, []);
+  }, [selectWorld]);
+
+  /* Repair pass (no deps): a filter re-render that rewrites a pin's className
+     would drop `sel-on` — re-apply after every commit. */
+  useEffect(() => {
+    applySelClass(state.selectedId);
+  });
 
   const condense = useCallback(() => dispatch({ type: "condense" }), []);
   const pick = useCallback((id: string | null) => selectWorld(id), [selectWorld]);
@@ -288,9 +268,8 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
       <div className="cg-grainlayer" aria-hidden />
       <div className="cg-rule top" aria-hidden />
       <div className="cg-rule bot" aria-hidden />
-      <span className="cg-deg n" aria-hidden>
-        000
-      </span>
+      {/* Kein "000"-Gradzeichen im Norden — dort sitzt jetzt der zentrierte
+          Site-Brand ("Chrono Lexicanum · Tabula"). */}
       <span className="cg-deg e" aria-hidden>
         090
       </span>
@@ -304,10 +283,8 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
       {mounted && (
         <ChartStage
           bus={bus}
-          storm={state.storm}
           lumen={state.lumen}
           nihilus={state.nihilus}
-          showAll={state.showAll}
           riftLife={state.riftLife}
           courseId={state.courseId}
           reduce={reduce}
@@ -322,6 +299,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
             <Storms />
             <GreatRift riftLife={state.riftLife} />
             <Areas />
+            {!zoneEdit && <ZonesLayer />}
           </g>
           <DustLayer
             payload={payload}
@@ -329,19 +307,13 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
             dustOff={state.dustOff}
             worksOnly={state.worksOnly}
           />
-          <PinLayer
-            featured={payload.featured}
-            hiddenCls={state.hiddenCls}
-            vbCut={payload.vbCut}
-            hiNames={hiNames}
-            selectedId={state.selectedId}
-          />
+          <PinLayer featured={payload.featured} hiddenCls={state.hiddenCls} hiNames={hiNames} />
           <RegionLabels regions={payload.regions} featured={payload.featured} />
           <LumenNihilus />
           <RoutesLayer course={activeCourse} featured={payload.featured} />
-          <Sweep reduce={reduce} />
           <TerraInstrument />
           {selectedWorld && <Selection key={selectedWorld.id} world={selectedWorld} />}
+          {zoneEdit && <ZoneEditor bus={bus} />}
         </ChartStage>
       )}
 
@@ -353,8 +325,8 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
         courseId={state.courseId}
         lumen={state.lumen}
         nihilus={state.nihilus}
-        onSeek={seek}
-        onJump={jump}
+        filtered={state.hiddenCls.size > 0 || state.dustOff || state.worksOnly}
+        onPick={pick}
         onCourse={(id) => dispatch({ type: "course", id })}
         onToggleLumen={() => dispatch({ type: "toggleLumen" })}
         onToggleNihilus={() => dispatch({ type: "toggleNihilus" })}
@@ -364,12 +336,10 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           hiddenCls={state.hiddenCls}
           worksOnly={state.worksOnly}
           dustOff={state.dustOff}
-          showAll={state.showAll}
           onToggleCls={(ci) => dispatch({ type: "toggleCls", ci })}
           onSetCls={(cis, hidden) => dispatch({ type: "setCls", cis, hidden })}
           onToggleWorksOnly={() => dispatch({ type: "toggleWorksOnly" })}
           onToggleDust={() => dispatch({ type: "toggleDust" })}
-          onToggleShowAll={() => dispatch({ type: "toggleShowAll" })}
         />
       </Cartouche>
 
@@ -387,6 +357,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           featured={payload.featured}
           bus={bus}
           reduce={reduce}
+          suppressed={state.selectedId !== null}
         />
       )}
 
@@ -428,18 +399,25 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
         </span>
       </p>
 
+      {/* Kurations-Einstieg, nur im Dev-Server sichtbar (der Editor selbst
+          bleibt über ?zones=edit erreichbar; volle Navigation, damit der
+          Query-Snapshot neu gelesen wird — der localStorage-Draft überlebt). */}
+      {process.env.NODE_ENV === "development" && (
+        <a className="cg-zed-toggle" href={zoneEdit ? "/map" : "/map?zones=edit"}>
+          {zoneEdit ? "✕ Exit zone editor" : "⌖ Zone editor"}
+        </a>
+      )}
+
       <DirectionPanel
         bgArt={state.bgArt}
         veil={state.veil}
         bright={state.bright}
         grain={state.grain}
-        storm={state.storm}
         riftLife={state.riftLife}
         onBgArt={(v) => dispatch({ type: "bgArt", v })}
         onVeil={(v) => dispatch({ type: "veil", v })}
         onBright={(v) => dispatch({ type: "bright", v })}
         onGrain={(v) => dispatch({ type: "grain", v })}
-        onStorm={(v) => dispatch({ type: "storm", v })}
         onRiftLife={(v) => dispatch({ type: "riftLife", v })}
       />
     </>

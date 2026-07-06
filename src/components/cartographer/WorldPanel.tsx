@@ -83,7 +83,7 @@ export default function WorldPanel({ world, payload, bus, onClose }: WorldPanelP
     const driver = bus.driver;
     if (!el || !w || !driver) return;
     const p = driver.worldToScreen(w.gx, w.gy);
-    const pw = el.offsetWidth || 344;
+    const pw = el.offsetWidth || 362;
     const ph = el.offsetHeight || 220;
     let px = p.x + 26;
     const py = Math.max(14, Math.min(window.innerHeight - ph - 14, p.y - 24));
@@ -99,6 +99,17 @@ export default function WorldPanel({ world, payload, bus, onClose }: WorldPanelP
   }, [world, shown, expanded, full, place]);
 
   useEffect(() => bus.onFrame(place), [bus, place]);
+
+  // During an eased flight the panel ducks out (imperative class — no React
+  // render per flight): without this it teleports to the new pin and races
+  // pinned across the chart, which reads as flicker on planet→planet clicks.
+  useEffect(
+    () =>
+      bus.onFlightChange((active) => {
+        elRef.current?.classList.toggle("inflight", active);
+      }),
+    [bus],
+  );
 
   const cls =
     shown &&
