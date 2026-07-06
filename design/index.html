@@ -138,6 +138,60 @@
     <b>Runde 3–8 (aktuell):</b> <b>04 Kathedrale gewinnt</b> (Philipps „schönste Stellen"-Screenshots: Masthead, Prozession, Synopsis/Appendix). Runde 3 wendet die Sprache an: Nachbau der echten Seiten <i>/archive</i> und <i>/buch</i> + ein <b>Gestaltungskanon</b> (CI-Blatt). Runde 4: echtes <b>Register mit Filtern</b>, Schriften größer, <b>HUD-Instrumente zurück</b>. Runde 5: Register <b>strikt an der Live-Struktur</b>, <b>Astrolab mittig im Hero</b>. Runde 6: Datensatz als <b>Popup („die Kapelle")</b>, Astrolab ohne Zeiger, Rubriken-Strich, Vox-Schreiber. Runde 7: Kapelle mit <b>voller Buch-Sprache</b> (Synopsis, Appendix, Motive, Acquire + Ouvertüre), dritte Schriftstimme <b>Fragment Mono</b> (Karte · Buch · Maschine), Wortmarke fix oben links, Titelschriften <b>Cinzel (Default) / Bodoni Moda</b>. <b>Runde 8 (nach Review):</b> der Kurs-Plotter ist raus (Hintergrund-Verdikt; die Idee lebt als Karten-Feature/Character-Pathing im Kanon § XV) — dafür die <b>Artefakt-Skizze</b>: ein Gerät zeichnet sich Strich für Strich und beschriftet dann seine Einzelteile (Archiv: <b>Servo-Schädel</b> · Buch: <b>Bolter, Godwyn-Pattern</b> mit explodierter Bolt-Patrone). <b>Vier Button-Testversionen</b> über das Studio-Panel: <b>Sternwarte</b> (kein Rahmen — der Punkt vor der Schrift expandiert beim Hover zum HUD; Zacken-Stern raus), <b>Sternkarte</b> (stille Tafel, HUD links versetzt), <b>Sternbild</b> (fünf Sterne verbinden sich hinter der Schrift), <b>Still</b> (Fallback); das Siegel ist raus. Storage-Keys auf cl08 gebumpt (Cinzel + Sternwarte wieder Vorauswahl). Und: <b>alle weiteren Seiten außer dem Cartographer als Optik-Mocks</b> — Hub, Chronicle, Ask (klickbarer Fragebogen-Flow), Compendium und die Entity-Blätter Fraktion/Welt/Charakter (Thousand Sons / Prospero / Magnus), untereinander verlinkt.
   </div>
 
+  <h2 class="round">Brief 178 — Cartographer Runde 5, zur Review <span class="verdict">· 2026-07-05</span></h2>
+
+  <section>
+    <h3>08 · Cartographer — I<span class="tag">dunkel · Vollbild-Chart · H nach Runde-5-Feedback</span></h3>
+    <p class="stance">H weitergebaut. <b>Cicatrix nach dem Original</b> (CicatrixSpine der Live-Map): das <b>X-Raster ist die Notation</b> — ~900 reguläre Zeichen im brick-Pattern, an den Korridor geclippt; in Zell-Runs <b>flammen häretische Wörter auf</b> (Buchstaben glitchen durch Okkult-Zeichen), <b>Hover faded das Zeichen aus</b>; Totenköpfe + drei INTERDICTED-Label mit ausgesparten Zonen; <b>zehn Blitze in wechselnden Warp-Farben</b>. Fassung II (Riss + warp-getöntes Band) bleibt Default. <b>Live-Site-Sprache für alle Flächen:</b> Kurs-Karten, Welt-Popup und Kartusche tragen die Popup-Fläche der echten Seite — rahmenlose Glasfläche, Drop-Shadow + Bone-Lichtkante, <b>kein Border-Stroke, kein Gold-Streifen</b>; Schrift überall eine Stufe größer (Legende, Popups, Planetennamen). <b>Kurslinien fließen dauerhaft</b> (marschierende Punkte). <b>Vermesser-Schweif = ein Bild:</b> der Verlauf wird einmalig per Canvas gerechnet (kontinuierlich, gedithert — kein Banding) und rotiert als ein einziges Bild hinter einem Segmentkanten-Clip — keine Einzelteile, kein Sprung an Segmentgrenzen. <b>Nihilus/Lumen radial:</b> die Schattenkanten laufen als Strahlen von Terra durch die Rift-Enden (statt 90°-Ecken), die Flächen schließen erst am Fernkreis — beim Pannen keine Overlay-Kanten mehr. <b>Welt-Popup mit Secondary/Tertiary Classification</b> (<code>data/worlds.js</code> auf v4, a–h rendern unverändert). <b>Census:</b> „Linked records only"-Toggle; Staub feiner gestreut (Größe + Helligkeit), <b>Gelbstich der Segment-Flächen raus</b>, alles Englisch. Regie-Panel jetzt mit <b>Grain-Regler</b>.</p>
+    <div class="files">
+      <a href="08-cartographer/i-maledictum.html">i-maledictum.html</a>
+    </div>
+  </section>
+
+  <h2 class="round">Brief 178 — Cartographer Runde 4 <span class="verdict">· Fallback-Fundus, 2026-07-05</span></h2>
+
+  <section>
+    <h3>08 · Cartographer — H<span class="tag">dunkel · Vollbild-Chart · G nach Runde-4-Feedback</span></h3>
+    <p class="stance">G weitergebaut, <b>Lesbarkeit von F zurückgeholt</b>: der violette Nebel-Wash über der Kartenmitte ist raus — der <b>Warpsturm kommt in drei schaltbaren Fassungen</b> (<b>I Hochwerk</b>, F-treu ohne Nebel, Default · <b>II Riss</b>, gezackter Riss mit Adern, ohne Glow · <b>III Glut</b>, die G-Nebelfelder halbiert); das Glühen hinter Eye of Terror/Maelstrom bleibt. <b>Interdicted-Zeichen wieder rot</b> wie in F, atmen tief rein und raus und <b>blühen unterm Mauszeiger auf</b>; die Interdicted-Schrift im Band ist blutrot. Der <b>Vermesser-Strich als F-Fächer</b> neu gebaut — eine Spur dezenter als F, Schweif blendet auf exakt 0, liegt jetzt <b>über</b> den Feldern (in G ersoff er unterm Sturm). <b>Lumen Astronomican heller</b>, und das Licht wird <b>vom Rift verschluckt</b>: die Scheibe endet weich an der Sturmkante, dahinter Schwärze („Lux Devorata"). <b>Kurs-Karten:</b> jede Routen-Station erzählt sich als kinoreife Kurzbeschreibung neben dem Planeten, nahe Stationen (Istvaan III/V) clustern zu einer Karte mit Weiter-Pfeil. <b>Census-Filter statt Index Astartes:</b> die 70 Primary Classifications der SSOT-Excel als elf Gruppen mit aufklappbaren Unterpunkten, jede einzeln schaltbar (<code>data/worlds.js</code> auf v3 regeneriert, a–g rendern unverändert). Dazu ein <b>Regie-Panel</b> (Artwork an/aus, Schleier-Deckkraft, Helligkeit, Sturm-Fassung) für Philipps Sichtproben.</p>
+    <div class="files">
+      <a href="08-cartographer/h-tenebrae.html">h-tenebrae.html</a>
+    </div>
+  </section>
+
+  <h2 class="round">Brief 178 — Cartographer Runde 3 <span class="verdict">· Fallback-Fundus, 2026-07-05</span></h2>
+
+  <section>
+    <h3>08 · Cartographer — G<span class="tag">dunkel · Vollbild-Chart · eine konvergierte Fassung</span></h3>
+    <p class="stance">Eine Karte statt drei, alle Runde-3-Punkte eingearbeitet: <b>ein einziger Vermesser-Strich</b>, extrem dezent, Schweif blendet nach hinten aus, und er reicht an jeder Peilung <b>exakt bis zur Segmentkante</b> (JS-getrieben — auch am tiefsten Ultima-Rand). Der <b>Polar-Rahmen auf Portolan-Zartheit</b> zurückgenommen (lesbar als 40k-Karte, ohne zu dominieren), der <b>Grund dunkler</b> für den Zoom. Das <b>Auspex-Werk bleibt auf Terra</b> — und dieselbe Geste <b>blüht jetzt aus jedem angeklickten Planeten</b> (Ringwerk + Werkpunkte + Vermessungssterne, BtnFx-Sprache). Das <b>Rift ist jetzt ein Warpsturm</b>: violett-rot-blaue Nebelfelder atmen, Zeichen flackern, <b>Blitze zucken</b>, die Interdicted-Schrift läuft klein <b>im Band selbst</b> mit (dreimal, entlang der Krümmung). Areale: <b>Leviathan-Schwarmfeld</b> (Beschriftung im Feld) + <b>Sautekh-Dynastie</b>. <b>Routen zeichnen sich Station für Station</b> (Punkt blüht → Etappe zieht → nächster Punkt), deutlich sichtbarer. Der <b>Klick-Tooltip funktioniert jetzt</b> (Pointer-Capture-Bug in D/E/F gefixt — der Treffer ging beim Loslassen verloren); Werke sind Links. <b>Top-100 zuerst</b>, der Rest ab Zoomstufe 1 oder per Legenden-Zeile. Drei neue <b>Instrumente</b>: <b>Lumen Astronomican</b> (das Licht des Imperators strahlt von Terra — dahinter bleibt die Leere dunkel, der halbe Ultima-Rand liegt jenseits), <b>Imperium Nihilus</b> (die dunkle Hälfte als Schleier), <b>Index Astartes</b> (Orden wählen → seine Welten bleiben hell).</p>
+    <div class="files">
+      <a href="08-cartographer/g-lumen.html">g-lumen.html</a>
+    </div>
+  </section>
+
+  <h2 class="round">Brief 178 — Cartographer Runde 2 <span class="verdict">· Fallback-Fundus, 2026-07-05</span></h2>
+
+  <section>
+    <h3>08 · Cartographer — D / E / F<span class="tag">dunkel · Vollbild-Chart · konvergierte Basis, drei Animationsstufen</span></h3>
+    <p class="stance">Runde 2 nach Philipps Review: gesetzt sind jetzt das <b>klassische Vier-Segmenta-Polarlayout</b> (Redditor-Vorlage: Solar-Kern + gestufte Keile — die Karte muss als 40k-Karte lesbar sein), die <b>C-Optik</b> als Grundton, die <b>B-Legende mit größerer Schrift</b>, die <b>Segmentum-Wasserzeichen</b>, Punkte + ×-Zeichen und der Sternenkarten-Hintergrund. Dazu überall neu: <b>Kind-Icons</b> (Chaosstern, Grabkreis, Flottenkiel, Tor-Raute, Xenos-Dreieck — klein, Planeten bleiben Planeten), <b>Radar-Strich</b>, <b>Great Rift ohne Rahmen</b> (animierte Zeichenstreuung), Warpsturm-Felder, <b>Routen als Toggle</b> (Karte dimmt, Stationen bleiben hell), <b>Klick-Tooltip am Pin</b> mit einem Werkpunkt je Eintrag. Die drei Fassungen sind dieselbe Karte in drei Animationsstufen: <b>D Quadrant</b> (still — langsamer Vermesser-Strich, schimmerndes Rift), <b>E Auspex</b> (Sweet-Spot — sichtbarer Sweep, Auspex-Werk, Rift-Flackern + Warpfluss, Leviathan-Feld, Vox, Vermessungssterne bei Selektion), <b>F Hochwerk</b> (obere Grenze — Doppel-Sweep, Rift-Woge, Wirbel im Auge, zyklische Vermessungspunkte, atmende Wasserzeichen, Zoom-Puls). Mix weiterhin erlaubt; jedes Element ist einzeln übertragbar.</p>
+    <div class="files">
+      <a href="08-cartographer/d-quadrant.html">d-quadrant.html</a>
+      <a href="08-cartographer/e-auspex.html">e-auspex.html</a>
+      <a href="08-cartographer/f-hochwerk.html">f-hochwerk.html</a>
+    </div>
+  </section>
+
+  <h2 class="round">Brief 178 — Cartographer Runde 1 <span class="verdict">· Fallback-Fundus, Varianten-Gate 2026-07-05</span></h2>
+
+  <section>
+    <h3>08 · Cartographer — A / B / C<span class="tag">dunkel · Vollbild-Chart · drei Fassungen</span></h3>
+    <p class="stance">Der Map-Neubau auf dem <b>map-worlds-v2</b>-Katalog (1054 Welten, echte Koordinaten aus <code>data/worlds.js</code>), in der Kathedrale-Sprache, Columbus-Notiz aus Runde 3 als Sweet-Spot. Gemeinsame, fixierte Anatomie: Vollbild-Chart, <b>Kartuschen-Ouvertüre</b> (der Titel verdichtet sich bei der ersten Interaktion in die Ecken-Kartusche), freier Pan/Zoom mit semantischem Zoom, Staub + Werk-Pins (Größe = Werkzahl), Segmentum-Sprungmarken, Legende mit Zählwerk + Toggles, Suche, Welt-Tafel, Ambient-Kurse. Die drei Fassungen differieren in Dekor-Intensität, Marker-Sprache und Animations-Dichte: <b>A Portolan</b> (maximal gestochene Seekarte — Rhumb-Netz, Küstenlinien, schraffierte Warpstürme, formcodierte Marker), <b>B Votivtafel</b> (karg — drei Register, Wasserzeichen-Geografie, Vermessungspunkte), <b>C Observatorium</b> (instrumenten-vorwärts — Auspex-Werk auf Terra, Vox, Readouts, Form+Farbe-Hybrid). Mix erlaubt.</p>
+    <div class="files">
+      <a href="08-cartographer/a-portolan.html">a-portolan.html</a>
+      <a href="08-cartographer/b-votivtafel.html">b-votivtafel.html</a>
+      <a href="08-cartographer/c-observatorium.html">c-observatorium.html</a>
+    </div>
+  </section>
+
   <h2 class="round">Runde 3–9 — zur Review <span class="verdict">· Kathedrale, angewandt auf die echte Site</span></h2>
 
   <section>

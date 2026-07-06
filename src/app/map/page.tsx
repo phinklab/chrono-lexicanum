@@ -1,23 +1,27 @@
 import type { Metadata } from "next";
 
-import { getIsAdmin } from "@/lib/atlas/auth";
-import MapRoot from "@/components/map/MapRoot";
+import CartographerRoot from "@/components/cartographer/CartographerRoot";
 import SiteBackground from "@/components/chrome/SiteBackground";
+import { loadMapWorlds } from "@/lib/map/load-map-worlds";
+import { buildMapPayload } from "@/lib/map/payload";
 
 export const metadata: Metadata = { title: "Cartographer — Chrono Lexicanum" };
 
-// Server component (~30 LOC). Reads the auth signal forwarded by proxy.ts and
-// mounts the client tree inside a `.map-route` wrapper so the print stylesheet
-// can be scoped without bleeding into other pages. The global burger/SiteMenu
-// (z 80/81, declared in `app/layout.tsx`) sits above the full-bleed map.
-export default async function MapPage() {
+// Server component: builds the compact chart payload from the committed
+// SSOT catalog (scripts/seed-data/map-worlds.json — DB-free, bundled at
+// build time) and mounts the client Cartographer inside `.map-route`.
+// The chart itself is client-only (mount gate in CartographerRoot); the
+// SSR pass paints overture + cartouche. Global burger/SiteMenu (z 80/81)
+// sit above the full-bleed chart.
+export default function MapPage() {
+  const payload = buildMapPayload(loadMapWorlds());
   return (
     <main
       className="map-route"
       style={{ position: "fixed", inset: 0, zIndex: 1, isolation: "isolate", contain: "paint" }}
     >
       <SiteBackground variant="cartog-holo" position="50% 38%" />
-      <MapRoot initialIsAdmin={await getIsAdmin()} />
+      <CartographerRoot payload={payload} />
     </main>
   );
 }

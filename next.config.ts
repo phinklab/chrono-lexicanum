@@ -15,7 +15,9 @@ import type { NextConfig } from "next";
 // render DB-sourced cover/art URLs as plain <img> from open-ended external
 // hosts (Open Library, podcast CDNs, …). `http:` is intentionally omitted —
 // on the https production origin those would already be mixed-content-blocked.
-// The /lab/cartographer iframe is same-origin (`frame-src 'self'`).
+// (`frame-src 'self'` kept for the remaining same-origin lab iframes, e.g.
+// /public/lab/timeline-prototype; the /lab/cartographer iframe is gone —
+// Brief 178 replaced the map with the native Cartographer.)
 const isDev = process.env.NODE_ENV !== "production";
 const contentSecurityPolicy = [
   "default-src 'self'",

@@ -1,0 +1,692 @@
+<!-- ======================================================================
+     CARTOGRAPHER-STUDIE B — VOTIVTAFEL
+     Die 04-Kathedrale-Map weitergedacht: karg und still. Drei Marker-
+     Register (Knochen / Blutrot / Kreuz), Segmentum-Namen als Typo-
+     Wasserzeichen, Vermessungspunkte als einzige Bewegung, eine Kurslinie.
+     Brief 178, Varianten-Gate. Standalone — echte Daten aus
+     ../data/worlds.js (map-worlds-v2). Pan/Zoom funktioniert.
+     ====================================================================== -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cartographer B — Votivtafel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@400;500;600&family=Cinzel:wght@400..700&family=Cardo:ital,wght@0,400;0,700;1,400&family=Fragment+Mono:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --void:      #050301;
+    --void-2:    #090806;
+    --bone:      #e4ddcb;
+    --dim:       #9a927e;
+    --faint:     #6a6455;
+    --gold:      #a48c52;
+    --gold-dim:  #6f5c33;
+    --blood:     #8e3b32;
+    --hair:      rgba(228, 221, 203, 0.16);
+    --hair-soft: rgba(228, 221, 203, 0.08);
+    --plate:     rgba(12, 9, 5, 0.82);
+    --disp:      "Cormorant SC", "Cinzel", serif;
+    --text:      "Cardo", serif;
+    --mono:      "Fragment Mono", ui-monospace, monospace;
+    --ease:      cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; overflow: hidden; background: var(--void); }
+  body {
+    font-family: var(--text);
+    color: var(--bone);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--gold); color: var(--void); }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+  .bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+  .bg .photo {
+    position: absolute; inset: 0;
+    background: url("../../public/img/cartog-holo.webp") 50% 38% / cover no-repeat;
+    filter: brightness(0.16) saturate(0.6);
+  }
+  .bg .veil {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 44%, transparent 26%, rgba(5,3,1,0.85) 100%);
+  }
+  .bg .grain {
+    position: absolute; inset: 0; opacity: 0.1; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size: 160px 160px;
+  }
+
+  .brand {
+    position: fixed; top: 22px; left: 26px; z-index: 40;
+    font-family: var(--disp); font-weight: 500;
+    font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--bone); text-shadow: 0 1px 8px rgba(0,0,0,0.8);
+  }
+  .brand:hover { color: var(--gold); }
+
+  .stage { position: fixed; inset: 0; z-index: 1; }
+  .stage svg { width: 100%; height: 100%; display: block; cursor: grab; touch-action: none; }
+  .stage svg.dragging { cursor: grabbing; }
+
+  .pi { transform: scale(var(--ik, 1)); transform-box: fill-box; transform-origin: center; }
+  .w  { cursor: pointer; }
+  .w .halo { fill: transparent; }
+  .w:hover .glyph { filter: brightness(1.4); }
+
+  .lbl {
+    font-family: var(--text); font-style: italic;
+    fill: var(--bone); fill-opacity: 0.66;
+    font-size: calc(12.5px * var(--ik, 1));
+    transform: translateY(calc(-12px * var(--ik, 1)));
+    text-anchor: middle; pointer-events: none;
+    paint-order: stroke; stroke: rgba(5,3,1,0.85); stroke-width: calc(2.5px * var(--ik, 1));
+  }
+  .lbl.big { font-style: normal; font-family: var(--disp); font-size: calc(13.5px * var(--ik, 1)); letter-spacing: 0.1em; }
+  svg[data-band="0"] .lbl.t1, svg[data-band="0"] .lbl.t2 { display: none; }
+  svg[data-band="1"] .lbl.t2 { display: none; }
+
+  .rgn {
+    font-family: var(--text); font-style: italic;
+    fill: var(--bone); fill-opacity: 0.42;
+    font-size: calc(13px * var(--ik, 1));
+    letter-spacing: calc(4.5px * var(--ik, 1));
+    text-anchor: middle; cursor: pointer;
+    paint-order: stroke; stroke: rgba(5,3,1,0.8); stroke-width: calc(2.5px * var(--ik, 1));
+  }
+  .rgn:hover { fill-opacity: 0.9; }
+
+  /* Segmentum-Namen tragen hier allein die Geografie */
+  .segname {
+    font-family: var(--disp); font-weight: 400;
+    fill: var(--bone); fill-opacity: 0.085;
+    letter-spacing: 0.4em; text-anchor: middle;
+    pointer-events: none; text-transform: uppercase;
+  }
+
+  #sel .r1 { animation: selBreath 5.4s var(--ease) infinite; transform-origin: center; transform-box: fill-box; }
+  @keyframes selBreath { 0%, 100% { opacity: 0.9; } 50% { opacity: 0.45; } }
+
+  /* Vermessungspunkte: Punkt + aufblühender Ring + Leader + Versal-Label,
+     nacheinander im 24-s-Zyklus (Live-Sprache von Brief 184).
+     Bewusst in Karteneinheiten (Übersichts-Instrument) — ab Zoomstufe 1
+     blenden sie aus, statt mitzuwachsen. */
+  .survey { pointer-events: none; transition: opacity 0.6s var(--ease); }
+  svg[data-band="1"] .survey, svg[data-band="2"] .survey { opacity: 0; }
+  .survey .s-ring {
+    transform-origin: center; transform-box: fill-box;
+    animation: svRing 24s var(--ease) infinite;
+    animation-delay: var(--d, 0s);
+    opacity: 0;
+  }
+  @keyframes svRing {
+    0%, 4%  { opacity: 0; transform: scale(0.3); }
+    7%      { opacity: 0.9; }
+    16%     { opacity: 0.55; transform: scale(1); }
+    24%, 100% { opacity: 0; transform: scale(1); }
+  }
+  .survey .s-lead {
+    stroke-dasharray: 1; stroke-dashoffset: 1;
+    animation: svLead 24s linear infinite;
+    animation-delay: var(--d, 0s);
+  }
+  @keyframes svLead {
+    0%, 5% { stroke-dashoffset: 1; opacity: 0; }
+    6%     { opacity: 1; }
+    10%    { stroke-dashoffset: 0; }
+    22%    { stroke-dashoffset: 0; opacity: 1; }
+    26%, 100% { stroke-dashoffset: 0; opacity: 0; }
+  }
+  .survey .s-lbl {
+    font-family: var(--mono);
+    fill: var(--gold);
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    opacity: 0;
+    animation: svLbl 24s linear infinite;
+    animation-delay: var(--d, 0s);
+  }
+  @keyframes svLbl {
+    0%, 9% { opacity: 0; }
+    12%, 21% { opacity: 0.9; }
+    26%, 100% { opacity: 0; }
+  }
+
+  /* Eine stille Kurslinie */
+  .courseDraw {
+    stroke-dasharray: 1; stroke-dashoffset: 1;
+    animation: courseCycle 44s linear infinite;
+  }
+  @keyframes courseCycle {
+    0%   { stroke-dashoffset: 1; }
+    22%  { stroke-dashoffset: 0; }
+    58%  { stroke-dashoffset: 0; }
+    66%  { stroke-dashoffset: -1; }
+    100% { stroke-dashoffset: -1; }
+  }
+
+  /* ── Ouvertüre: pures Zentrum, kein Rahmen ── */
+  .overture {
+    position: fixed; inset: 0; z-index: 30;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; pointer-events: none;
+    background: radial-gradient(ellipse at 50% 46%, rgba(5,3,1,0.5) 0%, rgba(5,3,1,0.14) 52%, transparent 76%);
+    transition: opacity 1.2s var(--ease), visibility 1.2s;
+  }
+  .overture .over {
+    font-size: 12.5px; letter-spacing: 0.42em; text-transform: uppercase;
+    color: var(--gold);
+  }
+  .overture h1 {
+    margin-top: 16px;
+    font-family: var(--disp); font-weight: 500;
+    font-size: clamp(56px, 8vw, 110px); line-height: 1;
+    text-shadow: 0 2px 34px rgba(0,0,0,0.9);
+  }
+  .overture h1 em { font-style: italic; font-weight: 400; }
+  .overture .edition { margin-top: 18px; font-style: italic; font-size: 17.5px; color: var(--dim); }
+  .overture .edition b { font-style: normal; color: var(--bone); font-weight: 400; }
+  .overture .plumb {
+    width: 1px; height: 74px; margin-top: 30px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    position: relative; overflow: hidden;
+  }
+  .overture .plumb::after {
+    content: ""; position: absolute; left: 0; top: -20%;
+    width: 1px; height: 22px;
+    background: linear-gradient(to bottom, transparent, var(--bone), transparent);
+    animation: plumbDrop 3.2s var(--ease) infinite;
+  }
+  @keyframes plumbDrop { to { transform: translateY(560%); } }
+  .overture .hint {
+    margin-top: 14px;
+    font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.3em;
+    color: var(--faint); text-transform: uppercase;
+  }
+  body.on .overture { opacity: 0; visibility: hidden; }
+
+  .overture .over, .overture h1, .overture .edition, .overture .plumb, .overture .hint {
+    opacity: 0; transform: translateY(12px);
+    animation: enter 1s var(--ease) forwards;
+  }
+  .overture h1 { animation-delay: 0.12s; }
+  .overture .edition { animation-delay: 0.3s; }
+  .overture .plumb { animation-delay: 0.5s; }
+  .overture .hint { animation-delay: 0.62s; }
+  @keyframes enter { to { opacity: 1; transform: none; } }
+
+  /* ── Kartusche: eine schmale, stille Tafel ── */
+  .cartouche {
+    position: fixed; left: 26px; bottom: 26px; z-index: 20;
+    width: 280px;
+    background: var(--plate);
+    border-top: 1px solid var(--gold-dim);
+    border-bottom: 1px solid var(--hair-soft);
+    padding: 16px 18px 13px;
+    opacity: 0; transform: translateY(14px);
+    transition: opacity 0.9s var(--ease) 0.25s, transform 0.9s var(--ease) 0.25s;
+  }
+  body.on .cartouche { opacity: 1; transform: none; }
+  .cartouche .c-title {
+    font-family: var(--disp); font-weight: 500;
+    font-size: 19px; letter-spacing: 0.08em; text-align: center;
+  }
+  .cartouche .c-sub { text-align: center; font-style: italic; color: var(--faint); font-size: 13px; margin-top: 1px; }
+
+  .seek {
+    display: flex; align-items: center; gap: 8px;
+    border-bottom: 1px solid var(--hair);
+    padding-bottom: 6px; margin: 14px 0 12px;
+  }
+  .seek input {
+    flex: 1; background: none; border: 0; outline: 0;
+    font-family: var(--text); font-style: italic; font-size: 15px; color: var(--bone);
+  }
+  .seek input::placeholder { color: var(--faint); font-style: italic; }
+  .seek .go { font-family: var(--mono); font-size: 11px; color: var(--faint); }
+  .seek:focus-within { border-color: var(--gold-dim); }
+  .seek:focus-within .go { color: var(--gold); }
+
+  .segrow {
+    display: flex; flex-wrap: wrap; gap: 3px 10px; justify-content: center;
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--dim);
+    margin-bottom: 11px;
+  }
+  .segrow button { color: inherit; letter-spacing: inherit; padding: 2px 0; }
+  .segrow button:hover { color: var(--gold); }
+
+  .legend { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .legend td { padding: 3px 0; border-bottom: 1px solid var(--hair-soft); vertical-align: middle; }
+  .legend tr { cursor: pointer; }
+  .legend tr:hover td { color: var(--gold); }
+  .legend td.sym { width: 26px; }
+  .legend td.n { text-align: right; color: var(--faint); font-variant-numeric: tabular-nums; font-family: var(--mono); font-size: 10.5px; }
+  .legend tr.off td { opacity: 0.35; }
+
+  .c-foot {
+    margin-top: 10px; text-align: center;
+    font-style: italic; font-size: 12.5px; color: var(--faint); line-height: 1.5;
+  }
+  .c-foot b { color: var(--dim); font-style: normal; font-weight: 400; }
+
+  /* ── Welt-Tafel: die 04-Annotation, rechts gedockt ── */
+  .panel {
+    position: fixed; right: 26px; top: 50%; z-index: 20;
+    width: 300px; max-height: 70vh; overflow: hidden auto;
+    transform: translateY(-50%) translateX(16px);
+    background: var(--void);
+    border: 1px solid rgba(164, 140, 82, 0.5);
+    padding: 24px 24px 18px;
+    text-align: center;
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease), visibility 0.7s;
+    scrollbar-width: thin; scrollbar-color: var(--gold-dim) transparent;
+  }
+  .panel.open { opacity: 1; visibility: visible; transform: translateY(-50%); }
+  .panel .p-close {
+    position: absolute; top: 10px; right: 12px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--faint);
+  }
+  .panel .p-close:hover { color: var(--gold); }
+  .panel .p-name { font-family: var(--disp); font-weight: 500; font-size: 30px; line-height: 1.05; margin-top: 6px; }
+  .panel .p-cls { font-style: italic; color: var(--dim); font-size: 13.5px; margin: 4px 0 12px; }
+  .panel ul { list-style: none; border-top: 1px solid var(--hair); text-align: center; }
+  .panel li { padding: 7px 0; border-bottom: 1px solid var(--hair); font-size: 15px; line-height: 1.4; }
+  .panel li i { color: var(--faint); font-size: 12.5px; }
+  .panel .p-more { display: inline-block; margin-top: 12px; font-style: italic; color: var(--gold); font-size: 14.5px; }
+  .panel .p-more:hover { color: var(--bone); }
+
+  .zoomer {
+    position: fixed; right: 26px; bottom: 26px; z-index: 20;
+    display: flex; flex-direction: column; gap: 1px;
+  }
+  .zoomer button {
+    width: 34px; height: 34px;
+    border: 1px solid var(--hair);
+    background: var(--plate);
+    font-family: var(--mono); font-size: 14px; color: var(--dim);
+    transition: color 0.3s, border-color 0.3s;
+  }
+  .zoomer button:hover { color: var(--gold); border-color: var(--gold-dim); }
+
+  details.study-note {
+    position: fixed; left: 26px; top: 54px; z-index: 40;
+    max-width: 380px; font-size: 14px;
+  }
+  details.study-note summary {
+    cursor: pointer; list-style: none;
+    font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.24em;
+    text-transform: uppercase; color: var(--faint);
+  }
+  details.study-note summary:hover { color: var(--gold); }
+  details.study-note .body {
+    margin-top: 10px; padding: 14px 16px;
+    background: var(--plate); border: 1px solid var(--hair);
+    color: var(--dim); font-size: 13.5px; line-height: 1.55;
+  }
+  details.study-note b { color: var(--bone); font-weight: 700; }
+  details.study-note p + p { margin-top: 6px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .courseDraw { animation: none; stroke-dashoffset: 0; }
+    .survey .s-ring, .survey .s-lead, .survey .s-lbl { animation: none; }
+    .survey .s-ring { opacity: 0.4; transform: none; }
+    .survey .s-lead { stroke-dashoffset: 0; opacity: 0.6; }
+    .survey .s-lbl { opacity: 0.7; }
+    #sel .r1 { animation: none; }
+    .overture .over, .overture h1, .overture .edition, .overture .plumb, .overture .hint { animation: none; opacity: 1; transform: none; }
+    .overture .plumb::after { animation: none; }
+    .overture, .cartouche, .panel { transition: none; }
+  }
+
+  @media (max-width: 900px) {
+    .cartouche { display: none; }
+    .panel { right: 12px; width: 270px; }
+  }
+</style>
+
+<div class="bg" aria-hidden="true">
+  <div class="photo"></div>
+  <div class="veil"></div>
+  <div class="grain"></div>
+</div>
+
+<a class="brand" href="../07-praxis/hub.html">Chrono Lexicanum</a>
+
+<div class="stage">
+  <svg id="chart" data-band="0"></svg>
+</div>
+
+<section class="overture" id="overture" aria-hidden="true">
+  <p class="over">The galaxy, surveyed</p>
+  <h1>The <em>Cartographer</em></h1>
+  <p class="edition"><b>1 054 worlds</b> upon the tablet &middot; 1 332 of 1 685 records placed</p>
+  <div class="plumb"></div>
+  <p class="hint">drag to survey &middot; scroll to magnify</p>
+</section>
+
+<aside class="cartouche" id="cartouche">
+  <p class="c-title">The Cartographer</p>
+  <p class="c-sub">a votive tablet of the 41st millennium</p>
+  <div class="seek">
+    <input id="seek" type="text" placeholder="Seek a world&hellip;" spellcheck="false">
+    <span class="go">RET</span>
+  </div>
+  <div class="segrow" id="segrow"></div>
+  <table class="legend" id="legend"></table>
+  <p class="c-foot">Bone for the living, blood for the Ruinous, a cross for worlds that are no more. <b>1 332 of 1 685</b> records placed.</p>
+</aside>
+
+<aside class="panel" id="panel" aria-hidden="true">
+  <button class="p-close" id="pclose">CLOSE</button>
+  <p class="p-name" id="pname">&nbsp;</p>
+  <p class="p-cls" id="pcls">&nbsp;</p>
+  <ul id="pworks"></ul>
+  <a class="p-more" id="pmore" href="../07-praxis/buch.html">Open the record &rarr;</a>
+</aside>
+
+<div class="zoomer">
+  <button id="zin" title="Magnify">+</button>
+  <button id="zout" title="Withdraw">&minus;</button>
+  <button id="zfit" title="The whole tablet">&#8962;</button>
+</div>
+
+<details class="study-note">
+  <summary>Studien-Notiz &middot; B — Votivtafel</summary>
+  <div class="body">
+    <p><b>Diese Fassung:</b> die 04-Gewinner-Map weitergedacht — karg, still, monumental. Keine Küstenlinien, kein Rhumb-Netz: die Geografie tragen allein die <b>Segmentum-Wasserzeichen</b> und ein Kreuzchen-Gradnetz (Sternwarten-Platte). Marker in <b>drei Registern</b>: Knochen (alles Lebende), Blutrot (die Ruinösen), Kreuz (tote Welten) — die 12 kind-Gruppen bleiben Zählwerk der Legende. Einzige Dauerbewegung: <b>Vermessungspunkte</b> (Ring blüht, Leader fährt aus, Mono-Label — die Live-Instrumenten-Sprache) und eine einzelne stille Kurslinie Terra&rarr;Prospero.</p>
+    <p><b>Interaktion echt:</b> Pan/Zoom, drei Label-Stufen, Legende togglet, Segmentum-Sprungmarken, Suche, Klick &rarr; Welt-Tafel im 04-Annotationston.</p>
+  </div>
+</details>
+
+<script src="../data/worlds.js"></script>
+<script>
+(function () {
+  "use strict";
+  var NS = "http://www.w3.org/2000/svg";
+  var D = window.CL_WORLDS;
+  var W = 1000, H = 808.6;
+  var BONE = "#e4ddcb", GOLD = "#a48c52", BLOOD = "#8e3b32";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function el(name, attrs, parent) {
+    var n = document.createElementNS(NS, name);
+    for (var k in attrs) n.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(n);
+    return n;
+  }
+  function txt(node, s) { node.textContent = s; return node; }
+
+  var svg = document.getElementById("chart");
+  var defs = el("defs", {}, svg);
+  var cam = el("g", { id: "cam" }, svg);
+
+  /* Kreuzchen-Gradnetz: + an den Schnittpunkten, wie auf Sternwarten-Platten */
+  var grid = el("g", {}, cam);
+  for (var gx = 100; gx < W; gx += 100)
+    for (var gy = 100; gy < H; gy += 100) {
+      el("line", { x1: gx - 4, y1: gy, x2: gx + 4, y2: gy, stroke: BONE, "stroke-opacity": 0.14, "vector-effect": "non-scaling-stroke" }, grid);
+      el("line", { x1: gx, y1: gy - 4, x2: gx, y2: gy + 4, stroke: BONE, "stroke-opacity": 0.14, "vector-effect": "non-scaling-stroke" }, grid);
+    }
+
+  /* Segmentum-Wasserzeichen — tragen hier die ganze Geografie */
+  var SEGS = [
+    { name: "Segmentum Solar",     x: 360, y: 372, fs: 30, jump: { x: 360, y: 395, k: 2.1 } },
+    { name: "Segmentum Obscurus",  x: 262, y: 152, fs: 34, jump: { x: 262, y: 165, k: 2.0 } },
+    { name: "Segmentum Pacificus", x: 172, y: 470, fs: 28, jump: { x: 172, y: 500, k: 2.0 } },
+    { name: "Segmentum Tempestus", x: 350, y: 668, fs: 34, jump: { x: 350, y: 650, k: 1.9 } },
+    { name: "Ultima Segmentum",    x: 745, y: 448, fs: 54, jump: { x: 760, y: 460, k: 1.5 } },
+  ];
+  for (var s = 0; s < SEGS.length; s++)
+    txt(el("text", { class: "segname", x: SEGS[s].x, y: SEGS[s].y, "font-size": SEGS[s].fs }, cam), SEGS[s].name);
+
+  /* Eine stille Kurslinie: Terra → Prospero */
+  var mask = el("mask", { id: "crs" }, defs);
+  el("path", { d: "M 333 402 C 390 400, 440 394, 482 385", fill: "none", stroke: "#fff", "stroke-width": 6, pathLength: 1, class: "courseDraw" }, mask);
+  el("path", {
+    d: "M 333 402 C 390 400, 440 394, 482 385", fill: "none",
+    stroke: GOLD, "stroke-opacity": 0.65, "stroke-dasharray": "0.4 5", "stroke-linecap": "round",
+    "vector-effect": "non-scaling-stroke", mask: "url(#crs)",
+  }, cam);
+
+  /* ════ Pins: drei Register ════ */
+  var kindGroups = {};
+  function kg(kind, dust) {
+    var key = (dust ? "d-" : "f-") + kind;
+    if (!kindGroups[key]) kindGroups[key] = el("g", { "data-kg": key }, cam);
+    return kindGroups[key];
+  }
+
+  for (var b = 0; b < D.background.length; b++) {
+    var bg = D.background[b];
+    var kind = D.kinds[bg[2]];
+    var g = el("g", { transform: "translate(" + bg[0] + " " + bg[1] + ")" }, kg(kind, true));
+    el("circle", { class: "pi", r: 1.05, fill: BONE, "fill-opacity": 0.26 }, g);
+  }
+
+  function glyph(parent, kind, s) {
+    var g = el("g", { class: "glyph" }, parent);
+    if (kind === "dead") {
+      el("line", { x1: -s, y1: -s, x2: s, y2: s, stroke: BONE, "stroke-width": 1.15, "stroke-opacity": 0.85 }, g);
+      el("line", { x1: -s, y1: s, x2: s, y2: -s, stroke: BONE, "stroke-width": 1.15, "stroke-opacity": 0.85 }, g);
+    } else if (kind === "chaos-warp") {
+      el("circle", { r: s, fill: BLOOD }, g);
+    } else {
+      el("circle", { r: s * 0.85, fill: BONE, "fill-opacity": kind === "unclassified" ? 0.6 : 0.9 }, g);
+    }
+  }
+
+  for (var f = 0; f < D.featured.length; f++) {
+    var w = D.featured[f];
+    if (w.kind === "region") continue;
+    var size = 2.2 + Math.min(3.4, Math.log2(1 + w.n));
+    var pg = el("g", { class: "w", transform: "translate(" + w.gx + " " + w.gy + ")", "data-i": f, "data-kind": w.kind }, kg(w.kind, false));
+    var pi = el("g", { class: "pi" }, pg);
+    el("circle", { class: "halo", r: 11 }, pi);
+    glyph(pi, w.kind, size);
+    var tier = w.n >= 15 ? 0 : w.n >= 4 ? 1 : 2;
+    txt(el("text", { class: "lbl t" + tier + (tier === 0 ? " big" : "") }, pg), w.name);
+  }
+
+  var regionWorks = {};
+  for (var rf = 0; rf < D.featured.length; rf++)
+    if (D.featured[rf].kind === "region") regionWorks[D.featured[rf].name] = rf;
+  for (var rg = 0; rg < D.regions.length; rg++) {
+    var reg = D.regions[rg];
+    var attrs = { class: "rgn", x: reg.gx, y: reg.gy };
+    if (regionWorks[reg.name] !== undefined) attrs["data-i"] = regionWorks[reg.name];
+    txt(el("text", attrs, cam), reg.name.toUpperCase());
+  }
+
+  /* Vermessungspunkte: vier berühmte Orte, gestaffelt im Zyklus */
+  var SURVEYS = [
+    { name: "TERRA · THRONEWORLD", x: 333.4, y: 401.95, d: 0 },
+    { name: "PROSPERO · SILENT", x: 481.66, y: 385.3, d: 6 },
+    { name: "CADIA · BROKEN", x: 277.2, y: 234.06, d: 12 },
+    { name: "MACRAGGE · BULWARK", x: 876.92, y: 675.99, d: 18 },
+  ];
+  for (var sv = 0; sv < SURVEYS.length; sv++) {
+    var spec = SURVEYS[sv];
+    /* Karteneinheiten, KEIN Counter-Scale: asymmetrischer Inhalt (Leader +
+       Label) würde mit fill-box-Origin beim Zoomen vom Anker wegdriften. */
+    var sg = el("g", { class: "survey", transform: "translate(" + spec.x + " " + spec.y + ")", style: "--d:" + spec.d + "s" }, cam);
+    el("circle", { class: "s-ring", r: 13, fill: "none", stroke: GOLD, "stroke-width": 0.8, "vector-effect": "non-scaling-stroke" }, sg);
+    el("line", { class: "s-lead", x1: 8, y1: -8, x2: 34, y2: -30, stroke: GOLD, "stroke-width": 0.7, "stroke-dasharray": "1", pathLength: 1, "vector-effect": "non-scaling-stroke" }, sg);
+    txt(el("text", { class: "s-lbl", x: 38, y: -33 }, sg), spec.name);
+  }
+
+  /* Selektions-Ring */
+  var sel = el("g", { id: "sel", style: "display:none" }, cam);
+  var selPi = el("g", { class: "pi" }, sel);
+  el("circle", { class: "r1", r: 11, fill: "none", stroke: GOLD, "stroke-width": 1.2 }, selPi);
+  el("circle", { r: 16, fill: "none", stroke: GOLD, "stroke-width": 0.5 }, selPi);
+
+  /* ════ Kamera (identisch zu Studie A) ════ */
+  var vw, vh, k0, tx, ty, k;
+  function measure() { vw = innerWidth; vh = innerHeight; k0 = Math.min(vw / W, vh / H) * 0.93; }
+  function apply() {
+    cam.setAttribute("transform", "translate(" + tx + " " + ty + ") scale(" + k + ")");
+    svg.style.setProperty("--ik", 1 / k);
+    var band = k < k0 * 1.7 ? 0 : k < k0 * 3.1 ? 1 : 2;
+    if (svg.getAttribute("data-band") !== String(band)) svg.setAttribute("data-band", band);
+  }
+  function home() { k = k0; tx = (vw - W * k) / 2; ty = (vh - H * k) / 2; apply(); }
+  measure(); home();
+  addEventListener("resize", function () { measure(); apply(); });
+
+  function clampK(x) { return Math.max(k0 * 0.75, Math.min(k0 * 9, x)); }
+  function zoomAt(mx, my, factor) {
+    var nk = clampK(k * factor);
+    tx = mx - ((mx - tx) * nk) / k;
+    ty = my - ((my - ty) * nk) / k;
+    k = nk; apply();
+  }
+
+  var flying = null;
+  function flyTo(gxT, gyT, kT, ms) {
+    if (reduce) { k = clampK(kT); tx = vw / 2 - gxT * k; ty = vh / 2 - gyT * k; apply(); return; }
+    var s = { tx: tx, ty: ty, k: k };
+    var eK = clampK(kT);
+    var e = { tx: vw / 2 - gxT * eK, ty: vh / 2 - gyT * eK, k: eK };
+    var t0 = performance.now(), dur = ms || 1000;
+    cancelAnimationFrame(flying);
+    (function step(now) {
+      var p = Math.min(1, (now - t0) / dur);
+      var u = 1 - Math.pow(1 - p, 3);
+      tx = s.tx + (e.tx - s.tx) * u; ty = s.ty + (e.ty - s.ty) * u; k = s.k + (e.k - s.k) * u;
+      apply();
+      if (p < 1) flying = requestAnimationFrame(step);
+    })(t0);
+  }
+
+  var armed = false;
+  function condense() { if (!armed) { armed = true; document.body.classList.add("on"); } }
+
+  var drag = null;
+  svg.addEventListener("pointerdown", function (e) {
+    condense();
+    drag = { x: e.clientX, y: e.clientY, tx: tx, ty: ty, moved: false };
+    svg.setPointerCapture(e.pointerId);
+    svg.classList.add("dragging");
+  });
+  svg.addEventListener("pointermove", function (e) {
+    if (!drag) return;
+    var dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+    if (Math.abs(dx) + Math.abs(dy) > 4) drag.moved = true;
+    tx = drag.tx + dx; ty = drag.ty + dy; apply();
+  });
+  svg.addEventListener("pointerup", function (e) {
+    svg.classList.remove("dragging");
+    if (drag && !drag.moved) {
+      var hit = e.target.closest ? e.target.closest("[data-i]") : null;
+      if (hit) select(+hit.getAttribute("data-i"));
+      else closePanel();
+    }
+    drag = null;
+  });
+  svg.addEventListener("wheel", function (e) {
+    e.preventDefault(); condense();
+    zoomAt(e.clientX, e.clientY, Math.exp(-e.deltaY * 0.0016));
+  }, { passive: false });
+
+  document.getElementById("zin").addEventListener("click", function () { condense(); zoomAt(vw / 2, vh / 2, 1.45); });
+  document.getElementById("zout").addEventListener("click", function () { condense(); zoomAt(vw / 2, vh / 2, 1 / 1.45); });
+  document.getElementById("zfit").addEventListener("click", function () { condense(); flyTo(W / 2, H / 2, k0, 800); closePanel(); });
+
+  /* ════ Welt-Tafel ════ */
+  var panel = document.getElementById("panel");
+  var KIND_LABEL = {
+    "imperial": "Imperial world", "imperial-military": "Fortress world",
+    "chaos-warp": "Domain of the Ruinous Powers", "dead": "Dead world",
+    "xenos": "Xenos world", "necron": "Necron tomb world", "aeldari": "Aeldari domain",
+    "station": "Station", "gate": "Warp gate", "fleet": "Fleet", "unclassified": "Unclassified",
+    "region": "Region of the chart",
+  };
+  function select(i) {
+    var w = D.featured[i];
+    if (!w) return;
+    document.getElementById("pname").textContent = w.name;
+    document.getElementById("pcls").textContent = KIND_LABEL[w.kind] + " · Segmentum " + w.seg;
+    var ul = document.getElementById("pworks");
+    ul.innerHTML = "";
+    for (var j = 0; j < w.works.length; j++) {
+      var li = document.createElement("li");
+      li.textContent = w.works[j];
+      if (j === 0) li.innerHTML += " <i>&mdash; primary</i>";
+      ul.appendChild(li);
+    }
+    var rest = w.n - w.works.length;
+    document.getElementById("pmore").textContent =
+      rest > 0 ? "… and " + rest + " further " + (rest === 1 ? "work" : "works") + ". Open the record →" : "Open the record →";
+    panel.classList.add("open");
+    sel.style.display = "";
+    sel.setAttribute("transform", "translate(" + w.gx + " " + w.gy + ")");
+    flyTo(w.gx, w.gy, Math.max(k, k0 * 2.4), 900);
+  }
+  function closePanel() { panel.classList.remove("open"); sel.style.display = "none"; }
+  document.getElementById("pclose").addEventListener("click", closePanel);
+
+  /* ════ Kartusche ════ */
+  var segrow = document.getElementById("segrow");
+  for (var sj = 0; sj < SEGS.length; sj++) (function (seg) {
+    var b = document.createElement("button");
+    b.textContent = seg.name.replace("Segmentum ", "").replace(" Segmentum", "");
+    b.addEventListener("click", function () { condense(); flyTo(seg.jump.x, seg.jump.y, k0 * seg.jump.k, 1100); });
+    segrow.appendChild(b);
+  })(SEGS[sj]);
+
+  var counts = {};
+  for (var cb = 0; cb < D.background.length; cb++) counts[D.kinds[D.background[cb][2]]] = (counts[D.kinds[D.background[cb][2]]] || 0) + 1;
+  for (var cf = 0; cf < D.featured.length; cf++) counts[D.featured[cf].kind] = (counts[D.featured[cf].kind] || 0) + 1;
+
+  var LEG = [
+    ["imperial", "Imperial world"], ["unclassified", "Unclassified"],
+    ["imperial-military", "Fortress & forge"], ["chaos-warp", "Ruinous / warp-touched"],
+    ["dead", "Dead world"], ["xenos", "Xenos world"],
+    ["station", "Station & bastion"], ["necron", "Necron tomb"],
+    ["gate", "Warp gate"], ["fleet", "Fleet & flotilla"], ["aeldari", "Aeldari domain"],
+  ];
+  var legend = document.getElementById("legend");
+  var off = {};
+  for (var li2 = 0; li2 < LEG.length; li2++) (function (row) {
+    var kind = row[0];
+    var tr = document.createElement("tr");
+    var sym = document.createElement("td");
+    sym.className = "sym";
+    var s2 = el("svg", { viewBox: "-8 -8 16 16", width: 16, height: 16 });
+    glyph(s2, kind, 3.2);
+    sym.appendChild(s2);
+    tr.appendChild(sym);
+    tr.insertAdjacentHTML("beforeend", "<td>" + row[1] + "</td><td class='n'>" + (counts[kind] || 0) + "</td>");
+    tr.addEventListener("click", function () {
+      off[kind] = !off[kind];
+      tr.classList.toggle("off", off[kind]);
+      var gf = kindGroups["f-" + kind], gd = kindGroups["d-" + kind];
+      if (gf) gf.style.display = off[kind] ? "none" : "";
+      if (gd) gd.style.display = off[kind] ? "none" : "";
+    });
+    legend.appendChild(tr);
+  })(LEG[li2]);
+
+  document.getElementById("seek").addEventListener("keydown", function (e) {
+    if (e.key !== "Enter") return;
+    var q = this.value.trim().toLowerCase();
+    if (!q) return;
+    var best = -1;
+    for (var i = 0; i < D.featured.length; i++) {
+      var n = D.featured[i].name.toLowerCase();
+      if (n === q) { best = i; break; }
+      if (best < 0 && n.indexOf(q) === 0) best = i;
+      if (best < 0 && n.indexOf(q) >= 0) best = i;
+    }
+    if (best >= 0) { condense(); select(best); }
+  });
+
+  addEventListener("keydown", function (e) { if (e.key === "Escape") closePanel(); });
+})();
+</script>
