@@ -21,7 +21,6 @@ import { Cartouche, Overture } from "./Cartouche";
 import Census from "./Census";
 import ChartStage from "./ChartStage";
 import CourseCards from "./CourseCards";
-import DirectionPanel from "./DirectionPanel";
 import RoutesLayer from "./RoutesLayer";
 import Selection from "./Selection";
 import WorldPanel from "./WorldPanel";
@@ -46,11 +45,6 @@ interface CgState {
   names: boolean;
   /** Zonen-Toggle (178b Runde 10): blendet die kuratierten Zonen-Felder aus. */
   zonesOff: boolean;
-  /* Direction proofs (defaults = the study's approved slider positions). */
-  bgArt: boolean;
-  veil: number;
-  bright: number;
-  grain: number;
 }
 
 const INITIAL: CgState = {
@@ -64,10 +58,6 @@ const INITIAL: CgState = {
   nihilus: false,
   names: false,
   zonesOff: false,
-  bgArt: true,
-  veil: 0.82,
-  bright: 0.2,
-  grain: 0.09,
 };
 
 type CgAction =
@@ -81,11 +71,7 @@ type CgAction =
   | { type: "toggleLumen" }
   | { type: "toggleNihilus" }
   | { type: "toggleNames" }
-  | { type: "toggleZones" }
-  | { type: "bgArt"; v: boolean }
-  | { type: "veil"; v: number }
-  | { type: "bright"; v: number }
-  | { type: "grain"; v: number };
+  | { type: "toggleZones" };
 
 function reducer(state: CgState, action: CgAction): CgState {
   switch (action.type) {
@@ -125,14 +111,6 @@ function reducer(state: CgState, action: CgAction): CgState {
       return { ...state, names: !state.names };
     case "toggleZones":
       return { ...state, zonesOff: !state.zonesOff };
-    case "bgArt":
-      return { ...state, bgArt: action.v };
-    case "veil":
-      return { ...state, veil: action.v };
-    case "bright":
-      return { ...state, bright: action.v };
-    case "grain":
-      return { ...state, grain: action.v };
   }
 }
 
@@ -215,22 +193,6 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
     };
   }, []);
 
-  /* ── Direction proofs → root CSS vars (the site background photo is a
-     sibling of this tree, so the vars live on <html>) ── */
-  useEffect(() => {
-    const root = document.documentElement;
-    root.style.setProperty("--cg-veil", String(state.veil));
-    root.style.setProperty("--cg-bright", String(state.bright));
-    root.style.setProperty("--cg-grain", String(state.grain));
-    root.classList.toggle("cg-nobg", !state.bgArt);
-    return () => {
-      root.style.removeProperty("--cg-veil");
-      root.style.removeProperty("--cg-bright");
-      root.style.removeProperty("--cg-grain");
-      root.classList.remove("cg-nobg");
-    };
-  }, [state.veil, state.bright, state.grain, state.bgArt]);
-
   /* ── Hash restore (once) + hash writes ── */
   const restored = useRef(false);
   useEffect(() => {
@@ -291,8 +253,6 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
 
   return (
     <>
-      <div className="cg-veil" aria-hidden />
-      <div className="cg-grainlayer" aria-hidden />
       <div className="cg-rule top" aria-hidden />
       <div className="cg-rule bot" aria-hidden />
       {/* Kein "000"-Gradzeichen im Norden — dort sitzt jetzt der zentrierte
@@ -453,16 +413,6 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
         </a>
       )}
 
-      <DirectionPanel
-        bgArt={state.bgArt}
-        veil={state.veil}
-        bright={state.bright}
-        grain={state.grain}
-        onBgArt={(v) => dispatch({ type: "bgArt", v })}
-        onVeil={(v) => dispatch({ type: "veil", v })}
-        onBright={(v) => dispatch({ type: "bright", v })}
-        onGrain={(v) => dispatch({ type: "grain", v })}
-      />
     </>
   );
 }

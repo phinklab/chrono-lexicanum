@@ -440,7 +440,7 @@
     },
     {
       "id": "zone-8",
-      "name": "Storm of the Emperors Wrath",
+      "name": "Storm of the Emperor's Wrath",
       "kind": "interdiction",
       "smooth": true,
       "published": true,
@@ -754,7 +754,7 @@
     },
     {
       "id": "zone-14",
-      "name": "Sirens storm",
+      "name": "Siren's Storm",
       "kind": "interdiction",
       "smooth": true,
       "published": true,
@@ -775,7 +775,7 @@
     },
     {
       "id": "zone-15",
-      "name": "Sauthekh Dynasty",
+      "name": "Sautekh Dynasty",
       "kind": "necron-dynasty",
       "smooth": false,
       "published": true,

@@ -18,17 +18,14 @@
   --cg-glass-shadow: 0 26px 70px -18px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(228, 221, 203, 0.06);
   font-family: var(--font-body);
   color: var(--cl-bone);
+  /* Die Karte steht auf EINER Flächenfarbe (178b Runde 11, Philipp):
+     Observatoriums-Foto, Schleier + Korn und das Direction-Proofs-Panel
+     sind ausgebaut — kein SiteBackground mehr auf dieser Route. */
+  background: var(--cl-void);
 }
 
-/* ── Route-Chrome: Observatoriums-Foto dimmen (Direction-Panel-Var),
-   Backdrop-Toggle, Burger statt Desktop-Rail ─────────────────────────── */
-.map-route .site-bg__photo {
-  filter: brightness(var(--cg-bright, 0.2)) saturate(0.7);
-}
-html.cg-nobg .map-route .site-bg__photo {
-  display: none;
-}
-/* Entscheid „SiteBrand + Burger bleiben": auf der Karte navigiert der
+/* ── Route-Chrome: Burger statt Desktop-Rail ───────────────────────────
+   Entscheid „SiteBrand + Burger bleiben": auf der Karte navigiert der
    Burger auch auf Desktop-Breiten; die linke Rail läge mitten im Chart. */
 @media (min-width: 1180px) {
   body.cg-on-map .site-nav {
@@ -53,25 +50,6 @@ body.cg-on-map .site-brand {
 }
 body.cg-on-map .site-brand .site-brand__map {
   color: var(--cl-gold);
-}
-
-/* ── Schleier + Korn über dem Foto (Studie: .bg .veil/.grain) ──────────── */
-.cg-veil {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background: radial-gradient(ellipse at 50% 44%, transparent 28%, rgba(5, 3, 1, var(--cg-veil, 0.82)) 100%);
-}
-.cg-grainlayer {
-  position: fixed;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  opacity: var(--cg-grain, 0.09);
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-  background-size: 160px 160px;
 }
 
 /* ── Kartenrand: Maßlinien + Gradzahlen ────────────────────────────────── */
@@ -1527,72 +1505,6 @@ body.cg-on-map .site-brand .site-brand__map {
   color: var(--cl-gold);
 }
 
-/* ── Direction-Panel (Session-Entscheidungshilfe — fliegt nach dem
-   Richtungs-Entscheid wieder raus) ─────────────────────────────────────── */
-.cg-debug {
-  position: fixed;
-  right: 26px;
-  top: 64px;
-  z-index: 40;
-  width: 250px;
-  text-align: right;
-}
-.cg-debug summary {
-  cursor: pointer;
-  list-style: none;
-  font-family: var(--font-mono);
-  font-size: 9.5px;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--cl-faint);
-}
-.cg-debug summary::-webkit-details-marker {
-  display: none;
-}
-.cg-debug summary:hover {
-  color: var(--cl-gold);
-}
-.cg-debug .body {
-  margin-top: 10px;
-  padding: 12px 14px;
-  background: var(--cl-plate);
-  border: 1px solid var(--cl-hair);
-  text-align: left;
-}
-.cg-debug .dbg-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--cl-dim);
-  padding: 5px 0;
-}
-.cg-debug .dbg-row + .dbg-row {
-  border-top: 1px solid var(--cl-hair-soft);
-}
-.cg-debug .dbg-row .lab {
-  flex: 1;
-}
-.cg-debug .dbg-row .val {
-  color: var(--cl-faint);
-  font-size: 9.5px;
-  min-width: 30px;
-  text-align: right;
-}
-.cg-debug .dbg-row input[type="range"] {
-  width: 86px;
-  accent-color: var(--cl-gold);
-  background: transparent;
-  cursor: pointer;
-}
-.cg-debug .dbg-row input[type="checkbox"] {
-  accent-color: var(--cl-gold);
-  cursor: pointer;
-}
-
 /* ── Zonen (Hand-Kuration via /map?zones=edit → src/lib/map/zones.json) ── */
 .cg-zones {
   pointer-events: none;
@@ -2041,9 +1953,5 @@ body.cg-on-map .site-brand .site-brand__map {
   }
   .cg-pop {
     width: 272px;
-  }
-  .cg-debug {
-    top: 56px;
-    right: 16px;
   }
 }

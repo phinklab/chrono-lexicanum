@@ -16,7 +16,8 @@
  *   - "oracle"     ← Ask the Archive (gothic scriptorium, void window)
  *   - "chronicle"  ← Timeline / Chronicle (cathedral timeline diagram)
  *   - "cartog"     ← cartog-hall (handoff photo, currently unused)
- *   - "cartog-holo" ← /map (holo-dais observatory chamber; 55-map.css dims it)
+ *   - "cartog-holo" ← (unused seit 178b Runde 11 — /map steht auf einer
+ *                     Flächenfarbe ohne SiteBackground)
  *   - "login"      ← /login (lightless cathedral librarium — phil kuenzler)
  *   - "none"       ← just vignette + grain over the void
  */
