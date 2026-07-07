@@ -29,6 +29,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 import type { FeaturedWorld, MapPayload } from "@/lib/map/payload";
 import type { MapWorldKind, MapWorldWork } from "@/lib/map/map-worlds-schema";
+import { loadWorldBlurbs } from "@/lib/map/world-blurbs";
 import type { ChartBus } from "./chart-bus";
 
 const KIND_LABEL: Record<MapWorldKind, string> = {
@@ -76,6 +77,22 @@ export default function WorldPanel({ world, payload, bus, onClose }: WorldPanelP
   const [fullFor, setFullFor] = useState<string | null>(null);
   const expanded = shown !== null && openFor === shown.id;
   const full = shown !== null && fullFor === shown.id;
+
+  /* Blurb fallback (178b Runde 8): worlds without a location-blurb (dust +
+     unlinked featured) get their text from the lazy world-blurbs chunk —
+     keyed per world id so a stale lookup never shows on the wrong world. */
+  const [fallback, setFallback] = useState<{ id: string; text: string | null } | null>(null);
+  useEffect(() => {
+    if (!shown || shown.blurb) return;
+    let live = true;
+    const id = shown.id;
+    loadWorldBlurbs().then((map) => {
+      if (live) setFallback({ id, text: map.get(id) ?? null });
+    });
+    return () => {
+      live = false;
+    };
+  }, [shown]);
 
   const place = useCallback(() => {
     const el = elRef.current;
@@ -157,9 +174,12 @@ export default function WorldPanel({ world, payload, bus, onClose }: WorldPanelP
             </p>
           )}
           <div className="pp-rule" />
-          <p className={`pp-blurb${shown.blurb ? "" : " missing"}`}>
-            {shown.blurb ?? "empty. add later"}
-          </p>
+          {(() => {
+            const text = shown.blurb ?? (fallback?.id === shown.id ? fallback.text : null);
+            return (
+              <p className={`pp-blurb${text ? "" : " missing"}`}>{text ?? "empty. add later"}</p>
+            );
+          })()}
           {shown.n === 0 && shown.kind !== "region" && (
             <p className="pp-norec">No recorded literature yet</p>
           )}
