@@ -51,6 +51,10 @@ interface ChartStageProps {
   bus: ChartBus;
   lumen: boolean;
   nihilus: boolean;
+  /** Namens-Zwang: hebt die Band-Gates der Labels auf (CSS `svg.names`). */
+  names: boolean;
+  /** Zonen-Toggle: fadet #cg-fields aus (CSS `svg.nozones`). */
+  zonesOff: boolean;
   courseId: string | null;
   reduce: boolean;
   magRef: RefObject<HTMLSpanElement | null>;
@@ -64,6 +68,8 @@ export default function ChartStage({
   bus,
   lumen,
   nihilus,
+  names,
+  zonesOff,
   courseId,
   reduce,
   magRef,
@@ -384,7 +390,7 @@ export default function ChartStage({
     <div className="cg-stage">
       <svg
         ref={svgRef}
-        className={`cg-chart${lumen ? " lumen" : ""}${nihilus ? " nihilus" : ""}`}
+        className={`cg-chart${lumen ? " lumen" : ""}${nihilus ? " nihilus" : ""}${names ? " names" : ""}${zonesOff ? " nozones" : ""}`}
         data-route={courseId ?? undefined}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}

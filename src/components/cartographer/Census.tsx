@@ -19,6 +19,7 @@ import { useMemo, useState } from "react";
 
 import type { MapPayload } from "@/lib/map/payload";
 import type { MapWorldKind } from "@/lib/map/map-worlds-schema";
+import { CURATED_ZONES } from "@/lib/map/zones";
 import { BONE, GOLD } from "./chart-geometry";
 import { Glyph } from "./layers";
 
@@ -41,10 +42,16 @@ interface CensusProps {
   hiddenCls: ReadonlySet<number>;
   worksOnly: boolean;
   dustOff: boolean;
+  /** Namens-Zwang (178b Runde 9): Labels in jedem Zoom-Band erzwingen. */
+  namesOn: boolean;
+  /** Zonen-Toggle (178b Runde 10): kuratierte Zonen-Felder aus/ein. */
+  zonesOff: boolean;
   onToggleCls: (ci: number) => void;
   onSetCls: (cis: number[], hidden: boolean) => void;
   onToggleWorksOnly: () => void;
   onToggleDust: () => void;
+  onToggleNames: () => void;
+  onToggleZones: () => void;
 }
 
 export default function Census({
@@ -52,11 +59,16 @@ export default function Census({
   hiddenCls,
   worksOnly,
   dustOff,
+  namesOn,
+  zonesOff,
   onToggleCls,
   onSetCls,
   onToggleWorksOnly,
   onToggleDust,
+  onToggleNames,
+  onToggleZones,
 }: CensusProps) {
+  const zoneCount = CURATED_ZONES.filter((z) => z.published).length;
   const [open, setOpen] = useState<ReadonlySet<string>>(new Set());
 
   const { clsCount, clsFeat, featTotal } = useMemo(() => {
@@ -122,6 +134,60 @@ export default function Census({
           <span className="n">{payload.dust.length}</span>
         </button>
       )}
+      {/* Zonen-Toggle (178b Runde 10): Philipps hand-kuratierte Felder
+          (Stürme, Interdiction, Regionen, Dynastien) aus- und einblenden. */}
+      {zoneCount > 0 && (
+        <button
+          className={`cx${zonesOff ? " off" : ""}`}
+          onClick={onToggleZones}
+          title="Show or hide the marked zones: storms, interdiction fields, named regions, dynasties"
+        >
+          <span className="pad" />
+          <span className="sym">
+            <svg viewBox="-8 -8 16 16" width={18} height={18}>
+              <rect
+                x={-5.5}
+                y={-4.5}
+                width={11}
+                height={9}
+                fill="none"
+                stroke="currentColor"
+                strokeOpacity={0.65}
+                strokeWidth={0.9}
+                strokeDasharray="2.4 1.8"
+              />
+              <line x1={-3.2} y1={4.5} x2={1.8} y2={-4.5} stroke="currentColor" strokeOpacity={0.55} strokeWidth={0.9} />
+              <line x1={0.2} y1={4.5} x2={5.2} y2={-4.5} stroke="currentColor" strokeOpacity={0.55} strokeWidth={0.9} />
+            </svg>
+          </span>
+          <span className="lab">Zones &amp; storm fields</span>
+          <span className="n">{zoneCount}</span>
+        </button>
+      )}
+      {/* Namens-Zwang (178b Runde 9): Rettungsanker für dünne Filter — wer
+          z. B. nur Fleets zeigt, sieht in der Übersicht sonst fast nichts. */}
+      <button
+        className={`cx${namesOn ? " on" : ""}`}
+        onClick={onToggleNames}
+        title="Show the name of every visible world, no matter how far the chart is zoomed out"
+      >
+        <span className="pad" />
+        <span className="sym">
+          <svg viewBox="-8 -8 16 16" width={18} height={18}>
+            <text
+              x={0}
+              y={4.5}
+              textAnchor="middle"
+              fontSize={11.5}
+              fontStyle="italic"
+              fill="currentColor"
+            >
+              N
+            </text>
+          </svg>
+        </span>
+        <span className="lab">World names at every magnification</span>
+      </button>
       <p className="chead groups">
         <span>By world type</span>
         <button
@@ -164,7 +230,7 @@ export default function Census({
             <div className="cgrp-h">
               <button
                 className="car"
-                title="Expand"
+                title="Unfold: filter single classifications inside this group"
                 onClick={() =>
                   setOpen((o) => {
                     const next = new Set(o);

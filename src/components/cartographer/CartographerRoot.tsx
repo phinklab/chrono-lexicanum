@@ -41,6 +41,11 @@ interface CgState {
   courseId: string | null;
   lumen: boolean;
   nihilus: boolean;
+  /** Namens-Zwang (178b Runde 9): jede sichtbare Welt zeigt ihren Namen in
+   *  jedem Zoom — Rettungsanker für dünne Filter (z. B. nur Fleets). */
+  names: boolean;
+  /** Zonen-Toggle (178b Runde 10): blendet die kuratierten Zonen-Felder aus. */
+  zonesOff: boolean;
   /* Direction proofs (defaults = the study's approved slider positions). */
   bgArt: boolean;
   veil: number;
@@ -57,6 +62,8 @@ const INITIAL: CgState = {
   courseId: null,
   lumen: false,
   nihilus: false,
+  names: false,
+  zonesOff: false,
   bgArt: true,
   veil: 0.82,
   bright: 0.2,
@@ -73,6 +80,8 @@ type CgAction =
   | { type: "course"; id: string }
   | { type: "toggleLumen" }
   | { type: "toggleNihilus" }
+  | { type: "toggleNames" }
+  | { type: "toggleZones" }
   | { type: "bgArt"; v: boolean }
   | { type: "veil"; v: number }
   | { type: "bright"; v: number }
@@ -112,6 +121,10 @@ function reducer(state: CgState, action: CgAction): CgState {
       return { ...state, condensed: true, lumen: !state.lumen };
     case "toggleNihilus":
       return { ...state, condensed: true, nihilus: !state.nihilus };
+    case "toggleNames":
+      return { ...state, names: !state.names };
+    case "toggleZones":
+      return { ...state, zonesOff: !state.zonesOff };
     case "bgArt":
       return { ...state, bgArt: action.v };
     case "veil":
@@ -299,6 +312,8 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           bus={bus}
           lumen={state.lumen}
           nihilus={state.nihilus}
+          names={state.names}
+          zonesOff={state.zonesOff}
           courseId={state.courseId}
           reduce={reduce}
           magRef={magRef}
@@ -348,10 +363,14 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           hiddenCls={state.hiddenCls}
           worksOnly={state.worksOnly}
           dustOff={state.dustOff}
+          namesOn={state.names}
+          zonesOff={state.zonesOff}
           onToggleCls={(ci) => dispatch({ type: "toggleCls", ci })}
           onSetCls={(cis, hidden) => dispatch({ type: "setCls", cis, hidden })}
           onToggleWorksOnly={() => dispatch({ type: "toggleWorksOnly" })}
           onToggleDust={() => dispatch({ type: "toggleDust" })}
+          onToggleNames={() => dispatch({ type: "toggleNames" })}
+          onToggleZones={() => dispatch({ type: "toggleZones" })}
         />
       </Cartouche>
 
