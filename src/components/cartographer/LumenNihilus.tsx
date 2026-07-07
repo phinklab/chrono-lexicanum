@@ -5,6 +5,10 @@
  * Nihilus shade. Shadow edges run as RAYS from Terra through both rift ends
  * and close on a far circle r=2600 — no overlay edge ever pans into view.
  *
+ * ⚠ TODO (178b Runde 8): RIFT_D/nihilusPath sind noch die Studien-Kurve —
+ * sobald Philipps hand-gezeichnete Rift-Zone in zones.json liegt, die
+ * Schattengrenze daraus ableiten (siehe TODO in chart-geometry.ts).
+ *
  * Both groups mount hidden; `svg.lumen` / `svg.nihilus` display them (CSS).
  */
 

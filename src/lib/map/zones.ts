@@ -17,6 +17,7 @@ import zonesJson from "./zones.json";
 export const ZONE_KINDS = [
   "storm",
   "interdiction",
+  "plague",
   "region",
   "hive-fleet",
   "necron-dynasty",
@@ -27,6 +28,7 @@ export type ZoneKind = (typeof ZONE_KINDS)[number];
 export const ZONE_KIND_LABELS: Record<ZoneKind, string> = {
   storm: "Warp storm",
   interdiction: "Interdiction zone",
+  plague: "Plague zone",
   region: "Named region",
   "hive-fleet": "Hive fleet",
   "necron-dynasty": "Necron dynasty",

@@ -1,7 +1,9 @@
 /**
  * decor.tsx — static chart decor (Brief 178), ported from Studie I:
- * dot graticule, polar frame (Portolan-Zartheit), segmentum watermarks,
- * the two warp storms, Leviathan/Sautekh areas and the Terra auspex work.
+ * dot graticule, polar frame (Portolan-Zartheit), segmentum watermarks and
+ * the Terra auspex work. The hardcoded zone graphics (warp storms, Leviathan
+ * swarm, Sautekh dynasty) are retired (178b Runde 8) — zone shapes come
+ * exclusively from Philipp's hand curation (zones.json / zone editor).
  * All pointer-events:none; all memoized — they render exactly once.
  */
 
@@ -11,26 +13,51 @@ import {
   BLOOD,
   BONE,
   GOLD,
-  ICE,
+  PLAGUE,
   POLAR_RINGS,
-  SAUTEKH_BORDER_D,
+  RING_CLEAR,
   SEGS,
   SOLAR_R,
   TX,
   TY,
-  WARP_B,
-  WARP_M,
-  WARP_V,
   WEDGES,
   gridDots,
-  leviathanMarks,
   outerR,
   pp,
-  sautekhMarks,
-  stormMarks,
+  ringArcs,
   wedgePath,
-  xMarkPath,
 } from "./chart-geometry";
+
+/** #cg-riftHatch — die rote Portolan-45°-Schraffur (a-portolan 1:1). Lebte
+ *  im gelöschten GreatRift; das Pattern mountet jetzt hier, immer — die
+ *  hand-kuratierten Interdiction-Zonen (ZonesLayer + Editor) füllen damit.
+ *  #cg-plagueHatch (178b Runde 9): dieselbe Schraffur in Nurgle-Galle,
+ *  Gegenrichtung (-45°), damit sich rote und grüne Felder auch bei
+ *  Überlappung lesen — füllt die Plague-Zonen (Scourge Stars). */
+export const HatchDefs = memo(function HatchDefs() {
+  return (
+    <defs>
+      <pattern
+        id="cg-riftHatch"
+        width={5}
+        height={5}
+        patternUnits="userSpaceOnUse"
+        patternTransform="rotate(45)"
+      >
+        <line x1={0} y1={0} x2={0} y2={5} stroke={BLOOD} strokeWidth={0.8} strokeOpacity={0.5} />
+      </pattern>
+      <pattern
+        id="cg-plagueHatch"
+        width={5}
+        height={5}
+        patternUnits="userSpaceOnUse"
+        patternTransform="rotate(-45)"
+      >
+        <line x1={0} y1={0} x2={0} y2={5} stroke={PLAGUE} strokeWidth={0.8} strokeOpacity={0.5} />
+      </pattern>
+    </defs>
+  );
+});
 
 export const GridDots = memo(function GridDots() {
   return (
@@ -46,13 +73,26 @@ export const PolarFrame = memo(function PolarFrame() {
   // Spokes run out to the measured segment silhouette at their bearing.
   const spokes: [number, number][][] = [];
   for (let a = 0; a < 360; a += 30) spokes.push([pp(a, SOLAR_R), pp(a, outerR(a))]);
+  // Der Tick-Kranz (r 381–385) setzt wie die Ringe aus, wo eine Segment-
+  // Stufenkante zu nah läuft (178b Runde 8: Doppellinien-Veto).
   const ticks: [number, number][][] = [];
-  for (let a = 0; a < 360; a += 5) ticks.push([pp(a, 381), pp(a, 385)]);
+  for (let a = 0; a < 360; a += 5) {
+    if (Math.abs(383 - outerR(a)) < RING_CLEAR) continue;
+    ticks.push([pp(a, 381), pp(a, 385)]);
+  }
   return (
     <g className="cg-polar" pointerEvents="none">
-      {POLAR_RINGS.map((r) => (
-        <circle key={r} className="ring" cx={TX} cy={TY} r={r} vectorEffect="non-scaling-stroke" />
-      ))}
+      {POLAR_RINGS.map((r) => {
+        const arcs = ringArcs(r);
+        if (arcs === null) {
+          return (
+            <circle key={r} className="ring" cx={TX} cy={TY} r={r} vectorEffect="non-scaling-stroke" />
+          );
+        }
+        return arcs.map((d, i) => (
+          <path key={`${r}-${i}`} className="ring" d={d} vectorEffect="non-scaling-stroke" />
+        ));
+      })}
       <circle className="ring solar" cx={TX} cy={TY} r={SOLAR_R} vectorEffect="non-scaling-stroke" />
       {spokes.map(([a, b], i) => (
         <line key={`s${i}`} className="spoke" x1={a[0]} y1={a[1]} x2={b[0]} y2={b[1]} vectorEffect="non-scaling-stroke" />
@@ -75,130 +115,6 @@ export const SegmentumWatermarks = memo(function SegmentumWatermarks() {
           {s.name}
         </text>
       ))}
-    </g>
-  );
-});
-
-/* ── Warp storms: Eye of Terror (whirls) + The Maelstrom ────────────────── */
-
-interface StormProps {
-  cx: number;
-  cy: number;
-  r: number;
-  count: number;
-  seed: number;
-  s2?: boolean;
-  grad: string;
-  cols: string[];
-  whirl?: boolean;
-}
-
-function Storm({ cx, cy, r, count, seed, s2, grad, cols, whirl }: StormProps) {
-  const marks = stormMarks(cx, cy, r, count, seed, cols);
-  const body = (
-    <>
-      {whirl && <circle cx={cx} cy={cy} r={r + 4} fill="none" stroke="none" />}
-      {marks.map((m, i) => (
-        <path
-          key={i}
-          className={`cg-sx sx${m.phase}`}
-          d={xMarkPath(m.x, m.y, m.s)}
-          stroke={m.color}
-          strokeWidth={0.9}
-          strokeOpacity={m.op}
-          fill="none"
-          vectorEffect="non-scaling-stroke"
-        />
-      ))}
-    </>
-  );
-  return (
-    <g className={`cg-storm${s2 ? " s2" : ""}`}>
-      <circle cx={cx} cy={cy} r={r} fill={`url(#${grad})`} />
-      {whirl ? <g className="cg-whirl">{body}</g> : body}
-    </g>
-  );
-}
-
-function StormGradient({ id, c0, o0, c1, o1 }: { id: string; c0: string; o0: number; c1: string; o1: number }) {
-  return (
-    <radialGradient id={id}>
-      <stop offset="0%" stopColor={c0} stopOpacity={o0} />
-      <stop offset={id === "cg-stormW1" ? "45%" : "50%"} stopColor={c1} stopOpacity={o1} />
-      <stop offset="100%" stopColor={c1} stopOpacity={0} />
-    </radialGradient>
-  );
-}
-
-export const Storms = memo(function Storms() {
-  return (
-    <g pointerEvents="none">
-      <defs>
-        <StormGradient id="cg-stormW1" c0={WARP_M} o0={0.34} c1={WARP_V} o1={0.14} />
-        <StormGradient id="cg-stormW2" c0={WARP_B} o0={0.3} c1={WARP_V} o1={0.12} />
-      </defs>
-      {/* Eye of Terror — whirls */}
-      <Storm cx={260.3} cy={232.5} r={30} count={26} seed={41} grad="cg-stormW1" cols={[BLOOD, WARP_V, WARP_M]} whirl />
-      {/* The Maelstrom */}
-      <Storm cx={558.2} cy={409.9} r={19} count={13} seed={97} s2 grad="cg-stormW2" cols={[WARP_B, WARP_V, BLOOD]} />
-    </g>
-  );
-});
-
-/* ── Areas: Leviathan swarm field + Sautekh dynasty ─────────────────────── */
-
-export const Areas = memo(function Areas() {
-  return (
-    <g pointerEvents="none">
-      <g className="cg-lev" transform="rotate(14 872 285)">
-        <ellipse
-          className="lv-lens"
-          cx={872}
-          cy={285}
-          rx={46}
-          ry={100}
-          fill="none"
-          stroke={ICE}
-          strokeOpacity={0.14}
-          strokeDasharray="2 5"
-          vectorEffect="non-scaling-stroke"
-        />
-        {leviathanMarks().map((m, i) => (
-          <path key={i} className={`lv${m.cls}`} d={m.d} stroke={ICE} strokeOpacity={m.op} fill="none" vectorEffect="non-scaling-stroke" />
-        ))}
-        <text className="cg-levlbl" x={872} y={276} fontSize={6.5} textAnchor="middle" fillOpacity={0.42}>
-          HIVE FLEET
-        </text>
-        <text className="cg-levlbl" x={872} y={286} fontSize={6.5} textAnchor="middle" fillOpacity={0.42}>
-          LEVIATHAN
-        </text>
-        <text className="cg-levlbl" x={872} y={296} fontSize={5} textAnchor="middle" fillOpacity={0.28}>
-          XENOS ACTIVITY
-        </text>
-      </g>
-      <g className="cg-nec">
-        <path
-          className="nc-border"
-          d={SAUTEKH_BORDER_D}
-          fill="rgba(156,230,255,0.02)"
-          stroke={ICE}
-          strokeOpacity={0.16}
-          strokeDasharray="3 3"
-          vectorEffect="non-scaling-stroke"
-        />
-        {sautekhMarks().map((m, i) => (
-          <g key={i} className={`nc${m.cls}`}>
-            <line x1={m.x} y1={m.y - 1.6} x2={m.x} y2={m.y + 1.6} stroke={ICE} strokeWidth={0.8} strokeOpacity={m.op} vectorEffect="non-scaling-stroke" />
-            <circle cx={m.x} cy={m.y - 2.6} r={0.6} fill={ICE} fillOpacity={0.4} />
-          </g>
-        ))}
-        <text className="cg-levlbl" x={704} y={180} fontSize={7} textAnchor="middle" fillOpacity={0.42}>
-          SAUTEKH DYNASTY
-        </text>
-        <text className="cg-levlbl" x={704} y={190} fontSize={5.5} textAnchor="middle" fillOpacity={0.3}>
-          TOMB WORLDS STIR · M41
-        </text>
-      </g>
     </g>
   );
 });

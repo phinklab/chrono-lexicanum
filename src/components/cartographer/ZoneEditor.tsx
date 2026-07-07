@@ -15,6 +15,11 @@
  * Pointer mechanics: vertex/midpoint handles stopPropagation on pointerdown
  * so ChartStage never starts a pan; the drag captures on the persistent
  * editor <g> (not the handle — a mid-insert re-keys the handles mid-gesture).
+ *
+ * Z-Order (178b Runde 9): die Zonen-Flächen rendern per Portal in #cg-fields
+ * (unter Dust/Pins, wie auf der gebauten Karte) — Planeten liegen auch im
+ * Editor immer vor den Zonen und bleiben klickbar. Nur das Drahtgitter und
+ * die Griffe der aktiven Zone liegen als oberste Ebene über allem.
  */
 
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -76,6 +81,20 @@ export default function ZoneEditor({ bus }: { bus: ChartBus }) {
   const [copied, setCopied] = useState(false);
   const gRef = useRef<SVGGElement | null>(null);
   const drag = useRef<{ zi: number; pi: number } | null>(null);
+
+  /* Die Zonen-FLÄCHEN rendern per Portal in #cg-fields — dieselbe Ebene, auf
+     der die gebauten Zonen liegen, UNTER Dust/Pins: Planeten bleiben auch im
+     Editor immer sichtbar und klickbar (178b Runde 9, Philipp). Nur Draht-
+     gitter + Griffe der aktiven Zone bleiben als oberste Ebene im Editor-<g>.
+     Das Portal-Ziel entsteht im selben ChartStage-Commit wie der Editor —
+     der Ref-Callback (feuert nach den DOM-Mutationen) greift es ab. */
+  const [fieldsEl, setFieldsEl] = useState<SVGGElement | null>(null);
+  const attachEditorG = useCallback((node: SVGGElement | null) => {
+    gRef.current = node;
+    if (!node) return;
+    const el = document.getElementById("cg-fields");
+    setFieldsEl(el instanceof SVGGElement ? el : null);
+  }, []);
 
   /* Autosave the working copy — a reload never loses curation work. */
   useEffect(() => {
@@ -264,71 +283,75 @@ export default function ZoneEditor({ bus }: { bus: ChartBus }) {
 
   return (
     <g
-      ref={gRef}
+      ref={attachEditorG}
       className="cg-zed-layer"
       onPointerMove={onGroupMove}
       onPointerUp={onGroupUp}
       onPointerCancel={onGroupUp}
     >
-      {zones.map((z, zi) => {
-        const isActive = z.id === activeId;
-        return (
-          <g key={z.id} className={isActive ? "zactive" : "zidle"}>
-            <g
-              onPointerDown={(e) => {
-                e.stopPropagation();
-                setActiveId(z.id);
-                setSelPt(null);
-              }}
-              style={{ cursor: "pointer" }}
-            >
-              <ZoneShape zone={z} />
-            </g>
-            {isActive && (
-              <>
-                <path
-                  className="zwire"
-                  d={
-                    z.points
-                      .map(([x, y], i) => `${i === 0 ? "M" : "L"} ${x.toFixed(1)} ${y.toFixed(1)}`)
-                      .join(" ") + " Z"
-                  }
-                />
-                {z.points.map((p, pi) => {
-                  const q = z.points[(pi + 1) % z.points.length];
-                  const mx = (p[0] + q[0]) / 2;
-                  const my = (p[1] + q[1]) / 2;
-                  return (
-                    <g key={`m${pi}`} transform={`translate(${mx} ${my})`}>
-                      <g className="cg-pi">
-                        <g className="zmid" onPointerDown={(e) => onMidDown(e, zi, pi, mx, my)}>
-                          <circle className="zm" r={4.6} />
-                          <path className="zm-plus" d="M -2.2 0 H 2.2 M 0 -2.2 V 2.2" />
-                        </g>
-                      </g>
-                    </g>
-                  );
-                })}
-                {z.points.map((p, pi) => (
-                  <g key={`v${pi}`} transform={`translate(${p[0]} ${p[1]})`}>
-                    <g className="cg-pi">
-                      <circle
-                        className={`zh${selPt === pi ? " sel" : ""}`}
-                        r={5.5}
-                        onPointerDown={(e) => beginDrag(e, zi, pi)}
-                        onDoubleClick={(e) => {
-                          e.stopPropagation();
-                          deletePoint(zi, pi);
-                        }}
-                      />
-                    </g>
+      {fieldsEl &&
+        createPortal(
+          <g className="cg-zed-shapes">
+            {zones.map((z) => (
+              <g
+                key={z.id}
+                className={z.id === activeId ? "zactive" : "zidle"}
+                onPointerDown={(e) => {
+                  e.stopPropagation();
+                  setActiveId(z.id);
+                  setSelPt(null);
+                }}
+                style={{ cursor: "pointer" }}
+              >
+                <ZoneShape zone={z} />
+              </g>
+            ))}
+          </g>,
+          fieldsEl,
+        )}
+
+      {active && (
+        <>
+          <path
+            className="zwire"
+            d={
+              active.points
+                .map(([x, y], i) => `${i === 0 ? "M" : "L"} ${x.toFixed(1)} ${y.toFixed(1)}`)
+                .join(" ") + " Z"
+            }
+          />
+          {active.points.map((p, pi) => {
+            const q = active.points[(pi + 1) % active.points.length];
+            const mx = (p[0] + q[0]) / 2;
+            const my = (p[1] + q[1]) / 2;
+            return (
+              <g key={`m${pi}`} transform={`translate(${mx} ${my})`}>
+                <g className="cg-pi">
+                  <g className="zmid" onPointerDown={(e) => onMidDown(e, activeIdx, pi, mx, my)}>
+                    <circle className="zm" r={4.6} />
+                    <path className="zm-plus" d="M -2.2 0 H 2.2 M 0 -2.2 V 2.2" />
                   </g>
-                ))}
-              </>
-            )}
-          </g>
-        );
-      })}
+                </g>
+              </g>
+            );
+          })}
+          {active.points.map((p, pi) => (
+            <g key={`v${pi}`} transform={`translate(${p[0]} ${p[1]})`}>
+              <g className="cg-pi">
+                <circle
+                  className={`zh${selPt === pi ? " sel" : ""}`}
+                  r={5.5}
+                  onPointerDown={(e) => beginDrag(e, activeIdx, pi)}
+                  onDoubleClick={(e) => {
+                    e.stopPropagation();
+                    deletePoint(activeIdx, pi);
+                  }}
+                />
+              </g>
+            </g>
+          ))}
+        </>
+      )}
 
       {createPortal(
         // React bubbles portal events along the REACT tree — without the stop,

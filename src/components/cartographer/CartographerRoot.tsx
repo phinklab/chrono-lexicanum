@@ -22,12 +22,11 @@ import Census from "./Census";
 import ChartStage from "./ChartStage";
 import CourseCards from "./CourseCards";
 import DirectionPanel from "./DirectionPanel";
-import GreatRift from "./GreatRift";
 import RoutesLayer from "./RoutesLayer";
 import Selection from "./Selection";
 import WorldPanel from "./WorldPanel";
 import { ChartBus } from "./chart-bus";
-import { Areas, GridDots, PolarFrame, SegmentumWatermarks, Storms, TerraInstrument } from "./decor";
+import { GridDots, HatchDefs, PolarFrame, SegmentumWatermarks, TerraInstrument } from "./decor";
 import { DustLayer, PinLayer, RegionLabels } from "./layers";
 import { LumenNihilus } from "./LumenNihilus";
 import ZoneEditor from "./ZoneEditor";
@@ -43,7 +42,6 @@ interface CgState {
   lumen: boolean;
   nihilus: boolean;
   /* Direction proofs (defaults = the study's approved slider positions). */
-  riftLife: boolean;
   bgArt: boolean;
   veil: number;
   bright: number;
@@ -59,7 +57,6 @@ const INITIAL: CgState = {
   courseId: null,
   lumen: false,
   nihilus: false,
-  riftLife: false,
   bgArt: true,
   veil: 0.82,
   bright: 0.2,
@@ -76,7 +73,6 @@ type CgAction =
   | { type: "course"; id: string }
   | { type: "toggleLumen" }
   | { type: "toggleNihilus" }
-  | { type: "riftLife"; v: boolean }
   | { type: "bgArt"; v: boolean }
   | { type: "veil"; v: number }
   | { type: "bright"; v: number }
@@ -116,8 +112,6 @@ function reducer(state: CgState, action: CgAction): CgState {
       return { ...state, condensed: true, lumen: !state.lumen };
     case "toggleNihilus":
       return { ...state, condensed: true, nihilus: !state.nihilus };
-    case "riftLife":
-      return { ...state, riftLife: action.v };
     case "bgArt":
       return { ...state, bgArt: action.v };
     case "veil":
@@ -141,11 +135,17 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
   const reduce = useReducedMotion();
   // Zone-editor flag (?zones=edit) — client-only, same snapshot pattern as
   // the mount gate (the hash writer preserves location.search).
-  const zoneEdit = useSyncExternalStore(
+  const zoneEditParam = useSyncExternalStore(
     emptySubscribe,
     () => new URLSearchParams(window.location.search).get("zones") === "edit",
     () => false,
   );
+  // Hartes Dev-Gate (178b Runde 8, Philipp): das Kurations-Werkzeug existiert
+  // NUR auf localhost. NODE_ENV wird beim Build statisch ersetzt — im
+  // Prod-Build ist zoneEdit konstant false, ?zones=edit wird ignoriert und
+  // der ZoneEditor-Ast (inkl. Import) fällt als toter Code aus dem Bundle.
+  // Die kuratierten Zonen selbst (zones.json, published) shippen weiter.
+  const zoneEdit = process.env.NODE_ENV === "development" && zoneEditParam;
   const [state, dispatch] = useReducer(reducer, INITIAL);
   const bus = useMemo(() => new ChartBus(), []);
   const magRef = useRef<HTMLSpanElement | null>(null);
@@ -262,6 +262,20 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
   const condense = useCallback(() => dispatch({ type: "condense" }), []);
   const pick = useCallback((id: string | null) => selectWorld(id), [selectWorld]);
 
+  /* Zoom-Presets (178b Runde 8): fliegen — Zentrum bleibt stehen — exakt auf
+     die Vergrößerung, ab der die nächste Namens-Stufe geladen ist (Band-
+     Schwellen 3.1/5.6 in ChartStage; 3.2/6.0 geben eine Haaresbreite Luft). */
+  const zoomPreset = useCallback(
+    (kr: number) => {
+      dispatch({ type: "condense" });
+      const driver = bus.driver;
+      if (!driver) return;
+      const c = driver.getCenterRel();
+      bus.flyTo(c.gx, c.gy, driver.getK0() * kr, 650);
+    },
+    [bus],
+  );
+
   return (
     <>
       <div className="cg-veil" aria-hidden />
@@ -285,22 +299,20 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           bus={bus}
           lumen={state.lumen}
           nihilus={state.nihilus}
-          riftLife={state.riftLife}
           courseId={state.courseId}
           reduce={reduce}
           magRef={magRef}
           onCondense={condense}
           onPick={pick}
         >
+          <HatchDefs />
           <GridDots />
           <PolarFrame />
           <SegmentumWatermarks />
-          <g id="cg-fields">
-            <Storms />
-            <GreatRift riftLife={state.riftLife} />
-            <Areas />
-            {!zoneEdit && <ZonesLayer />}
-          </g>
+          {/* Zonen-Felder: seit 178b Runde 8 ausschließlich Philipps
+              Hand-Kuration (zones.json) — die hartkodierten Studien-Grafiken
+              (Warpstürme, Great-Rift-Korridor, Leviathan, Sautekh) sind raus. */}
+          <g id="cg-fields">{!zoneEdit && <ZonesLayer />}</g>
           <DustLayer
             payload={payload}
             hiddenCls={state.hiddenCls}
@@ -381,6 +393,20 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           −
         </button>
         <button
+          className="preset"
+          title="Magnify to 3.2×: every world with records shows its name"
+          onClick={() => zoomPreset(3.2)}
+        >
+          3×
+        </button>
+        <button
+          className="preset"
+          title="Magnify to 6.0×: every world on the chart shows its name"
+          onClick={() => zoomPreset(6.0)}
+        >
+          6×
+        </button>
+        <button
           title="Full sweep"
           onClick={() => {
             condense();
@@ -413,12 +439,10 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
         veil={state.veil}
         bright={state.bright}
         grain={state.grain}
-        riftLife={state.riftLife}
         onBgArt={(v) => dispatch({ type: "bgArt", v })}
         onVeil={(v) => dispatch({ type: "veil", v })}
         onBright={(v) => dispatch({ type: "bright", v })}
         onGrain={(v) => dispatch({ type: "grain", v })}
-        onRiftLife={(v) => dispatch({ type: "riftLife", v })}
       />
     </>
   );

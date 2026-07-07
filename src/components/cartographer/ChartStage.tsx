@@ -51,8 +51,6 @@ interface ChartStageProps {
   bus: ChartBus;
   lumen: boolean;
   nihilus: boolean;
-  /** "Rift unrest" direction proof: enables the cheap rift-life CSS. */
-  riftLife: boolean;
   courseId: string | null;
   reduce: boolean;
   magRef: RefObject<HTMLSpanElement | null>;
@@ -66,7 +64,6 @@ export default function ChartStage({
   bus,
   lumen,
   nihilus,
-  riftLife,
   courseId,
   reduce,
   magRef,
@@ -387,7 +384,7 @@ export default function ChartStage({
     <div className="cg-stage">
       <svg
         ref={svgRef}
-        className={`cg-chart${lumen ? " lumen" : ""}${nihilus ? " nihilus" : ""}${riftLife ? " unrest" : ""}`}
+        className={`cg-chart${lumen ? " lumen" : ""}${nihilus ? " nihilus" : ""}`}
         data-route={courseId ?? undefined}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}

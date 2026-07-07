@@ -4,10 +4,9 @@
  * DirectionPanel — the "Direction · proofs" sight-check panel carried over
  * from the studies for the live review (Brief 178 session note: Philipp
  * decides in the browser what ships). Controls the backdrop art, veil,
- * brightness, grain and "Rift unrest" — the cheap rift life (word glitch +
- * lightning; the study's per-cell raster animations stay unshipped, they
- * were the lag driver). The storm variant switcher I/II/III is retired
- * (178b Runde 6: Fassungen deleted, the rift is portolan hatch now).
+ * brightness and grain. "Rift unrest" is retired with the hardcoded rift
+ * graphic (178b Runde 8: zone graphics come from Philipp's zone editor);
+ * the storm variant switcher I/II/III went in Runde 6.
  *
  * Remove this component (and its state fields) once the direction is fixed.
  */
@@ -17,12 +16,10 @@ interface DirectionPanelProps {
   veil: number;
   bright: number;
   grain: number;
-  riftLife: boolean;
   onBgArt: (v: boolean) => void;
   onVeil: (v: number) => void;
   onBright: (v: number) => void;
   onGrain: (v: number) => void;
-  onRiftLife: (v: boolean) => void;
 }
 
 export default function DirectionPanel({
@@ -30,12 +27,10 @@ export default function DirectionPanel({
   veil,
   bright,
   grain,
-  riftLife,
   onBgArt,
   onVeil,
   onBright,
   onGrain,
-  onRiftLife,
 }: DirectionPanelProps) {
   return (
     <details className="cg-debug">
@@ -78,10 +73,6 @@ export default function DirectionPanel({
           />
           <span className="val">{grain.toFixed(2)}</span>
         </div>
-        <label className="dbg-row">
-          <span className="lab">Rift unrest</span>
-          <input type="checkbox" checked={riftLife} onChange={(e) => onRiftLife(e.target.checked)} />
-        </label>
       </div>
     </details>
   );

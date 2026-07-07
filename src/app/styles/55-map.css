@@ -5,10 +5,9 @@
    Alle Klassen tragen das cg-Präfix. Die Karte spricht Kathedrale-Tokens
    (--cl-*, --font-*); Warp-Farben + Glasflächen sind kartenlokal.
 
-   Performance-Vertrag (Session-Notiz "ultra laggy"): das Cicatrix-Raster
-   (~900 Zellen) ist STATISCH. Teures Rift-Leben (Blitze, Wort-Glitch,
-   Adern-Atmen) läuft NUR unter `.cg-chart.unrest` (Direction-Panel-Probe,
-   default aus). Die per-Zellen-Animationen der Studie shippen nie. */
+   Zonen-Grafiken (Stürme, Rift-Korridor, Leviathan, Sautekh) sind seit
+   178b Runde 8 ausschließlich Hand-Kuration (zones.json / Zone-Editor) —
+   die hartkodierten Studien-Fassungen samt `.unrest`-Rift-Leben sind raus. */
 
 .map-route {
   --cg-warp-v: #8a68c4;
@@ -313,46 +312,7 @@ body.cg-on-map .site-brand .site-brand__map {
   stroke-opacity: 0.3;
 }
 
-/* ── Warpstürme: atmen, Zeichen funkeln, das Auge wirbelt ──────────────── */
-.cg-storm {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: cgStormBreath 13s ease-in-out infinite;
-}
-.cg-storm.s2 {
-  animation-delay: 5.5s;
-}
-@keyframes cgStormBreath {
-  0%,
-  100% {
-    opacity: 0.6;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.09);
-  }
-}
-.cg-whirl {
-  animation: cgTurn 260s linear infinite;
-  transform-box: fill-box;
-  transform-origin: center;
-}
-.cg-sx.sx0 {
-  animation: cgFlicker 5.5s ease-in-out infinite;
-}
-.cg-sx.sx1 {
-  animation: cgFlicker 7s ease-in-out 2.4s infinite;
-}
-@keyframes cgFlicker {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.35;
-  }
-}
+/* ── Dreh-Keyframes (Terra-Auspex + Selektions-Ringwerk) ───────────────── */
 @keyframes cgTurn {
   to {
     transform: rotate(360deg);
@@ -362,151 +322,6 @@ body.cg-on-map .site-brand .site-brand__map {
   to {
     transform: rotate(-360deg);
   }
-}
-
-/* ── Great Rift: Portolan-Schraffur-Korridor, statisch (Runde 6) ────────── */
-.cg-riftG,
-.cg-lev,
-.cg-nec {
-  pointer-events: none;
-}
-/* Totenköpfe: statisch präsent; flackern nur unter .unrest */
-.cg-rfsk {
-  opacity: 0.5;
-}
-.cg-chart.unrest .cg-rfsk {
-  opacity: 0;
-  animation: cgSkull var(--dur, 8s) linear var(--del, 0s) infinite;
-}
-@keyframes cgSkull {
-  0%,
-  30% {
-    opacity: 0;
-  }
-  34%,
-  55% {
-    opacity: 0.85;
-  }
-  58% {
-    opacity: 0.2;
-  }
-  62% {
-    opacity: 0.9;
-  }
-  66%,
-  100% {
-    opacity: 0;
-  }
-}
-.cg-rflbl .cg-riftlbl {
-  font-family: var(--font-mono);
-  fill: var(--cl-blood);
-  /* Dunkler Kontur-Saum: die Label liegen jetzt AUF der Schraffur (die
-     Zell-Aussparungen der Raster-Fassung sind Geschichte). */
-  paint-order: stroke;
-  stroke: rgba(3, 2, 1, 0.85);
-  stroke-width: 0.7;
-}
-.cg-chart.unrest .cg-rflbl {
-  animation: cgLblBlink var(--dur, 7s) linear var(--del, 0s) infinite;
-}
-@keyframes cgLblBlink {
-  0%,
-  32% {
-    opacity: 1;
-  }
-  33% {
-    opacity: 0.2;
-  }
-  34%,
-  100% {
-    opacity: 1;
-  }
-}
-/* Blitze: ohne .unrest unsichtbar (Studien-Basisopacity 0) */
-.cg-warc {
-  opacity: 0;
-}
-.cg-chart.unrest .cg-warc.wa0 {
-  animation: cgArc 11s linear 2s infinite;
-}
-.cg-chart.unrest .cg-warc.wa1 {
-  animation: cgArc 14s linear 6s infinite;
-}
-.cg-chart.unrest .cg-warc.wa2 {
-  animation: cgArc 17s linear 10.5s infinite;
-}
-.cg-chart.unrest .cg-warc.wa3 {
-  animation: cgArc 9s linear 0.6s infinite;
-}
-.cg-chart.unrest .cg-warc.wa4 {
-  animation: cgArc 12.5s linear 4.1s infinite;
-}
-.cg-chart.unrest .cg-warc.wa5 {
-  animation: cgArc 15.5s linear 8.3s infinite;
-}
-@keyframes cgArc {
-  0% {
-    opacity: 0;
-  }
-  1% {
-    opacity: 0.75;
-  }
-  2% {
-    opacity: 0.12;
-  }
-  3% {
-    opacity: 0.6;
-  }
-  4.5% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-/* ── Areale: Leviathan-Schwarm + Sautekh-Dynastie ──────────────────────── */
-.cg-lev .lv-lens {
-  animation: cgLevBreath 18s ease-in-out infinite;
-  transform-box: fill-box;
-  transform-origin: center;
-}
-@keyframes cgLevBreath {
-  0%,
-  100% {
-    opacity: 0.55;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-.cg-lev .lv0 {
-  animation: cgFlicker 7.5s ease-in-out 0.8s infinite;
-}
-.cg-lev .lv1 {
-  animation: cgFlicker 9.5s ease-in-out 4s infinite;
-}
-.cg-lev .lv2 {
-  animation: cgFlicker 12s ease-in-out 6.5s infinite;
-}
-.cg-levlbl {
-  font-family: var(--font-mono);
-  fill: var(--cl-cyan);
-  letter-spacing: 0.3em;
-  pointer-events: none;
-}
-.cg-nec .nc-border {
-  animation: cgLevBreath 22s ease-in-out 3s infinite;
-}
-.cg-nec .nc0 {
-  animation: cgFlicker 8s ease-in-out 1.2s infinite;
-}
-.cg-nec .nc1 {
-  animation: cgFlicker 10.5s ease-in-out 4.6s infinite;
-}
-.cg-nec .nc2 {
-  animation: cgFlicker 13s ease-in-out 8s infinite;
 }
 
 /* ── Terra: das Auspex-Werk ────────────────────────────────────────────── */
@@ -1021,7 +836,7 @@ body.cg-on-map .site-brand .site-brand__map {
   align-items: baseline;
   gap: 10px;
   font-family: var(--font-body);
-  font-size: var(--fs-read-2xs);
+  font-size: var(--fs-read-xs);
   font-style: italic;
   color: var(--cl-dim);
   padding: 3px 4px;
@@ -1113,13 +928,15 @@ body.cg-on-map .site-brand .site-brand__map {
 .cg-cartouche .c-body .cgrp:last-child {
   border-bottom: 0;
 }
+/* Hint-Zeilen: Lesetext, kein Kleingedrucktes (178b Runde 8 — „trace a
+   character's journey" war Philipp wiederholt zu klein). */
 .cg-cartouche .c-hint {
   font-family: var(--font-body);
-  font-size: var(--fs-read-2xs);
+  font-size: var(--fs-read-sm);
   font-style: italic;
-  color: var(--cl-faint);
+  color: var(--cl-dim);
   line-height: 1.4;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
 .cg-cartouche .routes {
   display: flex;
@@ -1172,6 +989,7 @@ body.cg-on-map .site-brand .site-brand__map {
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.18em;
+  text-transform: uppercase;
   color: var(--cl-faint);
   padding-left: 8px;
 }
@@ -1291,7 +1109,7 @@ body.cg-on-map .site-brand .site-brand__map {
   align-items: baseline;
   gap: 10px;
   font-family: var(--font-body);
-  font-size: var(--fs-read-2xs);
+  font-size: var(--fs-read-xs);
   font-style: italic;
   color: var(--cl-dim);
   padding: 2.5px 0;
@@ -1668,6 +1486,11 @@ body.cg-on-map .site-brand .site-brand__map {
   color: var(--cl-gold);
   border-color: var(--cl-gold-dim);
 }
+/* Zoom-Presets „3×"/„6×": springen exakt auf die Namens-Stufen (Band 2/3) */
+.cg-zoomer button.preset {
+  font-size: 11.5px;
+  letter-spacing: 0.05em;
+}
 .cg-readout {
   position: fixed;
   right: 72px;
@@ -1764,12 +1587,21 @@ body.cg-on-map .site-brand .site-brand__map {
   stroke-width: 1;
   stroke-dasharray: 2 5;
 }
-/* Interdiction-Zonen sprechen die Portolan-Sprache des Rifts (178b Runde 7):
-   dieselbe rote 45°-Schraffur (#cg-riftHatch, definiert in GreatRift, immer
+/* Interdiction-Zonen sprechen die rote Portolan-Sprache (178b Runde 7):
+   45°-Schraffur (#cg-riftHatch, definiert in decor.tsx → HatchDefs, immer
    gemountet) + Strichel-Kontur statt des flachen roten Overlays. */
 .cg-zone.interdiction .zshape {
   fill: url(#cg-riftHatch);
   stroke: var(--cl-blood);
+  stroke-opacity: 0.4;
+  stroke-dasharray: 3 3;
+  vector-effect: non-scaling-stroke;
+}
+/* Plague-Zonen (178b Runde 9, Scourge Stars): dieselbe Portolan-Schraffur
+   in Nurgle-Galle, Gegenrichtung (-45°, #cg-plagueHatch in decor.tsx). */
+.cg-zone.plague .zshape {
+  fill: url(#cg-plagueHatch);
+  stroke: #8fae4a;
   stroke-opacity: 0.4;
   stroke-dasharray: 3 3;
   vector-effect: non-scaling-stroke;
@@ -1795,12 +1627,16 @@ body.cg-on-map .site-brand .site-brand__map {
   fill: var(--cl-blood);
   fill-opacity: 1;
 }
+.cg-zone.plague .cg-zone-lbl {
+  fill: #8fae4a;
+  fill-opacity: 0.95;
+}
 .cg-zone.region .cg-zone-lbl {
   fill: var(--cl-gold);
   fill-opacity: 0.8;
 }
-/* Hive-Fleet + Necron-Dynastie sprechen die Xenos-Palette der Areale
-   (cg-lev/cg-nec): Eis-Cyan, unterschiedliche Strichsprache. */
+/* Hive-Fleet + Necron-Dynastie sprechen die Xenos-Palette:
+   Eis-Cyan, unterschiedliche Strichsprache. */
 .cg-zone.hive-fleet .zshape {
   fill: rgba(156, 230, 255, 0.05);
   stroke: var(--cl-cyan);
@@ -1850,7 +1686,9 @@ body.cg-on-map .site-brand .site-brand__map {
 }
 
 /* ── Zonen-Editor: Handles im Chart + Panel rechts ─────────────────────── */
-.cg-zed-layer .zidle {
+/* Zonen-Flächen liegen im Editor in #cg-fields (Portal, unter den Planeten —
+   178b Runde 9); Drahtgitter + Griffe bleiben im .cg-zed-layer obenauf. */
+.cg-zed-shapes .zidle {
   opacity: 0.55;
 }
 .cg-zed-layer .zwire {
@@ -2102,27 +1940,13 @@ body.cg-on-map .site-brand .site-brand__map {
 
 /* ── reduced-motion: alles steht still ─────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  .cg-storm,
-  .cg-whirl,
-  .cg-sx.sx0,
-  .cg-sx.sx1,
   .cg-rtFly,
-  .cg-lev .lv-lens,
-  .cg-lev .lv0,
-  .cg-lev .lv1,
-  .cg-lev .lv2,
-  .cg-nec .nc-border,
-  .cg-nec .nc0,
-  .cg-nec .nc1,
-  .cg-nec .nc2,
   .cg-inst .i-ticks,
   .cg-inst .i-dash,
   .cg-inst .i-orbitA,
   .cg-inst .i-riderA,
   .cg-inst .i-riderB,
   .cg-inst .i-blip,
-  .cg-chart.unrest .cg-rfsk,
-  .cg-chart.unrest .cg-rflbl,
   .cg-sel .r-dash,
   .cg-sel .r-tick,
   #cg-lumenG .lm-rim,
@@ -2130,19 +1954,8 @@ body.cg-on-map .site-brand .site-brand__map {
   .cg-overture .hint .dot {
     animation: none;
   }
-  .cg-storm {
-    opacity: 0.7;
-  }
   .cg-inst .i-blip {
     opacity: 0.5;
-  }
-  .cg-chart.unrest .cg-rfsk {
-    opacity: 0.5;
-  }
-  .cg-warc,
-  .cg-chart.unrest .cg-warc {
-    animation: none;
-    opacity: 0;
   }
   .cg-routeDraw {
     animation: none;

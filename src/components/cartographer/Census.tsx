@@ -98,7 +98,7 @@ export default function Census({
 
   return (
     <div className="cg-census">
-      <p className="chead">Display</p>
+      <p className="chead">Show on the chart</p>
       <button className={`cx${worksOnly ? " on" : ""}`} onClick={onToggleWorksOnly}>
         <span className="pad" />
         <span className="sym">
@@ -107,7 +107,7 @@ export default function Census({
             <circle r={1} fill={GOLD} />
           </svg>
         </span>
-        <span className="lab">Only worlds with records</span>
+        <span className="lab">Worlds from books &amp; podcasts only</span>
         <span className="n">{featTotal}</span>
       </button>
       {!worksOnly && (
@@ -118,16 +118,16 @@ export default function Census({
               <circle r={1.4} fill={BONE} fillOpacity={0.4} />
             </svg>
           </span>
-          <span className="lab">Star-dust — unrecorded worlds</span>
+          <span className="lab">Star-dust: worlds without records yet</span>
           <span className="n">{payload.dust.length}</span>
         </button>
       )}
       <p className="chead groups">
-        <span>By classification</span>
+        <span>By world type</span>
         <button
           className="creset"
           onClick={() => onSetCls(allCis, !allOff)}
-          title={allOff ? "Show every classification" : "Hide every classification, then pick the ones you want"}
+          title={allOff ? "Show every world type" : "Hide every type, then pick the ones you want"}
         >
           {allOff ? "select all" : "unselect all"}
         </button>
@@ -184,7 +184,7 @@ export default function Census({
               <button className="gname" onClick={() => onSetCls(members, !allOff)}>
                 {label}
                 {kind === "unclassified" && (
-                  <i className="hint">no classification in the source census</i>
+                  <i className="hint">no type recorded in the archive</i>
                 )}
               </button>
               <span className="n">{offN ? `${vis} / ${total}` : String(total)}</span>

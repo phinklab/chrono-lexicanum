@@ -195,7 +195,9 @@ export function Cartouche({
               onClick={() => pickHit(hit)}
             >
               <span className="nm">{hit.name}</span>
-              <span className="tag">{hit.n > 0 ? `${hit.n} rec` : "dust"}</span>
+              <span className="tag">
+                {hit.n > 0 ? (hit.n === 1 ? "1 work" : `${hit.n} works`) : "dust"}
+              </span>
             </button>
           ))}
           {hits.length > SEEK_CAP && (
@@ -228,15 +230,17 @@ export function Cartouche({
           <div className="routes">
             <button className={`rt${lumen ? " on" : ""}`} onClick={onToggleLumen}>
               Lumen Astronomican
+              <span className="rt-tag">the beacon&rsquo;s reach</span>
             </button>
             <button className={`rt${nihilus ? " on" : ""}`} onClick={onToggleNihilus}>
               Imperium Nihilus
+              <span className="rt-tag">the dark half</span>
             </button>
           </div>
         </div>
       )}
 
-      {secHead("census", "Census", filtered ? "filtered" : null)}
+      {secHead("census", "Filter worlds", filtered ? "filtered" : null)}
       {openSecs.has("census") && <div className="c-body">{children}</div>}
     </aside>
   );
