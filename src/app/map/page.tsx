@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
 import CartographerRoot from "@/components/cartographer/CartographerRoot";
-import SiteBackground from "@/components/chrome/SiteBackground";
 import { loadMapWorlds } from "@/lib/map/load-map-worlds";
 import { buildMapPayload } from "@/lib/map/payload";
 
@@ -13,6 +12,9 @@ export const metadata: Metadata = { title: "Cartographer — Chrono Lexicanum" }
 // The chart itself is client-only (mount gate in CartographerRoot); the
 // SSR pass paints overture + cartouche. Global burger/SiteMenu (z 80/81)
 // sit above the full-bleed chart.
+// Kein SiteBackground mehr (178b Runde 11, Philipp): die Karte steht auf
+// einer einzigen Flächenfarbe (--cl-void, via .map-route in 55-map.css) —
+// Foto, Schleier, Korn und das Direction-Proofs-Panel sind ausgebaut.
 export default function MapPage() {
   const payload = buildMapPayload(loadMapWorlds());
   return (
@@ -20,7 +22,6 @@ export default function MapPage() {
       className="map-route"
       style={{ position: "fixed", inset: 0, zIndex: 1, isolation: "isolate", contain: "paint" }}
     >
-      <SiteBackground variant="cartog-holo" position="50% 38%" />
       <CartographerRoot payload={payload} />
     </main>
   );

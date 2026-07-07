@@ -49,12 +49,12 @@ interface PinchRef {
 
 interface ChartStageProps {
   bus: ChartBus;
-  storm: 1 | 2 | 3;
   lumen: boolean;
   nihilus: boolean;
-  showAll: boolean;
-  /** "Rift unrest" direction proof: enables the cheap rift-life CSS. */
-  riftLife: boolean;
+  /** Namens-Zwang: hebt die Band-Gates der Labels auf (CSS `svg.names`). */
+  names: boolean;
+  /** Zonen-Toggle: fadet #cg-fields aus (CSS `svg.nozones`). */
+  zonesOff: boolean;
   courseId: string | null;
   reduce: boolean;
   magRef: RefObject<HTMLSpanElement | null>;
@@ -66,11 +66,10 @@ interface ChartStageProps {
 
 export default function ChartStage({
   bus,
-  storm,
   lumen,
   nihilus,
-  showAll,
-  riftLife,
+  names,
+  zonesOff,
   courseId,
   reduce,
   magRef,
@@ -86,7 +85,10 @@ export default function ChartStage({
   const pointers = useRef(new Map<number, { x: number; y: number }>());
   const flight = useRef(0);
   const bumpTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const moveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const applyRef = useRef<() => void>(() => {});
+  // Ends the flight flag from the React pointer handlers (grab during a fly).
+  const setFlightRef = useRef<(v: boolean) => void>(() => {});
 
   // Latest-value refs so the imperative handlers never close over stale props.
   const onPickRef = useRef(onPick);
@@ -106,10 +108,28 @@ export default function ChartStage({
 
     const clampK = (x: number) => Math.max(c.k0 * 0.75, Math.min(c.k0 * 9, x));
 
+    let lastIk = "";
     const apply = () => {
       camG.setAttribute("transform", `translate(${c.tx} ${c.ty}) scale(${c.k})`);
-      svg.style.setProperty("--cg-ik", String(1 / c.k));
-      const band = c.k < c.k0 * 1.7 ? "0" : c.k < c.k0 * 3.1 ? "1" : "2";
+      // Guards: DOMTokenList.add and setProperty rewrite the attribute even
+      // when nothing changes — an every-frame same-value write invalidates
+      // style recalc for the whole 2000-node svg subtree.
+      const ik = String(1 / c.k);
+      if (ik !== lastIk) {
+        lastIk = ik;
+        svg.style.setProperty("--cg-ik", ik);
+      }
+      // While the camera moves, pins sweep under the stationary cursor and
+      // Chrome re-hit-tests :hover — a cascade of label/glyph transitions
+      // (the "all labels flicker" bug). `.moving` gates those hover rules;
+      // it decays shortly after the last frame.
+      if (!svg.classList.contains("moving")) svg.classList.add("moving");
+      if (moveTimer.current) clearTimeout(moveTimer.current);
+      moveTimer.current = setTimeout(() => svg.classList.remove("moving"), 160);
+      // Vier Bänder (178b Runde 7): 0 Übersicht · 1 t1-Namen · 2 t2-Namen ·
+      // 3 Dust-Namen + volle Dust-Deckkraft. Schwellen ~geometrisch (×1.8).
+      const band =
+        c.k < c.k0 * 1.7 ? "0" : c.k < c.k0 * 3.1 ? "1" : c.k < c.k0 * 5.6 ? "2" : "3";
       if (band !== c.band) {
         c.band = band;
         svg.setAttribute("data-band", band);
@@ -147,11 +167,22 @@ export default function ChartStage({
 
     const zoomAt = (sx: number, sy: number, factor: number) => {
       cancelAnimationFrame(flight.current);
+      setFlightRef.current(false);
       const nk = clampK(c.k * factor);
       c.tx = sx - ((sx - c.tx) * nk) / c.k;
       c.ty = sy - ((sy - c.ty) * nk) / c.k;
       c.k = nk;
       apply();
+    };
+
+    /* Flight flag → bus: the world panel fades out for the duration of an
+       eased flight (it would otherwise teleport to the new pin and race
+       across the chart — the visible "flicker" on planet→planet clicks). */
+    let flightOn = false;
+    const setFlight = (v: boolean) => {
+      if (flightOn === v) return;
+      flightOn = v;
+      bus.emitFlightChange(v);
     };
 
     const flyTo = (gx: number, gy: number, kT: number, ms?: number) => {
@@ -168,6 +199,7 @@ export default function ChartStage({
       const t0 = performance.now();
       const dur = ms ?? 1000;
       cancelAnimationFrame(flight.current);
+      setFlight(true);
       const step = (now: number) => {
         const p = Math.min(1, (now - t0) / dur);
         const u = 1 - Math.pow(1 - p, 3);
@@ -176,9 +208,11 @@ export default function ChartStage({
         c.k = st.k + (e.k - st.k) * u;
         apply();
         if (p < 1) flight.current = requestAnimationFrame(step);
+        else setFlight(false);
       };
       flight.current = requestAnimationFrame(step);
     };
+    setFlightRef.current = setFlight;
 
     measure();
     home();
@@ -189,6 +223,7 @@ export default function ChartStage({
       home,
       setCamRel: (gx, gy, kr) => {
         cancelAnimationFrame(flight.current);
+        setFlightRef.current(false);
         c.k = clampK(c.k0 * kr);
         c.tx = c.vw / 2 - gx * c.k;
         c.ty = c.vh / 2 - gy * c.k;
@@ -200,6 +235,7 @@ export default function ChartStage({
         kr: c.k / c.k0,
       }),
       worldToScreen: (gx, gy) => ({ x: c.ox + c.tx + gx * c.k, y: c.oy + c.ty + gy * c.k }),
+      screenToWorld: (sx, sy) => ({ gx: (sx - c.ox - c.tx) / c.k, gy: (sy - c.oy - c.ty) / c.k }),
       getViewport: () => ({ vw: c.vw, vh: c.vh }),
       getK: () => c.k,
       getK0: () => c.k0,
@@ -224,6 +260,7 @@ export default function ChartStage({
       svg.removeEventListener("wheel", onWheel);
       cancelAnimationFrame(flight.current);
       if (bumpTimer.current) clearTimeout(bumpTimer.current);
+      if (moveTimer.current) clearTimeout(moveTimer.current);
       bus.setDriver(null);
     };
   }, [bus, magRef]);
@@ -234,9 +271,20 @@ export default function ChartStage({
     const svg = svgRef.current;
     const c = cam.current;
     if (!svg) return;
+    // No native drag semantics on the chart: prevents text selection from
+    // ever starting on a pan (SVG labels would get marked, screenshot bug).
+    // Focus doesn't move either, so blur the seek field explicitly.
+    e.preventDefault();
+    if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
     onCondenseRef.current();
     cancelAnimationFrame(flight.current);
-    svg.setPointerCapture(e.pointerId);
+    // Mouse/pen: capture only once a real drag starts (pointermove threshold).
+    // setPointerCapture strips `:hover` from the pin under the cursor — on a
+    // plain click that fired the label/glyph hover transitions twice (the
+    // "label flickers on planet click" bug). Touch has no hover: capture now
+    // so pans/pinches survive crossing the HTML overlays.
+    if (e.pointerType === "touch") svg.setPointerCapture(e.pointerId);
+    setFlightRef.current(false);
     pointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
     if (pointers.current.size === 1) {
       // Remember the hit NOW: with pointer capture, pointerup retargets to
@@ -296,6 +344,16 @@ export default function ChartStage({
     const dx = e.clientX - d.x;
     const dy = e.clientY - d.y;
     if (Math.abs(dx) + Math.abs(dy) > 4) d.moved = true;
+    // Deferred capture (see handlePointerDown): once this is a drag, the
+    // pointer must keep panning across the HTML overlays and outside the
+    // window.
+    if (d.moved && !svg.hasPointerCapture(e.pointerId)) {
+      try {
+        svg.setPointerCapture(e.pointerId);
+      } catch {
+        /* pointer already gone — the leave handler cleans up */
+      }
+    }
     c.tx = d.tx + dx;
     c.ty = d.ty + dy;
     applyRef.current();
@@ -306,23 +364,39 @@ export default function ChartStage({
     pointers.current.delete(e.pointerId);
     if (pointers.current.size < 2) pinch.current = null;
     if (pointers.current.size > 0) return;
-    svg?.classList.remove("dragging");
+    // contains-guard: classList.remove rewrites the attribute even when the
+    // token is absent — a same-value write recalcs the whole svg subtree.
+    if (svg && svg.classList.contains("dragging")) svg.classList.remove("dragging");
     const d = drag.current;
     drag.current = null;
     if (d && !d.moved) onPickRef.current(d.hitId);
+  };
+
+  /* Uncaptured pointer (mouse press below the drag threshold) slides onto an
+     overlay or out of the window: the up would never reach the svg — drop the
+     press so no stale drag/pinch state survives. */
+  const handlePointerLeave = (e: ReactPointerEvent<SVGSVGElement>) => {
+    const svg = svgRef.current;
+    if (!svg || svg.hasPointerCapture(e.pointerId)) return;
+    pointers.current.delete(e.pointerId);
+    if (pointers.current.size < 2) pinch.current = null;
+    if (pointers.current.size === 0) {
+      drag.current = null;
+      if (svg.classList.contains("dragging")) svg.classList.remove("dragging");
+    }
   };
 
   return (
     <div className="cg-stage">
       <svg
         ref={svgRef}
-        className={`cg-chart${lumen ? " lumen" : ""}${nihilus ? " nihilus" : ""}${showAll ? " show-all" : ""}${riftLife ? " unrest" : ""}`}
-        data-storm={storm}
+        className={`cg-chart${lumen ? " lumen" : ""}${nihilus ? " nihilus" : ""}${names ? " names" : ""}${zonesOff ? " nozones" : ""}`}
         data-route={courseId ?? undefined}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
         onPointerCancel={handlePointerUp}
+        onPointerLeave={handlePointerLeave}
         role="presentation"
       >
         <g ref={camGRef}>{children}</g>

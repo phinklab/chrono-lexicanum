@@ -326,6 +326,7 @@
    *   --fs-read-*   → Cardo reading text
    *   --fs-label-*  → mono labels / rubrics / telemetry
    */
+  --fs-read-2xs: 15px;   /* fine print — nested notes, sub-hints, dense rows */
   --fs-read-xs:  16.5px; /* dense / secondary prose (roles, hints, captions) */
   --fs-read-sm:  18px;   /* compact body                                     */
   --fs-read:     19px;   /* standard body                                    */

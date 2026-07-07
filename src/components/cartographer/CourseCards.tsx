@@ -34,9 +34,11 @@ interface CourseCardsProps {
   featured: FeaturedWorld[];
   bus: ChartBus;
   reduce: boolean;
+  /** World popup open — cards step aside and return when it closes. */
+  suppressed: boolean;
 }
 
-export default function CourseCards({ course, featured, bus, reduce }: CourseCardsProps) {
+export default function CourseCards({ course, featured, bus, reduce, suppressed }: CourseCardsProps) {
   const clusters = useMemo<Cluster[]>(() => {
     const byName = new Map(featured.map((f) => [f.name, f]));
     const out: Cluster[] = [];
@@ -73,7 +75,7 @@ export default function CourseCards({ course, featured, bus, reduce }: CourseCar
         const el = els.current[i];
         if (!el) return;
         const p = driver.worldToScreen(cl.gx, cl.gy);
-        const cw = el.offsetWidth || 232;
+        const cw = el.offsetWidth || 296;
         const ch = el.offsetHeight || 84;
         let px = p.x + 24;
         if (px + cw > window.innerWidth - 12) px = p.x - 24 - cw;
@@ -96,7 +98,7 @@ export default function CourseCards({ course, featured, bus, reduce }: CourseCar
             ref={(el) => {
               els.current[i] = el;
             }}
-            className={`cg-ccard${visible.has(i) ? " show" : ""}`}
+            className={`cg-ccard${visible.has(i) ? " show" : ""}${suppressed ? " hide" : ""}`}
           >
             <p className="ck">
               ACT {ROMAN[act.i] ?? act.i + 1} · {act.name.toUpperCase()}

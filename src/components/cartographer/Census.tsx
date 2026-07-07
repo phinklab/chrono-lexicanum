@@ -6,17 +6,20 @@
  * 11 kind groups with counters + toggles; sub-rows fold out, every
  * classification switches individually.
  *
- * Session-Nachtrag 178 (rearrange): the three display toggles sit together
- * at the top under a "Display" caption; the classification groups follow
- * under their own caption, ordered by population (largest first) instead of
- * the old hardcoded thematic order. Group order is computed from the full
+ * Session-Nachtrag 178 (rearrange): the display toggles sit together at the
+ * top under a "Display" caption; the classification groups follow under
+ * their own caption, ordered by population (largest first) instead of the
+ * old hardcoded thematic order. Group order is computed from the full
  * catalog counts so it never jumps when "Linked records only" flips.
+ * "All worlds at every zoom" is gone (178b Runde 7) — every recorded world
+ * shows at every zoom now, so the toggle had nothing left to reveal.
  */
 
 import { useMemo, useState } from "react";
 
 import type { MapPayload } from "@/lib/map/payload";
 import type { MapWorldKind } from "@/lib/map/map-worlds-schema";
+import { CURATED_ZONES } from "@/lib/map/zones";
 import { BONE, GOLD } from "./chart-geometry";
 import { Glyph } from "./layers";
 
@@ -39,12 +42,16 @@ interface CensusProps {
   hiddenCls: ReadonlySet<number>;
   worksOnly: boolean;
   dustOff: boolean;
-  showAll: boolean;
+  /** Namens-Zwang (178b Runde 9): Labels in jedem Zoom-Band erzwingen. */
+  namesOn: boolean;
+  /** Zonen-Toggle (178b Runde 10): kuratierte Zonen-Felder aus/ein. */
+  zonesOff: boolean;
   onToggleCls: (ci: number) => void;
   onSetCls: (cis: number[], hidden: boolean) => void;
   onToggleWorksOnly: () => void;
   onToggleDust: () => void;
-  onToggleShowAll: () => void;
+  onToggleNames: () => void;
+  onToggleZones: () => void;
 }
 
 export default function Census({
@@ -52,13 +59,16 @@ export default function Census({
   hiddenCls,
   worksOnly,
   dustOff,
-  showAll,
+  namesOn,
+  zonesOff,
   onToggleCls,
   onSetCls,
   onToggleWorksOnly,
   onToggleDust,
-  onToggleShowAll,
+  onToggleNames,
+  onToggleZones,
 }: CensusProps) {
+  const zoneCount = CURATED_ZONES.filter((z) => z.published).length;
   const [open, setOpen] = useState<ReadonlySet<string>>(new Set());
 
   const { clsCount, clsFeat, featTotal } = useMemo(() => {
@@ -77,6 +87,14 @@ export default function Census({
 
   const cnt = (ci: number) => (worksOnly ? clsFeat[ci] : clsCount[ci]);
 
+  // Select/unselect-all toggle: `visibleCis` mirrors exactly the rows the
+  // census renders; the toggle flips every classification in one click.
+  const visibleCis = payload.cls
+    .map((_, ci) => ci)
+    .filter((ci) => clsCount[ci] > 0 && (!worksOnly || clsFeat[ci] > 0));
+  const allOff = visibleCis.length > 0 && visibleCis.every((ci) => hiddenCls.has(ci));
+  const allCis = payload.cls.map((_, ci) => ci);
+
   // Largest population first — stable against the worksOnly toggle.
   const ordered = useMemo(() => {
     const withTotal = GROUPS.map(([kind, label]) => {
@@ -92,7 +110,7 @@ export default function Census({
 
   return (
     <div className="cg-census">
-      <p className="chead">Display</p>
+      <p className="chead">Show on the chart</p>
       <button className={`cx${worksOnly ? " on" : ""}`} onClick={onToggleWorksOnly}>
         <span className="pad" />
         <span className="sym">
@@ -101,10 +119,7 @@ export default function Census({
             <circle r={1} fill={GOLD} />
           </svg>
         </span>
-        <span className="lab">
-          Linked records only
-          <i className="hint">hide everything without books or podcasts</i>
-        </span>
+        <span className="lab">Worlds from books &amp; podcasts only</span>
         <span className="n">{featTotal}</span>
       </button>
       {!worksOnly && (
@@ -115,30 +130,74 @@ export default function Census({
               <circle r={1.4} fill={BONE} fillOpacity={0.4} />
             </svg>
           </span>
-          <span className="lab">
-            Star-dust — unrecorded worlds
-            <i className="hint">faint dots: no linked work in the archive yet</i>
-          </span>
+          <span className="lab">Star-dust: worlds without records yet</span>
           <span className="n">{payload.dust.length}</span>
         </button>
       )}
-      <button className={`cx${showAll ? " on" : ""}`} onClick={onToggleShowAll}>
+      {/* Zonen-Toggle (178b Runde 10): Philipps hand-kuratierte Felder
+          (Stürme, Interdiction, Regionen, Dynastien) aus- und einblenden. */}
+      {zoneCount > 0 && (
+        <button
+          className={`cx${zonesOff ? " off" : ""}`}
+          onClick={onToggleZones}
+          title="Show or hide the marked zones: storms, interdiction fields, named regions, dynasties"
+        >
+          <span className="pad" />
+          <span className="sym">
+            <svg viewBox="-8 -8 16 16" width={18} height={18}>
+              <rect
+                x={-5.5}
+                y={-4.5}
+                width={11}
+                height={9}
+                fill="none"
+                stroke="currentColor"
+                strokeOpacity={0.65}
+                strokeWidth={0.9}
+                strokeDasharray="2.4 1.8"
+              />
+              <line x1={-3.2} y1={4.5} x2={1.8} y2={-4.5} stroke="currentColor" strokeOpacity={0.55} strokeWidth={0.9} />
+              <line x1={0.2} y1={4.5} x2={5.2} y2={-4.5} stroke="currentColor" strokeOpacity={0.55} strokeWidth={0.9} />
+            </svg>
+          </span>
+          <span className="lab">Zones &amp; storm fields</span>
+          <span className="n">{zoneCount}</span>
+        </button>
+      )}
+      {/* Namens-Zwang (178b Runde 9): Rettungsanker für dünne Filter — wer
+          z. B. nur Fleets zeigt, sieht in der Übersicht sonst fast nichts. */}
+      <button
+        className={`cx${namesOn ? " on" : ""}`}
+        onClick={onToggleNames}
+        title="Show the name of every visible world, no matter how far the chart is zoomed out"
+      >
         <span className="pad" />
         <span className="sym">
           <svg viewBox="-8 -8 16 16" width={18} height={18}>
-            <circle cx={-4} r={1.1} fill={GOLD} />
-            <circle r={1.1} fill={GOLD} fillOpacity={0.6} />
-            <circle cx={4} r={1.1} fill={GOLD} fillOpacity={0.3} />
+            <text
+              x={0}
+              y={4.5}
+              textAnchor="middle"
+              fontSize={11.5}
+              fontStyle="italic"
+              fill="currentColor"
+            >
+              N
+            </text>
           </svg>
         </span>
-        <span className="lab">
-          Reveal the full census
-          <i className="hint">show every recorded world even at wide zoom</i>
-        </span>
-        <span className="n">{featTotal}</span>
+        <span className="lab">World names at every magnification</span>
       </button>
-
-      <p className="chead groups">Census — by classification</p>
+      <p className="chead groups">
+        <span>By world type</span>
+        <button
+          className="creset"
+          onClick={() => onSetCls(allCis, !allOff)}
+          title={allOff ? "Show every world type" : "Hide every type, then pick the ones you want"}
+        >
+          {allOff ? "select all" : "unselect all"}
+        </button>
+      </p>
       {ordered.map(({ kind, label }) => {
         const kindI = payload.kinds.indexOf(kind);
         const members = payload.cls
@@ -171,7 +230,7 @@ export default function Census({
             <div className="cgrp-h">
               <button
                 className="car"
-                title="Expand"
+                title="Unfold: filter single classifications inside this group"
                 onClick={() =>
                   setOpen((o) => {
                     const next = new Set(o);
@@ -191,7 +250,7 @@ export default function Census({
               <button className="gname" onClick={() => onSetCls(members, !allOff)}>
                 {label}
                 {kind === "unclassified" && (
-                  <i className="hint">no classification in the source census</i>
+                  <i className="hint">no type recorded in the archive</i>
                 )}
               </button>
               <span className="n">{offN ? `${vis} / ${total}` : String(total)}</span>

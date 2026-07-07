@@ -21,17 +21,15 @@ import { Cartouche, Overture } from "./Cartouche";
 import Census from "./Census";
 import ChartStage from "./ChartStage";
 import CourseCards from "./CourseCards";
-import DirectionPanel from "./DirectionPanel";
-import GreatRift from "./GreatRift";
 import RoutesLayer from "./RoutesLayer";
 import Selection from "./Selection";
-import Sweep from "./Sweep";
 import WorldPanel from "./WorldPanel";
 import { ChartBus } from "./chart-bus";
-import type { SegmentumMark } from "./chart-geometry";
-import { Areas, GridDots, PolarFrame, SegmentumWatermarks, Storms, TerraInstrument } from "./decor";
+import { GridDots, HatchDefs, PolarFrame, SegmentumWatermarks, TerraInstrument } from "./decor";
 import { DustLayer, PinLayer, RegionLabels } from "./layers";
 import { LumenNihilus } from "./LumenNihilus";
+import ZoneEditor from "./ZoneEditor";
+import { ZonesLayer } from "./ZonesLayer";
 
 interface CgState {
   condensed: boolean;
@@ -39,17 +37,14 @@ interface CgState {
   hiddenCls: ReadonlySet<number>;
   dustOff: boolean;
   worksOnly: boolean;
-  showAll: boolean;
   courseId: string | null;
   lumen: boolean;
   nihilus: boolean;
-  /* Direction proofs (defaults = the study's approved slider positions). */
-  storm: 1 | 2 | 3;
-  riftLife: boolean;
-  bgArt: boolean;
-  veil: number;
-  bright: number;
-  grain: number;
+  /** Namens-Zwang (178b Runde 9): jede sichtbare Welt zeigt ihren Namen in
+   *  jedem Zoom — Rettungsanker für dünne Filter (z. B. nur Fleets). */
+  names: boolean;
+  /** Zonen-Toggle (178b Runde 10): blendet die kuratierten Zonen-Felder aus. */
+  zonesOff: boolean;
 }
 
 const INITIAL: CgState = {
@@ -58,16 +53,11 @@ const INITIAL: CgState = {
   hiddenCls: new Set<number>(),
   dustOff: false,
   worksOnly: false,
-  showAll: false,
   courseId: null,
   lumen: false,
   nihilus: false,
-  storm: 2,
-  riftLife: false,
-  bgArt: true,
-  veil: 0.82,
-  bright: 0.2,
-  grain: 0.09,
+  names: false,
+  zonesOff: false,
 };
 
 type CgAction =
@@ -77,16 +67,11 @@ type CgAction =
   | { type: "setCls"; cis: number[]; hidden: boolean }
   | { type: "toggleDust" }
   | { type: "toggleWorksOnly" }
-  | { type: "toggleShowAll" }
   | { type: "course"; id: string }
   | { type: "toggleLumen" }
   | { type: "toggleNihilus" }
-  | { type: "storm"; v: 1 | 2 | 3 }
-  | { type: "riftLife"; v: boolean }
-  | { type: "bgArt"; v: boolean }
-  | { type: "veil"; v: number }
-  | { type: "bright"; v: number }
-  | { type: "grain"; v: number };
+  | { type: "toggleNames" }
+  | { type: "toggleZones" };
 
 function reducer(state: CgState, action: CgAction): CgState {
   switch (action.type) {
@@ -112,8 +97,6 @@ function reducer(state: CgState, action: CgAction): CgState {
       return { ...state, dustOff: !state.dustOff };
     case "toggleWorksOnly":
       return { ...state, worksOnly: !state.worksOnly };
-    case "toggleShowAll":
-      return { ...state, showAll: !state.showAll };
     case "course":
       return {
         ...state,
@@ -124,18 +107,10 @@ function reducer(state: CgState, action: CgAction): CgState {
       return { ...state, condensed: true, lumen: !state.lumen };
     case "toggleNihilus":
       return { ...state, condensed: true, nihilus: !state.nihilus };
-    case "storm":
-      return { ...state, storm: action.v };
-    case "riftLife":
-      return { ...state, riftLife: action.v };
-    case "bgArt":
-      return { ...state, bgArt: action.v };
-    case "veil":
-      return { ...state, veil: action.v };
-    case "bright":
-      return { ...state, bright: action.v };
-    case "grain":
-      return { ...state, grain: action.v };
+    case "toggleNames":
+      return { ...state, names: !state.names };
+    case "toggleZones":
+      return { ...state, zonesOff: !state.zonesOff };
   }
 }
 
@@ -149,6 +124,19 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
     () => false,
   );
   const reduce = useReducedMotion();
+  // Zone-editor flag (?zones=edit) — client-only, same snapshot pattern as
+  // the mount gate (the hash writer preserves location.search).
+  const zoneEditParam = useSyncExternalStore(
+    emptySubscribe,
+    () => new URLSearchParams(window.location.search).get("zones") === "edit",
+    () => false,
+  );
+  // Hartes Dev-Gate (178b Runde 8, Philipp): das Kurations-Werkzeug existiert
+  // NUR auf localhost. NODE_ENV wird beim Build statisch ersetzt — im
+  // Prod-Build ist zoneEdit konstant false, ?zones=edit wird ignoriert und
+  // der ZoneEditor-Ast (inkl. Import) fällt als toter Code aus dem Bundle.
+  // Die kuratierten Zonen selbst (zones.json, published) shippen weiter.
+  const zoneEdit = process.env.NODE_ENV === "development" && zoneEditParam;
   const [state, dispatch] = useReducer(reducer, INITIAL);
   const bus = useMemo(() => new ChartBus(), []);
   const magRef = useRef<HTMLSpanElement | null>(null);
@@ -164,8 +152,25 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
     [activeCourse],
   );
 
+  /* Selection highlight, imperative (178b, Label-Flicker): `sel-on` is NOT a
+     PinLayer prop — a selection change must never re-render the 1000+-label
+     layers. Applied synchronously on select (before the flight's `.moving`
+     class gates the hover rules, so the hover-look hands over to `sel-on`
+     without a single transition frame) and repaired after every commit. */
+  const applySelClass = useCallback((id: string | null) => {
+    const chart = document.querySelector(".cg-chart");
+    if (!chart) return;
+    for (const el of chart.querySelectorAll(".cg-w.sel-on")) {
+      if (el.getAttribute("data-pin") !== id) el.classList.remove("sel-on");
+    }
+    if (id) {
+      chart.querySelector(`.cg-w[data-pin="${CSS.escape(id)}"]`)?.classList.add("sel-on");
+    }
+  }, []);
+
   const selectWorld = useCallback(
     (id: string | null, fly = true) => {
+      applySelClass(id);
       dispatch({ type: "select", id });
       if (!id || !fly) return;
       const w = source.detail(id);
@@ -174,47 +179,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
         bus.flyTo(w.gx, w.gy, Math.max(driver.getK(), driver.getK0() * 2.4), 900);
       }
     },
-    [bus, source],
-  );
-
-  const seek = useCallback(
-    (query: string) => {
-      // Exact featured > exact dust > partial featured > partial dust —
-      // the seek covers all 1054 contacts, not just the recorded ones.
-      const q = query.toLowerCase();
-      let exact: string | null = null;
-      let partial: string | null = null;
-      for (const f of payload.featured) {
-        const n = f.name.toLowerCase();
-        if (n === q) {
-          exact = f.id;
-          break;
-        }
-        if (!partial && (n.startsWith(q) || n.includes(q))) partial = f.id;
-      }
-      if (!exact) {
-        for (const d of payload.dust) {
-          const n = d[4].toLowerCase();
-          if (n === q) {
-            exact = d[3];
-            break;
-          }
-          if (!partial && (n.startsWith(q) || n.includes(q))) partial = d[3];
-        }
-      }
-      const best = exact ?? partial;
-      if (best) selectWorld(best);
-    },
-    [payload, selectWorld],
-  );
-
-  const jump = useCallback(
-    (seg: SegmentumMark) => {
-      dispatch({ type: "condense" });
-      const driver = bus.driver;
-      if (driver) bus.flyTo(seg.jump.x, seg.jump.y, driver.getK0() * seg.jump.k, 1100);
-    },
-    [bus],
+    [bus, source, applySelClass],
   );
 
   /* ── Route-scoped chrome: body class (burger statt Rail), scroll lock ── */
@@ -227,22 +192,6 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
       document.body.style.overflow = prevOverflow;
     };
   }, []);
-
-  /* ── Direction proofs → root CSS vars (the site background photo is a
-     sibling of this tree, so the vars live on <html>) ── */
-  useEffect(() => {
-    const root = document.documentElement;
-    root.style.setProperty("--cg-veil", String(state.veil));
-    root.style.setProperty("--cg-bright", String(state.bright));
-    root.style.setProperty("--cg-grain", String(state.grain));
-    root.classList.toggle("cg-nobg", !state.bgArt);
-    return () => {
-      root.style.removeProperty("--cg-veil");
-      root.style.removeProperty("--cg-bright");
-      root.style.removeProperty("--cg-grain");
-      root.classList.remove("cg-nobg");
-    };
-  }, [state.veil, state.bright, state.grain, state.bgArt]);
 
   /* ── Hash restore (once) + hash writes ── */
   const restored = useRef(false);
@@ -273,24 +222,41 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
   /* ── Escape closes the popup ── */
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") dispatch({ type: "select", id: null });
+      if (e.key === "Escape") selectWorld(null);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, []);
+  }, [selectWorld]);
+
+  /* Repair pass (no deps): a filter re-render that rewrites a pin's className
+     would drop `sel-on` — re-apply after every commit. */
+  useEffect(() => {
+    applySelClass(state.selectedId);
+  });
 
   const condense = useCallback(() => dispatch({ type: "condense" }), []);
   const pick = useCallback((id: string | null) => selectWorld(id), [selectWorld]);
 
+  /* Zoom-Presets (178b Runde 8): fliegen — Zentrum bleibt stehen — exakt auf
+     die Vergrößerung, ab der die nächste Namens-Stufe geladen ist (Band-
+     Schwellen 3.1/5.6 in ChartStage; 3.2/6.0 geben eine Haaresbreite Luft). */
+  const zoomPreset = useCallback(
+    (kr: number) => {
+      dispatch({ type: "condense" });
+      const driver = bus.driver;
+      if (!driver) return;
+      const c = driver.getCenterRel();
+      bus.flyTo(c.gx, c.gy, driver.getK0() * kr, 650);
+    },
+    [bus],
+  );
+
   return (
     <>
-      <div className="cg-veil" aria-hidden />
-      <div className="cg-grainlayer" aria-hidden />
       <div className="cg-rule top" aria-hidden />
       <div className="cg-rule bot" aria-hidden />
-      <span className="cg-deg n" aria-hidden>
-        000
-      </span>
+      {/* Kein "000"-Gradzeichen im Norden — dort sitzt jetzt der zentrierte
+          Site-Brand ("Chrono Lexicanum · Tabula"). */}
       <span className="cg-deg e" aria-hidden>
         090
       </span>
@@ -304,44 +270,37 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
       {mounted && (
         <ChartStage
           bus={bus}
-          storm={state.storm}
           lumen={state.lumen}
           nihilus={state.nihilus}
-          showAll={state.showAll}
-          riftLife={state.riftLife}
+          names={state.names}
+          zonesOff={state.zonesOff}
           courseId={state.courseId}
           reduce={reduce}
           magRef={magRef}
           onCondense={condense}
           onPick={pick}
         >
+          <HatchDefs />
           <GridDots />
           <PolarFrame />
           <SegmentumWatermarks />
-          <g id="cg-fields">
-            <Storms />
-            <GreatRift riftLife={state.riftLife} />
-            <Areas />
-          </g>
+          {/* Zonen-Felder: seit 178b Runde 8 ausschließlich Philipps
+              Hand-Kuration (zones.json) — die hartkodierten Studien-Grafiken
+              (Warpstürme, Great-Rift-Korridor, Leviathan, Sautekh) sind raus. */}
+          <g id="cg-fields">{!zoneEdit && <ZonesLayer />}</g>
           <DustLayer
             payload={payload}
             hiddenCls={state.hiddenCls}
             dustOff={state.dustOff}
             worksOnly={state.worksOnly}
           />
-          <PinLayer
-            featured={payload.featured}
-            hiddenCls={state.hiddenCls}
-            vbCut={payload.vbCut}
-            hiNames={hiNames}
-            selectedId={state.selectedId}
-          />
+          <PinLayer featured={payload.featured} hiddenCls={state.hiddenCls} hiNames={hiNames} />
           <RegionLabels regions={payload.regions} featured={payload.featured} />
           <LumenNihilus />
           <RoutesLayer course={activeCourse} featured={payload.featured} />
-          <Sweep reduce={reduce} />
           <TerraInstrument />
           {selectedWorld && <Selection key={selectedWorld.id} world={selectedWorld} />}
+          {zoneEdit && <ZoneEditor bus={bus} />}
         </ChartStage>
       )}
 
@@ -353,8 +312,8 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
         courseId={state.courseId}
         lumen={state.lumen}
         nihilus={state.nihilus}
-        onSeek={seek}
-        onJump={jump}
+        filtered={state.hiddenCls.size > 0 || state.dustOff || state.worksOnly}
+        onPick={pick}
         onCourse={(id) => dispatch({ type: "course", id })}
         onToggleLumen={() => dispatch({ type: "toggleLumen" })}
         onToggleNihilus={() => dispatch({ type: "toggleNihilus" })}
@@ -364,12 +323,14 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           hiddenCls={state.hiddenCls}
           worksOnly={state.worksOnly}
           dustOff={state.dustOff}
-          showAll={state.showAll}
+          namesOn={state.names}
+          zonesOff={state.zonesOff}
           onToggleCls={(ci) => dispatch({ type: "toggleCls", ci })}
           onSetCls={(cis, hidden) => dispatch({ type: "setCls", cis, hidden })}
           onToggleWorksOnly={() => dispatch({ type: "toggleWorksOnly" })}
           onToggleDust={() => dispatch({ type: "toggleDust" })}
-          onToggleShowAll={() => dispatch({ type: "toggleShowAll" })}
+          onToggleNames={() => dispatch({ type: "toggleNames" })}
+          onToggleZones={() => dispatch({ type: "toggleZones" })}
         />
       </Cartouche>
 
@@ -387,6 +348,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           featured={payload.featured}
           bus={bus}
           reduce={reduce}
+          suppressed={state.selectedId !== null}
         />
       )}
 
@@ -410,6 +372,20 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           −
         </button>
         <button
+          className="preset"
+          title="Magnify to 3.2×: every world with records shows its name"
+          onClick={() => zoomPreset(3.2)}
+        >
+          3×
+        </button>
+        <button
+          className="preset"
+          title="Magnify to 6.0×: every world on the chart shows its name"
+          onClick={() => zoomPreset(6.0)}
+        >
+          6×
+        </button>
+        <button
           title="Full sweep"
           onClick={() => {
             condense();
@@ -428,20 +404,15 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
         </span>
       </p>
 
-      <DirectionPanel
-        bgArt={state.bgArt}
-        veil={state.veil}
-        bright={state.bright}
-        grain={state.grain}
-        storm={state.storm}
-        riftLife={state.riftLife}
-        onBgArt={(v) => dispatch({ type: "bgArt", v })}
-        onVeil={(v) => dispatch({ type: "veil", v })}
-        onBright={(v) => dispatch({ type: "bright", v })}
-        onGrain={(v) => dispatch({ type: "grain", v })}
-        onStorm={(v) => dispatch({ type: "storm", v })}
-        onRiftLife={(v) => dispatch({ type: "riftLife", v })}
-      />
+      {/* Kurations-Einstieg, nur im Dev-Server sichtbar (der Editor selbst
+          bleibt über ?zones=edit erreichbar; volle Navigation, damit der
+          Query-Snapshot neu gelesen wird — der localStorage-Draft überlebt). */}
+      {process.env.NODE_ENV === "development" && (
+        <a className="cg-zed-toggle" href={zoneEdit ? "/map" : "/map?zones=edit"}>
+          {zoneEdit ? "✕ Exit zone editor" : "⌖ Zone editor"}
+        </a>
+      )}
+
     </>
   );
 }
