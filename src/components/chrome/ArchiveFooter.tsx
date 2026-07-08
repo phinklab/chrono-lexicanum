@@ -3,8 +3,8 @@ import Link from "next/link";
 /* Imprimatur foot — the closing seal of the design language: a plumb line
    fading downward, the seal word, the italic subline, the triad (middle motto
    per page), then the legal row: short-form Games Workshop IP disclaimer plus
-   the Impressum/Datenschutz links (§ 5 DDG / Art. 13 DSGVO — both pages sit
-   outside the preview gate). */
+   the Impressum/Datenschutz/Artwork links (§ 5 DDG / Art. 13 DSGVO — all
+   three pages sit outside the preview gate). */
 
 export default function ArchiveFooter({ mid }: { mid: string }) {
   return (
@@ -31,6 +31,10 @@ export default function ArchiveFooter({ mid }: { mid: string }) {
             ·
           </span>
           <Link href="/privacy">Datenschutz</Link>
+          <span className="lx-foot__law-sep" aria-hidden>
+            ·
+          </span>
+          <Link href="/artwork">Artwork</Link>
         </nav>
       </div>
     </footer>

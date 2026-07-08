@@ -182,6 +182,11 @@ export default function CartoucheSheet({
           onPointerCancel={onGripUp}
         >
           <span className="bar" aria-hidden />
+          {/* Closed-dock affordance: the bare bar alone doesn't read as
+              "pull me up" — the label disappears once the sheet is open. */}
+          <span className="glab" aria-hidden>
+            Scroll for more
+          </span>
         </button>
 
         <div className="cg-sheet-head">

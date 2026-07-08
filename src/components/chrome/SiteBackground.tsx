@@ -53,6 +53,15 @@ const PHOTOS: Record<SiteBgVariant, string | null> = {
   none: null,
 };
 
+/* Phone-portrait override per variant: the pages pick their desktop crop
+   (e.g. "right bottom" on the library nave), but a 9:19 slice of that crop
+   shows only the image's right wall — portrait re-centers on the nave. Kept
+   here (not per call site) so every page of a variant crops alike; the CSS
+   var lands in 41-site-bg.css's ≤760px rule. */
+const MOBILE_POSITIONS: Partial<Record<SiteBgVariant, string>> = {
+  main: "center bottom",
+};
+
 type SiteBackgroundProps = {
   variant?: SiteBgVariant;
   position?: string;
@@ -64,13 +73,20 @@ export default function SiteBackground({
 }: SiteBackgroundProps) {
   const photo = PHOTOS[variant];
   const credit = backgroundArtCredit(photo);
+  const mobilePosition = MOBILE_POSITIONS[variant] ?? position;
   return (
     <>
       <div className="site-bg" aria-hidden>
         {photo && (
           <div
             className="site-bg__photo"
-            style={{ backgroundImage: `url(${photo})`, backgroundPosition: position }}
+            style={
+              {
+                backgroundImage: `url(${photo})`,
+                backgroundPosition: position,
+                "--bg-pos-m": mobilePosition,
+              } as React.CSSProperties
+            }
           />
         )}
         <div className="site-bg__vignette" />
