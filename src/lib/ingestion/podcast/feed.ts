@@ -1,5 +1,5 @@
 /**
- * Brief 110 Step 1 — RSS 2.0 + iTunes feed fetch & parse.
+ * RSS 2.0 + iTunes feed fetch & parse.
  *
  * `fetchFeed` is the repo's standard HTTP-GET-with-User-Agent (mirrors
  * `wikipedia/fetch.ts`: shared UA, 30s AbortSignal). `parseFeed`/`htmlToText`/
@@ -25,7 +25,7 @@ export interface ParsedFeed {
 
 /**
  * Fetch a podcast RSS feed as raw XML text. Throws on non-2xx so the caller can
- * surface the failure (Step 1 has a single feed — no soft-fail roster to keep).
+ * surface the failure (a run has a single feed — no soft-fail roster to keep).
  */
 export async function fetchFeed(url: string): Promise<string> {
   const res = await fetch(url, {
@@ -41,7 +41,7 @@ export async function fetchFeed(url: string): Promise<string> {
   return res.text();
 }
 
-// --- value coercion (fast-xml-parser yields string | number | object) --------
+// Value coercion (fast-xml-parser yields string | number | object)
 
 function asRecord(v: unknown): Record<string, unknown> | null {
   if (v !== null && typeof v === "object" && !Array.isArray(v)) {
@@ -107,7 +107,7 @@ function attr(v: unknown, name: string): string | null {
   return null;
 }
 
-// --- pure helpers (unit-tested) ----------------------------------------------
+// Pure helpers (unit-tested)
 
 /**
  * Strip HTML to plain text. Closing block tags and `<br>` become spaces so

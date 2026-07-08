@@ -1,13 +1,13 @@
 /**
- * Admin-gated activation read endpoint for the local preview-invite console
- * (Brief 163). Returns the `preview_invite_activations` rows as JSON so the
+ * Admin-gated activation read endpoint for the local preview-invite console.
+ * Returns the `preview_invite_activations` rows as JSON so the
  * console can overlay an "activated · <first time> (×count)" badge on the links
  * it knows about, matched by `jti`.
  *
  * This route is EXCLUDED from the proxy matcher (`src/proxy.ts`), so the proxy
  * never runs for it — which means it CANNOT lean on the proxy-set
  * `x-atlas-admin` / `getIsAdmin()` signal (that would be permanently
- * unauthenticated, the trap the brief calls out). Instead it checks the admin
+ * unauthenticated). Instead it checks the admin
  * credential from the `Authorization` header IN THIS HANDLER, reusing the
  * existing admin Basic-Auth (`ATLAS_USER` / `ATLAS_PASS`) — no parallel scheme.
  *
@@ -31,7 +31,7 @@ import { timingSafeEqualStr } from "@/lib/timingSafeEqual";
 export const dynamic = "force-dynamic";
 
 // The localhost origin the console is served from (see scripts/preview-console).
-// Overridable without a code change if Philipp picks another port.
+// Overridable without a code change if the console moves to another port.
 const CONSOLE_ORIGIN =
   process.env.PREVIEW_CONSOLE_ORIGIN ?? "http://localhost:4178";
 
@@ -45,7 +45,7 @@ function corsHeaders(): Record<string, string> {
 }
 
 // Local copy of the proxy's Basic-Auth parse (src/proxy.ts) — duplicated rather
-// than shared to keep the proxy's admin block untouched (Brief 163 out-of-scope).
+// than shared to keep the proxy's admin block untouched.
 function parseBasic(
   authHeader: string | null,
 ): { user: string; pass: string } | null {

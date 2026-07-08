@@ -1,5 +1,5 @@
 /**
- * Brief 105 — resolve the visitor's store region SERVER-SIDE so the buy/listen
+ * Resolve the visitor's store region SERVER-SIDE so the buy/listen
  * links are correct in the SSR HTML, with no mandatory client JS. Mirrors the
  * `headers()` access pattern in src/lib/atlas/auth.ts.
  *

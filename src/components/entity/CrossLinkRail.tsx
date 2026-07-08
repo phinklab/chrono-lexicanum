@@ -1,8 +1,8 @@
 /**
- * Cross-links — the right-hand "CONNECTIONS" rail (Brief 113, Phase A): labelled
- * sets of edges to other routable entities, rendered as chips. EntityView places
- * this as the second body column; it reflows under the main column in a narrow
- * container (small viewport / Step-2 panel). Empty → renders nothing.
+ * Cross-links — the right-hand "CONNECTIONS" rail: labelled sets of edges to
+ * other routable entities, rendered as chips. EntityView places this as the
+ * second body column; it reflows under the main column in a narrow container
+ * (small viewport / overlay panel). Empty → renders nothing.
  */
 import Link from "next/link";
 import { entityHref, type CrossLinkGroup } from "@/lib/entity/types";

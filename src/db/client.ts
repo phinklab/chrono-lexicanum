@@ -30,8 +30,8 @@ declare global {
 const client =
   globalThis.__chronoPg ??
   postgres(connectionString, {
-    // TLS is on and must never be disabled. Residual risk (Brief 180 / K54,
-    // LOW): postgres.js maps `ssl: "require"` to `rejectUnauthorized: false`
+    // TLS is on and must never be disabled. Residual risk (LOW):
+    // postgres.js maps `ssl: "require"` to `rejectUnauthorized: false`
     // (its connection.js:283) — the link is encrypted but the pooler's
     // certificate is NOT verified, so a MITM able to intercept the connection
     // could present its own cert (postgres.js's own README flags this). We keep

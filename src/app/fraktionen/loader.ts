@@ -1,5 +1,5 @@
 /**
- * Public faction-guide data layer (Brief 120). SERVER-ONLY (imports `@/db`).
+ * Public faction-guide data layer. SERVER-ONLY (imports `@/db`).
  *
  * `/fraktionen` is a *guide* index, not lore: each faction is a doorway labelled
  * with how much of the archive sits behind it (books, podcast episodes, key

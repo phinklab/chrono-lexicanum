@@ -1,22 +1,21 @@
 /**
- * Pipeline V2 — Hardcover source-claim adapter (Brief 054).
+ * Pipeline V2 — Hardcover source-claim adapter.
  *
- * V2 changes from V1's `hardcover/parse.ts`:
+ * Contract:
  *
- *   - Author-mismatch on a generic-title hit is treated as SILENT SKIP. No
- *     `errors[]` entry, no `notes` row, no claim emitted. The 044 batch had
- *     14/47 errors as Hardcover-author-mismatches that were essentially "we
- *     searched a generic title, Hardcover returned a non-WH40k book by an
- *     unrelated author, V1 logged that as an error". Those signals are
- *     dashboard-noise. V2 reserves `errors[]` for true crawler failures
- *     (HTTP 5xx, GraphQL errors, missing token, etc.).
- *   - The audit slot (tags, averageRating, contributorNames) is preserved
- *     and lives on `claim.raw.audit` so downstream consumers (and the V2
- *     LLM-prompt's contributors-hint) can still read it.
+ *   - An author mismatch on a generic-title hit is a SILENT SKIP. No
+ *     `errors[]` entry, no `notes` row, no claim emitted. Searching a
+ *     generic title often makes Hardcover return a non-WH40k book by an
+ *     unrelated author; logging that as an error is dashboard noise.
+ *     `errors[]` is reserved for true crawler failures (HTTP 5xx, GraphQL
+ *     errors, missing token, etc.).
+ *   - The audit slot (tags, averageRating, contributorNames) lives on
+ *     `claim.raw.audit` so downstream consumers (and the LLM-prompt's
+ *     contributors hint) can read it.
  *
- * Hardcover does NOT contribute to FIELD_PRIORITY in V1 either (`fields` is
- * empty), so the V2 claim's `fields` slot is also intentionally empty —
- * everything Hardcover-specific rides on the `audit` payload.
+ * Hardcover does NOT contribute to FIELD_PRIORITY, so the claim's `fields`
+ * slot is intentionally empty — everything Hardcover-specific rides on the
+ * `audit` payload.
  */
 import {
   hardcoverQuery,

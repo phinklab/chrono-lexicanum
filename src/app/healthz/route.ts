@@ -13,8 +13,8 @@ export async function GET() {
       { status: 200, headers: NO_CACHE },
     );
   } catch (err) {
-    // Raw driver errors can leak pooler host/port/internals (Report 144
-    // § S.6) — the public endpoint reports a generic failure, the detail
+    // Raw driver errors can leak pooler host/port/internals —
+    // the public endpoint reports a generic failure, the detail
     // goes to the server log for the operator.
     console.error("[healthz] DB connectivity check failed:", err);
     return Response.json(

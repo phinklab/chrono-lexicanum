@@ -1,22 +1,19 @@
 /**
  * Public-lean per-book detail page. /buch/eisenhorn-xenos
  *
- * Brief 073 (2026-05-14): audit/provenance fields moved to
- * /buch/[slug]/audit so this route can stay reader-facing.
- * Brief 096 (2026-05-23): rebuilt in the Warhammer-Optics direction —
- * vista photo backdrop, c-glass cover panel, cyan-chip junctions.
- * Brief 120 (2026-06-02): data loader → `src/lib/book/loadBook` and body →
+ * Audit/provenance fields live at /buch/[slug]/audit so this route stays
+ * reader-facing. The data loader is `src/lib/book/loadBook` and the body is
  * `BookDetailView`, both shared verbatim with the `@modal/(.)buch` overlay
- * (zero fork). This route now owns only the page chrome (`<main>` + backdrop);
- * a hard nav / refresh / shared link renders it full-screen as before.
+ * (zero fork). This route owns only the page chrome (`<main>` + backdrop);
+ * a hard nav / refresh / shared link renders it full-screen.
  *
- * Deliberately NO `generateStaticParams` (checked for Report 144 § P.4): the
- * page reads `searchParams` and `resolveRegion()` reads `headers()` — the
- * Brief-105 decision to resolve the store region server-side, per request —
- * so the route renders dynamically no matter what is prerendered. Runtime perf
- * is carried by the per-slug `cachedRead` layer inside `loadBook` instead
- * (the compendium pattern). Making this route truly static would mean moving
- * region resolution client-side — an architect decision, not a perf tweak.
+ * Deliberately NO `generateStaticParams`: the page reads `searchParams` and
+ * `resolveRegion()` reads `headers()` — the store region is resolved
+ * server-side, per request — so the route renders dynamically no matter what
+ * is prerendered. Runtime perf is carried by the per-slug `cachedRead` layer
+ * inside `loadBook` instead (the compendium pattern). Making this route truly
+ * static would mean moving region resolution client-side — a design decision,
+ * not a perf tweak.
  */
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -27,8 +24,8 @@ import { resolveRegion } from "@/lib/store-region";
 
 type Params = { slug: string };
 
-// Per-book OG/social metadata (Report 144 § P.7 — share-card-relevant for the
-// launch). `loadBook` is request-memoised, so this shares one DB fan-out (or
+// Per-book OG/social metadata (share-card-relevant for launch).
+// `loadBook` is request-memoised, so this shares one DB fan-out (or
 // one cache hit) with the page render below.
 export async function generateMetadata({
   params,

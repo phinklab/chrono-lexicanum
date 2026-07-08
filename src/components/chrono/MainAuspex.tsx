@@ -2,7 +2,7 @@
  * MainAuspex — the rotating HUD disc of the hero mastheads. Concentric rings
  * in a tight band (0.58–0.96 r), tick ring, counter-rotating dot ring,
  * cardinal axes with bearing labels, bearing arcs, spinning cogitator core,
- * five twinkling contacts. No sweep arm (Brief 184).
+ * five twinkling contacts. No sweep arm — a deliberate design constraint.
  *
  * Pure SVG + CSS keyframes. Server component — no state, no hooks.
  * Reduced-motion is stilled globally (10-base.css).

@@ -2,24 +2,22 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";
 
-/* Datenschutzerklärung (Brief 179) — Art.-13-DSGVO information for the whole
-   deployed surface (review finding W1, the single HIGH of the 2026-07-02
-   status-quo review). Static server component, no DB, reachable WITHOUT a
-   preview session (excluded from the proxy matcher). Facts the text states —
-   verified against the codebase on 2026-07-02:
-     · Hosting Vercel (server logs with IPs), DB Supabase eu-central-1
+/* Datenschutzerklärung — Art.-13-DSGVO information for the whole
+   deployed surface. Static server component, no DB, reachable WITHOUT a
+   preview session (excluded from the proxy matcher). Facts the text states,
+   verified against the codebase:
+     - Hosting Vercel (server logs with IPs), DB Supabase eu-central-1
        (Frankfurt; DATABASE_URL pooler host).
-     · No user accounts; the only cookie is the HMAC-signed preview session
-       (`cl-preview`, Briefe 145/163) — technically required, § 25 Abs. 2
-       Nr. 2 TDDDG.
-     · The only app write is the PII-free invite-activation upsert
+     - No user accounts; the only cookie is the HMAC-signed preview session
+       (`cl-preview`) — technically required, § 25 Abs. 2 Nr. 2 TDDDG.
+     - The only app write is the PII-free invite-activation upsert
        (jti + timestamps + count; schema.ts `previewInviteActivations`).
-     · Covers are hotlinked from external hosts; podcast audio streams from
+     - Covers are hotlinked from external hosts; podcast audio streams from
        the feed host on user-initiated play; site music comes from the
        project's own Supabase storage; fonts are self-hosted via next/font.
-   The "Reichweitenmessung" section deliberately anticipates Brief 182
-   (Vercel Web Analytics / Speed Insights, cookieless) so 182 ships without a
-   legal follow-up. English slug per the P12 URL-EN migration; content is
+   The "Reichweitenmessung" section deliberately anticipates a cookieless
+   Vercel Web Analytics / Speed Insights rollout so that can ship without a
+   legal follow-up. English slug per the URL-EN convention; content is
    sober German legal text. */
 
 export const metadata: Metadata = {

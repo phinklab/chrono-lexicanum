@@ -1,11 +1,11 @@
 /**
- * Phase 3.5 — Read-only Loader für die committed Diff-Files unter
- * `ingest/.last-run/*.diff.json`. Konsumiert vom `/ingest`-Dashboard.
+ * Read-only loader for the committed diff files under
+ * `ingest/.last-run/*.diff.json`. Consumed by the `/ingest` dashboard.
  *
- * `DiffFile` aus `./types.ts` ist die single source of truth — kein eigener
- * Type-Mirror. Loader sind tolerant gegen korrupte Files (returnen einen
- * Error-Slot statt zu throwen) und gegen ältere Diffs ohne LLM-Felder
- * (`llmModel` etc. bleiben optional, UI gated dann auf "kein LLM-Step").
+ * `DiffFile` from `./types.ts` is the single source of truth — no separate
+ * type mirror here. Loaders are tolerant of corrupt files (they return an
+ * error slot instead of throwing) and of older diffs without LLM fields
+ * (`llmModel` etc. stay optional; the UI then gates on "no LLM step").
  */
 import { promises as fs } from "node:fs";
 import path from "node:path";
@@ -16,14 +16,14 @@ const DIFF_DIR = path.join(process.cwd(), "ingest", ".last-run");
 const DIFF_SUFFIX = ".diff.json";
 
 /**
- * Header-Form pro Diff für die Liste. Nur die Felder, die für die Summary-
- * Card gebraucht werden — vermeidet das Laden + JSON-Parse-Memory aller
- * `added[]` / `llm_flags[]` für die Listen-View.
+ * Header form per diff for the list view. Only the fields the summary card
+ * needs — avoids loading + JSON-parse memory of all `added[]` /
+ * `llm_flags[]` for the list view.
  */
 export interface DiffSummary {
-  /** Filename ohne Suffix, z.B. `backfill-20260503-2308`. URL-fähig. */
+  /** Filename without suffix, e.g. `backfill-20260503-2308`. URL-safe. */
   runId: string;
-  /** ISO-Timestamp aus dem Diff (`ranAt`); fällt zurück auf File-mtime. */
+  /** ISO timestamp from the diff (`ranAt`); falls back to the file mtime. */
   ranAt: string;
   discoverySource: DiffFile["discoverySource"];
   discoveryPages: string[];
@@ -44,7 +44,7 @@ export interface DiffSummary {
   llmCostSummary?: DiffFile["llmCostSummary"];
 }
 
-/** Sentinel für Files, deren JSON-Parse oder Schema-Validation gescheitert ist. */
+/** Sentinel for files whose JSON parse or schema validation failed. */
 export interface DiffSummaryError {
   runId: string;
   filename: string;
@@ -56,11 +56,11 @@ export type DiffListEntry =
   | { kind: "error"; error: DiffSummaryError };
 
 /**
- * Sample-Check von Element [0] einer Liste (leer ⇒ ok). Tripwire gegen
- * Writer-Schema-Drift — die korrumpiert alle Elemente gleichförmig, also
- * reicht eine Stichprobe. Bewusst KEINE Voll-Validierung jeder Zeile und kein
- * Zod-Schema: das wäre genau der Type-Mirror zu `DiffFile`, den dieses Modul
- * per Invariant (s. Header) ausschließt.
+ * Sample check of element [0] of a list (empty ⇒ ok). Tripwire against
+ * writer-schema drift — that corrupts all elements uniformly, so one sample
+ * suffices. Deliberately NO full validation of every row and no Zod schema:
+ * that would be exactly the type mirror of `DiffFile` this module rules out
+ * by invariant (see header).
  */
 function sampleOk(arr: unknown[], check: (el: Record<string, unknown>) => boolean): boolean {
   if (arr.length === 0) return true;
@@ -84,7 +84,7 @@ function isDiffFileLike(value: unknown): value is DiffFile {
   ) {
     return false;
   }
-  // Geprüft wird, was der Detail-View non-optional dereferenziert
+  // Checks exactly what the detail view dereferences non-optionally
   // (added[].payload, updated[].diff, field_conflicts[].sources).
   return (
     sampleOk(added, (e) => typeof e.slug === "string" && !!e.payload && typeof e.payload === "object") &&
@@ -94,13 +94,14 @@ function isDiffFileLike(value: unknown): value is DiffFile {
 }
 
 /**
- * Listet alle `*.diff.json`-Files in `ingest/.last-run/`, sortiert neuester
- * zuerst (per `ranAt`-Timestamp wenn parsable, sonst Filename — die Filename-
- * Convention `backfill-YYYYMMDD-HHMM.diff.json` ist ohnehin sortier-stabil).
+ * Lists all `*.diff.json` files in `ingest/.last-run/`, sorted newest first
+ * (by `ranAt` timestamp when parsable, otherwise by filename — the
+ * `backfill-YYYYMMDD-HHMM.diff.json` naming convention is sort-stable
+ * anyway).
  *
- * Korrupte Files erscheinen als `{ kind: "error" }`-Entries an dem Platz, an
- * dem sie chronologisch erwartet werden — die Liste rendert weiter, der User
- * sieht aber den Defekt.
+ * Corrupt files appear as `{ kind: "error" }` entries in the position where
+ * they are chronologically expected — the list keeps rendering, but the user
+ * sees the defect.
  */
 export async function listDiffFiles(): Promise<DiffListEntry[]> {
   let filenames: string[];
@@ -113,8 +114,8 @@ export async function listDiffFiles(): Promise<DiffListEntry[]> {
   }
 
   const diffs = filenames.filter((f) => f.endsWith(DIFF_SUFFIX));
-  // IO-bound → parallel lesen; die Reihenfolge stellt der Sort danach her,
-  // Fehler bleiben per-File-Slots (Promise.all rejected hier nie).
+  // IO-bound → read in parallel; the sort afterwards restores the order, and
+  // errors stay per-file slots (Promise.all never rejects here).
   const entries = await Promise.all(
     diffs.map(async (filename): Promise<DiffListEntry> => {
       const runId = filename.slice(0, -DIFF_SUFFIX.length);
@@ -170,15 +171,15 @@ function toSummary(runId: string, d: DiffFile): DiffSummary {
 }
 
 /**
- * Liefert die vollständige `DiffFile`-Struktur für einen Run. RunId =
- * Filename ohne `.diff.json`-Suffix. Returnt `null` wenn der File nicht
- * existiert; throwt bei JSON-Parse-Fehler (anders als `listDiffFiles` —
- * der Detail-View nutzt Next's `not-found.tsx`-Mechanik).
+ * Returns the full `DiffFile` structure for one run. RunId = filename
+ * without the `.diff.json` suffix. Returns `null` when the file does not
+ * exist; throws on a JSON parse error (unlike `listDiffFiles` — the detail
+ * view uses Next's `not-found.tsx` mechanism).
  */
 export async function loadDiffById(runId: string): Promise<DiffFile | null> {
-  // Defense gegen pathologische runIds (Slashes, ..-Traversal). RunIds aus
-  // generateStaticParams sind immer aus listDiffFiles abgeleitet, also
-  // eigentlich safe — aber direkt-aufgerufene URLs sollten geblockt werden.
+  // Defense against pathological runIds (slashes, `..` traversal). RunIds
+  // from generateStaticParams are always derived from listDiffFiles, so they
+  // are safe in principle — but directly-requested URLs must be blocked.
   if (!/^[a-zA-Z0-9._-]+$/.test(runId)) return null;
 
   const filepath = path.join(DIFF_DIR, `${runId}${DIFF_SUFFIX}`);
@@ -197,10 +198,10 @@ export async function loadDiffById(runId: string): Promise<DiffFile | null> {
 }
 
 /**
- * Liefert nur die runIds — für `generateStaticParams`. Filtert korrupte Files
- * raus damit die SSG-Pipeline an einem defekten File nicht stirbt; die
- * korrupte Card ist dann nur in der Liste sichtbar, hat aber keine Detail-
- * Route (Klick → 404 ist akzeptabel, weil der Listen-View den Fehler erklärt).
+ * Returns only the runIds — for `generateStaticParams`. Filters out corrupt
+ * files so the SSG pipeline does not die on a broken file; the corrupt card
+ * is then only visible in the list and has no detail route (click → 404 is
+ * acceptable because the list view explains the error).
  */
 export async function listValidRunIds(): Promise<string[]> {
   const entries = await listDiffFiles();

@@ -12,7 +12,7 @@ import {
 } from "@/app/archive/filters";
 
 /**
- * Home search (Brief 121 → Session 142 gold port) — the real archive search
+ * Home search — the real archive search
  * console, wired in NAVIGATE mode: the box does not filter a
  * list on the page (Home has none), it *arrives at the archive with the query*.
  *
@@ -112,8 +112,6 @@ export default function HomeSearch({ index }: { index: Suggestion[] }) {
 
   return (
     <div className="hub-search">
-      {/* The "Query the Archive" kicker is retired — the search field's own
-          placeholder already says it (maintainer cleanup 2026-06-19). */}
       <BrowseSearch
         index={index}
         value={q}

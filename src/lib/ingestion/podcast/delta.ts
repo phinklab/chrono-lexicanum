@@ -1,7 +1,7 @@
 /**
- * Brief 172 — the podcast **delta** primitives (Variant B, additive).
+ * The podcast delta primitives (additive path).
  *
- * The cc-direct pipeline (Brief 131) tags a WHOLE show: acquire the full
+ * The cc-direct pipeline tags a WHOLE show: acquire the full
  * manifest, chunk EVERY episode into batches, tag them, and `merge` writes a
  * fresh `<slug>.extractions.json`. That is the right shape for a first ingest,
  * but wrong for maintenance: when a show publishes one new episode, re-tagging
@@ -12,10 +12,10 @@
  * network, no `@anthropic-ai/sdk` (it imports only the local types + the
  * deterministic extraction helpers), so the whole delta contract unit-tests
  * without fixtures. Two operations:
- *   • `selectDeltaGuids` — set-difference the live manifest against the committed
+ *   - `selectDeltaGuids` — set-difference the live manifest against the committed
  *     extractions to find the guids that are genuinely NEW (never tagged). This
  *     is the "tag only new GUIDs" invariant as data.
- *   • `mergeExtractionsDelta` — UNION the freshly-tagged extractions into the
+ *   - `mergeExtractionsDelta` — UNION the freshly-tagged extractions into the
  *     existing committed file, never overwriting a reviewed extraction and never
  *     dropping one (the no-shrink invariant). Any ambiguity — a guid that already
  *     carries a DIFFERENT extraction, a prompt-version/model that drifted from the
@@ -35,12 +35,12 @@ import type { EpisodeExtraction } from "./types";
 
 /**
  * A delta operation that cannot proceed safely without a human call — the
- * needs-decision signal (Brief 172 §Podcast-Delta "Unsichere Merges stoppen mit
- * needs-decision"). Raised for prompt-version / model drift, a guid that would be
- * re-tagged with a different extraction (guid ambiguity), a show-slug mismatch,
- * a would-be inventory shrink, or a proposal guid that vanished from the feed
- * (source drift). Distinct from `ExtractionValidationError` (structural garbage
- * → re-run the batch); a `DeltaGuardError` means STOP and ask.
+ * needs-decision signal. Raised for prompt-version / model drift, a guid that
+ * would be re-tagged with a different extraction (guid ambiguity), a
+ * show-slug mismatch, a would-be inventory shrink, or a proposal guid that
+ * vanished from the feed (source drift). Distinct from
+ * `ExtractionValidationError` (structural garbage → re-run the batch); a
+ * `DeltaGuardError` means STOP and ask.
  */
 export class DeltaGuardError extends Error {
   constructor(message: string) {

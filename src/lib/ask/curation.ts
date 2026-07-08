@@ -231,7 +231,7 @@ function compareAppliedRecommendations(a: AppliedRecommendation, b: AppliedRecom
 
   // Pins compose on top; everything else uses the shared merit comparator
   // (score → rating → title → slug) so the overlay tail orders identically to
-  // the base ranking and the matrix (Brief 164).
+  // the base ranking and the matrix.
   return compareByMerit(a.recommendation, b.recommendation);
 }
 

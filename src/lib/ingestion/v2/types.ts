@@ -12,18 +12,14 @@
  * V1-shape compatibility is achieved via a synthesized `payload: MergedBook`
  * shim on every `BookV2Record` (mirrors the V2 fields back into the legacy
  * MergedBook form for the existing FieldOriginsTable to consume).
- *
- * Brief 054 (2026-05-09).
  */
 
 import type { BookFormat, MergedBook, SourceName } from "../types";
 
-// =============================================================================
 // Stage 0 — Discovery
-// =============================================================================
 
 /** Discovery-source identifier shared by Wikipedia + TLBranson outputs, plus
- *  the post-058 `"ssot"` source that reads `scripts/seed-data/book-roster.json`
+ *  the `"ssot"` source that reads `scripts/seed-data/book-roster.json`
  *  in place of a crawl. */
 export type DiscoverySource = "wikipedia" | "tlbranson" | "ssot";
 
@@ -54,7 +50,7 @@ export interface DiscoveredBook {
 
 /**
  * SSOT sidecar travelling alongside `DiscoveredBook` when the roster comes
- * from `scripts/seed-data/book-roster.json` (Brief 058). Carries the
+ * from `scripts/seed-data/book-roster.json`. Carries the
  * maintainer-authoritative fields that the V2 pipeline must NOT overwrite
  * from Lexicanum / Open Library / LLM. `processBookV2(book, ssotContext?)`
  * threads it into Stage 2 (validator-skip), Stage 3 (prompt anchor), and
@@ -94,9 +90,7 @@ export interface SsotLoadResult {
   ssotSourceFile: string;
 }
 
-// =============================================================================
 // Stage 1 — Source-Claims
-// =============================================================================
 
 export type ClaimSource = "lexicanum" | "open_library" | "hardcover";
 
@@ -132,9 +126,7 @@ export interface SourceClaim {
   notes: string[];
 }
 
-// =============================================================================
 // Stage 2 — Validators
-// =============================================================================
 
 export type ValidationKind =
   | "year_outlier"
@@ -156,9 +148,7 @@ export interface Validation {
   reasoning: string;
 }
 
-// =============================================================================
 // Stage 3 — Slim LLM (typed payload returned by the V2 enricher)
-// =============================================================================
 
 export type EntityRole = string;
 
@@ -170,18 +160,19 @@ export interface RoleAnnotated {
 export interface SlimLlmPayload {
   /** Synopsis written by the LLM (paraphrased, 100–150 words). */
   synopsis?: string;
-  /** Format classification (V2 keeps this; rating + availability dropped). */
+  /** Format classification. Rating + availability are intentionally not
+   *  part of V2. */
   format?: BookFormat;
   facetIds?: string[];
   factions?: RoleAnnotated[];
   characters?: RoleAnnotated[];
   locations?: RoleAnnotated[];
-  /** Storefront/reference URLs the LLM happened to surface — kept for audit
-   *  even though V2 dropped availability classification. */
+  /** Storefront/reference URLs the LLM happened to surface — kept for audit;
+   *  V2 does no availability classification. */
   discoveredLinks?: { serviceHint: string; kind: string; url: string }[];
   flags?: { kind: string; field?: string; reasoning?: string }[];
   /** In-universe year hints from the LLM web-search; only used when Lexicanum
-   *  did not supply startY/endY (Open Question 4 default = leave null). */
+   *  did not supply startY/endY (default = leave null). */
   startY?: number;
   endY?: number;
   /** Raw model response audit. */
@@ -191,9 +182,7 @@ export interface SlimLlmPayload {
   };
 }
 
-// =============================================================================
 // Stage 4 — BookV2Record + V2DiffFile
-// =============================================================================
 
 /**
  * Per-field record. Each scalar lifted to value+provenance+override slot.
@@ -213,7 +202,7 @@ export interface FieldRecord<T> {
   value: T;
   source: FieldRecordSource;
   fetchedAt: string;
-  /** Human override slot — null in pilot, will be filled by 057 hand-check. */
+  /** Human override slot — null until filled by a manual hand-check. */
   override: T | null;
   /** Set when `source === "validator-corrected"` to show the raw values that
    *  were rejected. */
@@ -230,7 +219,7 @@ export interface BookLlmCostSummary {
 
 /**
  * Pipeline-V2 per-book record. `slug`, `fields`, `validations`, `rawClaims`,
- * `rawLlmPayload`, `llmCostSummary` are the brief-mandated fields; the
+ * `rawLlmPayload`, `llmCostSummary` are the core V2 fields; the
  * additional `wikipediaTitle`, `payload` (synthesized MergedBook) sit below
  * to keep the V1 `/ingest/[runId]` drill-down rendering without code
  * changes (it expects `entry.payload.fields`/`entry.payload.fieldOrigins`
@@ -244,10 +233,9 @@ export interface BookV2Record {
   rawClaims: SourceClaim[];
   rawLlmPayload: SlimLlmPayload | null;
   llmCostSummary: BookLlmCostSummary | null;
-  /** Discovery source pages this book showed up in. Used by the
-   *  `chem-dog` acceptance bullet ("sourcePages contains tlbranson.com"). */
+  /** Discovery source pages this book showed up in. */
   sourcePages: string[];
-  // ── V1 dashboard compatibility shim ─────────────────────────────────
+  // V1 dashboard compatibility shim
   /** Wikipedia-style display title; the dashboard uses this when
    *  `payload.fields.title` is absent. */
   wikipediaTitle: string;
@@ -317,9 +305,7 @@ export interface V2DiffFile {
   llmCostSummary: V2RunLlmCostSummary;
 }
 
-// =============================================================================
 // V1 dashboard compatibility note (no static type-check)
-// =============================================================================
 //
 // `BookV2Record` is intentionally NOT a structural subtype of V1's
 // `AddedEntry`. The V1 `rawLlmPayload?: RawLlmPayload` and V2's

@@ -1,11 +1,10 @@
 /**
- * Brief 105 — geo-localizing, affiliate-ready store-URL builder.
+ * Geo-localizing, affiliate-ready store-URL builder.
  *
  * Pure & total: given the same args `buildStoreUrl` always returns the same URL
  * and never throws. Store URLs are DERIVED at render time (a search/lookup URL),
  * never stored per book — so there is nothing to validate or to go stale, and
- * geo-localization is a TLD swap (the architect's "simplest thing first" call,
- * Brief 105 § "derive storefront links, don't store them"). Amazon and Audible
+ * geo-localization is a TLD swap. Amazon and Audible
  * localize by marketplace TLD; Black Library is a single global store.
  *
  * Affiliate is OFF today: `AFFILIATE_TAGS` is empty and no tag ships. Turning it
@@ -98,8 +97,8 @@ const BLACK_LIBRARY_SEARCH = "https://www.blacklibrary.com/Home/Search-Results.h
 const BLACK_LIBRARY_PARAM = "SearchText";
 
 /**
- * Affiliate tags by service → marketplace TLD → tag. EMPTY today: Brief 105
- * ships no tag. Populate a cell (or set the env var below) to enable affiliate
+ * Affiliate tags by service → marketplace TLD → tag. EMPTY today: no tag
+ * ships. Populate a cell (or set the env var below) to enable affiliate
  * with ZERO call-site edits — `resolveAffiliateTag` already consults it.
  *
  * Example once enrolled in Amazon Associates / Audible:

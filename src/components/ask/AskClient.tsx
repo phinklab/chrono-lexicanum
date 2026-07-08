@@ -75,9 +75,8 @@ export default function AskClient({
   const selectedValue = currentQuestion ? answers[currentQuestion.id] : undefined;
   const showResult = draftComplete && initialIsComplete && !isPending && !editingCompleteProfile;
   const showProcessing = draftComplete && isPending;
-  // The timeline carries progress now, so the nav status stays silent except
-  // while the cogitator is actually working (the old "N of 4 answers recorded"
-  // count and the terminal "Recommendations tuned" line are both retired).
+  // The timeline carries progress, so the nav status stays silent except
+  // while the cogitator is actually working.
   const statusLabel = showProcessing ? "Loading recommendations" : "";
   // Gold fill reaches the live stop; full once the verdict is showing.
   const fillFraction = showResult
@@ -138,7 +137,7 @@ export default function AskClient({
   };
 
   const reset = () => {
-    // Resetting from the (tall) results view used to let the browser clamp the
+    // Resetting from the (tall) results view would let the browser clamp the
     // scroll up into the masthead — jarring. Only when results were showing do
     // we re-anchor to the funnel grid so question 01 lands in view; mid-funnel
     // resets keep their place (the navigation already preserves scroll).
@@ -181,11 +180,10 @@ export default function AskClient({
         <div className="ask-console__grid route-body-snap" ref={gridRef}>
           <AskToolTabs active="questionnaire" />
           <div className="ask-stage">
-            {/* Progress timeline — the chronicle era-band recast for the funnel
-                (maintainer rework 2026-06-19; the roman stepper is retired). One
-                rail with a gold fill that advances with the reader, four marks.
-                Each mark is a button that revisits its question and names its
-                topic; the dot state carries answered / here / coming. */}
+            {/* Progress timeline — the chronicle era-band recast for the funnel.
+                One rail with a gold fill that advances with the reader, four
+                marks. Each mark is a button that revisits its question and names
+                its topic; the dot state carries answered / here / coming. */}
             <nav
               className="ask-timeline"
               aria-label="Ask progress"

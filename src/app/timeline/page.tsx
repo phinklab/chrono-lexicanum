@@ -8,24 +8,23 @@ import ChronicleStage, {
 export const metadata: Metadata = { title: "Chronicle — Timeline" };
 
 /**
- * Timeline route — the Cinematic/Index chronicle (Brief 138).
+ * Timeline route — the Cinematic/Index chronicle.
  *
- * DATA SOURCE: the hand-curated events spine from Brief 137 (`eras` +
+ * DATA SOURCE: the hand-curated events spine (`eras` +
  * `events` + `event_works` in Postgres), loaded server-side by
  * `loadChronicleTimeline()` and handed to the client island in one payload.
- * The pre-138 roster overlay (`@/lib/chronicle/roster`) is no longer read
- * here; it stays in the repo until a follow-up brief retires it.
+ * The legacy roster overlay (`@/lib/chronicle/roster`) is not read here.
  *
  * URL contract: `?era=<era id>` selects the chapter, `?view=index` opens the
  * index view. Legacy values keep working:
- *   - pre-008 `?era=M30|M31|M42` → mapped era id (kept from the old page)
- *   - era ids that vanished with the 8-era map (Brief 137): `age_rebirth` →
+ *   - legacy `?era=M30|M31|M42` → mapped era id
+ *   - era ids absent from the 8-era map: `age_rebirth` →
  *     `horus_heresy` (the Scouring lives in M31), `long_war` → `the_forging`
- *     (its M32–34 majority); the remaining old ids exist in the new map and
- *     pass through unchanged.
+ *     (its M32–34 majority); the remaining old ids exist in the current map
+ *     and pass through unchanged.
  *   - unknown values render chapter I (no 404), the client then canonicalizes
  *     the URL via history.replaceState.
- *   - `?book=<slug>` (pre-138 detail-panel deep link) → that book's page.
+ *   - `?book=<slug>` (legacy detail-panel deep link) → that book's page.
  */
 
 const LEGACY_ERA: Record<string, string> = {
@@ -50,7 +49,7 @@ export default async function TimelinePage({ searchParams }: TimelinePageProps) 
   const viewRaw = first(sp.view);
   const bookRaw = first(sp.book);
 
-  // Legacy `?book=` deep links (pre-138 DetailPanel) → the book's own page.
+  // Legacy `?book=` deep links (old DetailPanel) → the book's own page.
   if (bookRaw) redirect(`/buch/${encodeURIComponent(bookRaw)}`);
 
   // Legacy era ids → their new chapter.

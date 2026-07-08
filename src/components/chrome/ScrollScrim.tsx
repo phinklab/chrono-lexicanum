@@ -19,8 +19,7 @@ type ScrollScrimProps = {
  * crisp behind the hero, then fades to near-void so content scrolling over the
  * fixed photo stays legible. Shared chrome across the photo-hero surfaces —
  * /archive (the `.catalogue-scrim` defaults), home, /ask, /compendium — each
- * passing its own scrim class + hero selector. (Moved here from app/buecher
- * when that route was removed, Board 121-P11.)
+ * passing its own scrim class + hero selector.
  *
  * The opacity is written to a CSS var on the scrim element itself, only in an
  * effect (never during render), so SSR paints a transparent scrim with no

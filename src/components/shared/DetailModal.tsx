@@ -2,8 +2,7 @@
 
 /**
  * DetailModal — the ONE in-context detail overlay, shared by the book and the
- * four entity intercepts (Brief 131). It is the merge of the old `BookModalPanel`
- * (centered card) and `EntityPanel` (side drawer) into a single shell: a LARGE
+ * four entity intercepts. A single shell: a LARGE
  * CENTERED card with a prominent "← Back" as the primary close affordance. The
  * `@modal/(.)*` intercepts are Server Components that call the same `loadBook` /
  * `loadEntity` and render the same db-free `<BookDetailView>` / `<EntityView>`
@@ -11,32 +10,32 @@
  * body — zero fork.
  *
  * Interaction model:
- *   • Open: any in-app `<Link>` to a single-segment detail URL (`/buch/[slug]`,
+ *   - Open: any in-app `<Link>` to a single-segment detail URL (`/buch/[slug]`,
  *     `/fraktion/[id]`, `/charakter/[id]`, `/welt/[id]`, `/person/[id]`)
  *     soft-navigates and the matching `@modal` intercept mounts this shell over
  *     the current context (e.g. the /werke table, the compendium). A hard nav /
  *     refresh / shared link skips the intercept and renders the canonical full
  *     page (SEO + deep links unaffected).
- *   • Close (Back button / × / Escape / backdrop) → `router.back()`, unwinding
+ *   - Close (Back button / × / Escape / backdrop) → `router.back()`, unwinding
  *     the push so it lands on the origin context.
- *   • Flat model: an in-modal click on another ENTITY detail link (a faction chip
+ *   - Flat model: an in-modal click on another ENTITY detail link (a faction chip
  *     inside a book, a character inside a world, …) is rewritten to
  *     `router.replace`, so the body swaps IN THE SAME SHELL without stacking
  *     history — one Back still closes to the origin.
- *   • Books swap IN-SHELL: a `/buch/<slug>` link clicked from inside the popup
+ *   - Books swap IN-SHELL: a `/buch/<slug>` link clicked from inside the popup
  *     `router.push`-es (one new history entry) so the book body mounts in THIS
  *     SAME shell and "← Back" returns to the origin (usually entity) popup.
  *     Unlike the entity-to-entity replace above, the book hop DOES stack one
  *     history step — that single Back is what walks the reader back to where
  *     they came from.
- *   • Two-segment links (`/buch/[slug]/audit`), external/new-tab and non-detail
+ *   - Two-segment links (`/buch/[slug]/audit`), external/new-tab and non-detail
  *     links (e.g. a `/podcasts/…#ep-…` related-work) pass through and navigate
  *     away, clearing the overlay via the catch-all slot.
- *   • A11y to the WAI-ARIA APG "Dialog (Modal)" pattern: focus moves in on open,
+ *   - A11y to the WAI-ARIA APG "Dialog (Modal)" pattern: focus moves in on open,
  *     Tab is trapped, Escape closes, focus returns to the trigger, the page
- *     behind the dialog is made `inert` while it is open (Report 141 § B5 —
- *     `aria-modal` only *claims* the background is unreachable; `inert` enforces
- *     it for clicks and AT, the SiteMenu counterpart pattern), body scroll is
+ *     behind the dialog is made `inert` while it is open (`aria-modal` only
+ *     *claims* the background is unreachable; `inert` enforces it for clicks
+ *     and AT, the SiteMenu counterpart pattern), body scroll is
  *     locked. `prefers-reduced-motion` is honoured by the global cascade in
  *     10-base.css.
  */
@@ -137,7 +136,7 @@ export default function DetailModal({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Make everything behind the dialog inert (Report 141 § B5): the Tab trap
+  // Make everything behind the dialog inert: the Tab trap
   // already handles keyboard, but without `inert` the page behind stays click-
   // and AT-reachable despite `aria-modal="true"`. Skip siblings that are
   // already inert (the closed SiteMenu manages its own) so we don't clobber

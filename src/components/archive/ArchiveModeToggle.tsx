@@ -2,7 +2,7 @@ import Link from "next/link";
 
 /**
  * Archive register doors — Books | Podcasts, the fork between the archive's
- * two pillars as the first and largest element of the nave (Brief 184). Two
+ * two pillars as the first and largest element of the nave. Two
  * real links instead of client state: the URL is the mode (shareable,
  * back-button-safe) and the podcast pages keep their ISR shells. The active
  * door carries the Sternwarte dot in its kicker. Pages pass their own mode

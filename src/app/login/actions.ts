@@ -12,10 +12,11 @@ import {
 
 /**
  * The maintainer's password login. On correct creds it mints the SAME signed
- * session-cookie shape the gate verifies (Brief 163) — with a long 30-day
+ * session-cookie shape the gate verifies — with a long 30-day
  * expiry of its own — so there is exactly one cookie shape whenever the secret
  * is set. When the secret is unset it sets the legacy unsigned `cl-preview="1"`
- * cookie (the gate's degrade path then accepts it), so Philipp can always get in.
+ * cookie (the gate's degrade path then accepts it), so the maintainer can
+ * always get in.
  */
 export async function login(formData: FormData): Promise<void> {
   const user = formData.get("user");

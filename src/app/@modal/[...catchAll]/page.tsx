@@ -1,5 +1,5 @@
 /**
- * `@modal` slot reset — Brief 113, Phase B.
+ * `@modal` slot reset.
  *
  * Next.js keeps a parallel slot's last active state across SOFT navigations,
  * even when the new URL matches none of the slot's segments. Without this

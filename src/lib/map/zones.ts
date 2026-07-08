@@ -1,8 +1,8 @@
 /**
- * zones.ts — hand-curated chart zones (178b, Zonen-Editor).
+ * zones.ts — hand-curated chart zones.
  *
  * Storm fields, interdiction zones and named areas are NEVER derived from
- * reference images (Philipp-Veto, Nachtrag 2 in Report 178) — their shapes
+ * reference images — their shapes
  * are drawn by hand in the zone editor (/map?zones=edit) and baked into
  * `zones.json`. A zone ships on the chart only once `published` is true;
  * drafts exist solely for the editor.

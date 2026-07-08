@@ -1,5 +1,5 @@
 /**
- * Brief 105 — the buy/listen actions. Server component: every href is built
+ * The buy/listen actions. Server component: every href is built
  * server-side via the geo-localized `buildStoreUrl`, so the links are correct
  * in the SSR HTML with no client JS. Amazon + Black Library always render;
  * Audible (and the audio credit) render only when the book has narrator /

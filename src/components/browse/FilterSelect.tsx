@@ -12,7 +12,7 @@ import {
 export type FilterOption = { value: string; label: string };
 
 /**
- * On-brand replacement for the browse `<select>` controls (Brief 120 polish).
+ * On-brand replacement for the browse `<select>` controls.
  * The native `<select>` popup renders in the OS theme — on the dark catalogue
  * surface that reads as an unreadable "silver" menu. This is a real ARIA
  * listbox (button + popover) so the menu inherits the site's tokens and stays
@@ -21,7 +21,7 @@ export type FilterOption = { value: string; label: string };
  *
  * Stateless w.r.t. the URL: selecting an option calls `onChange(value | null)`
  * and the parent commits it to the query string (`router.replace`, scroll
- * preserved), exactly as the old native selects did.
+ * preserved).
  */
 export default function FilterSelect({
   label,

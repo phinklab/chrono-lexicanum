@@ -17,15 +17,15 @@ export const metadata: Metadata = {
 };
 
 /**
- * Phase 3.5 — Ingestion-Dashboard (read-only Diff-Inspector).
+ * Ingestion dashboard (read-only diff inspector).
  *
- * Server Component, default SSG. Liest committed Diff-Files aus
- * `ingest/.last-run/*.diff.json` und rendert chronologische Summary-Cards
- * (neuester zuerst). Drill-down auf `/ingest/[runId]`. Datenquelle ist
- * Filesystem — Updates werden sichtbar nach `git push` + Vercel-Re-build.
+ * Server Component, default SSG. Reads committed diff files from
+ * `ingest/.last-run/*.diff.json` and renders chronological summary cards
+ * (newest first). Drill-down at `/ingest/[runId]`. The data source is the
+ * filesystem — updates become visible after `git push` + Vercel re-build.
  */
 export default async function IngestPage() {
-  // Admin-only (Report 144 § S.3): internal ingest logs + raw LLM payloads.
+  // Admin-only: internal ingest logs + raw LLM payloads.
   // The proxy already 401s the route in prod; this in-page gate is the
   // defense-in-depth layer (and makes the page request-rendered, which a
   // per-request gate needs anyway).
@@ -189,7 +189,7 @@ function formatTimestamp(iso: string): string {
   if (!iso) return "—";
   const d = new Date(iso);
   if (Number.isNaN(d.getTime())) return iso;
-  // dd.mm.yyyy HH:MM UTC; deutsche Site
+  // dd.mm.yyyy HH:MM UTC; German site
   const dd = String(d.getUTCDate()).padStart(2, "0");
   const mm = String(d.getUTCMonth() + 1).padStart(2, "0");
   const yyyy = d.getUTCFullYear();

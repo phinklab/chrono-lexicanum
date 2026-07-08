@@ -1,7 +1,7 @@
 /**
- * Brief 131 — `EpisodeExtraction` coercion/validation + the committed
+ * `EpisodeExtraction` coercion/validation + the committed
  * `<slug>.extractions.json` file contract. Anthropic-free (imports only the
- * local types), so the CC-Direct tagging path (Variant B) can build, validate,
+ * local types), so the CC-Direct tagging path can build, validate,
  * and (de)serialize extractions WITHOUT loading `@anthropic-ai/sdk`.
  *
  * Two levels of acceptance:
@@ -23,7 +23,7 @@
 import { EPISODE_KINDS } from "./types";
 import type { AxisExtraction, EpisodeExtraction, EpisodeKind } from "./types";
 
-// --- lenient coercion (mirrors extract.ts parse* verbatim) -------------------
+// Lenient coercion (mirrors extract.ts parse* verbatim)
 
 function coerceStringArray(v: unknown): string[] {
   if (!Array.isArray(v)) return [];
@@ -66,7 +66,7 @@ export function coerceEpisodeExtraction(v: unknown): EpisodeExtraction {
   };
 }
 
-// --- structure-strict gate (for the cc-direct merge) -------------------------
+// Structure-strict gate (for the cc-direct merge)
 
 /** Raised by `validateExtractionStrict` for a structurally-broken extraction —
  *  the signal the driver uses to re-run a batch. */
@@ -120,7 +120,7 @@ export function validateExtractionStrict(v: unknown, where: string): EpisodeExtr
   return coerceEpisodeExtraction(v);
 }
 
-// --- canonical shape + deterministic serialization ---------------------------
+// Canonical shape + deterministic serialization
 
 /** A new extraction with keys in the fixed order the committed file uses. */
 export function canonicalizeExtraction(e: EpisodeExtraction): EpisodeExtraction {
@@ -132,11 +132,11 @@ export function canonicalizeExtraction(e: EpisodeExtraction): EpisodeExtraction 
   };
 }
 
-/** The committed per-show tagging output — keyed on `episodeGuid` (Brief 131). */
+/** The committed per-show tagging output — keyed on `episodeGuid`. */
 export interface ExtractionsFile {
   /** Show slug — matches the artifact / manifest. */
   show: string;
-  /** Provenance: always "cc-direct" for a Variant-B run (the api path does not
+  /** Provenance: always "cc-direct" (the api path does not
    *  emit this file — its cache lives under `ingest/.llm-cache/`). */
   tagging: "cc-direct";
   /** Model label written into the artifact's `extraction.model`. */

@@ -14,22 +14,22 @@ import { useRouter } from "next/navigation";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 
 /**
- * The ONE shared perceived-latency mechanic (Report — perceived latency). A
- * single `useTransition` lives here, at the root, and every server-bound
- * programmatic navigation routes through it so React marks the click→stream gap
- * as "pending" the instant it starts — instead of the UI sitting dead until the
- * target paints. The reference shape is `AskClient` (`startTransition(() =>
- * router.push(…))`); this lifts it to a provider so the three search consoles
- * (Home / Browse / Podcasts) and the in-modal hops share it, and any future
- * navigator inherits the behaviour by calling `useRouteNav()`.
+ * The ONE shared perceived-latency mechanic. A single `useTransition` lives
+ * here, at the root, and every server-bound programmatic navigation routes
+ * through it so React marks the click→stream gap as "pending" the instant it
+ * starts — instead of the UI sitting dead until the target paints. The
+ * reference shape is `AskClient` (`startTransition(() => router.push(…))`);
+ * this provider generalizes it so the three search consoles (Home / Browse /
+ * Podcasts) and the in-modal hops share it, and any future navigator
+ * inherits the behaviour by calling `useRouteNav()`.
  *
  * Two layers stack: this drives the global top beam + the inline search
  * affordance (click→stream); `loading.tsx` boundaries cover stream→paint.
  *
  * Split into two contexts on purpose:
- *   • NavActionsContext — `{ navigate, replace }`, identity-stable, so a
+ *   - NavActionsContext — `{ navigate, replace }`, identity-stable, so a
  *     component that only navigates never re-renders when pending toggles.
- *   • NavStateContext — `{ isPending, pendingVisible }`, read only by the few
+ *   - NavStateContext — `{ isPending, pendingVisible }`, read only by the few
  *     bits that render a pending affordance.
  *
  * `isPending` is raw (drives `aria-busy` — AT learns immediately). The VISIBLE

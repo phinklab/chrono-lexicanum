@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";
 
-/* Impressum (Brief 179) — § 5 DDG mandatory information plus the long-form
-   Games Workshop IP disclaimer (review findings W3 + K38/K39). Static server
+/* Impressum — § 5 DDG mandatory information plus the long-form
+   Games Workshop IP disclaimer. Static server
    component, no DB, reachable WITHOUT a preview session (excluded from the
    proxy matcher): the duty to carry an Impressum already attaches to the
    publicly reachable /login surface, not only to the post-launch site.
-   English slug per the P12 URL-EN migration; the content itself is German
+   English slug per the URL-EN convention; the content itself is German
    legal text and must stay sober — no in-universe register. */
 
 export const metadata: Metadata = {

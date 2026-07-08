@@ -18,7 +18,7 @@ export interface AskBoundaryCandidate {
   seriesId: string | null;
   seriesIndex: number | null;
   seriesTotalPlanned: number | null;
-  /** Era signal for the Horus-Heresy hard gate (Brief 164). */
+  /** Era signal for the Horus-Heresy hard gate. */
   primaryEraId: string | null;
   startY: number | null;
   /** Member of the anchor set for any lane — drives the deep hard gate. */
@@ -40,7 +40,7 @@ const NON_SINGLE_VOLUME_FORMATS = new Set([
 const HERESY_ERAS = new Set(["great_crusade", "horus_heresy"]);
 
 /**
- * Horus-Heresy detection from book data, not from an answer tag (Brief 164).
+ * Horus-Heresy detection from book data, not from an answer tag.
  *
  * The catalogue's era data is unusable for this: every book carries
  * `primaryEraId = "time_ending"` and ~792/889 have a null `startY`, with no
@@ -77,7 +77,7 @@ function predicateForFactionAnswer(
   switch (answer) {
     case "imperium_of_man":
       // The merged Imperium lane — includes the Inquisition sub-tree, which sits
-      // under `imperium` in the faction graph (Brief 164 faction merge).
+      // under `imperium` in the faction graph.
       return (f) => f.alignment === "imperium" || factionInTree(f, ["imperium"]);
     case "loyalist_sm":
       return (f) =>

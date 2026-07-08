@@ -1,9 +1,9 @@
 /**
- * Entity-blurb data layer — Board 121-P5. SERVER-ONLY.
+ * Entity-blurb data layer. SERVER-ONLY.
  *
  * A thin curation layer over the entity graph: one curated description sentence
  * per faction / character / location, keyed by the same string id as the detail
- * route's `[slug]` (Spec 129 — no DB column, no migration). The JSON lives under
+ * route's `[slug]` (no DB column, no migration). The JSON lives under
  * `scripts/seed-data/*-blurbs.json`; this module is the ONLY place in the app
  * that imports it (everything else imports `@/lib/blurbs`).
  *

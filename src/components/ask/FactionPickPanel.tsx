@@ -22,7 +22,7 @@ type FactionPickPanelProps = {
 };
 
 /**
- * The verdict block of a carousel slide (Brief 166): one curated entry-point at
+ * The verdict block of a carousel slide: one curated entry-point at
  * a time. The slide header already names the faction + chapter, so the kicker is
  * just the role; `contextLabel` survives only for the screen-reader count.
  * Reshuffle is ephemeral client state (NOT in the URL) and only appears when the

@@ -5,8 +5,8 @@ import SternwarteRings from "@/components/shared/SternwarteRings";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 
 /**
- * Themed Suspense fallback for `/werke` (Brief 120 polish). The page is one
- * server component that `await`s the whole catalogue fan-out; wrapping it in a
+ * Themed Suspense fallback for `/werke`. The page is one server component
+ * that `await`s the whole catalogue fan-out; wrapping it in a
  * `loading.tsx` lets Next stream the app shell + this loader instantly,
  * then swap in the archive when the query resolves — "fast onto the page, then
  * watch the cogitator think" rather than a blank await.

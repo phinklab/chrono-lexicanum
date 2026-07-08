@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Compendium directory controls (Brief 129). Search + optional facet pills +
+ * Compendium directory controls. Search + optional facet pills +
  * sort, all URL-mirrored via `router.replace` — the server page reads the same
  * params and renders the filtered rows, so a filtered directory is a shareable
  * link (the /werke + /fraktionen discipline, reusing the shared `.browse-*`

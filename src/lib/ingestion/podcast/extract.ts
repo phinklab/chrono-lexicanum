@@ -1,25 +1,25 @@
 /**
- * Brief 110 Step 1 — episode-entity extraction via the project's LLM path.
+ * Episode-entity extraction via the project's LLM path.
  *
- * Reuses the book pipeline's LLM PRIMITIVES (model config via `getLlmModel`,
- * the `@anthropic-ai/sdk` tool-use + retry-on-schema-violation shape, the
- * `ingest/.llm-cache/` caching idea) but NOT `enrichBookWithLLM`, which is
- * book-shaped. The extraction is podcast-specific: from one episode's
- * title + description, identify the WH40k entities it is about, split per axis
- * into `primary` (subject) vs `mentioned`, plus a coarse `episodeKind`.
+ * Reuses the shared LLM primitives (model config via `getLlmModel`, the
+ * `@anthropic-ai/sdk` tool-use + retry-on-schema-violation shape, the
+ * `ingest/.llm-cache/` caching idea). The extraction is podcast-specific:
+ * from one episode's title + description, identify the WH40k entities it is
+ * about, split per axis into `primary` (subject) vs `mentioned`, plus a
+ * coarse `episodeKind`.
  *
  * The tool is FORCED (`tool_choice`) at `temperature: 0` for clean, near-
  * deterministic structured output; combined with the cache, a warm re-run is
- * byte-stable. No web_search — the only evidence is the provided text
- * (Brief 110: "No transcripts").
+ * byte-stable. No web_search — the only evidence is the provided text (no
+ * transcripts).
  *
  * Model: `PODCAST_LLM_MODEL` (if set) else the book pipeline's `getLlmModel()`.
  * Env-driven, never pinned in code (version policy) — and independent of the
  * book model so the two pipelines can run different tiers.
  *
- * Brief 131: the prompt string, tool schema, description cap, and version hash
- * moved to the Anthropic-free `./prompt` and are re-exported here, so the api
- * path's public surface is unchanged while the cc-direct path reads them without
+ * The prompt string, tool schema, description cap, and version hash live in
+ * the Anthropic-free `./prompt` and are re-exported here, so the api path's
+ * public surface stays unchanged while the cc-direct path reads them without
  * loading the SDK. This module remains the SOLE owner of `@anthropic-ai/sdk`.
  */
 import Anthropic from "@anthropic-ai/sdk";
@@ -37,8 +37,8 @@ import type { AxisExtraction, EpisodeExtraction, EpisodeKind, PodcastEpisode } f
 import { EPISODE_KINDS } from "./types";
 
 // Re-export the prompt constants so existing importers of `extract.ts` (the api
-// path's public surface) keep resolving them here; the definitions now live in
-// the Anthropic-free `./prompt` (Brief 131).
+// path's public surface) keep resolving them here; the definitions live in
+// the Anthropic-free `./prompt`.
 export {
   EPISODE_PROMPT_VERSION_HASH,
   EPISODE_SYSTEM_PROMPT,
@@ -56,7 +56,7 @@ export function getPodcastLlmModel(): string {
   return getLlmModel();
 }
 
-// --- response parsing (hand-rolled, no `any`) --------------------------------
+// Response parsing (hand-rolled, no `any`)
 
 function isToolUseBlock(
   block: Anthropic.ContentBlock,
@@ -118,7 +118,7 @@ function parseEpisodeMessage(message: Anthropic.Message): ParseOutcome {
   };
 }
 
-// --- API call (retry on 429/5xx/network; mirror enrich.ts) -------------------
+// API call (retry on 429/5xx/network)
 
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));

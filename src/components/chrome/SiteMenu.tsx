@@ -6,10 +6,7 @@ import { useEffect, useRef, useState } from "react";
 
 /**
  * SiteMenu — global burger button + full-screen navigation overlay, mounted in
- * the root layout. Since the TopNav removal (session 140 follow-up) this is
- * the ONLY global navigation. Rebuild of the design-export's `#burger` + `#site-menu`
- * (Chronicle Timeline.html + chronicle.css §burger), re-rooted from the
- * prototype's `body.menu-open` class onto component-scoped `.is-open` state.
+ * the root layout. This is the ONLY global navigation.
  *
  * The overlay stays MOUNTED and toggles `.is-open` so the CSS opacity /
  * stagger transitions run both ways; while closed it is `aria-hidden` + `inert`
@@ -141,10 +138,10 @@ export default function SiteMenu() {
             ))}
           </ul>
           <div className="site-menu__foot">TERRA STANDARD · M42.347</div>
-          {/* Legal links (Brief 179): the burger is the only chrome on the
-              immersive surfaces (map/timeline/entities), so on touch/narrow
-              viewports this row is what keeps Impressum + Datenschutz
-              reachable from every page. */}
+          {/* Legal links: the burger is the only chrome on the immersive
+              surfaces (map/timeline/entities), so on touch/narrow viewports
+              this row is what keeps Impressum + Datenschutz reachable from
+              every page. */}
           <div className="site-menu__legal">
             <Link href="/imprint" onClick={() => setOpen(false)}>
               Impressum

@@ -1,9 +1,9 @@
 /**
- * Book-detail data layer (Brief 120 polish). SERVER-ONLY (imports `@/db`).
+ * Book-detail data layer. SERVER-ONLY (imports `@/db`).
  *
- * Extracted verbatim from the old inline loader in `buch/[slug]/page.tsx` so the
- * canonical page AND the `@modal/(.)buch` intercept share one DB fan-out and one
- * source of truth — zero fork, exactly like `src/lib/entity/loader.ts`.
+ * The canonical `buch/[slug]` page AND the `@modal/(.)buch` intercept share
+ * this one DB fan-out and single source of truth — zero fork, exactly like
+ * `src/lib/entity/loader.ts`.
  *
  * Wrapped in React `cache()` (per-request memo: `generateMetadata` + the default
  * export dedupe to a single fan-out) with try/catch → null so one flaky row
@@ -153,10 +153,10 @@ async function loadBookBySlug(slug: string) {
  * Load one book's full detail payload by slug, or null if missing/unloadable.
  * `cache()`-memoised per request; shared by the canonical page + the modal.
  *
- * The per-slug `cachedRead` layer (Report 144 § P.4) serves repeat visits from
- * Next's persistent Data Cache instead of re-running the 8-query fan-out on
- * every request — under load the uncached route degraded from 0.21 s to a 90 s
- * timeout. One book's payload is a few KB, far under the 2 MB cache cap. A
+ * The per-slug `cachedRead` layer serves repeat visits from Next's persistent
+ * Data Cache instead of re-running the 8-query fan-out on every request —
+ * under load the uncached route degraded from 0.21 s to a 90 s timeout.
+ * One book's payload is a few KB, far under the 2 MB cache cap. A
  * missing slug caches as `null` (a stable 404 is a legitimate result); a DB
  * error is never cached and degrades to `null` for that one request. The
  * `books` tag is invalidated by `POST /api/revalidate` after ingestion.

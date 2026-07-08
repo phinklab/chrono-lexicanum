@@ -1,22 +1,22 @@
 /**
- * Entity-graph data layer — Brief 109, Step 1. SERVER-ONLY (imports `@/db`).
+ * Entity-graph data layer. SERVER-ONLY (imports `@/db`).
  *
- * Two entry points, both reused unchanged by later arc steps:
+ * Two entry points:
  *   - `listEntityIds(type)` feeds `generateStaticParams` (one lean id select).
  *   - `loadEntity(type, id)` returns the frame-agnostic `EntityView` (or null
  *     for a missing / unloadable id → the page calls `notFound()`). Wrapped in
  *     React `cache()` so a route's `generateMetadata` + default export dedupe to
- *     a single DB fan-out per request; Step 2's panel imports the same function.
+ *     a single DB fan-out per request; the overlay panel imports the same function.
  *
  * The whole `loadEntity` body is wrapped in try/catch → `null` so one flaky row
- * degrades to a 404 instead of failing `next build` (the atlas pattern,
- * `src/lib/atlas/queries.ts`). Reverse-junction works carry everything off
+ * degrades to a 404 instead of failing `next build` (the same degraded-empty
+ * pattern as `src/lib/compendium/queries.ts`). Reverse-junction works carry everything off
  * `works` itself (slug/kind/coverUrl/releaseYear) — no `book_details` join
- * needed. Per-page fan-out is ≤4 queries in one `Promise.all`, well under the
- * `max:5` pooler cap (`src/db/client.ts`).
+ * needed. Per-page fan-out is at most 4 queries in one `Promise.all`, well under
+ * the `max:5` pooler cap (`src/db/client.ts`).
  *
- * Brief 129 (Compendium) widens the contract: `person` becomes a fourth entity
- * type (authors), and `works.kind` now spans podcasts. A podcast episode has no
+ * `person` is a fourth entity
+ * type (authors), and `works.kind` spans podcasts. A podcast episode has no
  * detail route, so `buildWorkGroups` resolves each episode → its parent show
  * (slug for the link target, title for card context) in one batched query and
  * stuffs the resolved `href`/`showTitle` onto the `WorkRef` — the view stays
@@ -116,11 +116,11 @@ const PERSON_ROLE_ORDER = [
 const CROSSLINK_CAP = 40;
 
 /**
- * Growth guard on the reverse-junction work queries (Report 144 § DB.5): an
+ * Growth guard on the reverse-junction work queries: an
  * entity with N work links must not pull an unbounded row set. Far above every
  * current maximum (the busiest entity carries well under 200 links), so the
  * cap never binds today — it exists so 5× data growth degrades to a truncated
- * list instead of a pool-exhausting query. Brief-109 contract update: all
+ * list instead of a pool-exhausting query. All
  * sibling/child/junction queries in this loader are capped (`CROSSLINK_CAP`
  * for cross-link groups, this for work lists).
  */
@@ -223,7 +223,7 @@ function mergePersonWorks(rows: RelatedWorkRow[]): RelatedWorkRow[] {
   return out;
 }
 
-// ── Per-type loaders ────────────────────────────────────────────────────────
+// Per-type loaders
 
 async function loadCharacter(id: string): Promise<EntityView | null> {
   // Curated twin-merge (e.g. Alpha Legion's Alpharius + Omegon → one entry): the
@@ -354,7 +354,7 @@ async function loadFaction(id: string): Promise<EntityView | null> {
   if (row.glyph) facts.push({ label: "Glyph", value: row.glyph });
   // A single linked relation reads cleanly as a fact; the multi-item sets
   // (children, key characters) become cross-link groups — so no edge renders
-  // twice (Brief 109's IA listed parent in both; consolidated here).
+  // twice.
   if (row.parentId && row.parentName) {
     facts.push({
       label: "Parent faction",
@@ -384,8 +384,8 @@ async function loadFaction(id: string): Promise<EntityView | null> {
     type: "faction",
     id: row.id,
     name: row.name,
-    // The curated blurb is the faction's lead now; the bare `tone` keyword
-    // ("arcane", "warmaster") no longer reads as a tagline (Board 121-P5).
+    // The curated blurb is the faction's lead; the bare `tone` keyword
+    // ("arcane", "warmaster") deliberately does not read as a tagline.
     blurb: getBlurb("faction", id) ?? undefined,
     facts,
     worksByKind: await buildWorkGroups(workRows, "faction"),
@@ -528,7 +528,7 @@ async function loadPerson(id: string): Promise<EntityView | null> {
   };
 }
 
-// ── Public API ────────────────────────────────────────────────────────────
+// Public API
 
 /**
  * All ids for one reference table, for `generateStaticParams`. The `[slug]`
@@ -559,9 +559,9 @@ export async function listEntityIds(type: EntityType): Promise<string[]> {
 }
 
 /**
- * The curated build-time prerender set for one entity type — Brief 161. Returns
+ * The curated build-time prerender set for one entity type. Returns
  * only the ids from {@link HOT_ENTITY_IDS} that ACTUALLY exist in the table: one
- * ID-only `where id in (…)` query over ≤ a few dozen ids — never a `loadEntity`
+ * ID-only `where id in (…)` query over at most a few dozen ids — never a `loadEntity`
  * fanout — so the build path stays lean and the per-deploy build-egress collapses
  * from ~1300 full entity reads to four tiny id selects. A curated id that was
  * later renamed/merged away is simply dropped (the route then serves it

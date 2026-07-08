@@ -1,5 +1,5 @@
 /**
- * Compendium directory filter contract — Brief 129. PURE (no `@/db`, no JSX) so
+ * Compendium directory filter contract. PURE (no `@/db`, no JSX) so
  * the server page (which does the actual filtering, SEO-friendly) and the client
  * controls island (which mirrors state to the URL) agree on the param grammar.
  * Every control is URL-mirrored: a filtered directory is a shareable link, the

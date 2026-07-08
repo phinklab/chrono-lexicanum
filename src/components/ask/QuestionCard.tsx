@@ -14,10 +14,9 @@ type QuestionCardProps = {
 };
 
 /* One question as a calm reading column: the prompt in Cormorant over a
-   frameless single-column ballot. The leading ◇/◆ glyph is retired (Brief 166);
-   selection now reads as a gold left-rule + gold label, carried on data-selected
-   / aria-pressed. The ordinal kicker is retired too — the timeline above the
-   stage carries position now (maintainer rework 2026-06-19). */
+   frameless single-column ballot. Selection reads as a gold left-rule + gold
+   label, carried on data-selected / aria-pressed; the timeline above the
+   stage carries position. */
 export default function QuestionCard({
   question,
   value,

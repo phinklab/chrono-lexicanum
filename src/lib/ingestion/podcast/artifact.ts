@@ -1,10 +1,10 @@
 /**
- * Brief 110 Step 1 — artifact assembly, deterministic serialization, report.
+ * Artifact assembly, deterministic serialization, report.
  *
- * Determinism contract (Brief 110 acceptance — "a second run reproduces the
- * same artifact"): episodes sorted by (pubDate, guid); each episode's tags
- * sorted by (type, role, canonicalId) and unresolved by (axisGuess, role,
- * rawName); NO wall-clock timestamps in the committed output. Combined with the
+ * Determinism contract ("a second run reproduces the same artifact"):
+ * episodes sorted by (pubDate, guid); each episode's tags sorted by (type,
+ * role, canonicalId) and unresolved by (axisGuess, role, rawName); NO
+ * wall-clock timestamps in the committed output. Combined with the
  * LLM cache + temperature 0, a warm-cache re-run is byte-identical.
  *
  * The quality report carries only content-derived facts (coverage, counts,
@@ -77,9 +77,9 @@ export interface BuildArtifactInput {
     /** Pre-built, deterministic show-level links (see `buildShowLinks`). */
     links: PodcastLink[];
   };
-  /** Acquisition source — selects the per-episode link shape (Brief 130). The
-   *  one place the otherwise source-agnostic assembly needs the source; defaults
-   *  to `rss` so pre-130 callers are unchanged. */
+  /** Acquisition source — selects the per-episode link shape. The one place
+   *  the otherwise source-agnostic assembly needs the source; defaults to
+   *  `rss`. */
   source?: PodcastSource;
   model: string;
   promptVersion: string;
@@ -130,7 +130,7 @@ export function serializeArtifact(artifact: ShowArtifact): string {
   return JSON.stringify(artifact, null, 2) + "\n";
 }
 
-// --- quality report -----------------------------------------------------------
+// Quality report
 
 function renderTag(t: EpisodeTag): string {
   const via = t.matchedVia === "alias" ? "alias" : "name";

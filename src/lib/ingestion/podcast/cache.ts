@@ -1,10 +1,9 @@
 /**
- * Brief 110 Step 1 — LLM extraction cache (podcast).
+ * LLM extraction cache (podcast).
  *
- * Mirrors the book pipeline's `llm/cache.ts` idea (sha256 key + one JSON file),
- * adapted to one file PER SHOW holding a map of per-episode entries. Lives under
- * `ingest/.llm-cache/` (gitignored) so a re-run is cheap and -- because the cached
- * extraction is replayed verbatim -- byte-stable.
+ * sha256 key + one JSON file PER SHOW holding a map of per-episode entries.
+ * Lives under `ingest/.llm-cache/` (gitignored) so a re-run is cheap and --
+ * because the cached extraction is replayed verbatim -- byte-stable.
  *
  * Cache key = sha256(model :: promptVersion :: guid :: normalized(title+desc))[:32].
  * Any model swap, prompt-schema change, or episode-text edit invalidates the key.

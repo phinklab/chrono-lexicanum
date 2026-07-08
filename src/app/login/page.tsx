@@ -9,13 +9,13 @@ export const metadata: Metadata = {
   title: "Login - Chrono Lexicanum",
   description: "Restricted preview access to the Chrono Lexicanum archive.",
   robots: { index: false, follow: false },
-  // Brief 163: the invite token rides in `?invite=`. `no-referrer` keeps it out
+  // The invite token rides in `?invite=`. `no-referrer` keeps it out
   // of any outbound Referer (belt-and-suspenders with the contact link's
   // rel="noopener noreferrer") so the token can't leak when this page links out.
   referrer: "no-referrer",
 };
 
-// Pinned per the brief — where a recipient asks for a fresh preview link.
+// Where a recipient asks for a fresh preview link.
 const REDDIT_CONTACT = "https://www.reddit.com/user/piwireddit/";
 
 interface LoginPageProps {
@@ -131,7 +131,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
         )}
       </section>
 
-      {/* Legal links (Brief 179): /login is publicly reachable even while the
+      {/* Legal links: /login is publicly reachable even while the
           preview gate is up, so the § 5 DDG / Art. 13 DSGVO pages must be
           linked from here — both routes sit outside the gate. */}
       <footer className="login-legal" aria-label="Rechtliches">

@@ -3,7 +3,7 @@
  * directory (`/compendium/[category]`): the fixed art, the masthead ("The
  * Registry / The Compendium") and the Imprimatur foot. The category nav lives
  * on the directory pages, not here — the overview leads straight into the
- * doorways (Brief 184).
+ * doorways.
  */
 import type { Metadata } from "next";
 import { type ReactNode } from "react";

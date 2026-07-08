@@ -1,5 +1,5 @@
 /**
- * Compendium category contract — Brief 129 (Doorways). PURE: no `@/db`, no JSX,
+ * Compendium category contract. PURE: no `@/db`, no JSX,
  * so the client controls island and the server pages share one source of truth
  * for the five top-level categories of the entity directory.
  *
@@ -8,7 +8,7 @@
  * wall). The slug is the URL segment (`/compendium/<slug>`), ASCII-German and
  * URL-stable; the entity rows behind it link to the canonical detail routes
  * (`/fraktion`, `/charakter`, `/welt`, `/person`) which soft-nav into the
- * Brief-113 overlay. The `href` of each row is resolved server-side in
+ * entity overlay. The `href` of each row is resolved server-side in
  * `./loader`, so this module stays free of routing detail beyond the category
  * itself.
  */

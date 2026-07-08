@@ -1,11 +1,10 @@
 /**
- * Public book-browse data layer (Brief 120). SERVER-ONLY (imports `@/db`).
+ * Public book-browse data layer. SERVER-ONLY (imports `@/db`).
  *
  * This is the lean, visitor-facing book-browse loader: it loads exactly what
  * the public filters (`q`, `faction`, `format`, `facet`, `sort`) and the row
- * rendering need — no drift / alias / junction-gap / SSOT audit machinery (that
- * lived on the removed `/buecher` maintainer surface, Board 121-P11; its query
- * helpers still sit in `lib/atlas/queries.ts`). One `findMany` fan-out, wrapped
+ * rendering need — no drift / alias / junction-gap / SSOT audit machinery.
+ * One `findMany` fan-out, wrapped
  * try/catch → empty so an unreachable DB at build time degrades to an empty
  * hall instead of failing `next build`.
  */
@@ -67,8 +66,8 @@ export interface BrowseData {
 /**
  * Browse rows carry a *teaser*, not the full synopsis — the catalogue renders
  * all ~900 expanded row bodies into one HTML document, and full synopses were
- * the single biggest driver of its measured 16.45 MB payload (Report 144
- * § P.2/DB.3). The full text lives one click away on `/buch/[slug]`. Cut at a
+ * the single biggest driver of its measured 16.45 MB payload.
+ * The full text lives one click away on `/buch/[slug]`. Cut at a
  * word boundary near the cap so the teaser never ends mid-word.
  */
 const SYNOPSIS_TEASER_MAX = 280;
@@ -215,8 +214,9 @@ async function fetchBrowseBooks(): Promise<BrowseData> {
  * teaser synopses, vs Next's 2 MB cap — see `src/lib/db-cache.ts`), so this
  * uses `memoryCachedRead`: one real DB fan-out per instance per TTL window,
  * and concurrent requests coalesce onto the same in-flight read instead of
- * each firing their own pool-exhausting query (Report 144 § P.2 measured six
- * parallel `/archive` requests starving the whole `max:5` pool). An empty
+ * each firing their own pool-exhausting query (six
+ * parallel `/archive` requests were measured starving the whole `max:5`
+ * pool). An empty
  * result is the degraded DB-error shape and is never retained.
  */
 export const loadBrowseBooks = memoryCachedRead(fetchBrowseBooks, {
@@ -226,7 +226,7 @@ export const loadBrowseBooks = memoryCachedRead(fetchBrowseBooks, {
 /**
  * Resolve a `?focus=<workId>` deep-link target to its book slug, independent of
  * the browse list above — robust against any future filter/limit on the
- * catalogue query (Brief 138's timeline chips link here). Unknown id, non-book
+ * catalogue query (the timeline chips link here). Unknown id, non-book
  * kind, malformed UUID or DB error all degrade to null (graceful no-op).
  */
 export async function bookSlugById(id: string): Promise<string | null> {

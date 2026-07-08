@@ -52,7 +52,7 @@ function wrapIndex(i: number, len: number): number {
 }
 
 /**
- * The "One faction, one book" carousel (Brief 166 redesign). One faction per
+ * The "One faction, one book" carousel. One faction per
  * slide, the curated book shown immediately. Navigation is pure client state —
  * prev/next, the jump rail, and arrow keys all swap the slide WITHOUT a route
  * change, so the page never reloads or jumps back to the top. The URL segment
@@ -108,8 +108,8 @@ export default function FactionCarousel({
       onKeyDown={onKeyDown}
     >
       {/* Jump rail — every faction, the active one marked. Doubles as the
-          position indicator and replaces the old vertical roster (no navigation,
-          so picking a faction never jumps the page to the top). */}
+          position indicator; no navigation, so picking a faction never jumps
+          the page to the top. */}
       <p className="ofob__step">
         <span className="ofob__step-n">I</span>Choose your faction
       </p>

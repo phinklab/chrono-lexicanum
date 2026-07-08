@@ -1,9 +1,9 @@
 /**
- * payload.ts — the compact one-shot client payload for the Cartographer
- * (Brief 178). Built server-side from the validated catalog and passed as a
+ * payload.ts — the compact one-shot client payload for the Cartographer.
+ * Built server-side from the validated catalog and passed as a
  * page prop; the client never sees the raw ~1 MB file.
  *
- * Shape follows the proven study extract (design/data/worlds.js v4): the 70
+ * Shape: the 70
  * primary classifications become an indexed list, dust worlds collapse to
  * coordinate triples, featured worlds keep their full work lists (largest is
  * Terra at ~196 — the world panel scrolls internally).
@@ -80,8 +80,8 @@ export interface MapPayload {
 
 /**
  * Tertiary classifications. The SSOT Excel carries 4 tertiary rows; the
- * convert drops the column deliberately (Brief 183), and only ONE of the four
- * is a linked world today. Kept as a literal (matches the v4 study extract)
+ * convert drops the column deliberately, and only ONE of the four
+ * is a linked world today. Kept as a literal
  * until the convert ever grows a `classification3`.
  */
 const TERTIARY: Readonly<Record<string, string>> = {

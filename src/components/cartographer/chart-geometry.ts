@@ -1,10 +1,8 @@
 /**
  * chart-geometry.ts — every deterministic construction of the Cartographer
- * chart, ported 1:1 from the winning study (design/08-cartographer/
- * i-maledictum.html, Runde 5). Pure math, no DOM, no React — seeded LCG
- * streams keep the chart bit-identical across loads. Die Zonen-Grafiken der
- * Studie (Stürme, Rift-Korridor, Leviathan, Sautekh) sind raus (178b
- * Runde 8): Zonen kommen aus Philipps Hand-Kuration (zones.json).
+ * chart. Pure math, no DOM, no React — seeded LCG streams keep the chart
+ * bit-identical across loads. Zone graphics come from the hand-curated
+ * zones.json, not from this file.
  *
  * Heavy results are memoized at module level; they are only computed on the
  * client (the chart is mount-gated), but nothing here would break in SSR.
@@ -24,7 +22,7 @@ export const BONE = "#e4ddcb";
 export const GOLD = "#a48c52";
 export const BLOOD = "#8e3b32";
 export const ICE = "#9ce6ff";
-/** Nurgle-Galle — „ungesundes Grün" für Plague-Zonen (178b Runde 9). */
+/** Nurgle bile — an "unhealthy green" for plague zones. */
 export const PLAGUE = "#8fae4a";
 
 /** Deterministic scatter (no Math.random: stable chart across loads). */
@@ -36,14 +34,14 @@ export function lcg(seed: number): () => number {
   };
 }
 
-/* ══════════ Polar frame: Solar core + four stepped wedges ══════════
+/* Polar frame: Solar core + four stepped wedges.
    Measured from the canonical reference chart (design/beispiele/
-   "wh40k galaxy map - small.jpg", Session-Nachtrag 178, 2026-07-06):
-   the 1041 SSOT world positions were registered onto the map by
-   brightness-maximization (uniform scale, NO rotation — the curation was
-   traced on exactly this chart; s = 3.902 px/gu, Terra = px 1317/1878),
-   then the four segmentum fills were mask-extracted along 720 rays and
-   their stepped outer edges quantized (raw profiles: flat plateaus ±3 gu).
+   "wh40k galaxy map - small.jpg"): the 1041 SSOT world positions were
+   registered onto the map by brightness-maximization (uniform scale, NO
+   rotation — the curation was traced on exactly this chart; s = 3.902
+   px/gu, Terra = px 1317/1878), then the four segmentum fills were
+   mask-extracted along 720 rays and their stepped outer edges quantized
+   (raw profiles: flat plateaus ±3 gu).
    Angles are y-down math degrees (0° = galactic east); Ultima wraps
    through 0°, so its steps run past 360°. */
 
@@ -65,7 +63,7 @@ export interface WedgeStep {
 }
 
 export interface WedgeDef {
-  /** Inner arc radius — alle vier Keile starten auf dem Solar-Ring. */
+  /** Inner arc radius — all four wedges start on the Solar ring. */
   r0: number;
   steps: WedgeStep[];
 }
@@ -77,10 +75,10 @@ export const SOLAR_R = 123.3;
 export const WEDGES: WedgeDef[] = [
   // Segmentum Pacificus — west (single shallow arc)
   { r0: SOLAR_R, steps: [{ a0: 136.5, a1: 225.3, r: 267.5 }] },
-  // NOTE Tempestus r0: die Referenz misst 139 (knapp außerhalb des
-  // Solar-Rings), aber die beiden fast-parallelen Goldbögen 123.3/139 lasen
-  // sich als kaputte Doppellinie (178b Runde 8, Screenshot-Veto) — die
-  // Innenkante startet jetzt wie alle anderen Keile AUF dem Solar-Ring.
+  // NOTE Tempestus r0: the reference measures 139 (just outside the Solar
+  // ring), but the two nearly parallel gold arcs at 123.3/139 read as a
+  // broken double line — the inner edge starts ON the Solar ring like all
+  // other wedges.
   // Segmentum Obscurus — north-west to north (two plateaus)
   {
     r0: SOLAR_R,
@@ -140,10 +138,9 @@ export function outerR(aDeg: number): number {
   return SOLAR_R;
 }
 
-/** Wie nah eine Silhouetten-Kante einem Graticule-Radius kommen darf, bevor
- *  das Raster dort aussetzt (178b Runde 8): Ring 385 lief mit 6/15/24 gu
- *  Abstand unter den Obscurus-/Tempestus-Stufen durch — ungleich getaktete
- *  Doppellinien. */
+/** How close a silhouette edge may come to a graticule radius before the
+ *  grid yields there: ring 385 ran 6/15/24 gu below the Obscurus/Tempestus
+ *  steps — unevenly paced double lines. */
 export const RING_CLEAR = 26;
 
 /** Graticule ring as arc spans, gapped wherever a segment-silhouette step
@@ -189,8 +186,8 @@ export function ringArcs(r: number, clear = RING_CLEAR): string[] | null {
   });
 }
 
-/* ══════════ Segmentum watermarks + fly-to jumps (label anchors read off
-   the reference chart, projected into grid space) ══════════ */
+/* Segmentum watermarks + fly-to jumps (label anchors read off the
+   reference chart, projected into grid space) */
 
 export interface SegmentumMark {
   name: string;
@@ -208,18 +205,15 @@ export const SEGS: SegmentumMark[] = [
   { name: "Ultima Segmentum", x: 752, y: 500, fs: 46, jump: { x: 760, y: 480, k: 1.5 } },
 ];
 
-/* ══════════ Great Rift spine ══════════
-   Die Rift-GRAFIK (Schraffur-Korridor, Skulls, Label, Blitze, Wort-Glitch)
-   ist raus (178b Runde 8) — Zonen-Grafiken kommen aus Philipps Hand-Kuration
-   (zones.json). Die Spine-Kurve hier ist NUR noch die Schattengrenze der
-   Lumen-/Nihilus-Overlays (nihilusPath unten).
+/* Great Rift spine.
+   The spine curve here is ONLY the shadow boundary of the Lumen/Nihilus
+   overlays (nihilusPath below); zone graphics come from the hand-curated
+   zones.json.
 
-   ⚠ TODO (178b Runde 8, Philipp): Diese Kurve ist Studien-Geometrie und soll
-   sich an Philipps hand-gezeichneter Rift-/Interdiction-Zone orientieren,
-   sobald die in zones.json liegt — dann die Schattengrenze aus der Zone
-   ableiten (Spine durch die Zonen-Längsachse, A/B = die beiden Enden) und
-   RIFT_D/RIFT_A/RIFT_B hier ersetzen. Bis dahin weicht der Nihilus-Schatten
-   ggf. sichtbar von der gezeichneten Zone ab. */
+   TODO: once the hand-drawn rift/interdiction zone lands in zones.json,
+   derive this boundary from it (spine through the zone's long axis,
+   endpoints at the two ends) and replace RIFT_D/RIFT_A/RIFT_B. Until then
+   the Nihilus shadow can visibly diverge from the drawn zone. */
 
 export const RIFT_D =
   "M 262 228 C 350 200, 430 198, 516 232 S 596 330, 618 428 S 662 546, 716 588";
@@ -232,9 +226,9 @@ interface Pt {
 export const RIFT_A: Pt = { x: 262, y: 228 };
 export const RIFT_B: Pt = { x: 716, y: 588 };
 
-/* ══════════ Nihilus shade / Lumen mask geometry (Runde 5: radial edges
-   from Terra through both rift ends, closing on a far circle r=2600 so no
-   overlay edge ever pans into view). ══════════ */
+/* Nihilus shade / Lumen mask geometry: radial edges from Terra through
+   both rift ends, closing on a far circle r=2600 so no overlay edge ever
+   pans into view. */
 
 export const NIHILUS_RFAR = 2600;
 
@@ -256,7 +250,7 @@ export function nihilusPath(): string {
   return nihilusD;
 }
 
-/* ══════════ Dot graticule (star-chart texture) ══════════ */
+/* Dot graticule (star-chart texture) */
 
 export function gridDots(): { x: number; y: number; op: number }[] {
   const dots: { x: number; y: number; op: number }[] = [];
@@ -266,11 +260,9 @@ export function gridDots(): { x: number; y: number; op: number }[] {
   return dots;
 }
 
-/* ══════════ Star-dust scatter (LCG spread in size + brightness, always
-   clearly below the work pins). Session-Nachtrag 178: ranges lifted well
-   above the Runde-5 study values — Philipp wants the full 1054-contact
-   census legible at home zoom. Same LCG stream + draw order, only the
-   output mapping changed. ══════════ */
+/* Star-dust scatter (LCG spread in size + brightness, always clearly below
+   the work pins). Ranges are tuned so the full 1054-contact census stays
+   legible at home zoom. */
 
 export interface DustLook {
   r: number;

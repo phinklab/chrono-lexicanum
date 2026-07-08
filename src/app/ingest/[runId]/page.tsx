@@ -42,7 +42,7 @@ export async function generateMetadata(
 }
 
 export default async function IngestRunPage({ params }: DetailParams) {
-  // Admin-only (Report 144 § S.3) — see /ingest. The headers() read inside
+  // Admin-only — see /ingest. The headers() read inside
   // getIsAdmin() opts this route out of the generateStaticParams prerender
   // into request rendering, which the per-request gate requires.
   if (!(await getIsAdmin())) notFound();
@@ -192,9 +192,7 @@ export default async function IngestRunPage({ params }: DetailParams) {
   );
 }
 
-// =============================================================================
-// Run-Header-Meta
-// =============================================================================
+// Run header meta
 
 function RunMeta({ diff }: { diff: DiffFile }) {
   return (
@@ -259,9 +257,7 @@ function MetaBlock({
   );
 }
 
-// =============================================================================
-// Section-Wrapper
-// =============================================================================
+// Section wrapper
 
 function Section({
   title,
@@ -285,9 +281,7 @@ function Section({
   );
 }
 
-// =============================================================================
-// Per-Buch-Cards (added / updated / skipped_manual)
-// =============================================================================
+// Per-book cards (added / updated / skipped_manual)
 
 function AddedEntryCard({
   entry,
@@ -400,9 +394,7 @@ function SkippedManualCard({
   );
 }
 
-// =============================================================================
-// Per-Buch-Subsections
-// =============================================================================
+// Per-book subsections
 
 function FieldOriginsTable({
   merged,
@@ -642,9 +634,7 @@ function SourceBadge({
   );
 }
 
-// =============================================================================
 // Helpers
-// =============================================================================
 
 function groupFlagsBySlug(
   flags: DiffLLMFlag[],
@@ -661,10 +651,9 @@ function groupFlagsBySlug(
 function groupConflictsBySlug(
   conflicts: FieldConflictEntry[],
 ): { standalone: FieldConflictEntry[] } {
-  // Heute werden Field-Conflicts oft mit dem added-Eintrag gepaart, aber das
-  // ist nicht in der DiffFile-Type garantiert. Wir zeigen alle Konflikte in
-  // einer eigenen Sektion und überlassen dem Reader das Cross-Referencing
-  // via slug.
+  // Field conflicts are often paired with the added entry, but the DiffFile
+  // type does not guarantee it. We show all conflicts in a section of their
+  // own and leave the cross-referencing via slug to the reader.
   return { standalone: conflicts };
 }
 

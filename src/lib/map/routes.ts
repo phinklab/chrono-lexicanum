@@ -1,7 +1,6 @@
 /**
- * routes.ts — the hand-curated ambient courses (Brief 178, Entscheid 7).
- * Ported verbatim from the winning study (design/08-cartographer/
- * i-maledictum.html, Runde 5): two courses, each leg an SVG path in grid
+ * routes.ts — the hand-curated ambient courses:
+ * two courses, each leg an SVG path in grid
  * space, stations matched against featured worlds BY NAME, one cinematic
  * act text per station (course cards).
  *

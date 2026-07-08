@@ -1,6 +1,6 @@
 /**
- * Preview session — the SERVER-ONLY half of the timed-preview-access feature
- * (Brief 163): set the `cl-preview` cookie and record an invite activation.
+ * Preview session — the SERVER-ONLY half of the timed-preview-access
+ * feature: set the `cl-preview` cookie and record an invite activation.
  *
  * Kept separate from `src/lib/previewGate.ts` (edge-safe constants) and
  * `src/lib/previewToken.ts` (edge-safe crypto) because this module imports
@@ -16,7 +16,7 @@ import { PREVIEW_COOKIE, previewSecret } from "./previewGate";
 import { newJti, signPreviewToken } from "./previewToken";
 
 /** Session length for the maintainer's password login (the invite path instead
- *  inherits the link's own baked `exp`). 30 days, matching pre-163 behaviour. */
+ *  inherits the link's own baked `exp`). 30 days, matching the legacy behaviour. */
 export const PASSWORD_SESSION_TTL_SECONDS = 60 * 60 * 24 * 30;
 
 const IS_PROD = process.env.NODE_ENV === "production";
@@ -52,7 +52,7 @@ export async function setSignedSessionCookie(exp: number): Promise<void> {
 }
 
 /**
- * Pre-163 fallback: the dumb unsigned `cl-preview = "1"` cookie. Used only when
+ * Legacy fallback: the dumb unsigned `cl-preview = "1"` cookie. Used only when
  * `PREVIEW_INVITE_SECRET` is unset, so Philipp's password login still works and
  * the gate's legacy presence check lets him in. (Degrade, don't crash.)
  */

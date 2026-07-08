@@ -1,12 +1,12 @@
 /**
- * Curated "hot subset" of entity ids that are prerendered at build time — Brief
- * 161 (entity-ISR). The four entity routes (/charakter, /welt, /fraktion,
- * /person) used to prerender EVERY id (~1300 pages), which fanned ~1300 full
- * `loadEntity` reads from the US build into the eu-central DB on every deploy —
- * 20-minute builds and a build-egress bill that alone reached the Supabase
- * free-tier 5 GB cap. Instead each route now prerenders only this marquee subset
- * and serves the long tail on demand via ISR (`dynamicParams = true`); a page
- * carries itself into the Data Cache on its first real visit.
+ * Curated "hot subset" of entity ids that are prerendered at build time.
+ * The four entity routes (/charakter, /welt, /fraktion,
+ * /person) deliberately do NOT prerender every id (~1300 pages): that fans
+ * ~1300 full `loadEntity` reads from the US build into the eu-central DB on
+ * every deploy — 20-minute builds and a build-egress bill that alone reached
+ * the Supabase free-tier 5 GB cap. Each route prerenders only this marquee
+ * subset and serves the long tail on demand via ISR (`dynamicParams = true`);
+ * a page carries itself into the Data Cache on its first real visit.
  *
  * PURE — no `@/db` import, no JSX. It is a hand-maintained list of ids (the
  * leanest possible build path: param generation costs *zero* DB reads). The

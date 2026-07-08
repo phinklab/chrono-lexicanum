@@ -1,5 +1,5 @@
 /**
- * `@modal` slot fallback — Brief 113, Phase B.
+ * `@modal` slot fallback.
  *
  * Rendered for the modal slot whenever the current URL is reached by a HARD
  * navigation (refresh / direct link / SEO crawler) or otherwise doesn't match

@@ -1,5 +1,5 @@
 /**
- * Artist credits for background artwork (Brief 150). PURE — no `@/db`.
+ * Artist credits for background artwork. PURE — no `@/db`.
  *
  * One shape (`ArtCredit`) + one registry keyed by the public image ref a
  * `<SiteBackground>` renders. SiteBackground looks its photo up here and, on a

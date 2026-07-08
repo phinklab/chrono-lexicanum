@@ -2,13 +2,13 @@
  * Cross-request caching for read-mostly DB loaders.
  *
  * The archive's public catalogue (factions, characters, worlds, authors, books)
- * changes only when the ingestion pipeline runs — yet every visitor-facing page
- * used to re-query Postgres on *every* request. Under concurrency that fans many
- * queries into the small Supabase transaction-pooler pool (`max: 5`), which
- * queues inside pgbouncer until `statement_timeout` and "the cancelled state
- * poisons the next request" (see `src/db/client.ts`). The visible symptom was
- * `/compendium` taking ~77 s per load because its layout alone fires ~7 queries
- * per request (impl report 2026-06-07-129).
+ * changes only when the ingestion pipeline runs — yet without caching every
+ * visitor-facing page re-queries Postgres on *every* request. Under concurrency
+ * that fans many queries into the small Supabase transaction-pooler pool
+ * (`max: 5`), which queues inside pgbouncer until `statement_timeout` and "the
+ * cancelled state poisons the next request" (see `src/db/client.ts`). The
+ * visible symptom was `/compendium` taking ~77 s per load because its layout
+ * alone fires ~7 queries per request.
  *
  * `cachedRead` decouples visitor-count from query-count: the first request in
  * each TTL window does the real read; every other concurrent visitor — across
@@ -31,9 +31,9 @@ import { unstable_cache } from "next/cache";
 /**
  * Default TTL for cached catalogue reads, in seconds. Stale-by-up-to-an-hour is
  * fine — the data only changes when an ingestion/apply run lands (roughly
- * weekly). The original 300 s meant a heavy cold refill every five minutes; the
- * /compendium fill was measured at 60–120 s and wedged the whole `max:5` pool
- * while it ran (Report 144 § P.1), so the refill must be rare, not frequent.
+ * weekly). A short TTL (e.g. 300 s) means a heavy cold refill every five
+ * minutes; the /compendium fill was measured at 60–120 s and wedges the whole
+ * `max:5` pool while it runs, so the refill must be rare, not frequent.
  * Freshness after an apply run comes from on-demand invalidation
  * (`POST /api/revalidate` → `revalidateTag`), not from a short TTL.
  */
@@ -132,11 +132,11 @@ export function resetMemoryCaches(): void {
  * In-memory, per-instance sibling of {@link cachedRead} for read-mostly
  * payloads that exceed Next's 2 MB per-cache-entry limit and therefore cannot
  * use the persistent Data Cache (the `/archive` browse blob: 2.60 MB full,
- * 2.21 MB with truncated synopses — measured 2026-06-12, 889 books).
+ * 2.21 MB with truncated synopses — measured at 889 books).
  *
  * The cache holds the *promise*, so concurrent callers coalesce onto one
  * in-flight read — the anti-stampede property that stops N parallel `/archive`
- * requests from firing N pool-exhausting queries (Report 144 § P.2). Scope is
+ * requests from firing N pool-exhausting queries. Scope is
  * one server process: each serverless instance fills once per TTL window,
  * which trades the cross-instance sharing of `cachedRead` for freedom from the
  * size cap. A degraded or thrown fill is dropped immediately so the next

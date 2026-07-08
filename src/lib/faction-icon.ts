@@ -1,5 +1,5 @@
 /**
- * Faction → marker-icon class for book-list rows (Brief 150). PURE — no `@/db`.
+ * Faction → marker-icon class for book-list rows. PURE — no `@/db`.
  *
  * Four display classes: Imperium, Space Marines, Xenos, Chaos. The classifier
  * reads the columns the DB already carries (`factions.alignment`,

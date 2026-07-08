@@ -1,14 +1,14 @@
 /**
- * Entity-graph shared contract — Brief 109, Step 1 of the entity-graph arc.
+ * Entity-graph shared contract.
  *
- * This module is the durable seam the rest of the arc imports:
- *   - Step 1 (this brief): the three reference pages (/charakter, /fraktion, /welt)
- *   - Step 2 (panel/overlay): mounts the same `EntityView` in an intercepting route
- *   - Step 3 (universal search): resolves a hit to `TYPE_TO_ROUTE[type] + id`
+ * This module is the durable seam the entity graph imports:
+ *   - the reference pages (/charakter, /fraktion, /welt)
+ *   - the panel/overlay that mounts the same `EntityView` in an intercepting route
+ *   - the universal search, which resolves a hit to `TYPE_TO_ROUTE[type] + id`
  *
  * Hard rule: **no JSX and no `@/db` import here.** Everything in this file is a
  * plain type or a pure string helper so it can be imported from a client panel
- * (Step 2) without dragging server-only code into the bundle. The server-only
+ * without dragging server-only code into the bundle. The server-only
  * data layer lives in `./loader`; the db-free view lives in
  * `@/components/entity/`.
  */
@@ -19,7 +19,7 @@ export type EntityType = "character" | "faction" | "location" | "person";
 /**
  * The shareable URL contract: entity type → route prefix. The `[slug]` segment
  * IS the canonical reference id (e.g. `thousand_sons`) — there is no slug column
- * or slugify step (Brief 109, "Out of scope"). Step 3's search imports this map
+ * or slugify step. The universal search imports this map
  * verbatim so a search hit and a cross-link resolve to the same href.
  */
 export const TYPE_TO_ROUTE: Record<EntityType, string> = {
@@ -31,9 +31,7 @@ export const TYPE_TO_ROUTE: Record<EntityType, string> = {
 
 /**
  * Back-link target: entity type → its public directory under /compendium. The
- * hub's "‹ Characters" breadcrumb points here (Brief 113, Phase A). Repointed
- * from the removed /atlas admin decks to the public compendium in Board 121-P11
- * — a visitor now lands on the canonical public list instead of a 404. The
+ * hub's "‹ Characters" breadcrumb points here — the canonical public list. The
  * slugs are the compendium category slugs (`lib/compendium/categories.ts`);
  * `label` matches each category's own English label.
  */
@@ -73,9 +71,9 @@ export type EntityRef = {
 };
 
 /**
- * A curated one-or-two-sentence description of an entity (Board 121-P5). The
+ * A curated one-or-two-sentence description of an entity. The
  * text lives in `scripts/seed-data/{faction,character,location}-blurbs.json` (a
- * thin curation layer, no DB column — Spec 129) and is resolved server-side in
+ * thin curation layer, no DB column) and is resolved server-side in
  * the loader. This is a pure shape: the data module that reads the JSON is
  * `server-only` (`@/lib/blurbs`); only the resolved object reaches the view.
  */
@@ -139,7 +137,7 @@ export type CrossLinkGroup = {
 
 /**
  * The complete render payload for one entity. Frame-agnostic: the page wraps it
- * in `<main>`, the Step-2 panel wraps it in an overlay — both feed this exact
+ * in `<main>`, the panel wraps it in an overlay — both feed this exact
  * object to the same `<EntityView>`.
  */
 export type EntityView = {
@@ -148,7 +146,7 @@ export type EntityView = {
   name: string;
   /** Short tagline under the title (allegiance / sector / tone). */
   oneLine?: string;
-  /** Curated description lead (Board 121-P5); omitted when none is curated. */
+  /** Curated description lead; omitted when none is curated. */
   blurb?: Blurb;
   facts: FactRow[];
   /** Free-text chips (location `tags`); omitted when empty. */

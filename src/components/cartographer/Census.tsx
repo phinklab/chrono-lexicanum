@@ -1,18 +1,15 @@
 "use client";
 
 /**
- * Census — the classification filter (Studie H/I): the 70 primary
- * classifications of the SSOT carry the filter mechanics, bundled into the
- * 11 kind groups with counters + toggles; sub-rows fold out, every
- * classification switches individually.
+ * Census — the classification filter: the 70 primary classifications of the
+ * SSOT carry the filter mechanics, bundled into the 11 kind groups with
+ * counters + toggles; sub-rows fold out, every classification switches
+ * individually.
  *
- * Session-Nachtrag 178 (rearrange): the display toggles sit together at the
- * top under a "Display" caption; the classification groups follow under
- * their own caption, ordered by population (largest first) instead of the
- * old hardcoded thematic order. Group order is computed from the full
- * catalog counts so it never jumps when "Linked records only" flips.
- * "All worlds at every zoom" is gone (178b Runde 7) — every recorded world
- * shows at every zoom now, so the toggle had nothing left to reveal.
+ * The display toggles sit together at the top ("Show on the chart"); the
+ * classification groups follow under their own caption ("By world type"),
+ * ordered by population (largest first). Group order is computed from the
+ * full catalog counts so it never jumps when the works-only filter flips.
  */
 
 import { useMemo, useState } from "react";
@@ -42,9 +39,9 @@ interface CensusProps {
   hiddenCls: ReadonlySet<number>;
   worksOnly: boolean;
   dustOff: boolean;
-  /** Namens-Zwang (178b Runde 9): Labels in jedem Zoom-Band erzwingen. */
+  /** Force labels in every zoom band. */
   namesOn: boolean;
-  /** Zonen-Toggle (178b Runde 10): kuratierte Zonen-Felder aus/ein. */
+  /** Curated zone fields off/on. */
   zonesOff: boolean;
   onToggleCls: (ci: number) => void;
   onSetCls: (cis: number[], hidden: boolean) => void;
@@ -134,8 +131,8 @@ export default function Census({
           <span className="n">{payload.dust.length}</span>
         </button>
       )}
-      {/* Zonen-Toggle (178b Runde 10): Philipps hand-kuratierte Felder
-          (Stürme, Interdiction, Regionen, Dynastien) aus- und einblenden. */}
+      {/* Zone toggle: show or hide the hand-curated fields (storms,
+          interdiction, regions, dynasties). */}
       {zoneCount > 0 && (
         <button
           className={`cx${zonesOff ? " off" : ""}`}
@@ -164,8 +161,8 @@ export default function Census({
           <span className="n">{zoneCount}</span>
         </button>
       )}
-      {/* Namens-Zwang (178b Runde 9): Rettungsanker für dünne Filter — wer
-          z. B. nur Fleets zeigt, sieht in der Übersicht sonst fast nichts. */}
+      {/* Force names: a lifeline for thin filters — showing only fleets,
+          say, leaves the overview nearly empty otherwise. */}
       <button
         className={`cx${namesOn ? " on" : ""}`}
         onClick={onToggleNames}

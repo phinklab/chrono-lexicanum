@@ -6,7 +6,7 @@
  * by era id instead of a DB migration. Event-level credits, when present,
  * take precedence in the cinematic view's art-credit slot.
  *
- * Shape + rendering are shared with the page-background credits (Brief 150):
+ * Shape + rendering are shared with the page-background credits:
  * `ArtCredit` from `src/lib/art-credits.ts`, rendered via `<ArtCreditTag>`.
  * Only the keying differs — era id here (artwork swaps per slide), image ref
  * there (one background per page).

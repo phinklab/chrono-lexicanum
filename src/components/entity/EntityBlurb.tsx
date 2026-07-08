@@ -1,8 +1,8 @@
 /**
- * EntityBlurb — the curated description lead (Board 121-P5). A db-free,
- * presentational paragraph: the loader resolves the `Blurb` server-side and the
- * shared EntityView drops it in at the top of the reading column (so it appears
- * on the full page AND inside the Brief-113 overlay, with no fork). Renders
+ * EntityBlurb — the curated description lead. A db-free, presentational
+ * paragraph: the loader resolves the `Blurb` server-side and the shared
+ * EntityView drops it in at the top of the reading column (so it appears on
+ * the full page AND inside the detail overlay, with no fork). Renders
  * nothing extra beyond the sentence; a very low-confidence blurb reads more
  * quietly, and an optional source URL becomes a whisper-quiet mono cite.
  */

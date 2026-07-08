@@ -1,9 +1,8 @@
 /**
- * Hub breadcrumb — "‹ Characters" back to the entity's /compendium directory
- * (repointed from the removed /atlas decks in Board 121-P11).
+ * Hub breadcrumb — "‹ Characters" back to the entity's /compendium directory.
  *
  * Lives in the page FRAME, not in <EntityView>: it is wayfinding chrome for the
- * full-page hub. Step 2's panel mounts <EntityView> on its own and gives the
+ * full-page hub. The overlay panel mounts <EntityView> on its own and gives the
  * overlay a close affordance instead, so this never leaks into the panel. The
  * chevron is drawn in CSS (decorative) so the link text stays clean for SRs.
  */

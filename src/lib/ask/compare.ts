@@ -12,11 +12,10 @@ export function compareNullableDesc(
 
 /**
  * The single merit comparator shared by `recommend()`, the curation overlay and
- * the precompute matrix (Brief 164). Ordering: `score → rating → title → slug`.
+ * the precompute matrix. Ordering: `score → rating → title → slug`.
  *
- * `releaseYear` was removed as a tie-breaker. It used to sit between `rating`
- * and `title` and broke score ties in favour of newer books — a recency proxy
- * that demoted older canonical classics (e.g. Eisenhorn: *Xenos*, 2001) under
+ * `releaseYear` is deliberately not a tie-breaker: it acts as a recency proxy
+ * that demotes older canonical classics (e.g. Eisenhorn: *Xenos*, 2001) under
  * equally-rated newer titles. `slug` is unique and stable, so it is the final,
  * deterministic discriminator: identical answers always yield identical order
  * across runs, and across the base ranking, the overlay tail and the matrix.

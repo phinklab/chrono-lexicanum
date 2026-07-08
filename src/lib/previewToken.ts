@@ -1,7 +1,7 @@
 /**
  * Preview invite/session token — a custom HMAC-SHA256 scheme over a tiny
  * canonical payload. Used by three independent call sites that MUST agree
- * byte-for-byte (Brief 163):
+ * byte-for-byte:
  *   1. the local management console (browser, Web Crypto) — mints invite links;
  *   2. the redemption server action (`/login` Accept) — verifies invite tokens
  *      and mints the signed session cookie;
@@ -13,8 +13,8 @@
  * crypto correctness — is contained by (a) this written-down canonical spec and
  * (b) the round-trip regression test `scripts/test-preview-token.ts`.
  *
- * ── CANONICAL TOKEN FORMAT (the single source of truth both implementations
- *    target) ────────────────────────────────────────────────────────────────
+ * CANONICAL TOKEN FORMAT (the single source of truth both implementations
+ * target):
  *
  *   payloadJson  = JSON.stringify({ typ, exp, jti })   // keys in THIS order
  *   headerB64    = base64url( utf8(payloadJson) )       // RFC 4648 §5, NO '='

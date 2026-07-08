@@ -1,6 +1,6 @@
 /**
- * Intercept: a soft-nav to /welt/[slug] opens the world hub as an overlay panel
- * (Brief 113, Phase B). SERVER COMPONENT — same `loadEntity` + same db-free
+ * Intercept: a soft-nav to /welt/[slug] opens the world hub as an overlay panel.
+ * SERVER COMPONENT — same `loadEntity` + same db-free
  * `<EntityView>` as the canonical page; only the shared `DetailModal` is a
  * client component. Zero fork. Hard nav / refresh renders the full SSG page
  * instead (`src/app/welt/[slug]/page.tsx`).

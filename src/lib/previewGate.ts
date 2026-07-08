@@ -23,13 +23,13 @@ export const previewGateEnabled = () =>
   process.env.NODE_ENV === "production" && process.env.PREVIEW_GATE !== "off";
 
 /**
- * The HMAC signing secret for invite links and the signed session cookie
- * (Brief 163). High-entropy, never committed; load-bearing (unlike the soft-lock
+ * The HMAC signing secret for invite links and the signed session cookie.
+ * High-entropy, never committed; load-bearing (unlike the soft-lock
  * password defaults above). When set, links/cookies are signed and the gate
  * verifies signature + `exp`; rotating it invalidates every outstanding link
  * AND session at once (the only revocation lever).
  *
- * An empty string counts as UNSET — the whole feature then degrades to pre-163
+ * An empty string counts as UNSET — the whole feature then degrades to legacy
  * behaviour (gate uses the legacy `cl-preview === "1"` presence check, password
  * login sets the legacy unsigned cookie, invite redemption is disabled). See
  * the proxy gate and `src/lib/previewSession.ts` for the two halves of the
