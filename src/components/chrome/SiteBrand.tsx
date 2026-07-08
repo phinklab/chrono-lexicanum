@@ -4,23 +4,21 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 /**
- * SiteBrand — the fixed wordmark, top-left, counterpart to the vox readout on
- * the right. Not shown on the Hub (there the hero IS the wordmark) or on the
- * login gate. On the map it stays, moves to the top center (bottom-left
- * corner politics: the legend owns the left flank) and reads "· Tabula" —
- * Latin for the chart itself. Positioning lives in 55-map.css
- * (body.cg-on-map).
+ * SiteBrand — the "Chrono Lexicanum · Tabula" cartouche on the Cartographer's
+ * north edge (the chart names itself, portolan-style). On every other route
+ * the fixed top-left wordmark is retired (2026-07-08): it overlapped page
+ * chrome on mobile and read as noise on desktop — the burger menu carries
+ * Home, and on the Hub the hero IS the wordmark. Map positioning lives in
+ * 55-map.css (body.cg-on-map).
  */
 export default function SiteBrand() {
   const pathname = usePathname();
-  if (pathname === "/" || pathname === "/login") {
-    return null;
-  }
   const onMap = pathname === "/map" || pathname.startsWith("/map/");
+  if (!onMap) return null;
   return (
     <Link href="/" className="site-brand">
       Chrono Lexicanum
-      {onMap && <span className="site-brand__map">&nbsp;· Tabula</span>}
+      <span className="site-brand__map">&nbsp;· Tabula</span>
     </Link>
   );
 }

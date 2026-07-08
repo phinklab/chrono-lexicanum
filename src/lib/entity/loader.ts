@@ -401,8 +401,6 @@ async function loadLocation(id: string): Promise<EntityView | null> {
         name: locationsTable.name,
         sectorId: locationsTable.sectorId,
         sectorName: sectorsTable.name,
-        gx: locationsTable.gx,
-        gy: locationsTable.gy,
         capital: locationsTable.capital,
         warp: locationsTable.warp,
         tags: locationsTable.tags,
@@ -449,9 +447,6 @@ async function loadLocation(id: string): Promise<EntityView | null> {
 
   const facts: FactRow[] = [];
   if (row.sectorName) facts.push({ label: "Sector", value: row.sectorName });
-  if (row.gx != null && row.gy != null) {
-    facts.push({ label: "Cartographer grid", value: `gx ${row.gx} · gy ${row.gy}` });
-  }
   if (row.capital) facts.push({ label: "Designation", value: "Sector capital" });
   if (row.warp) facts.push({ label: "Warp", value: "Warp anomaly" });
 

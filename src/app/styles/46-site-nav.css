@@ -86,7 +86,8 @@
   letter-spacing: var(--track-30);
 }
 
-/* Wordmark, top-left (SiteBrand.tsx) */
+/* Wordmark (SiteBrand.tsx) — map-only since 2026-07-08; 55-map.css moves it
+   to the centre of the north edge. These are the shared base styles. */
 .site-brand {
   position: fixed;
   top: 26px;
@@ -113,15 +114,6 @@
     font-size: var(--fs-label-xs);
   }
 }
-/* Chronicle (mobile): the cinematic stage owns the top-left corner — entry
-   counter at top:8, era band at top:40 — the wordmark would land exactly
-   between them. It yields; the burger remains the way out. */
-@media (max-width: 760px) {
-  body.on-chron .site-brand {
-    display: none;
-  }
-}
-
 /* Vox readout, top-right (GhostReadout.tsx) */
 .site-vox {
   position: fixed;

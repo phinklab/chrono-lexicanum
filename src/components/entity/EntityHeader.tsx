@@ -1,34 +1,25 @@
 /**
- * Entity header — eyebrow + the single `<h1>` + optional tagline + a compact
- * meta-line of 1–3 already-loaded facts. The meta facts are chosen + de-duped
- * by EntityView; this component only renders them. Linked facts (allegiance /
- * parent faction) render as `<Link>`s, scalar facts as text.
+ * Entity header — the single `<h1>` + optional tagline + a compact meta-line
+ * of 1–3 already-loaded facts. The meta facts are chosen + de-duped by
+ * EntityView; this component only renders them. Linked facts (allegiance /
+ * parent faction) render as `<Link>`s, scalar facts as text. The former
+ * per-type `LATIN · ROLE` eyebrow is retired (2026-07-08): it told the reader
+ * nothing the list or the title didn't.
  */
 import Link from "next/link";
-import { entityHref, type EntityType, type FactRow } from "@/lib/entity/types";
-
-/** Per-type eyebrow, in the /buch surface's mono `// LATIN · ROLE` grammar. */
-const EYEBROW: Record<EntityType, string> = {
-  character: "PERSONA · CHARACTER",
-  faction: "FRACTIO · FACTION",
-  location: "MVNDVS · WORLD",
-  person: "AVCTOR · AUTHOR",
-};
+import { entityHref, type FactRow } from "@/lib/entity/types";
 
 export default function EntityHeader({
-  type,
   name,
   oneLine,
   meta,
 }: {
-  type: EntityType;
   name: string;
   oneLine?: string;
   meta: FactRow[];
 }) {
   return (
     <header className="entity-view__head">
-      <p className="entity-view__eyebrow">{EYEBROW[type]}</p>
       <h1 className="entity-view__title">{name}</h1>
       {oneLine ? <p className="entity-view__oneline">{oneLine}</p> : null}
       {meta.length > 0 ? (

@@ -121,7 +121,6 @@ export default async function CompendiumCategoryPage({
       {focusHref ? <CompendiumFocusOpener href={focusHref} /> : null}
       <CompendiumNav />
       <header className="cmp-cat-intro">
-        <p className="cmp-cat-intro__eyebrow">{c.eyebrow}</p>
         <h2 className="cmp-cat-intro__heading">{c.label}</h2>
         <p className="cmp-cat-intro__blurb">{c.blurb}</p>
       </header>

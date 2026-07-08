@@ -24,8 +24,6 @@ export interface CompendiumCategory {
   slug: string;
   /** Display label (English/Latin surface, like /buch). */
   label: string;
-  /** `// LATIN · ROLE` eyebrow, matching the entity-hub header grammar. */
-  eyebrow: string;
   /** A single decorative sigil glyph for the overview door (aria-hidden). */
   sigil: string;
   /** Singular noun for count copy ("12 factions" / "1 faction"). */
@@ -60,7 +58,6 @@ export const COMPENDIUM_CATEGORIES: ReadonlyArray<CompendiumCategory> = [
   {
     slug: "fraktionen",
     label: "Factions",
-    eyebrow: "FRACTIO · FACTION",
     sigil: "✠",
     noun: "faction",
     blurb:
@@ -72,7 +69,6 @@ export const COMPENDIUM_CATEGORIES: ReadonlyArray<CompendiumCategory> = [
   {
     slug: "primarchen",
     label: "Primarchs",
-    eyebrow: "PRIMARCHA · PRIMARCH",
     sigil: "❂",
     noun: "primarch",
     blurb: "The twenty sons of the Emperor — the demigods who led the Legions.",
@@ -81,7 +77,6 @@ export const COMPENDIUM_CATEGORIES: ReadonlyArray<CompendiumCategory> = [
   {
     slug: "charaktere",
     label: "Characters",
-    eyebrow: "PERSONA · CHARACTER",
     sigil: "✶",
     noun: "character",
     blurb:
@@ -91,7 +86,6 @@ export const COMPENDIUM_CATEGORIES: ReadonlyArray<CompendiumCategory> = [
   {
     slug: "welten",
     label: "Worlds",
-    eyebrow: "MVNDVS · WORLD",
     sigil: "◉",
     noun: "world",
     blurb:
@@ -101,7 +95,6 @@ export const COMPENDIUM_CATEGORIES: ReadonlyArray<CompendiumCategory> = [
   {
     slug: "autoren",
     label: "Authors",
-    eyebrow: "AVCTOR · AUTHOR",
     sigil: "❡",
     noun: "author",
     blurb: "The writers behind the canon — every novel and story traced to its hand.",

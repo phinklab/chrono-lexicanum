@@ -126,7 +126,6 @@ export default function SiteMenu() {
         inert={!open}
       >
         <div className="site-menu__inner">
-          <div className="site-menu__head">CHRONICA · NAVIGATIO</div>
           <ul className="site-menu__list">
             {ENTRIES.map((e) => (
               <li key={e.href} className="site-menu__item">
@@ -137,7 +136,6 @@ export default function SiteMenu() {
               </li>
             ))}
           </ul>
-          <div className="site-menu__foot">TERRA STANDARD · M42.347</div>
           {/* Legal links: the burger is the only chrome on the immersive
               surfaces (map/timeline/entities), so on touch/narrow viewports
               this row is what keeps Impressum + Datenschutz + Artwork

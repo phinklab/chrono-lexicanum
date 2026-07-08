@@ -185,7 +185,7 @@ export default function CartoucheSheet({
           {/* Closed-dock affordance: the bare bar alone doesn't read as
               "pull me up" — the label disappears once the sheet is open. */}
           <span className="glab" aria-hidden>
-            Scroll for more
+            Drag for more
           </span>
         </button>
 

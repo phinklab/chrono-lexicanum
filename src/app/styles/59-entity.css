@@ -111,17 +111,8 @@ main.entity::before {
 
 /* Header */
 
-.entity-view__eyebrow {
-  margin: 0;
-  font-family: var(--font-mono);
-  font-size: var(--fs-label);
-  letter-spacing: var(--track-24);
-  text-transform: uppercase;
-  color: color-mix(in oklch, var(--cl-gold) 60%, var(--cl-dim));
-}
-
 .entity-view__title {
-  margin: 14px 0 0;
+  margin: 0;
   font-family: var(--font-display);
   font-weight: var(--fw-medium);
   font-size: clamp(36px, 4vw, 56px);

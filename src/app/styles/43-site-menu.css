@@ -165,32 +165,9 @@ body:has([data-detail-modal]) .site-burger {
   flex-direction: column;
   align-items: stretch;
 }
-.site-menu__head,
-.site-menu__foot {
-  font-family: var(--sm-mono);
-  font-size: var(--fs-label-3xs);
-  letter-spacing: var(--track-34);
-  color: var(--sm-steel-dim);
-  text-align: center;
-  opacity: 0;
-  transition: opacity 0.6s ease 0.1s;
-}
-.site-menu__head {
-  margin-bottom: clamp(20px, 5vh, 48px);
-}
-.site-menu__foot {
-  margin-top: clamp(20px, 5vh, 48px);
-  transition-delay: 0.45s;
-}
-.site-menu.is-open .site-menu__head,
-.site-menu.is-open .site-menu__foot {
-  opacity: 1;
-}
-
-/* Legal links — last line under the TERRA STANDARD stamp, same quiet mono
-   register; fades in with the foot. */
+/* Legal links — the quiet mono line under the entry list; fades in last. */
 .site-menu__legal {
-  margin-top: 14px;
+  margin-top: clamp(20px, 5vh, 48px);
   display: flex;
   justify-content: center;
   align-items: baseline;
