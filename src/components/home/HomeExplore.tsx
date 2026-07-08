@@ -1,15 +1,15 @@
 import Link from "next/link";
 
 /**
- * HomeExplore (Brief 121 → Session 142 lab port) — Home's Act 3 "More to
+ * HomeExplore — Home's Act 3 "More to
  * explore": the archive doorways as a grouped registry. Three plain-language
  * bands — The Library, Browse by Topic, Discover More — of compact single-line
  * rows (roman numeral · title · short description · hover gloss · chevron).
  * The frameless row idiom in gold: Terminus separators between rows, accent
  * only on hover/focus, and the archivist's marginalia gloss fading in on hover.
  *
- * "Browse by Topic" mirrors the five Compendium categories (2026-06-11) — every
- * row is a live link; the former inert SOON rows are gone. Server component
+ * "Browse by Topic" mirrors the five Compendium categories — every
+ * row is a live link. Server component
  * (static links). The SOON idiom (RowInner else-branch + .hub-explore__soon)
  * stays dormant for future curated pages.
  */

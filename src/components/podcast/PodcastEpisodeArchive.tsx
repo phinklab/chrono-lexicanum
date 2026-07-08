@@ -5,7 +5,7 @@
  *
  * Receives a fully-serialized episode set from the server loader (no `@/db`
  * import here — the loader type comes in via `import type`, which is erased, so
- * the client bundle stays pure). Owns three things the static page can't:
+ * the client bundle stays pure). Owns what the static page can't:
  *   1. a bespoke filter bar (title search + kind toggle + year quick-jump),
  *   2. one-at-a-time inline playback (native <audio>, dark controls),
  *   3. listen links (open the enclosure) + faction chips that route into the
@@ -18,6 +18,7 @@
  */
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { shortDayMonth } from "@/lib/dates";
 import type { PodcastEpisode } from "@/app/archive/podcasts/loader";
 
 type Props = {
@@ -35,12 +36,6 @@ const KIND_LABELS: Record<string, string> = {
   other: "Other",
 };
 const KIND_ORDER = ["lore", "interview", "news_recap", "other"];
-
-const DAY_MONTH = new Intl.DateTimeFormat("en", { day: "2-digit", month: "short" });
-
-function shortDate(ms: number | null): string {
-  return ms == null ? "—" : DAY_MONTH.format(new Date(ms));
-}
 
 function formatDuration(sec: number | null): string | null {
   if (sec == null || sec <= 0) return null;
@@ -95,7 +90,7 @@ export default function PodcastEpisodeArchive({ episodes, showTitle }: Props) {
   const [kind, setKind] = useState<string>("all");
   const [playingId, setPlayingId] = useState<string | null>(null);
   // Manual disclosure state for the year headings — empty = all collapsed (the
-  // requested first state). A year is in the set iff the reader expanded it.
+  // deliberate first state). A year is in the set iff the reader expanded it.
   const [openYears, setOpenYears] = useState<Set<YearKey>>(new Set());
   // Deep-link target — a podcast link in an entity panel lands here as
   // `/archive/podcasts/[show]#ep-<id>`. The id of the episode to highlight, or null.
@@ -241,8 +236,13 @@ export default function PodcastEpisodeArchive({ episodes, showTitle }: Props) {
     reconcilePlaying("", "all");
   }
 
+  // A search field over a handful of episodes of one kind is dead chrome —
+  // the filter bar earns its place only on non-trivial archives.
+  const showFilter = episodes.length > 10 || presentKinds.length > 1;
+
   return (
     <section className="pod-archive" aria-label={`${showTitle} — episodes`}>
+      {showFilter && (
       <div className="pod-filter" role="search">
         <div className="pod-filter__search">
           {/* Auspex reticle — the same query sigil /werke's BrowseSearch uses. */}
@@ -321,6 +321,7 @@ export default function PodcastEpisodeArchive({ episodes, showTitle }: Props) {
           </span>
         </div>
       </div>
+      )}
 
       {jumpYears.length > 1 && (
         <nav className="pod-jump" aria-label="Jump to year">
@@ -444,7 +445,7 @@ function EpisodeRow({
           </span>
         )}
 
-        <span className="pod-ep__date">{shortDate(ep.pubDateMs)}</span>
+        <span className="pod-ep__date">{shortDayMonth(ep.pubDateMs)}</span>
 
         <div className="pod-ep__main">
           <span className="pod-ep__title">{ep.title}</span>
