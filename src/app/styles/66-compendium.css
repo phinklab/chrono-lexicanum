@@ -229,6 +229,7 @@
 /* The census line of the directory. */
 .cmp-toolbar {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: baseline;
   gap: 8px;

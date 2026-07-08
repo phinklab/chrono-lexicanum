@@ -223,6 +223,19 @@ body.cg-on-map .site-brand .site-brand__map {
 .cg-chart:not(.moving) .cg-w:hover .cg-lbl {
   opacity: 1;
 }
+/* Mobile: the whole staircase steps one band later — the overview opens
+   quiet (no world names at band 0 on a phone-sized chart) and names arrive
+   with deliberate zoom: t0 from band 1, t1 from band 2, t2 from band 3.
+   The `.names` census override still lifts every gate. */
+@media (max-width: 900px) {
+  .cg-chart:not(.names)[data-band="0"] .cg-lbl.t0,
+  .cg-chart:not(.names)[data-band="1"] .cg-lbl.t1,
+  .cg-chart:not(.names)[data-band="2"] .cg-lbl.t2 {
+    opacity: 0;
+    pointer-events: none;
+    display: none;
+  }
+}
 
 /* Star dust recedes: unrecorded worlds sit at 60% opacity while their names
    are unreadable — full presence only in band 3, when the t3 labels come
@@ -244,7 +257,7 @@ body.cg-on-map .site-brand .site-brand__map {
   font-family: var(--font-body);
   font-style: italic;
   fill: var(--cl-gold);
-  fill-opacity: 0.6;
+  fill-opacity: 0.45;
   font-size: calc(14.5px * var(--cg-ik, 1));
   letter-spacing: calc(4px * var(--cg-ik, 1));
   text-anchor: middle;
@@ -1157,6 +1170,13 @@ body.cg-on-map .site-brand .site-brand__map {
 .cg-census .cx.off {
   opacity: 0.4;
 }
+/* Middle step of the zone cycle: present, but half-voiced. */
+.cg-census .cx.dim {
+  opacity: 0.7;
+}
+.cg-census .cx.dim .sym {
+  opacity: 0.5;
+}
 .cg-census .cx.on {
   color: var(--cl-gold);
 }
@@ -1496,10 +1516,17 @@ body.cg-on-map .site-brand .site-brand__map {
 .cg-zones {
   pointer-events: none;
 }
-/* Zone toggle (census "Zones & storm fields"): fades the field layer out
-   softly — #cg-fields already carries the 0.7s opacity transition from
-   course mode. Wins on ID specificity against the 0.22 course rule. */
+/* Zone cycle (census "Zones & warp storms"): full → dimmed → hidden.
+   #cg-fields already carries the 0.7s opacity transition from course mode;
+   both steps win on ID specificity against the 0.22 course rule. The dim
+   step keeps the fields legible as terrain but retires their names. */
 .cg-chart.nozones #cg-fields {
+  opacity: 0;
+}
+.cg-chart.zones-dim #cg-fields {
+  opacity: 0.45;
+}
+.cg-chart.zones-dim .cg-zone-lbl {
   opacity: 0;
 }
 .cg-zone .zshape {
@@ -1544,6 +1571,7 @@ body.cg-on-map .site-brand .site-brand__map {
   pointer-events: none;
   fill: var(--cg-warp-l);
   fill-opacity: 0.85;
+  transition: opacity 0.5s var(--ease);
 }
 .cg-zone.interdiction .cg-zone-lbl {
   fill: var(--cl-blood);
@@ -1987,16 +2015,11 @@ body.cg-on-map .site-brand .site-brand__map {
     padding-bottom: 10px;
   }
 
-  /* Zoomer — 44px touch targets, lifted above the drawer dock. */
+  /* Zoomer (+/−, 3×/6×, home) — desktop affordances. On touch the chart is
+     pinch-zoomed and panned directly; the icon stack only crowds the corner
+     above the drawer dock. */
   .cg-zoomer {
-    right: calc(12px + env(safe-area-inset-right, 0px));
-    bottom: calc(76px + env(safe-area-inset-bottom, 0px));
-    gap: 2px;
-  }
-  .cg-zoomer button {
-    width: 44px;
-    height: 44px;
-    font-size: 16px;
+    display: none;
   }
 
   /* Glass gradients are near-opaque — the blur is invisible on phones but
@@ -2112,6 +2135,18 @@ body.cg-on-map .site-brand .site-brand__map {
     scrollbar-width: thin;
     scrollbar-color: var(--cl-gold-dim) transparent;
     padding-top: 4px;
+  }
+  /* The body stays in the DOM so a grip drag can reveal it progressively:
+     while `dragging` (JS-driven height) the content shows behind the dock
+     head and rises with the finger; fully hidden only when closed at rest. */
+  .cg-sheet:not(.open):not(.dragging) .cg-sheet-body {
+    display: none;
+  }
+  .cg-sheet.dragging {
+    overflow: hidden;
+  }
+  .cg-sheet.dragging .cg-sheet-body {
+    overflow: hidden;
   }
 
   /* Touch-target bumps for the shared vocabulary inside the sheet. */

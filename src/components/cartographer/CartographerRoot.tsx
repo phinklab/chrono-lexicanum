@@ -15,6 +15,7 @@ import { parseMapHash, writeMapHash } from "@/lib/map/hash";
 import type { MapPayload } from "@/lib/map/payload";
 import { catalogSource } from "@/lib/map/pin-source";
 import { COURSES } from "@/lib/map/routes";
+import type { ZonesMode } from "@/lib/map/zones";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 
 import { Cartouche, Overture } from "./Cartouche";
@@ -44,8 +45,8 @@ interface CgState {
   /** Force names: every visible world shows its name at every zoom — a
    *  lifeline for thin filters (e.g. fleets only). */
   names: boolean;
-  /** Hides the curated zone fields. */
-  zonesOff: boolean;
+  /** Curated zone fields: full → dimmed (no names) → hidden. */
+  zones: ZonesMode;
 }
 
 const INITIAL: CgState = {
@@ -58,7 +59,7 @@ const INITIAL: CgState = {
   lumen: false,
   nihilus: false,
   names: false,
-  zonesOff: false,
+  zones: "on",
 };
 
 type CgAction =
@@ -72,7 +73,7 @@ type CgAction =
   | { type: "toggleLumen" }
   | { type: "toggleNihilus" }
   | { type: "toggleNames" }
-  | { type: "toggleZones" };
+  | { type: "cycleZones" };
 
 function reducer(state: CgState, action: CgAction): CgState {
   switch (action.type) {
@@ -110,8 +111,11 @@ function reducer(state: CgState, action: CgAction): CgState {
       return { ...state, condensed: true, nihilus: !state.nihilus };
     case "toggleNames":
       return { ...state, names: !state.names };
-    case "toggleZones":
-      return { ...state, zonesOff: !state.zonesOff };
+    case "cycleZones":
+      return {
+        ...state,
+        zones: state.zones === "on" ? "dim" : state.zones === "dim" ? "off" : "on",
+      };
   }
 }
 
@@ -263,13 +267,13 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
       worksOnly={state.worksOnly}
       dustOff={state.dustOff}
       namesOn={state.names}
-      zonesOff={state.zonesOff}
+      zones={state.zones}
       onToggleCls={(ci) => dispatch({ type: "toggleCls", ci })}
       onSetCls={(cis, hidden) => dispatch({ type: "setCls", cis, hidden })}
       onToggleWorksOnly={() => dispatch({ type: "toggleWorksOnly" })}
       onToggleDust={() => dispatch({ type: "toggleDust" })}
       onToggleNames={() => dispatch({ type: "toggleNames" })}
-      onToggleZones={() => dispatch({ type: "toggleZones" })}
+      onCycleZones={() => dispatch({ type: "cycleZones" })}
     />
   );
 
@@ -295,7 +299,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           lumen={state.lumen}
           nihilus={state.nihilus}
           names={state.names}
-          zonesOff={state.zonesOff}
+          zones={state.zones}
           courseId={state.courseId}
           reduce={reduce}
           magRef={magRef}
@@ -396,14 +400,14 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
         </button>
         <button
           className="preset"
-          title="Magnify to 3.2×: every world with records shows its name"
+          title="Magnify to 3.2×: the recorded worlds' names come on"
           onClick={() => zoomPreset(3.2)}
         >
           3×
         </button>
         <button
           className="preset"
-          title="Magnify to 6.0×: every world on the chart shows its name"
+          title="Magnify to 6.0×: every name on the chart comes on"
           onClick={() => zoomPreset(6.0)}
         >
           6×

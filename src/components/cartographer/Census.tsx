@@ -17,6 +17,7 @@ import { useMemo, useState } from "react";
 import type { MapPayload } from "@/lib/map/payload";
 import type { MapWorldKind } from "@/lib/map/map-worlds-schema";
 import { CURATED_ZONES } from "@/lib/map/zones";
+import type { ZonesMode } from "@/lib/map/zones";
 import { BONE, GOLD } from "./chart-geometry";
 import { Glyph } from "./layers";
 
@@ -41,14 +42,14 @@ interface CensusProps {
   dustOff: boolean;
   /** Force labels in every zoom band. */
   namesOn: boolean;
-  /** Curated zone fields off/on. */
-  zonesOff: boolean;
+  /** Curated zone fields: full → dimmed (no names) → hidden. */
+  zones: ZonesMode;
   onToggleCls: (ci: number) => void;
   onSetCls: (cis: number[], hidden: boolean) => void;
   onToggleWorksOnly: () => void;
   onToggleDust: () => void;
   onToggleNames: () => void;
-  onToggleZones: () => void;
+  onCycleZones: () => void;
 }
 
 export default function Census({
@@ -57,13 +58,13 @@ export default function Census({
   worksOnly,
   dustOff,
   namesOn,
-  zonesOff,
+  zones,
   onToggleCls,
   onSetCls,
   onToggleWorksOnly,
   onToggleDust,
   onToggleNames,
-  onToggleZones,
+  onCycleZones,
 }: CensusProps) {
   const zoneCount = CURATED_ZONES.filter((z) => z.published).length;
   const [open, setOpen] = useState<ReadonlySet<string>>(new Set());
@@ -131,13 +132,13 @@ export default function Census({
           <span className="n">{payload.dust.length}</span>
         </button>
       )}
-      {/* Zone toggle: show or hide the hand-curated fields (storms,
-          interdiction, regions, dynasties). */}
+      {/* Zone cycle: the hand-curated fields (storms, interdiction, regions,
+          dynasties) step full → dimmed (fills stay, names go) → hidden. */}
       {zoneCount > 0 && (
         <button
-          className={`cx${zonesOff ? " off" : ""}`}
-          onClick={onToggleZones}
-          title="Show or hide the marked zones: storms, interdiction fields, named regions, dynasties"
+          className={`cx${zones === "off" ? " off" : ""}${zones === "dim" ? " dim" : ""}`}
+          onClick={onCycleZones}
+          title="Cycle the marked zones: full → dimmed without names → hidden"
         >
           <span className="pad" />
           <span className="sym">
@@ -157,8 +158,8 @@ export default function Census({
               <line x1={0.2} y1={4.5} x2={5.2} y2={-4.5} stroke="currentColor" strokeOpacity={0.55} strokeWidth={0.9} />
             </svg>
           </span>
-          <span className="lab">Zones &amp; storm fields</span>
-          <span className="n">{zoneCount}</span>
+          <span className="lab">Zones &amp; warp storms</span>
+          <span className="n">{zones === "dim" ? "dim" : zoneCount}</span>
         </button>
       )}
       {/* Force names: a lifeline for thin filters — showing only fleets,

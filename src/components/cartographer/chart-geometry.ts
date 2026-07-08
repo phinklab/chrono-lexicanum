@@ -9,6 +9,7 @@
  */
 
 import { GRID_H, GRID_W, TERRA } from "@/lib/map/projection";
+import { CURATED_ZONES } from "@/lib/map/zones";
 
 export const W = GRID_W;
 export const H = GRID_H;
@@ -206,25 +207,75 @@ export const SEGS: SegmentumMark[] = [
 ];
 
 /* Great Rift spine.
-   The spine curve here is ONLY the shadow boundary of the Lumen/Nihilus
-   overlays (nihilusPath below); zone graphics come from the hand-curated
-   zones.json.
-
-   TODO: once the hand-drawn rift/interdiction zone lands in zones.json,
-   derive this boundary from it (spine through the zone's long axis,
-   endpoints at the two ends) and replace RIFT_D/RIFT_A/RIFT_B. Until then
-   the Nihilus shadow can visibly diverge from the drawn zone. */
-
-export const RIFT_D =
-  "M 262 228 C 350 200, 430 198, 516 232 S 596 330, 618 428 S 662 546, 716 588";
+   Derived from the hand-drawn "Cicatrix Maledictum" zone (zones.json): the
+   band runs west→east across the chart, so a vertical-slice midline — at
+   each sample X the midpoint between the band's outermost boundary
+   crossings — gives its long axis; two smoothing passes iron out the slice
+   jitter where the band bulges (west bulb, southern spur). The spine is
+   ONLY the shadow boundary of the Lumen/Nihilus overlays (nihilusPath
+   below); the zone layer renders the drawn outline itself. Whenever the
+   zone editor moves the rift, the overlays follow on the next build.
+   Falls back to the retired hand-tuned curve should the zone ever be
+   renamed/unpublished — the chart must not lose its shadow to a curation
+   edit. */
 
 interface Pt {
   x: number;
   y: number;
 }
 
-export const RIFT_A: Pt = { x: 262, y: 228 };
-export const RIFT_B: Pt = { x: 716, y: 588 };
+const RIFT_FALLBACK = {
+  d: "M 262 228 C 350 200, 430 198, 516 232 S 596 330, 618 428 S 662 546, 716 588",
+  a: { x: 262, y: 228 } as Pt,
+  b: { x: 716, y: 588 } as Pt,
+};
+
+function riftSpine(): { d: string; a: Pt; b: Pt } {
+  const zone = CURATED_ZONES.find(
+    (z) => z.name === "Cicatrix Maledictum" && z.published,
+  );
+  if (!zone) return RIFT_FALLBACK;
+  const pts = zone.points;
+  const xs = pts.map((p) => p[0]);
+  const xMin = Math.min(...xs);
+  const xMax = Math.max(...xs);
+  // Sample just inside the tips — the exact extremes are tangent points
+  // with no band width to bisect.
+  const inset = (xMax - xMin) * 0.012;
+  const N = 30;
+  const mid: Pt[] = [];
+  for (let i = 0; i <= N; i++) {
+    const x = xMin + inset + (xMax - xMin - 2 * inset) * (i / N);
+    let lo = Infinity;
+    let hi = -Infinity;
+    for (let j = 0; j < pts.length; j++) {
+      const [ax, ay] = pts[j];
+      const [bx, by] = pts[(j + 1) % pts.length];
+      if (ax === bx) continue;
+      if ((ax <= x && x < bx) || (bx <= x && x < ax)) {
+        const y = ay + ((x - ax) / (bx - ax)) * (by - ay);
+        lo = Math.min(lo, y);
+        hi = Math.max(hi, y);
+      }
+    }
+    if (hi < lo) continue; // slice missed the band entirely
+    mid.push({ x, y: (lo + hi) / 2 });
+  }
+  if (mid.length < 2) return RIFT_FALLBACK;
+  for (let pass = 0; pass < 2; pass++)
+    for (let i = 1; i < mid.length - 1; i++)
+      mid[i] = { x: mid[i].x, y: (mid[i - 1].y + 2 * mid[i].y + mid[i + 1].y) / 4 };
+  const d = mid
+    .map((p, i) => `${i === 0 ? "M" : "L"} ${p.x.toFixed(1)} ${p.y.toFixed(1)}`)
+    .join(" ");
+  return { d, a: mid[0], b: mid[mid.length - 1] };
+}
+
+const RIFT = riftSpine();
+
+export const RIFT_D = RIFT.d;
+export const RIFT_A: Pt = RIFT.a;
+export const RIFT_B: Pt = RIFT.b;
 
 /* Nihilus shade / Lumen mask geometry: radial edges from Terra through
    both rift ends, closing on a far circle r=2600 so no overlay edge ever

@@ -24,6 +24,10 @@ export const ZONE_KINDS = [
 ] as const;
 export type ZoneKind = (typeof ZONE_KINDS)[number];
 
+/** Census display mode for the zone layer: full → dimmed (fills at reduced
+ *  opacity, names hidden) → hidden. */
+export type ZonesMode = "on" | "dim" | "off";
+
 /** Editor-facing names (the chart styles key off the raw kind). */
 export const ZONE_KIND_LABELS: Record<ZoneKind, string> = {
   storm: "Warp storm",

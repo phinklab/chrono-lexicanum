@@ -1,11 +1,12 @@
 /* 71-legal.css
    Legal document pages: /imprint (Impressum § 5 DDG + GW-IP-
-   Disclaimer) and /privacy (Datenschutzerklärung Art. 13 DSGVO). Sober
+   Disclaimer), /privacy (Datenschutzerklärung Art. 13 DSGVO) and /artwork
+   (downloadable background originals — third point of the legal row). Sober
    document register on the flat void — the syspage vocabulary up top
    (mono eyebrow / Cinzel heading / gold hairline), then one left-aligned
-   reading column of numbered sections. Deliberately no artwork, no glow,
-   no in-universe voice: these pages must read as plain paperwork inside
-   the house frame. Content is German → the pages set lang="de". */
+   reading column of numbered sections. Deliberately no glow, no in-universe
+   voice: these pages must read as plain paperwork inside the house frame.
+   Legal content is German → those pages set lang="de". */
 
 .legal {
   min-height: 100vh;
@@ -169,6 +170,73 @@
   border-left: 1px solid var(--cl-ghost);
   font-family: var(--font-body);
   font-style: italic;
+  font-size: var(--fs-read-xs);
+  line-height: var(--lh-read);
+  color: var(--cl-faint);
+}
+
+/* /artwork — the site's own background paintings as downloadable plates:
+   framed preview, caption row with title + mono DOWNLOAD link, a quiet
+   where-it-hangs line underneath. Same sober document register. */
+.legal__art {
+  display: grid;
+  gap: 36px;
+  margin-top: 24px;
+}
+
+.legal__art figure {
+  margin: 0;
+}
+
+.legal__art img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--cl-hair);
+}
+
+.legal__art figcaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.legal__art-name {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: var(--track-24);
+  text-transform: uppercase;
+  color: var(--cl-bone);
+}
+
+.legal__art-dls {
+  flex-shrink: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+}
+
+.legal__art-dl {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-xs);
+  letter-spacing: var(--track-24);
+  text-transform: uppercase;
+  color: var(--cl-gold);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in oklch, var(--cl-gold) 45%, transparent);
+  transition: border-color 0.2s ease;
+}
+
+.legal__art-dl:hover,
+.legal__art-dl:focus-visible {
+  border-bottom-color: var(--cl-gold);
+}
+
+.legal__art-where {
+  margin: 6px 0 0;
+  font-family: var(--font-body);
   font-size: var(--fs-read-xs);
   line-height: var(--lh-read);
   color: var(--cl-faint);

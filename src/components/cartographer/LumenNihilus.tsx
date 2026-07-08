@@ -5,10 +5,9 @@
  * Nihilus shade. Shadow edges run as RAYS from Terra through both rift ends
  * and close on a far circle r=2600 — no overlay edge ever pans into view.
  *
- * TODO: once the hand-drawn rift/interdiction zone lands in zones.json,
- * derive the shadow boundary from it (see the TODO in chart-geometry.ts) and
- * replace the placeholder RIFT_D/nihilusPath curve. Until then the Nihilus
- * shadow can visibly diverge from the drawn zone.
+ * The rift boundary itself (RIFT_D / nihilusPath) is derived in
+ * chart-geometry.ts from the hand-drawn "Cicatrix Maledictum" zone, so the
+ * shadow follows wherever the zone editor moves the rift.
  *
  * Both groups mount hidden; `svg.lumen` / `svg.nihilus` display them (CSS).
  */

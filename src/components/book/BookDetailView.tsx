@@ -209,12 +209,6 @@ export default function BookDetailView({
         audio={audioCredit}
       />
       <RegionSwitcher active={region} />
-
-      <footer className="book-detail__footer">
-        <Link href={`/buch/${book.slug}/audit`} className="book-detail__audit-link">
-          Provenance &amp; audit record →
-        </Link>
-      </footer>
     </article>
   );
 }

@@ -414,6 +414,16 @@
     grid-column: 1 / -1;
     justify-self: center;
   }
+  /* The label + pills of one sort/facet group ("ALLEGIANCE IMPERIUM · CHAOS ·
+     XENOS · NEUTRAL") exceed a phone viewport as one inline-flex line — let
+     the group wrap instead of widening the page. */
+  .browse-sort {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 2px;
+    max-width: 100%;
+  }
   .browse-pill {
     padding: 10px 6px;
   }
