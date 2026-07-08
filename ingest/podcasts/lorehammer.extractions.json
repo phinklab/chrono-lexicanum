@@ -2623,6 +2623,21 @@
         "mentioned": []
       }
     },
+    "4aa58a02-3d7c-44e0-98a0-cb31823a90fd": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
     "4b3acbab-5990-488e-b7a4-f2e584a04819": {
       "episodeKind": "other",
       "characters": {
@@ -2650,6 +2665,24 @@
         ],
         "mentioned": [
           "Orks"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "4bf951d2-2133-47de-aea2-0e7190f7f0db": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": [
+          "Primaris Marines",
+          "Tyranids"
         ]
       },
       "locations": {
@@ -2712,6 +2745,24 @@
         "mentioned": []
       }
     },
+    "512277d7-4ac7-4bef-9052-c658529a8978": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": [
+          "Grey Knights",
+          "Necrons"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
     "51c6cbd3-cddf-4d4f-84ae-c2b6c70f852c": {
       "episodeKind": "lore",
       "characters": {
@@ -2764,6 +2815,25 @@
           "Haemonculi Covens"
         ],
         "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "54fcc386-dcf9-4e35-ac7b-54a6397f597b": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Space Marines"
+        ],
+        "mentioned": [
+          "Imperium"
+        ]
       },
       "locations": {
         "primary": [],
@@ -3472,6 +3542,23 @@
         "mentioned": []
       }
     },
+    "9d86842b-1655-4254-9b2d-ed3fd0b6b3f9": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Space Marines"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
     "9dd9eee4-48a9-4df1-a434-8099d8e0047b": {
       "episodeKind": "lore",
       "characters": {
@@ -3495,6 +3582,21 @@
     },
     "9f061fd8-e6fd-11ef-91bc-ab2ad101beec": {
       "episodeKind": "interview",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "9f73e22a-8d83-4d70-939d-4991bc9f6842": {
+      "episodeKind": "other",
       "characters": {
         "primary": [],
         "mentioned": []
@@ -3840,6 +3942,23 @@
         "mentioned": []
       }
     },
+    "bf72b37a-7594-4449-847a-b0a12cff3ef9": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Space Marines"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
     "bfe71d11-de65-4e33-84ac-97b868ff94da": {
       "episodeKind": "lore",
       "characters": {
@@ -3883,6 +4002,23 @@
       "factions": {
         "primary": [
           "Necrons"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "c1740d46-d704-4839-b476-1bd4aff88e1b": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Space Marines"
         ],
         "mentioned": []
       },

@@ -7,7 +7,7 @@
     "appleId": "1679817767",
     "podcastGuid": "7402e137-e25b-5a58-8cc6-252e308fd905",
     "imageUrl": "https://storage.buzzsprout.com/q6of4by1uqpz2q5d9mmcz5ymepfb?.jpg",
-    "episodeCount": 367,
+    "episodeCount": 368,
     "links": [
       {
         "serviceId": "apple_podcasts",
@@ -15801,6 +15801,108 @@
           "serviceId": "rss",
           "kind": "listen",
           "url": "https://www.buzzsprout.com/1497970/episodes/19430569-carcharodons-the-silent-hunters-warhammer-40k-lore.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "Buzzsprout-19463596",
+      "title": "Cypher: The Fallen Angel Who Walked to the Golden Throne | Warhammer 40k Lore",
+      "pubDate": "2026-07-08T16:00:00.000Z",
+      "durationSec": 5403,
+      "audioUrl": "https://www.buzzsprout.com/1497970/episodes/19463596-cypher-the-fallen-angel-who-walked-to-the-golden-throne-warhammer-40k-lore.mp3",
+      "link": null,
+      "season": 1,
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "character",
+          "canonicalId": "cypher",
+          "rawName": "Cypher",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "character",
+          "canonicalId": "lion_el_jonson",
+          "rawName": "Lion El'Jonson",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "character",
+          "canonicalId": "luther",
+          "rawName": "Luther",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "character",
+          "canonicalId": "zahariel",
+          "rawName": "Zahariel",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "character",
+          "canonicalId": "the_emperor",
+          "rawName": "Emperor of Mankind",
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "dark_angels",
+          "rawName": "Dark Angels",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "fallen_angels",
+          "rawName": "Fallen Angels",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "order_of_caliban",
+          "rawName": "The Order",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "location",
+          "canonicalId": "caliban",
+          "rawName": "Caliban",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "location",
+          "canonicalId": "terra",
+          "rawName": "Terra",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://www.buzzsprout.com/1497970/episodes/19463596-cypher-the-fallen-angel-who-walked-to-the-golden-throne-warhammer-40k-lore.mp3",
           "sourceKind": "podcast_rss",
           "confidence": 1
         }

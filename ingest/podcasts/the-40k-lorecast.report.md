@@ -7,14 +7,14 @@ Reproducible via: `PODCAST_LLM_MODEL=claude-sonnet-4-6 npm run ingest:podcast --
 - **Show:** The 40k Lorecast (slug `the-40k-lorecast`)
 - **Feed:** https://feeds.redcircle.com/cc233adb-de43-49be-bb76-9720292ddc98
 - **Apple id:** 1709093251
-- **Episodes:** 154
+- **Episodes:** 155
 - **Extraction model:** `claude-sonnet-4-6` (prompt version `3f6a5ff87efa`)
-- **Resolved coverage:** 144/154 episodes (93.5%) carry ≥1 resolved tag
-- **Resolved tags:** 546 total — 393 subject, 153 mentioned
-  - by type: 161 character, 282 faction, 103 location
-- **Episode kinds:** 144 lore, 1 news_recap, 0 interview, 9 other
+- **Resolved coverage:** 145/155 episodes (93.5%) carry ≥1 resolved tag
+- **Resolved tags:** 553 total — 398 subject, 155 mentioned
+  - by type: 164 character, 284 faction, 105 location
+- **Episode kinds:** 145 lore, 1 news_recap, 0 interview, 9 other
 - **Show links:** 5 (apple_podcasts, official_website, rss, spotify, youtube)
-- **Episode links:** 154/154 episodes carry an RSS audio link (`listen`/`rss`/`podcast_rss`)
+- **Episode links:** 155/155 episodes carry an RSS audio link (`listen`/`rss`/`podcast_rss`)
 - **Distinct unresolved surface-forms:** 114
 
 ## Method (resolution reuse)
@@ -158,21 +158,20 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 - **Date / kind:** 2024-01-09 · lore
 - **Tags:** `character:lion_el_jonson` (subject, name, “Lion El'Jonson”); `character:luther` (subject, name); `character:the_emperor` (mentioned, alias, “The Emperor”); `faction:dark_angels` (subject, name, “Dark Angels”)
 
-### Episode 31 - The Necrons Pt 2
+### Episode 32 - What is a Space Marine & what is Space Marine Power Armor
 
-- **Date / kind:** 2024-04-22 · lore
-- **Tags:** `faction:necrons` (subject, name)
+- **Date / kind:** 2024-04-29 · lore
+- **Tags:** `faction:adeptus_astartes` (subject, alias, “Space Marines”)
 
 ### Episode 47 - Eldar pt 4 - Eldar Weapons, Vehicles, Wraithhosts, and a little bit of Ynnari
 
 - **Date / kind:** 2024-08-12 · lore
 - **Tags:** `faction:eldar` (subject, alias, “Aeldari”); `faction:ynnari` (subject, name)
 
-### Episode 62 - Drukhari pt 3 - Wych cults, Kabals, Mercenaries and The Arenas
+### Episode 63 - "Where are they now" Primarch edition - the Traitors.
 
-- **Date / kind:** 2024-11-26 · lore
-- **Tags:** `faction:drukhari` (subject, alias); `location:commorragh` (subject, name)
-- **Unresolved:** “Haemonculus Covens” (faction); “Scourges” (faction)
+- **Date / kind:** 2024-12-03 · lore
+- **Tags:** `character:alpharius` (subject, name); `character:angron` (subject, name); `character:horus` (subject, name); `character:konrad_curze` (subject, name, “Konrad Curze”); `character:lorgar` (subject, name); `character:magnus_the_red` (subject, name, “Magnus the Red”); `character:mortarion` (subject, name); `character:perturabo` (subject, name); `character:ahzek_ahriman` (mentioned, alias, “Ahriman”); `character:typhus` (mentioned, name)
 
 ### Episode 78 - The Ynnari pt 1 - Ynnead, Yvraine, and the battle of Biel Tan
 
@@ -180,26 +179,23 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 - **Tags:** `character:the_yncarne` (subject, name, “The Yncarne”); `character:yvraine` (subject, name); `faction:eldar` (subject, alias, “Biel-Tan”); `faction:ynnari` (subject, alias, “Ynnead”); `location:commorragh` (mentioned, name)
 - **Unresolved:** “Skarbrand” (character); “Ursulia” (character)
 
-### Episode 92 - The War of The Beast pt1. A new threat arises.
+### Bonus Episode - History of 40k - Episode 0 - How we started and what the show is all about
 
-- **Date / kind:** 2025-06-23 · lore
-- **Tags:** `character:the_beast` (subject, name, “The Beast”); `character:roboute_guilliman` (mentioned, name, “Roboute Guilliman”); `faction:orks` (subject, name); `faction:inquisition` (mentioned, name); `faction:officio_assassinorum` (mentioned, name, “Officio Assassinorum”); `location:terra` (subject, name)
-- **Unresolved:** “Lords of Terra” (faction)
+- **Date / kind:** 2025-06-27 · other
+- **Tags:** _none resolved_
 
-### Episode 104 - The Ultramarines pt 1
+### Episode 105 - The Ultramarines, from the start of the Heresy to the fall of Guilliman
 
-- **Date / kind:** 2025-09-15 · lore
-- **Tags:** `character:roboute_guilliman` (subject, name, “Roboute Guilliman”); `faction:ultramarines` (subject, name)
-- **Unresolved:** “Osirian Psibrids” (faction)
+- **Date / kind:** 2025-09-22 · lore
+- **Tags:** `character:roboute_guilliman` (subject, name, “Roboute Guilliman”); `character:alpharius` (mentioned, name); `character:fulgrim` (mentioned, name); `faction:ultramarines` (subject, name); `faction:alpha_legion` (mentioned, name, “Alpha Legion”); `faction:emperors_children` (mentioned, name, “Emperor's Children”); `faction:word_bearers` (mentioned, name, “Word Bearers”); `location:calth` (subject, name); `location:monarchia` (subject, name)
 
-### Episode 118 - Demetrian Titus - His origins and events of Graia
+### Episode 119 - Demetrian Titus - lead up to, events of, and post of Space Marine 2.
 
-- **Date / kind:** 2025-12-23 · lore
-- **Tags:** `faction:ultramarines` (subject, name); `faction:inquisition` (mentioned, name)
-- **Unresolved:** “Demetrian Titus” (character); “Thrax” (character); “Graia” (location)
+- **Date / kind:** 2025-12-30 · lore
+- **Tags:** `faction:ultramarines` (subject, name); `faction:deathwatch` (mentioned, name); `faction:inquisition` (mentioned, name)
+- **Unresolved:** “Demetrian Titus” (character); “Inquisitor Thrax” (character); “Kaduku” (location)
 
-### Episode 132 - The Death Korps of Krieg - Their history, their units, and (sigh) their horses
+### Bonus Episode - Adepticon Recap
 
-- **Date / kind:** 2026-03-30 · lore
-- **Tags:** `faction:death_korps_of_krieg` (subject, name, “Death Korps of Krieg”)
-- **Unresolved:** “Jurten” (character)
+- **Date / kind:** 2026-03-31 · other
+- **Tags:** _none resolved_

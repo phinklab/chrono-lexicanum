@@ -5963,6 +5963,35 @@
         "mentioned": []
       }
     },
+    "Buzzsprout-19463596": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Cypher",
+          "Lion El'Jonson",
+          "Luther",
+          "Zahariel"
+        ],
+        "mentioned": [
+          "Emperor of Mankind"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Dark Angels",
+          "Fallen Angels",
+          "The Order"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Caliban",
+          "Terra"
+        ],
+        "mentioned": []
+      }
+    },
     "Buzzsprout-6575773": {
       "episodeKind": "lore",
       "characters": {

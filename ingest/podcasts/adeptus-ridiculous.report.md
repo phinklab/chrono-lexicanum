@@ -7,14 +7,14 @@ Reproducible via: `PODCAST_LLM_MODEL=claude-sonnet-4-6 npm run ingest:podcast --
 - **Show:** Adeptus Ridiculous (slug `adeptus-ridiculous`)
 - **Feed:** https://rss.buzzsprout.com/1497970.rss
 - **Apple id:** 1679817767
-- **Episodes:** 367
+- **Episodes:** 368
 - **Extraction model:** `claude-sonnet-4-6` (prompt version `3f6a5ff87efa`)
-- **Resolved coverage:** 291/367 episodes (79.3%) carry ≥1 resolved tag
-- **Resolved tags:** 827 total — 561 subject, 266 mentioned
-  - by type: 199 character, 496 faction, 132 location
-- **Episode kinds:** 308 lore, 2 news_recap, 6 interview, 51 other
+- **Resolved coverage:** 292/368 episodes (79.3%) carry ≥1 resolved tag
+- **Resolved tags:** 837 total — 570 subject, 267 mentioned
+  - by type: 204 character, 499 faction, 134 location
+- **Episode kinds:** 309 lore, 2 news_recap, 6 interview, 51 other
 - **Show links:** 5 (apple_podcasts, official_website, rss, spotify, youtube)
-- **Episode links:** 367/367 episodes carry an RSS audio link (`listen`/`rss`/`podcast_rss`)
+- **Episode links:** 368/368 episodes carry an RSS audio link (`listen`/`rss`/`podcast_rss`)
 - **Distinct unresolved surface-forms:** 164
 
 ## Method (resolution reuse)
@@ -218,32 +218,34 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 - **Date / kind:** 2022-09-03 · other
 - **Tags:** _none resolved_
 
-### THOSE WACKY FACE-EATING XENOS | Warhammer 40k Lore
+### BIZARRE ABHUMANS & THE HORRORS OF THE SUMP | Warhammer 40k Lore
 
-- **Date / kind:** 2023-03-01 · lore
-- **Tags:** `faction:tyranids` (subject, name)
+- **Date / kind:** 2023-03-08 · lore
+- **Tags:** _none resolved_
+- **Unresolved:** “Abhumans” (faction)
 
-### THE HORROR AND HATE OF THE TYRANID HIVE MIND | Warhammer 40k Lore
+### One of the West's Most Mysterious Outlaws: the Ballarat Bandit | Detective Ridiculous
 
-- **Date / kind:** 2023-09-20 · lore
-- **Tags:** `faction:tyranids` (subject, name)
+- **Date / kind:** 2023-09-24 · other
+- **Tags:** _none resolved_
 
 ### FABIUS BILE: GODS ARE FOR THE WEAK. I AM NOT WEAK. | Warhammer 40k Lore
 
 - **Date / kind:** 2024-04-03 · lore
 - **Tags:** `character:fabius_bile` (subject, name, “Fabius Bile”); `faction:emperors_children` (subject, name, “Emperor's Children”); `faction:heretic_astartes` (mentioned, alias, “Chaos Space Marines”)
 
-### SOUL DRINKERS: LOYALIST TRAITORS OF THE EMPEROR, ARCHITECT OF FATE | Warhammer 40k Lore
+### ADEPTUS ARBITES: I AM THE LAW! | Warhammer 40k Lore
 
-- **Date / kind:** 2024-10-02 · lore
-- **Tags:** `character:the_emperor` (mentioned, alias, “The Emperor”); `faction:soul_drinkers` (subject, name, “Soul Drinkers”); `faction:chaos` (mentioned, alias); `faction:imperial_fists` (mentioned, name, “Imperial Fists”)
+- **Date / kind:** 2024-10-09 · lore
+- **Tags:** `faction:adeptus_arbites` (subject, name, “Adeptus Arbites”); `faction:inquisition` (mentioned, name)
+- **Unresolved:** “Adeptus Terra” (faction); “Priesthood of Terra” (faction)
 
-### TRAITOR GUARD | Warhammer 40k Lore
+### THE OGRE KINGDOMS | Warhammer Fantasy Lore
 
-- **Date / kind:** 2025-04-16 · lore
-- **Tags:** `character:horus` (mentioned, name); `faction:chaos` (subject, alias, “Traitoris Militarum”); `faction:astra_militarum` (mentioned, alias, “Astra Militarum”)
+- **Date / kind:** 2025-04-20 · other
+- **Tags:** _none resolved_
 
-### Entertainment in the 41st Millennium: Mandatory Fun | Warhammer 40k Lore
+### THE MOST HORRIFYING ORK IN THE GALAXY (It's not Ghaz) | Warhammer 40k Lore
 
-- **Date / kind:** 2025-11-12 · lore
-- **Tags:** `character:ciaphas_cain` (subject, name, “Ciaphas Cain”); `character:perturabo` (subject, name); `faction:imperium` (subject, alias, “Imperium of Man”); `faction:death_korps_of_krieg` (mentioned, alias, “Krieg”)
+- **Date / kind:** 2025-11-19 · lore
+- **Tags:** `character:ghazghkull_thraka` (mentioned, name, “Ghazghkull Thraka”); `faction:orks` (subject, name)

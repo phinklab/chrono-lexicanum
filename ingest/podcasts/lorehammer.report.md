@@ -7,14 +7,14 @@ Reproducible via: `PODCAST_LLM_MODEL=claude-sonnet-4-6 npm run ingest:podcast --
 - **Show:** Lorehammer - A Warhammer 40k Podcast (slug `lorehammer`)
 - **Feed:** https://anchor.fm/s/1070b29c8/podcast/rss
 - **Apple id:** 1266540593
-- **Episodes:** 391
+- **Episodes:** 387
 - **Extraction model:** `claude-sonnet-4-6` (prompt version `3f6a5ff87efa`)
-- **Resolved coverage:** 295/391 episodes (75.4%) carry ≥1 resolved tag
-- **Resolved tags:** 695 total — 493 subject, 202 mentioned
-  - by type: 133 character, 473 faction, 89 location
-- **Episode kinds:** 305 lore, 0 news_recap, 12 interview, 74 other
+- **Resolved coverage:** 291/387 episodes (75.2%) carry ≥1 resolved tag
+- **Resolved tags:** 683 total — 488 subject, 195 mentioned
+  - by type: 130 character, 466 faction, 87 location
+- **Episode kinds:** 299 lore, 0 news_recap, 12 interview, 76 other
 - **Show links:** 3 (apple_podcasts, official_website, rss)
-- **Episode links:** 391/391 episodes carry an RSS audio link (`listen`/`rss`/`podcast_rss`)
+- **Episode links:** 387/387 episodes carry an RSS audio link (`listen`/`rss`/`podcast_rss`)
 - **Distinct unresolved surface-forms:** 133
 
 ## Method (resolution reuse)
@@ -31,19 +31,16 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 
 | axis (LLM guess) | surface-form | # episodes |
 |---|---|---|
-| location | The Warp | 14 |
-| character | Duke Severus XIII | 5 |
+| location | The Warp | 13 |
 | faction | Knights of Slaughter | 5 |
-| faction | Severan Dominate | 5 |
 | faction | Crimson Armada | 4 |
-| faction | Bad Moons | 3 |
+| character | Duke Severus XIII | 3 |
 | faction | Farsight Enclaves | 3 |
-| location | Spinward Front | 3 |
+| faction | Severan Dominate | 3 |
 | character | Gork | 2 |
-| character | Malice | 2 |
 | character | Mork | 2 |
-| character | Swarmlord | 2 |
 | character | Void Dragon | 2 |
+| faction | Bad Moons | 2 |
 | faction | Iron Skulls | 2 |
 | faction | Malice | 2 |
 | faction | Minor Xenos Races | 2 |
@@ -51,10 +48,8 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | faction | Old Ones | 2 |
 | faction | Primarchs | 2 |
 | location | Garden of Nurgle | 2 |
-| location | Kokyotos | 2 |
-| location | Kulth | 2 |
-| location | Ohmsworld | 2 |
 | location | Segmentum Solar | 2 |
+| location | Spinward Front | 2 |
 | character | Ancestor Lord Bilboa | 1 |
 | character | Be'lakor | 1 |
 | character | Beast of Armageddon | 1 |
@@ -71,11 +66,13 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | character | Konor Guilliman | 1 |
 | character | Kurnous | 1 |
 | character | Malal | 1 |
+| character | Malice | 1 |
 | character | Marckus | 1 |
 | character | Mon'praus | 1 |
 | character | Old One Eye | 1 |
 | character | Solomon Zane | 1 |
 | character | Stefan | 1 |
+| character | Swarmlord | 1 |
 | character | Titus | 1 |
 | character | Urlock Gaur | 1 |
 | character | Varak | 1 |
@@ -87,7 +84,6 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | faction | Brass Legion | 1 |
 | faction | Chromes | 1 |
 | faction | Cold Traders | 1 |
-| faction | Cult of the Doomed Ones | 1 |
 | faction | Death Songs Chapter | 1 |
 | faction | Demiurg | 1 |
 | faction | Doomed Ones | 1 |
@@ -123,6 +119,7 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | faction | Order of the Crimson Lily | 1 |
 | faction | Oretti | 1 |
 | faction | Phoenix Guard | 1 |
+| faction | Primaris Marines | 1 |
 | faction | Q'orl | 1 |
 | faction | Rak'Gol | 1 |
 | faction | Slanni | 1 |
@@ -149,9 +146,12 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | location | Elysium | 1 |
 | location | Forge of Souls | 1 |
 | location | Immaterium | 1 |
+| location | Kokyotos | 1 |
 | location | Korelia | 1 |
+| location | Kulth | 1 |
 | location | Murder | 1 |
 | location | Nurien Alpha | 1 |
+| location | Ohmsworld | 1 |
 | location | Pech | 1 |
 | location | Segmentum Obscurus | 1 |
 | location | Segmentum Pacificus | 1 |
@@ -172,49 +172,48 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 - **Date / kind:** 2017-07-31 · other
 - **Tags:** _none resolved_
 
-### 33 - Ordo Xenos and the Deathwatch
+### 32 - Ordo Malleus and the Grey Knights
 
-- **Date / kind:** 2018-09-12 · lore
-- **Tags:** `faction:deathwatch` (subject, name); `faction:ordo_xenos` (subject, name, “Ordo Xenos”); `faction:inquisition` (mentioned, name)
+- **Date / kind:** 2018-08-31 · lore
+- **Tags:** `faction:grey_knights` (subject, name, “Grey Knights”); `faction:ordo_malleus` (subject, name, “Ordo Malleus”)
 
-### 53 - Heretic Astartes
+### Listener Lore 4
 
-- **Date / kind:** 2019-08-09 · lore
-- **Tags:** `character:the_emperor` (mentioned, alias, “the Emperor”); `faction:heretic_astartes` (subject, alias, “Heretic Astartes”); `faction:imperium` (mentioned, alias)
+- **Date / kind:** 2019-08-01 · lore
+- **Tags:** `faction:astral_knights` (subject, name, “Astral Knights”); `faction:deathwatch` (subject, name); `faction:orks` (subject, name); `faction:thousand_sons` (subject, name, “Thousand Sons”)
 
-### 70 - The Aeldari Path of the Dead
+### Listener Lore 10
 
-- **Date / kind:** 2020-05-06 · lore
-- **Tags:** `faction:eldar` (subject, alias, “Aeldari”); `faction:adeptus_astartes` (mentioned, alias, “Space Marines”)
+- **Date / kind:** 2020-04-29 · lore
+- **Tags:** `faction:imperial_knights` (subject, name, “Imperial Knights”); `faction:mechanicus` (subject, name, “Adeptus Mechanicus”); `faction:necrons` (subject, name)
 
-### 93 - Militarum Tempestus
+### Bonus 23 - Colyn Bares All!
 
-- **Date / kind:** 2021-07-22 · lore
-- **Tags:** `faction:tempestus_scions` (subject, alias, “Militarum Tempestus”); `faction:astra_militarum` (mentioned, alias, “Astra Militarum”); `faction:ecclesiarchy` (mentioned, name)
+- **Date / kind:** 2021-06-10 · interview
+- **Tags:** _none resolved_
 
-### 114 - Hive Cities and Highborns
+### 112 - Vostroyan Firstborn
 
-- **Date / kind:** 2024-11-04 · lore
-- **Tags:** `faction:imperium` (subject, alias, “Imperium of Man”)
+- **Date / kind:** 2024-10-23 · lore
+- **Tags:** `character:the_emperor` (mentioned, alias, “The Emperor”); `faction:astra_militarum` (subject, alias, “Astra Militarum”); `faction:vostroyan_firstborn` (subject, name, “Vostroyan Firstborn”)
+- **Unresolved:** “Vostroya” (location)
 
-### 138 - The Votann and Other Technologies
+### 143 - The Emperors Children, 40k Warband Era
 
-- **Date / kind:** 2025-01-15 · lore
-- **Tags:** `faction:leagues_of_votann` (subject, name, “Leagues of Votann”); `faction:imperium` (mentioned, alias)
+- **Date / kind:** 2025-01-27 · lore
+- **Tags:** `character:fulgrim` (subject, name); `faction:emperors_children` (subject, name, “Emperor's Children”); `faction:adeptus_astartes` (mentioned, name, “Adeptus Astartes”); `faction:heretic_astartes` (mentioned, alias, “Chaos Space Marines”)
 
-### 172 - Space Wolves, 30k Legion Era
+### 177 - Slaanesh's Cult of Excess
 
-- **Date / kind:** 2025-04-04 · lore
-- **Tags:** `character:leman_russ` (subject, name, “Leman Russ”); `character:the_emperor` (mentioned, alias, “Emperor of Mankind”); `faction:space_wolves` (subject, name, “Space Wolves”)
+- **Date / kind:** 2025-04-16 · lore
+- **Tags:** `faction:emperors_children` (subject, name, “Emperor's Children”); `faction:slaanesh` (subject, name)
 
-### 198 - Tau Empire Auxiliaries
+### Mark Borg 40,000 RPG Pt. 2
 
-- **Date / kind:** 2025-06-25 · lore
-- **Tags:** `faction:tau` (subject, alias, “T'au Empire”); `faction:imperium` (mentioned, alias); `location:tau_empire` (subject, name, “T'au Empire”)
-- **Unresolved:** “Galg” (faction); “Nicassar” (faction); “Tarellians” (faction); “Vespid” (faction)
+- **Date / kind:** 2025-08-06 · other
+- **Tags:** _none resolved_
 
-### 219 - Angron, Origins and Great Crusade
+### 227 - Astartes Armoury: Equipment
 
-- **Date / kind:** 2026-01-19 · lore
-- **Tags:** `character:angron` (subject, name); `character:the_emperor` (mentioned, alias, “The Emperor”); `faction:world_eaters` (subject, name, “World Eaters”); `location:nuceria` (subject, name)
-- **Unresolved:** “Eaters of Cities” (faction)
+- **Date / kind:** 2026-03-06 · lore
+- **Tags:** `faction:adeptus_astartes` (subject, name, “Adeptus Astartes”)

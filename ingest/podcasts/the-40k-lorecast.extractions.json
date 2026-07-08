@@ -2979,6 +2979,32 @@
         "mentioned": []
       }
     },
+    "ca1a53a7-b25e-4a5d-889b-bab3f68e2c9e": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Lorgar",
+          "Erebus"
+        ],
+        "mentioned": [
+          "Kor Phaeron",
+          "Khorne"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Word Bearers"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Calth",
+          "Nuceria"
+        ],
+        "mentioned": []
+      }
+    },
     "ccea1f33-ef34-4da1-951a-150a6f6fee28": {
       "episodeKind": "lore",
       "characters": {
