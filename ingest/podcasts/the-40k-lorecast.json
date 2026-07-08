@@ -7,7 +7,7 @@
     "appleId": "1709093251",
     "podcastGuid": "cc233adb-de43-49be-bb76-9720292ddc98",
     "imageUrl": "https://media.redcircle.com/images/2025/5/13/20/27c7ddbc-c7eb-4d15-b305-ce9e8834f144_-535dda26d00f_da4230511c4076e9ed53cb4872e8cabe.jpg",
-    "episodeCount": 154,
+    "episodeCount": 155,
     "links": [
       {
         "serviceId": "apple_podcasts",
@@ -8523,6 +8523,84 @@
           "serviceId": "rss",
           "kind": "listen",
           "url": "https://audio4.redcircle.com/episodes/480777fa-de64-413a-8e5c-d62c7101c028/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "ca1a53a7-b25e-4a5d-889b-bab3f68e2c9e",
+      "title": "Episode 146 - Word Bearers pt 3 - Heresy is a go, but Erebus and Lorgar have some different ideas of next steps",
+      "pubDate": "2026-07-06T23:00:34.000Z",
+      "durationSec": 3940,
+      "audioUrl": "https://audio4.redcircle.com/episodes/4bc916b6-7e6b-475a-b4e5-f9f999ef2a0d/stream.mp3",
+      "link": "https://the40klorecast.com/",
+      "episode": 146,
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "character",
+          "canonicalId": "erebus",
+          "rawName": "Erebus",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "character",
+          "canonicalId": "lorgar",
+          "rawName": "Lorgar",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "character",
+          "canonicalId": "kor_phaeron",
+          "rawName": "Kor Phaeron",
+          "role": "mentioned",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "word_bearers",
+          "rawName": "Word Bearers",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "khorne",
+          "rawName": "Khorne",
+          "role": "mentioned",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "location",
+          "canonicalId": "calth",
+          "rawName": "Calth",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "location",
+          "canonicalId": "nuceria",
+          "rawName": "Nuceria",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/4bc916b6-7e6b-475a-b4e5-f9f999ef2a0d/stream.mp3",
           "sourceKind": "podcast_rss",
           "confidence": 1
         }

@@ -168,9 +168,17 @@
       "title": "The Relentless Dead",
       "reason": "duplicate of an existing roster book (title-slug collision)"
     },
+    "the-sabbat-worlds-crusade": {
+      "title": "The Sabbat Worlds Crusade",
+      "reason": "maintainer-dismissed"
+    },
     "the-twice-dead-king-the-omnibus": {
       "title": "The Twice Dead King: The Omnibus",
       "reason": "format or edition not archived (map / artbook / box set / omnibus / collection / handbook)"
+    },
+    "the-valhallan-regimental-banner": {
+      "title": "The Valhallan Regimental Banner",
+      "reason": "maintainer-dismissed"
     },
     "the-vengeful-spirit-map": {
       "title": "The Vengeful Spirit Map",

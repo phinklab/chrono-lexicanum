@@ -7,7 +7,7 @@
     "appleId": "1266540593",
     "podcastGuid": null,
     "imageUrl": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/44031394/3dbb9303c9852a37.jpg",
-    "episodeCount": 391,
+    "episodeCount": 387,
     "links": [
       {
         "serviceId": "apple_podcasts",
@@ -6622,35 +6622,6 @@
       ]
     },
     {
-      "guid": "d3e38d9f-7aa7-4779-8705-270447636527",
-      "title": "114 - Hive Cities and Highborn",
-      "pubDate": "2024-11-05T23:40:00.000Z",
-      "durationSec": 10505,
-      "audioUrl": "https://traffic.megaphone.fm/APO9446303833.mp3",
-      "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/Video-114---Hive-Cities-and-Highborn-e3711hq",
-      "episodeKind": "lore",
-      "tags": [
-        {
-          "type": "faction",
-          "canonicalId": "imperium",
-          "rawName": "Imperium of Man",
-          "role": "subject",
-          "confidence": 0.9,
-          "matchedVia": "alias"
-        }
-      ],
-      "unresolved": [],
-      "links": [
-        {
-          "serviceId": "rss",
-          "kind": "listen",
-          "url": "https://traffic.megaphone.fm/APO9446303833.mp3",
-          "sourceKind": "podcast_rss",
-          "confidence": 1
-        }
-      ]
-    },
-    {
       "guid": "https://api.spreaker.com/episode/62623666",
       "title": "115 - Severan Dominate, A Rebellion Begins",
       "pubDate": "2024-11-06T10:00:00.000Z",
@@ -6693,54 +6664,6 @@
           "serviceId": "rss",
           "kind": "listen",
           "url": "https://traffic.megaphone.fm/APO6123880518.mp3",
-          "sourceKind": "podcast_rss",
-          "confidence": 1
-        }
-      ]
-    },
-    {
-      "guid": "0d39d8f8-e933-4732-a6d1-67b2b624239b",
-      "title": "115 - Severan Dominate, Rebellion Begins",
-      "pubDate": "2024-11-07T23:40:00.000Z",
-      "durationSec": 7611,
-      "audioUrl": "https://anchor.fm/s/1070b29c8/podcast/play/107037694/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-7-18%2F405885013-44100-2-f0c551f1e1.mp3",
-      "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/Video-115---Severan-Dominate--Rebellion-Begins-e3711hu",
-      "episodeKind": "lore",
-      "tags": [
-        {
-          "type": "faction",
-          "canonicalId": "senatorum_imperialis",
-          "rawName": "High Lords of Terra",
-          "role": "mentioned",
-          "confidence": 0.9,
-          "matchedVia": "alias"
-        },
-        {
-          "type": "location",
-          "canonicalId": "terra",
-          "rawName": "Terra",
-          "role": "mentioned",
-          "confidence": 1,
-          "matchedVia": "canonical-name"
-        }
-      ],
-      "unresolved": [
-        {
-          "rawName": "Duke Severus XIII",
-          "axisGuess": "character",
-          "role": "subject"
-        },
-        {
-          "rawName": "Severan Dominate",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
-      "links": [
-        {
-          "serviceId": "rss",
-          "kind": "listen",
-          "url": "https://anchor.fm/s/1070b29c8/podcast/play/107037694/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-7-18%2F405885013-44100-2-f0c551f1e1.mp3",
           "sourceKind": "podcast_rss",
           "confidence": 1
         }
@@ -6983,66 +6906,6 @@
       ]
     },
     {
-      "guid": "d504ee3c-c3db-445b-9ffc-f62096727bfb",
-      "title": "119 - Severan Domination, A Fledging Empire",
-      "pubDate": "2024-11-22T00:44:00.000Z",
-      "durationSec": 10974,
-      "audioUrl": "https://traffic.megaphone.fm/APO4066036978.mp3",
-      "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/Video-119---Severan-Domination--A-Fledging-Empire-e3713bh",
-      "episodeKind": "lore",
-      "tags": [
-        {
-          "type": "faction",
-          "canonicalId": "imperium",
-          "rawName": "Imperium",
-          "role": "mentioned",
-          "confidence": 0.9,
-          "matchedVia": "alias"
-        }
-      ],
-      "unresolved": [
-        {
-          "rawName": "Duke Severus XIII",
-          "axisGuess": "character",
-          "role": "subject"
-        },
-        {
-          "rawName": "Severan Dominate",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
-        {
-          "rawName": "Kokyotos",
-          "axisGuess": "location",
-          "role": "subject"
-        },
-        {
-          "rawName": "Kulth",
-          "axisGuess": "location",
-          "role": "subject"
-        },
-        {
-          "rawName": "Ohmsworld",
-          "axisGuess": "location",
-          "role": "subject"
-        },
-        {
-          "rawName": "Spinward Front",
-          "axisGuess": "location",
-          "role": "mentioned"
-        }
-      ],
-      "links": [
-        {
-          "serviceId": "rss",
-          "kind": "listen",
-          "url": "https://traffic.megaphone.fm/APO4066036978.mp3",
-          "sourceKind": "podcast_rss",
-          "confidence": 1
-        }
-      ]
-    },
-    {
       "guid": "https://api.spreaker.com/episode/62974139",
       "title": "120 - Imperial Relics, Chaos Artifacts and Xenos Curiosities",
       "pubDate": "2024-11-25T10:00:00.000Z",
@@ -7154,57 +7017,6 @@
           "serviceId": "rss",
           "kind": "listen",
           "url": "https://traffic.megaphone.fm/APO1111647230.mp3",
-          "sourceKind": "podcast_rss",
-          "confidence": 1
-        }
-      ]
-    },
-    {
-      "guid": "421d45d2-4fe4-498e-ba74-bcfb9e5f9db4",
-      "title": "122 - Bestiary and Herbarium, Warp Edition",
-      "pubDate": "2024-12-01T02:06:00.000Z",
-      "durationSec": 6916,
-      "audioUrl": "https://traffic.megaphone.fm/APO7981852076.mp3",
-      "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/Video-122---Bestiary-and-Herbarium--Warp-Edition-e3715km",
-      "episodeKind": "lore",
-      "tags": [
-        {
-          "type": "character",
-          "canonicalId": "nurgle",
-          "rawName": "Nurgle",
-          "role": "mentioned",
-          "confidence": 1,
-          "matchedVia": "canonical-name"
-        },
-        {
-          "type": "faction",
-          "canonicalId": "chaos",
-          "rawName": "Chaos",
-          "role": "subject",
-          "confidence": 0.9,
-          "matchedVia": "alias"
-        },
-        {
-          "type": "faction",
-          "canonicalId": "nurgle",
-          "rawName": "Nurgle",
-          "role": "mentioned",
-          "confidence": 1,
-          "matchedVia": "canonical-name"
-        }
-      ],
-      "unresolved": [
-        {
-          "rawName": "The Warp",
-          "axisGuess": "location",
-          "role": "subject"
-        }
-      ],
-      "links": [
-        {
-          "serviceId": "rss",
-          "kind": "listen",
-          "url": "https://traffic.megaphone.fm/APO7981852076.mp3",
           "sourceKind": "podcast_rss",
           "confidence": 1
         }
@@ -7417,41 +7229,6 @@
       ]
     },
     {
-      "guid": "4c6f0ede-62dd-4ded-99d7-d237e3daa068",
-      "title": "126 - The Swarmlord, Tyrant Amongst Tyrants",
-      "pubDate": "2024-12-11T03:05:00.000Z",
-      "durationSec": 10725,
-      "audioUrl": "https://traffic.megaphone.fm/APO1002278377.mp3",
-      "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/Video-126---The-Swarmlord--Tyrant-Amongst-Tyrants-e3717du",
-      "episodeKind": "lore",
-      "tags": [
-        {
-          "type": "faction",
-          "canonicalId": "tyranids",
-          "rawName": "Tyranids",
-          "role": "subject",
-          "confidence": 1,
-          "matchedVia": "canonical-name"
-        }
-      ],
-      "unresolved": [
-        {
-          "rawName": "Swarmlord",
-          "axisGuess": "character",
-          "role": "subject"
-        }
-      ],
-      "links": [
-        {
-          "serviceId": "rss",
-          "kind": "listen",
-          "url": "https://traffic.megaphone.fm/APO1002278377.mp3",
-          "sourceKind": "podcast_rss",
-          "confidence": 1
-        }
-      ]
-    },
-    {
       "guid": "https://api.spreaker.com/episode/63197959",
       "title": "127 - Beast Snagga Boyz",
       "pubDate": "2024-12-11T10:00:00.000Z",
@@ -7489,49 +7266,6 @@
           "serviceId": "rss",
           "kind": "listen",
           "url": "https://traffic.megaphone.fm/APO3298485784.mp3",
-          "sourceKind": "podcast_rss",
-          "confidence": 1
-        }
-      ]
-    },
-    {
-      "guid": "e9705d93-4fa8-4390-ba82-4d44cd8e52a0",
-      "title": "127 - Beast Snagga Boys",
-      "pubDate": "2024-12-13T03:05:00.000Z",
-      "durationSec": 7684,
-      "audioUrl": "https://traffic.megaphone.fm/APO8902163869.mp3",
-      "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/Video-127---Beast-Snagga-Boys-e3717e2",
-      "episodeKind": "lore",
-      "tags": [
-        {
-          "type": "faction",
-          "canonicalId": "orks",
-          "rawName": "Orks",
-          "role": "subject",
-          "confidence": 1,
-          "matchedVia": "canonical-name"
-        },
-        {
-          "type": "faction",
-          "canonicalId": "goffs",
-          "rawName": "Goffs",
-          "role": "mentioned",
-          "confidence": 1,
-          "matchedVia": "canonical-name"
-        }
-      ],
-      "unresolved": [
-        {
-          "rawName": "Bad Moons",
-          "axisGuess": "faction",
-          "role": "mentioned"
-        }
-      ],
-      "links": [
-        {
-          "serviceId": "rss",
-          "kind": "listen",
-          "url": "https://traffic.megaphone.fm/APO8902163869.mp3",
           "sourceKind": "podcast_rss",
           "confidence": 1
         }
@@ -7649,59 +7383,6 @@
           "serviceId": "rss",
           "kind": "listen",
           "url": "https://traffic.megaphone.fm/APO1562223127.mp3",
-          "sourceKind": "podcast_rss",
-          "confidence": 1
-        }
-      ]
-    },
-    {
-      "guid": "e0602ecf-2af1-464f-abaf-691f6e037ad3",
-      "title": "130 - Founding of a Legion",
-      "pubDate": "2024-12-20T03:05:00.000Z",
-      "durationSec": 8794,
-      "audioUrl": "https://traffic.megaphone.fm/APO7082723750.mp3",
-      "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/Video-130---Founding-of-a-Legion-e3717eg",
-      "episodeKind": "lore",
-      "tags": [
-        {
-          "type": "character",
-          "canonicalId": "the_emperor",
-          "rawName": "The Emperor of Mankind",
-          "role": "subject",
-          "confidence": 0.9,
-          "matchedVia": "alias"
-        },
-        {
-          "type": "faction",
-          "canonicalId": "adeptus_astartes",
-          "rawName": "Space Marine Legions",
-          "role": "subject",
-          "confidence": 0.9,
-          "matchedVia": "alias"
-        },
-        {
-          "type": "faction",
-          "canonicalId": "imperium",
-          "rawName": "Imperium of Man",
-          "role": "mentioned",
-          "confidence": 0.9,
-          "matchedVia": "alias"
-        },
-        {
-          "type": "location",
-          "canonicalId": "terra",
-          "rawName": "Terra",
-          "role": "mentioned",
-          "confidence": 1,
-          "matchedVia": "canonical-name"
-        }
-      ],
-      "unresolved": [],
-      "links": [
-        {
-          "serviceId": "rss",
-          "kind": "listen",
-          "url": "https://traffic.megaphone.fm/APO7082723750.mp3",
           "sourceKind": "podcast_rss",
           "confidence": 1
         }
@@ -8596,59 +8277,6 @@
           "serviceId": "rss",
           "kind": "listen",
           "url": "https://traffic.megaphone.fm/APO1718478427.mp3",
-          "sourceKind": "podcast_rss",
-          "confidence": 1
-        }
-      ]
-    },
-    {
-      "guid": "d56e6d37-9464-4216-881f-4fe2e51293cf",
-      "title": "143 - Emperors Children, 40k Warband Era",
-      "pubDate": "2025-01-28T17:55:00.000Z",
-      "durationSec": 8430,
-      "audioUrl": "https://traffic.megaphone.fm/APO6193122960.mp3",
-      "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/Video-143---Emperors-Children--40k-Warband-Era-e37229a",
-      "episodeKind": "lore",
-      "tags": [
-        {
-          "type": "character",
-          "canonicalId": "fulgrim",
-          "rawName": "Fulgrim",
-          "role": "subject",
-          "confidence": 1,
-          "matchedVia": "canonical-name"
-        },
-        {
-          "type": "faction",
-          "canonicalId": "emperors_children",
-          "rawName": "Emperor's Children",
-          "role": "subject",
-          "confidence": 1,
-          "matchedVia": "canonical-name"
-        },
-        {
-          "type": "faction",
-          "canonicalId": "adeptus_astartes",
-          "rawName": "Adeptus Astartes",
-          "role": "mentioned",
-          "confidence": 1,
-          "matchedVia": "canonical-name"
-        },
-        {
-          "type": "faction",
-          "canonicalId": "heretic_astartes",
-          "rawName": "Chaos Space Marines",
-          "role": "mentioned",
-          "confidence": 0.9,
-          "matchedVia": "alias"
-        }
-      ],
-      "unresolved": [],
-      "links": [
-        {
-          "serviceId": "rss",
-          "kind": "listen",
-          "url": "https://traffic.megaphone.fm/APO6193122960.mp3",
           "sourceKind": "podcast_rss",
           "confidence": 1
         }
@@ -9872,35 +9500,6 @@
       ]
     },
     {
-      "guid": "85ceba78-64b6-4f01-b6b8-a30253c90a08",
-      "title": "165 - Tzeentch's Scintillating Legions",
-      "pubDate": "2025-03-21T00:52:00.000Z",
-      "durationSec": 8809,
-      "audioUrl": "https://traffic.megaphone.fm/APO2718012767.mp3",
-      "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/Video-165---Tzeentchs-Scintillating-Legions-e372ipe",
-      "episodeKind": "lore",
-      "tags": [
-        {
-          "type": "faction",
-          "canonicalId": "tzeentch",
-          "rawName": "Horrors of Tzeentch",
-          "role": "subject",
-          "confidence": 0.9,
-          "matchedVia": "alias"
-        }
-      ],
-      "unresolved": [],
-      "links": [
-        {
-          "serviceId": "rss",
-          "kind": "listen",
-          "url": "https://traffic.megaphone.fm/APO2718012767.mp3",
-          "sourceKind": "podcast_rss",
-          "confidence": 1
-        }
-      ]
-    },
-    {
       "guid": "2ec9269e-ca0a-11ef-9632-dbdde8ae5fac",
       "title": "166 - Plague Legions of Nurgle",
       "pubDate": "2025-03-21T08:33:00.000Z",
@@ -10469,46 +10068,6 @@
           "serviceId": "rss",
           "kind": "listen",
           "url": "https://traffic.megaphone.fm/APO1127797027.mp3",
-          "sourceKind": "podcast_rss",
-          "confidence": 1
-        }
-      ]
-    },
-    {
-      "guid": "1b0feeff-7351-4346-9eb5-0a79d9ce5cd0",
-      "title": "178 - Malice's Cult of Doomed Ones",
-      "pubDate": "2025-04-19T14:50:00.000Z",
-      "durationSec": 8017,
-      "audioUrl": "https://traffic.megaphone.fm/APO2963126932.mp3",
-      "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/Video-178---Malices-Cult-of-Doomed-Ones-e3738tm",
-      "episodeKind": "lore",
-      "tags": [
-        {
-          "type": "faction",
-          "canonicalId": "chaos",
-          "rawName": "Chaos",
-          "role": "mentioned",
-          "confidence": 0.9,
-          "matchedVia": "alias"
-        }
-      ],
-      "unresolved": [
-        {
-          "rawName": "Malice",
-          "axisGuess": "character",
-          "role": "subject"
-        },
-        {
-          "rawName": "Cult of the Doomed Ones",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
-      "links": [
-        {
-          "serviceId": "rss",
-          "kind": "listen",
-          "url": "https://traffic.megaphone.fm/APO2963126932.mp3",
           "sourceKind": "podcast_rss",
           "confidence": 1
         }
@@ -11905,26 +11464,6 @@
       ]
     },
     {
-      "guid": "24fc0513-e63e-48d6-9e94-d4380f5fa597",
-      "title": "200 - Hanging with the Boys (Live)",
-      "pubDate": "2025-07-04T20:22:00.000Z",
-      "durationSec": 7683,
-      "audioUrl": "https://traffic.megaphone.fm/APO9871563913.mp3",
-      "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/Video-200---Hanging-with-the-Boys-Live-e373ni2",
-      "episodeKind": "other",
-      "tags": [],
-      "unresolved": [],
-      "links": [
-        {
-          "serviceId": "rss",
-          "kind": "listen",
-          "url": "https://traffic.megaphone.fm/APO9871563913.mp3",
-          "sourceKind": "podcast_rss",
-          "confidence": 1
-        }
-      ]
-    },
-    {
       "guid": "a70fe3dd-457a-4b76-a218-d73cdc674661",
       "title": "Bonus 44 - Behind the Scenes",
       "pubDate": "2025-08-01T13:46:21.000Z",
@@ -11939,26 +11478,6 @@
           "serviceId": "rss",
           "kind": "listen",
           "url": "https://traffic.megaphone.fm/APO9267728543.mp3",
-          "sourceKind": "podcast_rss",
-          "confidence": 1
-        }
-      ]
-    },
-    {
-      "guid": "a1c9cd7d-c71e-4b56-9951-2c183a4d2fad",
-      "title": "Bonus 44 - Behind the Scenes Production",
-      "pubDate": "2025-08-02T05:12:00.000Z",
-      "durationSec": 6110,
-      "audioUrl": "https://traffic.megaphone.fm/APO4024899622.mp3",
-      "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/Video-Bonus-44---Behind-the-Scenes-Production-e377ren",
-      "episodeKind": "other",
-      "tags": [],
-      "unresolved": [],
-      "links": [
-        {
-          "serviceId": "rss",
-          "kind": "listen",
-          "url": "https://traffic.megaphone.fm/APO4024899622.mp3",
           "sourceKind": "podcast_rss",
           "confidence": 1
         }
@@ -14717,9 +14236,245 @@
       ]
     },
     {
+      "guid": "bf72b37a-7594-4449-847a-b0a12cff3ef9",
+      "title": "236 - Astartes Armoury: Aircraft",
+      "pubDate": "2026-06-08T10:00:00.000Z",
+      "durationSec": 9582,
+      "audioUrl": "https://traffic.megaphone.fm/APO1207517334.mp3",
+      "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/236---Astartes-Armoury-Aircraft-e3kfgo4",
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "faction",
+          "canonicalId": "adeptus_astartes",
+          "rawName": "Space Marines",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        }
+      ],
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://traffic.megaphone.fm/APO1207517334.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "9d86842b-1655-4254-9b2d-ed3fd0b6b3f9",
+      "title": "237 - Astartes Armoury: Rare and Retired Vehicles Pt. 1 ",
+      "pubDate": "2026-06-12T10:00:00.000Z",
+      "durationSec": 6962,
+      "audioUrl": "https://traffic.megaphone.fm/APO7253506290.mp3",
+      "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/237---Astartes-Armoury-Rare-and-Retired-Vehicles-Pt--1-e3kn4dc",
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "faction",
+          "canonicalId": "adeptus_astartes",
+          "rawName": "Space Marines",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        }
+      ],
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://traffic.megaphone.fm/APO7253506290.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "54fcc386-dcf9-4e35-ac7b-54a6397f597b",
+      "title": "238 - Astartes Armoury: Rare and Retired Vehicles Pt. 2",
+      "pubDate": "2026-06-15T10:00:00.000Z",
+      "durationSec": 8353,
+      "audioUrl": "https://traffic.megaphone.fm/APO7284675558.mp3",
+      "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/238---Astartes-Armoury-Rare-and-Retired-Vehicles-Pt--2-e3kpq5f",
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "faction",
+          "canonicalId": "adeptus_astartes",
+          "rawName": "Space Marines",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "imperium",
+          "rawName": "Imperium",
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        }
+      ],
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://traffic.megaphone.fm/APO7284675558.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "c1740d46-d704-4839-b476-1bd4aff88e1b",
+      "title": "239 - Astartes Armoury: Rare and Retired Vehicles Pt. 3",
+      "pubDate": "2026-06-19T10:00:00.000Z",
+      "durationSec": 7754,
+      "audioUrl": "https://traffic.megaphone.fm/APO3153328575.mp3",
+      "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/239---Astartes-Armoury-Rare-and-Retired-Vehicles-Pt--3-e3l0o10",
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "faction",
+          "canonicalId": "adeptus_astartes",
+          "rawName": "Space Marines",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        }
+      ],
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://traffic.megaphone.fm/APO3153328575.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "4aa58a02-3d7c-44e0-98a0-cb31823a90fd",
+      "title": "Edition Eras Pt. 1 - 1st and 2nd",
+      "pubDate": "2026-06-22T10:00:00.000Z",
+      "durationSec": 4389,
+      "audioUrl": "https://traffic.megaphone.fm/APO5177177150.mp3",
+      "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/Edition-Eras-Pt--1---1st-and-2nd-e3l2a8u",
+      "episodeKind": "other",
+      "tags": [],
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://traffic.megaphone.fm/APO5177177150.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "9f73e22a-8d83-4d70-939d-4991bc9f6842",
+      "title": "Edition Eras Pt. 2 - 3rd and 4th",
+      "pubDate": "2026-06-26T10:00:00.000Z",
+      "durationSec": 4687,
+      "audioUrl": "https://traffic.megaphone.fm/APO9772426949.mp3",
+      "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/Edition-Eras-Pt--2---3rd-and-4th-e3l2am9",
+      "episodeKind": "other",
+      "tags": [],
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://traffic.megaphone.fm/APO9772426949.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "512277d7-4ac7-4bef-9052-c658529a8978",
+      "title": "Edition Eras Pt. 3 - 5th, 6th and 7th ",
+      "pubDate": "2026-06-29T10:00:00.000Z",
+      "durationSec": 4685,
+      "audioUrl": "https://traffic.megaphone.fm/APO5037876167.mp3",
+      "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/Edition-Eras-Pt--3---5th--6th-and-7th-e3l2dn8",
+      "episodeKind": "other",
+      "tags": [
+        {
+          "type": "faction",
+          "canonicalId": "grey_knights",
+          "rawName": "Grey Knights",
+          "role": "mentioned",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "necrons",
+          "rawName": "Necrons",
+          "role": "mentioned",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://traffic.megaphone.fm/APO5037876167.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "4bf951d2-2133-47de-aea2-0e7190f7f0db",
+      "title": "Edition Eras Pt. 4 - 8th and 9th",
+      "pubDate": "2026-07-03T19:44:00.000Z",
+      "durationSec": 4243,
+      "audioUrl": "https://traffic.megaphone.fm/APO3645522913.mp3",
+      "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/Edition-Eras-Pt--4---8th-and-9th-e3lkhnd",
+      "episodeKind": "other",
+      "tags": [
+        {
+          "type": "faction",
+          "canonicalId": "tyranids",
+          "rawName": "Tyranids",
+          "role": "mentioned",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [
+        {
+          "rawName": "Primaris Marines",
+          "axisGuess": "faction",
+          "role": "mentioned"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://traffic.megaphone.fm/APO3645522913.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
+    },
+    {
       "guid": "https://api.spreaker.com/episode/62987317",
       "title": "AD FREE on Lorehammer Patreon",
-      "pubDate": "2026-06-04T10:10:00.000Z",
+      "pubDate": "2026-07-03T22:10:00.000Z",
       "durationSec": 14,
       "audioUrl": "https://anchor.fm/s/1070b29c8/podcast/play/105198424/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-6-15%2F403972518-44100-2-9da4c6a15339594c.mp3",
       "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/AD-FREE-on-Lorehammer-Patreon-e358tco",
