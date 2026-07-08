@@ -83,13 +83,14 @@ export default function ArtworkPage() {
           </h2>
           <div className="legal__section-rule" aria-hidden />
           <p className="legal__p">
-            The painted backdrops of this archive are original works by{" "}
-            <a href="https://phinklabs.com" target="_blank" rel="noopener">
-              phil kuenzler (phinklabs)
-            </a>
-            , made for Chrono · Lexicanum. You are welcome to download them
-            for personal use. Book covers and the Chronicle&apos;s era artwork
-            are not offered here — those remain with their credited artists.
+            The painted backdrops of this archive are original works by me,
+            made for the site in countless hours of trying to learn digital
+            artwork and photobashing. There is no AI involved, so you can use
+            them for your Warhammer fan projects in line with GW&apos;s non-AI
+            policy. You are welcome to download them for any use you see fit —
+            attribution to the Chrono Lexicanum page is appreciated but not
+            needed. Book covers and the Chronicle&apos;s era artwork are not
+            offered here — those remain with their credited artists.
           </p>
           <div className="legal__art">
             {PIECES.map((p) => (

@@ -17,6 +17,14 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+/* Phone portrait: variants with an off-center desktop crop re-center via
+   the per-variant var from <SiteBackground> (falls back to the inline
+   desktop position, so most variants don't move). */
+@media (max-width: 760px) {
+  .site-bg__photo {
+    background-position: var(--bg-pos-m, center) !important;
+  }
+}
 .site-bg__vignette {
   position: absolute;
   inset: 0;

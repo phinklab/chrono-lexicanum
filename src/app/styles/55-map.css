@@ -2031,6 +2031,20 @@ body.cg-on-map .site-brand .site-brand__map {
     backdrop-filter: none;
   }
 
+  /* Course route: the infinite marching-dash animation on mask-revealed
+     paths re-rasterizes the whole svg every frame — visible flicker while
+     panning with a voyage active, and fixed chrome above it (media-player
+     card) can drop out of compositing entirely on phone GPUs. The convoy
+     march is a desktop nicety; here the drawn route stands still, and the
+     draw-in/station blooms pause while the camera moves. */
+  .cg-rtFly {
+    animation: none;
+  }
+  .cg-chart.moving .cg-routeDraw,
+  .cg-chart.moving .cg-rt-st {
+    animation-play-state: paused;
+  }
+
   /* Backdrop while the drawer is up — also stops accidental chart pans. */
   .cg-sheet-backdrop {
     display: block;
@@ -2062,9 +2076,10 @@ body.cg-on-map .site-brand .site-brand__map {
   .cg-sheet-grip {
     display: grid;
     place-items: center;
-    height: 26px;
+    gap: 5px;
+    min-height: 26px;
     margin: 0 -14px;
-    padding: 0;
+    padding: 8px 0 4px;
     background: transparent;
     border: none;
     cursor: grab;
@@ -2075,6 +2090,22 @@ body.cg-on-map .site-brand .site-brand__map {
     height: 3px;
     border-radius: 2px;
     background: var(--cl-gold-dim);
+  }
+  /* Pull-up hint under the bar — gone once the sheet is up. */
+  .cg-sheet-grip .glab {
+    font-family: var(--font-mono);
+    font-size: var(--fs-label-3xs);
+    letter-spacing: var(--track-22);
+    text-transform: uppercase;
+    color: var(--cl-gold-dim);
+  }
+  .cg-sheet.open .cg-sheet-grip {
+    gap: 0;
+    padding: 0;
+    height: 26px;
+  }
+  .cg-sheet.open .cg-sheet-grip .glab {
+    display: none;
   }
   .cg-sheet-head {
     display: flex;

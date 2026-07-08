@@ -593,6 +593,10 @@
     bottom: auto;
     align-items: flex-start;
     flex-direction: column-reverse;
+    /* Own compositing layer: the chart svg repaints heavily (route
+       animations, camera flights) and phone GPUs can drop the player card
+       from the frame while it shares that paint layer. */
+    transform: translateZ(0);
   }
   body.cg-on-map .media-player__panel-wrap {
     bottom: auto;
