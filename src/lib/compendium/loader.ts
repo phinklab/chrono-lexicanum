@@ -1,9 +1,9 @@
 /**
- * Compendium data layer — Brief 129 (Doorways). SERVER-ONLY (imports `@/db`).
+ * Compendium data layer. SERVER-ONLY (imports `@/db`).
  *
  * Each of the five categories is built from an existing aggregate query — no new
  * SQL: factions reuse `/fraktionen`'s `loadFactionGuide` (+ its `hasContent`
- * gate), the rest reuse the atlas inventory rows (`getCharaktereRows`,
+ * gate), the rest reuse the inventory rows in `./queries` (`getCharaktereRows`,
  * `getWeltenRows`, `getPersonenRows`). The builders map those rows to the pure
  * `CompendiumItem` shape — a resolved entity `href` plus pre-computed display
  * strings — so the pages and the client controls stay db-free.
@@ -20,7 +20,7 @@ import {
   getCharaktereRows,
   getPersonenRows,
   getWeltenRows,
-} from "@/lib/atlas/queries";
+} from "./queries";
 import { factionDot } from "@/lib/faction-colors";
 import {
   loadFactionGuide,
@@ -43,13 +43,11 @@ import {
 } from "./primarchs";
 
 /**
- * A world earns a place only once the archive returns to it. The threshold is a
- * named constant (Brief 129 leaves N to the implementer): with ~2400 location
- * rows, the long tail is single-mention scenery — 3+ appearances (books +
- * podcast episodes, counted off `work_locations`) marks a world the stories
- * actually orbit, which is what the directory should surface. Gate F+L lowered
- * the UI threshold to 2 so the newly-applied faction/location pass is visible
- * without opening the single-mention scenery tail.
+ * A world earns a place only once the archive returns to it. With ~2400
+ * location rows, the long tail is single-mention scenery — requiring 2+
+ * appearances (books + podcast episodes, counted off `work_locations`) keeps
+ * the directory to worlds the stories actually orbit without opening the
+ * single-mention scenery tail.
  */
 export const WORLD_MENTION_THRESHOLD = 2;
 
@@ -81,7 +79,7 @@ function factionStats(f: FactionGuide): string | null {
   return parts.length > 0 ? parts.join(" · ") : null;
 }
 
-// ── Cached source rows (shared ACROSS requests + within one request) ─────────
+// Cached source rows (shared ACROSS requests + within one request).
 // `cachedRead` wraps each source loader in Next's persistent Data Cache
 // (`unstable_cache`, shared across requests and serverless instances) plus a
 // React `cache()` for per-request dedup. The first request per TTL window does
@@ -108,7 +106,7 @@ const cachedPersonen = cachedRead(getPersonenRows, ["compendium", "personen-rows
   isDegraded: (rows) => rows.length === 0,
 });
 
-// ── Per-category builders ────────────────────────────────────────────────────
+// Per-category builders
 
 export const loadFactionItems = cache(async (): Promise<CompendiumItem[]> => {
   const guide = await cachedFactionGuide();
@@ -158,11 +156,11 @@ export const loadPrimarchItems = cache(async (): Promise<CompendiumItem[]> => {
   if (ids.length === 0) return []; // Roster not curated yet → graceful pending.
   const rows = await cachedCharaktere();
   const byId = new Map(rows.map((c) => [c.id, c]));
-  // Resolved in PARALLEL (Report 144 § DB.4): the old sequential for-loop made
+  // Resolved in PARALLEL: a sequential for-loop would make
   // the builder's latency scale linearly with the number of merged entries'
   // `loadEntity` fan-outs. Today only one id is merged, but the shape must not
   // become a serial query cascade as merges grow. `Promise.all` keeps order;
-  // each entity fan-out is ≤4 queries, deduped per request via `cache()`.
+  // each entity fan-out is at most 4 queries, deduped per request via `cache()`.
   const items = await Promise.all(
     ids.map(async (id): Promise<CompendiumItem | null> => {
       const c = byId.get(id);

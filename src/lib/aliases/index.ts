@@ -1,17 +1,17 @@
 /**
  * Shared alias module — Surface-Form ⇄ Canonical-Entity for the App layer.
  *
- * One asset, two consumers (Brief 104):
+ * One asset, two consumers:
  *
- *   1. Drift classification (audit cockpit, now) — `classifyDrift` /
- *      `tallyAxisDrift` decide whether a junction's stored `rawName` is an
- *      *expected* edition-rename ("known alias") or *suspicious* drift. The
- *      decision is **entity-exact**: a `rawName` only counts as a known alias
- *      when its registered alias target equals the canonical id the junction
- *      actually resolved to. A registered alias that points at a *different*
- *      entity stays suspicious drift (a real mis-resolve worth surfacing).
+ *   1. Drift classification (audit cockpit) — `classifyDrift` decides whether
+ *      a junction's stored `rawName` is an *expected* edition-rename ("known
+ *      alias") or *suspicious* drift. The decision is **entity-exact**: a
+ *      `rawName` only counts as a known alias when its registered alias target
+ *      equals the canonical id the junction actually resolved to. A registered
+ *      alias that points at a *different* entity stays suspicious drift (a
+ *      real mis-resolve worth surfacing).
  *
- *   2. Search resolution (contract; wired into a UI in a later session) —
+ *   2. Search resolution (contract; not yet wired into a UI) —
  *      `resolveSurfaceForm` maps a free-text query to canonical entit(y|ies),
  *      case-insensitively, against both the alias keys AND the canonical
  *      display names, so "Imperial Guard" and "astra militarum" both find
@@ -55,11 +55,8 @@ const CANON: Record<AliasAxis, ReadonlyArray<CanonEntity>> = {
   character: charactersCanon,
 };
 
-// ===========================================================================
 // Drift classification (entity-exact). Consumed by the audit read-path at
-// src/lib/atlas/queries.ts and src/app/buch/[slug]/audit/page.tsx — one rule,
-// one place. (The /buecher consumer was removed in Board 121-P11.)
-// ===========================================================================
+// src/app/buch/[slug]/audit/page.tsx — one rule, one place.
 
 export type DriftClass = "none" | "known-alias" | "drift";
 
@@ -86,81 +83,7 @@ export function classifyDrift(
   return "drift";
 }
 
-/** Convenience boolean: is this `rawName` an expected edition-rename of THIS entity? */
-export function isKnownAlias(
-  axis: AliasAxis,
-  rawName: string | null | undefined,
-  canonicalId: string,
-  canonicalName: string,
-): boolean {
-  return classifyDrift(axis, rawName, canonicalId, canonicalName) === "known-alias";
-}
-
-/** One junction row, reduced to what the classifier needs. */
-export interface DriftRow {
-  rawName: string | null;
-  canonicalId: string;
-  canonicalName: string;
-}
-
-/** A resolved known-alias junction, kept for display (which surface-form → which entity). */
-export interface KnownAliasHit {
-  rawName: string;
-  canonicalId: string;
-  canonicalName: string;
-}
-
-export interface AxisDriftTally {
-  /** `rawName`s that are suspicious drift (state 3) — drive count, freq, sort, signal. */
-  suspectRawNames: string[];
-  /** count of suspicious-drift junctions (state 3). */
-  suspectCount: number;
-  /** expected edition-renames (state 2) — quiet class, kept for display. */
-  knownAliases: KnownAliasHit[];
-  /** count of known-alias junctions (state 2). */
-  knownAliasCount: number;
-}
-
-/**
- * Fold one axis' junction rows into a drift tally — the shared replacement for
- * the per-call-site `countResolvedDrift` + `collectDriftRawNames` helpers.
- * Known aliases (state 2) are split out from suspicious drift (state 3) so the
- * cockpit's drift count, global frequency and sub-sort see only real drift.
- */
-export function tallyAxisDrift(
-  axis: AliasAxis,
-  rows: ReadonlyArray<DriftRow>,
-): AxisDriftTally {
-  const suspectRawNames: string[] = [];
-  const knownAliases: KnownAliasHit[] = [];
-  for (const row of rows) {
-    const cls = classifyDrift(axis, row.rawName, row.canonicalId, row.canonicalName);
-    if (cls === "none") continue;
-    // `rawName` is a non-empty string in both remaining branches (the `none`
-    // guard above excludes null / "").
-    const rawName = row.rawName ?? "";
-    if (cls === "known-alias") {
-      knownAliases.push({
-        rawName,
-        canonicalId: row.canonicalId,
-        canonicalName: row.canonicalName,
-      });
-    } else {
-      suspectRawNames.push(rawName);
-    }
-  }
-  return {
-    suspectRawNames,
-    suspectCount: suspectRawNames.length,
-    knownAliases,
-    knownAliasCount: knownAliases.length,
-  };
-}
-
-// ===========================================================================
-// Search resolution (contract). NOT wired into a UI in Brief 104 — this fixes
-// the signature + documented behavior + a unit test for the search session.
-// ===========================================================================
+// Search resolution contract.
 
 export interface AliasResolution {
   axis: AliasAxis;
@@ -189,8 +112,8 @@ export function listAliasEntries(axis: AliasAxis): AliasEntry[] {
 /**
  * Normalize a query for case-insensitive matching. Trim + lowercase only —
  * deliberately conservative. Diacritic / punctuation folding (e.g. `T'au`)
- * is the later search-wiring session's call (Brief 104 § Constraints); this
- * module fixes only the contract, not the final normalization rules.
+ * is left to the search wiring; this module fixes only the contract, not the
+ * final normalization rules.
  */
 export function normalizeQuery(s: string): string {
   return s.trim().toLowerCase();
