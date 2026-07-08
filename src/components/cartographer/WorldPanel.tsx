@@ -2,10 +2,10 @@
 
 /**
  * WorldPanel — the click popup at the pin, in the live-site surface language
- * (64-detail-modal: frameless near-opaque glass, drop shadow + bone light
- * edge, NO border stroke). Shows primary + secondary/tertiary classification
- * and the work list with role + rollup provenance (`via`). SSOT coordinates
- * are curation internals and deliberately NOT rendered (Session-Nachtrag).
+ * (frameless near-opaque glass, drop shadow + bone light edge, NO border
+ * stroke). Shows primary + secondary/tertiary classification and the work
+ * list with role + rollup provenance (`via`). SSOT coordinates are curation
+ * internals and deliberately NOT rendered.
  * Dust worlds (n=0) open the same panel: blurb (or filler) + a quiet
  * "no records" line instead of the works toggle.
  *
@@ -13,12 +13,12 @@
  * opens over the chart; episodes go to the show's archive hall; the footer
  * opens /welt/{locationId} when the world is linked.
  *
- * Layout (Session-Nachtrag 178): under the header sits the curated
- * one-sentence blurb (location-blurbs.json — the same text the big entity
- * view opens with; "empty. add later" when none is curated yet), then a
- * collapsed "Literature & podcasts" row that expands to the first five
- * records; "All N records →" opens the big view (/welt/{loc} — the @modal
- * intercept renders it over the chart).
+ * Layout: under the header sits the curated one-sentence blurb
+ * (location-blurbs.json — the same text the big entity view opens with;
+ * "empty. add later" when none is curated yet), then a collapsed
+ * "Literature & podcasts" row that expands to the first five records;
+ * "All N records →" opens the big view (/welt/{loc} — the @modal intercept
+ * renders it over the chart).
  *
  * Positioning is imperative (bus frame subscription) — panning never
  * re-renders React. The last world stays rendered through the fade-out.
@@ -27,6 +27,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
+import { isNarrow } from "@/lib/useMediaQuery";
 import type { FeaturedWorld, MapPayload } from "@/lib/map/payload";
 import type { MapWorldKind, MapWorldWork } from "@/lib/map/map-worlds-schema";
 import { loadWorldBlurbs } from "@/lib/map/world-blurbs";
@@ -78,9 +79,9 @@ export default function WorldPanel({ world, payload, bus, onClose }: WorldPanelP
   const expanded = shown !== null && openFor === shown.id;
   const full = shown !== null && fullFor === shown.id;
 
-  /* Blurb fallback (178b Runde 8): worlds without a location-blurb (dust +
-     unlinked featured) get their text from the lazy world-blurbs chunk —
-     keyed per world id so a stale lookup never shows on the wrong world. */
+  /* Blurb fallback: worlds without a location-blurb (dust + unlinked
+     featured) get their text from the lazy world-blurbs chunk — keyed per
+     world id so a stale lookup never shows on the wrong world. */
   const [fallback, setFallback] = useState<{ id: string; text: string | null } | null>(null);
   useEffect(() => {
     if (!shown || shown.blurb) return;
@@ -99,6 +100,13 @@ export default function WorldPanel({ world, payload, bus, onClose }: WorldPanelP
     const w = worldRef.current;
     const driver = bus.driver;
     if (!el || !w || !driver) return;
+    if (isNarrow()) {
+      // ≤900px the panel is a bottom-docked card — CSS owns the position;
+      // clear any pin-anchored inline placement from a wider viewport.
+      el.style.left = "";
+      el.style.top = "";
+      return;
+    }
     const p = driver.worldToScreen(w.gx, w.gy);
     const pw = el.offsetWidth || 362;
     const ph = el.offsetHeight || 220;

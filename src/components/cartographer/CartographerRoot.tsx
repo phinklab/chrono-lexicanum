@@ -1,12 +1,12 @@
 "use client";
 
 /**
- * CartographerRoot — client root of the /map rebuild (Brief 178, Studie I
- * "Maledictum"). Owns the discrete UI state (selection, census filters,
- * course, instruments, direction proofs) in one small reducer; the camera
- * never enters React state (see ChartStage/chart-bus). The chart itself is
- * mount-gated (client-only); the SSR pass renders the overture + cartouche
- * so the route paints before hydration.
+ * CartographerRoot — client root of the /map route. Owns the discrete UI
+ * state (selection, census filters, course, instruments, direction proofs)
+ * in one small reducer; the camera never enters React state (see
+ * ChartStage/chart-bus). The chart itself is mount-gated (client-only); the
+ * SSR pass renders the overture + cartouche so the route paints before
+ * hydration.
  */
 
 import { useCallback, useEffect, useMemo, useReducer, useRef, useSyncExternalStore } from "react";
@@ -18,6 +18,7 @@ import { COURSES } from "@/lib/map/routes";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 
 import { Cartouche, Overture } from "./Cartouche";
+import CartoucheSheet from "./CartoucheSheet";
 import Census from "./Census";
 import ChartStage from "./ChartStage";
 import CourseCards from "./CourseCards";
@@ -40,10 +41,10 @@ interface CgState {
   courseId: string | null;
   lumen: boolean;
   nihilus: boolean;
-  /** Namens-Zwang (178b Runde 9): jede sichtbare Welt zeigt ihren Namen in
-   *  jedem Zoom — Rettungsanker für dünne Filter (z. B. nur Fleets). */
+  /** Force names: every visible world shows its name at every zoom — a
+   *  lifeline for thin filters (e.g. fleets only). */
   names: boolean;
-  /** Zonen-Toggle (178b Runde 10): blendet die kuratierten Zonen-Felder aus. */
+  /** Hides the curated zone fields. */
   zonesOff: boolean;
 }
 
@@ -131,11 +132,11 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
     () => new URLSearchParams(window.location.search).get("zones") === "edit",
     () => false,
   );
-  // Hartes Dev-Gate (178b Runde 8, Philipp): das Kurations-Werkzeug existiert
-  // NUR auf localhost. NODE_ENV wird beim Build statisch ersetzt — im
-  // Prod-Build ist zoneEdit konstant false, ?zones=edit wird ignoriert und
-  // der ZoneEditor-Ast (inkl. Import) fällt als toter Code aus dem Bundle.
-  // Die kuratierten Zonen selbst (zones.json, published) shippen weiter.
+  // Hard dev gate: the curation tool exists ONLY on localhost. NODE_ENV is
+  // statically replaced at build time — in the prod build zoneEdit is
+  // constant false, ?zones=edit is ignored and the ZoneEditor branch
+  // (including its import) drops out of the bundle as dead code. The curated
+  // zones themselves (zones.json, published) still ship.
   const zoneEdit = process.env.NODE_ENV === "development" && zoneEditParam;
   const [state, dispatch] = useReducer(reducer, INITIAL);
   const bus = useMemo(() => new ChartBus(), []);
@@ -152,11 +153,11 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
     [activeCourse],
   );
 
-  /* Selection highlight, imperative (178b, Label-Flicker): `sel-on` is NOT a
-     PinLayer prop — a selection change must never re-render the 1000+-label
-     layers. Applied synchronously on select (before the flight's `.moving`
-     class gates the hover rules, so the hover-look hands over to `sel-on`
-     without a single transition frame) and repaired after every commit. */
+  /* Selection highlight, imperative: `sel-on` is NOT a PinLayer prop — a
+     selection change must never re-render the 1000+-label layers. Applied
+     synchronously on select (before the flight's `.moving` class gates the
+     hover rules, so the hover-look hands over to `sel-on` without a single
+     transition frame) and repaired after every commit. */
   const applySelClass = useCallback((id: string | null) => {
     const chart = document.querySelector(".cg-chart");
     if (!chart) return;
@@ -182,7 +183,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
     [bus, source, applySelClass],
   );
 
-  /* ── Route-scoped chrome: body class (burger statt Rail), scroll lock ── */
+  /* Route-scoped chrome: body class (burger instead of rail), scroll lock */
   useEffect(() => {
     document.body.classList.add("cg-on-map");
     const prevOverflow = document.body.style.overflow;
@@ -193,7 +194,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
     };
   }, []);
 
-  /* ── Hash restore (once) + hash writes ── */
+  /* Hash restore (once) + hash writes */
   const restored = useRef(false);
   useEffect(() => {
     if (restored.current || !mounted) return;
@@ -219,7 +220,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
     if (restored.current) writeMapHash({ world: state.selectedId });
   }, [state.selectedId]);
 
-  /* ── Escape closes the popup ── */
+  /* Escape closes the popup */
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") selectWorld(null);
@@ -237,9 +238,9 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
   const condense = useCallback(() => dispatch({ type: "condense" }), []);
   const pick = useCallback((id: string | null) => selectWorld(id), [selectWorld]);
 
-  /* Zoom-Presets (178b Runde 8): fliegen — Zentrum bleibt stehen — exakt auf
-     die Vergrößerung, ab der die nächste Namens-Stufe geladen ist (Band-
-     Schwellen 3.1/5.6 in ChartStage; 3.2/6.0 geben eine Haaresbreite Luft). */
+  /* Zoom presets: fly — the center stays put — to exactly the magnification
+     at which the next name tier is loaded (band thresholds 3.1/5.6 in
+     ChartStage; 3.2/6.0 leave a hair's breadth of headroom). */
   const zoomPreset = useCallback(
     (kr: number) => {
       dispatch({ type: "condense" });
@@ -251,12 +252,33 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
     [bus],
   );
 
+  const anyFiltered = state.hiddenCls.size > 0 || state.dustOff || state.worksOnly;
+
+  // One census definition feeds both control surfaces — the desktop cartouche
+  // and the mobile drawer; only one is ever displayed.
+  const census = (
+    <Census
+      payload={payload}
+      hiddenCls={state.hiddenCls}
+      worksOnly={state.worksOnly}
+      dustOff={state.dustOff}
+      namesOn={state.names}
+      zonesOff={state.zonesOff}
+      onToggleCls={(ci) => dispatch({ type: "toggleCls", ci })}
+      onSetCls={(cis, hidden) => dispatch({ type: "setCls", cis, hidden })}
+      onToggleWorksOnly={() => dispatch({ type: "toggleWorksOnly" })}
+      onToggleDust={() => dispatch({ type: "toggleDust" })}
+      onToggleNames={() => dispatch({ type: "toggleNames" })}
+      onToggleZones={() => dispatch({ type: "toggleZones" })}
+    />
+  );
+
   return (
     <>
       <div className="cg-rule top" aria-hidden />
       <div className="cg-rule bot" aria-hidden />
-      {/* Kein "000"-Gradzeichen im Norden — dort sitzt jetzt der zentrierte
-          Site-Brand ("Chrono Lexicanum · Tabula"). */}
+      {/* No "000" degree mark at north — the centered site brand
+          ("Chrono Lexicanum · Tabula") sits there. */}
       <span className="cg-deg e" aria-hidden>
         090
       </span>
@@ -284,9 +306,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           <GridDots />
           <PolarFrame />
           <SegmentumWatermarks />
-          {/* Zonen-Felder: seit 178b Runde 8 ausschließlich Philipps
-              Hand-Kuration (zones.json) — die hartkodierten Studien-Grafiken
-              (Warpstürme, Great-Rift-Korridor, Leviathan, Sautekh) sind raus. */}
+          {/* Zone fields come exclusively from the hand-curated zones.json. */}
           <g id="cg-fields">{!zoneEdit && <ZonesLayer />}</g>
           <DustLayer
             payload={payload}
@@ -312,27 +332,30 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
         courseId={state.courseId}
         lumen={state.lumen}
         nihilus={state.nihilus}
-        filtered={state.hiddenCls.size > 0 || state.dustOff || state.worksOnly}
+        filtered={anyFiltered}
         onPick={pick}
         onCourse={(id) => dispatch({ type: "course", id })}
         onToggleLumen={() => dispatch({ type: "toggleLumen" })}
         onToggleNihilus={() => dispatch({ type: "toggleNihilus" })}
       >
-        <Census
-          payload={payload}
-          hiddenCls={state.hiddenCls}
-          worksOnly={state.worksOnly}
-          dustOff={state.dustOff}
-          namesOn={state.names}
-          zonesOff={state.zonesOff}
-          onToggleCls={(ci) => dispatch({ type: "toggleCls", ci })}
-          onSetCls={(cis, hidden) => dispatch({ type: "setCls", cis, hidden })}
-          onToggleWorksOnly={() => dispatch({ type: "toggleWorksOnly" })}
-          onToggleDust={() => dispatch({ type: "toggleDust" })}
-          onToggleNames={() => dispatch({ type: "toggleNames" })}
-          onToggleZones={() => dispatch({ type: "toggleZones" })}
-        />
+        {census}
       </Cartouche>
+
+      {/* Mobile counterpart — same dispatches, CSS-gated to ≤900px. */}
+      <CartoucheSheet
+        payload={payload}
+        courseId={state.courseId}
+        lumen={state.lumen}
+        nihilus={state.nihilus}
+        filtered={anyFiltered}
+        suppressed={state.selectedId !== null}
+        onPick={pick}
+        onCourse={(id) => dispatch({ type: "course", id })}
+        onToggleLumen={() => dispatch({ type: "toggleLumen" })}
+        onToggleNihilus={() => dispatch({ type: "toggleNihilus" })}
+      >
+        {census}
+      </CartoucheSheet>
 
       <WorldPanel
         world={selectedWorld}
@@ -396,17 +419,17 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           ⌂
         </button>
       </div>
-      {/* Koordinaten sind Kurations-Interna (Excel-Raum) — der Readout zeigt
-          nur noch die Vergrößerung. */}
+      {/* Coordinates are curation internals (Excel space) — the readout shows
+          only the magnification. */}
       <p className="cg-readout">
         <span className="mag" ref={magRef}>
           MAG 1.00×
         </span>
       </p>
 
-      {/* Kurations-Einstieg, nur im Dev-Server sichtbar (der Editor selbst
-          bleibt über ?zones=edit erreichbar; volle Navigation, damit der
-          Query-Snapshot neu gelesen wird — der localStorage-Draft überlebt). */}
+      {/* Curation entry point, visible only on the dev server (the editor
+          itself is reached via ?zones=edit; full navigation so the query
+          snapshot is re-read — the localStorage draft survives). */}
       {process.env.NODE_ENV === "development" && (
         <a className="cg-zed-toggle" href={zoneEdit ? "/map" : "/map?zones=edit"}>
           {zoneEdit ? "✕ Exit zone editor" : "⌖ Zone editor"}

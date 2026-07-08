@@ -4,35 +4,33 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { ARTIST_YOUTUBE_URL, TRACKS, type AudioTrack } from "@/lib/audio-tracks";
 
 /**
- * MediaPlayer — sitewide ambient strip, anchored bottom-left, ohne Kasten.
+ * MediaPlayer — sitewide ambient strip, anchored bottom-left, no box.
  *
- * Aufbau (DOM top-to-bottom = visuell oben-nach-unten im fixierten Block):
- *   • Wave — immer sichtbar, hairline-dünne 1-px-Bar-Sinuswelle (~24 px
- *     CSS-Höhe). Idle-Breathing wenn pausiert; FFT-Mid-Band-reaktiv beim
- *     Playback. Schwebt über dem Header.
- *   • Header (immer sichtbar) — EINE Zeile, horizontal ausgerichtet:
- *       Play-Glyph (borderless) + "VOL" Toggle + Track-Titel (flex:1) +
- *       "▴ PLAYLIST" Disclose (rechtsbündig durch den flex:1-Titel).
- *   • Vol-Popover (absolute über dem VOL-Button) — schmaler Hairline-Slider
- *     mit Mute-Glyph. Mutually exclusive zum Playlist-Panel.
- *   • Panel-Wrap (absolute, bottom: 100% des Players) — floatet über der
- *     Wave nach oben auf wenn `--open`. Grid-template-rows 0fr → 1fr für
- *     smoothe Height-Auto-Animation. Wave + Header bleiben dabei fix
- *     verankert; nichts rutscht hoch.
+ * Structure (DOM top-to-bottom = visual top-to-bottom in the fixed block):
+ *   - Wave — always visible, hairline-thin 1px-bar sine wave (~24px CSS
+ *     height). Idle breathing while paused; FFT mid-band reactive during
+ *     playback. Floats above the header.
+ *   - Header (always visible) — ONE row, horizontally aligned:
+ *     play glyph (borderless) + "VOL" toggle + track title (flex:1) +
+ *     "▴ PLAYLIST" disclose (right-aligned via the flex:1 title).
+ *   - Vol popover (absolute above the VOL button) — narrow hairline slider
+ *     with mute glyph. Mutually exclusive with the playlist panel.
+ *   - Panel wrap (absolute, bottom: 100% of the player) — floats up over
+ *     the wave when `--open`. Grid-template-rows 0fr → 1fr for a smooth
+ *     height-auto animation. Wave + header stay anchored; nothing shifts up.
  *
- * Wave-Rendering: 96 vertikale 1-px-Striche (non-scaling-stroke), Höhe aus
- * zweifachem Sinus-Träger × geglätteter Amplitude (FFT-Mid-Band-RMS während
- * Playback, atmender Breathing-Sinus im Idle). Pro-Bar-Textur aus FFT-Bins
- * legt eine feine Modulation drüber, geglättet um Per-Sample-Jitter zu
- * vermeiden.
+ * Wave rendering: 96 vertical 1px strokes (non-scaling-stroke), height from
+ * a double sine carrier × smoothed amplitude (FFT mid-band RMS during
+ * playback, a breathing sine while idle). Per-bar texture from the FFT bins
+ * lays a fine modulation on top, smoothed to avoid per-sample jitter.
  *
- * Interaktion:
- *   • Play-Glyph (links) = togglePlay.
- *   • VOL = toggleVol (Popover mit Slider).
- *   • Disclose "▴ PLAYLIST" (rechts) = togglePanel.
- *   • Vol-Popover und Playlist-Panel sind mutually exclusive.
- *   • Klick außerhalb schließt beides.
- *   • Kein Hover-Trigger.
+ * Interaction:
+ *   - Play glyph (left) = togglePlay.
+ *   - VOL = toggleVol (popover with slider).
+ *   - Disclose "▴ PLAYLIST" (right) = togglePanel.
+ *   - Vol popover and playlist panel are mutually exclusive.
+ *   - Clicking outside closes both.
+ *   - No hover trigger.
  */
 
 const FFT_SIZE = 256;
@@ -43,7 +41,6 @@ const BAR_PITCH = WAVE_VIEW_W / N_BARS;
 const FREQ_LO_BIN = 3;
 const FREQ_HI_BIN = 48;
 const IDLE_BREATHE_BASE = 0.14;
-const IDLE_BREATHE_AMP = 0.05;
 const AMP_SMOOTH_ALPHA = 0.14;
 const BAR_TEXTURE_ALPHA = 0.28;
 const TRACE_AMP_SCALE = 0.95;
@@ -56,6 +53,9 @@ export default function MediaPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isVolOpen, setIsVolOpen] = useState(false);
+  // Mobile only: the collapsed stud ⇄ expanded card state. Desktop CSS hides
+  // the stud and shows the strip permanently, so this stays false there.
+  const [miniOpen, setMiniOpen] = useState(false);
   const [volume, setVolume] = useState(0.5);
   const [reducedMotion, setReducedMotion] = useState(false);
 
@@ -109,6 +109,9 @@ export default function MediaPlayer() {
     sourceRef.current = source;
   }, []);
 
+  // Wave rendering. The rAF loop runs ONLY during playback (and only while
+  // the tab is visible) — paused/idle draws one static frame and lets a CSS
+  // opacity animation do the breathing on the compositor.
   useEffect(() => {
     const path = barsPathRef.current;
     if (!path) return;
@@ -126,40 +129,8 @@ export default function MediaPlayer() {
       return;
     }
 
-    let raf = 0;
-    let t = 0;
-    let freqArray: Uint8Array<ArrayBuffer> | null = null;
-
-    const tick = () => {
-      t += 0.024;
-
-      let target: number;
-      const analyser = analyserRef.current;
-      if (isPlayingRef.current && analyser) {
-        if (!freqArray || freqArray.length !== analyser.frequencyBinCount) {
-          freqArray = new Uint8Array(analyser.frequencyBinCount);
-        }
-        analyser.getByteFrequencyData(freqArray);
-        const hi = Math.min(FREQ_HI_BIN, freqArray.length);
-        const lo = Math.min(FREQ_LO_BIN, hi);
-        let sum = 0;
-        let cnt = 0;
-        for (let i = lo; i < hi; i++) {
-          sum += freqArray[i];
-          cnt++;
-        }
-        const rms = cnt > 0 ? sum / cnt / 255 : 0;
-        target = Math.min(1, PLAY_AMP_BASE + rms * PLAY_AMP_GAIN);
-      } else {
-        target =
-          IDLE_BREATHE_BASE +
-          Math.sin(t * 0.6) * IDLE_BREATHE_AMP * 0.7 +
-          Math.sin(t * 0.23) * IDLE_BREATHE_AMP * 0.3;
-      }
-      amplitudeRef.current =
-        amplitudeRef.current * (1 - AMP_SMOOTH_ALPHA) + target * AMP_SMOOTH_ALPHA;
+    const drawFrame = (t: number, freqArray: Uint8Array | null) => {
       const amp = amplitudeRef.current;
-
       const barAmps = barAmpsRef.current;
       let d = "";
       for (let i = 0; i < N_BARS; i++) {
@@ -167,7 +138,7 @@ export default function MediaPlayer() {
         const u = i / (N_BARS - 1);
 
         let texTarget = 0;
-        if (isPlayingRef.current && freqArray) {
+        if (freqArray) {
           const span = FREQ_HI_BIN - FREQ_LO_BIN;
           const binIdx = Math.min(
             freqArray.length - 1,
@@ -187,12 +158,62 @@ export default function MediaPlayer() {
         d += `M${xs},${(center - dev).toFixed(1)} L${xs},${(center + dev).toFixed(1)} `;
       }
       path.setAttribute("d", d);
+    };
 
+    if (!isPlaying) {
+      amplitudeRef.current = IDLE_BREATHE_BASE;
+      drawFrame(0, null);
+      return;
+    }
+
+    let raf = 0;
+    let t = 0;
+    let freqArray: Uint8Array<ArrayBuffer> | null = null;
+
+    const tick = () => {
+      t += 0.024;
+
+      let target = IDLE_BREATHE_BASE;
+      const analyser = analyserRef.current;
+      if (analyser) {
+        if (!freqArray || freqArray.length !== analyser.frequencyBinCount) {
+          freqArray = new Uint8Array(analyser.frequencyBinCount);
+        }
+        analyser.getByteFrequencyData(freqArray);
+        const hi = Math.min(FREQ_HI_BIN, freqArray.length);
+        const lo = Math.min(FREQ_LO_BIN, hi);
+        let sum = 0;
+        let cnt = 0;
+        for (let i = lo; i < hi; i++) {
+          sum += freqArray[i];
+          cnt++;
+        }
+        const rms = cnt > 0 ? sum / cnt / 255 : 0;
+        target = Math.min(1, PLAY_AMP_BASE + rms * PLAY_AMP_GAIN);
+      }
+      amplitudeRef.current =
+        amplitudeRef.current * (1 - AMP_SMOOTH_ALPHA) + target * AMP_SMOOTH_ALPHA;
+      drawFrame(t, freqArray);
       raf = requestAnimationFrame(tick);
     };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [reducedMotion]);
+
+    const start = () => {
+      if (!raf && !document.hidden) raf = requestAnimationFrame(tick);
+    };
+    const stop = () => {
+      if (raf) {
+        cancelAnimationFrame(raf);
+        raf = 0;
+      }
+    };
+    const onVisibility = () => (document.hidden ? stop() : start());
+    document.addEventListener("visibilitychange", onVisibility);
+    start();
+    return () => {
+      stop();
+      document.removeEventListener("visibilitychange", onVisibility);
+    };
+  }, [reducedMotion, isPlaying]);
 
   const togglePlay = useCallback(async () => {
     if (!audioRef.current || !hasTracks) return;
@@ -254,10 +275,10 @@ export default function MediaPlayer() {
     }
   }, [isPlaying]);
 
-  // Track-Wechsel: sobald React die neue audio.src committed hat und der
-  // Play-Status aktiv ist, explizit play() aufrufen. Ohne diesen Effekt
-  // würde mit `preload="none"` die neue Quelle nie geladen werden und
-  // `canplay` nie feuern — der Track würde stumm bleiben.
+  // Track change: once React has committed the new audio.src and the play
+  // state is active, call play() explicitly. Without this effect, with
+  // `preload="none"` the new source would never load and `canplay` would
+  // never fire — the track would stay silent.
   const didMountRef = useRef(false);
   useEffect(() => {
     if (!didMountRef.current) {
@@ -275,20 +296,22 @@ export default function MediaPlayer() {
   }, []);
 
   useEffect(() => {
-    if (!isOpen && !isVolOpen) return;
-    const handler = (e: MouseEvent) => {
+    if (!isOpen && !isVolOpen && !miniOpen) return;
+    const handler = (e: PointerEvent) => {
       if (rootRef.current && !rootRef.current.contains(e.target as Node)) {
         setIsOpen(false);
         setIsVolOpen(false);
+        setMiniOpen(false);
       }
     };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, [isOpen, isVolOpen]);
+    document.addEventListener("pointerdown", handler);
+    return () => document.removeEventListener("pointerdown", handler);
+  }, [isOpen, isVolOpen, miniOpen]);
 
   const cls = [
     "media-player",
     isOpen ? "media-player--open" : "",
+    miniOpen ? "media-player--mini-open" : "",
     isPlaying ? "media-player--playing" : "",
     !hasTracks ? "media-player--silent" : "",
   ].filter(Boolean).join(" ");
@@ -309,6 +332,9 @@ export default function MediaPlayer() {
         preload="none"
       />
 
+      {/* The dock wraps wave + header. Desktop renders it as display:contents
+          (no visual change); the mobile card styles it as one glass surface. */}
+      <div className="media-player__dock">
       <svg
         className="media-player__wave"
         viewBox={`0 0 ${WAVE_VIEW_W} ${WAVE_VIEW_H}`}
@@ -444,6 +470,7 @@ export default function MediaPlayer() {
           </button>
         </div>
       </div>
+      </div>
 
       <div className="media-player__panel-wrap" aria-hidden={!isOpen}>
         <div className="media-player__panel-wrap-inner">
@@ -493,6 +520,36 @@ export default function MediaPlayer() {
           </div>
         </div>
       </div>
+
+      {/* Mobile stud — collapsed entry point for the card above. Hidden on
+          desktop; hidden entirely when no tracks are loaded. */}
+      <button
+        type="button"
+        className="media-player__stud"
+        onClick={() => {
+          setMiniOpen((o) => !o);
+          setIsOpen(false);
+          setIsVolOpen(false);
+        }}
+        aria-label={miniOpen ? "Close atmosphere player" : "Open atmosphere player"}
+        aria-expanded={miniOpen}
+      >
+        <svg
+          className="media-player__stud-glyph"
+          width="18"
+          height="14"
+          viewBox="0 0 18 14"
+          aria-hidden
+        >
+          <path
+            d="M1 5 L1 9 M5 2.5 L5 11.5 M9 4 L9 10 M13 1 L13 13 M17 5.5 L17 8.5"
+            stroke="currentColor"
+            strokeWidth="1.4"
+            strokeLinecap="round"
+            fill="none"
+          />
+        </svg>
+      </button>
     </div>
   );
 }

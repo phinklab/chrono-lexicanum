@@ -1,30 +1,33 @@
 "use client";
 
 /**
- * Cartouche + Overture (Brief 178, Entscheid 1): "The Cartographer" opens as
- * a large cartouche over the chart and condenses into the corner legend on
- * first interaction. The corner cartouche carries seek, courses, instruments
- * and the census filter (passed in as children).
+ * Cartouche + Overture: "The Cartographer" opens as a large cartouche over
+ * the chart and condenses into the corner legend on first interaction. The
+ * corner cartouche carries seek, courses, instruments and the census filter
+ * (passed in as children).
  * Both surfaces speak the live-site glass language — no border strokes.
  *
- * Seek (178b): live list while typing — every one of the 1054 contacts is in
- * the payload (featured + dust), ranked prefix > substring and recorded >
- * dust. Click or RET selects and flies; arrows move the cursor.
+ * Seek: live list while typing — every one of the 1054 contacts is in the
+ * payload (featured + dust), ranked prefix > substring and recorded > dust.
+ * Click or RET selects and flies; arrows move the cursor.
  *
- * Legend rework (178b, Runde 2): the legend sits TOP-left (bottom-left is the
- * media player's dock) and folds into three sections — Courses, Instruments,
- * Census — behind full-width headers; only the census (the primary filter) is
- * open by default. Collapsed sections carry a gold state badge ("active",
+ * Legend: it sits TOP-left (bottom-left is the media player's dock) and
+ * folds into three sections — Courses, Instruments, Census — behind
+ * full-width headers; only the census (the primary filter) is open by
+ * default. Collapsed sections carry a gold state badge ("active",
  * "filtered", the lit instruments), so nothing active can hide silently.
+ *
+ * SeekPanel / SectionHead / CourseButtons / OverlayButtons are shared with
+ * the mobile drawer (CartoucheSheet) so both surfaces render one vocabulary.
  */
 
 import { useMemo, useState } from "react";
-import type { ReactNode } from "react";
+import type { ReactNode, Ref } from "react";
 
 import type { MapPayload } from "@/lib/map/payload";
 import { COURSES } from "@/lib/map/routes";
 
-/** 1054 → "1 054" (the studies' chart-figure style). */
+/** 1054 → "1 054" — space-grouped chart figures. */
 export function fmt(n: number): string {
   return n.toLocaleString("en-US").replace(/,/g, " ");
 }
@@ -41,7 +44,9 @@ export function Overture({ condensed, payload }: { condensed: boolean; payload: 
         {fmt(payload.coverage.total)} records placed
       </p>
       <p className="hint">
-        <span className="dot">●</span>&ensp;drag to survey · scroll to magnify · click a world
+        <span className="dot">●</span>&ensp;
+        <span className="hint-fine">drag to survey · scroll to magnify · click a world</span>
+        <span className="hint-coarse">drag to survey · pinch to magnify · tap a world</span>
       </p>
     </section>
   );
@@ -59,48 +64,91 @@ const SEEK_CAP = 160;
 
 type SectionId = "courses" | "instruments" | "census";
 
-interface CartoucheProps {
-  payload: MapPayload;
-  condensed: boolean;
-  courseId: string | null;
-  lumen: boolean;
-  nihilus: boolean;
-  /** Any census filter off default — the collapsed section shows a badge. */
-  filtered: boolean;
-  /** Select a world by id (flies there) — seek list click/RET. */
-  onPick: (id: string) => void;
-  onCourse: (id: string) => void;
-  onToggleLumen: () => void;
-  onToggleNihilus: () => void;
-  /** The census filter block. */
-  children: ReactNode;
+/** Collapsible-section header — car glyph + label + optional gold state note. */
+export function SectionHead({
+  open,
+  label,
+  note,
+  onToggle,
+}: {
+  open: boolean;
+  label: string;
+  note: string | null;
+  onToggle: () => void;
+}) {
+  return (
+    <button className={`c-sec${open ? " open" : ""}`} aria-expanded={open} onClick={onToggle}>
+      <span className="car">▸</span>
+      <span className="lab">{label}</span>
+      {note ? <span className="note">{note}</span> : null}
+    </button>
+  );
 }
 
-export function Cartouche({
-  payload,
-  condensed,
+/** The character-voyage list — one button per course. */
+export function CourseButtons({
   courseId,
+  onCourse,
+}: {
+  courseId: string | null;
+  onCourse: (id: string) => void;
+}) {
+  return (
+    <div className="routes">
+      {COURSES.map((course) => (
+        <button
+          key={course.id}
+          className={`rt${courseId === course.id ? " on" : ""}`}
+          onClick={() => onCourse(course.id)}
+        >
+          {course.name}
+          <span className="rt-tag">{course.tag}</span>
+        </button>
+      ))}
+    </div>
+  );
+}
+
+/** The two chart overlays — Lumen reach and the dark half. */
+export function OverlayButtons({
   lumen,
   nihilus,
-  filtered,
-  onPick,
-  onCourse,
   onToggleLumen,
   onToggleNihilus,
-  children,
-}: CartoucheProps) {
+}: {
+  lumen: boolean;
+  nihilus: boolean;
+  onToggleLumen: () => void;
+  onToggleNihilus: () => void;
+}) {
+  return (
+    <div className="routes">
+      <button className={`rt${lumen ? " on" : ""}`} onClick={onToggleLumen}>
+        Lumen Astronomican
+        <span className="rt-tag">the beacon&rsquo;s reach</span>
+      </button>
+      <button className={`rt${nihilus ? " on" : ""}`} onClick={onToggleNihilus}>
+        Imperium Nihilus
+        <span className="rt-tag">the dark half</span>
+      </button>
+    </div>
+  );
+}
+
+/** Seek input + live result list. Owns its query state; picking a hit clears
+ *  the query and hands the id to `onPick`. */
+export function SeekPanel({
+  payload,
+  onPick,
+  inputRef,
+}: {
+  payload: MapPayload;
+  onPick: (id: string) => void;
+  inputRef?: Ref<HTMLInputElement>;
+}) {
   const [query, setQuery] = useState("");
   const [cursor, setCursor] = useState(0);
   const [focused, setFocused] = useState(false);
-  const [openSecs, setOpenSecs] = useState<ReadonlySet<SectionId>>(new Set(["census"]));
-
-  const toggleSec = (id: SectionId) =>
-    setOpenSecs((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) next.delete(id);
-      else next.add(id);
-      return next;
-    });
 
   const index = useMemo<SeekHit[]>(() => {
     const arr: SeekHit[] = payload.featured.map((f) => ({ id: f.id, name: f.name, n: f.n }));
@@ -130,28 +178,11 @@ export function Cartouche({
     setCursor(0);
   };
 
-  const activeCourse = COURSES.find((c) => c.id === courseId) ?? null;
-  const instrumentsNote = [lumen && "Lumen", nihilus && "Nihilus"].filter(Boolean).join(" · ");
-
-  const secHead = (id: SectionId, label: string, note: string | null) => (
-    <button
-      className={`c-sec${openSecs.has(id) ? " open" : ""}`}
-      aria-expanded={openSecs.has(id)}
-      onClick={() => toggleSec(id)}
-    >
-      <span className="car">▸</span>
-      <span className="lab">{label}</span>
-      {note ? <span className="note">{note}</span> : null}
-    </button>
-  );
-
   return (
-    <aside className={`cg-cartouche${condensed ? " on" : ""}`}>
-      <div className="c-head">
-        <p className="c-title">The Cartographer</p>
-      </div>
+    <>
       <div className="seek">
         <input
+          ref={inputRef}
           type="text"
           placeholder="Seek a world…"
           spellCheck={false}
@@ -205,42 +236,95 @@ export function Cartouche({
           )}
         </div>
       )}
-      {secHead("courses", "Character voyages", activeCourse ? "active" : null)}
+    </>
+  );
+}
+
+interface CartoucheProps {
+  payload: MapPayload;
+  condensed: boolean;
+  courseId: string | null;
+  lumen: boolean;
+  nihilus: boolean;
+  /** Any census filter off default — the collapsed section shows a badge. */
+  filtered: boolean;
+  /** Select a world by id (flies there) — seek list click/RET. */
+  onPick: (id: string) => void;
+  onCourse: (id: string) => void;
+  onToggleLumen: () => void;
+  onToggleNihilus: () => void;
+  /** The census filter block. */
+  children: ReactNode;
+}
+
+export function Cartouche({
+  payload,
+  condensed,
+  courseId,
+  lumen,
+  nihilus,
+  filtered,
+  onPick,
+  onCourse,
+  onToggleLumen,
+  onToggleNihilus,
+  children,
+}: CartoucheProps) {
+  const [openSecs, setOpenSecs] = useState<ReadonlySet<SectionId>>(new Set(["census"]));
+
+  const toggleSec = (id: SectionId) =>
+    setOpenSecs((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+
+  const activeCourse = COURSES.find((c) => c.id === courseId) ?? null;
+  const instrumentsNote = [lumen && "Lumen", nihilus && "Nihilus"].filter(Boolean).join(" · ");
+
+  return (
+    <aside className={`cg-cartouche${condensed ? " on" : ""}`}>
+      <div className="c-head">
+        <p className="c-title">The Cartographer</p>
+      </div>
+      <SeekPanel payload={payload} onPick={onPick} />
+      <SectionHead
+        open={openSecs.has("courses")}
+        label="Character voyages"
+        note={activeCourse ? "active" : null}
+        onToggle={() => toggleSec("courses")}
+      />
       {openSecs.has("courses") && (
         <div className="c-body">
           <p className="c-hint">trace a character&rsquo;s journey across the chart</p>
-          <div className="routes">
-            {COURSES.map((course) => (
-              <button
-                key={course.id}
-                className={`rt${courseId === course.id ? " on" : ""}`}
-                onClick={() => onCourse(course.id)}
-              >
-                {course.name}
-                <span className="rt-tag">{course.tag}</span>
-              </button>
-            ))}
-          </div>
+          <CourseButtons courseId={courseId} onCourse={onCourse} />
         </div>
       )}
 
-      {secHead("instruments", "Overlays", instrumentsNote || null)}
+      <SectionHead
+        open={openSecs.has("instruments")}
+        label="Overlays"
+        note={instrumentsNote || null}
+        onToggle={() => toggleSec("instruments")}
+      />
       {openSecs.has("instruments") && (
         <div className="c-body">
-          <div className="routes">
-            <button className={`rt${lumen ? " on" : ""}`} onClick={onToggleLumen}>
-              Lumen Astronomican
-              <span className="rt-tag">the beacon&rsquo;s reach</span>
-            </button>
-            <button className={`rt${nihilus ? " on" : ""}`} onClick={onToggleNihilus}>
-              Imperium Nihilus
-              <span className="rt-tag">the dark half</span>
-            </button>
-          </div>
+          <OverlayButtons
+            lumen={lumen}
+            nihilus={nihilus}
+            onToggleLumen={onToggleLumen}
+            onToggleNihilus={onToggleNihilus}
+          />
         </div>
       )}
 
-      {secHead("census", "Filter worlds", filtered ? "filtered" : null)}
+      <SectionHead
+        open={openSecs.has("census")}
+        label="Filter worlds"
+        note={filtered ? "filtered" : null}
+        onToggle={() => toggleSec("census")}
+      />
       {openSecs.has("census") && <div className="c-body">{children}</div>}
     </aside>
   );

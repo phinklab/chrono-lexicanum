@@ -1,18 +1,16 @@
 /* 43-site-menu.css
-   Global burger + full-screen site menu (SiteMenu.tsx) — port of the
-   design-export's #burger + #site-menu (chronicle.css §burger + full-screen
-   menu), re-rooted from the prototype's `body.menu-open` onto component-scoped
-   `.is-open`. App-shell chrome on every route — seit dem TopNav-Removal
-   (Session 140 Follow-up) die einzige globale Navigation.
+   Global burger + full-screen site menu (SiteMenu.tsx), toggled via the
+   component-scoped `.is-open`. App-shell chrome on every route — the only
+   global navigation.
 
    Layering: the overlay must clear ALL existing chrome — detail popups (70)
    — so menu 80, burger 81 (the burger stays clickable on top of its own
    overlay, morphed to ×).
 
-   Token bridge: the export's parchment/gold/void map onto the house tokens
-   (--cl-bone / --cl-gold / --cl-void; house gold #a48c52 runs warmer than the
-   export's #c9b896 — intended). The cool blue-grey "steel" pair has no project
-   token; the literals are scoped to this partial. */
+   Token bridge: parchment/gold/void map onto the house tokens (--cl-bone /
+   --cl-gold / --cl-void); house gold #a48c52 deliberately runs warmer than
+   the source design's #c9b896. The cool blue-grey "steel" pair has no
+   project token; the literals are scoped to this partial. */
 
 .site-burger,
 .site-menu {
@@ -23,12 +21,9 @@
   --sm-serif: var(--font-body);
 }
 
-/* ── Burger button ─────────────────────────────────────────────────────── */
-/* Seit dem TopNav-Removal (Session 140 Follow-up) die einzige sichtbare
-   Navigation. Ab Session 158 steht der Burger fest oben RECHTS (vorher
-   zentriert + scroll-gesteuert nach rechts gewandert — das verrutschte die
-   Zentrierung). `row-reverse` legt das Icon in die Ecke, das "MENU"/"CLOSE"-
-   Label links daneben; auf Mobile bleibt er oben rechts, Label aus. */
+/* Burger button — the only visible navigation. Fixed top RIGHT;
+   `row-reverse` puts the icon in the corner with the "MENU"/"CLOSE" label to
+   its left. On mobile it stays top right with the label hidden. */
 .site-burger {
   position: fixed;
   top: 16px;
@@ -45,8 +40,8 @@
   cursor: pointer;
 }
 /* Corner scrim — a soft dark patch behind the burger so it stays legible over
-   any scrolled content or the full-bleed map. Always on (the burger now lives
-   permanently in the corner). Void falling from the top-right corner, masked
+   any scrolled content or the full-bleed map. Always on — the burger lives
+   permanently in the corner. Void falling from the top-right corner, masked
    out toward the left — a patch, not a bar. */
 .site-burger::before {
   content: "";
@@ -93,7 +88,7 @@
 }
 .site-burger__label {
   font-family: var(--sm-mono);
-  font-size: 15px;
+  font-size: var(--fs-label-xl);
   letter-spacing: 0.32em;
   color: var(--cl-dim);
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
@@ -120,7 +115,7 @@
   transform: translateY(-5px) rotate(-45deg);
 }
 
-/* ── Full-screen overlay ───────────────────────────────────────────────── */
+/* Full-screen overlay */
 .site-menu {
   position: fixed;
   inset: 0;
@@ -164,8 +159,8 @@
 .site-menu__head,
 .site-menu__foot {
   font-family: var(--sm-mono);
-  font-size: 10px;
-  letter-spacing: 0.34em;
+  font-size: var(--fs-label-3xs);
+  letter-spacing: var(--track-34);
   color: var(--sm-steel-dim);
   text-align: center;
   opacity: 0;
@@ -183,8 +178,8 @@
   opacity: 1;
 }
 
-/* Legal links (Brief 179) — last line under the TERRA STANDARD stamp, same
-   quiet mono register; fades in with the foot. */
+/* Legal links — last line under the TERRA STANDARD stamp, same quiet mono
+   register; fades in with the foot. */
 .site-menu__legal {
   margin-top: 14px;
   display: flex;
@@ -192,7 +187,7 @@
   align-items: baseline;
   gap: 12px;
   font-family: var(--sm-mono);
-  font-size: 10px;
+  font-size: var(--fs-label-3xs);
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--sm-steel-dim);
@@ -212,7 +207,7 @@
   color: var(--cl-gold);
 }
 
-/* ── Entry list ────────────────────────────────────────────────────────── */
+/* Entry list */
 .site-menu__list {
   list-style: none;
   margin: 0;
@@ -261,8 +256,8 @@
 }
 .site-menu__num {
   font-family: var(--sm-mono);
-  font-size: 12px;
-  letter-spacing: 0.3em;
+  font-size: var(--fs-label-xs);
+  letter-spacing: var(--track-30);
   color: var(--sm-steel-dim);
   min-width: 2.4em;
   text-align: right;
@@ -270,7 +265,7 @@
 }
 .site-menu__name {
   font-family: var(--sm-serif);
-  font-weight: 500;
+  font-weight: var(--fw-medium);
   font-size: clamp(30px, 6.4vh, 60px);
   line-height: 1.04;
   color: var(--cl-bone);
@@ -319,13 +314,13 @@
   .site-menu.is-open .site-menu__item:nth-child(6)::before { transition-delay: 0.46s; }
 }
 
-/* Mobile: safe-area nudge so the burger clears notches/rounded corners, Label
-   weg. (The burger is already top-right at every breakpoint now.) */
+/* Mobile: safe-area nudge so the burger clears notches/rounded corners;
+   label hidden. */
 @media (max-width: 720px) {
   .site-burger {
     top: calc(8px + env(safe-area-inset-top, 0px));
     right: calc(8px + env(safe-area-inset-right, 0px));
   }
   .site-burger__label { display: none; }
-  .site-burger::before { display: none; } /* mobile burger stays untouched */
+  .site-burger::before { display: none; } /* no corner scrim on mobile */
 }
