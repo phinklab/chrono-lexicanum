@@ -1,11 +1,7 @@
 /* 32-book-audit.css
-   Extracted verbatim from globals.css (CSS-consolidation pass 1). */
-
-/* =============================================================================
- * Book audit cockpit (/buch/[slug]/audit).
- * Dense maintainer ledger: provenance strips, explicit empty values, and
- * amber drift rails so resolver mismatches survive a fast scroll.
- * ============================================================================= */
+   Book audit cockpit (/buch/[slug]/audit) — a dense maintainer ledger:
+   provenance strips, explicit empty values, and amber drift rails so
+   resolver mismatches survive a fast scroll. */
 
 .audit-shell {
   position: relative;
@@ -26,7 +22,7 @@
 .audit-kicker {
   margin: 0 0 12px;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--fs-label-xs);
   text-transform: uppercase;
   color: color-mix(in oklch, var(--warm) 70%, var(--ink-2));
 }
@@ -49,7 +45,7 @@
   padding: 7px 10px;
   background: color-mix(in oklch, var(--bg-2) 55%, transparent);
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--fs-label-xs);
   color: var(--ink-1);
 }
 .audit-back-link {
@@ -60,8 +56,8 @@
   white-space: nowrap;
 }
 .audit-back-link:hover {
-  background: var(--color-aquila);
-  border-color: var(--color-aquila);
+  background: #d8b34c;
+  border-color: #d8b34c;
 }
 
 .audit-section {
@@ -71,7 +67,7 @@
 .audit-section h2 {
   margin: 0 0 14px;
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: var(--fs-label-md);
   text-transform: uppercase;
   color: var(--ink-2);
 }
@@ -93,15 +89,15 @@
 .audit-field dt {
   margin: 0 0 5px;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--fs-label-2xs);
   color: var(--ink-3);
 }
 .audit-field dd {
   margin: 0;
   overflow-wrap: anywhere;
   font-family: var(--font-mono);
-  font-size: 12px;
-  line-height: 1.55;
+  font-size: var(--fs-label-xs);
+  line-height: var(--lh-prose-lg);
   color: var(--ink-0);
 }
 .audit-field dd.is-empty,
@@ -115,7 +111,7 @@
   padding: 18px;
   border: 1px dashed var(--line-1);
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--fs-label-xs);
 }
 
 .audit-table-wrap {
@@ -125,7 +121,7 @@
   width: 100%;
   border-collapse: collapse;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--fs-label-xs);
 }
 .audit-table th,
 .audit-table td {
@@ -136,7 +132,7 @@
 }
 .audit-table th {
   color: var(--ink-3);
-  font-weight: 400;
+  font-weight: var(--fw-regular);
   text-transform: uppercase;
 }
 
@@ -178,7 +174,7 @@
 .entity-raw,
 .entity-drift {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--fs-label-2xs);
   color: var(--ink-2);
 }
 .entity-id,
@@ -192,12 +188,11 @@
   background: var(--warm);
   padding: 3px 8px;
 }
-/* Known edition-rename alias (Brief 104): cool + outlined, deliberately
- * calmer than the filled-amber `.entity-drift` warning — it reads as
- * "expected, not a bug". */
+/* Known edition-rename alias: cool + outlined, deliberately calmer than the
+ * filled-amber `.entity-drift` warning — it reads as "expected, not a bug". */
 .entity-alias {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--fs-label-2xs);
   color: var(--hl);
   border: 1px solid color-mix(in oklch, var(--hl) 45%, transparent);
   padding: 3px 8px;
@@ -222,14 +217,14 @@
   border: 1px solid var(--line-1);
   padding: 10px 12px;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--fs-label-xs);
 }
 .audit-facet-list span {
   color: var(--ink-3);
 }
 .audit-facet-list strong {
   color: var(--ink-0);
-  font-weight: 400;
+  font-weight: var(--fw-regular);
 }
 
 .audit-collection-grid {
@@ -240,7 +235,7 @@
 .audit-collection-grid h3 {
   margin: 0 0 10px;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--fs-label-xs);
   color: var(--ink-2);
   text-transform: uppercase;
 }
@@ -249,14 +244,14 @@
   padding: 12px;
   background: color-mix(in oklch, var(--bg-1) 72%, transparent);
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--fs-label-xs);
 }
 .audit-linked-list a {
   color: var(--hl);
   text-decoration: none;
 }
 .audit-linked-list a:hover {
-  color: var(--color-aquila);
+  color: #d8b34c;
 }
 .audit-linked-list span {
   display: inline-block;

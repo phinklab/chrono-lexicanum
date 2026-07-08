@@ -1,5 +1,5 @@
 /* 63-fraktionen.css
-   Public faction guide (Brief 120). Same Home/HUD atmosphere as /podcasts
+   Public faction guide. Same Home/HUD atmosphere as /podcasts
    (sweep, readout, floating coord, vista backdrop); the card grid follows the
    Archive card discipline — glass cards, hairline corners, calm hover. Cyan is
    the house default; each card carries a thin allegiance-coloured accent. The
@@ -10,7 +10,7 @@
   min-height: 100vh;
 }
 
-/* ── Hero ───────────────────────────────────────────────────────────────── */
+/* Hero */
 .fac-hero {
   position: relative;
   overflow: hidden;
@@ -32,9 +32,9 @@
 .fac-hero__heading {
   margin: 10px 0 0;
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   font-size: clamp(34px, 6vw, 54px);
-  letter-spacing: 0.14em;
+  letter-spacing: var(--track-14);
   color: var(--cl-bone);
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9);
 }
@@ -72,7 +72,7 @@
   }
 }
 
-/* ── Body + toolbar ─────────────────────────────────────────────────────── */
+/* Body + toolbar */
 .fac-body {
   position: relative;
   z-index: 2;
@@ -89,7 +89,7 @@
 }
 .fac-toolbar__count {
   font-size: var(--fs-label-lg);
-  letter-spacing: 0.18em;
+  letter-spacing: var(--track-18);
   color: var(--cl-cyan);
 }
 .fac-toolbar__total {
@@ -107,7 +107,7 @@
   color: var(--cl-dim);
 }
 
-/* ── Card grid ──────────────────────────────────────────────────────────── */
+/* Card grid */
 .fac-grid {
   list-style: none;
   margin: 0;
@@ -161,8 +161,8 @@
 }
 .fac-card__glyph {
   font-family: var(--font-mono);
-  font-size: 15px;
-  line-height: 1;
+  font-size: var(--fs-label-xl);
+  line-height: var(--lh-solid);
   color: var(--fac-accent);
 }
 .fac-card__dot {
@@ -174,14 +174,14 @@
 .fac-card__align {
   font-family: var(--font-mono);
   font-size: var(--fs-label);
-  letter-spacing: 0.2em;
+  letter-spacing: var(--track-20);
   text-transform: uppercase;
   color: var(--fac-accent);
 }
 .fac-card__name {
   margin: 0;
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   font-size: 18px;
   letter-spacing: 0.03em;
   line-height: 1.2;
@@ -204,7 +204,7 @@
   padding-top: 4px;
   font-family: var(--font-mono);
   font-size: var(--fs-label);
-  letter-spacing: 0.08em;
+  letter-spacing: var(--track-08);
   color: var(--cl-cyan-dim);
 }
 

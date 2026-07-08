@@ -1,13 +1,8 @@
 /* 16-shared.css
-   Extracted verbatim from globals.css (CSS-consolidation pass 1). */
-
-/* =============================================================================
- * Shared cross-bracket corners + alpha PNG mask.
- * `.mt-corner` is the four-span L-shape used by /ingest's cards (and by the
- * Timeline overview as a focus-ring vocabulary echo). `.aquila` enforces alpha
- * masking for the shared Aquila component. The pre-096 Hub markup that
- * originated this section is gone; what remains here is genuinely shared.
- * ============================================================================= */
+   Shared cross-bracket corners + alpha mask: `.mt-corner` is the four-span
+   L-shape used by /ingest's cards (and by the Timeline overview as a
+   focus-ring vocabulary echo); `.aquila` enforces alpha masking for the
+   shared Aquila component. */
 
 .aquila {
   -webkit-mask-mode: alpha;

@@ -13,8 +13,8 @@
   margin: 52px 0 18px;
   text-align: center;
   font-family: var(--font-mono);
-  font-size: 13px;
-  letter-spacing: 0.26em;
+  font-size: var(--fs-label-md);
+  letter-spacing: var(--track-26);
   text-transform: uppercase;
   color: var(--cl-gold);
 }
@@ -28,10 +28,10 @@
 .ofob__step-note {
   color: var(--cl-faint);
   text-transform: none;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--track-10);
 }
 
-/* ── Step I: the faction rail ───────────────────────────────────────────── */
+/* Step I: the faction rail */
 .ofob__rail-wrap {
   max-width: 680px;
   margin: 0 auto;
@@ -54,7 +54,7 @@
   content: "·";
   color: var(--cl-faint);
   padding: 0 8px;
-  font-size: 13px;
+  font-size: var(--fs-label-md);
 }
 .ofob__rail-btn {
   background: none;
@@ -62,7 +62,7 @@
   padding: 3px 4px;
   font-family: var(--font-body);
   font-size: 13px;
-  letter-spacing: 0.2em;
+  letter-spacing: var(--track-20);
   text-transform: uppercase;
   color: var(--cl-dim);
   cursor: pointer;
@@ -90,7 +90,7 @@
   border: 0;
   padding: 8px 12px;
   font-size: 22px;
-  line-height: 1;
+  line-height: var(--lh-solid);
   color: var(--cl-dim);
   cursor: pointer;
   transition: color 0.3s;
@@ -111,8 +111,8 @@
 .ofob__index {
   margin: 0;
   font-family: var(--font-mono);
-  font-size: 13px;
-  letter-spacing: 0.2em;
+  font-size: var(--fs-label-md);
+  letter-spacing: var(--track-20);
   color: var(--cl-faint);
 }
 .ofob__index-sep {
@@ -123,12 +123,12 @@
   font-family: var(--font-display);
   font-weight: var(--font-display-wght-hero);
   font-size: clamp(34px, 4.6vw, 54px);
-  line-height: 1;
+  line-height: var(--lh-solid);
   letter-spacing: var(--font-display-track);
   color: var(--cl-bone);
 }
 
-/* ── Step II: chapters ──────────────────────────────────────────────────── */
+/* Step II: chapters */
 .ofob__chapters {
   display: flex;
   flex-wrap: wrap;
@@ -141,7 +141,7 @@
   padding: 2px 8px;
   font-family: var(--font-body);
   font-size: 13px;
-  letter-spacing: 0.18em;
+  letter-spacing: var(--track-18);
   text-transform: uppercase;
   color: var(--cl-dim);
   cursor: pointer;
@@ -166,7 +166,7 @@
   color: var(--cl-faint);
 }
 
-/* ── Step III: the entry point ──────────────────────────────────────────── */
+/* Step III: the entry point */
 .ask-pick {
   max-width: 480px;
   margin: 0 auto;
@@ -180,7 +180,7 @@
   font-family: var(--font-display);
   font-weight: var(--font-display-wght);
   font-size: clamp(30px, 4vw, 44px);
-  line-height: 1.05;
+  line-height: var(--lh-title);
   color: var(--cl-bone);
 }
 .ask-pick__meta {

@@ -1,5 +1,5 @@
 /* 42-lex-primitives.css
-   Shared primitives of the design language (Brief 184): the Sternwarte button,
+   Shared primitives of the design language: the Sternwarte button,
    hairline tags, the seek field, section rubrics with hairline wings, reading
    prose with a versal opening line, honest mono status lines, the cogitator
    interstitial and the Imprimatur foot. Tokens from 00-tokens.css. */
@@ -60,8 +60,8 @@
   margin: 0 0 30px;
   font-family: var(--font-body);
   font-size: 14.5px;
-  font-weight: 400;
-  letter-spacing: 0.34em;
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--track-34);
   text-transform: uppercase;
   color: var(--cl-gold);
   text-align: center;
@@ -97,12 +97,12 @@
   margin: 0;
   font-family: var(--font-mono);
   font-size: var(--fs-label);
-  letter-spacing: 0.18em;
+  letter-spacing: var(--track-18);
   text-transform: uppercase;
   color: var(--cl-faint);
 }
 .lx-stat b {
-  font-weight: 400;
+  font-weight: var(--fw-regular);
   color: var(--cl-dim);
 }
 
@@ -117,7 +117,7 @@
   padding: 6px 12px;
   font-family: var(--font-mono);
   font-size: var(--fs-label);
-  letter-spacing: 0.18em;
+  letter-spacing: var(--track-18);
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
@@ -134,20 +134,20 @@
 .lx-tag--sm {
   padding: 2px 7px;
   font-size: var(--fs-label-xs);
-  letter-spacing: 0.14em;
+  letter-spacing: var(--track-14);
 }
 
-/* ── Button — the Sternwarte. No frame; the dot before the label is the
+/* Button — the Sternwarte. No frame; the dot before the label is the
    origin. On hover the dot expands, hairline rings bloom out of it (BtnFx.tsx
    supplies the SVG; two planets ride the turning rings) and three survey
-   stars radiate forward, then glimmer. Works without BtnFx too. ─────────── */
+   stars radiate forward, then glimmer. Works without BtnFx too. */
 .lx-btn {
   position: relative;
   z-index: 0;
   display: inline-block;
   font-family: var(--font-body);
   font-size: var(--fs-label-lg);
-  letter-spacing: 0.3em;
+  letter-spacing: var(--track-30);
   text-transform: uppercase;
   color: var(--cl-bone);
   background: transparent;
@@ -277,8 +277,8 @@
   animation: starTw 7.2s ease-in-out 2s infinite;
 }
 
-/* ── Seek field — centered italic line over a hairline; focus draws the gold
-   line across. ──────────────────────────────────────────────────────────── */
+/* Seek field — centered italic line over a hairline; focus draws the gold
+   line across. */
 .lx-field {
   position: relative;
   width: 100%;
@@ -295,7 +295,7 @@
   padding: 8px 4px;
   font-family: var(--font-body);
   font-style: italic;
-  font-size: 19px;
+  font-size: var(--fs-read);
   color: var(--cl-bone);
 }
 .lx-field input::placeholder {
@@ -330,7 +330,7 @@
   text-align: center;
   font-family: var(--font-mono);
   font-size: var(--fs-label);
-  letter-spacing: 0.26em;
+  letter-spacing: var(--track-26);
   text-transform: uppercase;
   color: var(--cl-faint);
 }
@@ -340,7 +340,7 @@
 }
 .lx-field--line .lx-field__kicker {
   text-align: left;
-  letter-spacing: 0.2em;
+  letter-spacing: var(--track-20);
 }
 
 /* Reading text — justified column with a versal opening line. */
@@ -357,7 +357,7 @@
   hyphens: auto;
 }
 .lx-initial::first-line {
-  letter-spacing: 0.14em;
+  letter-spacing: var(--track-14);
   text-transform: uppercase;
   font-size: 16.5px;
 }
@@ -406,7 +406,7 @@
   margin: 0;
   font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
-  letter-spacing: 0.34em;
+  letter-spacing: var(--track-34);
   text-transform: uppercase;
   color: var(--cl-dim);
 }
@@ -415,7 +415,7 @@
   font-family: var(--font-display);
   font-size: clamp(18px, 3.2vw, 27px);
   font-weight: var(--font-display-wght);
-  letter-spacing: 0.04em;
+  letter-spacing: var(--track-04);
   color: var(--cl-bone);
 }
 .lx-cog__dots {
@@ -429,8 +429,8 @@
   animation: cogitatorScan 2.6s ease-in-out infinite;
 }
 
-/* ── Imprimatur foot — the fading plumb line, the seal word, the italic
-   subline, the triad over a hairline, then the legal row. ───────────────── */
+/* Imprimatur foot — the fading plumb line, the seal word, the italic
+   subline, the triad over a hairline, then the legal row. */
 .lx-foot {
   max-width: 900px;
   /* Generous clearance from the last content block — the imprimatur is a
@@ -473,7 +473,7 @@
   padding-top: 16px;
   font-family: var(--font-body);
   font-size: 13px;
-  letter-spacing: 0.24em;
+  letter-spacing: var(--track-24);
   text-transform: uppercase;
   color: var(--cl-faint);
 }
@@ -490,8 +490,8 @@
   max-width: 62ch;
   font-family: var(--font-body);
   font-style: italic;
-  font-size: 15px;
-  line-height: 1.6;
+  font-size: var(--fs-read-2xs);
+  line-height: var(--lh-read);
   color: var(--cl-faint);
 }
 .lx-foot__law {
@@ -499,7 +499,7 @@
   align-items: baseline;
   gap: 10px;
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: var(--fs-read-2xs);
   color: var(--cl-dim);
 }
 .lx-foot__law a {

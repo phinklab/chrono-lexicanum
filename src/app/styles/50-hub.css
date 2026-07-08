@@ -4,13 +4,12 @@
 
 main.hub {
   position: relative;
-  /* Cancel the global `main { padding-top: var(--top-nav-h) }` (44-nav-frame). */
   padding-top: 0;
   /* `clip`, not `hidden` — hidden would turn main into a scroll container. */
   overflow-x: clip;
 }
 
-/* ── Act 1 · Splash ──────────────────────────────────────────────────────── */
+/* Act 1: Splash */
 .hub-act--splash {
   position: relative;
   min-height: 96vh;
@@ -30,7 +29,7 @@ main.hub {
 }
 .hub-hero__over {
   margin: 0;
-  font-size: 15px;
+  font-size: var(--fs-label-xl);
   letter-spacing: 0.4em;
   text-transform: uppercase;
   color: var(--cl-gold);
@@ -59,14 +58,14 @@ main.hub {
 }
 .hub-hero__edition b {
   font-style: normal;
-  font-weight: 400;
+  font-weight: var(--fw-regular);
   color: var(--cl-bone);
 }
 .hub-hero__cue {
   animation: enter 1s 1.15s var(--ease) both;
 }
 
-/* ── Act 2 · Praefatio ───────────────────────────────────────────────────── */
+/* Act 2: Praefatio */
 .hub-nave {
   max-width: 900px;
   margin: 0 auto;
@@ -90,7 +89,7 @@ main.hub {
   justify-content: center;
 }
 
-/* ── Act 3 · Explore registry ────────────────────────────────────────────── */
+/* Act 3: Explore registry */
 .hub-explore-shell {
   max-width: 980px;
   margin: 0 auto;
@@ -140,7 +139,7 @@ main.hub {
 }
 .hub-explore__index {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: var(--fs-label-md);
   color: var(--cl-faint);
   text-align: right;
 }
@@ -170,7 +169,7 @@ main.hub {
 .hub-explore__gloss {
   font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
-  letter-spacing: 0.2em;
+  letter-spacing: var(--track-20);
   text-transform: uppercase;
   color: var(--cl-faint);
   text-align: right;
@@ -195,7 +194,7 @@ main.hub {
 .hub-explore__soon {
   font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
-  letter-spacing: 0.2em;
+  letter-spacing: var(--track-20);
   color: var(--cl-faint);
   text-align: right;
 }

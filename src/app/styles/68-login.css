@@ -1,11 +1,10 @@
-/* =============================== /login ===============================
-   Preview gate — the librarium artwork with only a whisper of bottom
-   darkening (the lit marble floor stays visible), a single credential
+/* 68-login.css
+   Preview gate (/login) — the librarium artwork with only a whisper of
+   bottom darkening (the lit marble floor stays visible), a single credential
    column, and no page chrome (burger/menu/media player hidden). Desktop
    shows the artwork uncropped (contain, anchored bottom-right) with the
    console on the left over the void / dark shelf column; small screens
-   keep the centered full-bleed.
-*/
+   keep the centered full-bleed. */
 
 body:has(main.login) .site-burger,
 body:has(main.login) .site-menu,
@@ -110,8 +109,8 @@ main.login {
   margin: 0;
   font-family: var(--font-display);
   font-size: clamp(28px, 3.4vw, 40px);
-  font-weight: 400;
-  letter-spacing: 0.22em;
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--track-22);
   text-transform: uppercase;
   color: var(--cl-bone);
   text-shadow: 0 0 32px rgba(164, 140, 82, 0.22);
@@ -136,7 +135,7 @@ main.login {
   font-family: var(--font-body);
   font-style: italic;
   font-size: var(--fs-read);
-  line-height: 1.5;
+  line-height: var(--lh-prose);
   color: var(--cl-dim);
 }
 
@@ -176,8 +175,8 @@ main.login {
 
 .login-lab {
   font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.3em;
+  font-size: var(--fs-label-3xs);
+  letter-spacing: var(--track-30);
   color: var(--cl-faint);
 }
 
@@ -185,7 +184,7 @@ main.login {
   margin: 0;
   font-family: var(--font-mono);
   font-size: var(--fs-label);
-  letter-spacing: 0.22em;
+  letter-spacing: var(--track-22);
   color: var(--cl-blood);
 }
 
@@ -193,7 +192,7 @@ main.login {
   margin-top: 8px;
 }
 
-/* --- Invite states (Brief 163) ------------------------------------------- */
+/* Invite states */
 
 /* Accept-invitation state — the credential form is replaced by a single accept
    action. Centered like the form so the console keeps its column rhythm. */
@@ -223,7 +222,7 @@ main.login {
   font-family: var(--font-body);
   font-style: italic;
   font-size: var(--fs-read);
-  line-height: 1.5;
+  line-height: var(--lh-prose);
   color: var(--cl-faint);
   text-align: center;
 }
@@ -239,7 +238,7 @@ main.login {
   border-bottom-color: var(--cl-gold);
 }
 
-/* --- Legal links (Brief 179) ---------------------------------------------- */
+/* Legal links */
 
 /* Quiet mono line pinned to the bottom edge, centered under the console /
    artwork. The only navigation the gate page carries — Impressum and
@@ -254,7 +253,7 @@ main.login {
   align-items: baseline;
   gap: 12px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--fs-label-3xs);
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--cl-faint);

@@ -1,5 +1,5 @@
 /* 69-system-pages.css
-   Root system boundaries (Report 144 § R.4/R.5): the global 404 catch-all
+   Root system boundaries: the global 404 catch-all
    (`app/not-found.tsx`) and the root error boundary (`app/error.tsx`). Same
    vocabulary as 65-loading.css — flat void surface, gold hairline, Cinzel +
    Plex Mono, deliberately WITHOUT glow halos or warm gradients (house
@@ -23,7 +23,7 @@
   margin: 0;
   font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
-  letter-spacing: 0.34em;
+  letter-spacing: var(--track-34);
   text-transform: uppercase;
   color: var(--cl-dim);
 }
@@ -32,9 +32,9 @@
   margin: 14px 0 0;
   max-width: 920px;
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: var(--fw-regular);
   font-size: clamp(26px, 5vw, 44px);
-  letter-spacing: 0.08em;
+  letter-spacing: var(--track-08);
   color: var(--cl-bone);
 }
 
@@ -62,7 +62,7 @@
   margin: 18px 0 0;
   font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
-  letter-spacing: 0.22em;
+  letter-spacing: var(--track-22);
   color: var(--cl-dim);
   opacity: 0.7;
 }

@@ -1,14 +1,12 @@
 /* 30-ingest.css
-   Extracted verbatim from globals.css (CSS-consolidation pass 1). */
+   Ingestion dashboard (/ingest): run-list cards, counters and the per-run
+   detail view. */
 
-/* =============================================================================
- * Ingestion-Dashboard (Phase 3.5).
- * Operator-Tooling auf der öffentlichen Route /ingest. Konsumiert die
- * gleichen Tokens wie Hub/Timeline (panel, ink, lum, amber, gold, chaos),
- * aber zurückhaltender: keine Glow-Halos, keine warmen Gradient-Backdrops,
- * keine Tile-Rise-Stagger. Cinzel für Headings, Cormorant für Buchtitel,
- * Mono für Counter/IDs, Reader für Prose.
- * ============================================================================= */
+/* Operator tooling on the public /ingest route. Consumes the same tokens as
+ * Hub/Timeline (panel, ink, lum, amber, gold, chaos), but more restrained:
+ * no glow halos, no warm gradient backdrops, no tile-rise stagger. Cinzel
+ * for headings, Cormorant for book titles, mono for counters/IDs, reader
+ * face for prose. */
 
 .ingest-shell {
   position: relative;
@@ -50,16 +48,16 @@
 .ingest-title {
   margin: 0;
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: var(--fw-medium);
   font-size: clamp(32px, 4.5vw, 52px);
-  letter-spacing: 0.04em;
+  letter-spacing: var(--track-04);
   text-transform: uppercase;
   color: var(--color-ink-0);
 }
 .ingest-sub {
   max-width: 72ch;
   margin: 0;
-  font-family: var(--font-reader);
+  font-family: var(--font-body);
   font-size: clamp(14px, 1.2vw, 16px);
   line-height: 1.65;
   color: var(--color-ink-1);
@@ -86,14 +84,14 @@
   margin: 0;
   font-family: var(--font-display);
   font-size: 18px;
-  letter-spacing: 0.04em;
+  letter-spacing: var(--track-04);
   color: var(--color-ink-0);
 }
 .ingest-empty-body {
   margin: 0;
-  font-family: var(--font-reader);
+  font-family: var(--font-body);
   font-size: 14px;
-  line-height: 1.6;
+  line-height: var(--lh-read);
   color: var(--color-ink-1);
 }
 
@@ -139,9 +137,9 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
 }
 .ingest-card-error-msg {
   margin: 0;
-  font-family: var(--font-reader);
+  font-family: var(--font-body);
   font-size: 14px;
-  line-height: 1.5;
+  line-height: var(--lh-prose);
   color: var(--color-ink-1);
 }
 
@@ -167,7 +165,7 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
 .ingest-card-kicker {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--fs-label-3xs);
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--hl);
@@ -177,13 +175,13 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
 }
 .ingest-card-runid {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: var(--fs-label-md);
   color: var(--color-ink-0);
   letter-spacing: 0.02em;
 }
 .ingest-card-time {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--fs-label-xs);
   color: var(--color-ink-2);
 }
 
@@ -203,14 +201,14 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
 }
 .ingest-card-cost {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--fs-label-xs);
   color: var(--color-amber);
   letter-spacing: 0.02em;
 }
 .ingest-card-no-llm {
   font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.04em;
+  font-size: var(--fs-label-2xs);
+  letter-spacing: var(--track-04);
   color: var(--color-ink-3);
   text-transform: uppercase;
 }
@@ -232,7 +230,7 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
 .ingest-counter dt {
   font-family: var(--font-mono);
   font-size: 9.5px;
-  letter-spacing: 0.18em;
+  letter-spacing: var(--track-18);
   text-transform: uppercase;
   color: var(--color-ink-2);
 }
@@ -266,7 +264,7 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
 .ingest-source-pill {
   font-family: var(--font-mono);
   font-size: 10.5px;
-  letter-spacing: 0.06em;
+  letter-spacing: var(--track-06);
   padding: 2px 8px;
   border: 1px solid var(--line);
   color: var(--color-ink-1);
@@ -274,8 +272,8 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
 }
 .ingest-card-cta {
   font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.16em;
+  font-size: var(--fs-label-2xs);
+  letter-spacing: var(--track-16);
   text-transform: uppercase;
   color: var(--color-ink-2);
   margin-left: auto;
@@ -288,7 +286,7 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
 }
 .ingest-mono { font-family: var(--font-mono); }
 
-/* ─── Detail-View ─── */
+/* Detail view */
 
 .ingest-detail-shell {
   position: relative;
@@ -304,8 +302,8 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
 
 .ingest-back-link {
   font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.18em;
+  font-size: var(--fs-label-2xs);
+  letter-spacing: var(--track-18);
   text-transform: uppercase;
   color: var(--color-ink-2);
   text-decoration: none;
@@ -330,9 +328,9 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
 .ingest-detail-title {
   margin: 0;
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: var(--fw-medium);
   font-size: clamp(28px, 3.5vw, 40px);
-  letter-spacing: 0.04em;
+  letter-spacing: var(--track-04);
   text-transform: uppercase;
   color: var(--color-ink-0);
 }
@@ -349,13 +347,13 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
 .ingest-meta-label {
   font-family: var(--font-mono);
   font-size: 9.5px;
-  letter-spacing: 0.22em;
+  letter-spacing: var(--track-22);
   text-transform: uppercase;
   color: var(--color-ink-2);
 }
 .ingest-meta-value {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: var(--fs-label-md);
   color: var(--color-ink-0);
   letter-spacing: 0.02em;
 }
@@ -368,7 +366,7 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
   border: 1px dashed var(--line);
   font-family: var(--font-mono);
   font-size: 11.5px;
-  letter-spacing: 0.06em;
+  letter-spacing: var(--track-06);
   color: var(--color-ink-2);
   background: color-mix(in oklch, var(--color-bg-2) 40%, transparent);
 }
@@ -381,22 +379,22 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
 .ingest-section-title {
   margin: 0;
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: var(--fw-medium);
   font-size: 18px;
-  letter-spacing: 0.04em;
+  letter-spacing: var(--track-04);
   text-transform: uppercase;
   color: var(--color-ink-0);
 }
 .ingest-section-title-count {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--fs-label-xs);
   color: var(--color-ink-2);
   margin-left: 10px;
-  letter-spacing: 0.04em;
+  letter-spacing: var(--track-04);
 }
 
 .ingest-empty-section {
-  font-family: var(--font-reader);
+  font-family: var(--font-body);
   font-style: italic;
   font-size: 14px;
   color: var(--color-ink-2);
@@ -434,7 +432,7 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
 .ingest-entry-kind {
   font-family: var(--font-mono);
   font-size: 9.5px;
-  letter-spacing: 0.2em;
+  letter-spacing: var(--track-20);
   text-transform: uppercase;
   padding: 2px 8px;
   border: 1px solid var(--line);
@@ -446,13 +444,13 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
 .ingest-entry-title {
   font-family: var(--font-body);
   font-style: italic;
-  font-size: 19px;
+  font-size: var(--fs-read);
   color: var(--color-ink-0);
   letter-spacing: 0.005em;
 }
 .ingest-entry-slug {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--fs-label-2xs);
   color: var(--color-ink-3);
 }
 .ingest-entry-summary-right {
@@ -463,16 +461,16 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
 }
 .ingest-entry-badge {
   font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.06em;
+  font-size: var(--fs-label-3xs);
+  letter-spacing: var(--track-06);
   padding: 2px 8px;
   border: 1px solid var(--line);
   color: var(--color-ink-2);
 }
 .ingest-entry-flag-pill {
   font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.04em;
+  font-size: var(--fs-label-3xs);
+  letter-spacing: var(--track-04);
   padding: 2px 8px;
   color: var(--color-gold);
   border: 1px solid color-mix(in oklch, var(--color-gold) 35%, var(--line));
@@ -490,7 +488,7 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
   margin: 0 0 8px;
   font-family: var(--font-mono);
   font-size: 10.5px;
-  letter-spacing: 0.18em;
+  letter-spacing: var(--track-18);
   text-transform: uppercase;
   color: var(--color-ink-2);
 }
@@ -499,7 +497,7 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
   width: 100%;
   border-collapse: collapse;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--fs-label-xs);
   color: var(--color-ink-1);
 }
 .ingest-fields-table th,
@@ -510,9 +508,9 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
   border-bottom: 1px solid var(--color-line-0);
 }
 .ingest-fields-table th {
-  font-weight: 500;
+  font-weight: var(--fw-medium);
   color: var(--color-ink-2);
-  letter-spacing: 0.06em;
+  letter-spacing: var(--track-06);
   width: 22%;
 }
 .ingest-fields-table td.ingest-fields-source {
@@ -525,10 +523,10 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
   word-break: break-word;
 }
 .ingest-fields-table td.ingest-fields-value-synopsis {
-  font-family: var(--font-reader);
+  font-family: var(--font-body);
   font-style: italic;
   font-size: 14px;
-  line-height: 1.55;
+  line-height: var(--lh-prose-lg);
   color: var(--color-ink-1);
 }
 
@@ -566,7 +564,7 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
   gap: 10px;
   flex-wrap: wrap;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--fs-label-xs);
 }
 .ingest-link-list a {
   color: var(--color-lum);
@@ -580,9 +578,9 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
 }
 .ingest-link-tag {
   color: var(--color-ink-3);
-  letter-spacing: 0.04em;
+  letter-spacing: var(--track-04);
   text-transform: uppercase;
-  font-size: 10px;
+  font-size: var(--fs-label-3xs);
 }
 
 .ingest-flag-list {
@@ -610,18 +608,18 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
 .ingest-flag-kind {
   font-family: var(--font-mono);
   font-size: 10.5px;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--track-10);
   color: var(--color-gold);
   text-transform: uppercase;
 }
 .ingest-flag-field {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--fs-label-2xs);
   color: var(--color-ink-2);
 }
 .ingest-flag-slug {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--fs-label-2xs);
   color: var(--color-ink-1);
   margin-left: auto;
 }
@@ -634,9 +632,9 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
   gap: 2px;
 }
 .ingest-flag-reasoning {
-  font-family: var(--font-reader);
+  font-family: var(--font-body);
   font-size: 13px;
-  line-height: 1.5;
+  line-height: var(--lh-prose);
   color: var(--color-ink-1);
   font-style: italic;
 }
@@ -653,7 +651,7 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
   border: 1px solid var(--line);
   padding: 10px 12px;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--fs-label-xs);
   color: var(--color-ink-1);
 }
 .ingest-conflict-field {
@@ -663,7 +661,7 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
 .ingest-conflict-source {
   color: var(--color-ink-3);
   margin-right: 6px;
-  letter-spacing: 0.04em;
+  letter-spacing: var(--track-04);
 }
 
 .ingest-errors-list {
@@ -684,7 +682,7 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
 .ingest-error-source {
   color: var(--color-chaos);
   margin-right: 8px;
-  letter-spacing: 0.04em;
+  letter-spacing: var(--track-04);
 }
 .ingest-error-slug {
   color: var(--color-ink-2);
@@ -695,7 +693,7 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
   width: 100%;
   border-collapse: collapse;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--fs-label-xs);
 }
 .ingest-diff-table th,
 .ingest-diff-table td {
@@ -705,9 +703,9 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
   text-align: left;
 }
 .ingest-diff-table th {
-  font-weight: 500;
+  font-weight: var(--fw-medium);
   color: var(--color-ink-2);
-  letter-spacing: 0.06em;
+  letter-spacing: var(--track-06);
 }
 .ingest-diff-old {
   color: var(--color-ink-3);

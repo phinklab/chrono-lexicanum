@@ -61,7 +61,7 @@
   }
 }
 
-/* ── Survey points (FloatingCoord.tsx) ──────────────────────────────────── */
+/* Survey points (FloatingCoord.tsx) */
 .survey {
   position: absolute;
   display: flex;
@@ -108,7 +108,7 @@
 .survey__lbl {
   font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
-  letter-spacing: 0.16em;
+  letter-spacing: var(--track-16);
   text-transform: uppercase;
   color: var(--cl-dim);
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
