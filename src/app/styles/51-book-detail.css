@@ -218,23 +218,6 @@ main.book-detail {
   padding-right: 14px;
 }
 
-/* Provenance — the quiet audit link. */
-.book-detail__footer {
-  margin-top: 60px;
-}
-.book-detail__audit-link {
-  font-style: italic;
-  font-size: 15.5px;
-  color: var(--cl-faint);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: color 0.3s, border-color 0.3s;
-}
-.book-detail__audit-link:hover {
-  color: var(--cl-dim);
-  border-bottom-color: var(--cl-hair);
-}
-
 @media (max-width: 760px) {
   .book-detail__appendix {
     grid-template-columns: 1fr;

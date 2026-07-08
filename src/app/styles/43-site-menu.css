@@ -38,6 +38,15 @@
   background: transparent;
   border: none;
   cursor: pointer;
+  transition: opacity 0.2s ease, visibility 0.2s;
+}
+/* Detail popup open (z-70): the modal marks the burger inert but the burger
+   (z-81) would still paint over the popup's own Close in the same corner —
+   it yields until the popup is gone. */
+body:has([data-detail-modal]) .site-burger {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 /* Corner scrim — a soft dark patch behind the burger so it stays legible over
    any scrolled content or the full-bleed map. Always on — the burger lives
@@ -323,4 +332,13 @@
   }
   .site-burger__label { display: none; }
   .site-burger::before { display: none; } /* no corner scrim on mobile */
+
+  /* Entry list: the desktop clamp (up to 60px) lets a long single word
+     ("CARTOGRAPHER") outgrow the row — the centered flex then clips the
+     roman numeral off the left edge. Smaller type + tighter gutters keep
+     numeral · name · spacer inside every phone width. */
+  .site-menu__item a { gap: 14px; }
+  .site-menu__num,
+  .site-menu__item a::after { min-width: 1.8em; }
+  .site-menu__name { font-size: clamp(24px, 4vh, 32px); }
 }

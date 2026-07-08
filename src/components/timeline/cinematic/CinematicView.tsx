@@ -444,13 +444,20 @@ export default function CinematicView({
       pullTimer = setTimeout(() => setPull(0), 700);
     };
     let touchY0: number | null = null;
+    // Mirrors the CSS gesture flip on the scroll proxy (67-chronicle-
+    // cinematic.css): on touch phones advancing is a downward swipe, so the
+    // pull into the previous era is the upward one.
+    const flipped = window.matchMedia(
+      "(max-width: 760px) and (pointer: coarse)",
+    ).matches;
     const onTouchStart = (e: TouchEvent) => {
       touchY0 = e.touches[0].clientY;
     };
     const onTouchMove = (e: TouchEvent) => {
       if (touchY0 == null || !canPullBack()) return;
       const dy = e.touches[0].clientY - touchY0;
-      if (dy > 0) setPull(dy * 1.3);
+      const pullDy = flipped ? -dy : dy;
+      if (pullDy > 0) setPull(pullDy * 1.3);
     };
     const onTouchEnd = () => {
       touchY0 = null;
@@ -555,6 +562,11 @@ export default function CinematicView({
         onSelect={(i) => onGotoEra(i, 0)}
         ariaLabel="All eras"
       />
+      {/* mobile-only caption naming the active era under the dot strip —
+          the band hides its per-stop labels there; desktop never shows it */}
+      <div className="cine-band-era" aria-hidden="true">
+        {era.short}
+      </div>
 
       <div className="rail3d" aria-hidden="true">
         {era.events.map((evt, i) => (

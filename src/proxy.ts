@@ -7,7 +7,8 @@ import { timingSafeEqualStr } from "@/lib/timingSafeEqual";
 // The matcher covers every page route (preview gate) — excluded are /login
 // itself, the legal pages /imprint + /privacy (§ 5 DDG / Art. 13 DSGVO
 // information must be reachable from the public /login surface, i.e. without
-// a preview cookie), Next internals, the public/ asset folders, and three
+// a preview cookie) plus /artwork (third point of the same legal row, linked
+// from /login too), Next internals, the public/ asset folders, and three
 // machine endpoints that must answer without the preview cookie: /healthz
 // (uptime probe), /api/revalidate (token-authed cache webhook), and
 // /api/preview-invites (admin-gated activation read for the local console;
@@ -18,7 +19,7 @@ import { timingSafeEqualStr } from "@/lib/timingSafeEqual";
 // additionally run the Basic-Auth admin detection.
 export const config = {
   matcher: [
-    "/((?!_next/|login|imprint|privacy|healthz|api/revalidate|api/preview-invites|img/|audio/|timeline/|aquila\\.png|favicon\\.ico|robots\\.txt|sitemap\\.xml).*)",
+    "/((?!_next/|login|imprint|privacy|artwork|healthz|api/revalidate|api/preview-invites|img/|audio/|timeline/|aquila\\.png|favicon\\.ico|robots\\.txt|sitemap\\.xml).*)",
   ],
 };
 

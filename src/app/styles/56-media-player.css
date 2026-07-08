@@ -503,9 +503,11 @@
     width: 44px;
     height: 44px;
     padding: 0;
-    border: none;
+    /* Gold hairline + near-opaque glass: the stud must read against busy
+       artwork and the star chart alike — contrast, not glow. */
+    border: 1px solid color-mix(in srgb, var(--cl-gold) 45%, transparent);
     border-radius: 50%;
-    background: linear-gradient(180deg, rgba(8, 12, 20, 0.88) 0%, rgba(4, 8, 14, 0.94) 100%);
+    background: linear-gradient(180deg, rgba(8, 12, 20, 0.95) 0%, rgba(4, 8, 14, 0.98) 100%);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
     color: var(--cl-gold);
     cursor: pointer;
@@ -567,15 +569,25 @@
 }
 
 /* Route dodges (mobile only). On the Chronicle the bottom-right corner
-   belongs to the view toggle — the stud lifts above it. On the map the whole
-   bottom edge is chart chrome (drawer, zoomer) — the stud moves to the free
-   top-left corner and the card + playlist open downward. */
+   belongs to the view toggle — the stud takes the free bottom-LEFT corner
+   (the dossier sheet's bottom padding keeps that strip clear of text). On
+   the map the whole bottom edge is chart chrome (drawer dock) — the stud
+   moves to the free top-left corner and the card + playlist open downward. */
 @media (max-width: 760px) {
   body.on-chron .media-player {
-    bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    left: calc(14px + env(safe-area-inset-left, 0px));
+    right: auto;
+    align-items: flex-start;
+  }
+  body.on-chron .media-player__panel-wrap {
+    left: 0;
+    right: auto;
   }
   body.cg-on-map .media-player {
-    top: calc(64px + env(safe-area-inset-top, 0px));
+    /* level with the burger row — the map brand sits top-CENTER, so the
+       corner itself is free right up to the edge */
+    top: calc(10px + env(safe-area-inset-top, 0px));
     left: calc(12px + env(safe-area-inset-left, 0px));
     right: auto;
     bottom: auto;

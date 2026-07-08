@@ -80,6 +80,10 @@ html:has(main.route-snap) {
      the slow smooth glide felt sluggish; CSS only offers smooth vs auto. */
   scroll-snap-type: y proximity;
   scroll-behavior: auto;
+  /* The root IS the scroller here — the body-level overflow-x guard below
+     doesn't stop the viewport itself from panning to overflowing children
+     (long unwrappable mobile rows), so the root gets its own clip. */
+  overflow-x: clip;
 }
 body:has(main.route-snap) {
   overflow-x: clip;

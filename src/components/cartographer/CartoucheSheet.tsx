@@ -11,9 +11,13 @@
  * this component only owns "is the sheet open" plus its drag. Picking a seek
  * hit or a course collapses the sheet so the camera flight stays visible.
  *
- * Drag: a small Pointer-Events follow on the grip (transform-only) with a
- * distance threshold on release — deliberately not a scroll-snap sheet, which
- * would fight the census's inner scrolling and the chart's touch-action:none.
+ * Drag: a small Pointer-Events follow on the grip with a distance threshold
+ * on release — from open the sheet follows via transform; from closed the
+ * sheet's HEIGHT follows the finger (class `dragging` reveals the body), so
+ * the panel content genuinely rises from the bottom edge instead of the dock
+ * bar just sliding up over the chart. Deliberately not a scroll-snap sheet,
+ * which would fight the census's inner scrolling and the chart's
+ * touch-action:none.
  */
 
 import { useEffect, useRef, useState } from "react";
@@ -63,7 +67,13 @@ export default function CartoucheSheet({
   const [openSecs, setOpenSecs] = useState<ReadonlySet<SectionId>>(new Set(["census"]));
   const sheetRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
-  const dragRef = useRef<{ id: number; y0: number; moved: boolean } | null>(null);
+  const dragRef = useRef<{
+    id: number;
+    y0: number;
+    moved: boolean;
+    closedH: number;
+    maxH: number;
+  } | null>(null);
 
   const toggleSec = (id: SectionId) =>
     setOpenSecs((prev) => {
@@ -100,9 +110,17 @@ export default function CartoucheSheet({
     requestAnimationFrame(() => inputRef.current?.focus());
   };
 
-  // Grip drag — follow with translateY while down, snap by travel on release.
+  // Grip drag — follow the finger while down, snap by travel on release.
   const onGripDown = (e: React.PointerEvent<HTMLButtonElement>) => {
-    dragRef.current = { id: e.pointerId, y0: e.clientY, moved: false };
+    const el = sheetRef.current;
+    dragRef.current = {
+      id: e.pointerId,
+      y0: e.clientY,
+      moved: false,
+      closedH: el?.offsetHeight ?? 0,
+      // mirrors the CSS cap on .cg-sheet.open: min(72dvh, 100dvh - 88px)
+      maxH: Math.min(window.innerHeight * 0.72, window.innerHeight - 88),
+    };
     e.currentTarget.setPointerCapture(e.pointerId);
   };
   const onGripMove = (e: React.PointerEvent<HTMLButtonElement>) => {
@@ -111,9 +129,17 @@ export default function CartoucheSheet({
     if (!drag || drag.id !== e.pointerId || !el) return;
     const dy = e.clientY - drag.y0;
     if (Math.abs(dy) > 4) drag.moved = true;
-    const bounded = open ? Math.max(0, dy) : Math.min(0, dy);
     el.style.transition = "none";
-    el.style.transform = `translateY(${bounded}px)`;
+    if (open) {
+      // From open: the whole sheet follows down.
+      el.style.transform = `translateY(${Math.max(0, dy)}px)`;
+      return;
+    }
+    // From the dock: grow the sheet's height so the body content genuinely
+    // rises from the bottom edge. `dragging` reveals the (inert) body —
+    // classList on purpose, no re-render per move; `open` flips on release.
+    el.classList.add("dragging");
+    el.style.height = `${Math.min(drag.maxH, drag.closedH + Math.max(0, -dy))}px`;
   };
   const onGripUp = (e: React.PointerEvent<HTMLButtonElement>) => {
     const drag = dragRef.current;
@@ -123,6 +149,8 @@ export default function CartoucheSheet({
     const dy = e.clientY - drag.y0;
     el.style.transition = "";
     el.style.transform = "";
+    el.style.height = "";
+    el.classList.remove("dragging");
     if (!drag.moved) {
       setOpen((o) => !o);
       return;
@@ -175,47 +203,47 @@ export default function CartoucheSheet({
           )}
         </div>
 
-        {open && (
-          <div className="cg-sheet-body">
-            <SectionHead
-              open={openSecs.has("courses")}
-              label="Character voyages"
-              note={activeCourse ? "active" : null}
-              onToggle={() => toggleSec("courses")}
-            />
-            {openSecs.has("courses") && (
-              <div className="c-body">
-                <p className="c-hint">trace a character&rsquo;s journey across the chart</p>
-                <CourseButtons courseId={courseId} onCourse={pickCourse} />
-              </div>
-            )}
+        {/* Always in the DOM (CSS hides it while closed & not dragging) so a
+            grip drag can reveal it progressively; inert until actually open. */}
+        <div className="cg-sheet-body" inert={!open}>
+          <SectionHead
+            open={openSecs.has("courses")}
+            label="Character voyages"
+            note={activeCourse ? "active" : null}
+            onToggle={() => toggleSec("courses")}
+          />
+          {openSecs.has("courses") && (
+            <div className="c-body">
+              <p className="c-hint">trace a character&rsquo;s journey across the chart</p>
+              <CourseButtons courseId={courseId} onCourse={pickCourse} />
+            </div>
+          )}
 
-            <SectionHead
-              open={openSecs.has("instruments")}
-              label="Overlays"
-              note={instrumentsNote || null}
-              onToggle={() => toggleSec("instruments")}
-            />
-            {openSecs.has("instruments") && (
-              <div className="c-body">
-                <OverlayButtons
-                  lumen={lumen}
-                  nihilus={nihilus}
-                  onToggleLumen={onToggleLumen}
-                  onToggleNihilus={onToggleNihilus}
-                />
-              </div>
-            )}
+          <SectionHead
+            open={openSecs.has("instruments")}
+            label="Overlays"
+            note={instrumentsNote || null}
+            onToggle={() => toggleSec("instruments")}
+          />
+          {openSecs.has("instruments") && (
+            <div className="c-body">
+              <OverlayButtons
+                lumen={lumen}
+                nihilus={nihilus}
+                onToggleLumen={onToggleLumen}
+                onToggleNihilus={onToggleNihilus}
+              />
+            </div>
+          )}
 
-            <SectionHead
-              open={openSecs.has("census")}
-              label="Filter worlds"
-              note={filtered ? "filtered" : null}
-              onToggle={() => toggleSec("census")}
-            />
-            {openSecs.has("census") && <div className="c-body">{children}</div>}
-          </div>
-        )}
+          <SectionHead
+            open={openSecs.has("census")}
+            label="Filter worlds"
+            note={filtered ? "filtered" : null}
+            onToggle={() => toggleSec("census")}
+          />
+          {openSecs.has("census") && <div className="c-body">{children}</div>}
+        </div>
       </div>
     </>
   );

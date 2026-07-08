@@ -113,6 +113,14 @@
     font-size: var(--fs-label-xs);
   }
 }
+/* Chronicle (mobile): the cinematic stage owns the top-left corner — entry
+   counter at top:8, era band at top:40 — the wordmark would land exactly
+   between them. It yields; the burger remains the way out. */
+@media (max-width: 760px) {
+  body.on-chron .site-brand {
+    display: none;
+  }
+}
 
 /* Vox readout, top-right (GhostReadout.tsx) */
 .site-vox {

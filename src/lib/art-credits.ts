@@ -15,17 +15,12 @@ export interface ArtCredit {
   links: { label: string; url: string }[];
 }
 
-// phil kuenzler's artwork credits both the login backdrop and the shared
-// library-nave background carried across Hub / Archive / Compendium / Ask.
-const PHIL_KUENZLER: ArtCredit = {
-  name: "phil kuenzler",
-  links: [{ label: "phinklabs", url: "https://phinklabs.com" }],
-};
-
-const BACKGROUND_ART_CREDITS: Record<string, ArtCredit> = {
-  "/img/login.webp": PHIL_KUENZLER,
-  "/img/main-bg.webp": PHIL_KUENZLER,
-};
+// Currently empty: every shipped page background (login backdrop, shared
+// library-nave across Hub / Archive / Compendium / Ask) is the maintainer's
+// own work and carries no on-page credit — those originals are offered for
+// download on /artwork instead. The registry stays for future third-party
+// backgrounds, which DO get the on-page tag.
+const BACKGROUND_ART_CREDITS: Record<string, ArtCredit> = {};
 
 /** Credit for a `SiteBackground` photo ref, or null when none is registered. */
 export function backgroundArtCredit(photo: string | null): ArtCredit | null {

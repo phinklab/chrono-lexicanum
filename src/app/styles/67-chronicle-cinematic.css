@@ -991,6 +991,8 @@
   --eb-pad: 80px;
   --eb-step: 175;
 }
+/* mobile-only caption naming the active era under the dot strip */
+.chron .cine-band-era { display: none; }
 .chron .cine-band .eb-stop { gap: 9px; }
 .chron .cine-band .eb-mark {
   width: 11px;
@@ -1393,6 +1395,29 @@
     --text-x: 18px;
     --cine-sp: 84;      /* 140 × 0.6 — the former JS mobile scaling */
     --cine-dz: 277.2;   /* 420 × 0.66 */
+    --kb-s: 1.03;       /* Ken Burns eases off — width-fit art has no crop margin */
+  }
+
+  /* Backgrounds stay full-bleed `cover` — the page lives from the art. Only
+     the -3% overscan goes (every pixel counts on a phone); --kb-s 1.03 still
+     covers the Ken Burns pan. */
+  .chron .bg,
+  .chron .ei-bg {
+    inset: 0;
+  }
+  /* Soft top scrim so the entry counter reads over bright skies. */
+  .chron .bg-stack::after {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 110px;
+    pointer-events: none;
+    background: linear-gradient(
+      to bottom,
+      rgba(2, 4, 8, 0.55),
+      rgba(2, 4, 8, 0.25) 55%,
+      transparent
+    );
   }
 
   /* chrome — compact toggle (no label), parked bottom-right clear of the hint */
@@ -1401,7 +1426,7 @@
     right: calc(10px + env(safe-area-inset-right, 0px));
   }
   .chron .chron-mode-toggle .lab { display: none; }
-  .chron .chron-mode-toggle button { padding: 13px 13px; }
+  .chron .chron-mode-toggle button { padding: 10px 11px; }
   .chron .era-bar {
     top: calc(8px + env(safe-area-inset-top, 0px));
     left: calc(14px + env(safe-area-inset-left, 0px));
@@ -1412,20 +1437,50 @@
   .chron .era-bar .entry-count { margin-left: 0; font-size: var(--fs-label-2xs); }
   .chron .era-rail { width: 120px; margin-top: 8px; }
 
-  /* cinematic era band — full-width strip under the chrome; tighter step fits 3 eras */
+  /* cinematic era band — demoted to a quiet dot strip UNDER the dossier,
+     just above the toggle row: no names, no dates, no arrows (the step is
+     small enough that every era fits the window). On a phone the band is
+     orientation, not navigation — era identity lives in the intro, the
+     dossier kicker and the INDEX view. */
   .chron .cine-band {
-    top: calc(40px + env(safe-area-inset-top, 0px));
-    left: 16px;
-    right: 16px;
-    width: auto;
-    transform: none;
-    height: 62px;
-    --eb-pad: 52px;
-    --eb-step: 118;
+    top: auto;
+    bottom: calc(58px + env(safe-area-inset-bottom, 0px));
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(52vw, 210px);
+    height: 20px;
+    z-index: 13; /* above the .cine-lower gradient (z-12) so the dots stay crisp */
+    opacity: 0.8;
+    --eb-pad: 10px;
+    --eb-step: 22;
   }
-  .chron .cine-band .eb-mark { width: 10px; height: 10px; }
-  .chron .cine-band .eb-m { font-size: var(--fs-label-2xs); letter-spacing: var(--track-14); }
-  .chron .cine-band .eb-n { display: block; font-size: 14px; }
+  .chron .cine-band .eb-stop {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    gap: 0;
+    padding: 12px 7px;
+  }
+  .chron .cine-band .eb-mark { width: 7px; height: 7px; margin-top: 0; }
+  .chron .cine-band .eb-n,
+  .chron .cine-band .eb-m { display: none; }
+  /* … with the active era named once, centered beneath the dots (the
+     per-stop labels stay hidden — one quiet caption instead of a strip
+     of names). */
+  .chron .cine-band-era {
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: calc(38px + env(safe-area-inset-bottom, 0px));
+    z-index: 13;
+    font-family: var(--font-mono);
+    font-size: var(--fs-label-3xs);
+    letter-spacing: var(--track-26);
+    text-transform: uppercase;
+    color: var(--parchment-dim);
+    white-space: nowrap;
+    pointer-events: none;
+  }
 
   /* cinematic — rail upper right, dossier as a quiet bottom sheet: full-bleed
      gradient backdrop + gold hairline so it reads as a deliberate panel, not
@@ -1438,11 +1493,17 @@
     transform: none;
     gap: 16px;
     max-width: none;
-    padding: 16px 16px calc(16px + env(safe-area-inset-bottom, 0px)) var(--text-x);
+    /* Bottom padding lifts the dossier well clear of the bottom edge — the
+       phone has the whole stage, the text shouldn't cling to the rim. The
+       vh share raises it into the free middle; the 76px floor always clears
+       dot band + toggle strip. Gradient stops strengthened so the text
+       stays readable that far up. */
+    padding: 16px 16px calc(76px + 15vh + env(safe-area-inset-bottom, 0px)) var(--text-x);
     background: linear-gradient(
       to top,
-      rgba(2, 4, 8, 0.78),
-      rgba(2, 4, 8, 0.45) 70%,
+      rgba(2, 4, 8, 0.82),
+      rgba(2, 4, 8, 0.55) 55%,
+      rgba(2, 4, 8, 0.22) 82%,
       transparent
     );
   }
@@ -1514,12 +1575,21 @@
     letter-spacing: var(--track-26);
     animation: none;
   }
-  /* credit sits clear below the era band; back-pull moves further down to match */
+  /* credit moves top-LEFT, stacked under the ENTRY counter — label kept
+     ("ARTWORK"), everything one size down. Like on desktop the slot always
+     renders, showing the "ADD ARTIST CREDIT" placeholder until an era/event
+     has real credit data (only two eras carry entries so far). */
   .chron .art-credit {
-    right: 14px;
+    right: auto;
+    left: calc(14px + env(safe-area-inset-left, 0px));
     bottom: auto;
-    top: calc(106px + env(safe-area-inset-top, 0px));
+    top: calc(48px + env(safe-area-inset-top, 0px));
+    align-items: flex-start;
+    text-align: left;
+    gap: 2px;
+    opacity: 0.85;
   }
+  .chron .art-credit .ac-name { font-size: var(--fs-label-2xs); }
   .chron .back-pull {
     top: calc(148px + env(safe-area-inset-top, 0px));
   }
@@ -1574,20 +1644,24 @@
   .chron .arch-next .an-name { font-size: var(--fs-read); }
 }
 
-/* short phones (SE-class) — compress the dossier so it never climbs into the band */
+/* Touch phones: the stage reads "the other way round" — the story is pulled
+   DOWN toward the reader (swipe down = advance), not pushed up like a
+   document. The scroll proxy holds no visible content, so mirroring it flips
+   only the gesture mapping: scroll values, snap points and the t-driven
+   animation stay identical. Gated on coarse pointers — the mirror would
+   invert wheels/trackpads too. The pull-back gesture in CinematicView.tsx
+   checks the same media condition. */
+@media (max-width: 760px) and (pointer: coarse) {
+  .chron .cine-scroll { transform: scaleY(-1); }
+}
+
+/* short phones (SE-class) — compress the dossier so the stage keeps air */
 @media (max-width: 760px) and (max-height: 700px) {
   .chron .cine-lower { gap: 12px; }
   .chron .d-title { font-size: 24px; margin-bottom: 7px; }
   .chron .d-note { font-size: 15px; }
   .chron .d-kicker { font-size: var(--fs-label-3xs); margin-bottom: 7px; }
   .chron .media-row .m-title { font-size: 15px; }
-  .chron .cine-band {
-    top: calc(34px + env(safe-area-inset-top, 0px));
-    height: 56px;
-  }
-  .chron .art-credit {
-    top: calc(94px + env(safe-area-inset-top, 0px));
-  }
 }
 
 /* phone landscape — dossier hugs the bottom-left, band stays compact */

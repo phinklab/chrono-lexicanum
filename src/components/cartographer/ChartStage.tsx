@@ -14,6 +14,8 @@
 import { useEffect, useRef } from "react";
 import type { PointerEvent as ReactPointerEvent, ReactNode, RefObject } from "react";
 
+import type { ZonesMode } from "@/lib/map/zones";
+
 import type { ChartBus } from "./chart-bus";
 import { H, W } from "./chart-geometry";
 
@@ -53,8 +55,9 @@ interface ChartStageProps {
   nihilus: boolean;
   /** Force names: lifts the labels' band gates (CSS `svg.names`). */
   names: boolean;
-  /** Zones off: fades out #cg-fields (CSS `svg.nozones`). */
-  zonesOff: boolean;
+  /** Zone layer mode: dim = fills at reduced opacity, names hidden (CSS
+   *  `svg.zones-dim`); off = fades out #cg-fields (CSS `svg.nozones`). */
+  zones: ZonesMode;
   courseId: string | null;
   reduce: boolean;
   magRef: RefObject<HTMLSpanElement | null>;
@@ -69,7 +72,7 @@ export default function ChartStage({
   lumen,
   nihilus,
   names,
-  zonesOff,
+  zones,
   courseId,
   reduce,
   magRef,
@@ -390,7 +393,7 @@ export default function ChartStage({
     <div className="cg-stage">
       <svg
         ref={svgRef}
-        className={`cg-chart${lumen ? " lumen" : ""}${nihilus ? " nihilus" : ""}${names ? " names" : ""}${zonesOff ? " nozones" : ""}`}
+        className={`cg-chart${lumen ? " lumen" : ""}${nihilus ? " nihilus" : ""}${names ? " names" : ""}${zones === "off" ? " nozones" : ""}${zones === "dim" ? " zones-dim" : ""}`}
         data-route={courseId ?? undefined}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}

@@ -133,11 +133,13 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
 
       {/* Legal links: /login is publicly reachable even while the
           preview gate is up, so the § 5 DDG / Art. 13 DSGVO pages must be
-          linked from here — both routes sit outside the gate. */}
+          linked from here — all three routes sit outside the gate. */}
       <footer className="login-legal" aria-label="Rechtliches">
         <Link href="/imprint">Impressum</Link>
         <span aria-hidden>·</span>
         <Link href="/privacy">Datenschutz</Link>
+        <span aria-hidden>·</span>
+        <Link href="/artwork">Artwork</Link>
       </footer>
     </main>
   );
