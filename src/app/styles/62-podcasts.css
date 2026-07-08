@@ -268,17 +268,8 @@ body:has(main.podcasts) .browse-suggest__hit {
   min-width: 0;
   flex: 1 1 auto;
 }
-/* Neutral, not gold: this label repeats once per show block, and resting gold
- * is reserved for the single hero eyebrow + live values (house restraint law). */
-.pod-card__kicker {
-  font-family: var(--font-mono);
-  font-size: var(--fs-label-xs);
-  letter-spacing: var(--track-24);
-  text-transform: uppercase;
-  color: var(--cl-dim);
-}
 .pod-card__title {
-  margin: 6px 0 0;
+  margin: 0;
   font-family: var(--font-display);
   font-weight: var(--fw-semibold);
   font-size: clamp(20px, 2.6vw, 26px);
@@ -425,15 +416,8 @@ body:has(main.podcasts) .browse-suggest__hit {
 .pod-plate__meta {
   min-width: 0;
 }
-.pod-plate__kicker {
-  font-family: var(--font-mono);
-  font-size: var(--fs-label-xs);
-  letter-spacing: var(--track-24);
-  text-transform: uppercase;
-  color: var(--cl-dim);
-}
 .pod-plate__name {
-  margin: 6px 0 0;
+  margin: 0;
   font-family: var(--font-display);
   font-weight: var(--fw-semibold);
   font-size: clamp(20px, 3vw, 26px);

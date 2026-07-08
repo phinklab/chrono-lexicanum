@@ -2,7 +2,7 @@
  * Compendium overview. The orientation surface: five
  * category segments — Factions featured full-width on top, the other four in a
  * 2×2 below. Each is a frameless washed panel (the /ask "segment" treatment)
- * carrying its eyebrow, count, a short intro and one quiet coverage stat, plus a
+ * carrying its count, a short intro and one quiet coverage stat, plus a
  * "view all" into the full directory. Progressive disclosure — every faction is
  * reachable, but the start view is a hall of doorways (no longer a peek list).
  * The shared hero + nav come from the layout.

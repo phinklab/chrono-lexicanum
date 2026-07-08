@@ -185,16 +185,8 @@
   text-align: center;
   margin-bottom: 30px;
 }
-.cmp-cat-intro__eyebrow {
-  margin: 0;
-  font-family: var(--font-mono);
-  font-size: var(--fs-label);
-  letter-spacing: var(--track-26);
-  text-transform: uppercase;
-  color: var(--cl-gold);
-}
 .cmp-cat-intro__heading {
-  margin: 12px 0 0;
+  margin: 0;
   font-family: var(--font-display);
   font-weight: var(--font-display-wght);
   font-size: clamp(34px, 4.6vw, 54px);

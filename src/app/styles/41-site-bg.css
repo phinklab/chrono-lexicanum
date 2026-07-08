@@ -138,12 +138,17 @@ body:has(main.route-snap) {
   content: "";
   width: 1px;
   height: 60px;
+  /* The downward fade lives in the MASK so it applies to the travelling drop
+     of light too — as a background fade it only dimmed the hairline, and the
+     drop crossed the faded tail at full strength. */
   background-image:
     linear-gradient(to bottom, transparent, rgba(228, 221, 203, 0.95) 50%, transparent),
-    linear-gradient(to bottom, var(--cl-gold) 0%, var(--cl-gold) 30%, transparent 96%);
+    linear-gradient(var(--cl-gold), var(--cl-gold));
   background-size: 1px 28px, 1px 100%;
   background-repeat: no-repeat;
   background-position: 0 -34px, 0 0;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 30%, transparent 96%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 30%, transparent 96%);
   opacity: 0.85;
   transform-origin: top;
   animation:

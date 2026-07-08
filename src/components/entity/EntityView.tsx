@@ -12,7 +12,7 @@
  *      headings are `<h2>`/`<h3>`; decorative rules are `aria-hidden`; empty
  *      sections render nothing.
  *
- * Layout: a full-width header (eyebrow → `<h1>` → tagline → 1–3-fact
+ * Layout: a full-width header (`<h1>` → tagline → 1–3-fact
  * meta-line) over a two-column body — a main column (dossier + works cards) and
  * a right "CONNECTIONS" rail. `.entity-view` is a query container, so the rail
  * reflows under the main column whenever the *container* is narrow — on a small
@@ -60,12 +60,7 @@ export default function EntityView({ data }: { data: EntityViewData }) {
 
   return (
     <div className="entity-view">
-      <EntityHeader
-        type={data.type}
-        name={data.name}
-        oneLine={data.oneLine}
-        meta={metaFacts}
-      />
+      <EntityHeader name={data.name} oneLine={data.oneLine} meta={metaFacts} />
       <div
         className={
           hasRail

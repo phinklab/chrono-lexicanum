@@ -147,7 +147,6 @@ function ShowCard({ show }: { show: PodcastIndexShow }) {
       </div>
 
       <div className="pod-card__body">
-        <div className="pod-card__kicker">PODCAST · LORE CAST</div>
         <h2 className="pod-card__title">
           <Link href={`/archive/podcasts/${show.slug}`} className="pod-card__title-link">
             {show.title}

@@ -77,10 +77,7 @@ export default async function HubPage() {
 
           <p className="lx-stat hub-holdings reveal">
             <b>{novelCount} novels</b>
-            <span>
-              {episodeCount} episodes · {podcastCount} podcasts
-            </span>
-            <span>7 eras · 5 segmenta</span>
+            <span>{episodeCount} podcast episodes</span>
           </p>
         </div>
       </section>

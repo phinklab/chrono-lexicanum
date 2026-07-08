@@ -139,7 +139,6 @@ export default async function PodcastShowPage({
           </div>
 
           <div className="pod-plate__meta">
-            <div className="pod-plate__kicker">PODCAST · LORE CAST</div>
             {/* Restated title — a non-heading element so a SR heading pass
                 doesn't hear the show title twice (h1 mast → here). */}
             <p className="pod-plate__name">{show.title}</p>
