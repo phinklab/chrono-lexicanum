@@ -1,5 +1,5 @@
 /**
- * Curated primarch roster — Brief 129 (Doorways). PURE: a hand-maintained list
+ * Curated primarch roster. PURE: a hand-maintained list
  * of `characters.id`s that ARE primarchs, so the Compendium shows a Primarchs
  * category distinct from the broad Characters deck. Listing an id here does both
  * jobs at once (see `./loader`): it fills the Primarchs segment

@@ -1,5 +1,5 @@
 /* 71-legal.css
-   Legal document pages (Brief 179): /imprint (Impressum § 5 DDG + GW-IP-
+   Legal document pages: /imprint (Impressum § 5 DDG + GW-IP-
    Disclaimer) and /privacy (Datenschutzerklärung Art. 13 DSGVO). Sober
    document register on the flat void — the syspage vocabulary up top
    (mono eyebrow / Cinzel heading / gold hairline), then one left-aligned
@@ -23,7 +23,7 @@
   margin: 0;
   font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
-  letter-spacing: 0.34em;
+  letter-spacing: var(--track-34);
   text-transform: uppercase;
   color: var(--cl-dim);
 }
@@ -31,7 +31,7 @@
 .legal__title {
   margin: 14px 0 0;
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: var(--fw-regular);
   font-size: clamp(26px, 4.6vw, 40px);
   letter-spacing: 0.09em;
   color: var(--cl-bone);
@@ -50,12 +50,12 @@
   margin: 16px 0 0;
   font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
-  letter-spacing: 0.24em;
+  letter-spacing: var(--track-24);
   text-transform: uppercase;
   color: var(--cl-faint);
 }
 
-/* ── Reading column ─────────────────────────────────────────────────────── */
+/* Reading column */
 
 .legal__doc {
   max-width: 660px;
@@ -75,15 +75,15 @@
   margin: 0 0 6px;
   font-family: var(--font-mono);
   font-size: var(--fs-label);
-  font-weight: 400;
-  letter-spacing: 0.26em;
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--track-26);
   text-transform: uppercase;
   color: var(--cl-bone);
 }
 
 .legal__no {
   color: var(--cl-gold);
-  letter-spacing: 0.1em;
+  letter-spacing: var(--track-10);
 }
 
 .legal__section-rule {
@@ -106,7 +106,7 @@
 }
 
 .legal__p strong {
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   color: var(--cl-bone);
 }
 
@@ -127,7 +127,7 @@
   font-family: var(--font-mono);
   font-style: normal;
   font-size: var(--fs-label-lg);
-  letter-spacing: 0.06em;
+  letter-spacing: var(--track-06);
   line-height: 1.9;
   color: var(--cl-bone);
 }
@@ -174,10 +174,10 @@
   color: var(--cl-faint);
 }
 
-/* ── Site-wide legal links (<SiteLegal>, root layout) ───────────────────────
+/* Site-wide legal links (<SiteLegal>, root layout).
    Tiny fixed row pinned UNDER the media player (player: bottom 24px, left
    24px) — the one legal affordance the footerless desktop surfaces
-   (map/timeline/entities) get. Provisional per maintainer request. */
+   (map/timeline/entities) get. Provisional. */
 
 .site-legal {
   position: fixed;
@@ -189,7 +189,7 @@
   gap: 8px;
   font-family: var(--font-mono);
   font-size: 9px;
-  letter-spacing: 0.22em;
+  letter-spacing: var(--track-22);
   text-transform: uppercase;
   color: var(--cl-faint);
 }

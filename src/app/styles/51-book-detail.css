@@ -3,7 +3,7 @@
    @modal popup: the title-page language on the centre axis — format rubric,
    the title as the cover, byline with series, era line, Synopsis → Appendix →
    motifs → Acquire → the quiet provenance link. The audit cockpit at
-   /buch/[slug]/audit keeps its own legacy stylesheet (32-book-audit.css). */
+   /buch/[slug]/audit keeps its own stylesheet (32-book-audit.css). */
 
 main.book-detail {
   position: relative;
@@ -36,7 +36,7 @@ main.book-detail {
 .book-detail__byline {
   margin: 20px 0 0;
   font-style: italic;
-  font-size: 19px;
+  font-size: var(--fs-read);
   color: var(--cl-dim);
 }
 .book-detail__byline-link {
@@ -54,7 +54,7 @@ main.book-detail {
   margin: 14px 0 0;
   font-family: var(--font-mono);
   font-size: var(--fs-label-lg);
-  letter-spacing: 0.2em;
+  letter-spacing: var(--track-20);
   text-transform: uppercase;
   font-variant-numeric: tabular-nums;
   color: var(--cl-gold);
@@ -99,7 +99,7 @@ main.book-detail {
   color: var(--cl-dim);
 }
 .book-detail__synopsis::first-line {
-  letter-spacing: 0.14em;
+  letter-spacing: var(--track-14);
   text-transform: uppercase;
   font-size: 17px;
 }
@@ -116,7 +116,7 @@ main.book-detail {
   margin: 0 0 10px;
   font-family: var(--font-body);
   font-size: 13px;
-  font-weight: 400;
+  font-weight: var(--fw-regular);
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--cl-faint);
@@ -141,7 +141,7 @@ main.book-detail {
 .book-detail__role {
   display: block;
   font-style: italic;
-  font-size: 15px;
+  font-size: var(--fs-read-2xs);
   color: var(--cl-faint);
 }
 .book-detail__role--antagonist {
@@ -184,7 +184,7 @@ main.book-detail {
   align-items: baseline;
   gap: 0;
   font-size: var(--fs-label-lg);
-  letter-spacing: 0.26em;
+  letter-spacing: var(--track-26);
   text-transform: uppercase;
   color: var(--cl-faint);
 }

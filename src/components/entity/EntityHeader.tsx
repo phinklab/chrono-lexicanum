@@ -1,8 +1,8 @@
 /**
  * Entity header — eyebrow + the single `<h1>` + optional tagline + a compact
- * meta-line of 1–3 already-loaded facts (Brief 113, Phase A). The meta facts
- * are chosen + de-duped by EntityView; this component only renders them. Linked
- * facts (allegiance / parent faction) render as `<Link>`s, scalar facts as text.
+ * meta-line of 1–3 already-loaded facts. The meta facts are chosen + de-duped
+ * by EntityView; this component only renders them. Linked facts (allegiance /
+ * parent faction) render as `<Link>`s, scalar facts as text.
  */
 import Link from "next/link";
 import { entityHref, type EntityType, type FactRow } from "@/lib/entity/types";

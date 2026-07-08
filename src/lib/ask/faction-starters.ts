@@ -1,5 +1,5 @@
 /**
- * App loader for the "One faction, one book" curation data (Brief 166).
+ * App loader for the "One faction, one book" curation data.
  *
  * Mechanical mirror of the anchor/heresy-book pattern: committed JSON →
  * `resolveJsonModule` static import → validated in-memory tree, no DB, no `fs`.

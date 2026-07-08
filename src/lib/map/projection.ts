@@ -1,6 +1,5 @@
 /**
- * projection.ts — the frozen SSOT pixel-space ↔ map-grid projection
- * (Brief 178).
+ * projection.ts — the frozen SSOT pixel-space ↔ map-grid projection.
  *
  * The catalog's `gx/gy` live on an aspect-ratio-true 0–1000 grid derived from
  * the Warhammer_map_SSOT.xlsx pixel space (x ∈ [2.794, 7031], y ∈ [515, 6198],
@@ -9,7 +8,7 @@
  *   gx = (x - 2.794) * 1000 / 7028.206
  *   gy = (y - 515)   * 1000 / 7028.206
  *
- * ⚠ Drift guard: these constants are deliberately DUPLICATED from the convert
+ * Drift guard: these constants are deliberately DUPLICATED from the convert
  * (`scripts/import-map-worlds.ts`, documented in `map-worlds.json` → `grid.
  * transform`) so the app never imports from `scripts/**`. If the convert ever
  * changes the projection, this file must change with it — the committed

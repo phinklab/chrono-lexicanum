@@ -1,10 +1,9 @@
 /**
- * Brief 110 Step 1 — episode tag resolution.
+ * Episode tag resolution.
  *
- * Maps the LLM's extracted surface-forms to canonical entity ids by REUSING the
- * shared alias module (`src/lib/aliases`, Brief 104). `resolveSurfaceForm` is the
- * single resolver — this file forks no alias logic. Step 1 is that contract's
- * first real consumer.
+ * Maps the LLM's extracted surface-forms to canonical entity ids by REUSING
+ * the shared alias module (`src/lib/aliases`). `resolveSurfaceForm` is the
+ * single resolver — this file forks no alias logic.
  *
  * The LLM's per-axis bucket supplies only the `role` (primary→subject,
  * mentioned→mentioned) and, on a miss, the `axisGuess`. The authoritative `type`

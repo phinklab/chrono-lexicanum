@@ -1,11 +1,11 @@
 /**
- * hash.ts — shareable URL state for the Cartographer (Brief 178).
+ * hash.ts — shareable URL state for the Cartographer.
  * Format: `#world=<worldId>&cam=<gx>,<gy>,<kr>` — camera as grid-space center
  * plus zoom RELATIVE to the fit scale (`kr = k / k0`), so a link restores the
  * same framing on a different viewport.
  *
- * Same mechanics as the retired galaxy share helper: merge-patch semantics,
- * `history.replaceState` (no history spam), one trailing write per 80 ms.
+ * Merge-patch semantics, `history.replaceState` (no history spam), one
+ * trailing write per 80 ms.
  */
 
 export interface MapCam {

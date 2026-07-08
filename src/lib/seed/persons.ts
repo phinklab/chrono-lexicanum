@@ -8,23 +8,20 @@
  *     auto-creates author/editor persons and composes their `work_persons`
  *     rows.
  *   - `scripts/apply-audiobook-narrators.ts` — the audiobook-credit apply
- *     path (Brief 105), which auto-creates narrator/co_narrator/full_cast
- *     persons from `scripts/seed-data/audiobook-narrators.json`.
+ *     path, which auto-creates narrator/co_narrator/full_cast persons from
+ *     `scripts/seed-data/audiobook-narrators.json`.
  *
  * Both MUST slugify identically: a person who both writes and narrates (e.g.
  * an author who also reads their own book) has to collapse to one
- * `persons.id`. These functions used to live in `apply-override.ts`, but that
- * module runs `main()` on import, so they were extracted here (mirroring the
- * Brief 077 extraction of `src/lib/seed/alignment.ts`). Bodies are unchanged.
+ * `persons.id`. These functions cannot live in `apply-override.ts` — that
+ * module runs `main()` on import.
  */
 
 /**
  * Slugify a display name into a stable `persons.id`.
  *
- * Deterministic + idempotent. Verified to reproduce all 12 existing
- * persons.json IDs from their `name` fields ("Dan Abnett" → "dan_abnett",
- * "Aaron Dembski-Bowden" → "aaron_dembski_bowden", "Graham McNeill" →
- * "graham_mcneill", etc.). Edge cases: "C.S. Goto" → "c_s_goto",
+ * Deterministic and idempotent: "Dan Abnett" → "dan_abnett",
+ * "Aaron Dembski-Bowden" → "aaron_dembski_bowden", "C.S. Goto" → "c_s_goto",
  * "O'Brien" → "o_brien".
  */
 export function slugifyPerson(displayName: string): string {
@@ -46,8 +43,8 @@ export function slugifyPerson(displayName: string): string {
  *   "Anonymous"            → "Anonymous"   (single-token fallback)
  *
  * Single-token fallback returns the original string because the DB column
- * `persons.name_sort` is NOT NULL (src/db/schema.ts); brief 062 originally
- * suggested NULL, but the schema disallows it, so we keep the token verbatim.
+ * `persons.name_sort` is NOT NULL (src/db/schema.ts) — NULL is not an option,
+ * so the token is kept verbatim.
  */
 export function deriveNameSort(displayName: string): string {
   const trimmed = displayName.trim();

@@ -1,5 +1,5 @@
 /**
- * Global error boundary (Report 144 § R.4). Catches errors thrown by the ROOT
+ * Global error boundary. Catches errors thrown by the ROOT
  * layout itself — the one place `app/error.tsx` cannot reach. When this
  * renders, the root layout (and with it globals.css, the font variables and
  * every token) is gone, so it must ship its own <html>/<body> and inline

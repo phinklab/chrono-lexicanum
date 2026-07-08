@@ -1,7 +1,7 @@
 /**
- * Root 404 boundary (Report 144 § R.5, carried over from 141-E.2). Catches
+ * Root 404 boundary. Catches
  * every URL no route matches AND every explicit `notFound()` a segment throws
- * without a closer `not-found.tsx` — previously both fell through to the
+ * without a closer `not-found.tsx` — both would otherwise fall through to the
  * unstyled Next default page (immersion break). Renders inside the root
  * layout, so the chrome (menu, fonts, tokens) stays mounted.
  */

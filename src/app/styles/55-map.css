@@ -1,13 +1,8 @@
-/* 55-map.css — Cartographer (Brief 178, Neubau nach Studie I "Maledictum",
-   design/08-cartographer/i-maledictum.html Runde 5). Kompletter Rewrite —
-   die alte Hologramm-Disc-Map (maprail/voyages/world-tooltip) ist Geschichte.
-
-   Alle Klassen tragen das cg-Präfix. Die Karte spricht Kathedrale-Tokens
-   (--cl-*, --font-*); Warp-Farben + Glasflächen sind kartenlokal.
-
-   Zonen-Grafiken (Stürme, Rift-Korridor, Leviathan, Sautekh) sind seit
-   178b Runde 8 ausschließlich Hand-Kuration (zones.json / Zone-Editor) —
-   die hartkodierten Studien-Fassungen samt `.unrest`-Rift-Leben sind raus. */
+/* 55-map.css
+   Cartographer (/map). All classes carry the cg- prefix. The map speaks the
+   cathedral tokens (--cl-*, --font-*); warp colours + glass surfaces are
+   map-local. Zone graphics (storms, rift corridor, Leviathan, Sautekh) are
+   exclusively hand-curated (zones.json / zone editor). */
 
 .map-route {
   --cg-warp-v: #8a68c4;
@@ -18,15 +13,14 @@
   --cg-glass-shadow: 0 26px 70px -18px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(228, 221, 203, 0.06);
   font-family: var(--font-body);
   color: var(--cl-bone);
-  /* Die Karte steht auf EINER Flächenfarbe (178b Runde 11, Philipp):
-     Observatoriums-Foto, Schleier + Korn und das Direction-Proofs-Panel
-     sind ausgebaut — kein SiteBackground mehr auf dieser Route. */
+  /* The map stands on ONE flat surface colour — no SiteBackground (photo,
+     veil, grain) on this route. */
   background: var(--cl-void);
 }
 
-/* ── Route-Chrome: Burger statt Desktop-Rail ───────────────────────────
-   Entscheid „SiteBrand + Burger bleiben": auf der Karte navigiert der
-   Burger auch auf Desktop-Breiten; die linke Rail läge mitten im Chart. */
+/* Route chrome: burger instead of the desktop rail. SiteBrand + burger stay;
+   on the map the burger navigates even at desktop widths — the left rail
+   would sit in the middle of the chart. */
 @media (min-width: 1180px) {
   body.cg-on-map .site-nav {
     display: none;
@@ -39,9 +33,8 @@
   }
 }
 
-/* Auf der Karte wandert der Brand in die Mitte des Nordrands („Chrono
-   Lexicanum · Tabula") — die linke Flanke gehört jetzt der Legende. Der
-   „000"-Gradmarker ist dafür aus dem Markup genommen. */
+/* On the map the brand moves to the centre of the north edge ("Chrono
+   Lexicanum · Tabula") — the left flank belongs to the legend. */
 body.cg-on-map .site-brand {
   left: 50%;
   transform: translateX(-50%);
@@ -52,7 +45,7 @@ body.cg-on-map .site-brand .site-brand__map {
   color: var(--cl-gold);
 }
 
-/* ── Kartenrand: Maßlinien + Gradzahlen ────────────────────────────────── */
+/* Chart edge: rules + degree markers */
 .cg-rule {
   position: fixed;
   left: 0;
@@ -74,7 +67,7 @@ body.cg-on-map .site-brand .site-brand__map {
   z-index: 5;
   pointer-events: none;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--fs-label-3xs);
   letter-spacing: 0.32em;
   color: var(--cl-faint);
   opacity: 0.75;
@@ -97,7 +90,7 @@ body.cg-on-map .site-brand .site-brand__map {
   writing-mode: vertical-rl;
 }
 
-/* ── Bühne ─────────────────────────────────────────────────────────────── */
+/* Stage */
 .cg-stage {
   position: fixed;
   inset: 0;
@@ -109,9 +102,9 @@ body.cg-on-map .site-brand .site-brand__map {
   display: block;
   cursor: grab;
   touch-action: none;
-  /* Chart-Labels sind klickbar, nie selektierbar — ein Drag darf keine
-     Textmarkierung über die Karte ziehen (Belt zu preventDefault am
-     pointerdown in ChartStage). */
+  /* Chart labels are clickable but never selectable — a drag must not paint
+     a text selection across the map (belt-and-braces alongside the
+     preventDefault on pointerdown in ChartStage). */
   user-select: none;
   -webkit-user-select: none;
 }
@@ -119,7 +112,7 @@ body.cg-on-map .site-brand .site-brand__map {
   cursor: grabbing;
 }
 
-/* ── Pins: Counter-Scale hält 1054 Zeichen konstant groß ───────────────── */
+/* Pins: the counter-scale keeps ~1050 glyphs at constant screen size */
 .cg-pi {
   transform: scale(var(--cg-ik, 1));
   transform-box: fill-box;
@@ -136,38 +129,37 @@ body.cg-on-map .site-brand .site-brand__map {
   transform-box: fill-box;
   transform-origin: center;
 }
-/* Hover nur bei ruhender Kamera: während Pan/Zoom/Flug schiebt sich die
-   Karte unter dem stehenden Cursor durch — jeder passierende Pin würde
-   sonst Label-/Glyph-Transitions zünden (Massen-Flickern, 178b). */
+/* Hover only while the camera is at rest: during pan/zoom/flight the map
+   slides through beneath the stationary cursor — every passing pin would
+   otherwise fire label/glyph transitions (mass flicker). */
 .cg-chart:not(.moving) .cg-w:hover .glyph {
   transform: scale(1.35);
 }
-/* Die Selektion HÄLT den Hover-Look (178b Runde 2, Klick-Flicker): beim
-   Klick übernimmt `sel-on` (synchron gesetzt) nahtlos von `:hover`, bevor
-   `.moving` die Hover-Regeln gated — Glyph und Label pulsen nicht mehr.
-   Nebeneffekt: die gewählte Welt zeigt ihren Namen in jedem Zoom-Band. */
+/* Selection HOLDS the hover look: on click `sel-on` (set synchronously)
+   takes over seamlessly from `:hover` before `.moving` gates the hover
+   rules — glyph and label don't pulse. Side effect: the selected world
+   shows its name in every zoom band. */
 .cg-chart .cg-w.sel-on .glyph {
   transform: scale(1.35);
 }
 .cg-chart .cg-w.sel-on .cg-lbl {
   opacity: 1 !important;
-  /* Auch gegen die display:none-Band-Gates: der Name der gewählten Welt
-     bleibt in jedem Zoom-Band stehen. */
+  /* Also overrides the display:none band gates: the selected world's name
+     stays up in every zoom band. */
   display: inline !important;
   pointer-events: auto;
 }
 
-/* Namen sind Teil des data-pin-Targets — sichtbare Labels sind klickbar;
-   ausgeblendete Stufen schalten pointer-events mit ab, damit unsichtbarer
-   Text keine Klicks stiehlt.
+/* Names are part of the data-pin target — visible labels are clickable;
+   hidden tiers switch pointer-events off with them, so invisible text
+   steals no clicks.
 
-   Counter-Scale über TRANSFORM, nicht über calc()-font-size (178b Runde 4):
-   eine --cg-ik-Änderung recalct dann nur Transforms — die calc()-Variante
-   erzwang pro Zoom-Frame ein Text-RELAYOUT aller ~1050 Labels (gemessen:
-   375 ms-Frame-Stalls beim Band-Wechsel = „alle Elemente flickern").
-   Transform-Origin ist der SVG-Default (lokaler Ursprung = Pin-Zentrum);
-   px-identisch zur alten Optik verifiziert. translateY sitzt HINTER scale,
-   damit der Offset mitskaliert (k·ik = 1 → konstant 14 Screen-px). */
+   Counter-scale via TRANSFORM, not via calc() font-size: a --cg-ik change
+   then only recalcs transforms — the calc() variant forced a text RELAYOUT
+   of all ~1050 labels per zoom frame (measured: 375 ms frame stalls at band
+   changes, visible as everything flickering). Transform-origin is the SVG
+   default (local origin = pin centre). translateY sits AFTER scale so the
+   offset scales with it (k·ik = 1 → a constant 14 screen px). */
 .cg-lbl {
   font-family: var(--font-body);
   font-style: italic;
@@ -182,10 +174,10 @@ body.cg-on-map .site-brand .site-brand__map {
   opacity: 0.8;
   transition: opacity 0.6s var(--ease);
 }
-/* Frisch eingeblendete Stufen (display: none → inline) faden ein; beim
-   Band-VERLASSEN poppen sie bewusst sofort weg (kein allow-discrete):
-   ein verzögerter display-Flip von ~900 Labels käme sonst 0,6 s nach der
-   Band-Grenze als zweiter Recalc-Batch mitten in die Zoom-Geste. */
+/* Freshly revealed tiers (display: none → inline) fade in; on LEAVING a
+   band they deliberately pop off immediately (no allow-discrete): a delayed
+   display flip of ~900 labels would otherwise land 0.6 s after the band
+   boundary as a second recalc batch mid zoom gesture. */
 @starting-style {
   .cg-chart .cg-lbl {
     opacity: 0;
@@ -195,22 +187,22 @@ body.cg-on-map .site-brand .site-brand__map {
   font-style: normal;
   font-family: var(--font-display);
   font-size: 16px;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--track-08);
 }
 .cg-lbl.dust {
-  font-size: 12.5px;
+  font-size: var(--fs-label);
   transform: scale(var(--cg-ik, 1)) translateY(-10px);
   opacity: 0.68;
 }
-/* display: none nimmt ausgeblendete Stufen komplett aus Recalc + Paint —
-   bei Band 0 sind das ~900 Dust- und t1/t2-Labels pro Kamera-Frame.
-   Namens-Treppe nach Wichtigkeit (178b Runde 7): t0 (≥15 Werke) immer,
-   t1 (≥4) ab Band 1, t2 (1–3) ab Band 2, Dust-Namen (t3) erst Band 3 —
-   eine Welt mit Buch bekommt ihren Namen sichtbar VOR einer ohne. */
-/* `svg.names` (Census-Schalter „World names at every magnification", 178b
-   Runde 9) hebt die Band-Gates komplett auf — Rettungsanker für dünne
-   Filter (nur Fleets → winzige Punkte, ohne Namen unauffindbar). Der
-   Recalc-Preis der ~1050 sichtbaren Labels ist dann bewusst gewählt. */
+/* display: none takes hidden tiers fully out of recalc + paint — at band 0
+   that is ~900 dust and t1/t2 labels per camera frame.
+   Name ladder by importance: t0 (≥15 works) always, t1 (≥4) from band 1,
+   t2 (1–3) from band 2, dust names (t3) only at band 3 — a world with a
+   book gets its name visible BEFORE one without. */
+/* `svg.names` (census toggle "World names at every magnification") lifts
+   the band gates entirely — a lifeline for thin filters (fleets only →
+   tiny dots, unfindable without names). The recalc price of ~1050 visible
+   labels is then a deliberate choice. */
 .cg-chart:not(.names)[data-band="0"] .cg-lbl.t1,
 .cg-chart:not(.names)[data-band="0"] .cg-lbl.t2,
 .cg-chart:not(.names)[data-band="0"] .cg-lbl.t3,
@@ -232,20 +224,18 @@ body.cg-on-map .site-brand .site-brand__map {
   opacity: 1;
 }
 
-/* Star-dust weicht zurück (178b Runde 7): unbelegte Welten stehen auf 60 %
-   Deckkraft, solange ihre Namen unlesbar sind — volle Präsenz erst in
-   Band 3, wenn die t3-Labels aufgehen. Aufgezeichnete Welten sind dagegen
-   in JEDEM Band voll da (der alte Top-100-Schleier `vb1` + „All worlds at
-   every zoom" versteckte Buch-Welten, während Dust sichtbar blieb). */
+/* Star dust recedes: unrecorded worlds sit at 60% opacity while their names
+   are unreadable — full presence only in band 3, when the t3 labels come
+   on. Recorded worlds, by contrast, are fully present in EVERY band. */
 .cg-dust {
   transition: opacity 0.6s var(--ease);
 }
 .cg-chart:not([data-band="3"]) .cg-dust {
   opacity: 0.6;
 }
-/* Mit Namens-Zwang steht auch Dust voll da — erzwungene Namen auf 60 %
-   Layer-Deckkraft wären schwer lesbar. (Nach der 60 %-Regel: gleiche
-   Spezifität, spätere Regel gewinnt.) */
+/* With forced names, dust stands at full strength too — forced names on a
+   60% layer opacity would be hard to read. (Placed AFTER the 60% rule:
+   same specificity, the later rule wins.) */
 .cg-chart.names .cg-dust {
   opacity: 1;
 }
@@ -269,7 +259,7 @@ body.cg-on-map .site-brand .site-brand__map {
 
 .cg-segname {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: var(--fw-regular);
   fill: var(--cl-bone);
   fill-opacity: 0.085;
   letter-spacing: 0.4em;
@@ -278,8 +268,7 @@ body.cg-on-map .site-brand .site-brand__map {
   text-transform: uppercase;
 }
 
-/* ── Polar-Rahmen: Portolan-Zartheit; keine Keil-Füllung (Gelbstich raus,
-   Runde 5) ─────────────────────────────────────────────────────────────── */
+/* Polar frame: portolan delicacy; no wedge fill (it cast a yellow tint). */
 .cg-polar .ring {
   fill: none;
   stroke: var(--cl-bone);
@@ -303,7 +292,7 @@ body.cg-on-map .site-brand .site-brand__map {
   stroke-opacity: 0.3;
 }
 
-/* ── Dreh-Keyframes (Terra-Auspex + Selektions-Ringwerk) ───────────────── */
+/* Spin keyframes (Terra auspex + selection ringwork) */
 @keyframes cgTurn {
   to {
     transform: rotate(360deg);
@@ -315,7 +304,7 @@ body.cg-on-map .site-brand .site-brand__map {
   }
 }
 
-/* ── Terra: das Auspex-Werk ────────────────────────────────────────────── */
+/* Terra: the auspex works */
 .cg-inst .i-ticks {
   animation: cgTurn 220s linear infinite;
   transform-origin: center;
@@ -357,7 +346,7 @@ body.cg-on-map .site-brand .site-brand__map {
   }
 }
 
-/* ── Kurse: Etappen zeichnen sich, Punkte marschieren dauerhaft ────────── */
+/* Courses: legs draw themselves in, dots march continuously */
 [data-dust],
 .cg-w,
 .cg-rgn,
@@ -429,7 +418,7 @@ body.cg-on-map .site-brand .site-brand__map {
 .cg-rt-lbl {
   font-family: var(--font-mono);
   fill: var(--cl-gold);
-  letter-spacing: 0.24em;
+  letter-spacing: var(--track-24);
   opacity: 0;
   animation: cgRtLbl 1s var(--ease) both;
 }
@@ -439,7 +428,7 @@ body.cg-on-map .site-brand .site-brand__map {
   }
 }
 
-/* ── Selektion: Ringwerk blüht aus dem Punkt (BtnFx-Geste) ─────────────── */
+/* Selection: ringwork blooms out of the dot (the BtnFx gesture) */
 .cg-sel .blm {
   animation: cgSelBloom 0.65s var(--ease) both;
   transform-box: fill-box;
@@ -545,7 +534,7 @@ body.cg-on-map .site-brand .site-brand__map {
   }
 }
 
-/* ── Instrumente: Lumen Astronomican + Imperium Nihilus ────────────────── */
+/* Instruments: Lumen Astronomican + Imperium Nihilus */
 #cg-lumenG,
 #cg-nihilusG {
   display: none;
@@ -598,7 +587,7 @@ body.cg-on-map .site-brand .site-brand__map {
 .cg-lm-lbl {
   font-family: var(--font-mono);
   fill: var(--cl-gold);
-  letter-spacing: 0.26em;
+  letter-spacing: var(--track-26);
   animation: cgFadeIn 1.4s var(--ease) 0.9s both;
 }
 .cg-lm-lbl.dev {
@@ -631,7 +620,7 @@ body.cg-on-map .site-brand .site-brand__map {
   fill: var(--cl-gold);
 }
 
-/* ── Ouvertüre ─────────────────────────────────────────────────────────── */
+/* Overture */
 .cg-overture {
   position: fixed;
   inset: 0;
@@ -642,9 +631,9 @@ body.cg-on-map .site-brand .site-brand__map {
   justify-content: center;
   text-align: center;
   pointer-events: none;
-  /* Deutlich dunkler als die Karte selbst (178b Runde 2): solange die
-     Ouvertüre steht, muss „The Cartographer" + Text lesbar sein und die
-     Karte nur durchschimmern. Erste Interaktion hebt den Schleier. */
+  /* Noticeably darker than the map itself: while the overture stands,
+     "The Cartographer" + text must stay readable with the map only
+     shimmering through. The first interaction lifts the veil. */
   background: radial-gradient(
     ellipse at 50% 46%,
     rgba(3, 2, 1, 0.88) 0%,
@@ -661,7 +650,7 @@ body.cg-on-map .site-brand .site-brand__map {
 }
 .cg-overture .over {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--fs-label-2xs);
   letter-spacing: 0.42em;
   text-transform: uppercase;
   color: var(--cl-gold);
@@ -669,14 +658,14 @@ body.cg-on-map .site-brand .site-brand__map {
 .cg-overture h1 {
   margin-top: 16px;
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: var(--fw-medium);
   font-size: clamp(54px, 7.5vw, 102px);
-  line-height: 1;
+  line-height: var(--lh-solid);
   text-shadow: 0 2px 32px rgba(0, 0, 0, 0.9);
 }
 .cg-overture h1 em {
   font-style: italic;
-  font-weight: 400;
+  font-weight: var(--fw-regular);
 }
 .cg-overture .edition {
   margin-top: 16px;
@@ -687,13 +676,13 @@ body.cg-on-map .site-brand .site-brand__map {
 .cg-overture .edition b {
   font-style: normal;
   color: var(--cl-bone);
-  font-weight: 400;
+  font-weight: var(--fw-regular);
 }
 .cg-overture .hint {
   margin-top: 24px;
   font-family: var(--font-mono);
   font-size: 11.5px;
-  letter-spacing: 0.3em;
+  letter-spacing: var(--track-30);
   color: var(--cl-faint);
   text-transform: uppercase;
 }
@@ -734,9 +723,9 @@ body.cg-on-map .site-brand .site-brand__map {
   }
 }
 
-/* ── Kartusche: Live-Site-Glasfläche (rahmenlos, Schatten + Lichtkante).
-   Sitzt OBEN links (178b Runde 2) — unten links dockt der Music-Player;
-   die max-height hält den unteren Rand von seinem Dock frei. ───────────── */
+/* Cartouche: glass surface (frameless, shadow + light edge). Sits TOP left —
+   the music player docks bottom left; the max-height keeps the lower edge
+   clear of its dock. */
 .cg-cartouche {
   position: fixed;
   left: 26px;
@@ -763,20 +752,20 @@ body.cg-on-map .site-brand .site-brand__map {
   opacity: 1;
   transform: none;
 }
-.cg-cartouche .c-head {
+:is(.cg-cartouche, .cg-sheet) .c-head {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   border-bottom: 1px solid var(--cl-hair);
   padding-bottom: 9px;
 }
-.cg-cartouche .c-title {
+:is(.cg-cartouche, .cg-sheet) .c-title {
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: var(--fw-medium);
   font-size: 24px;
-  letter-spacing: 0.06em;
+  letter-spacing: var(--track-06);
 }
-.cg-cartouche .seek {
+:is(.cg-cartouche, .cg-sheet) .seek {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -784,7 +773,7 @@ body.cg-on-map .site-brand .site-brand__map {
   padding-bottom: 6px;
   margin: 8px 0 11px;
 }
-.cg-cartouche .seek input {
+:is(.cg-cartouche, .cg-sheet) .seek input {
   flex: 1;
   min-width: 0;
   background: none;
@@ -795,24 +784,24 @@ body.cg-on-map .site-brand .site-brand__map {
   font-size: var(--fs-read-xs);
   color: var(--cl-bone);
 }
-.cg-cartouche .seek input::placeholder {
+:is(.cg-cartouche, .cg-sheet) .seek input::placeholder {
   color: var(--cl-faint);
   font-style: italic;
 }
-.cg-cartouche .seek .go {
+:is(.cg-cartouche, .cg-sheet) .seek .go {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--fs-label-2xs);
   color: var(--cl-faint);
 }
-.cg-cartouche .seek:focus-within {
+:is(.cg-cartouche, .cg-sheet) .seek:focus-within {
   border-color: var(--cl-gold-dim);
 }
-.cg-cartouche .seek:focus-within .go {
+:is(.cg-cartouche, .cg-sheet) .seek:focus-within .go {
   color: var(--cl-gold);
 }
-/* Live-Suche: Kandidatenliste unter dem Seek-Feld (inline im scrollenden
-   Kartuschen-Fluss, eigener interner Scroll ab ~8 Zeilen) */
-.cg-cartouche .seeklist {
+/* Live search: candidate list under the seek field (inline in the scrolling
+   cartouche flow, its own internal scroll from ~8 rows). */
+:is(.cg-cartouche, .cg-sheet) .seeklist {
   margin: -6px 0 11px;
   max-height: 248px;
   overflow-y: auto;
@@ -820,7 +809,7 @@ body.cg-on-map .site-brand .site-brand__map {
   scrollbar-width: thin;
   scrollbar-color: var(--cl-gold-dim) transparent;
 }
-.cg-cartouche .skitem {
+:is(.cg-cartouche, .cg-sheet) .skitem {
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -837,38 +826,37 @@ body.cg-on-map .site-brand .site-brand__map {
   cursor: pointer;
   transition: color 0.2s;
 }
-.cg-cartouche .skitem:hover,
-.cg-cartouche .skitem.cur {
+:is(.cg-cartouche, .cg-sheet) .skitem:hover,
+:is(.cg-cartouche, .cg-sheet) .skitem.cur {
   color: var(--cl-gold);
 }
-.cg-cartouche .skitem.cur {
+:is(.cg-cartouche, .cg-sheet) .skitem.cur {
   background: rgba(228, 221, 203, 0.05);
 }
-.cg-cartouche .skitem .nm {
+:is(.cg-cartouche, .cg-sheet) .skitem .nm {
   flex: 1;
   min-width: 0;
 }
-.cg-cartouche .skitem .tag {
+:is(.cg-cartouche, .cg-sheet) .skitem .tag {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--fs-label-3xs);
   font-style: normal;
-  letter-spacing: 0.14em;
+  letter-spacing: var(--track-14);
   text-transform: uppercase;
   color: var(--cl-faint);
   white-space: nowrap;
 }
-.cg-cartouche .skmore {
+:is(.cg-cartouche, .cg-sheet) .skmore {
   font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.14em;
+  font-size: var(--fs-label-3xs);
+  letter-spacing: var(--track-14);
   text-transform: uppercase;
   color: var(--cl-faint);
   padding: 5px 4px 7px;
 }
-/* Sektions-Header: volle Zeile, kräftiger als die alten c-caps (Philipp:
-   „Überschriften zu klein"), rechts ein goldenes Status-Badge, damit eine
-   zugeklappte Sektion nie einen aktiven Zustand versteckt. */
-.cg-cartouche .c-sec {
+/* Section headers: full row, deliberately prominent; a gold status badge on
+   the right so a collapsed section never hides an active state. */
+:is(.cg-cartouche, .cg-sheet) .c-sec {
   display: flex;
   width: 100%;
   align-items: baseline;
@@ -880,48 +868,47 @@ body.cg-on-map .site-brand .site-brand__map {
   cursor: pointer;
   text-align: left;
   font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.3em;
+  font-size: var(--fs-label-xs);
+  letter-spacing: var(--track-30);
   text-transform: uppercase;
   color: var(--cl-dim);
   transition: color 0.3s;
 }
-.cg-cartouche .c-sec:hover {
+:is(.cg-cartouche, .cg-sheet) .c-sec:hover {
   color: var(--cl-gold);
 }
-.cg-cartouche .c-sec .car {
+:is(.cg-cartouche, .cg-sheet) .c-sec .car {
   flex: none;
   width: 12px;
-  font-size: 11px;
+  font-size: var(--fs-label-2xs);
   color: var(--cl-faint);
   transition:
     transform 0.35s var(--ease),
     color 0.3s;
 }
-.cg-cartouche .c-sec.open .car {
+:is(.cg-cartouche, .cg-sheet) .c-sec.open .car {
   transform: rotate(90deg);
   color: var(--cl-gold);
 }
-.cg-cartouche .c-sec .lab {
+:is(.cg-cartouche, .cg-sheet) .c-sec .lab {
   flex: 1;
 }
-.cg-cartouche .c-sec .note {
-  font-size: 10px;
-  letter-spacing: 0.18em;
+:is(.cg-cartouche, .cg-sheet) .c-sec .note {
+  font-size: var(--fs-label-3xs);
+  letter-spacing: var(--track-18);
   color: var(--cl-gold);
 }
-.cg-cartouche .c-body {
+:is(.cg-cartouche, .cg-sheet) .c-body {
   padding: 7px 0 10px;
   border-bottom: 1px solid var(--cl-hair-soft);
 }
-/* Der Sektions-Body schließt selbst mit einer Haarlinie — die letzte
-   Census-Gruppe braucht keine eigene direkt darüber. */
-.cg-cartouche .c-body .cgrp:last-child {
+/* The section body closes with its own hairline — the last census group
+   doesn't need one of its own right above it. */
+:is(.cg-cartouche, .cg-sheet) .c-body .cgrp:last-child {
   border-bottom: 0;
 }
-/* Hint-Zeilen: Lesetext, kein Kleingedrucktes (178b Runde 8 — „trace a
-   character's journey" war Philipp wiederholt zu klein). */
-.cg-cartouche .c-hint {
+/* Hint rows: reading text, not fine print. */
+:is(.cg-cartouche, .cg-sheet) .c-hint {
   font-family: var(--font-body);
   font-size: var(--fs-read-sm);
   font-style: italic;
@@ -929,12 +916,12 @@ body.cg-on-map .site-brand .site-brand__map {
   line-height: 1.4;
   margin-bottom: 6px;
 }
-.cg-cartouche .routes {
+:is(.cg-cartouche, .cg-sheet) .routes {
   display: flex;
   flex-direction: column;
   gap: 1px;
 }
-.cg-cartouche .rt {
+:is(.cg-cartouche, .cg-sheet) .rt {
   position: relative;
   text-align: left;
   font-family: var(--font-body);
@@ -947,7 +934,7 @@ body.cg-on-map .site-brand .site-brand__map {
   cursor: pointer;
   transition: color 0.3s;
 }
-.cg-cartouche .rt::before {
+:is(.cg-cartouche, .cg-sheet) .rt::before {
   content: "";
   position: absolute;
   left: 5px;
@@ -961,34 +948,34 @@ body.cg-on-map .site-brand .site-brand__map {
     background 0.4s,
     transform 0.5s var(--ease);
 }
-.cg-cartouche .rt:hover {
+:is(.cg-cartouche, .cg-sheet) .rt:hover {
   color: var(--cl-bone);
 }
-.cg-cartouche .rt:hover::before {
+:is(.cg-cartouche, .cg-sheet) .rt:hover::before {
   background: var(--cl-gold);
   transform: scale(1.6);
 }
-.cg-cartouche .rt.on {
+:is(.cg-cartouche, .cg-sheet) .rt.on {
   color: var(--cl-gold);
 }
-.cg-cartouche .rt.on::before {
+:is(.cg-cartouche, .cg-sheet) .rt.on::before {
   background: var(--cl-gold);
   transform: scale(1.7);
 }
-.cg-cartouche .rt .rt-tag {
+:is(.cg-cartouche, .cg-sheet) .rt .rt-tag {
   font-style: normal;
   font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.18em;
+  font-size: var(--fs-label-3xs);
+  letter-spacing: var(--track-18);
   text-transform: uppercase;
   color: var(--cl-faint);
   padding-left: 8px;
 }
-/* ── Census-Filter ─────────────────────────────────────────────────────── */
+/* Census filters */
 .cg-census .chead {
   font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.26em;
+  font-size: var(--fs-label-2xs);
+  letter-spacing: var(--track-26);
   text-transform: uppercase;
   color: var(--cl-gold-dim);
   padding: 3px 0 2px;
@@ -1000,11 +987,11 @@ body.cg-on-map .site-brand .site-brand__map {
   align-items: baseline;
   gap: 10px;
 }
-/* Select/Unselect-all-Toggle: alle Klassifikationen an bzw. aus */
+/* Select/unselect-all toggle: all classifications on or off. */
 .cg-census .creset {
   font-family: var(--font-mono);
   font-size: 10.5px;
-  letter-spacing: 0.2em;
+  letter-spacing: var(--track-20);
   text-transform: uppercase;
   color: var(--cl-faint);
   background: none;
@@ -1035,8 +1022,8 @@ body.cg-on-map .site-brand .site-brand__map {
   gap: 7px;
   padding: 4.5px 0;
 }
-/* Ausklapp-Pfeil deutlich sichtbar (178b Runde 9): der 11px-faint-Pfeil war
-   als Affordance unauffindbar — größer, heller, mehr Klickfläche. */
+/* Expand arrow kept clearly visible: a small faint arrow is unfindable as
+   an affordance — bigger, brighter, more click area. */
 .cg-census .cgrp-h .car {
   width: 20px;
   flex: none;
@@ -1081,7 +1068,7 @@ body.cg-on-map .site-brand .site-brand__map {
 }
 .cg-census .cgrp-h .n {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--fs-label-xs);
   color: var(--cl-faint);
   font-variant-numeric: tabular-nums;
 }
@@ -1148,7 +1135,7 @@ body.cg-on-map .site-brand .site-brand__map {
   color: var(--cl-gold);
 }
 .cg-census .cx .pad {
-  /* spiegelt die .car-Breite — die Symbol-Spalten beider Zeilentypen fluchten */
+  /* mirrors the .car width — the symbol columns of both row types align */
   width: 20px;
   flex: none;
 }
@@ -1163,7 +1150,7 @@ body.cg-on-map .site-brand .site-brand__map {
 }
 .cg-census .cx .n {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--fs-label-xs);
   font-style: normal;
   color: var(--cl-faint);
 }
@@ -1174,7 +1161,7 @@ body.cg-on-map .site-brand .site-brand__map {
   color: var(--cl-gold);
 }
 
-/* ── Welt-Popup: Live-Site-Fläche, Werkliste scrollt intern ────────────── */
+/* World popup: glass surface, the works list scrolls internally */
 .cg-pop {
   position: fixed;
   z-index: 25;
@@ -1202,8 +1189,8 @@ body.cg-on-map .site-brand .site-brand__map {
   transform: none;
   pointer-events: auto;
 }
-/* Während eines Kamera-Flugs duckt sich das Popup weg (schnell raus, am
-   Ziel wieder mit der normalen 0.45s-Blende rein) — muss NACH .open stehen. */
+/* During a camera flight the popup ducks away (fast out, back in at the
+   target with the normal 0.45s fade) — must sit AFTER .open. */
 .cg-pop.inflight {
   opacity: 0;
   transform: translateY(6px);
@@ -1216,7 +1203,7 @@ body.cg-on-map .site-brand .site-brand__map {
   right: 11px;
   font-family: var(--font-mono);
   font-size: 14px;
-  letter-spacing: 0.2em;
+  letter-spacing: var(--track-20);
   color: var(--cl-faint);
   background: none;
   border: 0;
@@ -1228,15 +1215,15 @@ body.cg-on-map .site-brand .site-brand__map {
 .cg-pop .pp-tele {
   font-family: var(--font-mono);
   font-size: 11.5px;
-  letter-spacing: 0.24em;
+  letter-spacing: var(--track-24);
   text-transform: uppercase;
   color: var(--cl-gold);
 }
 .cg-pop .pp-name {
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: var(--fw-medium);
   font-size: 31px;
-  line-height: 1.05;
+  line-height: var(--lh-title);
   margin-top: 5px;
 }
 .cg-pop .pp-cls {
@@ -1253,7 +1240,7 @@ body.cg-on-map .site-brand .site-brand__map {
 }
 .cg-pop .pp-cls2 b {
   font-style: normal;
-  font-weight: 400;
+  font-weight: var(--fw-regular);
   color: var(--cl-dim);
 }
 .cg-pop .pp-rule {
@@ -1261,29 +1248,29 @@ body.cg-on-map .site-brand .site-brand__map {
   margin: 10px 0 2px;
   background: linear-gradient(90deg, rgba(164, 140, 82, 0.4), rgba(164, 140, 82, 0.12) 72%, transparent);
 }
-/* Kurations-Blurb — derselbe Satz, mit dem die große Entity-Ansicht öffnet */
+/* Curation blurb — the same sentence the full entity view opens with */
 .cg-pop .pp-blurb {
   margin-top: 9px;
   font-style: italic;
   font-size: var(--fs-read);
-  line-height: 1.55;
+  line-height: var(--lh-prose-lg);
   color: var(--cl-dim);
 }
 .cg-pop .pp-blurb.missing {
   color: var(--cl-faint);
 }
-/* Dust-Welten: stille Zeile statt Aufklappliste */
+/* Dust worlds: a quiet line instead of the expandable list */
 .cg-pop .pp-norec {
   margin-top: 11px;
   padding-top: 6px;
   border-top: 1px solid var(--cl-hair-soft);
   font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.2em;
+  font-size: var(--fs-label-2xs);
+  letter-spacing: var(--track-20);
   text-transform: uppercase;
   color: var(--cl-faint);
 }
-/* Aufklappzeile „Literature & podcasts" */
+/* Expand row: "Literature & podcasts" */
 .cg-pop .pp-works-toggle {
   display: flex;
   width: 100%;
@@ -1297,7 +1284,7 @@ body.cg-on-map .site-brand .site-brand__map {
   cursor: pointer;
   font-family: var(--font-mono);
   font-size: 11.5px;
-  letter-spacing: 0.22em;
+  letter-spacing: var(--track-22);
   text-transform: uppercase;
   color: var(--cl-faint);
   text-align: left;
@@ -1351,8 +1338,8 @@ body.cg-on-map .site-brand .site-brand__map {
 }
 .cg-pop li a .k {
   font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.18em;
+  font-size: var(--fs-label-2xs);
+  letter-spacing: var(--track-18);
   color: var(--cl-faint);
   white-space: nowrap;
   transition: color 0.3s;
@@ -1378,7 +1365,7 @@ body.cg-on-map .site-brand .site-brand__map {
   color: var(--cl-bone);
 }
 
-/* ── Kurs-Karten ───────────────────────────────────────────────────────── */
+/* Course cards */
 .cg-ccard {
   position: fixed;
   z-index: 18;
@@ -1402,8 +1389,8 @@ body.cg-on-map .site-brand .site-brand__map {
   opacity: 1;
   transform: none;
 }
-/* Welt-Popup offen: Karten treten beiseite (schneller raus als rein) und
-   kommen zurück, sobald das Popup schließt. Muss NACH .show stehen. */
+/* World popup open: cards step aside (faster out than in) and return once
+   the popup closes. Must sit AFTER .show. */
 .cg-ccard.hide {
   opacity: 0;
   transform: translateY(8px);
@@ -1415,8 +1402,8 @@ body.cg-on-map .site-brand .site-brand__map {
 .cg-ccard .ck {
   position: relative;
   font-family: var(--font-display);
-  font-size: 12.5px;
-  letter-spacing: 0.2em;
+  font-size: var(--fs-label);
+  letter-spacing: var(--track-20);
   color: var(--cl-gold);
   text-transform: uppercase;
   padding-bottom: 7px;
@@ -1435,7 +1422,7 @@ body.cg-on-map .site-brand .site-brand__map {
   font-size: var(--fs-read-sm);
   font-style: italic;
   color: var(--cl-dim);
-  line-height: 1.5;
+  line-height: var(--lh-prose);
 }
 .cg-ccard .cpg {
   pointer-events: auto;
@@ -1443,7 +1430,7 @@ body.cg-on-map .site-brand .site-brand__map {
   margin-top: 8px;
   font-family: var(--font-mono);
   font-size: 10.5px;
-  letter-spacing: 0.2em;
+  letter-spacing: var(--track-20);
   color: var(--cl-faint);
   text-transform: uppercase;
   background: none;
@@ -1454,7 +1441,7 @@ body.cg-on-map .site-brand .site-brand__map {
   color: var(--cl-gold);
 }
 
-/* ── Zoomer + Readout ──────────────────────────────────────────────────── */
+/* Zoomer + readout */
 .cg-zoomer {
   position: fixed;
   right: 26px;
@@ -1481,7 +1468,7 @@ body.cg-on-map .site-brand .site-brand__map {
   color: var(--cl-gold);
   border-color: var(--cl-gold-dim);
 }
-/* Zoom-Presets „3×"/„6×": springen exakt auf die Namens-Stufen (Band 2/3) */
+/* Zoom presets "3×"/"6×": jump exactly to the name tiers (bands 2/3) */
 .cg-zoomer button.preset {
   font-size: 11.5px;
   letter-spacing: 0.05em;
@@ -1493,7 +1480,7 @@ body.cg-on-map .site-brand .site-brand__map {
   z-index: 20;
   font-family: var(--font-mono);
   font-size: 10.5px;
-  letter-spacing: 0.18em;
+  letter-spacing: var(--track-18);
   color: var(--cl-faint);
   text-align: right;
 }
@@ -1505,13 +1492,13 @@ body.cg-on-map .site-brand .site-brand__map {
   color: var(--cl-gold);
 }
 
-/* ── Zonen (Hand-Kuration via /map?zones=edit → src/lib/map/zones.json) ── */
+/* Zones (hand-curated via /map?zones=edit → src/lib/map/zones.json) */
 .cg-zones {
   pointer-events: none;
 }
-/* Zonen-Toggle (178b Runde 10, Census „Zones & storm fields"): fadet die
-   Feld-Ebene weich aus — #cg-fields hat bereits die 0.7s-Opacity-Transition
-   aus dem Kurs-Modus. Gewinnt per ID-Spezifität gegen die 0.22-Kurs-Regel. */
+/* Zone toggle (census "Zones & storm fields"): fades the field layer out
+   softly — #cg-fields already carries the 0.7s opacity transition from
+   course mode. Wins on ID specificity against the 0.22 course rule. */
 .cg-chart.nozones #cg-fields {
   opacity: 0;
 }
@@ -1522,9 +1509,9 @@ body.cg-on-map .site-brand .site-brand__map {
   stroke-width: 1;
   stroke-dasharray: 2 5;
 }
-/* Interdiction-Zonen sprechen die rote Portolan-Sprache (178b Runde 7):
-   45°-Schraffur (#cg-riftHatch, definiert in decor.tsx → HatchDefs, immer
-   gemountet) + Strichel-Kontur statt des flachen roten Overlays. */
+/* Interdiction zones speak the red portolan language: 45° hatching
+   (#cg-riftHatch, defined in decor.tsx → HatchDefs, always mounted) plus a
+   dashed outline. */
 .cg-zone.interdiction .zshape {
   fill: url(#cg-riftHatch);
   stroke: var(--cl-blood);
@@ -1532,8 +1519,8 @@ body.cg-on-map .site-brand .site-brand__map {
   stroke-dasharray: 3 3;
   vector-effect: non-scaling-stroke;
 }
-/* Plague-Zonen (178b Runde 9, Scourge Stars): dieselbe Portolan-Schraffur
-   in Nurgle-Galle, Gegenrichtung (-45°, #cg-plagueHatch in decor.tsx). */
+/* Plague zones (Scourge Stars): the same portolan hatching in Nurgle bile,
+   opposite direction (-45°, #cg-plagueHatch in decor.tsx). */
 .cg-zone.plague .zshape {
   fill: url(#cg-plagueHatch);
   stroke: #8fae4a;
@@ -1570,8 +1557,8 @@ body.cg-on-map .site-brand .site-brand__map {
   fill: var(--cl-gold);
   fill-opacity: 0.8;
 }
-/* Hive-Fleet + Necron-Dynastie sprechen die Xenos-Palette:
-   Eis-Cyan, unterschiedliche Strichsprache. */
+/* Hive fleets + Necron dynasties speak the xenos palette:
+   ice cyan, differing stroke language. */
 .cg-zone.hive-fleet .zshape {
   fill: rgba(156, 230, 255, 0.05);
   stroke: var(--cl-cyan);
@@ -1595,16 +1582,16 @@ body.cg-on-map .site-brand .site-brand__map {
   fill-opacity: 0.6;
 }
 
-/* Dev-only-Einstieg in den Editor (CartographerRoot rendert ihn nur unter
-   NODE_ENV=development — im Prod-Build existiert der Knopf nicht). */
+/* Dev-only entry to the editor (CartographerRoot renders it only under
+   NODE_ENV=development — the button does not exist in the prod build). */
 .cg-zed-toggle {
   position: fixed;
   right: 26px;
   bottom: 150px;
   z-index: 20;
   font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.2em;
+  font-size: var(--fs-label-3xs);
+  letter-spacing: var(--track-20);
   text-transform: uppercase;
   color: var(--cl-faint);
   text-decoration: none;
@@ -1620,9 +1607,9 @@ body.cg-on-map .site-brand .site-brand__map {
   border-color: var(--cl-gold-dim);
 }
 
-/* ── Zonen-Editor: Handles im Chart + Panel rechts ─────────────────────── */
-/* Zonen-Flächen liegen im Editor in #cg-fields (Portal, unter den Planeten —
-   178b Runde 9); Drahtgitter + Griffe bleiben im .cg-zed-layer obenauf. */
+/* Zone editor: handles in the chart + panel on the right */
+/* In the editor the zone shapes live in #cg-fields (portal, beneath the
+   planets); wireframes + handles stay on top in the .cg-zed-layer. */
 .cg-zed-shapes .zidle {
   opacity: 0.55;
 }
@@ -1644,8 +1631,8 @@ body.cg-on-map .site-brand .site-brand__map {
 .cg-zed-layer .zh.sel {
   fill: var(--cl-gold);
 }
-/* Mid-Handles („⊕"): auf jeder Kantenmitte, fügen beim Anfassen einen Punkt
-   ein und ziehen direkt weiter — groß genug, um gefunden zu werden. */
+/* Mid handles ("⊕"): one on each edge midpoint; grabbing one inserts a
+   point and keeps dragging — big enough to be findable. */
 .cg-zed-layer .zmid {
   cursor: crosshair;
 }
@@ -1690,9 +1677,9 @@ body.cg-on-map .site-brand .site-brand__map {
   align-items: baseline;
   justify-content: space-between;
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: var(--fw-medium);
   font-size: 17px;
-  letter-spacing: 0.06em;
+  letter-spacing: var(--track-06);
   border-bottom: 1px solid var(--cl-hair);
   padding-bottom: 7px;
   margin-bottom: 7px;
@@ -1700,7 +1687,7 @@ body.cg-on-map .site-brand .site-brand__map {
 .cg-zed .zed-draft {
   font-family: var(--font-mono);
   font-size: 9px;
-  letter-spacing: 0.24em;
+  letter-spacing: var(--track-24);
   text-transform: uppercase;
   color: var(--cl-gold);
 }
@@ -1753,13 +1740,13 @@ body.cg-on-map .site-brand .site-brand__map {
   font-family: var(--font-mono);
   font-size: 9.5px;
   font-style: normal;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--track-10);
   color: var(--cl-faint);
   white-space: nowrap;
 }
 .cg-zed .zed-x {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--fs-label-xs);
   color: var(--cl-faint);
   background: none;
   border: 0;
@@ -1772,8 +1759,8 @@ body.cg-on-map .site-brand .site-brand__map {
 .cg-zed .zed-add,
 .cg-zed .zed-actions button {
   font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.16em;
+  font-size: var(--fs-label-3xs);
+  letter-spacing: var(--track-16);
   text-transform: uppercase;
   color: var(--cl-dim);
   background: none;
@@ -1804,7 +1791,7 @@ body.cg-on-map .site-brand .site-brand__map {
   padding: 3px 0;
   font-family: var(--font-mono);
   font-size: 9.5px;
-  letter-spacing: 0.18em;
+  letter-spacing: var(--track-18);
   text-transform: uppercase;
   color: var(--cl-faint);
 }
@@ -1838,7 +1825,7 @@ body.cg-on-map .site-brand .site-brand__map {
   padding: 3px 0;
   font-family: var(--font-mono);
   font-size: 9.5px;
-  letter-spacing: 0.18em;
+  letter-spacing: var(--track-18);
   text-transform: uppercase;
   color: var(--cl-dim);
   cursor: pointer;
@@ -1864,7 +1851,7 @@ body.cg-on-map .site-brand .site-brand__map {
   color: var(--cl-faint);
 }
 .cg-zed .zed-help b {
-  font-weight: 400;
+  font-weight: var(--fw-regular);
   color: var(--cl-dim);
 }
 .cg-zed .zed-help code {
@@ -1873,7 +1860,7 @@ body.cg-on-map .site-brand .site-brand__map {
   font-style: normal;
 }
 
-/* ── reduced-motion: alles steht still ─────────────────────────────────── */
+/* Reduced motion: everything stands still */
 @media (prefers-reduced-motion: reduce) {
   .cg-rtFly,
   .cg-inst .i-ticks,
@@ -1946,12 +1933,217 @@ body.cg-on-map .site-brand .site-brand__map {
   }
 }
 
-/* ── Schmale Viewports: Karte bleibt, Kartusche weicht ─────────────────── */
-@media (max-width: 900px) {
-  .cg-cartouche {
+/* Overture hint wording: mouse verbs by default, touch verbs on coarse
+   pointers. Both spans always render; CSS picks one. */
+.cg-overture .hint-coarse {
+  display: none;
+}
+@media (pointer: coarse) {
+  .cg-overture .hint-fine {
     display: none;
   }
+  .cg-overture .hint-coarse {
+    display: inline;
+  }
+  /* Grown tap halos — SVG2 presentation attribute override. The visible dot
+     stays its drawn size; only the invisible hit circle grows. */
+  .cg-w .halo {
+    r: 16px;
+  }
+}
+
+/* The chart drawer (CartoucheSheet) exists only below the map-chrome line. */
+.cg-sheet,
+.cg-sheet-backdrop {
+  display: none;
+}
+
+/* ── Narrow viewports: the corner cartouche yields to the chart drawer ──── */
+@media (max-width: 900px) {
+  .cg-cartouche,
+  .cg-readout {
+    display: none;
+  }
+
+  /* World popup — bottom-docked card instead of a pin anchor. */
   .cg-pop {
-    width: 272px;
+    width: auto;
+    left: 12px;
+    right: 12px;
+    top: auto;
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    max-height: 52dvh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .cg-pop .pp-close {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+  }
+  .cg-pop li a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  /* Zoomer — 44px touch targets, lifted above the drawer dock. */
+  .cg-zoomer {
+    right: calc(12px + env(safe-area-inset-right, 0px));
+    bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+    gap: 2px;
+  }
+  .cg-zoomer button {
+    width: 44px;
+    height: 44px;
+    font-size: 16px;
+  }
+
+  /* Glass gradients are near-opaque — the blur is invisible on phones but
+     costs real GPU under transform-animated sheets. */
+  .cg-pop,
+  .cg-ccard,
+  .cg-sheet {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  /* Backdrop while the drawer is up — also stops accidental chart pans. */
+  .cg-sheet-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 23;
+    background: rgba(3, 2, 1, 0.45);
+  }
+
+  /* The drawer itself: a dock bar pinned to the bottom edge that grows into
+     a sheet. Same glass voice as the cartouche it replaces. */
+  .cg-sheet {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 24;
+    background: var(--cg-glass);
+    box-shadow: var(--cg-glass-shadow);
+    border-radius: 10px 10px 0 0;
+    padding: 0 14px calc(10px + env(safe-area-inset-bottom, 0px));
+    transition: transform 0.38s var(--ease);
+  }
+  .cg-sheet.hidden {
+    transform: translateY(110%);
+  }
+  .cg-sheet-grip {
+    display: grid;
+    place-items: center;
+    height: 26px;
+    margin: 0 -14px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: grab;
+    touch-action: none;
+  }
+  .cg-sheet-grip .bar {
+    width: 30px;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--cl-gold-dim);
+  }
+  .cg-sheet-head {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+  }
+  .cg-sheet-pill {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    min-height: 44px;
+    padding: 0 4px 0 2px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--cl-hair);
+    cursor: pointer;
+    text-align: left;
+  }
+  .cg-sheet-pill .ph {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-read-xs);
+    color: var(--cl-faint);
+  }
+  .cg-sheet-pill .go {
+    font-family: var(--font-mono);
+    font-size: var(--fs-label-3xs);
+    letter-spacing: var(--track-22);
+    color: var(--cl-gold-dim);
+  }
+  .cg-sheet-badges {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    min-height: 18px;
+    padding-top: 5px;
+  }
+  .cg-sheet-badges span {
+    font-family: var(--font-mono);
+    font-size: var(--fs-label-3xs);
+    letter-spacing: var(--track-22);
+    color: var(--cl-gold);
+  }
+  .cg-sheet-badges:empty {
+    display: none;
+  }
+
+  /* Expanded: internal scroll, capped height. */
+  .cg-sheet.open {
+    max-height: min(72dvh, calc(100dvh - 88px));
+  }
+  .cg-sheet-body {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    min-height: 0;
+    scrollbar-width: thin;
+    scrollbar-color: var(--cl-gold-dim) transparent;
+    padding-top: 4px;
+  }
+
+  /* Touch-target bumps for the shared vocabulary inside the sheet. */
+  .cg-sheet .c-sec {
+    min-height: 44px;
+  }
+  .cg-sheet .skitem {
+    min-height: 40px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .cg-sheet .rt {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .cg-sheet .cg-census .cgrp-h {
+    min-height: 44px;
+  }
+  .cg-sheet .cg-census .crow {
+    min-height: 40px;
+  }
+  .cg-sheet .seeklist {
+    position: static;
+    max-height: 32dvh;
+  }
+
+  /* Course act card — one bottom-docked voyage card above the drawer dock. */
+  .cg-ccard.cg-ccard--dock {
+    left: 12px;
+    right: 12px;
+    width: auto;
+    top: auto;
+    bottom: calc(96px + env(safe-area-inset-bottom, 0px));
   }
 }

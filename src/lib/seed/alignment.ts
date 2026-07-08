@@ -7,8 +7,8 @@
  *   - `scripts/seed-resolver-extensions.ts` — seed-time write into the
  *     `factions.alignment` column (idempotent upsert).
  *   - `scripts/apply-override.ts` — apply-time lookup so the grand-alignment
- *     junction-skip in `decideFactionSkips()` (Brief 077) can compare the
- *     alignments of resolved peers without re-implementing the inference.
+ *     junction-skip in `decideFactionSkips()` can compare the alignments of
+ *     resolved peers without re-implementing the inference.
  *
  * Both paths normalize the same way: explicit `alignment` field wins;
  * legacy `"imperial"` is rewritten to `"imperium"`; missing fields fall

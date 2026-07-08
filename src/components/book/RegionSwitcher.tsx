@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Brief 105 — optional store-region switcher. Writes `?store=<ISO>` to the URL
+ * Optional store-region switcher. Writes `?store=<ISO>` to the URL
  * (the server reads it as the highest-precedence region signal in
  * store-region.ts), mirroring the EraToggle pattern. The default link already
  * localizes server-side from geo headers; this is a nicety that also doubles as

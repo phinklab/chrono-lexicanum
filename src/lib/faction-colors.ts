@@ -1,6 +1,5 @@
 /**
- * Per-faction accent colours, sourced from the Warhammer-Optics handoff
- * (`books.html` lines 26-32). Used by the /buecher row dots and faction tags.
+ * Per-faction accent colours. Used by the /buecher row dots and faction tags.
  * Unknown factions fall back to `var(--cl-dim)` at the call site.
  */
 

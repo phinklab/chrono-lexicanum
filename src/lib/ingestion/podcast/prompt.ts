@@ -1,15 +1,14 @@
 /**
- * Brief 131 — shared episode-tagging prompt + tool schema, Anthropic-free.
+ * Shared episode-tagging prompt + tool schema, Anthropic-free.
  *
- * These constants WERE inline in `extract.ts` (Brief 110). They are moved here
- * verbatim — same strings, same `JSON.stringify` shape — so the api path stays
- * byte-identical (the `EPISODE_PROMPT_VERSION_HASH` is unchanged, hence the
- * `ingest/.llm-cache/` keys and the committed artifacts do not move). The point
- * of the split: this module imports NOTHING from `@anthropic-ai/sdk` (only
- * `node:crypto` + the local types), so the CC-Direct tagging path (Variant B —
- * acquire / assemble / migrate) can read the conventions, the prompt version,
- * and the description cap WITHOUT loading the SDK. `extract.ts` (Variant A — the
- * metered API path) imports these back; it remains the sole owner of the SDK.
+ * The strings and the `JSON.stringify` shape must stay byte-stable: the
+ * `EPISODE_PROMPT_VERSION_HASH` derives from them, and any change moves the
+ * `ingest/.llm-cache/` keys and the committed artifacts. This module imports
+ * NOTHING from `@anthropic-ai/sdk` (only `node:crypto` + the local types), so
+ * the CC-Direct tagging path (acquire / assemble / migrate) can read the
+ * conventions, the prompt version, and the description cap WITHOUT loading
+ * the SDK. `extract.ts` (the metered API path) imports these back; it
+ * remains the sole owner of the SDK.
  *
  * The semantics here are LOAD-BEARING and carefully tuned (axis definitions,
  * surface-form fidelity, in-universe-only, "empty lists are correct",

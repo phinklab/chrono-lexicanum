@@ -1,9 +1,8 @@
 /**
- * decor.tsx — static chart decor (Brief 178), ported from Studie I:
- * dot graticule, polar frame (Portolan-Zartheit), segmentum watermarks and
- * the Terra auspex work. The hardcoded zone graphics (warp storms, Leviathan
- * swarm, Sautekh dynasty) are retired (178b Runde 8) — zone shapes come
- * exclusively from Philipp's hand curation (zones.json / zone editor).
+ * decor.tsx — static chart decor: dot graticule, polar frame (portolan
+ * delicacy), segmentum watermarks and the Terra auspex work. Zone shapes
+ * come exclusively from hand curation (zones.json / zone editor), not from
+ * this file.
  * All pointer-events:none; all memoized — they render exactly once.
  */
 
@@ -28,12 +27,11 @@ import {
   wedgePath,
 } from "./chart-geometry";
 
-/** #cg-riftHatch — die rote Portolan-45°-Schraffur (a-portolan 1:1). Lebte
- *  im gelöschten GreatRift; das Pattern mountet jetzt hier, immer — die
- *  hand-kuratierten Interdiction-Zonen (ZonesLayer + Editor) füllen damit.
- *  #cg-plagueHatch (178b Runde 9): dieselbe Schraffur in Nurgle-Galle,
- *  Gegenrichtung (-45°), damit sich rote und grüne Felder auch bei
- *  Überlappung lesen — füllt die Plague-Zonen (Scourge Stars). */
+/** #cg-riftHatch — the red portolan 45° hatch. Mounts here, always — the
+ *  hand-curated interdiction zones (ZonesLayer + editor) fill with it.
+ *  #cg-plagueHatch: the same hatch in Nurgle bile, counter-rotated (-45°)
+ *  so red and green fields stay readable even where they overlap — fills
+ *  the plague zones (Scourge Stars). */
 export const HatchDefs = memo(function HatchDefs() {
   return (
     <defs>
@@ -73,8 +71,8 @@ export const PolarFrame = memo(function PolarFrame() {
   // Spokes run out to the measured segment silhouette at their bearing.
   const spokes: [number, number][][] = [];
   for (let a = 0; a < 360; a += 30) spokes.push([pp(a, SOLAR_R), pp(a, outerR(a))]);
-  // Der Tick-Kranz (r 381–385) setzt wie die Ringe aus, wo eine Segment-
-  // Stufenkante zu nah läuft (178b Runde 8: Doppellinien-Veto).
+  // The tick wreath (r 381–385) breaks off like the rings wherever a
+  // segment step edge runs too close — avoids double lines.
   const ticks: [number, number][][] = [];
   for (let a = 0; a < 360; a += 5) {
     if (Math.abs(383 - outerR(a)) < RING_CLEAR) continue;
@@ -119,7 +117,7 @@ export const SegmentumWatermarks = memo(function SegmentumWatermarks() {
   );
 });
 
-/* ── Terra: the auspex work (Philipps Liebling — bleibt) ────────────────── */
+/* Terra: the auspex work */
 
 export const TerraInstrument = memo(function TerraInstrument() {
   const ticks: { x1: number; y1: number; x2: number; y2: number; major: boolean }[] = [];

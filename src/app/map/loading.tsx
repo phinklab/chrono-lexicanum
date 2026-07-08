@@ -1,7 +1,7 @@
 import CogitatorLoading from "@/components/chrono/CogitatorLoading";
 
 /**
- * Suspense fallback for the Cartographer (Report 144 § P.5). The server render
+ * Suspense fallback for the Cartographer. The server render
  * is light, so this rarely paints — it exists for the degenerate slow cases
  * (cold instance, wedged pool) so they show the house loader, not a blank.
  */

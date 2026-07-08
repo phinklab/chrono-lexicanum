@@ -1,16 +1,16 @@
 /**
- * Brief 122 B1-S2 — podcast show registry.
+ * Podcast show registry.
  *
- * The registry (`scripts/seed-data/podcast-shows.json`) replaces the hardcoded
- * `PILOT` constant the ingest used in Brief 110: one JSON entry per show. The
- * ingest reads it for `--show <slug>` (default = the pilot) and `--all`.
+ * The registry (`scripts/seed-data/podcast-shows.json`) holds one JSON entry
+ * per show. The ingest reads it for `--show <slug>` (default = the pilot)
+ * and `--all`.
  *
  * A registry entry lists only what the feed can't supply: the show-level links
  * the ingest can't derive (official site, Spotify, YouTube). The RSS feed link
  * (from `feedUrl`) and the Apple link (from `appleId`) are DERIVED by
  * `links.ts`, so the registry stays minimal and DRY — see `SERVICE_LINK_SPEC`
- * for the per-service `kind`/`sourceKind`/`confidence` defaults (Brief 128 link
- * matrix). All validation is pure (`parseRegistry`); only `loadRegistry` touches
+ * for the per-service `kind`/`sourceKind`/`confidence` defaults. All
+ * validation is pure (`parseRegistry`); only `loadRegistry` touches
  * the filesystem, so the parser unit-tests without fixtures on disk.
  */
 import { readFileSync } from "node:fs";
@@ -34,11 +34,12 @@ export const REGISTRY_PATH = join(
 export const DEFAULT_SHOW_SLUG = "the-40k-lorecast";
 
 /**
- * Where a show's episodes are acquired from (Brief 130). `rss` is the original
- * path (`feed.ts`): `feedUrl` is parsed as an RSS 2.0 feed. `youtube` is the
+ * Where a show's episodes are acquired from. `rss` is the default path
+ * (`feed.ts`): `feedUrl` is parsed as an RSS 2.0 feed. `youtube` is the
  * YouTube-source adapter (`youtube.ts`): the channel's uploads are fetched via
  * the YouTube Data API v3 and mapped into the same `ParsedFeed` contract. The
- * discriminator defaults to `rss`, so every pre-130 entry stays valid verbatim.
+ * discriminator defaults to `rss`, so entries without a `source` stay valid
+ * verbatim.
  */
 export type PodcastSource = "rss" | "youtube";
 
@@ -76,28 +77,28 @@ export interface PodcastShowConfig {
   appleId: string | null;
   podcastGuid: string | null;
   links: RegistryLinkInput[];
-  /** Optional — S4 (YouTube episode matching) reads these; B1 only carries them.
-   *  For `source: "youtube"` the adapter uses `youtubeChannelId` when present,
-   *  else resolves the channel from the `@handle` in `youtubeChannelUrl`. */
+  /** Optional — used by the YouTube adapter: for `source: "youtube"` it uses
+   *  `youtubeChannelId` when present, else resolves the channel from the
+   *  `@handle` in `youtubeChannelUrl`. */
   youtubeChannelUrl: string | null;
   youtubeChannelId: string | null;
   /**
-   * YouTube-source only (Brief 130 + Philipp 2026-06-07): titles of the
-   * channel's own playlists whose member videos must be EXCLUDED from ingest
-   * (off-topic content — e.g. hobby/painting tutorials, news/speculation, a
-   * game playthrough). The adapter resolves each title to its playlist id at
-   * run time and drops any upload that is a member. Empty for RSS shows.
+   * YouTube-source only: titles of the channel's own playlists whose member
+   * videos must be EXCLUDED from ingest (off-topic content — e.g.
+   * hobby/painting tutorials, news/speculation, a game playthrough). The
+   * adapter resolves each title to its playlist id at run time and drops any
+   * upload that is a member. Empty for RSS shows.
    */
   excludePlaylists: string[];
   /**
-   * YouTube-source only (Brief 130 curation, Philipp 2026-06-07): video ids to
-   * FORCE-INCLUDE even though a denylisted playlist would otherwise exclude them
-   * — the per-video allowlist that overrides `excludePlaylists`. The
-   * "Discussion / News / Speculation" playlist mixes off-topic news/game/hobby
-   * videos with genuine in-universe lore deep-dives (e.g. "Belisarius Cawl",
-   * "The Silent Death of the STC"); those lore videos are curated back in here
-   * by id. An id that is not actually on the denylist is a harmless no-op. Empty
-   * for RSS shows. Video ids are permanent, so the list never goes stale.
+   * YouTube-source only: video ids to FORCE-INCLUDE even though a denylisted
+   * playlist would otherwise exclude them — the per-video allowlist that
+   * overrides `excludePlaylists`. A denylisted playlist can mix off-topic
+   * news/game/hobby videos with genuine in-universe lore deep-dives (e.g.
+   * "Belisarius Cawl", "The Silent Death of the STC"); those lore videos are
+   * curated back in here by id. An id that is not actually on the denylist is
+   * a harmless no-op. Empty for RSS shows. Video ids are permanent, so the
+   * list never goes stale.
    */
   includeVideoIds: string[];
   /**
@@ -106,13 +107,13 @@ export interface PodcastShowConfig {
    * the artifact/DB). The RSS analogue of the YouTube playlist denylist: a feed
    * that publishes audio + video twins of each episode (e.g. Lorehammer's
    * "(Video) …" items) lists `["(Video)"]` here to keep only the audio cut.
-   * Honored for any source; empty for shows that don't need it. (Philipp 2026-06-09.)
+   * Honored for any source; empty for shows that don't need it.
    */
   excludeTitlePatterns: string[];
 }
 
 /**
- * Per-service link defaults — the Brief 128 link matrix as data. `serviceId` →
+ * Per-service link defaults — the link matrix as data. `serviceId` →
  * the `external_link_kind`, the `source_kind` provenance, and the default
  * confidence a show/episode link of that service carries.
  */
@@ -246,8 +247,8 @@ function parseLink(raw: unknown, where: string): RegistryLinkInput {
     out.sourceKind = raw.sourceKind as PodcastLinkSourceKind;
   }
   if (raw.confidence !== undefined) {
-    // Bound to [0, 1] up front so a bad registry fails here, not later at S3's
-    // `external_links.confidence numeric(3,2)` Postgres constraint.
+    // Bound to [0, 1] up front so a bad registry fails here, not later at the
+    // apply's `external_links.confidence numeric(3,2)` Postgres constraint.
     if (
       typeof raw.confidence !== "number" ||
       !Number.isFinite(raw.confidence) ||
@@ -335,9 +336,9 @@ export function getShow(registry: PodcastShowConfig[], slug: string): PodcastSho
 
 /**
  * Resolve which shows a run targets — the pure core of the ingest CLI:
- *   • `--all`        → every registered show, in registry order;
- *   • `--show <slug>`→ just that show (throws on an unknown slug);
- *   • neither        → the default (pilot) show.
+ *   - `--all`        → every registered show, in registry order;
+ *   - `--show <slug>`→ just that show (throws on an unknown slug);
+ *   - neither        → the default (pilot) show.
  */
 export function selectShows(
   registry: PodcastShowConfig[],
@@ -360,7 +361,7 @@ export function isTitleExcluded(title: string, patterns: readonly string[]): boo
 
 /**
  * Apply a show's `excludeTitlePatterns` to a freshly-acquired episode list —
- * the ingest-side twin filter (Brief 175). This is the exact filter
+ * the ingest-side twin filter. This is the exact filter
  * `acquireFeed` (scripts/ingest-podcast.ts) runs on every RSS acquire, exported
  * so a test can prove a cold re-ingest of e.g. Lorehammer would drop the
  * "(Video)" twins instead of re-introducing them. `dropped` is reported so the

@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * ArtCreditTag — the shared artist-attribution slot (Brief 150). One markup
+ * ArtCreditTag — the shared artist-attribution slot. One markup
  * for every surface that credits background artwork: label, artist name,
  * profile links. The cinematic timeline mounts it inside `.chron` (its CSS
  * positions/animates it there, unchanged); pages with a `<SiteBackground>`

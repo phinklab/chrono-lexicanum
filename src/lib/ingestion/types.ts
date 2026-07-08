@@ -1,5 +1,5 @@
 /**
- * Shared types for the ingestion pipeline (Phase 3a — bulk-backfill skeleton).
+ * Shared types for the bulk-backfill ingestion pipeline.
  *
  * The contract is field-by-field and source-priority-driven:
  *   1. Discovery yields a roster of `WikipediaBookEntry`.
@@ -7,14 +7,9 @@
  *   3. The merge engine combines payloads into a `MergedBook` per
  *      `FIELD_PRIORITY`; conflicts surface in the run's `field_conflicts`.
  *   4. The comparator reads the DB and produces a `DiffFile`.
- *
- * Phase 3a aktive Quellen: `wikipedia` (discovery only) + `lexicanum`.
- * 3b: open_library + hardcover. 3c: llm.
  */
 
-// =============================================================================
 // Sources
-// =============================================================================
 
 export type SourceName =
   | "manual"
@@ -29,11 +24,10 @@ export type SourceName =
  * `undefined` when the source did not provide that field.
  *
  * Junction-shaped fields (`authorNames`, `factionNames`, ...) carry raw
- * names; resolution to FK ids happens at apply time (Phase 3d).
+ * names; resolution to FK ids happens at apply time.
  */
-/** Phase 3b: Format-Klassifikation. Mirror der `bookFormat`-pgEnum.
- *  Brief 057 (2026-05-10) extended the DB enum to 9 values (+ `collection`,
- *  `artbook`, `scriptbook`) to accommodate maintainer Excel SSOT classifications.
+/** Format classification. Mirror of the `bookFormat` pgEnum
+ *  (src/db/schema.ts) — keep the two in sync.
  */
 export type BookFormat =
   | "novel"
@@ -46,7 +40,7 @@ export type BookFormat =
   | "artbook"
   | "scriptbook";
 
-/** Phase 3b: Verfügbarkeits-Klassifikation. Mirror der `bookAvailability`-pgEnum. */
+/** Availability classification. Mirror of the `bookAvailability` pgEnum — keep the two in sync. */
 export type BookAvailability =
   | "in_print"
   | "oop_recent"
@@ -57,7 +51,7 @@ export interface SourcePayloadFields {
   // works.*
   title?: string;
   releaseYear?: number;
-  /** In-universe year, numeric DB form: (M-1)*1000 + year_within_M. */
+  /** In-universe year, numeric DB form: M*1000 + year_within_M. */
   startY?: number;
   endY?: number;
   synopsis?: string;
@@ -67,21 +61,20 @@ export interface SourcePayloadFields {
   seriesId?: string;
   seriesIndex?: number;
   isbn13?: string;
-  // Phase 3b additions:
   isbn10?: string;
   pageCount?: number;
   format?: BookFormat;
   availability?: BookAvailability;
-  // Phase 3c additions (LLM-only): Soft-Facet-Klassifikation + Reader-Rating.
-  // Junction-Insert (work_facets) ist 3d; bis dahin landen die Facet-IDs
-  // ausschließlich im Diff. Rating wird auf 0–5-Skala normalisiert; source ist
-  // ein service-id-string aus der Source-Priority-Liste.
+  // LLM-only: soft-facet classification + reader rating. The facet IDs land
+  // in the diff; the work_facets junction insert happens at apply time.
+  // Rating is normalized to a 0–5 scale; source is a service-id string from
+  // the source-priority list.
   facetIds?: string[];
   rating?: number;
   ratingSource?: string;
   ratingCount?: number;
 
-  // Junctions (raw names; FK resolution is post-3a)
+  // Junctions (raw names; FK resolution happens at apply time)
   authorNames?: string[];
   factionNames?: string[];
   locationNames?: string[];
@@ -98,7 +91,7 @@ export interface SourcePayload {
   fields: SourcePayloadFields;
 }
 
-/** Generic crawler interface. 3b/3c sources implement this same shape. */
+/** Generic crawler interface — every source implements this same shape. */
 export interface SourceCrawler<TPayload extends SourcePayload = SourcePayload> {
   name: SourceName;
   /**
@@ -110,9 +103,7 @@ export interface SourceCrawler<TPayload extends SourcePayload = SourcePayload> {
   crawl(entry: WikipediaBookEntry): Promise<TPayload | null>;
 }
 
-// =============================================================================
 // Discovery + per-source payloads
-// =============================================================================
 
 export interface WikipediaBookEntry {
   /** Title as printed on the Wikipedia list page (italic-stripped, trimmed). */
@@ -140,15 +131,15 @@ export interface OpenLibraryPayload extends SourcePayload {
 }
 
 /**
- * Hardcover liefert primär Audit-Daten (tags, rating). Diese landen im
- * `audit`-Slot, nicht in `fields` — sie sind nicht in FIELD_PRIORITY und
- * werden nicht in DB-Spalten gemappt. Tags-zu-Facets-Mapping ist 3c LLM.
+ * Hardcover primarily supplies audit data (tags, rating). These land in the
+ * `audit` slot, not in `fields` — they are not in FIELD_PRIORITY and are not
+ * mapped to DB columns. Mapping tags to facets is the LLM step's job.
  *
- * Phase 3 047 Hebel E: `contributorNames` carries the full list of
- * Hardcover-side contributors (`hit.contributions[].author.name`). Surfaces
- * in the LLM user-prompt as an explicit "cross-check author_mismatch" hint
- * for anthologies and editor-attributed multi-author releases — Haiku is
- * blind to this without the explicit nudge.
+ * `contributorNames` carries the full list of Hardcover-side contributors
+ * (`hit.contributions[].author.name`). Surfaces in the LLM user-prompt as an
+ * explicit "cross-check author_mismatch" hint for anthologies and
+ * editor-attributed multi-author releases — the model is blind to this
+ * without the explicit nudge.
  */
 export interface HardcoverPayload extends SourcePayload {
   source: "hardcover";
@@ -160,11 +151,11 @@ export interface HardcoverPayload extends SourcePayload {
 }
 
 /**
- * Phase 3c: LLM-Anreicherungs-Flags. Vom LLM-Modul publishierte Audit-Slots
- * für Plausibility-Cross-Check (`year_glitch`, `series_total_mismatch`,
- * `author_mismatch`, `data_conflict`), Vokabular-Compliance
- * (`value_outside_vocabulary`, `proposed_new_facet`), Tool-Use-Trajektorie
- * (`insufficient_web_search`) sowie Coverage-Lücken (`no_storefronts_found`,
+ * LLM enrichment flags. Audit slots published by the LLM module for
+ * plausibility cross-checks (`year_glitch`, `series_total_mismatch`,
+ * `author_mismatch`, `data_conflict`), vocabulary compliance
+ * (`value_outside_vocabulary`, `proposed_new_facet`), tool-use trajectory
+ * (`insufficient_web_search`), and coverage gaps (`no_storefronts_found`,
  * `no_rating_found`).
  */
 export type LLMFlagKind =
@@ -188,10 +179,11 @@ export interface LLMFlag {
 }
 
 /**
- * Storefront-Link-Kandidat. Side-Effect der Availability-Web-Search-Runde im
- * LLM-Step. `serviceHint` sollte einer `services.json`-ID matchen
+ * Storefront link candidate — a side effect of the availability web-search
+ * round in the LLM step. `serviceHint` should match a `services.json` ID
  * (`black_library`, `amazon`, `audible`, `kindle`, `apple_books`,
- * `warhammer_plus`); 3d-Apply resolved daraus den FK gegen `services.id`.
+ * `warhammer_plus`); the apply step resolves it into the FK against
+ * `services.id`.
  */
 export interface DiscoveredLink {
   serviceHint: string;
@@ -200,12 +192,12 @@ export interface DiscoveredLink {
 }
 
 /**
- * Phase 3c: LLM-Anreicherungs-Payload. Der LLM-Job liefert `fields` (synopsis,
- * format, availability, facetIds, rating + ratingSource + ratingCount) plus
- * `audit` (Plausibility-Flags, Storefront-URLs, Token-Usage). Der `audit`-Slot
- * wird in `processOne` gesplittet — `discoveredLinks` + `facetIds` als
- * Per-Buch-Anker auf AddedEntry/UpdatedEntry/SkippedManualEntry, `flags` +
- * `tokenUsage` aggregiert auf Top-Level-DiffFile.
+ * LLM enrichment payload. The LLM job supplies `fields` (synopsis, format,
+ * availability, facetIds, rating + ratingSource + ratingCount) plus `audit`
+ * (plausibility flags, storefront URLs, token usage). The `audit` slot is
+ * split in `processOne` — `discoveredLinks` + `facetIds` become per-book
+ * anchors on AddedEntry/UpdatedEntry/SkippedManualEntry; `flags` +
+ * `tokenUsage` aggregate onto the top-level DiffFile.
  */
 export interface LLMPayload extends SourcePayload {
   source: "llm";
@@ -227,14 +219,12 @@ export interface LLMPayload extends SourcePayload {
   };
 }
 
-// =============================================================================
 // Merge engine output
-// =============================================================================
 
 export interface MergedBook {
   /** Pipeline-canonical slug = slugify(title), no id-suffix. */
   slug: string;
-  /** sourceKind to write at apply time (3d). Picked as the highest-priority
+  /** sourceKind to write at apply time. Picked as the highest-priority
    *  source that supplied the title field — stable, predictable. */
   primarySource: SourceName;
   /** Confidence written to works.confidence at apply time. */
@@ -253,9 +243,7 @@ export interface MergeFieldConflict {
   sources: Array<{ source: SourceName; value: unknown }>;
 }
 
-// =============================================================================
 // Diff file (the JSON written to ingest/.last-run/)
-// =============================================================================
 
 export interface DiffFieldChange {
   old: unknown;
@@ -263,10 +251,10 @@ export interface DiffFieldChange {
 }
 
 /**
- * Phase 3c: per-Buch-Audit-Anker für 3d-FK-Resolution + Junction-Insert. Wird
- * an AddedEntry/UpdatedEntry/SkippedManualEntry gehängt, wenn der LLM-Step
- * `discoveredLinks` und/oder `facetIds` geliefert hat. Auf SkippedManualEntry
- * ist der Slot reine Sichtbarkeit — 3d-Apply ignoriert ihn dort (manual wins).
+ * Per-book audit anchor for apply-time FK resolution + junction inserts.
+ * Attached to AddedEntry/UpdatedEntry/SkippedManualEntry when the LLM step
+ * supplied `discoveredLinks` and/or `facetIds`. On SkippedManualEntry the
+ * slot is pure visibility — the apply ignores it there (manual wins).
  */
 export interface RawLlmPayload {
   /** Model that produced this entry (per-book, may differ from run-level
@@ -281,20 +269,20 @@ export interface AddedEntry {
   slug: string;
   payload: MergedBook;
   /**
-   * Phase 3b audit-only: raw Hardcover-Tags + average rating, falls Hardcover
-   * für dieses Buch einen Treffer geliefert hat. Nicht in FIELD_PRIORITY,
-   * nicht in DB-Spalten — pure Sichtbarkeit für 3c LLM-Mapping auf Facets.
+   * Audit-only: raw Hardcover tags + average rating, when Hardcover returned
+   * a hit for this book. Not in FIELD_PRIORITY, not in DB columns — pure
+   * visibility for the LLM mapping onto facets.
    *
-   * Phase 3 047 Hebel E: `contributorNames` mirrors the same field on
-   * `HardcoverPayload.audit` so the diff captures Hardcover's full
-   * contributor list (used for post-hoc author-mismatch triage).
+   * `contributorNames` mirrors the same field on `HardcoverPayload.audit` so
+   * the diff captures Hardcover's full contributor list (used for post-hoc
+   * author-mismatch triage).
    */
   rawHardcoverPayload?: {
     tags?: string[];
     averageRating?: number;
     contributorNames?: string[];
   };
-  /** Phase 3c: per-Buch-Audit-Anker (FK-Resolution-Input für 3d). */
+  /** Per-book audit anchor (FK-resolution input for the apply step). */
   rawLlmPayload?: RawLlmPayload;
 }
 
@@ -303,7 +291,7 @@ export interface UpdatedEntry {
   /** The actual DB slug (manual books carry an `-<id>` suffix). */
   dbSlug: string;
   diff: Record<string, DiffFieldChange>;
-  /** Phase 3c: per-Buch-Audit-Anker (FK-Resolution-Input für 3d). */
+  /** Per-book audit anchor (FK-resolution input for the apply step). */
   rawLlmPayload?: RawLlmPayload;
 }
 
@@ -315,8 +303,8 @@ export interface SkippedManualEntry {
   /** Field changes that would have been applied if the book were not manual. */
   wouldBeDiff: Record<string, DiffFieldChange>;
   /**
-   * Phase 3c: pure Sichtbarkeit „LLM hätte X discovered, aber manual wins".
-   * 3d-Apply iteriert nicht über skipped_manual.
+   * Pure visibility: "the LLM would have discovered X, but manual wins".
+   * The apply does not iterate over skipped_manual.
    */
   rawLlmPayload?: RawLlmPayload;
 }
@@ -340,11 +328,11 @@ export interface ErrorEntry {
 }
 
 /**
- * Phase 3b: wenn dasselbe Buch in Hauptliste UND Sub-Liste gefunden wird
- * (z.B. „Horus Rising" in `List_of_Warhammer_40,000_novels` UND
- * `Horus_Heresy_(novels)`), wird es per `slugify(title)` dedupliziert —
- * Sub-Liste-Felder gewinnen pro Feld. Dieser Audit-Slot zeigt welche Quellen
- * pro Slug zur Discovery beigetragen haben (kein Fehler, nur Sichtbarkeit).
+ * When the same book is found on the main list AND a sub-list (e.g.
+ * "Horus Rising" in `List_of_Warhammer_40,000_novels` AND
+ * `Horus_Heresy_(novels)`), it is deduplicated via `slugify(title)` —
+ * sub-list fields win per field. This audit slot shows which sources
+ * contributed to discovery per slug (not an error, just visibility).
  */
 export interface DiscoveryDuplicateEntry {
   slug: string;
@@ -352,18 +340,14 @@ export interface DiscoveryDuplicateEntry {
 }
 
 /**
- * Phase 3c: Plausibility-Flag mit Slug-Anker. Top-Level-Audit-Liste in der
- * Diff-JSON, aggregiert aus per-Buch `LLMPayload.audit.flags`.
+ * Plausibility flag with a slug anchor. Top-level audit list in the diff
+ * JSON, aggregated from the per-book `LLMPayload.audit.flags`.
  */
 export interface DiffLLMFlag extends LLMFlag {
   slug: string;
 }
 
-/**
- * Phase 3c: aggregierte Cost-Summary über den ganzen Run. Daten-Grundlage für
- * Philipps Test-Gate-Entscheidung („weiter mit Sonnet+mandatory" oder „Mini-
- * Brief: Web-Search optional + ggf. Haiku-Switch").
- */
+/** Aggregated cost summary over the whole run. */
 export interface LlmCostSummary {
   totalTokensIn: number;
   totalTokensOut: number;
@@ -383,21 +367,19 @@ export interface DiffFile {
   skipped_unchanged: SkippedUnchangedEntry[];
   field_conflicts: FieldConflictEntry[];
   errors: ErrorEntry[];
-  /** Phase 3b: optional Top-Level-Audit. Wird nur ausgegeben wenn nicht-leer. */
+  /** Optional top-level audit; only emitted when non-empty. */
   discoveryDuplicates?: DiscoveryDuplicateEntry[];
-  /** Phase 3c: Modell-String der LLM-Anreicherung (z.B. "claude-sonnet-4-6"). */
+  /** Model string of the LLM enrichment (e.g. "claude-sonnet-4-6"). */
   llmModel?: string;
-  /** Phase 3c: sha256[:12] des Prompt-Strings + Tool-Schema. Cache-Invalidator. */
+  /** sha256[:12] of the prompt string + tool schema. Cache invalidator. */
   llmPromptVersion?: string;
-  /** Phase 3c: aggregierte Plausibility-Flags pro Slug. */
+  /** Aggregated plausibility flags per slug. */
   llm_flags?: DiffLLMFlag[];
-  /** Phase 3c: Cost + Tool-Call-Roll-Up des LLM-Steps. */
+  /** Cost + tool-call roll-up of the LLM step. */
   llmCostSummary?: LlmCostSummary;
 }
 
-// =============================================================================
 // Resumable run state (persisted to ingest/.state/in-progress.json)
-// =============================================================================
 
 export interface RunState {
   runId: string;                          // ISO timestamp at start
@@ -408,10 +390,10 @@ export interface RunState {
   partialDiff: DiffFile;                  // accumulated diff so far
   config: {
     limit?: number;
-    /** Phase 3c: 0-based start index into the discovery roster. Default 0
+    /** 0-based start index into the discovery roster. Default 0
      *  (= start at the first book). Used for sliced re-runs. */
     offset?: number;
     slug?: string;
-    sources: SourceName[];                // 3a: ["lexicanum"]
+    sources: SourceName[];
   };
 }

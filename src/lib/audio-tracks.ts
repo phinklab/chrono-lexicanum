@@ -1,18 +1,18 @@
 /**
- * Audio-Track-Manifest für den sitewide MediaPlayer.
+ * Audio track manifest for the sitewide MediaPlayer.
  *
- * Tracks werden aus Supabase Storage (Bucket `Audio`) ausgeliefert. `src` ist
- * eine absolute URL; der MediaPlayer reicht sie an ein <audio>-Element mit
- * crossOrigin="anonymous" weiter (CORS nötig für die Web-Audio-FFT-Wave —
- * Supabase Storage liefert die CORS-Header). Reihenfolge in TRACKS = Playlist.
+ * Tracks are served from Supabase Storage (bucket `Audio`). `src` is an
+ * absolute URL; the MediaPlayer hands it to an <audio> element with
+ * crossOrigin="anonymous" (CORS is required for the Web-Audio FFT wave —
+ * Supabase Storage serves the CORS headers). Order in TRACKS = playlist order.
  *
- * ⚠ Diese URLs sind SIGNIERT (object/sign/... ?token=). Das Token läuft
- * ~Juni 2027 ab (exp = iat + 1 Jahr); danach liefern die Links 400 und der
- * Player bricht. Dauerhafte Lösung: Bucket `Audio` auf public stellen und die
- * src-Felder auf tokenlose URLs umstellen:
- *   https://ffdrtdrdptgmqjxgmess.supabase.co/storage/v1/object/public/Audio/<datei>.mp3
+ * These URLs are SIGNED (object/sign/... ?token=). The token expires
+ * around June 2027 (exp = iat + 1 year); after that the links return 400 and
+ * the player breaks. Permanent fix: make the `Audio` bucket public and switch
+ * the src fields to tokenless URLs:
+ *   https://ffdrtdrdptgmqjxgmess.supabase.co/storage/v1/object/public/Audio/<file>.mp3
  *
- * Tracks ergänzen: Datei in den Supabase-Bucket legen, URL hier eintragen.
+ * To add tracks: put the file in the Supabase bucket and add its URL here.
  */
 
 export type AudioTrack = {

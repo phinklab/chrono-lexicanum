@@ -17,13 +17,13 @@ import {
 type Option = { value: string; label: string };
 
 /**
- * Public browse controls for `/werke` (Brief 120). Every control writes to the
+ * Public browse controls for `/werke`. Every control writes to the
  * URL (`router.replace`, scroll preserved) so a filtered view is a shareable
  * link and the server re-renders the list. This island only reads/writes
  * params — the server owns the actual filtering (`applyWorksFilters`).
  *
- * The search itself is the shared `<BrowseSearch>` console (design-language
- * §5.2): a grouped typeahead over the server-built `index` of books, podcasts,
+ * The search itself is the shared `<BrowseSearch>` console:
+ * a grouped typeahead over the server-built `index` of books, podcasts,
  * factions, facets, formats and authors. Here it mostly filters IN PLACE —
  * picking a facet/format applies that filter, an author or raw Enter sets `q`, a
  * book opens it; entity and podcast picks navigate to their canonical surfaces.

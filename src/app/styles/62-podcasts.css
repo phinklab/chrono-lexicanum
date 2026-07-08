@@ -1,17 +1,15 @@
 /* 62-podcasts.css
-   Public podcast pillar — index (/podcasts) + per-show detail (/podcasts/[slug]).
-   121-P4 redesign (2026-06-06): brought onto the media-page skeleton already
-   proven on /ask + /werke — fixed cathedral-vox photo, scroll-scrim fade, HUD
-   atmosphere, masthead at clamp(520px,60vh,700px), content band pulled up -80px.
+   Public podcast pillar — index (/podcasts) + per-show detail
+   (/podcasts/[slug]), on the media-page skeleton shared with /ask + /werke
+   (fixed cathedral-vox photo, scroll-scrim fade, HUD atmosphere).
 
-   Gold redesign (2026-06-06, "rogue" session): podcasts join the archive-gold
-   .catalogue domain. The dark-blue glass cards with cyan borders + L-brackets
-   are retired in favour of the /buecher language — frameless, hairline-divided
-   blocks, gold reserved for interaction/live values, structure neutral. The
-   show index is a single column of open show blocks; the per-show archive lists
-   episodes as /buecher-style hairline rows under collapsed-by-default year
-   headings. Restraint laws: no border-radius, glow ≤22% alpha, accent reserved
-   for hover/focus/active/live values (never a resting wall of gold). */
+   Podcasts belong to the archive-gold .catalogue domain, in the /buecher
+   language — frameless, hairline-divided blocks, gold reserved for
+   interaction/live values, structure neutral. The show index is a single
+   column of open show blocks; the per-show archive lists episodes as
+   /buecher-style hairline rows under collapsed-by-default year headings.
+   Restraint laws: no border-radius, glow ≤22% alpha, accent reserved for
+   hover/focus/active/live values (never a resting wall of gold). */
 
 main.podcasts {
   position: relative;
@@ -26,10 +24,9 @@ main.podcasts {
   --pod-wash-on: rgba(164, 140, 82, 0.07);
 }
 
-/* Page-scoped gold focus ring — overrides the global cyan glow (10-base.css),
-   the sibling of main.catalogue's override in 31-catalogue.css. Placed BEFORE
-   this file's .pod-filter__input suppression so that later equal-specificity
-   rule still wins its tie. */
+/* Page-scoped gold focus ring — the sibling of main.catalogue's override in
+   31-catalogue.css. Placed BEFORE this file's .pod-filter__input suppression
+   so that later equal-specificity rule still wins its tie. */
 main.podcasts :focus-visible {
   outline: 1px solid var(--cl-gold);
   box-shadow: none;
@@ -40,13 +37,12 @@ main.podcasts .browse-search__input:focus-visible {
   outline: none;
 }
 
-/* ── Fixed backdrop fade ──────────────────────────────────────────────────── */
-/* Per-show detail page. The show hero is now the same 100dvh one-act shell as
-   /archive + /archive/podcasts (the shared .catalogue-hero classes), so it
+/* Fixed backdrop fade */
+/* Per-show detail page. The show hero is the same 100dvh one-act shell as
+   /archive + /archive/podcasts (the shared .catalogue-hero classes) and
    carries the same backdrop fade as the catalogue--vox index — kept in sync
-   with the values in 31-catalogue.css (maintainer polish 2026-06-20). The
-   scroll-darkening scrim is the shared .catalogue-scrim (<ScrollScrim> default),
-   no longer a bespoke .pod-scrim. */
+   with the values in 31-catalogue.css. The scroll-darkening scrim is the
+   shared .catalogue-scrim (<ScrollScrim> default). */
 body:has(main.podcasts) .site-bg::after {
   content: "";
   position: absolute;
@@ -68,7 +64,7 @@ body:has(main.podcasts) .site-bg::after {
     );
 }
 
-/* ── Masthead ─────────────────────────────────────────────────────────────── */
+/* Masthead */
 /* The show hero reuses the shared .catalogue-hero* classes (31-catalogue.css) so
    it matches the /archive + /archive/podcasts mastheads exactly. The only show-
    specific tweak: a wrap-friendly heading size, since a show title is multi-word
@@ -77,11 +73,11 @@ body:has(main.podcasts) .site-bg::after {
   margin-inline: auto;
   max-width: 20ch;
   font-size: clamp(30px, 4vw, 50px);
-  letter-spacing: 0.14em;
+  letter-spacing: var(--track-14);
   text-transform: uppercase;
 }
 
-/* ── Content band (a full route-body act below the 100dvh hero) ────────────── */
+/* Content band (a full route-body act below the 100dvh hero) */
 .pod-body {
   position: relative;
   z-index: 4;
@@ -90,12 +86,11 @@ body:has(main.podcasts) .site-bg::after {
   padding: calc(var(--top-nav-h, 48px) + 24px) clamp(20px, 3vw, 48px) 80px;
 }
 
-/* ── Unified archive search (books + podcasts) ────────────────────────────── */
+/* Unified archive search (books + podcasts) */
 /* The shared <BrowseSearch> console, gold-skinned to match the .catalogue
  * surface (mirrors `.catalogue--werke .browse-search`): an elegant serif query
  * line under a gold hairline, not a heavy boxed control. Centred mid-axis like
- * the /archive console (Session 142 — the maintainer's centred-search
- * adjustment carries over to the sibling page). */
+ * the /archive console. */
 .pod-search {
   display: flex;
   flex-direction: column;
@@ -107,7 +102,7 @@ body:has(main.podcasts) .site-bg::after {
   text-align: center;
   font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
-  letter-spacing: 0.24em;
+  letter-spacing: var(--track-24);
   text-transform: uppercase;
   color: var(--cl-gold-dim);
 }
@@ -179,8 +174,8 @@ body:has(main.podcasts) .browse-suggest__hit {
   );
 }
 
-/* No drawn line — the Terminus above closes the console zone (Session 142;
-   mirrors the borderless .catalogue-toolbar). */
+/* No drawn line — the Terminus above closes the console zone (mirrors the
+   borderless .catalogue-toolbar). */
 .pod-toolbar {
   display: flex;
   flex-wrap: wrap;
@@ -192,13 +187,13 @@ body:has(main.podcasts) .browse-suggest__hit {
 .pod-toolbar__count {
   font-family: var(--font-mono);
   font-size: var(--fs-label-lg);
-  letter-spacing: 0.14em;
+  letter-spacing: var(--track-14);
   color: var(--cl-gold);
 }
 .pod-toolbar__total {
   font-family: var(--font-mono);
   font-size: var(--fs-label);
-  letter-spacing: 0.08em;
+  letter-spacing: var(--track-08);
   color: var(--cl-dim);
 }
 .pod-toolbar__dot {
@@ -217,11 +212,10 @@ body:has(main.podcasts) .browse-suggest__hit {
   color: var(--cl-dim);
 }
 
-/* ── Index: show blocks (frameless, hairline-divided) ─────────────────────── */
-/* The old boxed doorway card (.c-glass .c-corners) is gone. Shows are now open
- * blocks stacked in one column, separated by a gold hairline and lifted by a
- * gold wash on hover — the /buecher row discipline at show scale. The cathedral
- * photo / void shows straight through. */
+/* Index: show blocks (frameless, hairline-divided) */
+/* Shows are open blocks stacked in one column, separated by a gold hairline
+ * and lifted by a gold wash on hover — the /buecher row discipline at show
+ * scale. The cathedral photo / void shows straight through. */
 .pod-hall {
   display: flex;
   flex-direction: column;
@@ -264,8 +258,8 @@ body:has(main.podcasts) .browse-suggest__hit {
   border: 1px solid var(--cl-faint);
   background: color-mix(in srgb, var(--cl-void) 50%, transparent);
   font-family: var(--font-mono);
-  font-size: 13px;
-  letter-spacing: 0.2em;
+  font-size: var(--fs-label-md);
+  letter-spacing: var(--track-20);
   color: var(--cl-dim);
 }
 .pod-card__body {
@@ -279,16 +273,16 @@ body:has(main.podcasts) .browse-suggest__hit {
 .pod-card__kicker {
   font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
-  letter-spacing: 0.24em;
+  letter-spacing: var(--track-24);
   text-transform: uppercase;
   color: var(--cl-dim);
 }
 .pod-card__title {
   margin: 6px 0 0;
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   font-size: clamp(20px, 2.6vw, 26px);
-  letter-spacing: 0.04em;
+  letter-spacing: var(--track-04);
   color: var(--cl-bone);
 }
 .pod-card__title-link {
@@ -310,7 +304,7 @@ body:has(main.podcasts) .browse-suggest__hit {
   margin: 6px 0 0;
   font-family: var(--font-mono);
   font-size: var(--fs-label);
-  letter-spacing: 0.1em;
+  letter-spacing: var(--track-10);
   color: var(--cl-dim);
 }
 .pod-card__platforms {
@@ -338,7 +332,7 @@ body:has(main.podcasts) .browse-suggest__hit {
   flex: 0 0 auto;
   font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
-  letter-spacing: 0.06em;
+  letter-spacing: var(--track-06);
   color: var(--cl-faint);
   white-space: nowrap;
 }
@@ -360,7 +354,7 @@ body:has(main.podcasts) .browse-suggest__hit {
   padding-top: 14px;
   font-family: var(--font-mono);
   font-size: var(--fs-label);
-  letter-spacing: 0.16em;
+  letter-spacing: var(--track-16);
   text-transform: uppercase;
   color: var(--cl-dim);
   transition: color 160ms;
@@ -369,7 +363,7 @@ body:has(main.podcasts) .browse-suggest__hit {
   color: var(--cl-gold);
 }
 
-/* ── Platform link chip (shared: index block + detail plate) ──────────────── */
+/* Platform link chip (shared: index block + detail plate) */
 /* Rest in the neutral link register (bone + hairline) — a show carries up to
  * five of these, and the house law (31-catalogue.css .catalogue-tag) keeps the
  * accent for interaction, not a resting wall of gold. */
@@ -382,7 +376,7 @@ body:has(main.podcasts) .browse-suggest__hit {
   padding: 6px 12px;
   font-family: var(--font-mono);
   font-size: var(--fs-label);
-  letter-spacing: 0.14em;
+  letter-spacing: var(--track-14);
   text-transform: uppercase;
   text-decoration: none;
   transition: color 180ms, background 180ms, border-color 180ms;
@@ -397,7 +391,7 @@ body:has(main.podcasts) .browse-suggest__hit {
   outline-offset: 2px;
 }
 
-/* ── Detail: show plate (frameless, hairline-footed) ──────────────────────── */
+/* Detail: show plate (frameless, hairline-footed) */
 .pod-plate {
   display: flex;
   gap: 20px;
@@ -424,8 +418,8 @@ body:has(main.podcasts) .browse-suggest__hit {
   border: 1px solid var(--cl-faint);
   background: color-mix(in srgb, var(--cl-void) 50%, transparent);
   font-family: var(--font-mono);
-  font-size: 13px;
-  letter-spacing: 0.2em;
+  font-size: var(--fs-label-md);
+  letter-spacing: var(--track-20);
   color: var(--cl-dim);
 }
 .pod-plate__meta {
@@ -434,23 +428,23 @@ body:has(main.podcasts) .browse-suggest__hit {
 .pod-plate__kicker {
   font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
-  letter-spacing: 0.24em;
+  letter-spacing: var(--track-24);
   text-transform: uppercase;
   color: var(--cl-dim);
 }
 .pod-plate__name {
   margin: 6px 0 0;
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   font-size: clamp(20px, 3vw, 26px);
-  letter-spacing: 0.04em;
+  letter-spacing: var(--track-04);
   color: var(--cl-bone);
 }
 .pod-plate__stats {
   margin: 6px 0 0;
   font-family: var(--font-mono);
   font-size: var(--fs-label);
-  letter-spacing: 0.1em;
+  letter-spacing: var(--track-10);
   color: var(--cl-dim);
 }
 .pod-plate__platforms {
@@ -464,7 +458,7 @@ body:has(main.podcasts) .browse-suggest__hit {
   margin: 16px 0 0;
   font-family: var(--font-mono);
   font-size: var(--fs-label);
-  letter-spacing: 0.16em;
+  letter-spacing: var(--track-16);
   text-transform: uppercase;
   color: var(--cl-gold);
   text-decoration: none;
@@ -478,7 +472,7 @@ body:has(main.podcasts) .browse-suggest__hit {
   outline-offset: 2px;
 }
 
-/* ── Archive: filter bar ──────────────────────────────────────────────────── */
+/* Archive: filter bar */
 .pod-archive {
   margin-top: 4px;
 }
@@ -536,11 +530,12 @@ body:has(main.podcasts) .browse-suggest__hit {
   font-style: italic;
   letter-spacing: 0.01em;
 }
-/* The global :focus-visible (10-base.css) paints a cyan outline + blue glow on
-   any focused control; here the focus cue is the gold underline (the wrapper's
-   :focus-within), so suppress both the outline and the box-shadow on the input.
-   Higher specificity than the bare :focus-visible so it wins regardless of
-   load order (mirrors /werke's .browse-search__input:focus-visible). */
+/* The page-scoped :focus-visible ring above would paint an outline on the
+   focused input; here the focus cue is the gold underline (the wrapper's
+   :focus-within), so suppress both the outline and the box-shadow on the
+   input. Higher specificity than the bare :focus-visible so it wins
+   regardless of load order (mirrors /werke's
+   .browse-search__input:focus-visible). */
 .pod-filter__input:focus,
 .pod-filter__input:focus-visible {
   outline: none;
@@ -559,8 +554,8 @@ body:has(main.podcasts) .browse-suggest__hit {
   background: transparent;
   color: var(--cl-dim);
   cursor: pointer;
-  font-size: 13px;
-  line-height: 1;
+  font-size: var(--fs-label-md);
+  line-height: var(--lh-solid);
   padding: 2px 4px;
   transition: color 160ms;
 }
@@ -583,7 +578,7 @@ body:has(main.podcasts) .browse-suggest__hit {
   margin-left: auto;
   font-family: var(--font-mono);
   font-size: var(--fs-label);
-  letter-spacing: 0.1em;
+  letter-spacing: var(--track-10);
   color: var(--cl-dim);
   white-space: nowrap;
 }
@@ -631,7 +626,7 @@ body:has(main.podcasts) .browse-suggest__hit {
   padding: 3px 9px;
   font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
-  letter-spacing: 0.08em;
+  letter-spacing: var(--track-08);
   cursor: pointer;
   transition: color 160ms, border-color 160ms;
 }
@@ -658,7 +653,7 @@ body:has(main.podcasts) .browse-suggest__hit {
   gap: 14px;
 }
 
-/* ── Year-grouped episode list (collapsed by default) ─────────────────────── */
+/* Year-grouped episode list (collapsed by default) */
 .pod-archive__list {
   margin-top: 4px;
 }
@@ -670,9 +665,10 @@ body:has(main.podcasts) .browse-suggest__hit {
 }
 /* The year heading is a full-width disclosure button. Collapsed, the years
  * stack as a gold-hairline table of contents; the open one's head stays sticky
- * while its rows scroll beneath it. The sticky `top` tracks --top-nav-h, which
- * the TopNav animates 48px↔124px over 360ms — transition `top` with the same
- * curve so the pinned head glides with the nav instead of snapping. */
+ * while its rows scroll beneath it. The sticky `top` tracks the --top-nav-h
+ * clearance token (44-nav-frame.css); `top` transitions with a matching curve
+ * so the pinned head glides rather than snaps if the chrome height ever
+ * animates. */
 .pod-year__head {
   position: sticky;
   top: calc(var(--top-nav-h, 48px) + 2px);
@@ -706,8 +702,8 @@ body:has(main.podcasts) .browse-suggest__hit {
 }
 .pod-year__chevron {
   font-family: var(--font-mono);
-  font-size: 15px;
-  line-height: 1;
+  font-size: var(--fs-label-xl);
+  line-height: var(--lh-solid);
   color: var(--cl-gold-dim);
   transition: transform 200ms, color 200ms;
 }
@@ -718,13 +714,13 @@ body:has(main.podcasts) .browse-suggest__hit {
 .pod-year__year {
   font-family: var(--font-mono);
   font-size: var(--fs-label-lg);
-  letter-spacing: 0.22em;
+  letter-spacing: var(--track-22);
   color: var(--cl-gold);
 }
 .pod-year__count {
   font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
-  letter-spacing: 0.16em;
+  letter-spacing: var(--track-16);
   color: var(--cl-dim);
 }
 
@@ -801,7 +797,7 @@ body:has(main.podcasts) .browse-suggest__hit {
   color: var(--cl-gold);
   cursor: pointer;
   font-size: 17px;
-  line-height: 1;
+  line-height: var(--lh-solid);
   padding: 0;
   transition: color 160ms, transform 120ms;
 }
@@ -826,7 +822,7 @@ body:has(main.podcasts) .browse-suggest__hit {
 .pod-ep__date {
   font-family: var(--font-mono);
   font-size: var(--fs-label);
-  letter-spacing: 0.06em;
+  letter-spacing: var(--track-06);
   color: var(--cl-dim);
   white-space: nowrap;
 }
@@ -838,11 +834,11 @@ body:has(main.podcasts) .browse-suggest__hit {
 }
 /* Cinzel — the /werke row title face. Wraps (not truncated) because the episode
    title is the row's primary content and there's no detail expansion to recover
-   a clipped one. Same 16px / 0.05em / weight-500 spec as .catalogue-row__title. */
+   a clipped one. */
 .pod-ep__title {
   min-width: 0;
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: var(--fw-medium);
   font-size: 16px;
   letter-spacing: 0.05em;
   line-height: 1.4;
@@ -863,7 +859,7 @@ body:has(main.podcasts) .browse-suggest__hit {
   padding: 1px 8px;
   font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
-  letter-spacing: 0.08em;
+  letter-spacing: var(--track-08);
   text-transform: uppercase;
   text-decoration: none;
   transition: color 160ms, border-color 160ms;
@@ -879,7 +875,7 @@ body:has(main.podcasts) .browse-suggest__hit {
 .pod-ep__kind {
   font-family: var(--font-mono);
   font-size: var(--fs-label);
-  letter-spacing: 0.16em;
+  letter-spacing: var(--track-16);
   text-transform: uppercase;
   color: var(--cl-gold);
   border: 1px solid color-mix(in oklch, var(--cl-gold) 30%, transparent);
@@ -889,7 +885,7 @@ body:has(main.podcasts) .browse-suggest__hit {
 .pod-ep__dur {
   font-family: var(--font-mono);
   font-size: var(--fs-label);
-  letter-spacing: 0.08em;
+  letter-spacing: var(--track-08);
   color: var(--cl-faint);
   white-space: nowrap;
 }
@@ -899,7 +895,7 @@ body:has(main.podcasts) .browse-suggest__hit {
 .pod-ep__dl {
   font-family: var(--font-mono);
   font-size: var(--fs-label);
-  letter-spacing: 0.14em;
+  letter-spacing: var(--track-14);
   text-transform: uppercase;
   color: var(--cl-dim);
   text-decoration: none;
@@ -930,10 +926,9 @@ body:has(main.podcasts) .browse-suggest__hit {
   width: 100%;
 }
 
-/* Footer: the shared imprimatur foot (<ArchiveFooter> → .lx-foot) replaced the
-   mono triad with its fake "STAMP M42.347" (Session 142). */
+/* Footer: the shared imprimatur foot (<ArchiveFooter> → .lx-foot). */
 
-/* ── Narrow ───────────────────────────────────────────────────────────────── */
+/* Narrow */
 @media (max-width: 720px) {
   /* Long show titles on a narrow screen — pull the wrap-friendly heading down a
      step from its desktop clamp (the shared .catalogue-hero mobile rules in

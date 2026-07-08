@@ -1,7 +1,7 @@
 /**
- * ZonesLayer — the hand-curated zones on the chart (178b). Renders the
- * PUBLISHED entries of src/lib/map/zones.json; shapes are drawn by Philipp
- * in the zone editor (/map?zones=edit), never derived from images.
+ * ZonesLayer — the hand-curated zones on the chart. Renders the PUBLISHED
+ * entries of src/lib/map/zones.json; shapes are drawn by hand in the zone
+ * editor (/map?zones=edit), never derived from images.
  */
 
 import { memo } from "react";

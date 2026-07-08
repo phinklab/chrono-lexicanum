@@ -1,12 +1,11 @@
 /**
- * Public podcast data layer (Brief 120 → 121-P4 redesign). SERVER-ONLY (imports `@/db`).
+ * Public podcast data layer. SERVER-ONLY (imports `@/db`).
  *
  * Podcasts are the second media pillar next to books. A `kind='podcast'` show
  * work (→ `podcastDetails`) owns many `kind='podcast_episode'` works
  * (→ `podcastEpisodeDetails.podcastWorkId`). There is deliberately no `show`
- * relation on the episode self-link (schema note, Brief 114), so the
- * show→episodes hop runs through an explicit `podcastWorkId` filter, not a
- * relation.
+ * relation on the episode self-link, so the show→episodes hop runs through an
+ * explicit `podcastWorkId` filter, not a relation.
  *
  * Two reader projections:
  *   - `loadPodcastIndex()`   → the /podcasts hall: one row per show + platform
@@ -35,7 +34,7 @@ import { eq, inArray } from "drizzle-orm";
 import { podcastEpisodeDetails } from "@/db/schema";
 import type { Suggestion } from "@/app/archive/filters";
 
-// ── Shared shapes ───────────────────────────────────────────────────────────
+// Shared shapes
 
 /** One "where to listen" link on a show, resolved to a friendly platform label. */
 export interface PlatformLink {
@@ -96,7 +95,7 @@ export interface PodcastShowDetail {
   episodes: PodcastEpisode[];
 }
 
-// ── Platform-link presentation ──────────────────────────────────────────────
+// Platform-link presentation.
 // "Where to listen" ordering for a lore podcast — apps first, then the home
 // page, then the raw feed. serviceId → {label, order}; anything unmapped sorts
 // last (under its service display_order) and shows the service's own name.
@@ -129,7 +128,7 @@ function buildPlatformLinks(links: RawLink[]): PlatformLink[] {
     .map(({ serviceId, url, label }) => ({ serviceId, url, label }));
 }
 
-// ── Faction tags ────────────────────────────────────────────────────────────
+// Faction tags
 interface RawFaction {
   role: string | null;
   faction: { id: string; name: string } | null;
@@ -159,7 +158,7 @@ function topFactions(rows: RawFaction[]): FactionTag[] {
   return out;
 }
 
-// ── Date helpers ────────────────────────────────────────────────────────────
+// Date helpers
 function toMs(d: Date | null | undefined): number | null {
   return d ? d.getTime() : null;
 }
@@ -178,7 +177,7 @@ function byNewest(
   return b.pubDateMs - a.pubDateMs;
 }
 
-// ── loadPodcastIndex ────────────────────────────────────────────────────────
+// loadPodcastIndex
 export async function loadPodcastIndex(): Promise<PodcastIndexShow[]> {
   try {
     const [showRows, episodeRows] = await Promise.all([
@@ -245,7 +244,7 @@ export async function loadPodcastIndex(): Promise<PodcastIndexShow[]> {
   }
 }
 
-// ── loadPodcastShow ─────────────────────────────────────────────────────────
+// loadPodcastShow
 export async function loadPodcastShow(
   slug: string,
 ): Promise<PodcastShowDetail | null> {
@@ -342,7 +341,7 @@ export async function loadPodcastShow(
   }
 }
 
-// ── Unified search index (books + podcasts share one typeahead) ─────────────
+// Unified search index (books + podcasts share one typeahead).
 // The browse search (`werke/filters.ts`) is the archive-wide entry point; the
 // host pages (Home, /werke, /podcasts) merge `buildPodcastSuggestions(...)`
 // into `buildSearchIndex(books)` so podcasts surface in the SAME dropdown,

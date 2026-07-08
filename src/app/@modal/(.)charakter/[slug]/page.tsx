@@ -1,7 +1,7 @@
 /**
  * Intercept: a soft-nav to /charakter/[slug] from anywhere in the app opens the
- * character hub as an overlay panel instead of the full page (Brief 113, Phase
- * B). SERVER COMPONENT — it calls the same `loadEntity` and renders the same
+ * character hub as an overlay panel instead of the full page.
+ * SERVER COMPONENT — it calls the same `loadEntity` and renders the same
  * db-free `<EntityView>` as the canonical page; only the shared `DetailModal`
  * (the overlay shell) is `'use client'`. Zero fork: no second data path, no
  * second view.

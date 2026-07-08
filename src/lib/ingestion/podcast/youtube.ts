@@ -1,5 +1,5 @@
 /**
- * Brief 130 — YouTube-source acquisition adapter.
+ * YouTube-source acquisition adapter.
  *
  * A second source-acquisition path beside the RSS `feed.ts`, for a channel that
  * publishes lore ONLY on YouTube (no RSS feed). It fetches the channel's uploads
@@ -11,21 +11,21 @@
  *
  * Design mirrors `feed.ts`'s network/pure split so the mapping unit-tests
  * against a committed fixture with NO network and NO API key:
- *   • PURE (exported, fixture-tested): `parseIso8601Duration`, `mapChannelItem`,
+ *   - PURE (exported, fixture-tested): `parseIso8601Duration`, `mapChannelItem`,
  *     `mapVideoToEpisode`, `resolveExcludedPlaylistIds`, `selectUploadVideoIds`.
- *   • NETWORK (orchestrator): `fetchYoutubeFeed` wires the Data API GETs onto the
+ *   - NETWORK (orchestrator): `fetchYoutubeFeed` wires the Data API GETs onto the
  *     pure mappers. The API key is passed in explicitly (read from
  *     `process.env.YOUTUBE_API_KEY` by the caller) — this module never touches
  *     `process.env`, so it stays env-free and testable.
  *
- * HARD constraint (Brief 130): metadata only. Pure HTTP GETs against the Data
+ * HARD constraint: metadata only. Pure HTTP GETs against the Data
  * API v3 — never download video or audio, in any path.
  *
  * Acquisition flow (backfill + incremental are identical — idempotent re-run):
  *   1. channels.list (forHandle | id)  → channel id, title, avatar, uploads (UU…)
  *   2. playlistItems.list (uploads)    → every upload's videoId + videoPublishedAt
  *   3. playlists.list + playlistItems  → resolve `excludePlaylists` titles → ids →
- *      collect their member video ids into a denylist (Philipp 2026-06-07)
+ *      collect their member video ids into a denylist
  *   4. select (exclude denylist, newest-first, optional --limit)
  *   5. videos.list (50-batches)        → title, description, publishedAt, duration
  */
@@ -41,7 +41,7 @@ const PAGE_SIZE = 50;
 /** Defensive cap so a misbehaving `nextPageToken` can never loop forever. */
 const MAX_PAGES = 1_000;
 
-// --- value narrowing (Data API returns JSON → unknown) -----------------------
+// Value narrowing (Data API returns JSON → unknown)
 
 function asRecord(v: unknown): Record<string, unknown> | null {
   return v !== null && typeof v === "object" && !Array.isArray(v)
@@ -67,7 +67,7 @@ export function watchUrl(videoId: string): string {
   return `https://www.youtube.com/watch?v=${videoId}`;
 }
 
-// --- pure: ISO-8601 duration → seconds ---------------------------------------
+// Pure: ISO-8601 duration → seconds
 
 const ISO_DURATION_RE = /^P(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?)?$/;
 
@@ -78,7 +78,7 @@ const ISO_DURATION_RE = /^P(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?)?$/;
  *
  * Returns `null` for an absent/empty/malformed value AND for a zero-length
  * duration (`P0D`, `PT0S`, `PT`) — a 0-second duration is not useful metadata,
- * so `null` ("unknown") is the honest value (Brief 130 edge-cases). Handles an
+ * so `null` ("unknown") is the honest value. Handles an
  * optional leading day component (`P#DT…`) for very long live VODs.
  */
 export function parseIso8601Duration(raw: string | null): number | null {
@@ -95,7 +95,7 @@ export function parseIso8601Duration(raw: string | null): number | null {
   return total > 0 ? total : null;
 }
 
-// --- pure: misc field mapping -------------------------------------------------
+// Pure: misc field mapping
 
 /** Collapse whitespace to single spaces (YouTube descriptions are already plain
  *  text; this matches the RSS path's final `htmlToText` whitespace pass so the
@@ -129,7 +129,7 @@ function pickThumbnail(thumbnails: unknown): string | null {
   return null;
 }
 
-// --- pure: channel item → show meta + ids ------------------------------------
+// Pure: channel item → show meta + ids
 
 export interface ChannelResolution {
   channelId: string;
@@ -163,7 +163,7 @@ export function mapChannelItem(item: unknown): ChannelResolution {
   return { channelId, uploadsPlaylistId, show };
 }
 
-// --- pure: video item → episode ----------------------------------------------
+// Pure: video item → episode
 
 /**
  * Map a `videos.list` item (`part=snippet,contentDetails`) to a `PodcastEpisode`
@@ -192,7 +192,7 @@ export function mapVideoToEpisode(item: unknown): PodcastEpisode | null {
   };
 }
 
-// --- pure: exclude-playlist title resolution ---------------------------------
+// Pure: exclude-playlist title resolution
 
 export interface ChannelPlaylist {
   id: string;
@@ -226,13 +226,13 @@ export function resolveExcludedPlaylistIds(
   return [...new Set(matched.map((p) => p.id))];
 }
 
-// --- pure: per-video include override ----------------------------------------
+// Pure: per-video include override
 
 /**
  * Apply the registry's `includeVideoIds` allowlist ON TOP of the playlist
  * denylist: remove each force-included id from `excludedIds` so it survives
- * selection even though a denylisted playlist contains it (Brief 130 curation —
- * rescuing genuine lore videos filed under "Discussion / News / Speculation").
+ * selection even though a denylisted playlist contains it (rescuing genuine
+ * lore videos filed under an otherwise-denylisted playlist).
  * Returns a fresh set plus `reincluded` (how many ids were actually on the
  * denylist — an include id that was not excluded is a harmless no-op, counted
  * separately so the run report can flag a stale/typo'd id). Pure.
@@ -249,7 +249,7 @@ export function applyIncludeOverrides(
   return { excludedIds: out, reincluded };
 }
 
-// --- pure: upload selection ---------------------------------------------------
+// Pure: upload selection
 
 export interface UploadRef {
   videoId: string;
@@ -290,7 +290,7 @@ export function selectUploadVideoIds(
   return limit !== undefined ? ids.slice(0, limit) : ids;
 }
 
-// --- network layer ------------------------------------------------------------
+// Network layer
 
 /** One GET against the Data API v3. Throws on non-2xx (with a body snippet, as
  *  the API returns a JSON error envelope) so the caller surfaces the failure. */
@@ -430,7 +430,7 @@ async function hydrateVideos(videoIds: readonly string[], apiKey: string): Promi
   return items;
 }
 
-// --- orchestrator -------------------------------------------------------------
+// Orchestrator
 
 export interface FetchYoutubeOptions {
   /** Read from `process.env.YOUTUBE_API_KEY` by the caller (never by this lib). */
@@ -477,7 +477,7 @@ export async function fetchYoutubeFeed(
   // 2. Every upload (id + publishedAt) + the total.
   const { uploads, totalResults } = await listAllPlaylistRefs(uploadsPlaylistId, apiKey);
 
-  // 3. Build the exclusion denylist from the named playlists (Philipp 2026-06-07).
+  // 3. Build the exclusion denylist from the named playlists.
   const denylistIds = new Set<string>();
   if (cfg.excludePlaylists.length > 0) {
     const channelPlaylists = await listAllChannelPlaylists(channelId, apiKey);

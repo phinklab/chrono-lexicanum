@@ -1,8 +1,7 @@
 /**
  * Per-author detail. /person/dan-abnett
  *
- * Thin frame over the shared entity-view (Brief 109 seam, widened in Brief 129
- * for the Compendium's Autoren category). The `[slug]` segment IS the person id.
+ * Thin frame over the shared entity-view. The `[slug]` segment IS the person id.
  * The page owns the frame (main + photo backdrop + decor); the db-free
  * <EntityView> renders the body from `loadEntity`. Mirrors /charakter exactly.
  */
@@ -16,7 +15,7 @@ import { listHotEntityIds, loadEntity } from "@/lib/entity/loader";
 
 type Params = { slug: string };
 
-// Build-prerender only the curated hot subset (Brief 161); the long tail — and
+// Build-prerender only the curated hot subset; the long tail — and
 // any id added after a build — renders on demand and self-caches on first visit.
 // `dynamicParams = true` keeps those on-demand pages identical to prerendered
 // ones; never pair with `force-dynamic` — that defeats SSG.

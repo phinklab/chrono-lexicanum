@@ -1,13 +1,14 @@
 /**
- * LumenNihilus — the two chart instruments (Studie I, Runde 5):
+ * LumenNihilus — the two chart instruments:
  * Lumen Astronomican (Terra's light, devoured by the rift — a soft mask
  * cuts the disc at the storm band, beyond lies blackness) and the Imperium
  * Nihilus shade. Shadow edges run as RAYS from Terra through both rift ends
  * and close on a far circle r=2600 — no overlay edge ever pans into view.
  *
- * ⚠ TODO (178b Runde 8): RIFT_D/nihilusPath sind noch die Studien-Kurve —
- * sobald Philipps hand-gezeichnete Rift-Zone in zones.json liegt, die
- * Schattengrenze daraus ableiten (siehe TODO in chart-geometry.ts).
+ * TODO: once the hand-drawn rift/interdiction zone lands in zones.json,
+ * derive the shadow boundary from it (see the TODO in chart-geometry.ts) and
+ * replace the placeholder RIFT_D/nihilusPath curve. Until then the Nihilus
+ * shadow can visibly diverge from the drawn zone.
  *
  * Both groups mount hidden; `svg.lumen` / `svg.nihilus` display them (CSS).
  */

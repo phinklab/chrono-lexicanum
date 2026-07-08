@@ -1,8 +1,8 @@
 /**
- * Root error boundary (Report 144 § R.4, carried over from 141-E.2). Catches
+ * Root error boundary. Catches
  * any uncaught render/data error below the root layout — a DB outage, a flaky
- * loader, a bad row — which previously surfaced as the unstyled Next default
- * error page (immersion break). The layout chrome (menu, fonts, tokens) stays
+ * loader, a bad row — which would otherwise surface as the unstyled Next
+ * default error page (immersion break). The layout chrome (menu, fonts, tokens) stays
  * mounted; only the page content is replaced. Errors thrown by the root layout
  * ITSELF are caught one level up by `global-error.tsx`.
  *

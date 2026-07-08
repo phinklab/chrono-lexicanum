@@ -17,49 +17,40 @@ Differences from neighbouring docs:
 
 ## Open
 
+- **Globaler Focus-Reset frisst alle Focus-Ringe** (2026-07-08, Session 185).
+  `10-base.css` setzt `:focus, :focus-visible { outline: none !important; }` —
+  damit sind sämtliche späteren `:focus-visible`-Overrides ohne `!important`
+  tote Regeln (`main.entity`/`main.podcasts` in 59/62, die Gold-Outlines in
+  56-media-player). Tastatur-Nutzer sehen keinerlei Fokus. Fix braucht eine
+  Design-Entscheidung (Gold-Hairline-Ring sitewide?) und einen Sichtdurchgang,
+  deshalb nicht im 185er-Sweep erledigt.
 - **SiteLegal-Zeile: vorläufiger Platz unter dem MediaPlayer** (2026-07-02,
   Impl 179). Die site-weite `IMPRESSUM · DATENSCHUTZ`-Mono-Zeile (`SiteLegal.tsx`,
   fixed unten links, 9px, faint) ist ein vorläufiger Philipp-Entscheid für die
   footerlosen Desktop-Flächen (Map/Timeline/Entities). Polish-Optionen laut
   Impl-Report: gestalteter Slot im Rail-Fuß oder Entity-Footer. Beim 178er-
   Map-Neubau prüfen, ob sie mit Map-Chrome unten links kollidiert.
-- **MediaPlayer: rAF-Tick läuft auch idle/paused auf jeder Seite** (2026-07-02,
-  Status-quo-Review K23). Der Tick baut pro Frame den 96-Bar-SVG-Pfad neu, auch
-  wenn nichts spielt (der reduced-motion-Guard existiert, greift aber nur für
-  genau dieses Setting). Fix: rAF bei idle/paused/nicht-sichtbar suspendieren
-  (Play-State + `visibilitychange`).
-- **/archive: FilterSelect-Hover ohne Text-Farbantwort auf der Gold-Surface**
-  (2026-06-11, Session 141). `body:has(main.catalogue)` override färbt nur die
-  Border gold (`61-browse.css:529-531`), der Button-Text bleibt bone — `.is-set`
-  (`:538`) zeigt das Soll. Einzeiler: `color: var(--cl-gold);` ergänzen.
-- **/archive: Filter-Controls-Wrapping auf schmalen Phones** (2026-06-11, Session
-  141). `.filter-select { flex: 1 1 auto }` (`61-browse.css:470`) bricht bei vielen
-  Facets in unkontrolliertes Zwei-/Drei-Zeilen-Chaos; `flex: 1 1 48%` oder ein
-  2-spaltiges Grid macht das Wrapping ruhig.
-- **/archive: Empty-State-Copy in Haus-Stimme bringen** (2026-06-11, Session 141).
-  „No books in the database yet" / „The database is empty…" (`archive/page.tsx:174-212`)
-  spricht Tech-Register, während der Footer derselben Seite Latein spricht
-  (`EX TENEBRIS COGNITIO`). Umformulieren ins Archiv-Register, italic Serif statt Box.
-- **/archive/podcasts: Filter-UI bei trivialem Datensatz ausblenden** (2026-06-11,
-  Session 141). Die `.pod-filter`-Section rendert bedingungslos
-  (`PodcastEpisodeArchive.tsx:246`); bei 1 Show / 1 Kind steht ein Suchfeld + leere
-  Pill-Row im Raum. Konditionalisieren (z. B. `episodes.length > 10 || presentKinds > 1`).
-- **/compendium: Eyebrow- vs. Heading-Shadow inkonsistent** (2026-06-11, Session 141).
-  Eyebrow hat nur den schwarzen Drop (`66-compendium.css:127`), das Heading trägt
-  zusätzlich den Cyan-Halo (`:140`) — nach dem Glow-Abbau (Report § A.4) beide auf
-  reinen Black-Drop vereinheitlichen.
-- **Timeline: `#d8d2c2`-Magic-Value für Selected-States tokenisieren** (2026-06-11,
-  Session 141). Der invertierte Parchment-Chip (`67-chronicle-cinematic.css:93`)
-  lebt als Literal; bei der Token-Konsolidierung als `--parchment-invert` o. ä. heben
-  (auch `/lab/design` § Bausteine nutzt den Wert dokumentiert).
 
-- **MediaPlayer auf Mobile wieder einführen** (2026-06-11, Session 140 Follow-up).
-  Der globale MediaPlayer (fixed bottom-left, z 40) ist auf Mobile (`max-width:
-  760px`, `56-media-player.css`) komplett ausgeblendet — Interim-Entscheidung von
-  Philipp, weil der Block mit Mobile-Flächen kollidierte (v. a. das
-  Chronicle-Bottom-Sheet auf `/timeline`). Hier braucht es ein echtes
-  Mobile-Konzept (Mini-Glyph? einklappbar? per-Route ausweichen?) statt des
-  Hides; bis dahin gibt es auf Mobile keinen Audio-Zugang.
+## Shipped in Session 185 (2026-07-08)
+
+- ~~MediaPlayer: rAF-Tick läuft auch idle/paused~~ — rAF nur noch bei Playback
+  + sichtbarem Tab; idle atmet per CSS-Opacity.
+- ~~/archive: FilterSelect-Hover ohne Text-Farbantwort~~ — obsolet: der zitierte
+  `body:has(main.catalogue)`-Override existiert seit dem 184er-Redesign nicht
+  mehr; der Hover antwortet heute mit Bone-Text + Gold-Underline.
+- ~~/archive: Filter-Controls-Wrapping auf schmalen Phones~~ — 2-Spalten-Grid
+  ≤720px, Sort/Chips in voller Breite, 44px-Targets.
+- ~~/archive: Empty-State-Copy in Haus-Stimme~~ — umformuliert (Werke +
+  Podcasts); die Fläche war seit 184 bereits italic Serif ohne Box.
+- ~~/archive/podcasts: Filter-UI bei trivialem Datensatz~~ — rendert nur noch
+  bei `episodes.length > 10 || presentKinds.length > 1`.
+- ~~/compendium: Eyebrow- vs. Heading-Shadow inkonsistent~~ — obsolet: seit dem
+  184er-Redesign tragen Eyebrow, Heading und Edition reine Black-Drops.
+- ~~Timeline: `#d8d2c2`-Magic-Value tokenisieren~~ — als scoped
+  `--parchment-sel`/`--ink-on-sel` im `.chron`-Palettenblock gehoben.
+- ~~MediaPlayer auf Mobile wieder einführen~~ — Vox-Stud-Konzept: 44px-Glyph
+  bottom-right, expandiert zur Glass-Karte; weicht per `body.on-chron` dem
+  Chronicle-Sheet und sitzt auf der Map oben links (`body.cg-on-map`).
 
 > **Obsoleted 2026-05-31 — "Series-label crowding in EraDetail" (spotted 2026-05-02).**
 > The item described the old `EraDetail` track-packing surface and its

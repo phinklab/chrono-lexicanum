@@ -1,8 +1,7 @@
 "use client";
 
 /**
- * Cinematic mode — the prototype's 3D rail + dossier view as a React island
- * (Brief 138). Interaction model ports from chronicle-app.js:
+ * Cinematic mode — the 3D rail + dossier view as a React island.
  *
  *   - a hidden scroll proxy (one snap section per event + terminus +
  *     overshoot) drives a target position `t`; a displayed position `vt`
@@ -14,7 +13,7 @@
  *     horizon while CSS `.wake` draws the chrome
  *
  * The component is REMOUNTED per era (keyed by the stage), so `era`/`N` are
- * mount constants — the prototype's `loadEra` rebuild becomes a React mount.
+ * mount constants.
  */
 import {
   useCallback,
@@ -23,13 +22,14 @@ import {
   useRef,
   useState,
 } from "react";
-import type { ChronicleEraData } from "@/lib/chronicle/loadTimeline";
+import type { ChronicleChip, ChronicleEraData } from "@/lib/chronicle/loadTimeline";
 import { ERA_ART_CREDITS } from "@/lib/chronicle/eraArtCredits";
 import { EVENT_ART } from "@/lib/chronicle/eventArt";
 import type { ArtCredit } from "@/lib/art-credits";
 import ArtCreditTag from "@/components/chrome/ArtCreditTag";
 import EraBand from "./EraBand";
 import MediaRows from "./MediaRows";
+import { isCoarsePointer } from "@/lib/useMediaQuery";
 import {
   clamp,
   DOT_R,
@@ -37,7 +37,6 @@ import {
   siteMenuOpen,
   TIER_MARK,
   TypedParagraph,
-  useMediaQuery,
 } from "./shared";
 
 const SPACING = 140; // px between rail nodes (screen y)
@@ -98,14 +97,11 @@ export default function CinematicView({
   const [wake, setWake] = useState(false);
   const [printNonce, setPrintNonce] = useState(0);
 
-  const mobile = useMediaQuery("(max-width: 760px)");
-
   // prop/state mirrors for stable event handlers
   const entryRef = useRef(entry);
   const introOnRef = useRef(introOn);
   const wipeRef = useRef(wipeActive);
   const reducedRef = useRef(reduced);
-  const mobileRef = useRef(mobile);
   const hintGoneRef = useRef(hintGone);
   useLayoutEffect(() => {
     entryRef.current = entry;
@@ -119,16 +115,27 @@ export default function CinematicView({
   useLayoutEffect(() => {
     reducedRef.current = reduced;
   }, [reduced]);
-  useLayoutEffect(() => {
-    mobileRef.current = mobile;
-  }, [mobile]);
 
-  // ---------- per-frame rendering ----------
+  // Rail geometry lives in CSS (--cine-sp / --cine-dz on .chron, with the
+  // mobile values in the 760px block), read into refs once per mount/resize —
+  // the first client paint has the correct geometry with no hydration flip.
+  const spRef = useRef(SPACING);
+  const dzRef = useRef(DEPTH);
+  const readGeometry = useCallback(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const cs = getComputedStyle(el);
+    spRef.current = parseFloat(cs.getPropertyValue("--cine-sp")) || SPACING;
+    dzRef.current = parseFloat(cs.getPropertyValue("--cine-dz")) || DEPTH;
+  }, []);
+
+  // Per-frame rendering
 
   const renderCine = useCallback(() => {
     const t = tRef.current.vt;
-    const sp = SPACING * (mobileRef.current ? 0.6 : 1);
-    const dz = DEPTH * (mobileRef.current ? 0.66 : 1);
+    const sp = spRef.current;
+    const dz = dzRef.current;
+    const blurOn = !isCoarsePointer();
     for (let i = 0; i < N; i++) {
       const n = nodeRefs.current[i];
       if (!n) continue;
@@ -143,11 +150,13 @@ export default function CinematicView({
       // would flatten preserve-3d and break the connecting segments
       n.style.setProperty("--nop", op.toFixed(3));
       n.style.visibility = op <= 0.01 || z > 540 ? "hidden" : "visible";
-      const blur = d < 0 ? Math.min(-d * 2, 6) : Math.max(0, d - 2) * 0.7;
-      n.style.setProperty(
-        "--nblur",
-        (blur > 0.15 ? blur.toFixed(2) : 0) + "px",
-      );
+      if (blurOn) {
+        const blur = d < 0 ? Math.min(-d * 2, 6) : Math.max(0, d - 2) * 0.7;
+        n.style.setProperty(
+          "--nblur",
+          (blur > 0.15 ? blur.toFixed(2) : 0) + "px",
+        );
+      }
       // connecting segment — true 3D line from this point to the next
       if (i < N - 1) {
         const seg = segRefs.current[i];
@@ -275,7 +284,7 @@ export default function CinematicView({
     [],
   );
 
-  // ---------- navigation ----------
+  // Navigation
 
   const goTo = useCallback((i: number) => {
     const sc = scrollRef.current;
@@ -309,16 +318,18 @@ export default function CinematicView({
   const prevActiveRef = useRef<boolean | null>(null);
   useLayoutEffect(() => {
     if (prevActiveRef.current === null || (active && !prevActiveRef.current)) {
+      readGeometry();
       const sc = scrollRef.current;
       if (sc) sc.scrollTop = entryRef.current * sc.clientHeight;
       jumpCine(entryRef.current);
     }
     prevActiveRef.current = active;
-  }, [active, jumpCine]);
+  }, [active, jumpCine, readGeometry]);
 
   // keep position locked to the active event on resize / breakpoint flips
   useEffect(() => {
     const onResize = () => {
+      readGeometry();
       const sc = scrollRef.current;
       if (!sc) return;
       sc.scrollTop = entryRef.current * sc.clientHeight;
@@ -326,10 +337,7 @@ export default function CinematicView({
     };
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
-  }, [jumpCine]);
-  useEffect(() => {
-    renderCine();
-  }, [mobile, renderCine]);
+  }, [jumpCine, readGeometry]);
 
   // per-event artwork overlay: crossfade the active event's own background
   // (EVENT_ART) in over the era cover, and back out when its slide is left.
@@ -348,7 +356,7 @@ export default function CinematicView({
     }
   }, [entry, era, N]);
 
-  // ---------- era intro ----------
+  // Era intro
 
   const dismissIntro = useCallback(() => {
     if (!introOnRef.current) return;
@@ -364,7 +372,7 @@ export default function CinematicView({
 
   const introTouchY = useRef<number | null>(null);
 
-  // ---------- keyboard ----------
+  // Keyboard
 
   useEffect(() => {
     if (!active) return;
@@ -400,9 +408,9 @@ export default function CinematicView({
     return () => window.removeEventListener("keydown", onKey);
   }, [active, N, eraIdx, eras, nextIdx, dismissIntro, goTo, onGotoEra]);
 
-  // ---------- backscroll into the previous era ----------
-  // pulling up (wheel / touch) at an era's first entry re-enters the previous
-  // era at its final event — the mirror of scrolling past the terminus
+  // Backscroll into the previous era: pulling up (wheel / touch) at an era's
+  // first entry re-enters the previous era at its final event — the mirror of
+  // scrolling past the terminus.
 
   useEffect(() => {
     if (!active || eraIdx === 0) return;
@@ -461,7 +469,7 @@ export default function CinematicView({
     };
   }, [active, eraIdx, eras, onGotoEra]);
 
-  // ---------- render ----------
+  // Render
 
   const eraCredit = ERA_ART_CREDITS[era.id];
 
@@ -584,10 +592,8 @@ export default function CinematicView({
         key={`${entry}:${printNonce}`}
       >
         <aside className="dossier" aria-live="polite">
-          {/* Pretitle trimmed to the tier alone (epoch / major / minor). The
-              ENTRY stamp, the date (which read "… YEARS AGO" on deep-history
-              rows) and the APPROX flag are retired — the date still rides the
-              rail node above (maintainer cleanup 2026-06-19). */}
+          {/* Pretitle is the tier alone (epoch / major / minor); the date
+              rides the rail node above. */}
           <div className="d-kicker">
             <span className="d-tier">
               {TIER_MARK[ev.tier]} {ev.tier.toUpperCase()}
@@ -601,12 +607,7 @@ export default function CinematicView({
             reduced={reduced}
           />
         </aside>
-        <aside className="media-seg">
-          <div className="m-label">LIBRARIVM — BOOKS &amp; PODCASTS</div>
-          <div className="d-media-rows">
-            <MediaRows media={ev.media} />
-          </div>
-        </aside>
+        <MediaSegment media={ev.media} />
       </div>
 
       <div className="terminus" ref={terminusRef}>
@@ -718,5 +719,40 @@ export default function CinematicView({
         <div className="ei-grain" />
       </div>
     </section>
+  );
+}
+
+/**
+ * LIBRARIVM shelf. Desktop renders the label as an inert heading with the
+ * rows always open (CSS forces both); on phones the label becomes a
+ * disclosure that folds the shelf away, reclaiming dossier height. Mounted
+ * inside the keyed `.cine-lower` subtree, so the state resets per entry.
+ */
+function MediaSegment({ media }: { media: ChronicleChip[] }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <aside className={`media-seg${open ? " m-open" : ""}`}>
+      <button
+        type="button"
+        className="m-label m-disclose"
+        aria-expanded={open}
+        onClick={() => {
+          if (window.matchMedia("(max-width: 760px)").matches) {
+            setOpen((o) => !o);
+          }
+        }}
+      >
+        LIBRARIVM — BOOKS &amp; PODCASTS
+        <span className="m-count">· {media.length}</span>
+        <span className="m-car" aria-hidden>
+          ▸
+        </span>
+      </button>
+      <div className="d-media-rows-wrap">
+        <div className="d-media-rows">
+          <MediaRows media={media} />
+        </div>
+      </div>
+    </aside>
   );
 }

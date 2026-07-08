@@ -42,7 +42,7 @@
   animation: detailModalRise 0.3s var(--ease) both;
 }
 
-/* ── Bar (fixed; content scrolls beneath) ─────────────────────────────────── */
+/* Bar (fixed; content scrolls beneath) */
 .detail-modal__bar {
   position: relative;
   flex: 0 0 auto;
@@ -77,7 +77,7 @@
   padding: 6px 2px;
   font-family: var(--font-body);
   font-size: 13px;
-  letter-spacing: 0.26em;
+  letter-spacing: var(--track-26);
   text-transform: uppercase;
   color: var(--cl-dim);
   background: transparent;
@@ -93,7 +93,7 @@
 }
 .detail-modal__back-arrow {
   font-size: 14px;
-  line-height: 1;
+  line-height: var(--lh-solid);
 }
 .detail-modal__bar-end {
   display: flex;
@@ -101,7 +101,7 @@
   gap: 14px;
 }
 
-/* ── Scroll body — hosts <BookDetailView> / <EntityView> ──────────────────── */
+/* Scroll body — hosts <BookDetailView> / <EntityView> */
 .detail-modal__scroll {
   flex: 1 1 auto;
   min-height: 0;
@@ -164,7 +164,7 @@
   }
 }
 
-/* ── Mobile: full-bleed sheet ─────────────────────────────────────────────── */
+/* Mobile: full-bleed sheet */
 @media (max-width: 720px) {
   .detail-modal-root {
     padding: 0;

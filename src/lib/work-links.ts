@@ -1,7 +1,7 @@
 /**
  * Shared work → public-route link helpers. SERVER-ONLY (imports `@/db`).
  *
- * Extracted from `src/lib/entity/loader.ts` (Brief 138) so the Chronicle
+ * Shared so the Chronicle
  * timeline's media chips and the entity panels emit identical deep links —
  * especially the podcast-episode pattern (`/archive/podcasts/<show>#ep-<id>`),
  * which the episode archive island resolves on load (expand + scroll +

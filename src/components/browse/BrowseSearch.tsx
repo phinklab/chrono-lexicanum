@@ -18,8 +18,8 @@ import {
 } from "@/app/archive/filters";
 
 /**
- * BrowseSearch — the canonical "search everything we can filter" combobox
- * (design-language §5.2), extracted from `WerkeFilters` so /werke and Home share
+ * BrowseSearch — the canonical "search everything we can filter" combobox,
+ * shared by /werke and Home as
  * one console rather than two copies. It owns all the combobox MECHANICS — the
  * grouped typeahead, keyboard model (↑/↓/Enter/Esc), active-descendant, the live
  * status region, click-outside and scroll-into-view — and renders the exact

@@ -1,8 +1,8 @@
 /**
- * Selection — the ringwork blooming OUT of the selected pin (BtnFx gesture,
- * Studie G→I): dashed ring + tick ring counter-rotating, one work-dot per
- * record (max 24) around the pin, three survey stars. Mounted keyed by the
- * selected world id so every selection restarts the CSS animations.
+ * Selection — the ringwork blooming OUT of the selected pin: dashed ring +
+ * tick ring counter-rotating, one work-dot per record (max 24) around the
+ * pin, three survey stars. Mounted keyed by the selected world id so every
+ * selection restarts the CSS animations.
  */
 
 import type { CSSProperties } from "react";

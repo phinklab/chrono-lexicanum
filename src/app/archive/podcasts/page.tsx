@@ -9,18 +9,9 @@ import RouteScrollCue from "@/components/chrome/RouteScrollCue";
 import PodcastsSearch from "@/components/podcast/PodcastsSearch";
 import ArchiveModeToggle from "@/components/archive/ArchiveModeToggle";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";
-import { loadBrowseBooks } from "@/app/archive/loader";
-import { buildSearchIndex } from "@/app/archive/filters";
-import {
-  loadCompendiumSearchSuggestions,
-  loadPrimarchSuggestions,
-} from "@/lib/compendium/loader";
-import {
-  loadPodcastIndex,
-  loadPodcastSearchIndex,
-  buildPodcastSuggestions,
-  type PodcastIndexShow,
-} from "./loader";
+import { loadUnifiedSearchIndex } from "@/lib/search-index";
+import { shortDayMonth } from "@/lib/dates";
+import { loadPodcastIndex, type PodcastIndexShow } from "./loader";
 
 export const metadata: Metadata = {
   title: "Podcasts — Chrono Lexicanum",
@@ -32,12 +23,6 @@ export const metadata: Metadata = {
 // surface without a redeploy. No searchParams here, so the page stays static.
 export const revalidate = 3600;
 
-const DAY_MONTH = new Intl.DateTimeFormat("en", { day: "2-digit", month: "short" });
-
-function shortDate(ms: number | null): string {
-  return ms == null ? "—" : DAY_MONTH.format(new Date(ms));
-}
-
 function yearSpan(first: number | null, last: number | null): string | null {
   if (first == null || last == null) return null;
   return first === last ? `${last}` : `${first}–${last}`;
@@ -47,28 +32,13 @@ export default async function PodcastsPage() {
   // The show hall plus the unified search index — books (from /archive) merged
   // with podcasts so this view carries the same archive-wide search Home and
   // the books view do.
-  const [
-    shows,
-    { books },
-    podcastData,
-    compendiumSuggestions,
-    primarchSuggestions,
-  ] = await Promise.all([
+  const [shows, { books, searchIndex }] = await Promise.all([
     loadPodcastIndex(),
-    loadBrowseBooks(),
-    loadPodcastSearchIndex(),
-    loadCompendiumSearchSuggestions(),
-    loadPrimarchSuggestions(),
+    loadUnifiedSearchIndex(),
   ]);
   const totalEpisodes = shows.reduce((n, s) => n + s.episodeCount, 0);
   const showWord =
     shows.length === 1 ? "One show" : `${shows.length} shows`;
-  const searchIndex = [
-    ...buildSearchIndex(books),
-    ...buildPodcastSuggestions(podcastData),
-    ...compendiumSuggestions,
-    ...primarchSuggestions,
-  ];
 
   // Honest vox — real holdings, no pseudo-telemetry.
   const voxLines = [
@@ -78,8 +48,8 @@ export default async function PodcastsPage() {
     "Cognitio link stable",
   ];
 
-  // The podcasts index rides /archive's catalogue shell (Brief-less polish
-  // 2026-06-19): same library backdrop, same 100dvh floated-title hero, same
+  // The podcasts index rides /archive's catalogue shell:
+  // same library backdrop, same 100dvh floated-title hero, same
   // overlay/scrim, same centred search console + register fork — so toggling
   // WORKS↔PODCASTS shifts no element. Only the list below swaps (book rows ↔
   // show cards). The .catalogue--vox modifier shares the --werke styling via
@@ -140,8 +110,7 @@ export default async function PodcastsPage() {
 
         {shows.length === 0 ? (
           <div className="catalogue-empty">
-            The database has no podcast feeds yet. Once a feed is ingested its
-            shows and episodes will appear here.
+            The vox archive is silent — no feeds have reached it yet.
           </div>
         ) : (
           <div className="pod-hall">
@@ -209,7 +178,7 @@ function ShowCard({ show }: { show: PodcastIndexShow }) {
             {show.latest.map((ep) => (
               <li key={ep.id} className="pod-card__latest-row">
                 <span className="pod-card__latest-date">
-                  {shortDate(ep.pubDateMs)}
+                  {shortDayMonth(ep.pubDateMs)}
                 </span>
                 <span className="pod-card__latest-title">{ep.title}</span>
               </li>

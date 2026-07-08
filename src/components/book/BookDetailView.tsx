@@ -3,12 +3,11 @@
  * page and the `@modal/(.)buch` overlay. One server component rendered into
  * both surfaces, so the two can never drift.
  *
- * Brief 184: the record speaks the title-page language on the centre axis —
+ * The record speaks the title-page language on the centre axis —
  * format rubric, the title as the cover, byline with series, era line, then
  * Synopsis → Appendix (dramatis personae / factions / locations with roles) →
- * motifs → Acquire → the quiet provenance link. All information of the old
- * layout is retained; only the cover image is retired (the title is the
- * cover — Brief 184 canon).
+ * motifs → Acquire → the quiet provenance link. No cover image is rendered,
+ * deliberately — the title IS the cover.
  */
 import Link from "next/link";
 import { entityHref } from "@/lib/entity/types";
@@ -31,7 +30,7 @@ const AUDIO_ROLE_ORDER: Record<string, number> = {
 };
 
 /**
- * Brief 105 — collapse the audio-credit rows into a render shape. Cast dramas
+ * Collapse the audio-credit rows into a render shape. Cast dramas
  * (any `full_cast` role) render as an ensemble, never as a lone narrator.
  */
 function buildAudioCredit(

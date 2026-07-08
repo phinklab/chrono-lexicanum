@@ -12,18 +12,10 @@ import CompendiumFocusOpener from "@/components/compendium/CompendiumFocusOpener
 import ArchiveModeToggle from "@/components/archive/ArchiveModeToggle";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";
 import WerkeFilters from "./WerkeFilters";
-import { bookSlugById, loadBrowseBooks, type BrowseBook } from "./loader";
-import {
-  loadPodcastSearchIndex,
-  buildPodcastSuggestions,
-} from "@/app/archive/podcasts/loader";
-import {
-  loadCompendiumSearchSuggestions,
-  loadPrimarchSuggestions,
-} from "@/lib/compendium/loader";
+import { bookSlugById, type BrowseBook } from "./loader";
+import { loadUnifiedSearchIndex } from "@/lib/search-index";
 import {
   applyWorksFilters,
-  buildSearchIndex,
   FORMAT_ORDER,
   isFiltered,
   parseWorksParams,
@@ -54,23 +46,13 @@ function formatLabel(format: string | null): string | null {
 export default async function WerkePage({ searchParams }: WerkePageProps) {
   const sp = await searchParams;
   const params = parseWorksParams(sp);
-  const [
-    { books },
-    podcastData,
-    compendiumSuggestions,
-    primarchSuggestions,
-  ] = await Promise.all([
-    loadBrowseBooks(),
-    loadPodcastSearchIndex(),
-    loadCompendiumSearchSuggestions(),
-    loadPrimarchSuggestions(),
-  ]);
+  const { books, podcastData, searchIndex } = await loadUnifiedSearchIndex();
 
   const filtered = applyWorksFilters(books, params);
   const filtering = isFiltered(params);
 
   // Deep-link: `?focus=<workId>` opens that book's popup over the catalogue
-  // (compendium `?focus=` pattern; Brief 138's timeline chips link here). The
+  // (compendium `?focus=` pattern; the timeline chips link here). The
   // id resolves via its own lookup — NOT via the browse list — so a future
   // filter/limit on the catalogue query can't turn the link into a no-op.
   const focusRaw = sp.focus;
@@ -89,17 +71,6 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
   const formatOptions = FORMAT_ORDER.filter((f) => presentFormats.has(f)).map(
     (f) => ({ value: f, label: FORMAT_LABELS[f] ?? f }),
   );
-
-  // The typeahead index — books (+ authors/factions/facets/formats) merged with
-  // podcasts (episodes + shows), built server-side from the same data the lists
-  // render so it never goes stale. Shared with Home/podcasts; the client console
-  // ranks it per keystroke (rankSuggestions), books first then podcasts.
-  const searchIndex = [
-    ...buildSearchIndex(books),
-    ...buildPodcastSuggestions(podcastData),
-    ...compendiumSuggestions,
-    ...primarchSuggestions,
-  ];
 
   // Resolve the active facet (if any) to a display chip.
   let activeFacet: { id: string; name: string; category: string | null } | null =
@@ -167,12 +138,12 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
 
         {books.length === 0 ? (
           <div className="catalogue-empty">
-            The database is empty. Once books are ingested they will appear here.
+            The stacks stand empty — no records have reached the archive yet.
           </div>
         ) : filtered.length === 0 ? (
           <div className="catalogue-empty">
-            No works match {filtering ? "these filters" : "this view"}. Try widening
-            the search.
+            No records answer {filtering ? "these filters" : "this view"}. Widen
+            the seek, or clear the filters.
           </div>
         ) : (
           <ol className="catalogue-list reveal">

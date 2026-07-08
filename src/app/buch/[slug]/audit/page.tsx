@@ -284,11 +284,10 @@ function EmptyRow({ label }: { label?: string }) {
 }
 
 export default async function BookAuditPage({ params }: { params: Promise<Params> }) {
-  // Admin-only (Report 144 § S.3): provenance internals (source_kind,
-  // confidence, raw names, drift markers). Read-only — the page has no
-  // server action and no write path (§ S.4, verified) — but it is internal
-  // tooling, not public surface. The proxy 401s it in prod; this gate is
-  // the defense-in-depth layer.
+  // Admin-only: provenance internals (source_kind, confidence, raw names,
+  // drift markers). Read-only — the page has no server action and no write
+  // path — but it is internal tooling, not public surface. The proxy 401s it
+  // in prod; this gate is the defense-in-depth layer.
   if (!(await getIsAdmin())) notFound();
 
   const { slug } = await params;

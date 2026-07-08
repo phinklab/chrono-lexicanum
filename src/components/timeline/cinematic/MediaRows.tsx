@@ -5,10 +5,9 @@ import type { ChronicleChip } from "@/lib/chronicle/loadTimeline";
 /**
  * Media chips (books & podcasts) — shared by the cinematic dossier and the
  * index row detail. Chips are REAL anchors with `target="_blank"` so
- * middle-click / Ctrl+click keep working natively (Brief 138's hard
- * requirement — no `window.open` buttons). Browsers will focus the new tab on
- * a plain left click; that is user-agent territory and deliberately not
- * fought here.
+ * middle-click / Ctrl+click keep working natively — never `window.open`
+ * buttons. Browsers will focus the new tab on a plain left click; that is
+ * user-agent territory and deliberately not fought here.
  */
 export default function MediaRows({ media }: { media: ChronicleChip[] }) {
   if (media.length === 0) {

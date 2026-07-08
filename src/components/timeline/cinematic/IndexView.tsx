@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Index mode — the prototype's archive view as a React island (Brief 138):
+ * Index mode — the archive view as a React island:
  * era header + band, the horizontal era map (minimap) docked sticky above the
  * rows, events grouped per the era's view config (century / millennium /
  * flat), expandable rows with media chips, next-era footer.
@@ -25,7 +25,7 @@ interface EvGroup {
   idxs: number[];
 }
 
-/** Prototype `buildGroups`: grouping per era 'century' | 'millennium' | 'flat'. */
+/** Grouping per era: 'century' | 'millennium' | 'flat'. */
 function groupEvents(era: ChronicleEraData): EvGroup[] {
   if (era.grouping === "millennium") {
     // merged eras (e.g. M32–34): y is years since 000.M<baseM>
@@ -121,7 +121,7 @@ export default function IndexView({
   );
 
   // an event's span on the map, in % — used by marks and the view cursor;
-  // offscale rows pin at the axis top (prototype behavior)
+  // offscale rows pin at the axis top
   const mmSpan = useCallback(
     (ev: ChronicleEvent): [number, number] => {
       if (ev.offscale) return [0.5, 2];

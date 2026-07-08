@@ -1,26 +1,23 @@
 /**
  * Hardcover.app GraphQL HTTP transport.
  *
- * Hardcover liefert User-Tags + Average-Rating für Bücher — Soft-Facts die
- * in 3c LLM auf unsere `tone`/`theme`-Facets abgebildet werden. In 3b
- * landen Tags + Rating als Audit-Slot in der Diff-JSON, NICHT in
- * FIELD_PRIORITY und NICHT in DB-Spalten.
+ * Hardcover supplies user tags + average rating for books — soft facts that
+ * the LLM step maps onto our `tone`/`theme` facets. Tags + rating land as an
+ * audit slot in the diff JSON, NOT in FIELD_PRIORITY and NOT in DB columns.
  *
- * Auth: Bearer-Token via `Authorization`-Header. Token kommt aus
- * `process.env.HARDCOVER_API_TOKEN` und ist optional — wenn nicht gesetzt,
- * deaktiviert sich der Crawler still (`isHardcoverEnabled()` returnt false).
+ * Auth: Bearer token via the `Authorization` header. The token comes from
+ * `process.env.HARDCOVER_API_TOKEN` and is optional — when unset, the
+ * crawler silently disables itself (`isHardcoverEnabled()` returns false).
  *
- * **Schema-Hinweis (CC, 2026-05-03):** Die Schema-Form konnte ohne Token
- * nicht via Introspection verifiziert werden (api.hardcover.app gibt
- * "Unable to verify token" auf POST ohne Auth zurück, docs.hardcover.app
- * ist Cloudflare-blockiert für unauthenticated curl). Die unten gebaute
- * Query ist eine **Best-Guess Hasura-style Query** auf Basis des
- * `/v1/graphql`-Endpoints — typisches Hasura-Schema-Muster. Wenn sich beim
- * ersten Lauf mit echtem Token herausstellt dass Field-Names abweichen,
- * korrigiert sich die Query in `parse.ts` lokal — der Fetch-Pfad bleibt
- * unverändert. Siehe Report 037 § "For next session".
+ * Schema note: the schema shape could not be verified via introspection
+ * without a token (api.hardcover.app returns "Unable to verify token" on
+ * unauthenticated POST; docs.hardcover.app is Cloudflare-blocked for
+ * unauthenticated curl). The query built below is a best-guess Hasura-style
+ * query against the `/v1/graphql` endpoint. Should field names turn out to
+ * differ, the query is corrected locally in `parse.ts` — the fetch path
+ * stays unchanged.
  *
- * Retries + Timeout-Strategie wie Open Library (3× Backoff, 30s Timeout).
+ * Retries + timeout strategy match Open Library (3x backoff, 30s timeout).
  */
 
 const ENDPOINT = "https://api.hardcover.app/v1/graphql";
@@ -43,14 +40,14 @@ function getToken(): string | undefined {
 }
 
 /**
- * `true` wenn `HARDCOVER_API_TOKEN` im env gesetzt ist (non-empty) UND der
- * Circuit-Breaker noch nicht ausgelöst hat. Wird einmal beim ersten Aufruf
- * einen WARN-Log emittieren wenn der Token fehlt.
+ * `true` when `HARDCOVER_API_TOKEN` is set in the env (non-empty) AND the
+ * circuit breaker has not tripped. Emits a WARN log once, on the first call,
+ * when the token is missing.
  *
- * Phase 3b: Circuit-Breaker schützt vor floodierten 401/403-Errors. Wenn der
- * erste Hardcover-Call die Auth ablehnt, schlägt der Breaker zu und alle
- * folgenden Aufrufe in diesem Prozess returnen sofort `false` — verhindert
- * 800 identische Token-Rejection-Errors im Diff.
+ * The circuit breaker guards against flooded 401/403 errors: if the first
+ * Hardcover call rejects the auth, the breaker trips and all subsequent
+ * calls in this process immediately return `false` — prevents hundreds of
+ * identical token-rejection errors in the diff.
  */
 export function isHardcoverEnabled(): boolean {
   if (circuitBreakerTripped) return false;

@@ -7,12 +7,12 @@ type ProcessingPanelProps = {
   detail: string;
 };
 
-/* Cogitator interstitial — the loading anatomy Philipp named as the house
-   positive reference (65-loading.css), framed by two Terminus lines. */
+/* Cogitator interstitial — the house loading anatomy (65-loading.css),
+   framed by two Terminus lines. */
 export default function ProcessingPanel({ title, detail }: ProcessingPanelProps) {
   return (
-    // aria-busy tells AT the region's content is still settling (Report 141
-    // § B5); role="status" alone only announces, it doesn't flag in-progress.
+    // aria-busy tells AT the region's content is still settling;
+    // role="status" alone only announces, it doesn't flag in-progress.
     <section className="ask-processing c-fade-in" role="status" aria-busy="true">
       <div className="lx-rule" aria-hidden />
       <div className="lx-cog">

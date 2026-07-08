@@ -1,10 +1,10 @@
 /**
- * Chronicle timeline — per-era VIEW config (Brief 138).
+ * Chronicle timeline — per-era VIEW config.
  *
  * Render tuning only: index-view grouping mode, minimap axis domain + ticks,
- * millennium-group labelling. Deliberately code-side, not DB (Brief 137 kept
- * `eras` columns to editorial copy; how an era is *charted* is a frontend
- * decision). Values originate from the design prototype's
+ * millennium-group labelling. Deliberately code-side, not DB (the
+ * `eras` columns are kept to editorial copy; how an era is *charted* is a
+ * frontend decision). Values originate from the design prototype's
  * `chronicle-data*.js` era headers, remapped onto the DB era ids.
  *
  * Era-local minimap coordinates derive from the stored scaleY

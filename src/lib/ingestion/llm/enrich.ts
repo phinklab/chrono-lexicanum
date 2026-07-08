@@ -1,22 +1,19 @@
 /**
- * LLM-Utility-Rest der Phase-3c-Anreicherung (Brief 177 Dead-Code-Sweep).
+ * Shared LLM utilities for the ingestion paths.
  *
- * Der V1-Anreicherungs-Entry (`enrichBookWithLLM` + Anthropic-Client +
- * Circuit-Breaker + Cache/Context/Prompt/Parse-Module) ist entfernt — die
- * Buch-Anreicherung läuft seit der Per-Buch-SSOT-Migration (Brief 170/171)
- * nicht mehr über diesen Pfad. Übrig bleiben die drei Utilities, die der
- * lebende Podcast-Ingest-Pfad konsumiert (`podcast/extract.ts`,
- * `scripts/ingest-podcast.ts`): Modell-Wahl, Key-Gate, Cost-Estimate.
+ * Three utilities consumed by the live podcast-ingest path
+ * (`podcast/extract.ts`, `scripts/ingest-podcast.ts`): model choice, key
+ * gate, cost estimate.
  *
- * Cost-Estimate basiert auf List-Pricing (Stand 2026-05) — wenn Anthropic
- * die Preise ändert, ist das ein Mini-Brief, kein Code-Refactor.
+ * The cost estimate is based on list pricing (as of 2026-05) — if Anthropic
+ * changes prices, update the table here.
  */
 
 const DEFAULT_MODEL = "claude-haiku-4-5";
 
-// Anthropic Pricing (Stand 2026-05; Mini-Brief wenn das wechselt). Lookup pro
-// Modell — der `llmCostSummary`-Top-Level-Slot summiert pro Run, also gilt
-// die single-model-assumption (gemischte Mode würde extra Logik brauchen).
+// Anthropic list pricing (as of 2026-05). Lookup per model — the
+// `llmCostSummary` top-level slot sums per run, so the single-model
+// assumption holds (mixed-model runs would need extra logic).
 const PRICING: Record<
   string,
   { in: number; out: number; search: number }
@@ -41,8 +38,8 @@ export function getLlmModel(): string {
 }
 
 /**
- * `true` wenn `ANTHROPIC_API_KEY` gesetzt ist (non-empty). Wird einmal beim
- * ersten Aufruf einen WARN-Log emittieren wenn der Key fehlt.
+ * `true` when `ANTHROPIC_API_KEY` is set (non-empty). Emits a WARN log once,
+ * on the first call, when the key is missing.
  */
 export function isLlmEnabled(): boolean {
   const k = getApiKey();

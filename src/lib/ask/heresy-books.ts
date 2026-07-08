@@ -1,5 +1,5 @@
 /**
- * Horus-Heresy book supplement for the Ask HH hard gate (Brief 164).
+ * Horus-Heresy book supplement for the Ask HH hard gate.
  *
  * The catalogue cannot date most books: `primaryEraId` is uniformly
  * `"time_ending"` (every one of the ~889 books) and `startY` is null for ~792

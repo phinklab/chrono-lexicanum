@@ -12,7 +12,7 @@ import {
 } from "@/app/archive/filters";
 
 /**
- * Podcast-page search (Brief 132) — the same archive-wide console Home and
+ * Podcast-page search — the same archive-wide console Home and
  * /werke mount, here on /podcasts in its gold skin and wired in NAVIGATE mode.
  * The index is the unified book + podcast set, so a query surfaces books first,
  * then a "Podcasts" group (episodes + shows). Routing:
@@ -30,8 +30,8 @@ import {
  * The combobox mechanics live in the shared `<BrowseSearch>`; this wrapper only
  * supplies the routing. It renders the bare `<BrowseSearch>` so it drops into the
  * archive's `.browse-filters` console and inherits the exact `.catalogue--vox`
- * skin the books view uses — the podcasts index now shares /archive's shell so
- * toggling WORKS↔PODCASTS shifts nothing (maintainer polish 2026-06-19).
+ * skin the books view uses — the podcasts index shares /archive's shell so
+ * toggling WORKS↔PODCASTS shifts nothing.
  */
 export default function PodcastsSearch({ index }: { index: Suggestion[] }) {
   // Shared nav transition (see HomeSearch) so a pick lights the global beam +

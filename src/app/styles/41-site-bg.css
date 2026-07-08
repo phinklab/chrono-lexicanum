@@ -112,7 +112,7 @@ body:has(main.route-snap) {
   pointer-events: auto;
   font-family: var(--font-body);
   font-size: var(--fs-label-lg);
-  letter-spacing: 0.34em;
+  letter-spacing: var(--track-34);
   text-transform: uppercase;
   color: var(--cl-dim);
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
@@ -154,10 +154,10 @@ body:has(main.route-snap) {
   }
 }
 
-/* Artist credit for the background artwork (Brief 150) — the shared
- * <ArtCreditTag> with the `--site` modifier: fixed bottom-right, the same
- * label/name/links grammar as the cinematic timeline's slot, in site tokens.
- * Sits above the page flow (the bg itself is z -1) but under overlays. */
+/* Artist credit for the background artwork — the shared <ArtCreditTag> with
+ * the `--site` modifier: fixed bottom-right, the same label/name/links
+ * grammar as the cinematic timeline's slot, in site tokens. Sits above the
+ * page flow (the bg itself is z -1) but under overlays. */
 .art-credit--site {
   position: fixed;
   right: 22px;
@@ -168,24 +168,24 @@ body:has(main.route-snap) {
   align-items: flex-end;
   gap: 4px;
   font-family: var(--font-mono);
-  letter-spacing: 0.22em;
+  letter-spacing: var(--track-22);
   text-align: right;
 }
 .art-credit--site .ac-lab {
-  font-size: 10px;
+  font-size: var(--fs-label-3xs);
   color: var(--cl-faint);
 }
 .art-credit--site .ac-name {
-  font-size: 13px;
-  letter-spacing: 0.18em;
+  font-size: var(--fs-label-md);
+  letter-spacing: var(--track-18);
   color: var(--cl-dim);
 }
 .art-credit--site .ac-links {
   display: flex;
   gap: 14px;
   margin-top: 2px;
-  font-size: 10px;
-  letter-spacing: 0.2em;
+  font-size: var(--fs-label-3xs);
+  letter-spacing: var(--track-20);
 }
 .art-credit--site .ac-links a {
   color: var(--cl-dim);

@@ -1,16 +1,15 @@
 "use client";
 
 /**
- * Chronicle stage — root client island of the new /timeline (Brief 138).
- * Owns the discrete state the prototype kept in its module scope: view mode
- * (cinematic / index), active era, active entry, and the era-wipe transition.
- * Both views stay mounted (CSS crossfade via `data-mode`, prototype parity)
- * and are remounted per era via keys — the prototype's `loadEra` rebuild.
+ * Chronicle stage — root client island of /timeline.
+ * Owns the discrete state: view mode (cinematic / index), active era, active
+ * entry, and the era-wipe transition. Both views stay mounted (CSS crossfade
+ * via `data-mode`) and are remounted per era via keys.
  *
- * URL state replaces the prototype's localStorage: `?era=<id>` (+
- * `?view=index`) is mirrored via history.replaceState, so the current chapter
- * is shareable and survives a reload. The entry within an era is deliberately
- * not in the URL — a shared link opens the chapter at its era intro.
+ * URL state: `?era=<id>` (+ `?view=index`) is mirrored via
+ * history.replaceState, so the current chapter is shareable and survives a
+ * reload. The entry within an era is deliberately not in the URL — a shared
+ * link opens the chapter at its era intro.
  */
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { ChronicleEraData } from "@/lib/chronicle/loadTimeline";
@@ -55,10 +54,17 @@ export default function ChronicleStage({
     [],
   );
 
+  // Route-scoped body class — fixed chrome (media-player stud) dodges the
+  // Chronicle's bottom sheet via `body.on-chron` rules.
+  useEffect(() => {
+    document.body.classList.add("on-chron");
+    return () => document.body.classList.remove("on-chron");
+  }, []);
+
   const era = eras[eraIdx];
 
-  // era switch behind the wipe (prototype `gotoEra`); entering at the first
-  // entry → the era intro provides the title reveal, so the wipe stays blank
+  // era switch behind the wipe; when entering at the first entry the era
+  // intro provides the title reveal, so the wipe stays blank
   const gotoEra = useCallback(
     (e: number, idx: number) => {
       if (wipingRef.current) return;

@@ -1,18 +1,18 @@
 /**
- * Brief 110 Step 1 — Podcast pilot ingest types.
+ * Podcast ingest types.
  *
- * Step 1 is a read-only proof: fetch one show's RSS feed, tag each episode's
- * subject entities against the EXISTING canonical reference set, and emit a
- * committed artifact + quality report. No schema, no DB writes. These types
- * describe the pipeline's internal shapes (`PodcastEpisode`, `EpisodeExtraction`)
- * and the committed artifact (`ShowArtifact` / `EpisodeArtifact`).
+ * The ingest fetches a show's RSS feed, tags each episode's subject entities
+ * against the EXISTING canonical reference set, and emits a committed
+ * artifact + quality report. These types describe the pipeline's internal
+ * shapes (`PodcastEpisode`, `EpisodeExtraction`) and the committed artifact
+ * (`ShowArtifact` / `EpisodeArtifact`).
  *
  * The entity axes mirror `src/lib/aliases` (`AliasAxis`); resolution reuses that
  * module rather than forking any alias logic.
  */
 import type { AliasAxis } from "@/lib/aliases";
 
-/** How an entity relates to an episode. "Is about" → `subject` (Brief 109 §7). */
+/** How an entity relates to an episode. "Is about" → `subject`. */
 export type EpisodeRole = "subject" | "mentioned";
 
 /** Coarse episode classification — lets a later UI hide news/recap episodes. */
@@ -49,14 +49,13 @@ export const EXTERNAL_LINK_KINDS: readonly ExternalLinkKind[] = [
 ];
 
 /**
- * The `source_kind` provenance values B1 emits for podcast links — a subset of
+ * The `source_kind` provenance values emitted for podcast links — a subset of
  * the DB `source_kind` enum: `podcast_rss` for RSS-feed-intrinsic links (the RSS
  * feed, the episode audio enclosure), `manual` for registry-curated links
  * (official site, Apple, Spotify, YouTube channel), and `youtube` for a
  * YouTube-source episode's `watch` link (the per-episode analogue of the RSS
- * audio enclosure, Brief 130). Brief 128 link matrix, extended by Brief 130.
- * All three are members of the DB `source_kind` pgEnum (`youtube` was
- * pre-provisioned in schema stage 2a), so no migration is needed to write them.
+ * audio enclosure). All three are members of the DB `source_kind` pgEnum, so
+ * no migration is needed to write them.
  */
 export type PodcastLinkSourceKind = "podcast_rss" | "manual" | "youtube";
 
@@ -68,10 +67,10 @@ export const PODCAST_LINK_SOURCE_KINDS: readonly PodcastLinkSourceKind[] = [
 
 /**
  * One cross-media link on a show or episode. This is the AUTHORITATIVE input
- * S3's apply projects 1:1 into `external_links` (Brief 128 link matrix): it
- * carries full provenance (`sourceKind` + `confidence`) so the apply is a pure
- * projection, never a matrix re-derivation. `serviceId` is an FK into
- * `services`; `kind` is the `external_link_kind`.
+ * the apply projects 1:1 into `external_links`: it carries full provenance
+ * (`sourceKind` + `confidence`) so the apply is a pure projection, never a
+ * matrix re-derivation. `serviceId` is an FK into `services`; `kind` is the
+ * `external_link_kind`.
  */
 export interface PodcastLink {
   serviceId: string;
@@ -89,7 +88,7 @@ export interface ParsedShowMeta {
   imageUrl: string | null;
 }
 
-/** One parsed feed item, reduced to the fields Step 1 needs. */
+/** One parsed feed item, reduced to the fields the ingest needs. */
 export interface PodcastEpisode {
   /** Stable feed `<guid>` (falls back to link/audio/title if a feed omits it). */
   guid: string;
@@ -155,8 +154,8 @@ export interface EpisodeArtifact {
   unresolved: UnresolvedForm[];
   /** Cross-media links for this episode — the RSS audio enclosure
    *  (`listen`/`rss`/`podcast_rss`) for an RSS show, or the YouTube `watch` link
-   *  (`watch`/`youtube`/`youtube`) for a YouTube-source show (Brief 130). The
-   *  authoritative input for S3's apply. */
+   *  (`watch`/`youtube`/`youtube`) for a YouTube-source show. The
+   *  authoritative input for the apply. */
   links: PodcastLink[];
 }
 

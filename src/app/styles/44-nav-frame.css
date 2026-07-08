@@ -1,11 +1,11 @@
 /* 44-nav-frame.css
-   Extracted verbatim from globals.css (CSS-consolidation pass 1). */
+   Global top-chrome clearance token. */
 
-/* TopNav wurde entfernt (Session 140 Follow-up) — der Burger + SiteMenu
-   (43-site-menu.css) ist die einzige globale Navigation. `--top-nav-h` bleibt
-   als "global top chrome clearance"-Token bestehen, weil viele Partials es als
-   var(--top-nav-h, 48px) konsumieren: ohne diese body-Definition würde der
-   48px-Fallback den alten Offset überall wiederbeleben. Pin auf 0px. */
+/* There is no top nav bar — the burger + SiteMenu (43-site-menu.css) is the
+   only global navigation. `--top-nav-h` survives as the "global top chrome
+   clearance" token because many partials consume it as var(--top-nav-h, 48px):
+   without this body-level definition the 48px fallback would revive a stale
+   offset everywhere. Pinned to 0px. */
 body {
   --top-nav-h: 0px;
 }

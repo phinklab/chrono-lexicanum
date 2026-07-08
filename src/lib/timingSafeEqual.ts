@@ -2,8 +2,7 @@
  * Constant-time string comparison for low-volume secret checks — the
  * Basic-Auth credentials in `src/proxy.ts` and the `/api/revalidate` bearer
  * token. A plain `===` short-circuits on the first differing character, which
- * is a (theoretical, HTTPS-jittered) timing oracle toward the secret
- * (Report 144 § S.1a).
+ * is a (theoretical, HTTPS-jittered) timing oracle toward the secret.
  *
  * Strategy: SHA-256 both inputs first — the fixed 32-byte digests sidestep
  * the equal-length requirement of classic `timingSafeEqual` AND hide the

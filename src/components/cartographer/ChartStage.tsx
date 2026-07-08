@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * ChartStage — the <svg> chart with the imperative camera (Brief 178).
+ * ChartStage — the <svg> chart with the imperative camera.
  *
  * Camera = {tx, ty, k} in refs; every gesture writes the world-<g> transform
  * and the `--cg-ik` counter-scale var directly in the same frame — 1054 pins
@@ -51,9 +51,9 @@ interface ChartStageProps {
   bus: ChartBus;
   lumen: boolean;
   nihilus: boolean;
-  /** Namens-Zwang: hebt die Band-Gates der Labels auf (CSS `svg.names`). */
+  /** Force names: lifts the labels' band gates (CSS `svg.names`). */
   names: boolean;
-  /** Zonen-Toggle: fadet #cg-fields aus (CSS `svg.nozones`). */
+  /** Zones off: fades out #cg-fields (CSS `svg.nozones`). */
   zonesOff: boolean;
   courseId: string | null;
   reduce: boolean;
@@ -126,8 +126,8 @@ export default function ChartStage({
       if (!svg.classList.contains("moving")) svg.classList.add("moving");
       if (moveTimer.current) clearTimeout(moveTimer.current);
       moveTimer.current = setTimeout(() => svg.classList.remove("moving"), 160);
-      // Vier Bänder (178b Runde 7): 0 Übersicht · 1 t1-Namen · 2 t2-Namen ·
-      // 3 Dust-Namen + volle Dust-Deckkraft. Schwellen ~geometrisch (×1.8).
+      // Four bands: 0 overview, 1 tier-1 names, 2 tier-2 names, 3 dust names
+      // + full dust opacity. Thresholds roughly geometric (×1.8).
       const band =
         c.k < c.k0 * 1.7 ? "0" : c.k < c.k0 * 3.1 ? "1" : c.k < c.k0 * 5.6 ? "2" : "3";
       if (band !== c.band) {
@@ -265,7 +265,7 @@ export default function ChartStage({
     };
   }, [bus, magRef]);
 
-  /* ── Pointer gestures: pan, tap-pick, two-finger pinch ────────────────── */
+  /* Pointer gestures: pan, tap-pick, two-finger pinch */
 
   const handlePointerDown = (e: ReactPointerEvent<SVGSVGElement>) => {
     const svg = svgRef.current;
@@ -288,7 +288,7 @@ export default function ChartStage({
     pointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
     if (pointers.current.size === 1) {
       // Remember the hit NOW: with pointer capture, pointerup retargets to
-      // the svg and never reports the pin (the study's round-2 tooltip bug).
+      // the svg and never reports the pin.
       const target = e.target as Element;
       const hit = typeof target.closest === "function" ? target.closest("[data-pin]") : null;
       drag.current = {

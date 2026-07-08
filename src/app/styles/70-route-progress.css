@@ -89,7 +89,7 @@
   border: 0;
 }
 
-/* ── Inline affordance on the universal search console ──────────────────────
+/* Inline affordance on the universal search console.
    While a pick is navigating, the seek line's gold underline (the same ::after
    that answers focus, 61-browse.css) stays filled — the line the user is
    looking at acknowledges the click, in concert with the top beam. The form
@@ -98,7 +98,7 @@
   transform: scaleX(1);
 }
 
-/* ── Modal-slot skeleton ────────────────────────────────────────────────────
+/* Modal-slot skeleton.
    The @modal loading fallback, pared to the loader itself: the compact
    cogitator centred over the shared backdrop with a quiet "Back" cue beneath —
    NO card panel, NO top bar / Terminus divider. Only the `.detail-modal-backdrop`
@@ -127,7 +127,7 @@
   gap: 8px;
   font-family: var(--font-mono);
   font-size: var(--fs-label);
-  letter-spacing: 0.18em;
+  letter-spacing: var(--track-18);
   text-transform: uppercase;
   color: var(--cl-dim);
 }

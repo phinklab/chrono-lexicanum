@@ -59,15 +59,15 @@
   flex: none;
   text-align: right;
   font-family: var(--font-mono);
-  font-size: 13px;
-  letter-spacing: 0.1em;
+  font-size: var(--fs-label-md);
+  letter-spacing: var(--track-10);
   color: var(--cl-faint);
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
   transition: color 0.3s;
 }
 .site-nav__title {
   font-size: var(--fs-label-lg);
-  letter-spacing: 0.24em;
+  letter-spacing: var(--track-24);
   text-transform: uppercase;
   color: var(--cl-dim);
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
@@ -83,10 +83,10 @@
 }
 .site-nav__link.is-current .site-nav__title {
   color: var(--cl-gold);
-  letter-spacing: 0.3em;
+  letter-spacing: var(--track-30);
 }
 
-/* ── Wordmark, top-left (SiteBrand.tsx) ─────────────────────────────────── */
+/* Wordmark, top-left (SiteBrand.tsx) */
 .site-brand {
   position: fixed;
   top: 26px;
@@ -95,7 +95,7 @@
   font-family: var(--font-display);
   font-weight: var(--font-display-wght);
   font-size: 14px;
-  letter-spacing: 0.3em;
+  letter-spacing: var(--track-30);
   text-transform: uppercase;
   color: var(--cl-bone);
   text-decoration: none;
@@ -108,13 +108,13 @@
 }
 @media (max-width: 640px) {
   .site-brand {
-    top: 20px;
-    left: 20px;
-    font-size: 12px;
+    top: calc(20px + env(safe-area-inset-top, 0px));
+    left: calc(20px + env(safe-area-inset-left, 0px));
+    font-size: var(--fs-label-xs);
   }
 }
 
-/* ── Vox readout, top-right (GhostReadout.tsx) ──────────────────────────── */
+/* Vox readout, top-right (GhostReadout.tsx) */
 .site-vox {
   position: fixed;
   top: 28px;
@@ -126,7 +126,7 @@
 .site-vox__line {
   font-family: var(--font-mono);
   font-size: 11.5px;
-  letter-spacing: 0.16em;
+  letter-spacing: var(--track-16);
   text-transform: uppercase;
   color: var(--cl-bone);
   line-height: 2.2;
@@ -155,10 +155,9 @@
   }
 }
 
-/* ── Desktop hand-off ────────────────────────────────────────────────────────
-   On a wide screen the rail becomes the primary nav and the burger overlay is
-   removed. Below this the rail stays hidden and the burger (43-site-menu.css)
-   is the only navigation. */
+/* Desktop hand-off: on a wide screen the rail becomes the primary nav and the
+   burger overlay is removed. Below this the rail stays hidden and the burger
+   (43-site-menu.css) is the only navigation. */
 @media (min-width: 1180px) {
   .site-nav {
     display: block;

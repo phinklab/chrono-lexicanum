@@ -1,5 +1,5 @@
 /**
- * world-blurbs.ts — lazy client access to the map-world blurbs (178b Runde 8).
+ * world-blurbs.ts — lazy client access to the map-world blurbs.
  *
  * `world-blurbs.json` carries one short researched sentence per chart contact
  * that has NO location-blurb: dust worlds and the few featured worlds without

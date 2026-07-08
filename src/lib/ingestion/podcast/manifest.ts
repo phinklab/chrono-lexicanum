@@ -1,5 +1,5 @@
 /**
- * Brief 131 — the CC-Direct acquire manifest + the artifact→extractions
+ * The CC-Direct acquire manifest + the artifact→extractions
  * migration. Anthropic-free (local types only), so it loads in the cc-direct
  * path and the migration script without `@anthropic-ai/sdk`.
  *
@@ -169,7 +169,7 @@ export function parseManifest(text: string): ShowManifest {
   };
 }
 
-// --- migration: committed artifact → manifest + minimal extractions ----------
+// Migration: committed artifact → manifest + minimal extractions
 
 /**
  * Infer the acquisition source from a committed artifact's own provenance —
@@ -271,11 +271,11 @@ export function manifestFromArtifact(artifact: ShowArtifact): {
   return { manifest, extractions };
 }
 
-// --- cc-direct file layout (shared by ingest-podcast.ts + podcast-cc-tag.ts) --
+// CC-direct file layout (shared by ingest-podcast.ts + podcast-cc-tag.ts)
 
 /**
  * Hard batch size for cc-direct tagging — exactly 10 episodes per `claude -p`
- * subsession (Brief 131). One source of truth for acquire's plan, prepare's
+ * subsession. One source of truth for acquire's plan, prepare's
  * chunking, and the driver's loop bound.
  */
 export const CC_TAG_BATCH_SIZE = 10;

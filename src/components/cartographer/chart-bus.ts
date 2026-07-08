@@ -1,8 +1,8 @@
 /**
  * chart-bus.ts — the imperative seam between the chart camera and the HTML
- * overlays (Brief 178). The camera lives in refs inside ChartStage and never
- * touches React state per frame; overlays (world panel, course cards, hash
- * writer, readouts) subscribe here and reposition themselves imperatively.
+ * overlays. The camera lives in refs inside ChartStage and never touches
+ * React state per frame; overlays (world panel, course cards, hash writer,
+ * readouts) subscribe here and reposition themselves imperatively.
  */
 
 export type FrameListener = () => void;

@@ -1,5 +1,5 @@
 /**
- * Chronicle timeline — DB loader (Brief 138). SERVER-ONLY (imports `@/db`).
+ * Chronicle timeline — DB loader. SERVER-ONLY (imports `@/db`).
  *
  * Loads the full 8-era spine in one relational query (eras → events →
  * event_works → work/series, authors nested), plus one batched

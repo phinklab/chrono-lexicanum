@@ -1,5 +1,5 @@
 /**
- * Public book-browse filter contract (Brief 120). PURE — no `@/db`, no JSX —
+ * Public book-browse filter contract. PURE — no `@/db`, no JSX —
  * so the server page and the client `WerkeFilters` island share one source of
  * truth for param names, sort keys, and the filter/sort semantics. Every
  * control is URL-mirrored: a filtered view is a shareable link.
@@ -44,8 +44,8 @@ function parseSort(raw: string | undefined): SortKey {
   return raw === "release" || raw === "chrono" ? raw : "title";
 }
 
-/** Validators for the remaining URL params, analog to `parseSort` (Report 144
- *  § S.8). No injection risk either way (pure in-memory filters, no SQL), but
+/** Validators for the remaining URL params, analogous to `parseSort`.
+ *  No injection risk either way (pure in-memory filters, no SQL), but
  *  an unvalidated value would echo attacker-shaped text back into the filter
  *  links the page renders. `format` has a closed enum; faction/facet IDs are
  *  lowercase snake_case reference-table slugs (CLAUDE.md data conventions) —
@@ -137,7 +137,7 @@ export function applyWorksFilters(
   return books.filter((b) => matches(b, p)).sort((a, b) => compare(a, b, p.sort));
 }
 
-/* ── Universal search suggestions (typeahead) ───────────────────────────────
+/* Universal search suggestions (typeahead).
  * The search box is a single entry point to everything the archive holds. As
  * the visitor types, `rankSuggestions` ranks a pre-built index of books,
  * authors, factions, facets and formats — plus podcasts (episodes + shows),

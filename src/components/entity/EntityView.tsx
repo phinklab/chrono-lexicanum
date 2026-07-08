@@ -1,23 +1,22 @@
 /**
  * EntityView — the frame-agnostic body of every entity-hub surface.
- * Brief 109 (Step 1) built the seam; Brief 113 Phase A redesigns the layout.
  *
- * TWO SEAM RULES (do not break — they are what let later arc steps reuse this):
+ * TWO SEAM RULES (do not break — they are what let every frame reuse this):
  *   1. **db-free.** This component and its section modules import nothing from
  *      `@/db` and nothing server-only. The page (`/charakter`, `/fraktion`,
  *      `/welt`) owns `<main>` + `SiteBackground` + decor + scrim and feeds in
- *      the already-loaded `EntityView` object; Step 2's panel mounts this same
- *      component inside an overlay with the same payload — zero fork.
+ *      the already-loaded `EntityView` object; the overlay panel mounts this
+ *      same component with the same payload — zero fork.
  *   2. **owns the single `<h1>`.** The frame contributes no heading, so this is
  *      the page's one `<h1>` (the entity name, in EntityHeader). Section
  *      headings are `<h2>`/`<h3>`; decorative rules are `aria-hidden`; empty
  *      sections render nothing.
  *
- * Layout (Phase A): a full-width header (eyebrow → `<h1>` → tagline → 1–3-fact
+ * Layout: a full-width header (eyebrow → `<h1>` → tagline → 1–3-fact
  * meta-line) over a two-column body — a main column (dossier + works cards) and
  * a right "CONNECTIONS" rail. `.entity-view` is a query container, so the rail
  * reflows under the main column whenever the *container* is narrow — on a small
- * viewport and, for free, inside Step 2's narrow panel (no Phase-B work needed).
+ * viewport and, for free, inside the narrow overlay panel.
  */
 import type {
   EntityView as EntityViewData,

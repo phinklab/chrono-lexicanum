@@ -27,9 +27,9 @@ type ResultCardProps = {
   onReset: () => void;
 };
 
-/* The verdict reveals in stages (Brief 164 Phase 3): the Top-3 render server-
-   side (no JS needed for the first look), "Load more" reveals the rest of the
-   Top-6 cell client-side, and only then does "Browse deeper" go live. */
+/* The verdict reveals in stages: the Top-3 render server-side (no JS needed
+   for the first look), "Load more" reveals the rest of the Top-6 cell
+   client-side, and only then does "Browse deeper" go live. */
 const STAGE_INITIAL = 3;
 const STAGE_STEP = 3;
 

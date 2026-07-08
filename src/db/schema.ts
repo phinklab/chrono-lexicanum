@@ -1,8 +1,7 @@
 /**
  * Chrono Lexicanum — Database schema (Postgres via Drizzle).
  *
- * Stufe 2a (sessions/2026-05-01-019) replaced the books-centric topology with
- * a works-centric Class-Table-Inheritance model:
+ * Works-centric Class-Table-Inheritance model:
  *
  *     works (parent)
  *       ├── book_details          (kind = 'book')
@@ -13,29 +12,27 @@
  *                                                    placeholder.
  *
  * Around `works`:
- *   • work_factions / work_characters / work_locations / work_persons /
+ *   - work_factions / work_characters / work_locations / work_persons /
  *     work_facets — the canonical many-to-many junctions, all keyed on
- *     work_id (no books-side leftovers).
- *   • facet_categories + facet_values — the 12-category faceted classifier
+ *     work_id.
+ *   - facet_categories + facet_values — the 12-category faceted classifier
  *     (NEON-14 trigger warnings + 11 editorial categories). Single-column
  *     PK on facet_values.id; ID `pc_xenos` disambiguates from pov_side.xenos.
- *   • services + external_links — references to `services` are FKs (new
+ *   - services + external_links — references to `services` are FKs (new
  *     storefronts arrive as inserts, not migrations); link `kind` is enum.
- *   • persons + work_persons — author/translator/narrator/director cast.
+ *   - persons + work_persons — author/translator/narrator/director cast.
  *
- * Reference tables (eras, factions, series, sectors, locations, characters,
- * submissions) are unchanged from Phase 1 — only their relations are rewired
- * onto the new junctions.
+ * Reference tables: eras, factions, series, sectors, locations, characters,
+ * submissions.
  *
- * Conventions held from Phase 1
- * -----------------------------
- *  • The custom in-universe time scale stays as `numeric(10,3)`:
- *    `(M-1)*1000 + year_within_M`. M30.997 → 30997.000.
- *  • Provenance per work via `source_kind` + `confidence` for the Phase-4
- *    ingestion pipeline.
- *  • Community submissions still land in `submissions` with status='pending'.
+ * Conventions:
+ *  - The custom in-universe time scale is `numeric(10,3)`:
+ *    `M*1000 + year_within_M`. M30.997 → 30997.000.
+ *  - Provenance per work via `source_kind` + `confidence`.
+ *  - Community submissions land in `submissions` with status='pending';
+ *    they never write directly to canonical tables.
  *
- * Discriminator integrity (constraint 4) is enforced two ways:
+ * Discriminator integrity is enforced two ways:
  *   1. The seed script uses transactional helpers that always pair the
  *      correct detail row with works.kind.
  *   2. CHECK triggers on each detail table reject INSERT / UPDATE rows that
@@ -61,9 +58,7 @@ import {
 } from "drizzle-orm/pg-core";
 import { relations, sql } from "drizzle-orm";
 
-// =============================================================================
-// ENUMS
-// =============================================================================
+// Enums
 
 export const submissionStatus = pgEnum("submission_status", [
   "pending",
@@ -86,38 +81,36 @@ export const sourceKind = pgEnum("source_kind", [
   "black_library",
   "fandom_wiki",
   "community", // user-submitted, then merged
-  // Stufe 2a additions — forward-looking for 2c / 3 once non-book works arrive.
+  // Forward-looking sources for non-book works.
   "tmdb",
   "imdb",
   "youtube",
   "wikidata",
-  // Phase 3 pipeline-härtung (047) — align DB enum with the TS `SourceName`
-  // union (see `src/lib/ingestion/types.ts`). These four were already used in
-  // pipeline diffs since 3a/3b/3c; the enum lagged behind.
+  // Drift guard: keep this enum aligned with the TS `SourceName` union
+  // (see `src/lib/ingestion/types.ts`).
   "wikipedia",
   "open_library",
   "hardcover",
   "llm",
-  // Brief 057 (2026-05-10): Excel-SSOT-Pivot. Maintainer pflegt extern eine
-  // kuratierte Master-Excel; der SSOT-Loader (`scripts/import-ssot-roster.ts`)
-  // produziert `book-roster.json`, Pipeline 058+ liest daraus statt aus
-  // Wikipedia/TLBranson-Discovery.
+  // The maintainer curates an external master Excel; the SSOT loader
+  // (`scripts/import-ssot-roster.ts`) produces `book-roster.json`, which the
+  // ingestion pipeline reads.
   "ssot",
-  // Brief 114 (2026-06-02): Podcast Step 2. Shows + Episoden stammen aus einem
-  // RSS-Feed (`src/lib/ingestion/podcast`), persistiert via `scripts/apply-podcast.ts`.
+  // Podcast shows + episodes come from an RSS feed (`src/lib/ingestion/podcast`),
+  // persisted via `scripts/apply-podcast.ts`.
   "podcast_rss",
 ]);
 
 export const workKind = pgEnum("work_kind", [
   "book",
   "film",
-  "tv_series", // renamed from `series` to avoid colliding with the series table
+  "tv_series", // named `tv_series` (not `series`) to avoid colliding with the series table
   "channel",
   "video",
-  // Brief 114 (2026-06-02): Podcast Step 2. A `podcast` is the show container
-  // (≈ `channel`); a `podcast_episode` is one feed item (≈ `video`, but audio).
-  // Deliberately NOT overloading `video`: an episode has an enclosure-MP3 +
-  // durationSec, no video URL — overloading would poison every "all videos" query.
+  // A `podcast` is the show container (≈ `channel`); a `podcast_episode` is one
+  // feed item (≈ `video`, but audio). Deliberately NOT overloading `video`: an
+  // episode has an enclosure-MP3 + durationSec, no video URL — overloading
+  // would poison every "all videos" query.
   "podcast",
   "podcast_episode",
 ]);
@@ -154,10 +147,10 @@ export const personRole = pgEnum("person_role", [
   "sound_designer",
 ]);
 
-// Phase 3b: format = was-für-ein-Werk, availability = kann-ich-es-noch-bekommen.
-// Orthogonale Felder — eine 1996er-Mass-Market-Novel ist `novel`/`oop_legacy`,
-// eine moderne BL-Audio-Reihe ist `audio_drama`/`in_print`. Beide werden in 3b
-// nullable (Crawler-Ergebnisse partiell befüllt; 3c LLM klassifiziert belastbar).
+// format = what kind of work it is, availability = can it still be obtained.
+// Orthogonal fields — a 1996 mass-market novel is `novel`/`oop_legacy`, a
+// modern BL audio series is `audio_drama`/`in_print`. Both are nullable
+// (ingested data fills them only partially).
 export const bookFormat = pgEnum("book_format", [
   "novel",
   "novella",
@@ -165,9 +158,9 @@ export const bookFormat = pgEnum("book_format", [
   "anthology",
   "audio_drama",
   "omnibus",
-  // Brief 057 (2026-05-10): Excel-SSOT enthält drei weitere Type-Werte aus dem
-  // Maintainer-Vokabular. `collection` = Sammelband knapper als Anthology (z. B.
-  // 11 Einträge im SSOT), `artbook` + `scriptbook` Randfälle (je 2).
+  // Maintainer-vocabulary values from the Excel SSOT: `collection` = a
+  // collected volume narrower than an anthology; `artbook` + `scriptbook`
+  // are edge cases.
   "collection",
   "artbook",
   "scriptbook",
@@ -180,15 +173,12 @@ export const bookAvailability = pgEnum("book_availability", [
   "unavailable",
 ]);
 
-// Brief 137 (2026-06-10): Chronicle-Timeline-Spine. Display-Gewicht eines
-// kuratierten Events — 'epoch' = Kapitel-Anker, 'major' = voller Eintrag,
-// 'minor' = kompakte Zeile.
+// Display weight of a curated timeline event — 'epoch' = chapter anchor,
+// 'major' = full entry, 'minor' = compact row.
 export const eventTier = pgEnum("event_tier", ["epoch", "major", "minor"]);
 
-// =============================================================================
-// REFERENCE: Eras, Factions, Series
-// (Slowly-changing, small N, edited via Drizzle Studio + PR)
-// =============================================================================
+// Reference tables: eras, factions, series
+// (slowly-changing, small N, edited via Drizzle Studio + PR)
 
 export const eras = pgTable("eras", {
   id: varchar("id", { length: 64 }).primaryKey(),
@@ -197,17 +187,15 @@ export const eras = pgTable("eras", {
   endY: numeric("end_y", { precision: 10, scale: 3 }).notNull(),
   tone: text("tone"),
   sortOrder: integer("sort_order").notNull().default(0),
-  // Brief 137 (2026-06-10): Editorial-Copy für die neue 8-Era-Timeline.
-  // Alle nullable — die Spalten kamen per ALTER auf bestehende Rows.
-  // Grouping-Mode / Minimap-Tuning bleiben bewusst Product-seitige View-Config
-  // (Brief 138), nicht DB.
+  // Editorial copy for the 8-era timeline; all nullable. Grouping mode /
+  // minimap tuning deliberately stay product-side view config, not DB.
   short: text("short"),
   mLabel: text("m_label"),
   sub: text("sub"),
   tagline: text("tagline"),
   intro: text("intro"),
-  // Public-Asset-Pfad (/timeline/bg/*.webp). String, kein FK — die Datei
-  // selbst shipped Brief 138; bis dahin darf der Pfad dangeln.
+  // Public asset path (/timeline/bg/*.webp). String, no FK — the path may
+  // dangle before the file exists.
   coverRef: text("cover_ref"),
 });
 
@@ -222,9 +210,8 @@ export const factions = pgTable(
     glyph: text("glyph"),
   },
   (t) => ({
-    // Self-referential hierarchy lookup (factionsRelations.parent). Free win
-    // taken alongside the characters index in the same migration (Brief 180 /
-    // K51). Index only, no FK on the self-reference — keeps seed ordering free.
+    // Self-referential hierarchy lookup (factionsRelations.parent). Index
+    // only, no FK on the self-reference — keeps seed ordering free.
     parentIdx: index("factions_parent_idx").on(t.parentId),
   }),
 );
@@ -236,9 +223,7 @@ export const series = pgTable("series", {
   note: text("note"),
 });
 
-// =============================================================================
-// CORE: Works (CTI parent) + kind-specific detail children
-// =============================================================================
+// Core: works (CTI parent) + kind-specific detail children
 
 export const works = pgTable(
   "works",
@@ -259,13 +244,12 @@ export const works = pgTable(
     startY: numeric("start_y", { precision: 10, scale: 3 }),
     endY: numeric("end_y", { precision: 10, scale: 3 }),
 
-    // Brief 137 (2026-06-10): Dating-Provenance für die kuratierten Setting-
-    // Dates (book-dates.json), die startY/endY befüllen. settingMethod ist
-    // text statt enum, damit das Kurations-Vokabular ('explicit',
-    // 'event-anchored', 'roster', 'bracket', 'series-inherited', …) ohne
-    // Migration wachsen kann. settingAnchorEventId zeigt auf das Event, von
-    // dem die Datierung abgeleitet wurde (nullable — nicht jede Datierung ist
-    // event-verankert).
+    // Dating provenance for the curated setting dates (book-dates.json) that
+    // fill startY/endY. settingMethod is text (not enum) so the curation
+    // vocabulary ('explicit', 'event-anchored', 'roster', 'bracket',
+    // 'series-inherited', …) can grow without a migration.
+    // settingAnchorEventId points to the event the dating was derived from
+    // (nullable — not every dating is event-anchored).
     settingDateLabel: text("setting_date_label"),
     settingMethod: text("setting_method"),
     settingConfidence: varchar("setting_confidence", { length: 1 }),
@@ -277,11 +261,11 @@ export const works = pgTable(
     // works without a clear publication year stay NULL.
     releaseYear: integer("release_year"),
 
-    // Brief 057 (2026-05-10): stable Maintainer-Excel-IDs (e.g. "W40K-0001",
-    // "HH-0042"). Nullable because non-SSOT works (films, channels, future
-    // hand-inserts) won't have one. UNIQUE so a re-import after Maintainer
-    // edits the spreadsheet can match Excel-row → existing `works.id` (UUID)
-    // safely — slug alone may shift if a title gets corrected.
+    // Stable maintainer-Excel IDs (e.g. "W40K-0001", "HH-0042"). Nullable
+    // because non-SSOT works (films, channels, future hand-inserts) won't
+    // have one. UNIQUE so a re-import after the maintainer edits the
+    // spreadsheet can match Excel row → existing `works.id` (UUID) safely —
+    // slug alone may shift if a title gets corrected.
     externalBookId: varchar("external_book_id", { length: 16 }).unique(),
 
     sourceKind: sourceKind("source_kind").notNull().default("manual"),
@@ -296,10 +280,9 @@ export const works = pgTable(
     canonicityIdx: index("works_canonicity_idx").on(t.canonicity),
     releaseYearIdx: index("works_release_year_idx").on(t.releaseYear),
     // No explicit slug index: `slug` is `.unique()` above, whose UNIQUE index
-    // (works_slug_unique) already serves slug lookups. The former
-    // works_slug_idx was a redundant duplicate (Brief 180 / K50) — dropped.
-    // Reverse-Lookup "welche Werke verankern auf Event X" (Timeline-Chips)
-    // lief sonst auf Seq-Scan (Report 144 § DB.1).
+    // (works_slug_unique) already serves slug lookups.
+    // Reverse lookup "which works anchor on event X" (timeline chips) would
+    // otherwise seq-scan.
     settingAnchorEventIdx: index("works_setting_anchor_event_idx").on(
       t.settingAnchorEventId,
     ),
@@ -313,45 +296,42 @@ export const bookDetails = pgTable(
       .primaryKey()
       .references(() => works.id, { onDelete: "cascade" }),
     isbn13: varchar("isbn13", { length: 13 }),
-    // Phase 3b: ISBN-10 für Pre-2007-Editionen (Open Library liefert beides).
+    // ISBN-10 for pre-2007 editions (Open Library supplies both).
     isbn10: varchar("isbn10", { length: 10 }),
     seriesId: varchar("series_id", { length: 64 }).references(() => series.id),
-    // 1-based position inside the parent series. Per brief, `pub_year` lives
-    // on works.releaseYear instead of being duplicated here.
+    // 1-based position inside the parent series. `pub_year` lives on
+    // works.releaseYear instead of being duplicated here.
     seriesIndex: integer("series_index"),
-    // Phase 3b: Page-Count + Format/Availability-Klassifikation.
-    // pageCount kommt aus Open Library; format/availability primär aus 3c LLM,
-    // Open Library als Heuristik-Fallback bei eindeutigem `physical_format`.
+    // pageCount comes from Open Library; format/availability primarily from
+    // LLM classification, with Open Library as a heuristic fallback when
+    // `physical_format` is unambiguous.
     pageCount: integer("page_count"),
     format: bookFormat("format"),
     availability: bookAvailability("availability"),
-    // Phase 3c (sessions/2026-05-03-038): Reader-Rating-Capture. Eine Quelle
-    // pro Buch nach Source-Priority [amazon, goodreads, hardcover, audible],
-    // normalisiert auf 0–5-Skala. rating_source ist varchar (nicht enum) damit
-    // zukünftige Quellen Zeilen-Edit statt ALTER TYPE sind. rating_count ist
-    // optional (Audible zeigt nicht immer eine eindeutige Review-Zahl).
+    // Reader-rating capture. One source per book by source priority
+    // [amazon, goodreads, hardcover, audible], normalized to a 0–5 scale.
+    // rating_source is varchar (not enum) so future sources are a row edit,
+    // not an ALTER TYPE. rating_count is optional (Audible does not always
+    // show an unambiguous review count).
     rating: numeric("rating", { precision: 3, scale: 2 }),
     ratingSource: varchar("rating_source", { length: 32 }),
     ratingCount: integer("rating_count"),
-    // Stufe 2c.0 (sessions/2026-05-02-023): editorial era-anchor. The single
-    // canonical era a book belongs to. Replaces the algorithmic midpoint
-    // bucketing in Overview/EraDetail. Nullable in the DB; seed-side
-    // validation makes it effectively required for the manual catalog.
+    // Editorial era anchor: the single canonical era a book belongs to.
+    // Nullable in the DB; seed-side validation makes it effectively required
+    // for the manual catalog.
     primaryEraId: varchar("primary_era_id", { length: 64 }).references(
       () => eras.id,
     ),
-    // Brief 057 (2026-05-10): freie Text-Notiz aus der Excel-SSOT-Spalte
-    // "Relation Notes" — Maintainer hält dort z. B. "Eisenhorn Omnibus
-    // collects Xenos/Malleus/Hereticus + Backcloth for a Crown Additional"
-    // fest. Kein Frontend-Verbraucher heute; landet sichtbar im DetailPanel
-    // sobald die SSOT-gepflegten Bücher live sind.
+    // Free-text note from the Excel-SSOT column "Relation Notes" — the
+    // maintainer records e.g. "Eisenhorn Omnibus collects Xenos/Malleus/
+    // Hereticus + Backcloth for a Crown Additional" there. No frontend
+    // consumer today.
     notes: text("notes"),
   },
   (t) => ({
     seriesIdx: index("book_details_series_idx").on(t.seriesId, t.seriesIndex),
-    // Phase 3b carry-over (aus brief 030 / report 035 § "For next session"):
-    // Index für `loadTimeline`-Era-Aggregation, heute kein Effekt (26 Bücher),
-    // bei Phase-3-Skala (200+/Era) auflaufend. Mitgenommen weil single-line.
+    // Index for the `loadTimeline` era aggregation; pays off as the catalog
+    // grows past a few hundred books per era.
     primaryEraIdx: index("book_details_primary_era_idx").on(t.primaryEraId),
   }),
 );
@@ -384,7 +364,7 @@ export const videoDetails = pgTable("video_details", {
   uploadedAt: timestamp("uploaded_at", { withTimezone: true }),
 });
 
-// Brief 114 (2026-06-02): Podcast Step 2 — show container (≈ channel_details).
+// Podcast show container (≈ channel_details).
 // One row per `podcast`-kind work. Identity lives in the feed: `podcastGuid`
 // (RSS namespace `<podcast:guid>`, the stable cross-host show id), with
 // `feedUrl` / works.slug as upsert fallbacks. `appleId` is varchar (numeric
@@ -399,16 +379,17 @@ export const podcastDetails = pgTable("podcast_details", {
   imageUrl: text("image_url"),
 });
 
-// Brief 114 (2026-06-02): Podcast Step 2 — one feed item (≈ video_details).
-// Self-link `podcastWorkId` → the show work, analog to video_details.channelWorkId
-// but NOT NULL: an episode always belongs to a show (the apply always sets it),
-// which also keeps the UNIQUE(podcastWorkId, episodeGuid) key null-free. No
-// onDelete=cascade — a deleted show should surface as an FK error, not silently
-// orphan/erase its episodes (cleanup is the apply's job, not a cascade's).
-// `episodeGuid` is the feed `<guid>` verbatim (arbitrary length per RSS spec →
-// `text`, not works.externalBookId's varchar(16)); it is feed-local, so the
-// uniqueness scope is per-show, not global — Step 3 (multiple feeds) could
-// otherwise collide on a shared guid.
+// One podcast feed item (≈ video_details).
+// Self-link `podcastWorkId` → the show work, analogous to
+// video_details.channelWorkId but NOT NULL: an episode always belongs to a
+// show (the apply always sets it), which also keeps the
+// UNIQUE(podcastWorkId, episodeGuid) key null-free. No onDelete=cascade — a
+// deleted show should surface as an FK error, not silently orphan/erase its
+// episodes (cleanup is the apply's job, not a cascade's). `episodeGuid` is
+// the feed `<guid>` verbatim (arbitrary length per RSS spec → `text`, not
+// works.externalBookId's varchar(16)); it is feed-local, so the uniqueness
+// scope is per-show, not global — multiple feeds could otherwise collide on
+// a shared guid.
 export const podcastEpisodeDetails = pgTable(
   "podcast_episode_details",
   {
@@ -438,9 +419,7 @@ export const podcastEpisodeDetails = pgTable(
   }),
 );
 
-// =============================================================================
-// JUNCTIONS: works ↔ factions / characters / locations / persons
-// =============================================================================
+// Junctions: works ↔ factions / characters / locations / persons
 
 export const workFactions = pgTable(
   "work_factions",
@@ -455,10 +434,10 @@ export const workFactions = pgTable(
     // editorial vocabulary can grow without a migration; default keeps
     // bulk-tagging cheap.
     role: varchar("role", { length: 32 }).default("supporting"),
-    // Brief 063 (2026-05-12): Audit-Trail-Spalte. Originaler LLM-/Override-
-    // Surface-Form-String, der zu dieser Junction-Row geführt hat. NULL =
-    // Direct-Match ohne Drift (raw == canonical.name); non-NULL = Surface-Form
-    // wich vom canonical Namen ab (z.B. "Imperial Guard" → astra_militarum).
+    // Audit-trail column: the original LLM/override surface-form string that
+    // produced this junction row. NULL = direct match without drift
+    // (raw == canonical.name); non-NULL = the surface form deviated from the
+    // canonical name (e.g. "Imperial Guard" → astra_militarum).
     rawName: text("raw_name"),
   },
   (t) => ({
@@ -478,7 +457,7 @@ export const workCharacters = pgTable(
       .references(() => characters.id),
     // 'pov' | 'appears' | 'mentioned'.
     role: varchar("role", { length: 32 }).default("appears"),
-    // Brief 063 (2026-05-12): Audit-Trail-Spalte (siehe workFactions.rawName).
+    // Audit-trail column (see workFactions.rawName).
     rawName: text("raw_name"),
   },
   (t) => ({
@@ -501,7 +480,7 @@ export const workLocations = pgTable(
     // explicitly).
     role: varchar("role", { length: 32 }).default("secondary"),
     atY: numeric("at_y", { precision: 10, scale: 3 }),
-    // Brief 063 (2026-05-12): Audit-Trail-Spalte (siehe workFactions.rawName).
+    // Audit-trail column (see workFactions.rawName).
     rawName: text("raw_name"),
   },
   (t) => ({
@@ -531,12 +510,10 @@ export const workPersons = pgTable(
   }),
 );
 
-// =============================================================================
-// FACETED CLASSIFICATION
-// 12 categories (NEON-14 trigger warnings + 11 editorial). IDs in the catalog
-// are bare except where global uniqueness across categories required a
-// disambiguation prefix (`pc_xenos` distinct from `pov_side.xenos`).
-// =============================================================================
+// Faceted classification: 12 categories (NEON-14 trigger warnings + 11
+// editorial). IDs in the catalog are bare except where global uniqueness
+// across categories required a disambiguation prefix (`pc_xenos` distinct
+// from `pov_side.xenos`).
 
 export const facetCategories = pgTable("facet_categories", {
   id: varchar("id", { length: 64 }).primaryKey(),
@@ -579,14 +556,12 @@ export const workFacets = pgTable(
   }),
 );
 
-// =============================================================================
-// BOOK COLLECTIONS (Anthology / Omnibus M2M)
-// Junction für "Sammlung enthält Werk" — Brief 057 (2026-05-10) aus der Excel-
-// SSOT-Spalte "Collection Links" (192 Beziehungen, z. B. *Xenos* enthalten in
-// *Eisenhorn Omnibus*). Beide FKs zeigen auf `works.id` (Self-M2M); cascade
-// auf beiden Richtungen, damit ein gelöschter Sammelband seine Junction-Rows
-// mitnimmt UND ein gelöschtes enthaltenes Werk aus allen Sammlungen rausfällt.
-// =============================================================================
+// Book collections (anthology / omnibus M2M): junction for "collection
+// contains work", sourced from the Excel-SSOT column "Collection Links"
+// (e.g. *Xenos* contained in *Eisenhorn Omnibus*). Both FKs point to
+// `works.id` (self-M2M); cascade in both directions, so a deleted collection
+// takes its junction rows with it AND a deleted contained work drops out of
+// all collections.
 
 export const workCollections = pgTable(
   "work_collections",
@@ -597,32 +572,30 @@ export const workCollections = pgTable(
     contentWorkId: uuid("content_work_id")
       .notNull()
       .references(() => works.id, { onDelete: "cascade" }),
-    // 0-basierte Reihenfolge der Children innerhalb der Sammlung (aus Excel
-    // Books-Sheet "Collects Titles" semicolon-Order). Default 0 wenn keine
-    // Sequenz ableitbar — Frontend fällt dann auf releaseYear-Sort zurück.
+    // 0-based order of the children within the collection (from the Excel
+    // Books sheet "Collects Titles" semicolon order). Default 0 when no
+    // sequence can be derived — the frontend then falls back to releaseYear
+    // sort.
     displayOrder: integer("display_order").notNull().default(0),
-    // 0.00–1.00 aus Excel "Collection Links" Sheet "Confidence" — wie sicher
-    // ist die Beziehung (Maintainer-LLM-Workflow setzt das).
+    // 0.00–1.00 from the Excel "Collection Links" sheet "Confidence" — how
+    // certain the relationship is (set by the maintainer's LLM workflow).
     confidence: numeric("confidence", { precision: 3, scale: 2 }),
-    // Begründung aus Excel "Collection Links" Sheet "Basis", z. B. "Explicit
-    // Eisenhorn omnibus follows the trilogy in TLBranson".
+    // Rationale from the Excel "Collection Links" sheet "Basis", e.g.
+    // "Explicit Eisenhorn omnibus follows the trilogy in TLBranson".
     basis: text("basis"),
   },
   (t) => ({
     pk: primaryKey({ columns: [t.collectionWorkId, t.contentWorkId] }),
-    // Sekundär-Index für die DetailPanel-Query "alle Sammlungen, die *Xenos*
-    // enthalten" (`WHERE content_work_id = ?`). Die andere Richtung ("alle
-    // Children eines Omnibus") ist von der PK-B-Tree als Leading-Column
-    // abgedeckt — kein zweiter Index nötig.
+    // Secondary index for the DetailPanel query "all collections containing
+    // *Xenos*" (`WHERE content_work_id = ?`). The other direction ("all
+    // children of an omnibus") is covered by the PK b-tree's leading column —
+    // no second index needed.
     contentIdx: index("work_collections_content_idx").on(t.contentWorkId),
   }),
 );
 
-// =============================================================================
-// SERVICES + EXTERNAL LINKS
-// services is a reference table (insert-to-add). external_links is the
-// per-work junction. URL-fields that lived on the old `books` row are gone.
-// =============================================================================
+// Services + external links: services is a reference table (insert-to-add);
+// external_links is the per-work junction.
 
 export const services = pgTable("services", {
   id: varchar("id", { length: 64 }).primaryKey(),
@@ -648,14 +621,11 @@ export const externalLinks = pgTable(
     region: varchar("region", { length: 8 }),
     affiliate: boolean("affiliate").notNull().default(false),
     displayOrder: integer("display_order").notNull().default(0),
-    // Brief 128 / B1-S1 (2026-06-06): provenance per link, analog to
-    // works.source_kind + works.confidence. Episodes are `works`, so their
-    // watch/listen links land here (not just in podcast_episode_details); the
-    // generic cross-media link store therefore needs the same audit columns as
-    // the works it hangs off. Additive + defaulted, so the existing
-    // book/film/seed `external_links` inserts (which omit them) keep working and
-    // backfill as `manual` / `1.00`. Reader projections stay unaffected because
-    // every current consumer selects explicit columns.
+    // Provenance per link, analogous to works.source_kind + works.confidence.
+    // Episodes are `works`, so their watch/listen links land here (not just
+    // in podcast_episode_details); the generic cross-media link store
+    // therefore needs the same audit columns as the works it hangs off.
+    // Defaulted, so inserts that omit them backfill as `manual` / `1.00`.
     sourceKind: sourceKind("source_kind").notNull().default("manual"),
     confidence: numeric("confidence", { precision: 3, scale: 2 }).default("1.00"),
   },
@@ -665,11 +635,8 @@ export const externalLinks = pgTable(
   }),
 );
 
-// =============================================================================
-// PERSONS
-// Unified people across all roles — authors, translators, narrators,
+// Persons: unified people across all roles — authors, translators, narrators,
 // directors, cover artists. Snake-case string IDs as elsewhere.
-// =============================================================================
 
 export const persons = pgTable("persons", {
   id: varchar("id", { length: 64 }).primaryKey(),
@@ -681,14 +648,11 @@ export const persons = pgTable("persons", {
   lexicanumUrl: text("lexicanum_url"),
   wikipediaUrl: text("wikipedia_url"),
   // Role-specific bookkeeping (audible profile for narrators, imdb id for
-  // directors). Constraint 14 explicitly keeps this bag because the use case
-  // is concrete; works and book_details intentionally do NOT have one.
+  // directors). works and book_details intentionally do NOT have such a bag.
   extras: jsonb("extras").$type<Record<string, unknown>>(),
 });
 
-// =============================================================================
-// MAP: Sectors, Locations
-// =============================================================================
+// Map: sectors, locations
 
 export const sectors = pgTable("sectors", {
   id: varchar("id", { length: 64 }).primaryKey(),
@@ -705,9 +669,8 @@ export const locations = pgTable(
     id: varchar("id", { length: 64 }).primaryKey(),
     name: text("name").notNull(),
     sectorId: varchar("sector_id", { length: 64 }).references(() => sectors.id),
-    // Brief 063 (2026-05-12): nullable gemacht für Lore-Welten ohne Cartographer-
-    // Coordinaten (60 neue frequency≥2-Welten aus den ersten 50 Authority-Büchern,
-    // z.B. Sabbat-Sektor + Scarus-Sektor). Cartographer (Phase 5) filtert
+    // Nullable for lore worlds without Cartographer coordinates (e.g. the
+    // Sabbat and Scarus sectors). The Cartographer filters
     // `WHERE gx IS NOT NULL`.
     gx: integer("gx"),
     gy: integer("gy"),
@@ -721,9 +684,7 @@ export const locations = pgTable(
   }),
 );
 
-// =============================================================================
-// CHARACTERS
-// =============================================================================
+// Characters
 
 export const characters = pgTable(
   "characters",
@@ -736,56 +697,55 @@ export const characters = pgTable(
   },
   (t) => ({
     // Faction detail pages equality-filter characters by primaryFactionId
-    // (src/lib/entity/loader.ts) — a Seq-Scan per request until now, while
-    // every other FK-like column in the schema is indexed (Brief 180 / K19).
-    // Index only, no FK: character ingest can carry a faction id not yet
-    // present in `factions`, and a FK would turn that into a seed/apply error.
+    // (src/lib/entity/loader.ts) — without this index that is a seq-scan per
+    // request. Index only, no FK: character ingest can carry a faction id not
+    // yet present in `factions`, and a FK would turn that into a seed/apply
+    // error.
     primaryFactionIdx: index("characters_primary_faction_idx").on(t.primaryFactionId),
   }),
 );
 
-// =============================================================================
-// TIMELINE: Events + event↔work hooks (Brief 137, 2026-06-10)
-// Die hand-kuratierte Chronicle-Spine: 144 datierte Events über acht Eras,
-// plus eine Junction, die Buch-/Serien-/Podcast-Hooks pro Event trägt.
-// Seed-Quelle: scripts/seed-data/{events,event-works}.json, geladen über
-// scripts/apply-timeline-data.ts (idempotent, dry-run-fähig).
-// =============================================================================
+// Timeline: events + event↔work hooks.
+// The hand-curated Chronicle spine: dated events across eight eras, plus a
+// junction carrying book/series/podcast hooks per event. Seed source:
+// scripts/seed-data/{events,event-works}.json, loaded via
+// scripts/apply-timeline-data.ts (idempotent, dry-run capable).
 
 export const events = pgTable(
   "events",
   {
-    // snake_case Reference-Table-Konvention, z. B. 'razing_of_monarchia'.
+    // snake_case reference-table convention, e.g. 'razing_of_monarchia'.
     id: varchar("id", { length: 64 }).primaryKey(),
     title: text("title").notNull(),
-    // Verbatim-Imperial-Notation / Legenden-Label ("964.M30", "~60,000,000
-    // YEARS AGO") — wird NIE aus startY re-deriviert.
+    // Verbatim imperial notation / legend label ("964.M30", "~60,000,000
+    // YEARS AGO") — NEVER re-derived from startY.
     dateLabel: text("date_label").notNull(),
-    // Nullable: Deep-History-Events (War in Heaven, …) sind off-scale.
+    // Nullable: deep-history events (War in Heaven, …) are off-scale.
     startY: numeric("start_y", { precision: 10, scale: 3 }),
     endY: numeric("end_y", { precision: 10, scale: 3 }),
     offscale: boolean("offscale").notNull().default(false),
-    // Editorial zugewiesen, NIE aus scaleY abgeleitet — Fall of Cadia
-    // (999.M41) sitzt in 'indomitus', M36-Apostasy-Beats in 'age_apostasy'.
-    // Rows, deren startY außerhalb der Era-Bounds liegt, sind kein Fehler.
+    // Editorially assigned, NEVER derived from startY — Fall of Cadia
+    // (999.M41) sits in 'indomitus', M36 apostasy beats in 'age_apostasy'.
+    // Rows whose startY lies outside the era bounds are not an error.
     eraId: varchar("era_id", { length: 64 })
       .notNull()
       .references(() => eras.id),
-    // Display-Reihenfolge innerhalb der Era (export-gestempelt).
+    // Display order within the era (stamped at export).
     sortIndex: integer("sort_index").notNull(),
     tier: eventTier("tier").notNull(),
     approx: boolean("approx").notNull().default(false),
-    // 'H' / 'M' / 'L' — Workshop-Provenance, gleicher Geist wie
-    // works.confidence, aber das kuratierte Buchstaben-Vokabular verbatim.
+    // 'H' / 'M' / 'L' — curation provenance, same spirit as works.confidence,
+    // but keeping the curated letter vocabulary verbatim.
     confidence: varchar("confidence", { length: 1 }),
-    // Workshop-Provenance-String ('lex', 'fandom', 'tl', 'roster', 'chron',
-    // 'lore', Kombis wie 'fandom/lex') — text statt enum, Kurations-Vokabular.
+    // Curation provenance string ('lex', 'fandom', 'tl', 'roster', 'chron',
+    // 'lore', combos like 'fandom/lex') — text (not enum) so the curation
+    // vocabulary can grow without a migration.
     sourceKind: text("source_kind"),
-    // Englische Display-Copy, von der neuen Timeline gerendert.
+    // English display copy rendered by the timeline.
     blurb: text("blurb").notNull(),
-    // Interne Provenance-Notiz, nicht gerendert.
+    // Internal provenance note, not rendered.
     curatorNote: text("curator_note"),
-    // Public-Asset-Pfad; Datei shipped Brief 138 — String darf dangeln.
+    // Public asset path; the string may dangle before the file exists.
     artworkRef: text("artwork_ref"),
     artCreditName: text("art_credit_name"),
     artCreditUrl: text("art_credit_url"),
@@ -796,9 +756,9 @@ export const events = pgTable(
   }),
 );
 
-// Eine Junction für Buch-Hooks UND Podcast-Picks — Episoden sind bereits
-// works-Rows. seriesId deckt Serien-Level-Hooks ab (Gaunt's Ghosts, The Beast
-// Arises), wo kein einzelnes Buch das Event trägt.
+// One junction for book hooks AND podcast picks — episodes are already
+// works rows. seriesId covers series-level hooks (Gaunt's Ghosts, The Beast
+// Arises) where no single book carries the event.
 export const eventWorks = pgTable(
   "event_works",
   {
@@ -808,18 +768,18 @@ export const eventWorks = pgTable(
       .references(() => events.id, { onDelete: "cascade" }),
     workId: uuid("work_id").references(() => works.id),
     seriesId: varchar("series_id", { length: 64 }).references(() => series.id),
-    // 'book' | 'podcast' — varchar-artiges text-Feld statt enum, gleiche
-    // Begründung wie work_factions.role (Vokabular wächst ohne Migration).
+    // 'book' | 'podcast' — text field (not enum), same rationale as
+    // work_factions.role (the vocabulary grows without a migration).
     role: text("role").notNull(),
-    // Kuratierte Attribution-Line-Override ("G. McNeill · PROLOGUE 739.M30",
-    // "EP. 112", "SERIES · 23 BOOKS"); NULL = Frontend baut den Default.
+    // Curated attribution-line override ("G. McNeill · PROLOGUE 739.M30",
+    // "EP. 112", "SERIES · 23 BOOKS"); NULL = the frontend builds the default.
     displayLabel: text("display_label"),
-    // Chip-Reihenfolge innerhalb des Events.
+    // Chip order within the event.
     position: integer("position").notNull().default(0),
   },
   (t) => ({
-    // Postgres default NULLS DISTINCT: mehrere Serien-Hooks pro Event
-    // kollidieren nicht auf (eventId, NULL-workId) und umgekehrt.
+    // Postgres default NULLS DISTINCT: multiple series hooks per event do not
+    // collide on (eventId, NULL workId), and vice versa.
     eventWorkUnique: unique("event_works_event_work_unique").on(
       t.eventId,
       t.workId,
@@ -828,19 +788,18 @@ export const eventWorks = pgTable(
       t.eventId,
       t.seriesId,
     ),
-    // Genau eines von workId / seriesId gesetzt.
+    // Exactly one of workId / seriesId is set.
     exactlyOneTarget: check(
       "event_works_exactly_one_target",
       sql`(work_id IS NULL) <> (series_id IS NULL)`,
     ),
-    // Reverse-Lookup "welche event_works für work_id=X": der Unique-Index
-    // führt mit event_id und trägt diese Richtung nicht (Report 144 § DB.2).
+    // Reverse lookup "which event_works for work_id=X": the unique index
+    // leads with event_id and does not serve this direction.
     workIdx: index("event_works_work_idx").on(t.workId),
   }),
 );
 
-// =============================================================================
-// PREVIEW INVITE ACTIVATIONS (Brief 163, 2026-06-20)
+// Preview invite activations.
 // The sole server-side state for the timed-preview-access feature. One row per
 // invite link that was actually redeemed (Accept clicked), keyed by the link's
 // `jti`. PII-free: no IP, no user-agent, no identity — just "this link was used,
@@ -849,7 +808,6 @@ export const eventWorks = pgTable(
 // "activated · <time>" badge. The redemption action upserts here best-effort —
 // a write failure is logged and must NEVER block the cookie/redirect (the table
 // is observability, not an authorization input).
-// =============================================================================
 
 export const previewInviteActivations = pgTable("preview_invite_activations", {
   // The invite token's `jti` — non-secret, the join key to a minted link.
@@ -863,9 +821,7 @@ export const previewInviteActivations = pgTable("preview_invite_activations", {
   count: integer("count").notNull().default(1),
 });
 
-// =============================================================================
-// COMMUNITY: Submissions
-// =============================================================================
+// Community: submissions
 
 export const submissions = pgTable("submissions", {
   id: uuid("id").primaryKey().defaultRandom(),
@@ -882,10 +838,7 @@ export const submissions = pgTable("submissions", {
   createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
 });
 
-// =============================================================================
-// RELATIONS
-// Drizzle relational-query API (v1) — same pattern as Phase 1's books schema.
-// =============================================================================
+// Relations (Drizzle relational-query API)
 
 export const factionsRelations = relations(factions, ({ one, many }) => ({
   parent: one(factions, {
@@ -953,13 +906,13 @@ export const worksRelations = relations(works, ({ one, many }) => ({
   locations: many(workLocations),
   persons: many(workPersons),
   facets: many(workFacets),
-  // Brief 057 (2026-05-10): zwei `many()` auf dieselbe Junction (Self-M2M
-  // "Sammlung ↔ Inhalt"). Drizzle braucht explizite `relationName`-Strings,
-  // sonst wirft die Relational-Query-API Disambiguation-Errors.
-  // `containedIn` = Sammlungen, in denen dieses Werk enthalten ist
-  //   (für DetailPanel von *Xenos*: zeigt *Eisenhorn Omnibus* etc.).
-  // `contains` = Werke, die diese Sammlung enthält
-  //   (für DetailPanel von *Eisenhorn Omnibus*: zeigt *Xenos*, *Malleus*, …).
+  // Two `many()` on the same junction (self-M2M "collection ↔ content").
+  // Drizzle needs explicit `relationName` strings, otherwise the
+  // relational-query API throws disambiguation errors.
+  // `containedIn` = collections this work is contained in
+  //   (for the DetailPanel of *Xenos*: shows *Eisenhorn Omnibus* etc.).
+  // `contains` = works this collection contains
+  //   (for the DetailPanel of *Eisenhorn Omnibus*: shows *Xenos*, *Malleus*, …).
   containedIn: many(workCollections, { relationName: "work_collection_content" }),
   contains: many(workCollections, { relationName: "work_collection_collection" }),
   externalLinks: many(externalLinks),
@@ -996,8 +949,8 @@ export const videoDetailsRelations = relations(videoDetails, ({ one }) => ({
     fields: [videoDetails.workId],
     references: [works.id],
   }),
-  // No `channelWork` relation here — querying channel→video is a Phase 5
-  // path and adding both directions now would force a `relationName` on the
+  // No `channelWork` relation here — channel→video queries have no current
+  // consumer, and adding both directions would force a `relationName` on the
   // works→videoDetails one() above for no current use.
 }));
 
@@ -1015,9 +968,9 @@ export const podcastEpisodeDetailsRelations = relations(
       fields: [podcastEpisodeDetails.workId],
       references: [works.id],
     }),
-    // No `show` relation here on the podcastWorkId self-link — same rationale as
-    // video_details.channelWorkId: querying show→episodes is a Product-track
-    // path, and adding it now would force a `relationName` on the
+    // No `show` relation here on the podcastWorkId self-link — same rationale
+    // as video_details.channelWorkId: show→episodes queries have no current
+    // consumer, and adding the relation would force a `relationName` on the
     // works→podcastEpisodeDetails one() above for no current use.
   }),
 );
@@ -1074,9 +1027,9 @@ export const workFacetsRelations = relations(workFacets, ({ one }) => ({
   }),
 }));
 
-// Brief 057 (2026-05-10): beide `one(works)` brauchen `relationName`, das mit
-// dem `containedIn`/`contains` in `worksRelations` paart — sonst wirft
-// Drizzle's Relational-Query-API "ambiguous relation"-Errors.
+// Both `one(works)` need a `relationName` that pairs with the
+// `containedIn`/`contains` in `worksRelations` — otherwise Drizzle's
+// relational-query API throws "ambiguous relation" errors.
 export const workCollectionsRelations = relations(workCollections, ({ one }) => ({
   collection: one(works, {
     fields: [workCollections.collectionWorkId],

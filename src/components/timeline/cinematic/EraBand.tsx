@@ -1,12 +1,12 @@
 "use client";
 
 /**
- * Era band — sliding window over all eras with the current one marked
- * (prototype `buildEraBand` + `enableBandDrag`). Shows as many stops as fit
- * at a readable size (CSS `--eb-pad` / `--eb-step` drive the geometry, so the
- * cinematic and index variants tune themselves per media query); ‹ › arrows
- * and horizontal drag pan the window. Recenters on the active era whenever it
- * changes; a manual pan survives until the next era change.
+ * Era band — sliding window over all eras with the current one marked.
+ * Shows as many stops as fit at a readable size (CSS `--eb-pad` / `--eb-step`
+ * drive the geometry, so the cinematic and index variants tune themselves per
+ * media query); ‹ › arrows and horizontal drag pan the window. Recenters on
+ * the active era whenever it changes; a manual pan survives until the next
+ * era change.
  */
 import {
   useCallback,
@@ -64,7 +64,7 @@ export default function EraBand({
     );
   }, [measure, activeIdx, n]);
 
-  // Recenter whenever the active era changes (prototype `buildEraBands(true)`).
+  // Recenter whenever the active era changes.
   useLayoutEffect(() => {
     panRef.current = null;
     recompute();

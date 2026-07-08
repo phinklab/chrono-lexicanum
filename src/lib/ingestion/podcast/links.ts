@@ -1,23 +1,23 @@
 /**
- * Brief 122 B1-S2 — deterministic cross-media link assembly for the artifact.
+ * Deterministic cross-media link assembly for the artifact.
  *
  * Show links: for an RSS show the feed (from `feedUrl`) and the Apple page (from
  * `appleId`) are DERIVED; everything else (official site, Spotify, YouTube
  * channel) comes verbatim from the registry entry's `links[]`. Episode links:
  * the RSS audio enclosure as a `listen`/`rss`/`podcast_rss` link.
  *
- * Brief 130 makes both builders SOURCE-AWARE — the single deliberately
+ * Both builders are SOURCE-AWARE — the single deliberately
  * source-aware seam in the pipeline (`ParsedFeed` itself carries no provenance,
  * so the source is passed explicitly, never guessed from a URL shape):
- *   • A `youtube` show derives NO `rss` feed link from `feedUrl` (that value is
+ *   - A `youtube` show derives NO `rss` feed link from `feedUrl` (that value is
  *     an identity string, not a listenable RSS feed); it keeps only its
  *     registry links (the YouTube channel link).
- *   • A `youtube` episode carries one `watch`/`youtube`/`youtube` link to its
+ *   - A `youtube` episode carries one `watch`/`youtube`/`youtube` link to its
  *     video page (the per-episode analogue of the RSS audio enclosure) instead
  *     of an audio enclosure.
  *
  * Every builder dedups by `(serviceId, kind, url)` and sorts by the same key, so
- * the committed artifact is byte-stable regardless of input order (the Brief 110
+ * the committed artifact is byte-stable regardless of input order (the
  * determinism contract, extended to links). Pure — no I/O — so it unit-tests
  * cleanly alongside the rest of the lib.
  */
@@ -102,11 +102,11 @@ export function buildShowLinks(config: PodcastShowConfig): PodcastLink[] {
 
 /**
  * Episode-level links, source-aware (the source is passed explicitly, never
- * inferred from `audioUrl`/`link`/URL domains — Brief 130):
- *   • `rss`     — the audio enclosure (`ep.audioUrl`) as a
+ * inferred from `audioUrl`/`link`/URL domains):
+ *   - `rss`     — the audio enclosure (`ep.audioUrl`) as a
  *     `listen`/`rss`/`podcast_rss` link. An episode without an enclosure (rare)
  *     yields no links.
- *   • `youtube` — the video page (`ep.link`) as a `watch`/`youtube`/`youtube`
+ *   - `youtube` — the video page (`ep.link`) as a `watch`/`youtube`/`youtube`
  *     link (provenance `youtube`, confidence 1). A YouTube episode always has a
  *     watch URL; a missing one yields no links rather than a malformed entry.
  */

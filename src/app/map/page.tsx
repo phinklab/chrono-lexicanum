@@ -12,9 +12,9 @@ export const metadata: Metadata = { title: "Cartographer — Chrono Lexicanum" }
 // The chart itself is client-only (mount gate in CartographerRoot); the
 // SSR pass paints overture + cartouche. Global burger/SiteMenu (z 80/81)
 // sit above the full-bleed chart.
-// Kein SiteBackground mehr (178b Runde 11, Philipp): die Karte steht auf
-// einer einzigen Flächenfarbe (--cl-void, via .map-route in 55-map.css) —
-// Foto, Schleier, Korn und das Direction-Proofs-Panel sind ausgebaut.
+// No SiteBackground here: the chart sits on a single flat surface colour
+// (--cl-void, via .map-route in 55-map.css) — deliberately no photo, veil,
+// grain, or direction-proofs panel on this route.
 export default function MapPage() {
   const payload = buildMapPayload(loadMapWorlds());
   return (

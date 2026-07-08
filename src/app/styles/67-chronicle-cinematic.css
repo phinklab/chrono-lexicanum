@@ -1,31 +1,24 @@
 /* 67-chronicle-cinematic.css
-   Chronicle Cinematic/Index timeline (Brief 138) — ported from the design
-   export's chronicle.css. Mechanical port rules:
+   Chronicle Cinematic/Index timeline. Hard rules:
 
    - every selector is scoped under `.chron` (the fixed stage root rendered by
-     ChronicleStage), prototype ids became same-named classes
-     (#cine-scroll → .cine-scroll); `body[data-mode]` → `.chron[data-mode]`,
-     `#cine` → `.chron-cine`, `#archive` → `.chron-archive`.
-   - the prototype's burger + #site-menu blocks are NOT ported (global
-     app-shell chrome since impl 139, 43-site-menu.css), nor the tweaks hooks
-     (kb-off / grain-off / #tweaks-root) — config is fixed in code.
-   - fonts bind to the next/font variables already loaded by the root layout
-     (Cormorant Garamond + IBM Plex Mono — the exact prototype faces).
-   - top offsets are the prototype originals: the global TopNav was removed
-     (session 140 follow-up), only the burger (43-site-menu.css) floats
-     top-right — exactly the chrome the prototype was designed against.
-   - DB era names are Title Case — slots the prototype fed with uppercase data
+     ChronicleStage).
+   - fonts bind to the next/font variables loaded by the root layout
+     (Cormorant Garamond + IBM Plex Mono).
+   - top offsets assume burger-only top chrome: no nav bar, just the burger
+     (43-site-menu.css) floating top-right.
+   - DB era names are Title Case — slots that expect uppercase data
      (.ei-name, .at-name, .t-era-done, .tb-name, .an-name, .wipe-name,
      .bp-name) carry text-transform: uppercase instead.
-   - media chips are now real links: pointer-events re-enabled + a hover state
+   - media chips are real links: pointer-events re-enabled + a hover state
      under the dossier's pointer-events:none umbrella. */
 
 .chron {
-  /* DELIBERATE local palette (Report 144 § C.2): these are the prototype's
-     own values from the Brief-138 design export and differ from the global
-     tokens (e.g. --void #04060b vs --cl-void #050301, --gold #c9b896 vs the
-     site gold). The cinematic stage is a scoped port — do NOT "fix" these to
-     the global tokens; that would be a design change, not a dedup. */
+  /* DELIBERATE local palette: these are the design export's own values and
+     differ from the global tokens (e.g. --void #04060b vs --cl-void #050301,
+     --gold #c9b896 vs the site gold). The cinematic stage is a scoped port —
+     do NOT "fix" these to the global tokens; that would be a design change,
+     not a dedup. */
   --void: #04060b;
   --void-2: #070b13;
   --parchment: #e9dfc8;
@@ -34,10 +27,9 @@
   --gold-dim: rgba(201, 184, 150, 0.35);
   --gold-line: rgba(201, 184, 150, 0.22);
   --steel: #7d8799;
-  /* Lightened from the prototype's #566070 (~3.1:1 on void, under WCAG AA
-     4.5:1) — the one deliberate deviation from the Brief-138 port, because
-     steel-dim carries REAL text (entry counts, approx dates, art credits),
-     not ornament (Report 141 § B5 / Report 144 Welle 7). */
+  /* Deliberately lighter than the export's #566070 (~3.1:1 on void, under
+     WCAG AA 4.5:1): steel-dim carries REAL text (entry counts, approx dates,
+     art credits), not ornament. */
   --steel-dim: #758ba3;
   --ov: 0.95;             /* overlay darkness — fixed */
   --rail-x: 72%;          /* rail anchor from right — rail sits left of the text */
@@ -46,21 +38,17 @@
   --vanish-dx: 110px;     /* vanish point offset from the rail (+ = leans right) */
   --eb-pad: 64px;         /* era band end inset */
   --text-x: clamp(120px, 13vw, 260px); /* dossier distance from bottom */
-  --serif: var(--font-body), 'Cormorant Garamond', Georgia, serif;
-  --mono: var(--font-mono), 'IBM Plex Mono', ui-monospace, monospace;
-  /* shared type scale — keep cinematic + index consistent */
-  --fs-mono-lg: 13px;   /* dates, kicker rows */
-  --fs-mono: 12px;      /* section labels, heads, buttons */
-  --fs-mono-sm: 11px;   /* tags, media meta, fine print */
-  --fs-body: 21px;      /* serif reading text (2026-06-19: 19px read small) */
-  --fs-row-title: 25px; /* index row titles  (2026-06-19: 22px read small) */
+  --cine-sp: 140;         /* px between rail nodes (read by CinematicView) */
+  --cine-dz: 420;         /* px z-recession per node (read by CinematicView) */
+  --parchment-sel: #d8d2c2;  /* selected mode-toggle pill */
+  --ink-on-sel: #0a0e14;
 
   position: fixed;
   inset: 0;
   z-index: 10; /* above page flow, below SiteMenu (80) / burger (81) */
   background: var(--void);
   color: var(--parchment);
-  font-family: var(--serif);
+  font-family: var(--font-body);
   overflow: hidden;
 }
 .chron button {
@@ -68,7 +56,7 @@
   touch-action: manipulation;
 }
 
-/* ============================= shared chrome ============================= */
+/* Shared chrome */
 .chron .chron-mode-toggle {
   position: absolute;
   bottom: 18px;
@@ -77,9 +65,9 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.22em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-3xs);
+  letter-spacing: var(--track-22);
 }
 .chron .chron-mode-toggle .lab { color: var(--steel-dim); }
 .chron .chron-mode-toggle .pill {
@@ -89,9 +77,9 @@
   overflow: hidden;
 }
 .chron .chron-mode-toggle button {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.18em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-3xs);
+  letter-spacing: var(--track-18);
   background: transparent;
   color: var(--steel);
   border: none;
@@ -99,7 +87,7 @@
   cursor: pointer;
 }
 .chron .chron-mode-toggle button:hover { color: var(--parchment); }
-.chron .chron-mode-toggle button.sel { background: #d8d2c2; color: #0a0e14; }
+.chron .chron-mode-toggle button.sel { background: var(--parchment-sel); color: var(--ink-on-sel); }
 
 .chron .grain,
 .chron .ei-grain {
@@ -136,7 +124,7 @@
   pointer-events: none;
 }
 
-/* ============================= cinematic mode ============================ */
+/* Cinematic mode */
 .chron .bg-stack {
   position: absolute;
   inset: 0;
@@ -195,9 +183,9 @@
   left: 24px;
   z-index: 10;
   pointer-events: none;
-  font-family: var(--mono);
-  letter-spacing: 0.24em;
-  font-size: var(--fs-mono);
+  font-family: var(--font-mono);
+  letter-spacing: var(--track-24);
+  font-size: var(--fs-label-xs);
   color: var(--steel);
 }
 .chron .era-bar .row1 { display: flex; gap: 12px; align-items: center; }
@@ -229,9 +217,9 @@
   transform: translateX(-50%);
   z-index: 10;
   pointer-events: none;
-  font-family: var(--mono);
-  font-size: var(--fs-mono-sm);
-  letter-spacing: 0.3em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-2xs);
+  letter-spacing: var(--track-30);
   color: var(--steel);
   opacity: 1;
   transition: opacity 0.8s ease;
@@ -246,7 +234,7 @@
 /* back-pull indicator — fades in while pulling up at an era's first entry */
 .chron .back-pull {
   position: absolute;
-  top: 152px; /* below the era band (now at 64px, h 76) */
+  top: 152px; /* below the era band */
   left: 50%;
   transform: translate(-50%, calc(var(--p, 0) * 12px - 6px));
   z-index: 10;
@@ -255,20 +243,19 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.3em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-3xs);
+  letter-spacing: var(--track-30);
   color: var(--parchment-dim);
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
   white-space: nowrap;
 }
-.chron .back-pull .bp-arrow { color: var(--gold); letter-spacing: 0; font-size: 12px; }
+.chron .back-pull .bp-arrow { color: var(--gold); letter-spacing: 0; font-size: var(--fs-label-xs); }
 .chron .back-pull .bp-lab { color: var(--gold); }
 .chron .back-pull .bp-name { text-transform: uppercase; }
 
-/* ----------------------------- 3D rail ----------------------------- */
-/* lies on the "ground": future entries recede up toward a horizon point,
-   scrolling forward brings them toward the viewer */
+/* 3D rail — lies on the "ground": future entries recede up toward a horizon
+   point, scrolling forward brings them toward the viewer */
 .chron .rail3d {
   position: absolute;
   inset: 0;
@@ -352,9 +339,9 @@
   right: 28px;
   top: 0;
   transform: translateY(-50%);
-  font-family: var(--mono);
-  font-size: var(--fs-mono-lg);
-  letter-spacing: 0.2em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-md);
+  letter-spacing: var(--track-20);
   color: #94a0b4;
   white-space: nowrap;
   text-shadow: 0 1px 10px rgba(0, 0, 0, 0.8);
@@ -365,10 +352,9 @@
   text-shadow: 0 0 14px rgba(201, 184, 150, 0.4);
 }
 
-/* ------------------- entry text: rail + dossier form one group -------------------
-   +140px rail clearance + 760px cap (prototype: +80 / 620): the dossier sat too
-   close to the rail and long blurbs wrapped into a tall, hard-to-read column
-   (Philipp, session 140 follow-up). */
+/* Entry text: rail + dossier form one group. The +140px rail clearance +
+   760px cap keep the dossier clear of the rail and stop long blurbs wrapping
+   into a tall, hard-to-read column. */
 .chron .cine-lower {
   position: absolute;
   left: calc(100% - var(--rail-x) + 140px);
@@ -389,9 +375,9 @@
   display: flex;
   gap: 18px;
   align-items: baseline;
-  font-family: var(--mono);
-  font-size: var(--fs-mono-lg);
-  letter-spacing: 0.26em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-md);
+  letter-spacing: var(--track-26);
   color: var(--steel);
   margin-bottom: 14px;
 }
@@ -399,8 +385,8 @@
 .chron .d-tier .approx { color: var(--steel-dim); }
 .chron .d-title {
   margin: 0 0 16px 0;
-  font-family: var(--serif);
-  font-weight: 500;
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
   font-size: clamp(38px, 4.4vw, 68px);
   line-height: 1.04;
   letter-spacing: 0.05em;
@@ -410,11 +396,11 @@
 }
 .chron .d-note {
   margin: 0;
-  font-family: var(--serif);
+  font-family: var(--font-body);
   font-style: italic;
-  font-weight: 400;
+  font-weight: var(--fw-regular);
   font-size: clamp(20px, 1.85vw, 25px);
-  line-height: 1.6;
+  line-height: var(--lh-read);
   color: var(--parchment-dim);
   max-width: 60ch; /* 44ch wrapped long blurbs past 4 lines — unreadable */
   text-shadow: 0 1px 16px rgba(0, 0, 0, 0.85);
@@ -434,9 +420,9 @@
 /* media segment — books & podcasts */
 .chron .media-seg { flex: none; max-width: 100%; }
 .chron .m-label {
-  font-family: var(--mono);
-  font-size: var(--fs-mono);
-  letter-spacing: 0.26em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-xs);
+  letter-spacing: var(--track-26);
   color: var(--steel);
   margin-bottom: 12px;
 }
@@ -449,6 +435,26 @@
   margin-bottom: 12px;
   opacity: 0.7;
 }
+/* The label is a button so the mobile sheet can collapse the shelf behind a
+   disclosure; on desktop it is inert and reads exactly like the old label. */
+.chron .m-disclose {
+  display: block;
+  width: 100%;
+  padding: 0;
+  background: none;
+  border: none;
+  text-align: left;
+  text-transform: inherit;
+  cursor: default;
+  pointer-events: none;
+}
+.chron .m-disclose .m-count,
+.chron .m-disclose .m-car {
+  display: none;
+}
+.chron .d-media-rows-wrap {
+  display: contents;
+}
 .chron .d-media-rows { display: flex; flex-wrap: wrap; gap: 12px 42px; }
 .chron .media-row {
   display: flex;
@@ -458,20 +464,20 @@
   max-width: 100%;
 }
 .chron .media-row .m-title {
-  font-family: var(--serif);
-  font-weight: 500;
-  font-size: 18px;
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-read-sm);
   letter-spacing: 0.02em;
   color: var(--parchment);
 }
 .chron .media-row .m-meta {
-  font-family: var(--mono);
-  font-size: var(--fs-mono-sm);
-  letter-spacing: 0.22em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-2xs);
+  letter-spacing: var(--track-22);
   color: var(--steel-dim);
 }
-/* chips are real anchors now (prototype rendered inert rows) — clickable
-   under the dossier's pointer-events:none umbrella, quiet gold hover */
+/* chips are real anchors — clickable under the dossier's pointer-events:none
+   umbrella, quiet gold hover */
 .chron a.media-row {
   pointer-events: auto;
   text-decoration: none;
@@ -481,9 +487,9 @@
 .chron a.media-row:hover .m-title,
 .chron a.media-row:focus-visible .m-title { color: var(--gold); }
 .chron .no-books {
-  font-family: var(--mono);
-  font-size: var(--fs-mono-sm);
-  letter-spacing: 0.2em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-2xs);
+  letter-spacing: var(--track-20);
   color: var(--steel-dim);
 }
 
@@ -512,16 +518,16 @@
   flex-direction: column;
   align-items: flex-end;
   gap: 4px;
-  font-family: var(--mono);
-  letter-spacing: 0.22em;
+  font-family: var(--font-mono);
+  letter-spacing: var(--track-22);
   text-align: right;
   text-decoration: none;
   cursor: default;
 }
-.chron .art-credit .ac-lab { font-size: 10px; color: var(--steel-dim); }
+.chron .art-credit .ac-lab { font-size: var(--fs-label-3xs); color: var(--steel-dim); }
 .chron .art-credit .ac-name {
   font-size: 14px;
-  letter-spacing: 0.18em;
+  letter-spacing: var(--track-18);
   color: var(--steel);
   transition: color 0.2s;
 }
@@ -538,8 +544,8 @@
   display: flex;
   gap: 14px;
   margin-top: 2px;
-  font-size: 10px;
-  letter-spacing: 0.2em;
+  font-size: var(--fs-label-3xs);
+  letter-spacing: var(--track-20);
 }
 .chron .art-credit .ac-links a {
   color: var(--steel);
@@ -550,7 +556,7 @@
 }
 .chron .art-credit .ac-links a:hover { color: var(--gold); }
 
-/* ----------------------------- era terminus ----------------------------- */
+/* Era terminus */
 .chron .terminus {
   position: absolute;
   inset: 0;
@@ -566,15 +572,15 @@
   pointer-events: none;
 }
 .chron .terminus .t-kicker {
-  font-family: var(--mono);
-  font-size: var(--fs-mono);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-xs);
   letter-spacing: 0.32em;
   color: var(--steel);
   margin-bottom: 16px;
 }
 .chron .t-era-done {
-  font-family: var(--mono);
-  font-size: var(--fs-mono-lg);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-md);
   letter-spacing: 0.28em;
   color: var(--parchment-dim);
   text-transform: uppercase;
@@ -588,12 +594,11 @@
 .chron .t-tagline {
   margin: 0 0 36px 0;
   max-width: 44ch;
-  font-family: var(--serif);
+  font-family: var(--font-body);
   font-style: italic;
-  /* Transition/overview flow-text — bumped up so it reads over the art
-     (maintainer polish 2026-06-19; was clamp(18px, 1.6vw, 21px)). */
+  /* Transition/overview flow-text — sized up so it reads over the art. */
   font-size: clamp(22px, 2vw, 27px);
-  line-height: 1.5;
+  line-height: var(--lh-prose);
   color: var(--parchment-dim);
   text-shadow: 0 1px 16px rgba(0, 0, 0, 0.85);
 }
@@ -608,16 +613,16 @@
   cursor: pointer;
 }
 .chron .terminus-btn .tb-lab {
-  font-family: var(--mono);
-  font-size: var(--fs-mono-sm);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-2xs);
   letter-spacing: 0.32em;
   color: var(--gold);
 }
 .chron .terminus-btn .tb-name {
-  font-family: var(--serif);
-  font-weight: 500;
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
   font-size: clamp(20px, 2.2vw, 28px);
-  letter-spacing: 0.1em;
+  letter-spacing: var(--track-10);
   color: var(--parchment);
   text-shadow: 0 2px 22px rgba(0, 0, 0, 0.8);
   transition: color 0.25s, text-shadow 0.25s;
@@ -628,7 +633,7 @@
   text-shadow: 0 0 28px rgba(201, 184, 150, 0.5);
 }
 .chron .terminus-btn .tb-arrow {
-  font-family: var(--mono);
+  font-family: var(--font-mono);
   font-size: 14px;
   color: var(--gold);
   margin-top: 2px;
@@ -637,9 +642,9 @@
 .chron .terminus-btn:hover .tb-arrow { transform: translateX(6px); }
 .chron .t-scroll {
   margin-top: 30px;
-  font-family: var(--mono);
-  font-size: var(--fs-mono-sm);
-  letter-spacing: 0.3em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-2xs);
+  letter-spacing: var(--track-30);
   color: var(--steel-dim);
 }
 @media (prefers-reduced-motion: no-preference) {
@@ -650,9 +655,8 @@
   50% { transform: translateY(5px); }
 }
 
-/* ----------------------------- era intro ----------------------------- */
-/* full-bleed era opening: the era's cover art, centred name, typed
-   description. Dismiss = the whole sheet lifts, revealing the identical
+/* Era intro — full-bleed era opening: the era's cover art, centred name,
+   typed description. Dismiss = the whole sheet lifts, revealing the identical
    artwork underneath — a seamless handoff into the timeline. */
 .chron .era-intro {
   position: absolute;
@@ -673,9 +677,8 @@
   background-size: cover;
   background-position: center;
 }
-/* same gradient stack as the cinematic .veil (Philipp, session 140 follow-up):
-   the intro's own lighter veil left the era title harder to read than the
-   event view — consistency + readability over the cover art. */
+/* same gradient stack as the cinematic .veil — consistency, and the era
+   title stays readable over the cover art. */
 .chron .ei-veil {
   position: absolute;
   inset: 0;
@@ -696,8 +699,8 @@
   text-align: center;
 }
 .chron .ei-kicker {
-  font-family: var(--mono);
-  font-size: var(--fs-mono);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-xs);
   letter-spacing: 0.42em;
   text-indent: 0.42em;
   color: var(--gold);
@@ -706,8 +709,8 @@
 .chron .ei-name {
   margin: 22px 0 0 0;
   max-width: 18ch;
-  font-family: var(--serif);
-  font-weight: 500;
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
   font-size: clamp(38px, 5.6vw, 76px);
   line-height: 1.1;
   letter-spacing: 0.13em;
@@ -725,10 +728,10 @@
 .chron .ei-text {
   margin: 0;
   max-width: 56ch;
-  font-family: var(--serif);
+  font-family: var(--font-body);
   font-style: italic;
-  font-weight: 400;
-  font-size: clamp(23px, 2.1vw, 29px); /* bumped 2026-06-19 (was 20–26px); transition flow-text too small over art */
+  font-weight: var(--fw-regular);
+  font-size: clamp(23px, 2.1vw, 29px); /* kept large — transition flow-text must read over the art */
   line-height: 1.62;
   color: var(--parchment-dim);
   text-shadow: 0 1px 16px rgba(0, 0, 0, 0.85);
@@ -738,9 +741,9 @@
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
-  font-family: var(--mono);
-  font-size: var(--fs-mono-sm);
-  letter-spacing: 0.3em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-2xs);
+  letter-spacing: var(--track-30);
   color: var(--steel);
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
   white-space: nowrap;
@@ -769,8 +772,8 @@
    from scratch — the handoff into the timeline is pixel-identical, no jump */
 .chron .chron-cine.intro-hold .bg { animation: none; }
 
-/* ---- timeline wake — entering an era, the frame draws itself in ----
-   pairs with the JS dolly (rail sweeps in from the horizon): the era band's
+/* Timeline wake — entering an era, the frame draws itself in.
+   Pairs with the JS dolly (rail sweeps in from the horizon): the era band's
    line pulls open from its centre, stops cascade in, chrome fades up last */
 @media (prefers-reduced-motion: no-preference) {
   .chron .chron-cine.wake .era-bar { animation: chron-d-fade 0.7s ease 0.75s both; }
@@ -805,9 +808,9 @@
 }
 .chron .chron-wipe.on { opacity: 1; visibility: visible; }
 .chron .chron-wipe .wipe-name {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.34em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-2xs);
+  letter-spacing: var(--track-34);
   color: var(--gold);
   text-transform: uppercase;
   opacity: 0;
@@ -816,7 +819,7 @@
 }
 .chron .chron-wipe.on .wipe-name { opacity: 1; transform: none; }
 
-/* ============================= archive mode ============================== */
+/* Archive mode */
 .chron .chron-archive {
   background: var(--void);
   color: var(--parchment);
@@ -852,9 +855,9 @@
   z-index: 2;
 }
 .chron .arch-head {
-  font-family: var(--mono);
-  font-size: var(--fs-mono);
-  letter-spacing: 0.24em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-xs);
+  letter-spacing: var(--track-24);
   color: var(--steel);
   margin-bottom: 24px;
 }
@@ -914,18 +917,18 @@
   /* Cormorant Unicase (upright — the face has no italic), a step smaller than
      the surrounding serif so the band reads as waypoints, not headings. */
   font-family: var(--font-unicase);
-  font-weight: 500;
+  font-weight: var(--fw-medium);
   font-size: 14px;
-  letter-spacing: 0.06em;
+  letter-spacing: var(--track-06);
   margin-top: 2px;
   color: var(--steel-dim);
   white-space: nowrap;
   transition: color 0.25s;
 }
 .chron .eb-m {
-  font-family: var(--mono);
+  font-family: var(--font-mono);
   font-size: 10.5px;
-  letter-spacing: 0.2em;
+  letter-spacing: var(--track-20);
   color: var(--steel-dim);
   white-space: nowrap;
   opacity: 0;
@@ -947,9 +950,9 @@
   border: none;
   padding: 0;
   cursor: pointer;
-  font-family: var(--mono);
+  font-family: var(--font-mono);
   font-size: 22px;
-  line-height: 1;
+  line-height: var(--lh-solid);
   color: var(--steel);
   transition: color 0.2s, opacity 0.2s;
 }
@@ -980,7 +983,7 @@
 .chron .cine-band {
   position: absolute;
   z-index: 10;
-  top: 88px; /* clears the centred desktop burger (top 16, h 44) with breathing room */
+  top: 88px; /* clears the desktop burger (top 16, h 44) with breathing room */
   left: 50%;
   transform: translateX(-50%);
   width: clamp(340px, calc(100vw - 600px), 860px);
@@ -996,8 +999,8 @@
 }
 .chron .cine-band .eb-stop.on .eb-mark { background: var(--gold); }
 .chron .cine-band .eb-m {
-  font-size: 12.5px;
-  letter-spacing: 0.18em;
+  font-size: var(--fs-label);
+  letter-spacing: var(--track-18);
   color: var(--steel);
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
 }
@@ -1017,24 +1020,24 @@
   align-items: flex-start;
   gap: 10px;
   margin: 0;
-  font-family: var(--serif);
-  font-weight: 500;
-  letter-spacing: 0.14em;
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--track-14);
   font-size: clamp(30px, 3.4vw, 46px);
   color: var(--parchment);
 }
 .chron .arch-title .at-m {
-  font-family: var(--mono);
+  font-family: var(--font-mono);
   font-size: 14px;
-  letter-spacing: 0.34em;
+  letter-spacing: var(--track-34);
   color: var(--gold);
 }
 .chron .arch-title .at-name { text-transform: uppercase; }
 .chron .arch-sub {
-  font-family: var(--serif);
+  font-family: var(--font-body);
   font-style: italic;
   color: var(--steel);
-  font-size: var(--fs-body);
+  font-size: var(--fs-read-lg);
   margin: 10px 0 38px 0;
 }
 
@@ -1050,7 +1053,7 @@
   top: 0;
   z-index: 6;
   margin: 4px -40px 30px -40px;
-  /* top padding keeps the axis clear of the centred desktop burger */
+  /* top padding keeps the axis clear of the desktop burger */
   padding: 40px 40px 4px 40px;
 }
 /* backdrop — off while the map rests in place, fades in once it docks and rows
@@ -1080,9 +1083,9 @@
   opacity: 1;
 }
 .chron .mm-lab {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.26em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-3xs);
+  letter-spacing: var(--track-26);
   color: var(--steel-dim);
   margin-bottom: 16px;
 }
@@ -1116,9 +1119,9 @@
   position: absolute;
   top: 30px;
   transform: translateX(-50%);
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.18em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-3xs);
+  letter-spacing: var(--track-18);
   color: var(--steel-dim);
   white-space: nowrap;
 }
@@ -1171,17 +1174,17 @@
   margin-bottom: 4px;
 }
 .chron .century-head .num {
-  font-family: var(--serif);
-  font-weight: 500;
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
   font-size: 32px;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--track-10);
   color: var(--gold);
   white-space: nowrap;
 }
 .chron .century-head .suffix {
-  font-family: var(--mono);
-  font-size: var(--fs-mono);
-  letter-spacing: 0.22em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-xs);
+  letter-spacing: var(--track-22);
   color: var(--steel-dim);
 }
 .chron .century-head .rule {
@@ -1206,26 +1209,26 @@
 .chron .row:hover .row-line { background: rgba(255, 255, 255, 0.03); }
 .chron .row.open .row-line { background: rgba(201, 184, 150, 0.05); }
 .chron .row-title {
-  font-family: var(--serif);
-  font-weight: 500;
-  font-size: var(--fs-row-title);
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+  font-size: 25px;
   letter-spacing: 0.03em;
   color: var(--parchment);
   display: flex;
   align-items: baseline;
   gap: 8px;
 }
-.chron .row-title .tiermark { font-size: 12px; color: var(--gold); }
+.chron .row-title .tiermark { font-size: var(--fs-label-xs); color: var(--gold); }
 .chron .row-title .tiermark.minor { color: var(--steel-dim); }
 .chron .row-title .tiermark.epoch { font-size: 14px; }
 .chron .row-date {
-  font-family: var(--mono);
-  font-size: var(--fs-mono-lg);
-  letter-spacing: 0.14em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-md);
+  letter-spacing: var(--track-14);
   color: var(--steel);
 }
 .chron .row-snip {
-  font-family: var(--serif);
+  font-family: var(--font-body);
   font-style: italic;
   font-size: 17px;
   color: var(--steel);
@@ -1234,8 +1237,8 @@
   text-overflow: ellipsis;
 }
 .chron .row-chev {
-  font-family: var(--mono);
-  font-size: var(--fs-mono);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-xs);
   color: var(--steel-dim);
   transition: transform 0.3s;
 }
@@ -1252,10 +1255,10 @@
 .chron .row-note {
   margin: 0 0 14px 0;
   max-width: 720px;
-  font-family: var(--serif);
+  font-family: var(--font-body);
   font-style: italic;
-  font-size: var(--fs-body);
-  line-height: 1.55;
+  font-size: var(--fs-read-lg);
+  line-height: var(--lh-prose-lg);
   color: var(--parchment-dim);
 }
 .chron .row-media {
@@ -1265,9 +1268,9 @@
   margin-bottom: 20px;
 }
 .chron .open-cine {
-  font-family: var(--mono);
-  font-size: var(--fs-mono);
-  letter-spacing: 0.2em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-xs);
+  letter-spacing: var(--track-20);
   background: transparent;
   color: var(--gold);
   border: 1px solid var(--gold-dim);
@@ -1291,16 +1294,16 @@
   cursor: pointer;
 }
 .chron .arch-next .an-lab {
-  font-family: var(--mono);
-  font-size: var(--fs-mono-sm);
-  letter-spacing: 0.3em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-2xs);
+  letter-spacing: var(--track-30);
   color: var(--gold);
 }
 .chron .arch-next .an-name {
-  font-family: var(--serif);
-  font-weight: 500;
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
   font-size: clamp(20px, 2vw, 26px);
-  letter-spacing: 0.08em;
+  letter-spacing: var(--track-08);
   color: var(--parchment);
   transition: color 0.25s, text-shadow 0.25s;
   text-transform: uppercase;
@@ -1310,14 +1313,14 @@
   text-shadow: 0 0 24px rgba(201, 184, 150, 0.4);
 }
 .chron .arch-next .an-arrow {
-  font-family: var(--mono);
-  font-size: 13px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-md);
   color: var(--gold);
   transition: transform 0.25s;
 }
 .chron .arch-next:hover .an-arrow { transform: translateX(6px); }
 
-/* ---------------- DB-unreachable fallback (server-rendered) ---------------- */
+/* DB-unreachable fallback (server-rendered) */
 .chron-shell { min-height: 60vh; }
 .chron-empty {
   max-width: 520px;
@@ -1327,18 +1330,18 @@
 }
 .chron-empty .ce-kicker {
   font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.34em;
-  /* lightened with --steel-dim (WCAG AA, Report 141 § B5); literal because
-     .chron-empty renders OUTSIDE the .chron scope that defines the token */
+  font-size: var(--fs-label-2xs);
+  letter-spacing: var(--track-34);
+  /* the --steel-dim value (WCAG AA); literal because .chron-empty renders
+     OUTSIDE the .chron scope that defines the token */
   color: #758ba3;
   margin-bottom: 18px;
 }
 .chron-empty .ce-text {
   font-family: var(--font-body);
   font-style: italic;
-  font-size: 19px;
-  line-height: 1.55;
+  font-size: var(--fs-read);
+  line-height: var(--lh-prose-lg);
   color: #c7c2b2;
 }
 
@@ -1356,13 +1359,13 @@
   .chron .node .dot::after {
     content: '';
     position: absolute;
-    inset: -14px;
+    inset: -16px;
     border-radius: 50%;
   }
   .chron .eb-stop::after {
     content: '';
     position: absolute;
-    inset: -8px -14px;
+    inset: -12px -16px;
   }
   .chron .mm-dot::before,
   .chron .mm-bar::before {
@@ -1370,9 +1373,16 @@
     position: absolute;
     inset: -9px;
   }
+  /* Animated blur() on every rail node is the single biggest phone cost in
+     this view — depth stays readable through the opacity/scale falloff.
+     CinematicView also stops writing --nblur on coarse pointers. */
+  .chron .node .dot,
+  .chron .node .nlab {
+    filter: none;
+  }
 }
 
-/* ============================= mobile ============================== */
+/* Mobile */
 @media (max-width: 760px) {
   .chron {
     --rail-x: 15%;
@@ -1381,6 +1391,8 @@
     --vanish-dx: -110px;
     --eb-pad: 26px;
     --text-x: 18px;
+    --cine-sp: 84;      /* 140 × 0.6 — the former JS mobile scaling */
+    --cine-dz: 277.2;   /* 420 × 0.66 */
   }
 
   /* chrome — compact toggle (no label), parked bottom-right clear of the hint */
@@ -1397,7 +1409,7 @@
   }
   .chron .era-bar .row1 { gap: 8px; }
   .chron .era-bar .era-pos { display: none; }
-  .chron .era-bar .entry-count { margin-left: 0; font-size: 11px; }
+  .chron .era-bar .entry-count { margin-left: 0; font-size: var(--fs-label-2xs); }
   .chron .era-rail { width: 120px; margin-top: 8px; }
 
   /* cinematic era band — full-width strip under the chrome; tighter step fits 3 eras */
@@ -1412,22 +1424,40 @@
     --eb-step: 118;
   }
   .chron .cine-band .eb-mark { width: 10px; height: 10px; }
-  .chron .cine-band .eb-m { font-size: 11px; letter-spacing: 0.14em; }
+  .chron .cine-band .eb-m { font-size: var(--fs-label-2xs); letter-spacing: var(--track-14); }
   .chron .cine-band .eb-n { display: block; font-size: 14px; }
 
-  /* cinematic — rail upper right, dossier as bottom sheet */
+  /* cinematic — rail upper right, dossier as a quiet bottom sheet: full-bleed
+     gradient backdrop + gold hairline so it reads as a deliberate panel, not
+     floated text. Transform-free, no blur. */
   .chron .cine-lower {
-    left: var(--text-x);
-    right: 16px;
-    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    left: 0;
+    right: 0;
+    bottom: 0;
     top: auto;
     transform: none;
     gap: 16px;
     max-width: none;
+    padding: 16px 16px calc(16px + env(safe-area-inset-bottom, 0px)) var(--text-x);
+    background: linear-gradient(
+      to top,
+      rgba(2, 4, 8, 0.78),
+      rgba(2, 4, 8, 0.45) 70%,
+      transparent
+    );
+  }
+  .chron .cine-lower::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 16px;
+    right: 16px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-line), transparent);
   }
   .chron .d-kicker {
     gap: 10px;
-    font-size: 11px;
+    font-size: var(--fs-label-2xs);
     margin-bottom: 9px;
     flex-wrap: wrap;
   }
@@ -1437,8 +1467,43 @@
   .chron .m-label { margin-bottom: 8px; }
   .chron .m-label::before { margin-bottom: 8px; }
   .chron .d-media-rows { gap: 6px 24px; }
+
+  /* LIBRARIVM disclosure — collapsed by default, tap to unfold. Reclaims a
+     third of the sheet's height for the blurb. */
+  .chron .m-disclose {
+    pointer-events: auto;
+    cursor: pointer;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    min-height: 32px;
+  }
+  .chron .m-disclose .m-count {
+    display: inline;
+    color: var(--gold);
+  }
+  .chron .m-disclose .m-car {
+    display: inline-block;
+    color: var(--gold);
+    transition: transform 0.3s var(--ease);
+  }
+  .chron .media-seg.m-open .m-disclose .m-car {
+    transform: rotate(90deg);
+  }
+  .chron .d-media-rows-wrap {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s var(--ease);
+  }
+  .chron .media-seg.m-open .d-media-rows-wrap {
+    grid-template-rows: 1fr;
+  }
+  .chron .d-media-rows-wrap > .d-media-rows {
+    overflow: hidden;
+    min-height: 0;
+  }
   .chron .media-row .m-title { font-size: 16px; }
-  .chron .media-row .m-meta { font-size: 10px; }
+  .chron .media-row .m-meta { font-size: var(--fs-label-3xs); }
   .chron .scroll-hint {
     bottom: auto;
     top: 46%;
@@ -1446,7 +1511,7 @@
     right: 16px;
     transform: none;
     writing-mode: vertical-rl;
-    letter-spacing: 0.26em;
+    letter-spacing: var(--track-26);
     animation: none;
   }
   /* credit sits clear below the era band; back-pull moves further down to match */
@@ -1458,11 +1523,11 @@
   .chron .back-pull {
     top: calc(148px + env(safe-area-inset-top, 0px));
   }
-  .chron .node .nlab { font-size: 11px; right: 18px; }
+  .chron .node .nlab { font-size: var(--fs-label-2xs); right: 18px; }
   .chron .node.epoch .dot { width: 16px; height: 16px; }
 
   /* terminus */
-  .chron .t-era-done { font-size: 11px; }
+  .chron .t-era-done { font-size: var(--fs-label-2xs); }
   .chron .terminus .t-rule { height: 42px; margin: 20px 0; }
   .chron .t-tagline { font-size: 20px; margin-bottom: 28px; }
   .chron .terminus-btn { padding: 18px 26px; width: 100%; max-width: 340px; }
@@ -1479,14 +1544,14 @@
   .chron .arch-head { margin-bottom: 18px; }
   .chron .arch-band { height: 44px; margin: 0 0 20px 0; }
   .chron .eb-m { display: none; }
-  .chron .eb-n { font-size: 12.5px; }
-  .chron .eb-arrow { width: 40px; height: 40px; font-size: 19px; }
+  .chron .eb-n { font-size: var(--fs-label); }
+  .chron .eb-arrow { width: 44px; height: 44px; font-size: var(--fs-read); }
   .chron .cine-band .eb-arrow.left,
   .chron .arch-band .eb-arrow.left { left: -12px; }
   .chron .cine-band .eb-arrow.right,
   .chron .arch-band .eb-arrow.right { right: -12px; }
   .chron .arch-title { font-size: 27px; gap: 8px; }
-  .chron .arch-title .at-m { font-size: 12px; }
+  .chron .arch-title .at-m { font-size: var(--fs-label-xs); }
   .chron .arch-sub { font-size: 16px; margin-bottom: 24px; }
   .chron .minimap {
     margin: 2px -16px 22px -16px;
@@ -1502,11 +1567,11 @@
     padding: 14px 6px;
   }
   .chron .row-snip { display: none; }
-  .chron .row-title { font-size: 19px; }
+  .chron .row-title { font-size: var(--fs-read); }
   .chron .row-note { font-size: 17px; }
   .chron .open-cine { padding: 12px 18px; min-height: 44px; }
   .chron .arch-next { padding: 18px 16px; gap: 10px; flex-wrap: wrap; }
-  .chron .arch-next .an-name { font-size: 19px; }
+  .chron .arch-next .an-name { font-size: var(--fs-read); }
 }
 
 /* short phones (SE-class) — compress the dossier so it never climbs into the band */
@@ -1514,7 +1579,7 @@
   .chron .cine-lower { gap: 12px; }
   .chron .d-title { font-size: 24px; margin-bottom: 7px; }
   .chron .d-note { font-size: 15px; }
-  .chron .d-kicker { font-size: 10px; margin-bottom: 7px; }
+  .chron .d-kicker { font-size: var(--fs-label-3xs); margin-bottom: 7px; }
   .chron .media-row .m-title { font-size: 15px; }
   .chron .cine-band {
     top: calc(34px + env(safe-area-inset-top, 0px));
@@ -1542,7 +1607,7 @@
   .chron .ei-name { font-size: clamp(30px, 6vh, 44px); }
 }
 
-/* ====================== reduced motion (Report 141 § B5) ===================
+/* Reduced motion.
    The stage's three infinite ambience animations get an explicit gate instead
    of relying on the global 0.001ms clamp (10-base.css): the Ken Burns pan
    holds its resting frame, the scroll hint stops bobbing (stays readable),

@@ -1,10 +1,9 @@
 /**
- * On-demand cache invalidation (Report 144 § P.6). The catalogue loaders tag
- * their `cachedRead` entries, but nothing ever invalidated those tags — after
- * an ingestion/apply run the old data lived on until TTL expiry (now a full
- * hour, see `READ_CACHE_TTL`). This route closes the loop: the Batches-strand
- * apply scripts (or a manual curl) POST here after writing to Postgres and the
- * next request re-reads fresh data.
+ * On-demand cache invalidation. The catalogue loaders tag their `cachedRead`
+ * entries; without invalidation, data written by an ingestion/apply run would
+ * live on until TTL expiry (a full hour, see `READ_CACHE_TTL`). This route
+ * closes the loop: the Batches-strand apply scripts (or a manual curl) POST
+ * here after writing to Postgres and the next request re-reads fresh data.
  *
  *   curl -X POST https://<host>/api/revalidate \
  *     -H "Authorization: Bearer $REVALIDATE_TOKEN" \
@@ -21,7 +20,7 @@
  * `loadEntity`, which carries NO catalogue tag — so `revalidateTag` alone would
  * leave an already-rendered entity page stale until its 24 h ISR backstop. The
  * path purge closes that loop so an apply run's fresh data shows on the next
- * request (Brief 161).
+ * request.
  *
  * Best-effort extras per call: the in-process memory caches (`/archive`
  * browse blob, /ask book cache) are cleared too. Those only exist per
@@ -38,7 +37,7 @@ import { timingSafeEqualStr } from "@/lib/timingSafeEqual";
 const KNOWN_TAGS: ReadonlySet<string> = new Set(CATALOGUE_TAGS);
 
 /**
- * The on-demand-ISR entity detail routes (Brief 161). Purged by path on every
+ * The on-demand-ISR entity detail routes. Purged by path on every
  * call because their `loadEntity` reads carry no catalogue tag (so the tag loop
  * misses them) and an entity page is cross-cutting — any catalogue change
  * (works, factions, characters …) can alter it, so there is no clean per-tag
@@ -61,8 +60,8 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       { status: 503 },
     );
   }
-  // Constant-time token check (Report 144 § S.1a sweep) — `!==` would leak
-  // a prefix-timing oracle on the bearer token.
+  // Constant-time token check — `!==` would leak a prefix-timing oracle on
+  // the bearer token.
   const auth = req.headers.get("authorization");
   if (!auth || !(await timingSafeEqualStr(auth, `Bearer ${expected}`))) {
     return NextResponse.json({ error: "Unauthorized." }, { status: 401 });

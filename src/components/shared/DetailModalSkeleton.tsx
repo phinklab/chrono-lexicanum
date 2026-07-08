@@ -1,5 +1,5 @@
 /**
- * Presentational fallback for the `@modal` slot (Report — perceived latency).
+ * Presentational fallback for the `@modal` slot (perceived latency).
  *
  * Pared to the loader itself: NO card panel, NO top bar / Terminus divider —
  * just the compact cogitator (the shared `.lx-cog` ring+seed+eyebrow,

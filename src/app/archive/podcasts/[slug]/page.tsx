@@ -1,12 +1,11 @@
 /**
  * Per-show podcast detail page. /archive/podcasts/the-40k-lorecast
  *
- * 121-P4 (2026-06-06): the second half of the podcast redesign. The index
- * (/archive/podcasts) is a hall of show doorways; this route opens one show and lists
- * every episode through the client archive island (filter + inline play +
- * faction chips). Mirrors the /buch/[slug] route shape — `params` Promise,
- * `notFound()` on a miss, `generateMetadata`. Shows render on demand (empty
- * `generateStaticParams`), never at build time.
+ * The index (/archive/podcasts) is a hall of show doorways; this route opens
+ * one show and lists every episode through the client archive island (filter +
+ * inline play + faction chips). Mirrors the /buch/[slug] route shape —
+ * `params` Promise, `notFound()` on a miss, `generateMetadata`. Shows render
+ * on demand (empty `generateStaticParams`), never at build time.
  */
 import { cache } from "react";
 import type { Metadata } from "next";
@@ -118,7 +117,7 @@ export default async function PodcastShowPage({
 
       <div className="pod-body route-body-snap">
         {/* The register fork in the controls position — same placement as the
-            index, so the switch stays present one level deeper (Session 142). */}
+            index, so the switch stays present one level deeper. */}
         <div className="pod-controls">
           <ArchiveModeToggle active="podcasts" />
         </div>

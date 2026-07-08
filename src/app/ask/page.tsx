@@ -28,7 +28,7 @@ interface AskPageProps {
 /**
  * How many live ranks to pull when the reader chooses "Browse deeper". The
  * matrix cell already holds the Top-6; the deeper view ranks wider and shows
- * what comes after, deduped against the six already on screen (Brief 164).
+ * what comes after, deduped against the six already on screen.
  */
 const DEEPER_LIMIT = 24;
 
@@ -65,7 +65,7 @@ export default async function AskPage({ searchParams }: AskPageProps) {
 
   if (isComplete) {
     try {
-      // Hot path (Brief 164 Phase 2): the Top-6 cell is served from the
+      // Hot path: the Top-6 cell is served from the
       // precomputed matrix — no per-request DB ranking. The matrix builds on
       // first use and is cleared via `POST /api/revalidate` after an apply run.
       const cell = await getAskMatrixCell(answers);

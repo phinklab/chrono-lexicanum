@@ -1,6 +1,6 @@
 /**
- * Schema + structural validation for the "One faction, one book" curation data
- * (Brief 166). PURE — no JSON import, no DB, no `fs`. Shared by:
+ * Schema + structural validation for the "One faction, one book" curation
+ * data. PURE — no JSON import, no DB, no `fs`. Shared by:
  *
  *   - the app loader `faction-starters.ts` (imports the committed JSON, runs
  *     {@link validateFactionStarters} on it at module init), and
@@ -190,7 +190,7 @@ export function validateFactionStarters(value: unknown): FactionStartersFile {
   return { version: root.version, _doc: root._doc, source, starters };
 }
 
-// ---- Pure lookups (shared by the route + tests) ------------------------------
+// Pure lookups (shared by the route + tests)
 
 /** True when the node leads with at least one pick (a leaf or a both-node). */
 export function nodeHasPicks(node: FactionStarterNode): boolean {

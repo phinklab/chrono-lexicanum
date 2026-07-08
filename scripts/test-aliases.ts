@@ -12,7 +12,6 @@ import assert from "node:assert/strict";
 import {
   classifyDrift,
   resolveSurfaceForm,
-  tallyAxisDrift,
   type AliasResolution,
 } from "../src/lib/aliases";
 
@@ -127,25 +126,6 @@ test("drift: drift path is case-sensitive ('imperial guard' != alias key)", () =
   assert.equal(
     classifyDrift("faction", "imperial guard", "astra_militarum", "Astra Militarum"),
     "drift",
-  );
-});
-
-// --- tally: splits suspect vs known-alias ----------------------------------
-
-test("tally: mixed rows split into suspect vs known-alias vs none", () => {
-  const t = tallyAxisDrift("faction", [
-    { rawName: "Imperial Guard", canonicalId: "astra_militarum", canonicalName: "Astra Militarum" }, // known
-    { rawName: "Eldar", canonicalId: "eldar", canonicalName: "Aeldari" }, // known
-    { rawName: "Weird Form", canonicalId: "ultramarines", canonicalName: "Ultramarines" }, // suspect
-    { rawName: "Ultramarines", canonicalId: "ultramarines", canonicalName: "Ultramarines" }, // none
-    { rawName: null, canonicalId: "x", canonicalName: "X" }, // none
-  ]);
-  assert.equal(t.knownAliasCount, 2);
-  assert.equal(t.suspectCount, 1);
-  assert.deepEqual(t.suspectRawNames, ["Weird Form"]);
-  assert.deepEqual(
-    t.knownAliases.map((k) => k.rawName),
-    ["Imperial Guard", "Eldar"],
   );
 });
 

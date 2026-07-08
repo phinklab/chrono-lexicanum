@@ -8,43 +8,15 @@ import RouteScrollCue from "@/components/chrome/RouteScrollCue";
 import HomeSearch from "@/components/home/HomeSearch";
 import HomeExplore from "@/components/home/HomeExplore";
 import HubScrollReset from "@/components/home/HubScrollReset";
-import { buildSearchIndex } from "@/app/archive/filters";
-import { loadBrowseBooks } from "@/app/archive/loader";
-import {
-  loadPodcastSearchIndex,
-  buildPodcastSuggestions,
-} from "@/app/archive/podcasts/loader";
-import {
-  loadCompendiumSearchSuggestions,
-  loadPrimarchSuggestions,
-} from "@/lib/compendium/loader";
+import { loadUnifiedSearchIndex } from "@/lib/search-index";
 
 export const revalidate = 3600;
 
 export default async function HubPage() {
-  // Reuse the public /archive loaders so the Home search console is fed
-  // the same live, unified index the archive ranks — books first, then podcasts
-  // (display-only — no schema/data change here).
-  const [
-    { books },
-    podcastData,
-    compendiumSuggestions,
-    primarchSuggestions,
-  ] = await Promise.all([
-    loadBrowseBooks(),
-    loadPodcastSearchIndex(),
-    loadCompendiumSearchSuggestions(),
-    loadPrimarchSuggestions(),
-  ]);
+  const { books, podcastData, searchIndex } = await loadUnifiedSearchIndex();
   const novelCount = books.length;
   const podcastCount = podcastData.shows.length;
   const episodeCount = podcastData.episodes.length;
-  const searchIndex = [
-    ...buildSearchIndex(books),
-    ...buildPodcastSuggestions(podcastData),
-    ...compendiumSuggestions,
-    ...primarchSuggestions,
-  ];
 
   // The vox scribe carries REAL holdings instead of pseudo-telemetry.
   const voxLines = [
@@ -69,7 +41,7 @@ export default async function HubPage() {
       />
       <GhostReadout lines={voxLines} />
 
-      {/* ── Act 1 · Splash ─────────────────────────────────────────────── */}
+      {/* Act 1: Splash */}
       <section
         className="hub-act hub-act--splash"
         aria-label="Chrono Lexicanum — the archive"
@@ -90,7 +62,7 @@ export default async function HubPage() {
         />
       </section>
 
-      {/* ── Act 2 · Praefatio — reading column + live search + holdings ── */}
+      {/* Act 2: Praefatio — reading column + live search + holdings */}
       <section className="hub-act hub-act--intro" aria-label="What lives in the archive?">
         <div className="hub-nave">
           <h2 className="lx-sect reveal">What lives in the archive?</h2>
@@ -113,7 +85,7 @@ export default async function HubPage() {
         </div>
       </section>
 
-      {/* ── Act 3 · More to explore — the doorways as a grouped registry ─ */}
+      {/* Act 3: More to explore — the doorways as a grouped registry */}
       <section className="hub-act hub-act--explore" aria-label="More to explore">
         <div className="hub-explore-shell">
           <h2 className="lx-sect reveal">More to explore</h2>

@@ -1,12 +1,12 @@
 "use client";
 
 /**
- * ZoneEditor — the hand-curation tool for chart zones (178b).
+ * ZoneEditor — the hand-curation tool for chart zones.
  *
- * Opened via /map?zones=edit. Philipp shapes every zone himself: drag a
- * vertex, click a mid-handle to add a point, double-click (or Delete) to
- * remove one, create new zones from scratch. The tool NEVER derives geometry
- * from reference images (Philipp-Veto in Report 178, Nachtrag 2).
+ * Opened via /map?zones=edit. Every zone is shaped by hand: drag a vertex,
+ * click a mid-handle to add a point, double-click (or Delete) to remove one,
+ * create new zones from scratch. The tool NEVER derives geometry from
+ * reference images.
  *
  * The working copy autosaves to localStorage (survives reloads); "Copy JSON" /
  * "Download" export a drop-in replacement for src/lib/map/zones.json — that
@@ -16,10 +16,10 @@
  * so ChartStage never starts a pan; the drag captures on the persistent
  * editor <g> (not the handle — a mid-insert re-keys the handles mid-gesture).
  *
- * Z-Order (178b Runde 9): die Zonen-Flächen rendern per Portal in #cg-fields
- * (unter Dust/Pins, wie auf der gebauten Karte) — Planeten liegen auch im
- * Editor immer vor den Zonen und bleiben klickbar. Nur das Drahtgitter und
- * die Griffe der aktiven Zone liegen als oberste Ebene über allem.
+ * Z-order: the zone faces render via portal into #cg-fields (below
+ * dust/pins, as on the built chart) — planets sit above the zones in the
+ * editor too and stay clickable. Only the wireframe and the handles of the
+ * active zone render as the topmost layer above everything.
  */
 
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -82,12 +82,12 @@ export default function ZoneEditor({ bus }: { bus: ChartBus }) {
   const gRef = useRef<SVGGElement | null>(null);
   const drag = useRef<{ zi: number; pi: number } | null>(null);
 
-  /* Die Zonen-FLÄCHEN rendern per Portal in #cg-fields — dieselbe Ebene, auf
-     der die gebauten Zonen liegen, UNTER Dust/Pins: Planeten bleiben auch im
-     Editor immer sichtbar und klickbar (178b Runde 9, Philipp). Nur Draht-
-     gitter + Griffe der aktiven Zone bleiben als oberste Ebene im Editor-<g>.
-     Das Portal-Ziel entsteht im selben ChartStage-Commit wie der Editor —
-     der Ref-Callback (feuert nach den DOM-Mutationen) greift es ab. */
+  /* The zone FACES render via portal into #cg-fields — the same layer the
+     built zones live on, BELOW dust/pins: planets stay visible and clickable
+     in the editor too. Only the wireframe + handles of the active zone stay
+     in the editor <g> as the topmost layer. The portal target is created in
+     the same ChartStage commit as the editor — the ref callback (fires after
+     the DOM mutations) picks it up. */
   const [fieldsEl, setFieldsEl] = useState<SVGGElement | null>(null);
   const attachEditorG = useCallback((node: SVGGElement | null) => {
     gRef.current = node;
@@ -135,7 +135,7 @@ export default function ZoneEditor({ bus }: { bus: ChartBus }) {
     setSelPt(null);
   }, []);
 
-  /* ── Pointer gestures ─────────────────────────────────────────────────── */
+  /* Pointer gestures */
 
   const beginDrag = (e: ReactPointerEvent<SVGElement>, zi: number, pi: number) => {
     e.stopPropagation();
@@ -196,7 +196,7 @@ export default function ZoneEditor({ bus }: { bus: ChartBus }) {
     return () => window.removeEventListener("keydown", onKey);
   }, [activeIdx, selPt, deletePoint]);
 
-  /* ── Zone operations (panel) ──────────────────────────────────────────── */
+  /* Zone operations (panel) */
 
   const pickZone = (z: ZoneDef) => {
     setActiveId(z.id);
@@ -279,7 +279,7 @@ export default function ZoneEditor({ bus }: { bus: ChartBus }) {
     setSelPt(null);
   };
 
-  /* ── Render: svg layer + HTML panel (portal) ──────────────────────────── */
+  /* Render: svg layer + HTML panel (portal) */
 
   return (
     <g

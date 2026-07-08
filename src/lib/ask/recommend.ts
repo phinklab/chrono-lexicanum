@@ -410,10 +410,10 @@ function evaluateDeepCut(book: AskBookWork): TagEvaluation {
   const lateSeries = book.seriesIndex != null && book.seriesIndex >= 3;
   // An omnibus is the *accessible* way to buy a whole arc in one volume, not an
   // obscure deep cut — so its bulk page count must not earn the long-read deep
-  // signal (Brief 164 tuning: popular omnibuses like Fabius Bile: The Omnibus
-  // were floating to the top of the `deep` lane on length alone). Genuine deep
-  // cuts are single uncompromising volumes, late-series entries, or books that
-  // openly require prior context.
+  // signal (otherwise popular omnibuses like Fabius Bile: The Omnibus float to
+  // the top of the `deep` lane on length alone). Genuine deep cuts are single
+  // uncompromising volumes, late-series entries, or books that openly require
+  // prior context.
   const isOmnibus = book.format === "omnibus";
   const longRead =
     !isOmnibus &&
@@ -568,7 +568,7 @@ function rawToneAffinity(book: AskBookWork, tag: ToneTag): ToneAffinity {
 }
 
 /**
- * Tone is a *primary* axis (Brief 164 tuning): changing only the tone must
+ * Tone is a *primary* axis: changing only the tone must
  * change the #1 result. A binary "matches the tone? → full points" rule fails
  * that — a book that fits several tones wins all of them on the tiebreak. So a
  * book's contribution to the queried tone is scaled by how *exclusively* that
@@ -695,7 +695,7 @@ function scoreBook(book: AskBookWork, profile: AskProfile): AskRecommendation {
 }
 
 /**
- * Apply the lane-scoped anchor merit (Brief 164) to a scored recommendation,
+ * Apply the lane-scoped anchor merit to a scored recommendation,
  * before the overlay tail. The bonus only flows when (a) the active profile
  * matches one of the book's anchor lanes and (b) the base score is positive —
  * an anchor must already fit its slice on the real signals, the merit just

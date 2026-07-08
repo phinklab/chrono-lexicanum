@@ -95,13 +95,11 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.110.0",
-    "clsx": "^2.1.1",
     "drizzle-orm": "^0.45.2",
     "next": "16.2.10",
     "postgres": "^3.4.9",
     "react": "19.2.7",
-    "react-dom": "19.2.7",
-    "zod": "^4.4.3"
+    "react-dom": "19.2.7"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.2",
@@ -120,6 +118,7 @@
     "tailwindcss": "^4.2.4",
     "tsx": "^4.22.5",
     "typescript": "^6.0.3",
-    "write-excel-file": "^4.1.1"
+    "write-excel-file": "^4.1.1",
+    "zod": "^4.4.3"
   }
 }

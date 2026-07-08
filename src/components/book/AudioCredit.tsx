@@ -1,7 +1,7 @@
 /**
- * Brief 105 — the audio analogue of the byline. Renders single/duet/ensemble
+ * The audio analogue of the byline. Renders single/duet/ensemble
  * narrators as "Narrated by …" and full-cast dramas as "Full-cast drama — …"
- * (never a lone "Narrated by", per the brief). Server component.
+ * (never a lone "Narrated by"). Server component.
  */
 
 export type AudioCreditKind = "single" | "duet" | "ensemble" | "cast";

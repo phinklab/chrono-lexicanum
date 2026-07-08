@@ -182,7 +182,7 @@ export default function CornerAuspex({
               x={x}
               y={y}
               fill={accent}
-              fontFamily="var(--font-plex-mono)"
+              fontFamily="var(--font-mono)"
               fontSize="9"
               textAnchor="middle"
               dominantBaseline="middle"
@@ -221,7 +221,7 @@ export default function CornerAuspex({
         <g
           style={{
             transformOrigin: "0 0",
-            animation: "chronoSweep 9s linear infinite",
+            animation: "chronoSpin 9s linear infinite",
           }}
         >
           <line
@@ -246,7 +246,7 @@ export default function CornerAuspex({
           left: 0,
           right: 0,
           textAlign: "center",
-          fontFamily: "var(--font-plex-mono)",
+          fontFamily: "var(--font-mono)",
           fontSize: 9,
           letterSpacing: "0.22em",
           textTransform: "uppercase",

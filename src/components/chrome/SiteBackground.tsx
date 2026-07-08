@@ -7,19 +7,19 @@
  * backdrop, so the credit links stay reachable.
  *
  * Variants:
- *   - "main"       ← shared library-nave backdrop (Hub, Archive, Compendium, Ask)
- *   - "hub"        ← Hub (gothic cathedral-city, cosmic rings overhead)
- *   - "vista"      ← Books hero, book detail, entity pages (cathedral light)
- *   - "scriptorium" ← Compendium (grand cathedral-library, scribe at a lectern)
- *   - "librarium"  ← (legacy) library/scriptorium interior
- *   - "vox"        ← Podcasts (cathedral nave, two scribes at vox-podiums)
- *   - "oracle"     ← Ask the Archive (gothic scriptorium, void window)
- *   - "chronicle"  ← Timeline / Chronicle (cathedral timeline diagram)
- *   - "cartog"     ← cartog-hall (handoff photo, currently unused)
- *   - "cartog-holo" ← (unused seit 178b Runde 11 — /map steht auf einer
- *                     Flächenfarbe ohne SiteBackground)
- *   - "login"      ← /login (lightless cathedral librarium — phil kuenzler)
- *   - "none"       ← just vignette + grain over the void
+ *   - "main"       — shared library-nave backdrop (Hub, Archive, Compendium, Ask)
+ *   - "hub"        — Hub (gothic cathedral-city, cosmic rings overhead)
+ *   - "vista"      — Books hero, book detail, entity pages (cathedral light)
+ *   - "scriptorium" — Compendium (grand cathedral-library, scribe at a lectern)
+ *   - "librarium"  — (legacy) library/scriptorium interior
+ *   - "vox"        — Podcasts (cathedral nave, two scribes at vox-podiums)
+ *   - "oracle"     — Ask the Archive (gothic scriptorium, void window)
+ *   - "chronicle"  — Timeline / Chronicle (cathedral timeline diagram)
+ *   - "cartog"     — cartog-hall (handoff photo, currently unused)
+ *   - "cartog-holo" — (unused — /map sits on a flat color without a
+ *                     SiteBackground)
+ *   - "login"      — /login (lightless cathedral librarium — phil kuenzler)
+ *   - "none"       — just vignette + grain over the void
  */
 import ArtCreditTag from "@/components/chrome/ArtCreditTag";
 import { backgroundArtCredit } from "@/lib/art-credits";

@@ -1,34 +1,18 @@
 /* 56-media-player.css
-   Extracted verbatim from globals.css (CSS-consolidation pass 1). */
+   MediaPlayer — sitewide ambient audio strip, anchored bottom-left,
+   frameless. */
 
-/* =============================================================================
- * MediaPlayer — sitewide ambient audio glyph.
- *
- * Idle/Collapsed: 12 schmale vertikale Bars in cyan als statisches Visualizer-
- * Glyph in einer kleinen c-glass-ish Box. Hover/Focus → Panel expandiert nach
- * links mit Track-Titel + Prev/Pause/Next + Volume-Slider. Playing: Bars
- * folgen FFT-Daten und pulsieren.
- *
- * Positionierung: fixed bottom-right. Default-Offset reicht für Routes mit
- * Telemetry-Strip-Only-BottomConsole. Auf dem Hub mit den 3 Doorway-Cards
- * wird der Player höher gesetzt, damit er nicht in die Cards-Zone hineinragt.
- * Mobile MQ packt ihn enger an den Rand.
- * ============================================================================= */
-
-/* MediaPlayer — sitewide ambient strip, anchored bottom-left, ohne Kasten.
- *
- * Aufbau (in DOM-Reihenfolge, von oben nach unten im fixierten Block):
- *   1. .media-player__wave — IMMER sichtbar, 28px CSS-Höhe, hairline 1-px
- *      Bar-Sinuswelle. Schwebt über dem Header. Idle-Breathing wenn
- *      pausiert; FFT-Mid-Band-reaktiv beim Playback.
- *   2. .media-player__header — Row 1 (Eyebrow ↔ PLAYLIST-Disclose) und
- *      Row 2 (borderless Play-Glyph + VOL-Toggle + Cormorant-Titel).
- *   3. .media-player__vol-popover — POSITION: ABSOLUTE über dem VOL-Toggle.
- *      Schmaler Hairline-Slider; mutually exclusive zum Playlist-Panel.
- *   4. .media-player__panel-wrap — POSITION: ABSOLUTE, bottom: 100% des
- *      Players. Klappt mit Grid-Rows-Transition über der Wave nach oben
- *      auf wenn `--open`. Wave + Header bleiben fix verankert — kein
- *      Hochrücken beim Aufklappen. */
+/* Structure (in DOM order, top to bottom inside the fixed block):
+ *   1. .media-player__wave — ALWAYS visible, 28px CSS height, hairline 1px
+ *      bar sine wave. Floats above the header. Idle breathing when paused;
+ *      FFT mid-band reactive during playback.
+ *   2. .media-player__header — single control row: borderless play glyph +
+ *      VOL toggle + title + PLAYLIST disclose.
+ *   3. .media-player__vol-popover — position: absolute above the VOL toggle.
+ *      Narrow hairline slider; mutually exclusive with the playlist panel.
+ *   4. .media-player__panel-wrap — position: absolute, bottom: 100% of the
+ *      player. Opens upward over the wave with a grid-rows transition when
+ *      `--open`. Wave + header stay anchored — nothing shifts up. */
 .media-player {
   position: fixed;
   bottom: 24px;
@@ -44,17 +28,27 @@
 }
 .media-player > * { pointer-events: auto; }
 
-/* ─── Header — always visible. Two rows, harmonisch ausbalanciert. ────── */
+/* The dock groups wave + header. On desktop it is layout-transparent; the
+   mobile card below turns it into one glass surface. */
+.media-player__dock {
+  display: contents;
+}
+
+/* Mobile stud — hidden on desktop. */
+.media-player__stud {
+  display: none;
+}
+
+/* Header — always visible. */
 .media-player__header {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-/* Single control row (Session 158): the PLAYLIST disclose now lives at the end
-   of .media-player__main, after the title, so play / vol / title / PLAYLIST all
-   sit on one horizontally-aligned line. The old two-row .media-player__top
-   wrapper + .media-player__eyebrow are retired. */
+/* The PLAYLIST disclose lives at the end of .media-player__main, after the
+   title, so play / vol / title / PLAYLIST all sit on one horizontally
+   aligned line. */
 .media-player__disclose {
   display: inline-flex;
   align-items: center;
@@ -66,12 +60,12 @@
   cursor: pointer;
   font-family: var(--font-mono);
   font-size: var(--fs-label);
-  letter-spacing: 0.24em;
+  letter-spacing: var(--track-24);
   text-transform: uppercase;
   color: var(--cl-gold);
   opacity: 0.6;
   transition: opacity 220ms ease-out, color 220ms ease-out;
-  line-height: 1;
+  line-height: var(--lh-solid);
 }
 .media-player__disclose:hover,
 .media-player--open .media-player__disclose {
@@ -86,10 +80,10 @@
   font-size: var(--fs-label-lg);
   letter-spacing: 0;
   color: var(--cl-gold);
-  line-height: 1;
+  line-height: var(--lh-solid);
 }
 .media-player__disclose-label {
-  line-height: 1;
+  line-height: var(--lh-solid);
 }
 
 .media-player__main {
@@ -99,10 +93,10 @@
   min-width: 0;
 }
 
-/* Play-Glyph — borderless. Inline 16×16 SVG (triangle ▶ or two bars ❚❚),
- * padded for hit-area. Negative left-margin keeps it visually flush with
- * the row's left edge despite the padding. Matching SVG-Größe wie der
- * VOL-Icon-Button — gleiche vertikale Center-Alignment. */
+/* Play glyph — borderless. Inline 16×16 SVG (play triangle or pause bars),
+ * padded for hit area. The negative left margin keeps it visually flush with
+ * the row's left edge despite the padding. Same SVG size as the VOL icon
+ * button so both centre vertically alike. */
 .media-player__play {
   display: inline-flex;
   align-items: center;
@@ -119,7 +113,7 @@
   cursor: pointer;
   color: var(--cl-gold);
   font: inherit;
-  line-height: 1;
+  line-height: var(--lh-solid);
   border-radius: 2px;
   transition: color 220ms ease-out, background 220ms ease-out;
 }
@@ -165,7 +159,7 @@
   cursor: pointer;
   color: var(--cl-gold);
   font: inherit;
-  line-height: 1;
+  line-height: var(--lh-solid);
   border-radius: 2px;
   transition: color 220ms ease-out, background 220ms ease-out;
 }
@@ -194,7 +188,7 @@
   width: 160px;
   padding: 10px 14px;
   /* Frameless gold language — dark glass wash, no drawn border, no corner
-     brackets (removed 2026-06-18). */
+     brackets. */
   background: linear-gradient(180deg, rgba(8, 12, 20, 0.92) 0%, rgba(4, 8, 14, 0.96) 100%);
   border-radius: 2px;
   backdrop-filter: blur(8px);
@@ -220,7 +214,7 @@
      would blow the 48px bar open. */
   font-size: var(--fs-read-sm);
   font-weight: var(--fw-read);
-  line-height: 1;
+  line-height: var(--lh-solid);
   letter-spacing: 0.02em;
   color: var(--cl-bone);
   white-space: nowrap;
@@ -237,8 +231,9 @@
   color: var(--cl-dim);
 }
 
-/* ─── Wave — IMMER sichtbar, 28px CSS-Höhe, hairline 1-px Bar-Sinuswelle.
- * Sitzt durch DOM-Order als erstes Kind oben im Block, über dem Header. */
+/* Wave — ALWAYS visible, 28px CSS height, hairline 1px bar sine wave.
+ * First child by DOM order, so it sits at the top of the block, above the
+ * header. */
 .media-player__wave {
   display: block;
   width: 100%;
@@ -259,10 +254,21 @@
   opacity: 1;
   filter: drop-shadow(0 0 3px color-mix(in oklch, var(--cl-gold) 65%, transparent));
 }
+/* Idle breathing runs on the compositor (opacity only) — the rAF loop that
+   used to animate the idle amplitude is suspended while paused. */
+@media (prefers-reduced-motion: no-preference) {
+  .media-player:not(.media-player--playing):not(.media-player--silent) .media-player__bars {
+    animation: mp-breathe 4.6s ease-in-out infinite;
+  }
+}
+@keyframes mp-breathe {
+  0%, 100% { opacity: 0.42; }
+  50%      { opacity: 0.64; }
+}
 
-/* ─── Panel-Wrap — absolute, floatet auf über die Wave wenn --open.
- * Wave + Header bleiben dabei fix bei bottom: 24px verankert; nichts
- * rutscht hoch. Grid-Rows 0fr → 1fr ermöglicht Height-Auto-Animation. */
+/* Panel wrap — absolute, floats up over the wave when --open. Wave + header
+ * stay anchored at bottom: 24px; nothing shifts up. Grid rows 0fr → 1fr
+ * enable the height-auto animation. */
 .media-player__panel-wrap {
   position: absolute;
   bottom: 100%;
@@ -287,12 +293,12 @@
   pointer-events: auto;
 }
 
-/* ─── Playlist-Panel — innerhalb des Panel-Wraps. ─────────────────────── */
+/* Playlist panel — inside the panel wrap. */
 .media-player__panel {
   position: relative;
   padding: 14px 16px 12px;
   /* Frameless gold language — dark glass wash, no drawn border, no corner
-     brackets (removed 2026-06-18). */
+     brackets. */
   background: linear-gradient(180deg, rgba(8, 12, 20, 0.84) 0%, rgba(4, 8, 14, 0.94) 100%);
   border-radius: 2px;
   backdrop-filter: blur(8px);
@@ -307,7 +313,7 @@
 .media-player__panel-kicker {
   font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
-  letter-spacing: 0.24em;
+  letter-spacing: var(--track-24);
   text-transform: uppercase;
   color: var(--cl-gold);
 }
@@ -326,20 +332,20 @@
 .media-player__panel-sect {
   font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
-  letter-spacing: 0.22em;
+  letter-spacing: var(--track-22);
   text-transform: uppercase;
   color: var(--cl-faint);
 }
-/* Artist channel link — replaces the old "NN TRACKS" tag in the panel head.
-   Same quiet mono tag voice as .media-player__panel-sect, but a real link with
-   the gold hover/focus catch and an external-link mark. */
+/* Artist channel link in the panel head — the same quiet mono tag voice as
+   .media-player__panel-sect, but a real link with the gold hover/focus catch
+   and an external-link mark. */
 .media-player__panel-link {
   display: inline-flex;
   align-items: baseline;
   gap: 5px;
   font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
-  letter-spacing: 0.22em;
+  letter-spacing: var(--track-22);
   text-transform: uppercase;
   white-space: nowrap;
   color: var(--cl-faint);
@@ -374,8 +380,8 @@
   align-items: baseline;
   gap: 12px;
   padding: 8px 6px;
-  /* No row dividers (removed 2026-06-18) — the 2px gap + hover wash separate
-     rows in the frameless idiom. */
+  /* No row dividers — the 2px gap + hover wash separate rows in the
+     frameless idiom. */
   background: none;
   border: none;
   cursor: pointer;
@@ -399,7 +405,7 @@
 .media-player__panel-track-mark {
   font-family: var(--font-mono);
   font-size: var(--fs-label);
-  letter-spacing: 0.16em;
+  letter-spacing: var(--track-16);
   color: var(--cl-faint);
   text-align: center;
 }
@@ -429,7 +435,7 @@
   opacity: 1;
 }
 
-/* Volume-Slider — used inside .media-player__vol-popover. */
+/* Volume slider — used inside .media-player__vol-popover. */
 .media-player__volume {
   -webkit-appearance: none;
   appearance: none;
@@ -478,10 +484,110 @@
   .media-player__panel-track-title { font-size: var(--fs-read-sm); }
 }
 
-/* Auf Mobile vorerst komplett ausgeblendet (Philipp, Session 140 Follow-up):
-   der fixed bottom-left Block kollidiert mit Mobile-Flächen wie dem
-   Chronicle-Bottom-Sheet. Interim-Lösung — ein mobiles Player-Konzept
-   (Mini-Glyph? Einklappen?) steht in docs/ui-backlog.md zur Wiedervorlage. */
+/* ── Mobile: the vox stud ─────────────────────────────────────────────────
+   The strip folds into a 44px stud, bottom-right, that expands into a compact
+   glass card (wave + controls; the playlist opens above it as on desktop). */
 @media (max-width: 760px) {
-  .media-player { display: none; }
+  .media-player {
+    left: auto;
+    right: calc(14px + env(safe-area-inset-right, 0px));
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+    width: auto;
+    gap: 8px;
+    align-items: flex-end;
+  }
+
+  .media-player__stud {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(180deg, rgba(8, 12, 20, 0.88) 0%, rgba(4, 8, 14, 0.94) 100%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    color: var(--cl-gold);
+    cursor: pointer;
+  }
+  .media-player--mini-open .media-player__stud {
+    color: var(--cl-bone);
+  }
+  .media-player--silent .media-player__stud {
+    display: none;
+  }
+
+  /* Collapsed: only the stud. */
+  .media-player__dock {
+    display: none;
+  }
+  .media-player__panel-wrap {
+    width: min(320px, calc(100vw - 28px));
+    left: auto;
+    right: 0;
+  }
+
+  /* Expanded: the dock becomes a compact glass card above the stud. */
+  .media-player--mini-open .media-player__dock {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: min(320px, calc(100vw - 28px));
+    padding: 12px 14px 10px;
+    background: linear-gradient(180deg, rgba(8, 12, 20, 0.9) 0%, rgba(4, 8, 14, 0.96) 100%);
+    border-radius: 3px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+  .media-player__wave {
+    height: 22px;
+  }
+
+  /* Touch targets: the 24px desktop glyph buttons grow to 44px. */
+  .media-player--mini-open .media-player__play,
+  .media-player--mini-open .media-player__vol {
+    height: 44px;
+    min-width: 44px;
+  }
+  .media-player--mini-open .media-player__vol-wrap {
+    height: 44px;
+  }
+  .media-player--mini-open .media-player__disclose {
+    padding: 12px 0;
+  }
+  .media-player__panel-track {
+    min-height: 44px;
+    align-items: center;
+  }
+}
+
+@media (max-width: 760px) and (prefers-reduced-motion: no-preference) {
+  .media-player--playing .media-player__stud-glyph {
+    animation: mp-breathe 2.8s ease-in-out infinite;
+  }
+}
+
+/* Route dodges (mobile only). On the Chronicle the bottom-right corner
+   belongs to the view toggle — the stud lifts above it. On the map the whole
+   bottom edge is chart chrome (drawer, zoomer) — the stud moves to the free
+   top-left corner and the card + playlist open downward. */
+@media (max-width: 760px) {
+  body.on-chron .media-player {
+    bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+  }
+  body.cg-on-map .media-player {
+    top: calc(64px + env(safe-area-inset-top, 0px));
+    left: calc(12px + env(safe-area-inset-left, 0px));
+    right: auto;
+    bottom: auto;
+    align-items: flex-start;
+    flex-direction: column-reverse;
+  }
+  body.cg-on-map .media-player__panel-wrap {
+    bottom: auto;
+    top: 100%;
+    left: 0;
+    right: auto;
+    padding-bottom: 0;
+    padding-top: 12px;
+  }
 }

@@ -1,5 +1,5 @@
 /**
- * Precomputed Ask result matrix + `any`-aggregation (Brief 164). SERVER-ONLY:
+ * Precomputed Ask result matrix + `any`-aggregation. SERVER-ONLY:
  * built from `recommend()`, which imports the DB client.
  *
  * After the contract reduction the visible space is small: 3 experience × 5

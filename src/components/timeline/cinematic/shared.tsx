@@ -1,12 +1,13 @@
 "use client";
 
 /**
- * Chronicle cinematic port — shared client helpers (Brief 138).
- * Constants + small hooks used by both the Cinematic and Index views; the
- * vocabulary (tier marks, roman numerals, dot radii) ports verbatim from the
- * design prototype's chronicle-app.js.
+ * Chronicle cinematic — shared client helpers.
+ * Constants + small hooks used by both the Cinematic and Index views.
  */
-import { useCallback, useEffect, useRef, useSyncExternalStore } from "react";
+import { useEffect, useRef } from "react";
+import { useMediaQuery } from "@/lib/useMediaQuery";
+
+export { useMediaQuery };
 
 export const TIER_MARK: Record<string, string> = {
   epoch: "◈",
@@ -23,34 +24,17 @@ export const pad3 = (n: number): string => String(n).padStart(3, "0");
 export const clamp = (v: number, a: number, b: number): number =>
   Math.max(a, Math.min(b, v));
 
-/** Typewriter chars/second (prototype `config.typeSpeed`). */
+/** Typewriter chars/second. */
 export const TYPE_SPEED = 80;
-
-/** SSR-safe media-query hook; the server snapshot renders the `false` branch. */
-export function useMediaQuery(query: string): boolean {
-  const subscribe = useCallback(
-    (onChange: () => void) => {
-      const mq = matchMedia(query);
-      mq.addEventListener("change", onChange);
-      return () => mq.removeEventListener("change", onChange);
-    },
-    [query],
-  );
-  return useSyncExternalStore(
-    subscribe,
-    () => matchMedia(query).matches,
-    () => false,
-  );
-}
 
 export function usePrefersReducedMotion(): boolean {
   return useMediaQuery("(prefers-reduced-motion: reduce)");
 }
 
 /**
- * The global SiteMenu (impl 139) keeps no body class — it toggles `.is-open`
- * on its own `#site-menu` element. Timeline-wide key/wheel handlers check this
- * so they stay quiet while the menu is up (the prototype's `menu-open` guard).
+ * The global SiteMenu keeps no body class — it toggles `.is-open` on its own
+ * `#site-menu` element. Timeline-wide key/wheel handlers check this so they
+ * stay quiet while the menu is up.
  */
 export function siteMenuOpen(): boolean {
   return (
@@ -59,9 +43,9 @@ export function siteMenuOpen(): boolean {
 }
 
 /**
- * Typed paragraph — `<p><span>text…</span><caret></p>` with the prototype's
- * reflow guard: the paragraph's final height is measured up-front and reserved
- * as min-height so the layout doesn't shift while characters arrive. Typing
+ * Typed paragraph — `<p><span>text…</span><caret></p>` with a reflow guard:
+ * the paragraph's final height is measured up-front and reserved as
+ * min-height so the layout doesn't shift while characters arrive. Typing
  * bypasses React state (leaf span owned via ref, re-keyed by callers per
  * event/era so reconciliation never races the interval).
  */

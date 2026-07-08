@@ -1,7 +1,7 @@
 import CogitatorLoading from "@/components/chrono/CogitatorLoading";
 
 /**
- * Suspense fallback for `/ask` (Report 144 § P.5). A completed questionnaire
+ * Suspense fallback for `/ask`. A completed questionnaire
  * triggers the server-side recommendation pass; this holds the screen during
  * that await instead of a blank document. The `.route-loading` wrapper keeps
  * the fallback jump-proof for the tool-door switch (Ask ↔ OFOB): it preserves

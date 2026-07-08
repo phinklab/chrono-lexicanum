@@ -1,7 +1,7 @@
 /* 65-loading.css
-   Themed Suspense fallback for /werke (Brief 120 — perceived speed). The page
-   streams the shell + this loader instantly while the catalogue fan-out
-   resolves. Translucent void veil (Brief 150), gold hairline accents, Cinzel +
+   Themed Suspense fallback for /werke (perceived speed). The page streams
+   the shell + this loader instantly while the catalogue fan-out resolves.
+   Translucent void veil, gold hairline accents, Cinzel +
    Plex Mono — the same vocabulary as the /werke hero, deliberately WITHOUT
    glow halos or warm gradients (house aesthetic). Cycling phrases fade/rise
    in; the JS suppresses the cycle under reduced-motion and the global cascade
@@ -15,7 +15,7 @@
   justify-content: center;
   gap: 22px;
   padding: 96px 24px 120px;
-  /* Translucent, not opaque (Brief 150): where the route's layout already
+  /* Translucent, not opaque: where the route's layout already
      paints a vista (e.g. /compendium's scriptorium), the page shines through
      the wait state instead of being slammed to black; routes without one sit
      on the void body bg and look as before. The 45% tint keeps the litany
@@ -94,7 +94,7 @@
   margin: 0;
   font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
-  letter-spacing: 0.34em;
+  letter-spacing: var(--track-34);
   text-transform: uppercase;
   color: var(--cl-dim);
 }
@@ -104,8 +104,8 @@
   min-height: 1.5em;
   font-family: var(--font-display);
   font-size: clamp(18px, 3.2vw, 27px);
-  font-weight: 500;
-  letter-spacing: 0.04em;
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--track-04);
   color: var(--cl-bone);
   animation: cogitatorPhraseIn 480ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }

@@ -85,7 +85,7 @@ export interface AskRecommendationCurationEffect {
 export type AskAnswerSubset = Partial<Record<AskQuestionId, string>>;
 
 /** The lane-scoped anchor merit attached to a recommendation when the active
- *  profile matches one of the book's anchor lanes (Brief 164). */
+ *  profile matches one of the book's anchor lanes. */
 export interface AskRecommendationAnchor {
   points: number;
   lane: AskAnswerSubset;

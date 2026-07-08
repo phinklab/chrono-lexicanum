@@ -1,38 +1,38 @@
 /**
- * Brief 114 Step 2 — pure apply-plan builder for the podcast ingest.
+ * Pure apply-plan builder for the podcast ingest.
  *
- * DB-free. Turns a committed `ShowArtifact` (Brief 110) into a declarative,
+ * DB-free. Turns a committed `ShowArtifact` into a declarative,
  * deterministic `ApplyPlan`: the desired end-state of the show work + episode
  * works + their resolved tag-junctions. Two consumers share this one module so
  * the write semantics have a single source:
- *   • `scripts/apply-podcast.ts`     — executes the plan against Postgres
+ *   - `scripts/apply-podcast.ts`     — executes the plan against Postgres
  *     (upsert by stable key + per-episode delete-then-insert of junctions).
- *   • `scripts/test-podcast-apply.ts` — proves the plan is deterministic and
+ *   - `scripts/test-podcast-apply.ts` — proves the plan is deterministic and
  *     that applying it twice is idempotent.
  *
- * Identity (Brief 114):
- *   • Show    — `podcastGuid` → `feedUrl` → `slug`. The plan carries all three;
+ * Identity:
+ *   - Show    — `podcastGuid` → `feedUrl` → `slug`. The plan carries all three;
  *     the apply matches against the DB in that priority order.
- *   • Episode — `(show, episodeGuid)`. The deterministic episode slug is frozen
+ *   - Episode — `(show, episodeGuid)`. The deterministic episode slug is frozen
  *     on update like the title: identity hangs on the stable key, never on the
  *     title (mirrors `scripts/apply-override.ts`).
  *
  * Invariants enforced here:
- *   • Only resolved tags whose `canonicalId` exists in the DB reference set
+ *   - Only resolved tags whose `canonicalId` exists in the DB reference set
  *     become junction rows (FK-safety). Tags pointing at a missing reference are
  *     dropped and reported, never written.
- *   • Unresolved forms (`artifact.unresolved`) are NEVER written and never
+ *   - Unresolved forms (`artifact.unresolved`) are NEVER written and never
  *     auto-create reference rows (project invariant).
- *   • `role` is the artifact's `subject | mentioned`, written verbatim
- *     (Brief 109 §7). `rawName` is the audit column; `confidence` stays in the
+ *   - `role` is the artifact's `subject | mentioned`, written verbatim.
+ *     `rawName` is the audit column; `confidence` stays in the
  *     artifact and never lands on the junction (the shared junctions have no
  *     such column — out of scope).
  *
- * Cross-media links (Brief 122 B1-S3): the artifact's `show.links[]` and each
+ * Cross-media links: the artifact's `show.links[]` and each
  * `episodes[].links[]` are projected 1:1 into the plan (deduped + sorted), so the
  * apply replaces a podcast work's `external_links` authoritatively from the
  * artifact. Provenance (`sourceKind` + `confidence`) rides along verbatim from the
- * `PodcastLink` (the Brief 128 link matrix, already resolved by S2's link-shape);
+ * `PodcastLink` (the per-service link matrix, already resolved by the link-shape);
  * a legacy/hand-edited entry missing those fields defaults to `manual` / `1.00`.
  */
 import { slugify } from "@/lib/slug";
@@ -56,9 +56,10 @@ export const MAX_SLUG_LENGTH = 200;
 
 /**
  * Provenance defaults for a link the artifact left unspecified — a legacy
- * artifact predating the B1-S2 link-shape, or a hand-edited entry. The Brief 128
- * matrix is the source of truth; this is the floor (`manual` / `1.00`), only ever
- * reached when the artifact itself carries no `sourceKind` / `confidence`.
+ * artifact predating the link-shape, or a hand-edited entry. The per-service
+ * link matrix is the source of truth; this is the floor (`manual` / `1.00`),
+ * only ever reached when the artifact itself carries no `sourceKind` /
+ * `confidence`.
  */
 export const DEFAULT_LINK_SOURCE_KIND: PodcastLinkSourceKind = "manual";
 export const DEFAULT_LINK_CONFIDENCE = 1;
@@ -66,10 +67,10 @@ export const DEFAULT_LINK_CONFIDENCE = 1;
 const EPISODE_ROLES: readonly EpisodeRole[] = ["subject", "mentioned"];
 
 /**
- * The `works.source_kind` a podcast container/episode work carries (Brief 130).
+ * The `works.source_kind` a podcast container/episode work carries.
  * An RSS show's works are `podcast_rss`; a `source:"youtube"` show's works are
- * `youtube`. Both are members of the DB `source_kind` pgEnum (`youtube` was
- * pre-provisioned in schema stage 2a), so writing either needs no migration.
+ * `youtube`. Both are members of the DB `source_kind` pgEnum, so writing
+ * either needs no migration.
  * This is a deliberately narrow subset — a podcast work is never anything else.
  */
 export type WorkSourceKind = "podcast_rss" | "youtube";
@@ -97,7 +98,7 @@ export interface ReferenceSets {
 export interface JunctionRow {
   /** Canonical reference id (`characters.id` / `factions.id` / `locations.id`). */
   entityId: string;
-  /** `subject | mentioned` (Brief 109 §7), written verbatim into the junction `role`. */
+  /** `subject | mentioned`, written verbatim into the junction `role`. */
   role: EpisodeRole;
   /** Audit: the surface-form the LLM emitted (the junction `raw_name`). */
   rawName: string;
@@ -172,7 +173,7 @@ export interface ApplyPlan {
   report: ApplyPlanReport;
   /**
    * The `works.source_kind` every work in this plan (the show container + all
-   * episodes) is written with — derived from the registry `source` (Brief 130).
+   * episodes) is written with — derived from the registry `source`.
    * `podcast_rss` for an RSS show (and the default), `youtube` for a YouTube show.
    */
   workSourceKind: WorkSourceKind;
@@ -202,13 +203,13 @@ function cmpStr(a: string, b: string): number {
 /**
  * Validate one link list (show- or episode-scoped). Lenient on provenance: a
  * legacy artifact may omit the whole array, and a hand-edited entry may omit
- * `sourceKind` / `confidence` (the plan fills the Brief 128 defaults). The
+ * `sourceKind` / `confidence` (the plan fills the provenance defaults). The
  * structural fields the DB hard-requires — `serviceId` (the `services` FK),
  * `url`, and a valid `external_link_kind` — are enforced here so a malformed link
  * fails before the apply mutates anything.
  */
 function assertLinks(value: unknown, where: string): void {
-  if (value === undefined) return; // pre-S2 artifact without a link-shape — tolerated
+  if (value === undefined) return; // legacy artifact without a link-shape — tolerated
   if (!Array.isArray(value)) fail(`${where} must be an array`);
   value.forEach((l, i) => {
     const at = `${where}[${i}]`;
@@ -240,7 +241,7 @@ function assertLinks(value: unknown, where: string): void {
 }
 
 /**
- * Project an artifact link list into the plan: fill the Brief 128 provenance
+ * Project an artifact link list into the plan: fill the provenance
  * defaults for any legacy/missing `sourceKind` / `confidence`, dedup by
  * `(serviceId, kind, url)` — first occurrence wins — and sort by the same key.
  * The result is byte-deterministic, so the plan is stable and a re-applied
@@ -279,7 +280,7 @@ function optStringOrNull(v: unknown, where: string): string | null {
 }
 
 /**
- * Structural validation — throws before the apply mutates anything (the brief's
+ * Structural validation — throws before the apply mutates anything (the
  * validate-before-write contract). Narrows `unknown` to `ShowArtifact` so the
  * apply script can `JSON.parse` raw input and trust the result. Beyond shape, it
  * enforces the two DB constraints the plan must not violate: episode guids are
@@ -355,10 +356,10 @@ export function assertShowArtifact(value: unknown): asserts value is ShowArtifac
  * (same artifact + same reference sets + same source → deep-equal plan). Calling
  * it validates the artifact first (throws on malformed input).
  *
- * `source` (Brief 130) is the registry acquisition discriminator; it sets the
+ * `source` is the registry acquisition discriminator; it sets the
  * plan's `workSourceKind` (the `works.source_kind` for the show + every episode).
- * It defaults to `rss` → `podcast_rss`, so a registry-less `--file` apply and
- * every pre-130 call site stay byte-identical.
+ * It defaults to `rss` → `podcast_rss` — the back-compatible default for a
+ * registry-less `--file` apply.
  */
 export function buildApplyPlan(
   artifact: ShowArtifact,

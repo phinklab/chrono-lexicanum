@@ -1,5 +1,5 @@
 /**
- * Compendium overview (Brief 129, reworked). The orientation surface: five
+ * Compendium overview. The orientation surface: five
  * category segments — Factions featured full-width on top, the other four in a
  * 2×2 below. Each is a frameless washed panel (the /ask "segment" treatment)
  * carrying its eyebrow, count, a short intro and one quiet coverage stat, plus a
@@ -13,13 +13,13 @@ import { loadCategoryItems } from "@/lib/compendium/loader";
 
 // Rendered per request, never prerendered at build. The overview's cold fill
 // (five category builders + the layout counts) is the heaviest aggregate in the
-// app; as an ISR page it ran at build time, competed with ~1100 entity pages
-// for the max-5 pooler pool and blew Vercel's static-generation timeout,
-// aborting deploys. Re-checked for Report 144 § P.1 and kept: ISR would also
+// app; as an ISR page it would run at build time, compete with ~1100 entity
+// pages for the max-5 pooler pool and blow Vercel's static-generation timeout,
+// aborting deploys. ISR would also
 // cache a degraded (DB-error → empty) render as the page's HTML for a full
 // revalidate window, where force-dynamic limits a bad fill to one request.
-// At runtime the cachedRead layer (READ_CACHE_TTL, now 3600 s — § P.1's actual
-// lever) makes this fast: one real fill per hour, every other request served
+// At runtime the cachedRead layer (READ_CACHE_TTL, 3600 s)
+// makes this fast: one real fill per hour, every other request served
 // from the Data Cache, with `loading.tsx` covering the rare cold fill. The
 // category pages are dynamic anyway (searchParams) and pull from the same
 // cached loaders.
@@ -74,7 +74,7 @@ function Door({
       className={`cmp-door${hero ? " cmp-door--hero" : ""}`}
     >
       <h3 className="cmp-door__label">{c.label}</h3>
-      {/* Exactly ONE figure line per door (Brief 184: minimise the first
+      {/* Exactly ONE figure line per door (minimise the first
           info load) — holdings in gold, coverage behind it. */}
       <p className="cmp-door__stat">
         {c.pending && count === 0 ? (

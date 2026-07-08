@@ -9,7 +9,7 @@ import {
 } from "./types";
 
 /**
- * Lane-scoped anchor signal (Brief 164).
+ * Lane-scoped anchor signal.
  *
  * A committed seed JSON (precedent: `ask-curation.json`) names canonical
  * "reliable entry point" books and the lane(s) they anchor — a `when`-style
@@ -27,7 +27,7 @@ import {
 
 export type AnchorConfidence = "high" | "medium" | "low";
 
-/** Point bonus by confidence. Tuned against the combination audit (Brief 164):
+/** Point bonus by confidence. Tuned against the combination audit:
  *  high lifts a canonical entry to the top of its lane; medium nudges; low is a
  *  gentle hint. The lane match already implies the book fits the slice, and the
  *  merit only applies when the base score is positive (see `recommend.ts`). */

@@ -1,7 +1,7 @@
 /**
  * Intercept: a soft-nav to /buch/[slug] from anywhere in the app opens the book
- * detail as a large centered overlay instead of the full page (Brief 120
- * polish). SERVER COMPONENT — it calls the same `loadBook` and renders the same
+ * detail as a large centered overlay instead of the full page.
+ * SERVER COMPONENT — it calls the same `loadBook` and renders the same
  * db-free `<BookDetailView>` as the canonical page; only the shared `DetailModal`
  * (the overlay shell) is `'use client'`. Zero fork: no second data path, no
  * second view.

@@ -1,9 +1,8 @@
 /**
- * RoutesLayer — the active course (Brief 178, Entscheid 7): legs draw
- * station by station (mask reveal), then the dots keep marching in travel
- * direction (Konvoi-Geste, Runde 5). Station rings bloom with the leg
- * cadence. Mounted only while a course is active — mounting restarts the
- * CSS choreography.
+ * RoutesLayer — the active course: legs draw station by station (mask
+ * reveal), then the dots keep marching in travel direction (convoy
+ * gesture). Station rings bloom with the leg cadence. Mounted only while a
+ * course is active — mounting restarts the CSS choreography.
  */
 
 import { useMemo } from "react";

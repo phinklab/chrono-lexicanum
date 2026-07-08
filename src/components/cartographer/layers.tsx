@@ -1,8 +1,8 @@
 /**
- * layers.tsx — the data-driven chart layers (Brief 178): kind glyphs,
- * star-dust (900 unrecorded worlds), work pins (141 + labels) and the 13
- * region typo pins. All keyed to the catalog payload; filter changes are
- * rare React renders, camera frames never touch these.
+ * layers.tsx — the data-driven chart layers: kind glyphs, star-dust (900
+ * unrecorded worlds), work pins (141 + labels) and the 13 region typo pins.
+ * All keyed to the catalog payload; filter changes are rare React renders,
+ * camera frames never touch these.
  */
 
 import { memo, useMemo } from "react";
@@ -11,7 +11,7 @@ import type { FeaturedWorld, MapPayload, RegionPin } from "@/lib/map/payload";
 import type { MapWorldKind } from "@/lib/map/map-worlds-schema";
 import { BLOOD, BONE, GOLD, ICE, dustScatter } from "./chart-geometry";
 
-/** Kind icon, small — planets stay planets (Runde 2). */
+/** Kind icon, small — planets stay planets. */
 export function Glyph({ kind, s }: { kind: MapWorldKind; s: number }) {
   switch (kind) {
     case "chaos-warp": {
@@ -102,12 +102,12 @@ export function labelTier(n: number): 0 | 1 | 2 {
   return n >= 15 ? 0 : n >= 4 ? 1 : 2;
 }
 
-/* ── Star-dust: 900 unrecorded worlds, grouped per classification so the
+/* Star-dust: 900 unrecorded worlds, grouped per classification so the
    census can veil them without touching individual nodes. Every dot is a
-   real catalog contact (Session-Nachtrag 178): data-pin makes it clickable,
-   the transparent halo gives it a tappable hit area. Dust ranks BELOW every
-   recorded world (178b Runde 7): the layer sits at 60 % opacity until band 3
-   — the zoom where the t3 label makes its name readable. ────────────────── */
+   real catalog contact: data-pin makes it clickable, the transparent halo
+   gives it a tappable hit area. Dust ranks BELOW every recorded world: the
+   layer sits at 60 % opacity until band 3 — the zoom where the t3 label
+   makes its name readable. */
 
 interface DustLayerProps {
   payload: MapPayload;
@@ -117,8 +117,8 @@ interface DustLayerProps {
 }
 
 export const DustLayer = memo(function DustLayer({ payload, hiddenCls, dustOff, worksOnly }: DustLayerProps) {
-  // Scatter is deterministic over the catalog order (same LCG stream as the
-  // reviewed study), computed once and then grouped.
+  // Scatter is deterministic over the catalog order (seeded LCG stream),
+  // computed once and then grouped.
   const groups = useMemo(() => {
     const looks = dustScatter(payload.dust.length);
     const byCls = new Map<number, { id: string; name: string; x: number; y: number; r: number; op: number }[]>();
@@ -153,7 +153,7 @@ export const DustLayer = memo(function DustLayer({ payload, hiddenCls, dustOff, 
   );
 });
 
-/* ── Work pins: 141 featured worlds with kind glyph + label tier ────────── */
+/* Work pins: 141 featured worlds with kind glyph + label tier */
 
 interface PinLayerProps {
   featured: FeaturedWorld[];
@@ -162,12 +162,11 @@ interface PinLayerProps {
   hiNames: ReadonlySet<string> | null;
 }
 
-/** NOTE (178b, Label-Flicker): the selection highlight (`sel-on`) is applied
- *  imperatively from CartographerRoot — deliberately NOT a prop here, so a
- *  selection change never re-renders this layer.
- *  Every recorded world is visible at every zoom (178b Runde 7) — the old
- *  top-100 veil (`vb1` + "All worlds at every zoom") hid book-carrying
- *  worlds while dust stayed on, the wrong way around. */
+/** NOTE: the selection highlight (`sel-on`) is applied imperatively from
+ *  CartographerRoot — deliberately NOT a prop here, so a selection change
+ *  never re-renders this layer.
+ *  Every recorded world is visible at every zoom — a veil that hides
+ *  book-carrying worlds while dust stays on reads the wrong way around. */
 export const PinLayer = memo(function PinLayer({ featured, hiddenCls, hiNames }: PinLayerProps) {
   return (
     <g className="cg-pins">
@@ -195,7 +194,7 @@ export const PinLayer = memo(function PinLayer({ featured, hiddenCls, hiNames }:
   );
 });
 
-/* ── Region pins: area typography, clickable when they carry works ──────── */
+/* Region pins: area typography, clickable when they carry works */
 
 interface RegionLabelsProps {
   regions: RegionPin[];

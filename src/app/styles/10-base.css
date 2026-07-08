@@ -1,9 +1,6 @@
 /* 10-base.css
-   Extracted verbatim from globals.css (CSS-consolidation pass 1). */
-
-/* =============================================================================
- * Base.
- * ============================================================================= */
+   Base element styles: scrollbars, body type, selection, headings, the
+   site-wide focus policy and the reduced-motion clamp. */
 
 html,
 body {
@@ -53,13 +50,13 @@ h1, h2, h3 {
   letter-spacing: var(--font-display-track);
 }
 
-/* No focus outlines, site-wide (maintainer decision 2026-06-11): the gold/cyan
-   rings flashed on every click (inputs always match :focus-visible on mouse
-   focus) and read as visual noise. Interactive surfaces keep their own focus
-   affordances (underline brightening, hover-grade color shifts). The !important
-   deliberately neutralises the ~50 per-component outline rules across the
-   partials in one place — remove those rules opportunistically when touching
-   their files. Outline only: box-shadow stays available for decorative use. */
+/* No focus outlines, site-wide: the gold/cyan rings flashed on every click
+   (inputs always match :focus-visible on mouse focus) and read as visual
+   noise. Interactive surfaces keep their own focus affordances (underline
+   brightening, hover-grade color shifts). The !important deliberately
+   neutralises the ~50 per-component outline rules across the partials in one
+   place — remove those rules opportunistically when touching their files.
+   Outline only: box-shadow stays available for decorative use. */
 :focus,
 :focus-visible {
   outline: none !important;
@@ -82,9 +79,9 @@ main {
 
   /* Ambient HUD components (ScanLine, FloatingCoord, WordField, LetterField)
      animate via INLINE styles — the duration clamp above happens to cover them,
-     but only because of its !important; this explicit gate is the contract
-     (Report 141 § B5 / Report 144 Welle 7). They are pure decoration whose
-     base state is invisible or parked off-view, so `none` simply stills them. */
+     but only because of its !important; this explicit gate is the contract.
+     They are pure decoration whose base state is invisible or parked off-view,
+     so `none` simply stills them. */
   .chrono-ambient,
   .chrono-ambient * {
     animation: none !important;

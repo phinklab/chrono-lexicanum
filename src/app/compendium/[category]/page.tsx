@@ -1,8 +1,8 @@
 /**
- * Compendium category directory (Brief 129). One dense, scannable deck of entity
+ * Compendium category directory. One dense, scannable deck of entity
  * rows in the Compendium's cyan "reader-language" (the /werke row discipline, in
  * teal) — each row a Link into the canonical detail route, which soft-navs into
- * the Brief-113 overlay. Filtering
+ * the @modal overlay. Filtering
  * is server-side and URL-mirrored (the <CompendiumControls> island writes the
  * params); factions group by alignment, the rest are flat. A not-yet-curated
  * category (Primarchs) renders a graceful pending state instead of a 404.

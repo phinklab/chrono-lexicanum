@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import {
   Cardo,
   Cinzel,
@@ -76,12 +76,21 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
+// viewportFit: "cover" lets fixed chrome extend into notch/home-bar regions;
+// every fixed element pads with env(safe-area-inset-*) in its stylesheet.
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#050301",
+};
+
 export default function RootLayout({
   children,
   modal,
 }: {
   children: React.ReactNode;
-  // The `@modal` parallel slot (Brief 113, Phase B). Renders the in-context
+  // The `@modal` parallel slot. Renders the in-context
   // entity panel when an in-app soft-nav hits a `(.)charakter|fraktion|welt`
   // intercept; otherwise `null` (slot default / catch-all). Sitting in the root
   // layout is what lets every in-app entity `<Link>` open the panel without any
@@ -119,7 +128,7 @@ export default function RootLayout({
           {modal}
         </NavProgressProvider>
         <MediaPlayer />
-        {/* Fixed Impressum/Datenschutz links under the player (Brief 179):
+        {/* Fixed Impressum/Datenschutz links under the player:
             the legal-reachability guarantee for footerless desktop surfaces.
             Hidden on /login and ≤760px via 71-legal.css. */}
         <SiteLegal />

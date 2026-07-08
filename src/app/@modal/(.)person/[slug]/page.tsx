@@ -1,7 +1,7 @@
 /**
  * Intercept: a soft-nav to /person/[slug] from anywhere in the app opens the
- * author hub as an overlay panel instead of the full page (Brief 113, Phase B;
- * widened in Brief 129). SERVER COMPONENT — it calls the same `loadEntity` and
+ * author hub as an overlay panel instead of the full page.
+ * SERVER COMPONENT — it calls the same `loadEntity` and
  * renders the same db-free `<EntityView>` as the canonical page; only the shared
  * `DetailModal` (the overlay shell) is `'use client'`. Zero fork.
  *

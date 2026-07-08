@@ -1,8 +1,8 @@
 /**
- * Central facet-category visibility (Brief 150). PURE — no `@/db`, no JSX.
+ * Central facet-category visibility. PURE — no `@/db`, no JSX.
  *
  * Content warnings are retired from the whole UI (the data side retires
- * separately in Brief 149); every loader that feeds facet chips, tag rows,
+ * separately); every loader that feeds facet chips, tag rows,
  * search suggestions or audit lists filters through this ONE set, so the
  * display removal holds even while the rows still exist in Postgres.
  */
