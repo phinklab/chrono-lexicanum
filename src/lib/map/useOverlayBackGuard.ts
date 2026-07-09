@@ -27,8 +27,11 @@ export interface OverlayLayer {
 export function useOverlayBackGuard(enabled: boolean, layers: OverlayLayer[]) {
   const armed = useRef(false); // our guard entry is top-of-stack
   const eatPops = useRef(0); // pops we caused ourselves via history.back()
+  // Latest-value ref for the popstate handler (same pattern as ChartStage).
   const layersRef = useRef(layers);
-  layersRef.current = layers;
+  useEffect(() => {
+    layersRef.current = layers;
+  }, [layers]);
 
   const anyOpen = layers.some((l) => l.open);
 
