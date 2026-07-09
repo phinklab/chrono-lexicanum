@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OFOB Hierarchy Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@600;700&family=Cardo:ital@0;1&family=Fragment+Mono&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --void: #050301; --bone: #e4ddcb; --dim: #9a927e; --faint: #6a6455;
+    --gold: #a48c52; --wash: rgba(228,221,203,0.03);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { background: var(--void); }
+  body {
+    font-family: "Cardo", Georgia, serif; color: var(--bone); background: var(--void);
+    min-height: 100vh; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 620px; margin: 0 auto; padding: 10vh 20px 100px; }
+  .kicker { font-family: "Fragment Mono", monospace; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--faint); }
+  h1 { font-family: "Cormorant SC", serif; font-weight: 600; font-size: clamp(30px, 5.6vw, 44px); margin-top: 12px; line-height: 1.08; }
+  .sub { font-style: italic; color: var(--dim); margin-top: 12px; font-size: 15px; }
+  .round { margin-top: 44px; font-family: "Fragment Mono", monospace; font-size: 10px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold); }
+  .round.old { color: var(--faint); margin-top: 52px; }
+  .cards { margin-top: 6px; }
+  a.card { display: flex; align-items: baseline; gap: 16px; padding: 20px 14px; margin: 8px -14px 0; border-radius: 14px; text-decoration: none; color: inherit; transition: background 0.25s; }
+  a.card:hover { background: var(--wash); }
+  .card__n { font-family: "Fragment Mono", monospace; font-size: 11px; color: var(--faint); flex: none; width: 20px; }
+  .card__main { flex: 1; }
+  .card__title { font-family: "Cormorant SC", serif; font-weight: 600; font-size: 22px; color: var(--gold); line-height: 1.1; }
+  .card__desc { font-size: 14px; color: var(--dim); margin-top: 6px; font-style: italic; display: block; }
+  .card__chev { color: var(--faint); flex: none; }
+  .cards.old .card__title { color: var(--dim); font-size: 18px; }
+  .cards.old a.card { padding: 12px 14px; }
+  .cards.old .card__desc { font-size: 12.5px; }
+  .foot { margin-top: 48px; font-family: "Fragment Mono", monospace; font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--faint); line-height: 2; }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <p class="kicker">Design Lab · One Faction, One Book</p>
+    <h1>Hierarchy Studies</h1>
+    <p class="sub">Same data, same logic — grouping carried by ground tones instead of frames. Best judged on a phone.</p>
+
+    <p class="round">Runde 2 · ohne Kästen — Gruppierung über Grund</p>
+    <nav class="cards">
+      <a class="card" href="./d-strata.html">
+        <span class="card__n">D</span>
+        <span class="card__main">
+          <span class="card__title">Strata</span>
+          <span class="card__desc">Editorial, left-aligned. Full-bleed tonal bands: the choosing sits on lifted ground, the answer on deepest void, the register on the faintest wash. Roster as one quiet scroll line.</span>
+        </span>
+        <span class="card__chev">›</span>
+      </a>
+      <a class="card" href="./e-cameo.html">
+        <span class="card__n">E</span>
+        <span class="card__main">
+          <span class="card__title">Cameo</span>
+          <span class="card__desc">Exactly one lifted surface on the page — the answer. Controls stay naked on void; the full faction muster folds away behind "All factions"; alternatives sink tone-in-tone into the plate.</span>
+        </span>
+        <span class="card__chev">›</span>
+      </a>
+      <a class="card" href="./f-titelblatt.html">
+        <span class="card__n">F</span>
+        <span class="card__main">
+          <span class="card__title">Titelblatt</span>
+          <span class="card__desc">The verdict typeset like a novel's title page, centered on a full-bleed sheet of lighter ground — recommends, title, byline, format, epigraph. The chart's title-page language, rolled out.</span>
+        </span>
+        <span class="card__chev">›</span>
+      </a>
+    </nav>
+
+    <p class="round old">Runde 1 · verworfen — zu kastig, zu altbacken</p>
+    <nav class="cards old">
+      <a class="card" href="./a-spine.html">
+        <span class="card__n">A</span>
+        <span class="card__main"><span class="card__title">Codex Spine</span></span>
+        <span class="card__chev">›</span>
+      </a>
+      <a class="card" href="./b-console.html">
+        <span class="card__n">B</span>
+        <span class="card__main"><span class="card__title">Cogitator Console</span></span>
+        <span class="card__chev">›</span>
+      </a>
+      <a class="card" href="./c-muster.html">
+        <span class="card__n">C</span>
+        <span class="card__main"><span class="card__title">Muster Roll</span></span>
+        <span class="card__chev">›</span>
+      </a>
+    </nav>
+
+    <p class="foot">Static prototypes · real starter data, all 18 factions · not wired to the app<br>Session 190 · /ask/fraktion hierarchy study</p>
+  </main>
+</body>
+</html>

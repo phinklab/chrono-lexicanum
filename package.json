@@ -63,6 +63,7 @@
     "test:book-file": "tsx scripts/test-book-file.ts",
     "test:apply-book": "tsx scripts/test-apply-book.ts",
     "test:map-worlds": "tsx scripts/test-map-worlds.ts",
+    "test:voyages": "tsx scripts/test-voyages.ts",
     "test:book-detection-guard": "tsx scripts/test-book-detection-guard.ts",
     "test:migration-equivalence": "tsx scripts/test-migration-equivalence.ts",
     "db:seed-resolver-extensions": "tsx --env-file=.env.local scripts/seed-resolver-extensions.ts",

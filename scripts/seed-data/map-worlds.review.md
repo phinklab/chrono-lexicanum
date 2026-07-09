@@ -2,13 +2,13 @@
 
 > Generiert von `npm run import:map-worlds` — nicht von Hand editieren. Der Hand-Pfad ist `scripts/seed-data/source/map-worlds-curation.xlsx`: Sheet „Kuration“ hat eine Zeile pro Medien-Location ohne Match — `Aktion` = `link` (Excel-Welt existiert unter anderem Namen; `Ziel` = Welt-ID, deren `locationId` gesetzt wird), `rollup` (Werke an die Ziel-Welt anhängen, Herkunft via `via`), `pin` (neue Welt; `x`/`y`/`Segmentum`/`Klassifikation` Pflicht — `x`/`y` im SSOT-Pixelraum der Redditor-Excel, der Convert projiziert sie aufs Grid; Klassifikation „Region“ → `kind: region`) oder leer/`später` (offen). Sheet „Welten“ erzwingt pro Welt-ID ein `locationId` (oder `-`/`null` = bewusst ohne Match, z. B. Dubletten-Entkopplung). Danach Convert neu laufen lassen.
 
-**Abdeckung: 1332 von 1685 Werk-Kanten (79.1 %) platziert** (matched/link/pin/rollup).
+**Abdeckung: 1352 von 1710 Werk-Kanten (79.1 %) platziert** (matched/link/pin/rollup).
 
 ## 1. Match-Übersicht Excel ↔ Bestand
 
-- Katalog-Welten gesamt: **1054** (992 aus der Excel, 62 Kurations-Pins)
-- Verknüpft mit einer `locations.json`-Row: **154** Welten (147 verschiedene Locations)
-- Davon mit ≥1 eigenem Werk (Buch/Podcast, ohne Rollup): **152**
+- Katalog-Welten gesamt: **1055** (992 aus der Excel, 63 Kurations-Pins)
+- Verknüpft mit einer `locations.json`-Row: **155** Welten (148 verschiedene Locations)
+- Davon mit ≥1 eigenem Werk (Buch/Podcast, ohne Rollup): **153**
 
 | Welt-ID | Name | locationId | Bücher | Episoden |
 |---|---|---|---:|---:|
@@ -31,15 +31,15 @@
 | `blackstone-fortress-2` | Blackstone Fortress | `blackstone_fortress` | 4 | 2 |
 | `blackstone-fortress-3` | Blackstone Fortress | `blackstone_fortress` | 4 | 2 |
 | `blackstone-fortress-4` | Blackstone Fortress | `blackstone_fortress` | 4 | 2 |
-| `cadia` | Cadia | `cadia` | 10 | 12 |
-| `caliban` | Caliban | `caliban` | 11 | 4 |
+| `cadia` | Cadia | `cadia` | 10 | 13 |
+| `caliban` | Caliban | `caliban` | 11 | 5 |
 | `calixis` | Calixis | `calixis` | 1 | 0 |
-| `calth` | Calth | `calth` | 24 | 2 |
+| `calth` | Calth | `calth` | 24 | 4 |
 | `cao-quo` | Cao Quo | `cao_quo` | 1 | 0 |
 | `chemos` | Chemos | `chemos` | 1 | 3 |
 | `chogoris` | Chogoris | `chogoris` | 3 | 2 |
 | `chondax` | Chondax | `chondax` | 4 | 1 |
-| `colchis` | Colchis | `colchis` | 3 | 0 |
+| `colchis` | Colchis | `colchis` | 3 | 1 |
 | `commorragh` | Commorragh | `commorragh` | 12 | 16 |
 | `commorragh-2` | Commorragh | `commorragh` | 12 | 16 |
 | `commorragh-3` | Commorragh | `commorragh` | 12 | 16 |
@@ -64,7 +64,7 @@
 | `elaras-veil` | Elara's Veil | `elaras_veil` | 1 | 0 |
 | `enothis` | Enothis | `enothis` | 1 | 0 |
 | `eustis-majoris` | Eustis Majoris | `eustis_majoris` | 4 | 0 |
-| `eye-of-terror` | Eye of Terror | `eye_of_terror` | 43 | 19 |
+| `eye-of-terror` | Eye of Terror | `eye_of_terror` | 43 | 20 |
 | `fenris` | Fenris | `fenris` | 22 | 5 |
 | `fortis-binary` | Fortis Binary | `fortis_binary` | 2 | 0 |
 | `garm` | Garm | `garm` | 2 | 0 |
@@ -78,7 +78,7 @@
 | `gryphonne-iv` | Gryphonne IV | `gryphonne_iv` | 1 | 0 |
 | `gudrun` | Gudrun | `gudrun` | 3 | 0 |
 | `hagia` | Hagia | `hagia` | 2 | 0 |
-| `halo-stars` | Halo Stars | `halo_stars` | 1 | 0 |
+| `halo-stars` | Halo Stars | `halo_stars` | 1 | 1 |
 | `heletine` | Heletine | `heletine` | 1 | 0 |
 | `herodor` | Herodor | `herodor` | 2 | 0 |
 | `hubris` | Hubris | `hubris` | 2 | 0 |
@@ -97,6 +97,7 @@
 | `kronus` | Kronus | `kronus` | 1 | 0 |
 | `laeran` | Laeran | `laeran` | 2 | 3 |
 | `lastrati` | Lastrati | `lastrati` | 1 | 0 |
+| `luna` | Luna | `luna` | 8 | 0 |
 | `machorta-sound` | Machorta Sound | `machorta_sound` | 1 | 0 |
 | `macragge` | Macragge | `macragge` | 21 | 5 |
 | `mars` | Mars | `mars` | 17 | 14 |
@@ -110,12 +111,12 @@
 | `nikaea` | Nikaea | `nikaea` | 2 | 0 |
 | `nocturne` | Nocturne | `nocturne` | 13 | 2 |
 | `nostramo` | Nostramo | `nostramo` | 4 | 6 |
-| `nuceria` | Nuceria | `nuceria` | 7 | 2 |
+| `nuceria` | Nuceria | `nuceria` | 7 | 3 |
 | `octarius` | Octarius | `octarius` | 2 | 7 |
 | `olympia` | Olympia | `olympia` | 1 | 1 |
 | `orestes` | Orestes | `orestes` | 1 | 0 |
 | `pariah-nexus` | Pariah Nexus | `pariah_nexus` | 2 | 3 |
-| `parmenio` | Parmenio | `parmenio` | 1 | 0 |
+| `parmenio` | Parmenio | `parmenio` | 1 | 1 |
 | `pavonis` | Pavonis | `pavonis` | 6 | 0 |
 | `periremunda` | Periremunda | `periremunda` | 1 | 0 |
 | `perlia` | Perlia | `perlia` | 2 | 0 |
@@ -140,7 +141,7 @@
 | `scarus-sector` | Scarus Sector | `scarus` | 7 | 0 |
 | `scintilla` | Scintilla | `scintilla` | 0 | 0 |
 | `signus-prime` | Signus Prime | `signus_prime` | 2 | 2 |
-| `solemnace` | Solemnace | `solemnace` | 3 | 0 |
+| `solemnace` | Solemnace | `solemnace` | 3 | 1 |
 | `sotha` | Sotha | `sotha` | 10 | 1 |
 | `sycorax` | Sycorax | `sycorax` | 1 | 0 |
 | `tallarn` | Tallarn | `tallarn` | 9 | 2 |
@@ -148,7 +149,7 @@
 | `tarsis-ultra` | Tarsis Ultra | `tarsis_ultra` | 3 | 0 |
 | `tartarus` | Tartarus | `tartarus` | 2 | 0 |
 | `tau` | T'au | `tau_empire` | 1 | 12 |
-| `terra` | Terra | `terra` | 100 | 81 |
+| `terra` | Terra | `terra` | 100 | 80 |
 | `the-black-library` | The Black Library | `black_library_place` | 2 | 2 |
 | `the-maelstrom` | The Maelstrom | `maelstrom` | 5 | 5 |
 | `the-rock` | The Rock | `rock` | 3 | 2 |
@@ -164,7 +165,7 @@
 | `viorlos` | Vior'los | `vior_los` | 1 | 0 |
 | `viridia` | Viridia | `viridia` | 1 | 0 |
 | `voltemand` | Voltemand | `voltemand` | 3 | 0 |
-| `vraks-prime` | Vraks Prime | `vraks_prime` | 1 | 0 |
+| `vraks-prime` | Vraks Prime | `vraks_prime` | 1 | 10 |
 | `yassilli-sarum` | Yassilli Sarum | `yassilli_sarum` | 2 | 0 |
 
 ## 2. Nachplatzierungs-Worklist — offene Medien-Locations
@@ -186,9 +187,11 @@
 | `velchanos_magna` | Velchanos Magna | 3 | 0 |
 | `aerius` | Aerius | 2 | 0 |
 | `anaxian_line` | Anaxian Line | 2 | 0 |
+| `arthas_moloch` | Arthas Moloch | 1 | 1 |
 | `astagar` | Astagar | 2 | 0 |
 | `boros_gate` | Boros Gate | 2 | 0 |
 | `broucheroc` | Broucheroc | 2 | 0 |
+| `caldera` | Caldera | 1 | 1 |
 | `chaeroneia` | Chaeroneia | 2 | 0 |
 | `civitas_beati` | Civitas Beati | 2 | 0 |
 | `crannog_mons` | Crannog Mons | 2 | 0 |
@@ -199,6 +202,7 @@
 | `diamat` | Diamat | 2 | 0 |
 | `dwell` | Dwell | 2 | 0 |
 | `dynikas_v` | Dynikas V | 2 | 0 |
+| `gabal` | Gabal | 1 | 1 |
 | `galaspar` | Galaspar | 2 | 0 |
 | `galt` | Galt | 2 | 0 |
 | `gondwa_vi` | Gondwa VI | 2 | 0 |
@@ -216,6 +220,7 @@
 | `lycheate` | Lycheate | 2 | 0 |
 | `malouri` | Malouri | 2 | 0 |
 | `medina_corridor` | Medina Corridor | 2 | 0 |
+| `morod` | Morod | 1 | 1 |
 | `neva` | Neva | 2 | 0 |
 | `nusquam_fundumentibus` | Nusquam Fundumentibus | 2 | 0 |
 | `ophelia_vii` | Ophelia VII | 2 | 0 |
@@ -239,6 +244,7 @@
 | `vanqualis` | Vanqualis | 2 | 0 |
 | `venam` | Venam | 2 | 0 |
 | `visage` | Visage | 2 | 0 |
+| `zartak` | Zartak | 1 | 1 |
 | `absolom` | Absolom | 1 | 0 |
 | `adumbria` | Adumbria | 1 | 0 |
 | `agarimethea` | Agarimethea | 1 | 0 |
@@ -247,7 +253,6 @@
 | `almace` | Almace | 1 | 0 |
 | `andrioch` | Andrioch | 1 | 0 |
 | `ardamantua` | Ardamantua | 1 | 0 |
-| `arthas_moloch` | Arthas Moloch | 1 | 0 |
 | `attruso` | Attruso | 1 | 0 |
 | `aurelia` | Subsector Aurelia | 1 | 0 |
 | `bacchus` | Bacchus | 1 | 0 |
@@ -257,7 +262,6 @@
 | `belmos_vii` | Belmos VII | 1 | 0 |
 | `black_reach` | Black Reach | 1 | 0 |
 | `byzas` | Byzas | 1 | 0 |
-| `caldera` | Caldera | 1 | 0 |
 | `castellax` | Castellax | 1 | 0 |
 | `casus_belli` | Casus Belli | 1 | 0 |
 | `ceocan` | Ceocan | 1 | 0 |
@@ -293,7 +297,6 @@
 | `fortuna_minor` | Fortuna Minor | 1 | 0 |
 | `forty_seven_sixteen` | Forty-Seven Sixteen | 1 | 0 |
 | `furia_penitens` | Furia Penitens | 1 | 0 |
-| `gabal` | Gabal | 1 | 0 |
 | `galimo_prime` | Galimo Prime | 1 | 0 |
 | `gathis_ii` | Gathis II | 1 | 0 |
 | `geratomro` | Geratomro | 1 | 0 |
@@ -334,7 +337,6 @@
 | `malpertuis` | Malpertuis | 1 | 0 |
 | `malveil` | Malveil | 1 | 0 |
 | `morningstar` | Morningstar | 1 | 0 |
-| `morod` | Morod | 1 | 0 |
 | `morsus` | Morsus | 1 | 0 |
 | `nicomedua` | Nicomedua | 1 | 0 |
 | `numinus` | Numinus | 1 | 0 |
@@ -408,7 +410,6 @@
 | `zalathras` | Zalathras | 1 | 0 |
 | `zalidar` | Zalidar | 1 | 0 |
 | `zaramund` | Zaramund | 1 | 0 |
-| `zartak` | Zartak | 1 | 0 |
 | `ziasuthra` | Ziasuthra | 1 | 0 |
 | `zoah` | Zoah | 1 | 0 |
 
@@ -424,11 +425,11 @@
 | `dalyth` | Dal'yth | `dalyth` | 3 |
 | `piscina_iv` | Piscina IV | `piscina` | 2 |
 
-### Rollups (58)
+### Rollups (57)
 
 | locationId | Name | → Welt-ID(s) | Werke |
 |---|---|---|---:|
-| `ultramar` | Ultramar | `macragge` | 39 |
+| `ultramar` | Ultramar | `macragge` | 40 |
 | `imperial_palace` | Imperial Palace | `terra` | 32 |
 | `hive_primus` | Hive Primus | `necromunda` | 20 |
 | `underhive` | Underhive | `necromunda` | 20 |
@@ -436,7 +437,6 @@
 | `ullanor` | Ullanor | `armageddon` | 13 |
 | `sol_system` | Sol System | `terra` | 12 |
 | `varangantua` | Varangantua | `alecto` | 11 |
-| `luna` | Luna | `terra` | 8 |
 | `medrengard` | Medrengard | `eye-of-terror` | 8 |
 | `planet_of_the_sorcerers` | Planet of the Sorcerers | `prospero` | 8 |
 | `vengeful_spirit` | Vengeful Spirit | `eye-of-terror` | 7 |
@@ -487,7 +487,7 @@
 | `torvendis` | Torvendis | `the-maelstrom` | 1 |
 | `urgall_depression` | Urgall Depression | `istvaan-v` | 1 |
 
-### Pins (62)
+### Pins (63)
 
 | locationId | Welt-ID | Name | kind | x | y | gx | gy | Werke |
 |---|---|---|---|---:|---:|---:|---:|---:|
@@ -498,6 +498,7 @@
 | `sotha` | `sotha` | Sotha | `unclassified` | 6469 | 5210 | 920.04 | 668.02 | 11 |
 | `nostramo` | `nostramo` | Nostramo | `unclassified` | 5555 | 1675 | 789.99 | 165.05 | 10 |
 | `alecto` | `alecto` | Alecto | `unclassified` | 2955 | 5013 | 420.05 | 639.99 | 8 |
+| `luna` | `luna` | Luna | `imperial` | 2370 | 3324 | 336.82 | 399.68 | 8 |
 | `scarus` | `scarus-sector` | Scarus Sector | `region` | 1654 | 1288 | 234.94 | 109.99 | 7 |
 | `cryptus` | `cryptus-system` | Cryptus-System | `unclassified` | 4923 | 2223 | 700.07 | 243.02 | 6 |
 | `eastern_fringe` | `eastern-fringe` | Eastern Fringe | `region` | 6850 | 3300 | 974.25 | 396.26 | 5 |
@@ -545,14 +546,14 @@
 | `elaras_veil` | `elaras-veil` | Elara's Veil | `region` | 6700 | 4600 | 952.9 | 581.23 | 1 |
 | `gnostes` | `gnostes` | Gnostes | `unclassified` | 1210 | 4400 | 171.77 | 552.77 | 1 |
 | `gravalax` | `gravalax` | Gravalax | `unclassified` | 5980 | 4380 | 850.46 | 549.93 | 1 |
-| `halo_stars` | `halo-stars` | Halo Stars | `region` | 1050 | 700 | 149 | 26.32 | 1 |
+| `halo_stars` | `halo-stars` | Halo Stars | `region` | 1050 | 700 | 149 | 26.32 | 2 |
 | `kronus` | `kronus` | Kronus | `unclassified` | 5900 | 4250 | 839.08 | 531.43 | 1 |
 | `periremunda` | `periremunda` | Periremunda | `unclassified` | 5450 | 3900 | 775.05 | 481.63 | 1 |
 | `quadravidia` | `quadravidia` | Quadravidia | `unclassified` | 5850 | 4500 | 831.96 | 567 | 1 |
 | `rezlan_vi` | `rezlan-vi` | Rezlan VI | `unclassified` | 5800 | 4650 | 824.85 | 588.34 | 1 |
 | `saltire_vex` | `saltire-vex` | Saltire Vex | `unclassified` | 6000 | 4600 | 853.31 | 581.23 | 1 |
 | `thramas_sector` | `thramas-sector` | Thramas Sector | `region` | 6450 | 3750 | 917.33 | 460.29 | 1 |
-| `vraks_prime` | `vraks-prime` | Vraks Prime | `unclassified` | 1580 | 1240 | 224.41 | 103.16 | 1 |
+| `vraks_prime` | `vraks-prime` | Vraks Prime | `unclassified` | 1580 | 1240 | 224.41 | 103.16 | 11 |
 
 ## 4. Excel-Namensdubletten + angewandte Regel
 
@@ -659,6 +660,6 @@ Quellen: `scripts/seed-data/books/*.json` (geteilter Resolver-Pfad `resolveLocat
 
 - Bücher im Korpus: 896, davon mit ≥1 Location-Kante: 748 (1333 Kanten)
 - Overlay-Location-Tail: 15 Adds, 2 Removes
-- Podcast-Shows: 4, Episoden: 1094, davon mit ≥1 Location-Kante: 262 (352 Kanten, 0 FK-Drops)
+- Podcast-Shows: 4, Episoden: 1102, davon mit ≥1 Location-Kante: 280 (377 Kanten, 0 FK-Drops)
 
 Read-only `work_locations`-Stichprobe (Verifikations-Check, kein Datenpfad): siehe Impl-Report `sessions/2026-07-02-174-impl-map-ssot-reconciliation.md` § Verification.

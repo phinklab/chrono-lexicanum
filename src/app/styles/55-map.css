@@ -440,6 +440,20 @@ body.cg-on-map .site-brand .site-brand__map {
     opacity: 0.85;
   }
 }
+/* ── Tour mode (Great Journeys guided playback) ──────────────────────────
+   Reveal is STEP-gated by RoutesLayer classes instead of the time stagger:
+   `rt-pending` holds later geometry at 0 (a plain class, not an animation —
+   it survives reduced-motion, where the drawing leg lands fully drawn),
+   the single `rt-drawing` leg runs the draw-in with --i pinned to 0, and
+   `rt-drawn` legs stand mask-free. Ring blooms wait a beat so they land
+   with the camera, not the tap. */
+.cg-course.tour .rt-pending {
+  opacity: 0 !important;
+  animation: none !important;
+}
+.cg-course.tour .cg-rt-st {
+  animation-delay: 0.55s;
+}
 
 /* Selection: ringwork blooms out of the dot (the BtnFx gesture) */
 .cg-sel .blm {
@@ -984,6 +998,26 @@ body.cg-on-map .site-brand .site-brand__map {
   color: var(--cl-faint);
   padding-left: 8px;
 }
+/* Great Journeys rows: blurb + station count beneath the name line. */
+:is(.cg-cartouche, .cg-sheet) .rt .rt-blurb {
+  display: block;
+  font-size: var(--fs-label-xs);
+  color: var(--cl-faint);
+  padding-top: 1px;
+}
+:is(.cg-cartouche, .cg-sheet) .rt.on .rt-blurb {
+  color: var(--cl-dim);
+}
+:is(.cg-cartouche, .cg-sheet) .rt .rt-meta {
+  display: block;
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-3xs);
+  letter-spacing: var(--track-18);
+  text-transform: uppercase;
+  color: var(--cl-gold-dim);
+  padding-top: 2px;
+}
 /* Census filters */
 .cg-census .chead {
   font-family: var(--font-mono);
@@ -1459,6 +1493,45 @@ body.cg-on-map .site-brand .site-brand__map {
 }
 .cg-ccard .cpg:hover {
   color: var(--cl-gold);
+}
+
+/* VoyageTour card — the dock grammar promoted to desktop: bottom-center,
+   interactive as a whole (Begin/Back/Next/Fin live inside). ≤900px the
+   .cg-ccard--dock rules below take over (left/right 12px, above the dock). */
+.cg-ccard.cg-tour {
+  left: calc(50% - 215px);
+  width: 430px;
+  top: auto;
+  bottom: 30px;
+  pointer-events: auto;
+}
+.cg-tour .cg-tour-name {
+  font-family: var(--font-display);
+  font-size: 21px;
+  letter-spacing: 0.04em;
+  color: var(--cl-bone);
+  margin: 2px 0 6px;
+}
+.cg-tour .cg-tour-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 14px;
+  margin-top: 10px;
+}
+.cg-tour .cpg { margin-top: 0; }
+.cg-tour .cpg.lead {
+  color: var(--cl-gold);
+}
+.cg-tour .cpg.lead:hover {
+  color: var(--cl-bone);
+}
+.cg-tour .cg-tour-x {
+  position: absolute;
+  top: 9px;
+  right: 11px;
+  padding: 4px 6px;
+  font-size: 10px;
 }
 
 /* Zoomer + readout */

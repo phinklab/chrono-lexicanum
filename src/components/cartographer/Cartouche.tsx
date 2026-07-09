@@ -25,7 +25,7 @@ import { useMemo, useState } from "react";
 import type { ReactNode, Ref } from "react";
 
 import type { MapPayload } from "@/lib/map/payload";
-import { COURSES } from "@/lib/map/routes";
+import { VOYAGES } from "@/lib/map/voyages";
 
 /** 1054 → "1 054" — space-grouped chart figures. */
 export function fmt(n: number): string {
@@ -85,24 +85,28 @@ export function SectionHead({
   );
 }
 
-/** The character-voyage list — one button per course. */
-export function CourseButtons({
-  courseId,
-  onCourse,
+/** The Great Journeys list — one row per journey: name + era tag on the
+ *  first line, the blurb and station count beneath. Picking one opens the
+ *  guided tour (VoyageTour); picking it again closes the journey. */
+export function VoyageButtons({
+  voyageId,
+  onVoyage,
 }: {
-  courseId: string | null;
-  onCourse: (id: string) => void;
+  voyageId: string | null;
+  onVoyage: (id: string) => void;
 }) {
   return (
     <div className="routes">
-      {COURSES.map((course) => (
+      {VOYAGES.map((voyage) => (
         <button
-          key={course.id}
-          className={`rt${courseId === course.id ? " on" : ""}`}
-          onClick={() => onCourse(course.id)}
+          key={voyage.id}
+          className={`rt${voyageId === voyage.id ? " on" : ""}`}
+          onClick={() => onVoyage(voyage.id)}
         >
-          {course.name}
-          <span className="rt-tag">{course.tag}</span>
+          {voyage.name}
+          <span className="rt-tag">{voyage.tag}</span>
+          <span className="rt-blurb">{voyage.blurb}</span>
+          <span className="rt-meta">{voyage.stations.length} stations</span>
         </button>
       ))}
     </div>
@@ -243,14 +247,16 @@ export function SeekPanel({
 interface CartoucheProps {
   payload: MapPayload;
   condensed: boolean;
-  courseId: string | null;
+  voyageId: string | null;
+  /** Journeys-section badge — "touring 3/9" during a tour, "active" after. */
+  voyageNote: string | null;
   lumen: boolean;
   nihilus: boolean;
   /** Any census filter off default — the collapsed section shows a badge. */
   filtered: boolean;
   /** Select a world by id (flies there) — seek list click/RET. */
   onPick: (id: string) => void;
-  onCourse: (id: string) => void;
+  onVoyage: (id: string) => void;
   onToggleLumen: () => void;
   onToggleNihilus: () => void;
   /** The census filter block. */
@@ -260,12 +266,13 @@ interface CartoucheProps {
 export function Cartouche({
   payload,
   condensed,
-  courseId,
+  voyageId,
+  voyageNote,
   lumen,
   nihilus,
   filtered,
   onPick,
-  onCourse,
+  onVoyage,
   onToggleLumen,
   onToggleNihilus,
   children,
@@ -280,7 +287,6 @@ export function Cartouche({
       return next;
     });
 
-  const activeCourse = COURSES.find((c) => c.id === courseId) ?? null;
   const instrumentsNote = [lumen && "Lumen", nihilus && "Nihilus"].filter(Boolean).join(" · ");
 
   return (
@@ -291,14 +297,14 @@ export function Cartouche({
       <SeekPanel payload={payload} onPick={onPick} />
       <SectionHead
         open={openSecs.has("courses")}
-        label="Character voyages"
-        note={activeCourse ? "active" : null}
+        label="Great Journeys"
+        note={voyageNote}
         onToggle={() => toggleSec("courses")}
       />
       {openSecs.has("courses") && (
         <div className="c-body">
-          <p className="c-hint">trace a character&rsquo;s journey across the chart</p>
-          <CourseButtons courseId={courseId} onCourse={onCourse} />
+          <p className="c-hint">trace the paths of legend across the chart</p>
+          <VoyageButtons voyageId={voyageId} onVoyage={onVoyage} />
         </div>
       )}
 

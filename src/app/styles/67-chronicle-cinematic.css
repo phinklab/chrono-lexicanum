@@ -448,7 +448,7 @@
   cursor: default;
   pointer-events: none;
 }
-.chron .m-disclose .m-count,
+.chron .m-disclose .m-txt--tap,
 .chron .m-disclose .m-car {
   display: none;
 }
@@ -1531,11 +1531,13 @@
   .chron .d-note { font-size: 16px; max-width: none; }
   .chron .media-seg { max-width: none; }
   .chron .m-label { margin-bottom: 8px; }
-  .chron .m-label::before { margin-bottom: 8px; }
+  /* No gold hairline on phones — the "SHOW n …" wording is the affordance. */
+  .chron .m-label::before { display: none; }
   .chron .d-media-rows { gap: 6px 24px; }
 
-  /* LIBRARIVM disclosure — collapsed by default, tap to unfold. Reclaims a
-     third of the sheet's height for the blurb. */
+  /* Media disclosure — collapsed by default, tap to unfold. Reclaims a
+     third of the sheet's height for the blurb. The label swaps to its
+     action variant ("SHOW n BOOKS & PODCASTS") so it reads as tappable. */
   .chron .m-disclose {
     pointer-events: auto;
     cursor: pointer;
@@ -1544,8 +1546,13 @@
     gap: 8px;
     min-height: 32px;
   }
-  .chron .m-disclose .m-count {
+  .chron .m-disclose .m-txt--wide {
+    display: none;
+  }
+  .chron .m-disclose .m-txt--tap {
     display: inline;
+  }
+  .chron .m-disclose .m-n {
     color: var(--gold);
   }
   .chron .m-disclose .m-car {

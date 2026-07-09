@@ -158,8 +158,9 @@ export const DustLayer = memo(function DustLayer({ payload, hiddenCls, dustOff, 
 interface PinLayerProps {
   featured: FeaturedWorld[];
   hiddenCls: ReadonlySet<number>;
-  /** Station names of the active course (kept bright + labeled). */
-  hiNames: ReadonlySet<string> | null;
+  /** Station world ids of the active journey (kept bright + labeled) —
+   *  ids, not names: chart names may repeat, ids are unique. */
+  hiIds: ReadonlySet<string> | null;
 }
 
 /** NOTE: the selection highlight (`sel-on`) is applied imperatively from
@@ -167,13 +168,13 @@ interface PinLayerProps {
  *  never re-renders this layer.
  *  Every recorded world is visible at every zoom — a veil that hides
  *  book-carrying worlds while dust stays on reads the wrong way around. */
-export const PinLayer = memo(function PinLayer({ featured, hiddenCls, hiNames }: PinLayerProps) {
+export const PinLayer = memo(function PinLayer({ featured, hiddenCls, hiIds }: PinLayerProps) {
   return (
     <g className="cg-pins">
       {featured.map((f) => {
         if (f.kind === "region") return null;
         const tier = labelTier(f.n);
-        const cls = "cg-w" + (hiNames?.has(f.name) ? " rt-hi" : "");
+        const cls = "cg-w" + (hiIds?.has(f.id) ? " rt-hi" : "");
         return (
           <g
             key={f.id}

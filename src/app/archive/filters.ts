@@ -7,12 +7,11 @@
 import { FORMAT_LABELS } from "@/lib/book-labels";
 import type { BrowseBook } from "./loader";
 
-export type SortKey = "title" | "release" | "chrono";
+export type SortKey = "title" | "release";
 
 export const SORT_OPTIONS: ReadonlyArray<{ id: SortKey; label: string }> = [
   { id: "title", label: "Title A–Z" },
   { id: "release", label: "Newest" },
-  { id: "chrono", label: "Timeline" },
 ];
 
 /** Format-filter display order (mirrors the `book_format` enum intent). */
@@ -41,7 +40,7 @@ function first(v: string | string[] | undefined): string | undefined {
 }
 
 function parseSort(raw: string | undefined): SortKey {
-  return raw === "release" || raw === "chrono" ? raw : "title";
+  return raw === "release" ? raw : "title";
 }
 
 /** Validators for the remaining URL params, analogous to `parseSort`.
@@ -116,14 +115,6 @@ function compare(a: BrowseBook, b: BrowseBook, sort: SortKey): number {
     if (a.releaseYear != null && b.releaseYear == null) return -1;
     if (a.releaseYear != null && b.releaseYear != null && a.releaseYear !== b.releaseYear) {
       return b.releaseYear - a.releaseYear;
-    }
-    return a.title.localeCompare(b.title, "en");
-  }
-  if (sort === "chrono") {
-    if (a.startY == null && b.startY != null) return 1;
-    if (a.startY != null && b.startY == null) return -1;
-    if (a.startY != null && b.startY != null && a.startY !== b.startY) {
-      return a.startY - b.startY;
     }
     return a.title.localeCompare(b.title, "en");
   }
