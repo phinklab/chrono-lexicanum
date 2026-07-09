@@ -67,10 +67,13 @@ export default async function HubPage() {
         <div className="hub-nave">
           <h2 className="lx-sect reveal">What lives in the archive?</h2>
           <p className="lx-prose lx-initial hub-praefatio reveal">
-            A hobby — a fan-built archive of the 41st millennium, made with love
-            for the Black Library and the slow, dark march of the grimdark.
-            Search the catalogue below, or take one of the doorways further
-            down.
+            Chrono Lexicanum is a fan-built archive of Warhammer lore, made
+            with love for the incredible Black Library books, for the fan
+            podcasts that keep the lore alive, for the impressive community
+            work of charting a star map of the galaxy, and for the fan art of
+            talented and kind digital artists that carries it all. I hope you
+            enjoy your stay. Dig right into the search below, or take one of
+            the doorways further down.
           </p>
 
           <HomeSearch index={searchIndex} />
