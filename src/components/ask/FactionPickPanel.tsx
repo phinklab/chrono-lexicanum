@@ -23,18 +23,18 @@ type FactionPickPanelProps = {
 
 /**
  * The verdict block of a carousel slide: one curated entry-point at
- * a time. The slide header already names the faction + chapter, so the kicker is
- * just the role; `contextLabel` survives only for the screen-reader count.
- * Reshuffle is ephemeral client state (NOT in the URL) and only appears when the
- * node carries ≥2 picks. A resolved pick links to `/buch/{slug}`, which the
- * existing intercepting route opens as the book popup; an unresolved pick renders
- * its title without a link.
+ * a time. The rail/chips above already name the faction + chapter, so the
+ * kicker is just the role; `contextLabel` survives only for the screen-reader
+ * count. When the node carries ≥2 picks the others are listed BY TITLE as
+ * alternative chips below the verdict (ephemeral client state, NOT in the
+ * URL) — clicking one swaps it into the verdict block. A resolved pick links
+ * to `/buch/{slug}`, which the existing intercepting route opens as the book
+ * popup; an unresolved pick renders its title without a link.
  */
 export default function FactionPickPanel({ contextLabel, picks }: FactionPickPanelProps) {
   const [index, setIndex] = useState(0);
   const safeIndex = index % picks.length;
   const pick = picks[safeIndex]!;
-  const canReshuffle = picks.length > 1;
 
   return (
     <div className="ask-pick" aria-live="polite">
@@ -63,18 +63,23 @@ export default function FactionPickPanel({ contextLabel, picks }: FactionPickPan
         </div>
       </div>
 
-      {canReshuffle && (
-        <div className="ask-pick__reshuffle">
-          <button
-            type="button"
-            className="ask-footlink ask-pick__reshuffle-btn"
-            onClick={() => setIndex((i) => (i + 1) % picks.length)}
-          >
-            Alternative
-            <span className="ask-pick__count" aria-hidden>
-              {safeIndex + 1} / {picks.length}
-            </span>
-          </button>
+      {picks.length > 1 && (
+        <div className="ask-pick__alts">
+          <span className="ask-pick__alts-label">
+            {picks.length === 2 ? "Alternative" : "Alternatives"}
+          </span>
+          {picks.map((p, i) =>
+            i === safeIndex ? null : (
+              <button
+                key={p.title}
+                type="button"
+                className="ask-pick__alt"
+                onClick={() => setIndex(i)}
+              >
+                {p.title}
+              </button>
+            ),
+          )}
           <span className="ask-sr-only">
             Pick {safeIndex + 1} of {picks.length} for {contextLabel}.
           </span>

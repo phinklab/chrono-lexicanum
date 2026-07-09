@@ -151,13 +151,16 @@ export default function FactionCarousel({
             <span className="ofob__index-sep">/</span>
             {String(nodes.length).padStart(2, "0")}
           </p>
-          <h2 className="ofob__faction">{faction.label}</h2>
+          {/* The faction is named by the highlighted rail entry above — a
+              second display-size repetition of it pushed the actual verdict
+              (the book) down the hierarchy. Kept for screen readers. */}
+          <h2 className="ask-sr-only">{faction.label}</h2>
 
           {showChapters && (
             <>
               <p className="ofob__step">
                 <span className="ofob__step-n">II</span>Narrow to a chapter
-                <span className="ofob__step-note"> — optional</span>
+                <span className="ofob__step-note"> · optional</span>
               </p>
               <div className="ofob__chapters" aria-label={`${faction.label} chapters`}>
                 {facets.map((f, i) => {
