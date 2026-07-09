@@ -9,6 +9,7 @@ import {
 import SiteMenu from "@/components/chrome/SiteMenu";
 import SiteNav from "@/components/chrome/SiteNav";
 import SiteBrand from "@/components/chrome/SiteBrand";
+import BrandBeacon from "@/components/chrome/BrandBeacon";
 import RevealObserver from "@/components/shared/RevealObserver";
 import SiteLegal from "@/components/chrome/SiteLegal";
 import MediaPlayer from "@/components/chrome/MediaPlayer";
@@ -114,6 +115,10 @@ export default function RootLayout({
         {/* Fixed wordmark, top-left — hidden on the Hub (the hero IS the
             wordmark), the login gate and the map (own chrome). */}
         <SiteBrand />
+        {/* Scrolled-in brand anchor: the observatory dot fades in top-left
+            once a page is scrolled (all scrollable surfaces; map/timeline/
+            login excluded inside the component). */}
+        <BrandBeacon />
         {/* One app-wide scroll-reveal observer (survives navigations and
             catches Suspense-streamed content). */}
         <RevealObserver />
