@@ -16,8 +16,17 @@ import { memo } from "react";
 
 import { GOLD, RIFT_D, TX, TY, nihilusPath } from "./chart-geometry";
 
-const LR = 470;
+/* Light radius in grid units. Terra→Macragge is ≈608.7 gu (the lore pegs the
+   Astronomican's reach at ~70,000 ly, roughly Macragge's distance); 618 puts
+   the fade terminus just past Macragge without the rim ring striking the pin. */
+const LR = 618;
 const REGION = { x: -2400, y: -2350, width: 5600, height: 5500 };
+
+/* Rim label rides just inside the light's edge (bearing ≈34.6° SE of Terra,
+   same as the original hand placement) — tracks LR automatically. */
+const LBL_R = LR - 25;
+const LBL_X = TX + 0.823 * LBL_R;
+const LBL_Y = TY + 0.568 * LBL_R;
 
 export const LumenNihilus = memo(function LumenNihilus() {
   const nihilusD = nihilusPath();
@@ -31,9 +40,9 @@ export const LumenNihilus = memo(function LumenNihilus() {
           <stop offset="100%" stopColor="#020103" stopOpacity={0.52} />
         </radialGradient>
         <radialGradient id="cg-lmLight" gradientUnits="userSpaceOnUse" cx={TX} cy={TY} r={LR}>
-          <stop offset="0%" stopColor={GOLD} stopOpacity={0.14} />
-          <stop offset="55%" stopColor={GOLD} stopOpacity={0.06} />
-          <stop offset="88%" stopColor={GOLD} stopOpacity={0.02} />
+          <stop offset="0%" stopColor={GOLD} stopOpacity={0.26} />
+          <stop offset="45%" stopColor={GOLD} stopOpacity={0.13} />
+          <stop offset="80%" stopColor={GOLD} stopOpacity={0.05} />
           <stop offset="100%" stopColor={GOLD} stopOpacity={0} />
         </radialGradient>
         {/* Blur region tied to user space — the Nihilus face is huge (far
@@ -56,10 +65,10 @@ export const LumenNihilus = memo(function LumenNihilus() {
           <circle cx={TX} cy={TY} r={LR} fill="url(#cg-lmLight)" />
           <circle className="lm-rim" cx={TX} cy={TY} r={LR} fill="none" stroke={GOLD} strokeOpacity={0.32} strokeDasharray="1 6" vectorEffect="non-scaling-stroke" />
         </g>
-        <text className="cg-lm-lbl" x={700} y={655} fontSize={7} textAnchor="middle" fillOpacity={0.5}>
+        <text className="cg-lm-lbl" x={LBL_X} y={LBL_Y} fontSize={7} textAnchor="middle" fillOpacity={0.5}>
           FINIS LUCIS ASTRONOMICI
         </text>
-        <text className="cg-lm-lbl" x={700} y={665} fontSize={5.5} textAnchor="middle" fillOpacity={0.35}>
+        <text className="cg-lm-lbl" x={LBL_X} y={LBL_Y + 10} fontSize={5.5} textAnchor="middle" fillOpacity={0.35}>
           BEYOND: THE BLIND VOID
         </text>
         <text className="cg-lm-lbl dev" x={690} y={322} fontSize={7} textAnchor="middle" fillOpacity={0.5}>

@@ -4,8 +4,9 @@ import { useEffect, useState } from "react";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 
 /**
- * GhostReadout — the vox scribe, fixed top-right (styled in 46-site-nav.css).
- * Up to three mono lines with a brightness ramp; each line writes itself
+ * GhostReadout — the vox scribe, top-right (styled in 46-site-nav.css):
+ * viewport-fixed on desktop, page-anchored on phones so it scrolls away with
+ * the hero. Up to three mono lines with a brightness ramp; each line writes itself
  * character by character (every glyph fades in), the caret is a 1px gold
  * stroke, finished lines rest, the oldest rises and fades out. Lines are
  * treated as stable; callers remount via key to change them. Hidden entirely

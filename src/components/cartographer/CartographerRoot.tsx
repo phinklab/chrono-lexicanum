@@ -14,7 +14,7 @@ import { useCallback, useEffect, useMemo, useReducer, useRef, useState, useSyncE
 import { parseMapHash, writeMapHash } from "@/lib/map/hash";
 import type { MapPayload } from "@/lib/map/payload";
 import { catalogSource } from "@/lib/map/pin-source";
-import { COURSES } from "@/lib/map/routes";
+import { VOYAGES, resolveVoyage } from "@/lib/map/voyages";
 import { useOverlayBackGuard } from "@/lib/map/useOverlayBackGuard";
 import type { ZonesMode } from "@/lib/map/zones";
 import { useMediaQuery } from "@/lib/useMediaQuery";
@@ -27,6 +27,7 @@ import ChartStage from "./ChartStage";
 import CourseCards from "./CourseCards";
 import RoutesLayer from "./RoutesLayer";
 import Selection from "./Selection";
+import VoyageTour from "./VoyageTour";
 import WorldPanel from "./WorldPanel";
 import { ChartBus } from "./chart-bus";
 import { GridDots, HatchDefs, PolarFrame, SegmentumWatermarks, TerraInstrument } from "./decor";
@@ -35,13 +36,23 @@ import { LumenNihilus } from "./LumenNihilus";
 import ZoneEditor from "./ZoneEditor";
 import { ZonesLayer } from "./ZonesLayer";
 
+/** Active Great Journey: mode "tour" is the guided playback (step −1 =
+ *  overture card, 0…n−1 = stations), mode "free" the explore tableau
+ *  (step −1 = reached via skip → ambient draw-in; step ≥ n = reached via
+ *  Fin → route stands fully drawn). */
+interface VoyageState {
+  id: string;
+  mode: "tour" | "free";
+  step: number;
+}
+
 interface CgState {
   condensed: boolean;
   selectedId: string | null;
   hiddenCls: ReadonlySet<number>;
   dustOff: boolean;
   worksOnly: boolean;
-  courseId: string | null;
+  voyage: VoyageState | null;
   lumen: boolean;
   nihilus: boolean;
   /** Force names: every visible world shows its name at every zoom — a
@@ -57,7 +68,7 @@ const INITIAL: CgState = {
   hiddenCls: new Set<number>(),
   dustOff: false,
   worksOnly: false,
-  courseId: null,
+  voyage: null,
   lumen: false,
   nihilus: false,
   names: false,
@@ -71,7 +82,10 @@ type CgAction =
   | { type: "setCls"; cis: number[]; hidden: boolean }
   | { type: "toggleDust" }
   | { type: "toggleWorksOnly" }
-  | { type: "course"; id: string }
+  | { type: "voyageStart"; id: string }
+  | { type: "voyageStep"; step: number }
+  | { type: "voyageFree"; step: number }
+  | { type: "voyageEnd" }
   | { type: "toggleLumen" }
   | { type: "toggleNihilus" }
   | { type: "toggleNames" }
@@ -101,12 +115,25 @@ function reducer(state: CgState, action: CgAction): CgState {
       return { ...state, dustOff: !state.dustOff };
     case "toggleWorksOnly":
       return { ...state, worksOnly: !state.worksOnly };
-    case "course":
+    case "voyageStart":
+      // Picking the active journey again toggles it off; a new one always
+      // opens at the tour's overture.
       return {
         ...state,
         condensed: true,
-        courseId: state.courseId === action.id ? null : action.id,
+        voyage:
+          state.voyage?.id === action.id ? null : { id: action.id, mode: "tour", step: -1 },
       };
+    case "voyageStep":
+      return state.voyage
+        ? { ...state, voyage: { ...state.voyage, mode: "tour", step: action.step } }
+        : state;
+    case "voyageFree":
+      return state.voyage
+        ? { ...state, voyage: { ...state.voyage, mode: "free", step: action.step } }
+        : state;
+    case "voyageEnd":
+      return state.voyage ? { ...state, voyage: null } : state;
     case "toggleLumen":
       return { ...state, condensed: true, lumen: !state.lumen };
     case "toggleNihilus":
@@ -153,14 +180,28 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
 
   const source = useMemo(() => catalogSource(payload), [payload]);
   const selectedWorld = state.selectedId ? source.detail(state.selectedId) : null;
-  const activeCourse = useMemo(
-    () => COURSES.find((c) => c.id === state.courseId) ?? null,
-    [state.courseId],
+  const activeVoyage = useMemo(() => {
+    const v = state.voyage ? VOYAGES.find((c) => c.id === state.voyage?.id) : null;
+    return v ? resolveVoyage(v, payload) : null;
+  }, [state.voyage, payload]);
+  const hiIds = useMemo(
+    () =>
+      activeVoyage
+        ? new Set(activeVoyage.stations.filter((s) => s.kind === "world").map((s) => s.id))
+        : null,
+    [activeVoyage],
   );
-  const hiNames = useMemo(
-    () => (activeCourse ? new Set(activeCourse.stations) : null),
-    [activeCourse],
-  );
+  /* RoutesLayer reveal: tour steps gate the drawing; free mode is either the
+     ambient choreography (skip, step −1 → null) or the standing route (Fin,
+     step = n). */
+  const voyageProgress =
+    state.voyage === null
+      ? null
+      : state.voyage.mode === "tour"
+        ? state.voyage.step
+        : state.voyage.step >= 0
+          ? state.voyage.step
+          : null;
 
   /* Selection highlight, imperative: `sel-on` is NOT a PinLayer prop — a
      selection change must never re-render the 1000+-label layers. Applied
@@ -200,11 +241,8 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
     { open: sheetOpen, close: () => setSheetOpen(false) },
     { open: state.selectedId !== null, close: () => selectWorld(null) },
     {
-      open: state.courseId !== null,
-      close: () => {
-        // Dispatching the active id toggles the course off.
-        if (state.courseId) dispatch({ type: "course", id: state.courseId });
-      },
+      open: state.voyage !== null,
+      close: () => dispatch({ type: "voyageEnd" }),
     },
   ]);
 
@@ -245,14 +283,18 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
     if (restored.current) writeMapHash({ world: state.selectedId });
   }, [state.selectedId]);
 
-  /* Escape closes the popup */
+  /* Escape closes the topmost layer: world popup, then the active journey.
+     (The seek input and the mobile sheet intercept Escape earlier via
+     stopPropagation.) */
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") selectWorld(null);
+      if (e.key !== "Escape") return;
+      if (state.selectedId !== null) selectWorld(null);
+      else if (state.voyage !== null) dispatch({ type: "voyageEnd" });
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [selectWorld]);
+  }, [selectWorld, state.selectedId, state.voyage]);
 
   /* Repair pass (no deps): a filter re-render that rewrites a pin's className
      would drop `sel-on` — re-apply after every commit. */
@@ -278,6 +320,13 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
   );
 
   const anyFiltered = state.hiddenCls.size > 0 || state.dustOff || state.worksOnly;
+
+  /* Legend badge for the journeys section: live tour progress, else "active". */
+  const voyageNote = state.voyage
+    ? state.voyage.mode === "tour" && state.voyage.step >= 0 && activeVoyage
+      ? `touring ${state.voyage.step + 1}/${activeVoyage.stations.length}`
+      : "active"
+    : null;
 
   // One census definition feeds both control surfaces — the desktop cartouche
   // and the mobile drawer; only one is ever displayed.
@@ -321,7 +370,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           nihilus={state.nihilus}
           names={state.names}
           zones={state.zones}
-          courseId={state.courseId}
+          courseId={state.voyage?.id ?? null}
           condensed={state.condensed}
           reduce={reduce}
           magRef={magRef}
@@ -340,10 +389,10 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
             dustOff={state.dustOff}
             worksOnly={state.worksOnly}
           />
-          <PinLayer featured={payload.featured} hiddenCls={state.hiddenCls} hiNames={hiNames} />
+          <PinLayer featured={payload.featured} hiddenCls={state.hiddenCls} hiIds={hiIds} />
           <RegionLabels regions={payload.regions} featured={payload.featured} />
           <LumenNihilus />
-          <RoutesLayer course={activeCourse} featured={payload.featured} />
+          <RoutesLayer resolved={activeVoyage} progress={voyageProgress} />
           <TerraInstrument />
           {selectedWorld && <Selection key={selectedWorld.id} world={selectedWorld} />}
           {zoneEdit && <ZoneEditor bus={bus} />}
@@ -355,12 +404,13 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
       <Cartouche
         payload={payload}
         condensed={state.condensed}
-        courseId={state.courseId}
+        voyageId={state.voyage?.id ?? null}
+        voyageNote={voyageNote}
         lumen={state.lumen}
         nihilus={state.nihilus}
         filtered={anyFiltered}
         onPick={pick}
-        onCourse={(id) => dispatch({ type: "course", id })}
+        onVoyage={(id) => dispatch({ type: "voyageStart", id })}
         onToggleLumen={() => dispatch({ type: "toggleLumen" })}
         onToggleNihilus={() => dispatch({ type: "toggleNihilus" })}
       >
@@ -370,7 +420,8 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
       {/* Mobile counterpart — same dispatches, CSS-gated to ≤900px. */}
       <CartoucheSheet
         payload={payload}
-        courseId={state.courseId}
+        voyageId={state.voyage?.id ?? null}
+        voyageNote={voyageNote}
         lumen={state.lumen}
         nihilus={state.nihilus}
         filtered={anyFiltered}
@@ -378,7 +429,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
         open={sheetOpen}
         onOpenChange={setSheetOpen}
         onPick={pick}
-        onCourse={(id) => dispatch({ type: "course", id })}
+        onVoyage={(id) => dispatch({ type: "voyageStart", id })}
         onToggleLumen={() => dispatch({ type: "toggleLumen" })}
         onToggleNihilus={() => dispatch({ type: "toggleNihilus" })}
       >
@@ -392,13 +443,24 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
         onClose={() => selectWorld(null)}
       />
 
-      {mounted && activeCourse && (
-        <CourseCards
-          key={activeCourse.id}
-          course={activeCourse}
-          featured={payload.featured}
+      {mounted && activeVoyage && state.voyage?.mode === "tour" && (
+        <VoyageTour
+          key={activeVoyage.id}
+          resolved={activeVoyage}
           bus={bus}
           reduce={reduce}
+          suppressed={state.selectedId !== null}
+          step={state.voyage.step}
+          onStep={(step) => dispatch({ type: "voyageStep", step })}
+          onFin={() => dispatch({ type: "voyageFree", step: activeVoyage.stations.length })}
+          onSkip={() => dispatch({ type: "voyageFree", step: -1 })}
+        />
+      )}
+
+      {mounted && activeVoyage && state.voyage?.mode === "free" && (
+        <CourseCards
+          key={activeVoyage.id}
+          resolved={activeVoyage}
           suppressed={state.selectedId !== null}
         />
       )}

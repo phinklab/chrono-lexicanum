@@ -49,7 +49,7 @@ export default function WerkeFilters({
   const pathname = usePathname();
   const params = useSearchParams();
 
-  const sort = (params.get("sort") as SortKey | null) ?? "title";
+  const sort: SortKey = params.get("sort") === "release" ? "release" : "title";
   const faction = params.get("faction") ?? "";
   const format = params.get("format") ?? "";
   const facet = params.get("facet");

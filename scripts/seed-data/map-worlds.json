@@ -7,8 +7,8 @@
     "transform": "gx = (x - 2.794) * 1000/7028.206, gy = (y - 515) * 1000/7028.206 (gleicher Skalierungsfaktor für beide Achsen = seitenverhältnis-treu; y wächst wie im Quellbild nach unten; gerundet auf 2 Nachkommastellen). Quelle: Warhammer_map_SSOT.xlsx, Pixel-Raum x ∈ [2.794, 7031], y ∈ [515, 6198]."
   },
   "coverage": {
-    "placedWorkEdges": 1332,
-    "totalWorkEdges": 1685
+    "placedWorkEdges": 1352,
+    "totalWorkEdges": 1710
   },
   "worlds": [
     {
@@ -2880,6 +2880,13 @@
         },
         {
           "type": "podcast_episode",
+          "slug": "the-40k-lorecast-8a8b390d-c022-4be1-b655-b407a9dab293",
+          "show": "the-40k-lorecast",
+          "title": "Episode 145 - Word Bearers pt 2 - The emperor's censure and the legions subsequent jaunt into the eye of terror",
+          "role": "subject"
+        },
+        {
+          "type": "podcast_episode",
           "slug": "the-40k-lorecast-buzzsprout-14464917",
           "show": "the-40k-lorecast",
           "title": "Episode 21 - Abaddon pt 3 - Abaddon goes crusading.",
@@ -3030,6 +3037,13 @@
           "slug": "adeptus-ridiculous-buzzsprout-14346928",
           "show": "adeptus-ridiculous",
           "title": "THE LION: SON OF THE FOREST | Warhammer 40k Book Club",
+          "role": "subject"
+        },
+        {
+          "type": "podcast_episode",
+          "slug": "adeptus-ridiculous-buzzsprout-19463596",
+          "show": "adeptus-ridiculous",
+          "title": "Cypher: The Fallen Angel Who Walked to the Golden Throne | Warhammer 40k Lore",
           "role": "subject"
         },
         {
@@ -3226,10 +3240,24 @@
         },
         {
           "type": "podcast_episode",
+          "slug": "adeptus-ridiculous-buzzsprout-19361091",
+          "show": "adeptus-ridiculous",
+          "title": "URIEL VENTRIS: Least Depressed Named Ultramarine | Warhammer 40k Lore",
+          "role": "mentioned"
+        },
+        {
+          "type": "podcast_episode",
           "slug": "lorehammer-42b9ee95-a915-44df-aee1-9a5ae91ded02",
           "show": "lorehammer",
           "title": "230 - Ultramarines, 30k Legion Era",
           "role": "mentioned"
+        },
+        {
+          "type": "podcast_episode",
+          "slug": "the-40k-lorecast-ca1a53a7-b25e-4a5d-889b-bab3f68e2c9e",
+          "show": "the-40k-lorecast",
+          "title": "Episode 146 - Word Bearers pt 3 - Heresy is a go, but Erebus and Lorgar have some different ideas of next steps",
+          "role": "subject"
         },
         {
           "type": "podcast_episode",
@@ -3798,6 +3826,13 @@
           "slug": "the-first-heretic",
           "title": "The First Heretic",
           "role": "secondary"
+        },
+        {
+          "type": "podcast_episode",
+          "slug": "the-40k-lorecast-ccea1f33-ef34-4da1-951a-150a6f6fee28",
+          "show": "the-40k-lorecast",
+          "title": "Episode 144 - The Word Bearers pt 1 - The creation of the Imperial Heralds and the complete opposite thing happening on Colchis",
+          "role": "subject"
         }
       ],
       "origin": "excel"
@@ -7313,6 +7348,13 @@
         },
         {
           "type": "podcast_episode",
+          "slug": "the-40k-lorecast-8a8b390d-c022-4be1-b655-b407a9dab293",
+          "show": "the-40k-lorecast",
+          "title": "Episode 145 - Word Bearers pt 2 - The emperor's censure and the legions subsequent jaunt into the eye of terror",
+          "role": "subject"
+        },
+        {
+          "type": "podcast_episode",
           "slug": "the-40k-lorecast-buzzsprout-14197112",
           "show": "the-40k-lorecast",
           "title": "Episode 14 - The rise and very brutal fall of the Aeldari Empire.",
@@ -8997,6 +9039,13 @@
           "slug": "da-freebooterz-code",
           "title": "Da Freebooterz Code",
           "role": "primary"
+        },
+        {
+          "type": "podcast_episode",
+          "slug": "adeptus-ridiculous-buzzsprout-15277282",
+          "show": "adeptus-ridiculous",
+          "title": "THE ELDRITCH HORROR OF THE GHOUL STARS | Warhammer 40k Lore",
+          "role": "mentioned"
         }
       ],
       "origin": "override"
@@ -11578,6 +11627,68 @@
       "origin": "excel"
     },
     {
+      "id": "luna",
+      "name": "Luna",
+      "kind": "imperial",
+      "classification": "Civilized World",
+      "classification2": null,
+      "segmentum": "Solar",
+      "gx": 336.82,
+      "gy": 399.68,
+      "locationId": "luna",
+      "works": [
+        {
+          "type": "book",
+          "slug": "garro-weapons-of-fate",
+          "title": "Garro: Weapons of Fate",
+          "role": "secondary"
+        },
+        {
+          "type": "book",
+          "slug": "ghosts-speak-not-patience",
+          "title": "Ghosts Speak Not & Patience",
+          "role": "primary"
+        },
+        {
+          "type": "book",
+          "slug": "luna-mendax",
+          "title": "Luna Mendax",
+          "role": "primary"
+        },
+        {
+          "type": "book",
+          "slug": "the-emperors-legion",
+          "title": "The Emperor's Legion",
+          "role": "secondary"
+        },
+        {
+          "type": "book",
+          "slug": "the-regents-shadow",
+          "title": "The Regent's Shadow",
+          "role": "secondary"
+        },
+        {
+          "type": "book",
+          "slug": "the-shattered-and-the-soulless",
+          "title": "The Shattered and the Soulless",
+          "role": "primary"
+        },
+        {
+          "type": "book",
+          "slug": "the-silent-war",
+          "title": "The Silent War",
+          "role": "secondary"
+        },
+        {
+          "type": "book",
+          "slug": "the-sons-of-selenar",
+          "title": "The Sons of Selenar",
+          "role": "primary"
+        }
+      ],
+      "origin": "override"
+    },
+    {
       "id": "lunaphage",
       "name": "Lunaphage",
       "kind": "unclassified",
@@ -12067,6 +12178,14 @@
           "show": "adeptus-ridiculous",
           "title": "The Plague Wars Have Begun | Warhammer 40k Lore",
           "role": "subject",
+          "via": "ultramar"
+        },
+        {
+          "type": "podcast_episode",
+          "slug": "adeptus-ridiculous-buzzsprout-19361091",
+          "show": "adeptus-ridiculous",
+          "title": "URIEL VENTRIS: Least Depressed Named Ultramarine | Warhammer 40k Lore",
+          "role": "mentioned",
           "via": "ultramar"
         },
         {
@@ -14141,6 +14260,13 @@
         },
         {
           "type": "podcast_episode",
+          "slug": "the-40k-lorecast-ca1a53a7-b25e-4a5d-889b-bab3f68e2c9e",
+          "show": "the-40k-lorecast",
+          "title": "Episode 146 - Word Bearers pt 3 - Heresy is a go, but Erebus and Lorgar have some different ideas of next steps",
+          "role": "subject"
+        },
+        {
+          "type": "podcast_episode",
           "slug": "the-40k-lorecast-e54a0429-e984-45f9-9ff5-2a384c59f297",
           "show": "the-40k-lorecast",
           "title": "Episode 97 - World Eaters pt 1",
@@ -14724,6 +14850,13 @@
           "slug": "plague-war",
           "title": "Plague War",
           "role": "secondary"
+        },
+        {
+          "type": "podcast_episode",
+          "slug": "adeptus-ridiculous-buzzsprout-18868172",
+          "show": "adeptus-ridiculous",
+          "title": "Guilliman Finally Crashes Out (Plague Wars) | Warhammer 40k Lore",
+          "role": "subject"
         }
       ],
       "origin": "excel"
@@ -17213,6 +17346,13 @@
           "slug": "the-infinite-and-the-divine",
           "title": "The Infinite and the Divine",
           "role": "primary"
+        },
+        {
+          "type": "podcast_episode",
+          "slug": "luetin09-omiv-wjqtlc",
+          "show": "luetin09",
+          "title": "40K LEGENDS - TRAZYN THE INFINITE | Warhammer 40,000 Lore/History",
+          "role": "subject"
         }
       ],
       "origin": "excel"
@@ -18466,13 +18606,6 @@
         },
         {
           "type": "book",
-          "slug": "ghosts-speak-not-patience",
-          "title": "Ghosts Speak Not & Patience",
-          "role": "primary",
-          "via": "luna"
-        },
-        {
-          "type": "book",
           "slug": "hands-of-the-emperor",
           "title": "Hands of the Emperor",
           "role": "primary"
@@ -18506,13 +18639,6 @@
           "slug": "lord-of-the-fallen",
           "title": "Lord of the Fallen",
           "role": "primary"
-        },
-        {
-          "type": "book",
-          "slug": "luna-mendax",
-          "title": "Luna Mendax",
-          "role": "primary",
-          "via": "luna"
         },
         {
           "type": "book",
@@ -18869,13 +18995,6 @@
         },
         {
           "type": "book",
-          "slug": "the-sons-of-selenar",
-          "title": "The Sons of Selenar",
-          "role": "primary",
-          "via": "luna"
-        },
-        {
-          "type": "book",
           "slug": "the-watcher",
           "title": "The Watcher",
           "role": "primary",
@@ -19088,6 +19207,13 @@
         },
         {
           "type": "podcast_episode",
+          "slug": "adeptus-ridiculous-buzzsprout-19463596",
+          "show": "adeptus-ridiculous",
+          "title": "Cypher: The Fallen Angel Who Walked to the Golden Throne | Warhammer 40k Lore",
+          "role": "subject"
+        },
+        {
+          "type": "podcast_episode",
           "slug": "adeptus-ridiculous-buzzsprout-7390693",
           "show": "adeptus-ridiculous",
           "title": "Horus and the First Seeds of Heresy (Or Erebus Ruins Everything) | Origins of Warhammer 40k",
@@ -19106,13 +19232,6 @@
           "show": "adeptus-ridiculous",
           "title": "THE EMPEROR & THE LAST CHURCH | Warhammer 40k Lore",
           "role": "subject"
-        },
-        {
-          "type": "podcast_episode",
-          "slug": "lorehammer-0d39d8f8-e933-4732-a6d1-67b2b624239b",
-          "show": "lorehammer",
-          "title": "115 - Severan Dominate, Rebellion Begins",
-          "role": "mentioned"
         },
         {
           "type": "podcast_episode",
@@ -19219,13 +19338,6 @@
           "show": "lorehammer",
           "title": "229 - Roboute Guilliman, Horus Heresy and Great Scouring",
           "role": "subject"
-        },
-        {
-          "type": "podcast_episode",
-          "slug": "lorehammer-e0602ecf-2af1-464f-abaf-691f6e037ad3",
-          "show": "lorehammer",
-          "title": "130 - Founding of a Legion",
-          "role": "mentioned"
         },
         {
           "type": "podcast_episode",
@@ -21617,6 +21729,76 @@
           "slug": "siege-of-vraks",
           "title": "Siege of Vraks",
           "role": "primary"
+        },
+        {
+          "type": "podcast_episode",
+          "slug": "adeptus-ridiculous-buzzsprout-13415216",
+          "show": "adeptus-ridiculous",
+          "title": "THE SIEGE OF VRAKS: PRELUDE TO A NIGHTMARE | Warhammer 40k Lore",
+          "role": "subject"
+        },
+        {
+          "type": "podcast_episode",
+          "slug": "adeptus-ridiculous-buzzsprout-13456322",
+          "show": "adeptus-ridiculous",
+          "title": "THE SIEGE OF VRAKS: WELCOME TO THE KILLING FIELDS | Warhammer 40k Lore",
+          "role": "subject"
+        },
+        {
+          "type": "podcast_episode",
+          "slug": "adeptus-ridiculous-buzzsprout-13496750",
+          "show": "adeptus-ridiculous",
+          "title": "THE SIEGE OF VRAKS: THIS IS GETTING RIDICULOUS | Warhammer 40k Lore",
+          "role": "subject"
+        },
+        {
+          "type": "podcast_episode",
+          "slug": "adeptus-ridiculous-buzzsprout-13538646",
+          "show": "adeptus-ridiculous",
+          "title": "THE SIEGE OF VRAKS: THE LAST ENEMY TO BE DESTROYED | Warhammer 40k Lore",
+          "role": "subject"
+        },
+        {
+          "type": "podcast_episode",
+          "slug": "luetin09-ebhjtshphwe",
+          "show": "luetin09",
+          "title": "40K - IMPERIAL ASSASSINS ORIGINS and VINDICARE SNIPERS | Warhammer 40,000 Lore/History",
+          "role": "mentioned"
+        },
+        {
+          "type": "podcast_episode",
+          "slug": "luetin09-h-wiscju5c0",
+          "show": "luetin09",
+          "title": "40K - THE SIEGE OF VRAKS [1] DEATH KORPS OF KRIEG | Warhammer 40,000 Lore / History",
+          "role": "subject"
+        },
+        {
+          "type": "podcast_episode",
+          "slug": "luetin09-zsw4je-qbyc",
+          "show": "luetin09",
+          "title": "40K - THE SIEGE OF VRAKS [2] DEATH KORPS BREAKTHROUGH | Warhammer 40,000 Lore / History",
+          "role": "subject"
+        },
+        {
+          "type": "podcast_episode",
+          "slug": "the-40k-lorecast-33ef13a5-4de8-4ebf-b876-82ed36e53cae",
+          "show": "the-40k-lorecast",
+          "title": "Episode 135 - The Siege of Vraks pt 3 - The arrival of the inquisition and the final siege on Vraks",
+          "role": "subject"
+        },
+        {
+          "type": "podcast_episode",
+          "slug": "the-40k-lorecast-49244efd-b9c6-4adf-b884-2ecf618d0533",
+          "show": "the-40k-lorecast",
+          "title": "Episode 134 - The Siege of Vraks pt 2 - The arrival of Chaos and escalation of Vraks",
+          "role": "subject"
+        },
+        {
+          "type": "podcast_episode",
+          "slug": "the-40k-lorecast-ab48e76e-90f8-4dee-bcb7-6a2ad7474e74",
+          "show": "the-40k-lorecast",
+          "title": "Episode 133 - The Siege of Vraks pt 1 - Rise of Cardinal Xaphan and the invasion by the imperium",
+          "role": "subject"
         }
       ],
       "origin": "override"

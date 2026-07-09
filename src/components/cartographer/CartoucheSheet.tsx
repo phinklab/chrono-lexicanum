@@ -25,15 +25,16 @@ import { useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 
 import type { MapPayload } from "@/lib/map/payload";
-import { COURSES } from "@/lib/map/routes";
 
-import { CourseButtons, OverlayButtons, SectionHead, SeekPanel } from "./Cartouche";
+import { OverlayButtons, SectionHead, SeekPanel, VoyageButtons } from "./Cartouche";
 
 type SectionId = "courses" | "instruments" | "census";
 
 interface CartoucheSheetProps {
   payload: MapPayload;
-  courseId: string | null;
+  voyageId: string | null;
+  /** Journeys-section badge — "touring 3/9" during a tour, "active" after. */
+  voyageNote: string | null;
   lumen: boolean;
   nihilus: boolean;
   filtered: boolean;
@@ -43,7 +44,7 @@ interface CartoucheSheetProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   onPick: (id: string) => void;
-  onCourse: (id: string) => void;
+  onVoyage: (id: string) => void;
   onToggleLumen: () => void;
   onToggleNihilus: () => void;
   /** The census filter block (a second instance of the desktop's Census). */
@@ -56,7 +57,8 @@ const DRAG_OPEN = -40;
 
 export default function CartoucheSheet({
   payload,
-  courseId,
+  voyageId,
+  voyageNote,
   lumen,
   nihilus,
   filtered,
@@ -64,7 +66,7 @@ export default function CartoucheSheet({
   open,
   onOpenChange,
   onPick,
-  onCourse,
+  onVoyage,
   onToggleLumen,
   onToggleNihilus,
   children,
@@ -105,9 +107,9 @@ export default function CartoucheSheet({
     onOpenChange(false);
     onPick(id);
   };
-  const pickCourse = (id: string) => {
+  const pickVoyage = (id: string) => {
     onOpenChange(false);
-    onCourse(id);
+    onVoyage(id);
   };
 
   const openWithSeek = () => {
@@ -164,7 +166,6 @@ export default function CartoucheSheet({
     else if (!open && dy < DRAG_OPEN) onOpenChange(true);
   };
 
-  const activeCourse = COURSES.find((c) => c.id === courseId) ?? null;
   const instrumentsNote = [lumen && "Lumen", nihilus && "Nihilus"].filter(Boolean).join(" · ");
 
   return (
@@ -206,7 +207,7 @@ export default function CartoucheSheet({
           {!open && (
             <div className="cg-sheet-badges" aria-hidden>
               {filtered && <span>FILTERED</span>}
-              {activeCourse && <span>COURSE</span>}
+              {voyageId && <span>JOURNEY</span>}
               {lumen && <span>LVMEN</span>}
               {nihilus && <span>NIHILVS</span>}
             </div>
@@ -218,14 +219,14 @@ export default function CartoucheSheet({
         <div className="cg-sheet-body" inert={!open}>
           <SectionHead
             open={openSecs.has("courses")}
-            label="Character voyages"
-            note={activeCourse ? "active" : null}
+            label="Great Journeys"
+            note={voyageNote}
             onToggle={() => toggleSec("courses")}
           />
           {openSecs.has("courses") && (
             <div className="c-body">
-              <p className="c-hint">trace a character&rsquo;s journey across the chart</p>
-              <CourseButtons courseId={courseId} onCourse={pickCourse} />
+              <p className="c-hint">trace the paths of legend across the chart</p>
+              <VoyageButtons voyageId={voyageId} onVoyage={pickVoyage} />
             </div>
           )}
 

@@ -772,10 +772,13 @@ export default function CinematicView({
 }
 
 /**
- * LIBRARIVM shelf. Desktop renders the label as an inert heading with the
- * rows always open (CSS forces both); on phones the label becomes a
- * disclosure that folds the shelf away, reclaiming dossier height. Mounted
- * inside the keyed `.cine-lower` subtree, so the state resets per entry.
+ * Media shelf. Desktop renders the label as an inert "BOOKS & PODCASTS"
+ * heading with the rows always open (CSS forces both); on phones the label
+ * becomes a disclosure reading "SHOW n BOOKS & PODCASTS" that folds the shelf
+ * away, reclaiming dossier height. Both label variants are always rendered
+ * and CSS-toggled at the 760px breakpoint (SSR-safe — no matchMedia render
+ * branch). Mounted inside the keyed `.cine-lower` subtree, so the state
+ * resets per entry.
  */
 function MediaSegment({ media }: { media: ChronicleChip[] }) {
   const [open, setOpen] = useState(false);
@@ -791,8 +794,11 @@ function MediaSegment({ media }: { media: ChronicleChip[] }) {
           }
         }}
       >
-        LIBRARIVM — BOOKS &amp; PODCASTS
-        <span className="m-count">· {media.length}</span>
+        <span className="m-txt m-txt--wide">BOOKS &amp; PODCASTS</span>
+        <span className="m-txt m-txt--tap">
+          {open ? "HIDE" : "SHOW"} <span className="m-n">{media.length}</span>{" "}
+          BOOKS &amp; PODCASTS
+        </span>
         <span className="m-car" aria-hidden>
           ▸
         </span>

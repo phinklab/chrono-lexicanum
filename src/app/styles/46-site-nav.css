@@ -286,9 +286,13 @@ body:has([data-detail-modal]) .brand-beacon {
 }
 /* Phones keep the vox (2026-07-09) — dropped beneath the burger (top 16px +
    44px tall, 43-site-menu.css) and slightly smaller, so the typewriter lines
-   share the corner instead of colliding with it. */
+   share the corner instead of colliding with it. Page-anchored, not
+   viewport-fixed: every <main> is position:relative (10-base.css) and starts
+   at y=0, so the vox loads in the same spot but scrolls away with the hero
+   instead of riding the viewport over the content. */
 @media (max-width: 980px) {
   .site-vox {
+    position: absolute;
     top: calc(64px + env(safe-area-inset-top, 0px));
     right: 16px;
   }

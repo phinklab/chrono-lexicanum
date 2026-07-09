@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OFOB Lab · E — Cameo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@400;500;600&family=Cardo:ital,wght@0,400;0,700;1,400&family=Fragment+Mono:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  /* ── Chrono Lexicanum tokens — cloned VERBATIM from 00-tokens.css ─────── */
+  :root {
+    --cl-void: #050301;
+    --cl-bone: #e4ddcb;
+    --cl-dim: #9a927e;
+    --cl-faint: #6a6455;
+    --cl-gold: #a48c52;
+    --cl-gold-dim: #6f5c33;
+    --cl-hair: rgba(228, 221, 203, 0.16);
+    --cl-hair-soft: rgba(228, 221, 203, 0.08);
+    --font-display: "Cormorant SC", serif;
+    --font-body: "Cardo", Georgia, serif;
+    --font-mono: "Fragment Mono", ui-monospace, monospace;
+    --fw-regular: 400;
+    --fw-semibold: 600;
+    --font-display-wght: var(--fw-semibold);
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --fs-read-xs: 16.5px;
+    --fs-read-sm: 18px;
+    --fs-read: 19px;
+    --fs-label-xs: 12px;
+    --fs-label: 12.5px;
+    --fs-label-md: 13px;
+    --fs-label-lg: 13.5px;
+    --track-10: 0.1em;
+    --track-18: 0.18em;
+    --track-20: 0.2em;
+    --track-26: 0.26em;
+    --track-30: 0.3em;
+    --lh-solid: 1;
+    --lh-title: 1.05;
+    /* Cameo study: the one lifted surface + its darker inset. Sharp corners. */
+    --cameo: rgba(228, 221, 203, 0.032);
+    --cameo-inset: rgba(5, 3, 1, 0.55);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { background: var(--cl-void); }
+  body { font-family: var(--font-body); color: var(--cl-bone); background: var(--cl-void); min-height: 100vh; -webkit-font-smoothing: antialiased; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+  .lab-bar {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 14px 22px 13px;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--cl-faint);
+  }
+  .lab-bar b { color: var(--cl-gold); font-weight: 400; }
+  .lab-bar nav a { color: var(--cl-faint); text-decoration: none; padding-left: 14px; }
+  .lab-bar nav a:hover { color: var(--cl-bone); }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 8vh 22px 90px; }
+
+  /* Masthead — display voice at site metrics. */
+  .mast { text-align: center; margin-bottom: 56px; animation: enter 0.6s var(--ease) both; }
+  .mast__kicker { font-family: var(--font-mono); font-size: var(--fs-label-md); letter-spacing: var(--track-26); color: var(--cl-faint); text-transform: uppercase; }
+  .mast__title { font-family: var(--font-display); font-weight: var(--font-display-wght); letter-spacing: 0.05em; font-size: clamp(34px, 6vw, 52px); line-height: var(--lh-title); margin-top: 14px; }
+  .tools { display: flex; justify-content: center; flex-wrap: wrap; column-gap: 30px; row-gap: 6px; margin-top: 26px; }
+  .tools a { text-decoration: none; font-family: var(--font-mono); font-size: var(--fs-label); letter-spacing: var(--track-20); text-transform: uppercase; color: var(--cl-faint); transition: color 0.3s; }
+  .tools a:hover { color: var(--cl-dim); }
+  .tools a[aria-current] { color: var(--cl-gold); }
+  .tools a[aria-current]::before { content: "● "; font-size: 8px; vertical-align: 1px; }
+
+  /* ── the choosing — live ofob vocabulary, naked on void ───────────────── */
+  .choose { text-align: center; animation: enter 0.6s 0.1s var(--ease) both; }
+  .choose__kicker {
+    font-family: var(--font-mono); font-size: var(--fs-label-md); letter-spacing: var(--track-26);
+    text-transform: uppercase; color: var(--cl-gold);
+  }
+  .fac { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 16px; }
+  .fac__arrow {
+    padding: 4px 14px; font-size: 20px; line-height: var(--lh-solid);
+    color: var(--cl-dim); transition: color 0.3s; flex: none;
+  }
+  .fac__arrow:hover { color: var(--cl-gold); }
+  .fac__name {
+    font-family: var(--font-display); font-weight: var(--font-display-wght); letter-spacing: 0.05em;
+    font-size: clamp(26px, 5.4vw, 38px); line-height: var(--lh-title); min-width: 0;
+  }
+  .fac__ix { font-family: var(--font-mono); font-size: var(--fs-label-md); letter-spacing: var(--track-20); color: var(--cl-faint); font-variant-numeric: tabular-nums; margin-top: 10px; }
+  .fac__ix .sep { padding: 0 5px; }
+
+  /* progressive disclosure — the full muster folds away (live rail grammar) */
+  .all { margin-top: 16px; }
+  .all__toggle {
+    font-family: var(--font-mono); font-size: var(--fs-label-xs); letter-spacing: var(--track-20); text-transform: uppercase;
+    color: var(--cl-faint); padding: 6px 10px; transition: color 0.3s;
+  }
+  .all__toggle:hover { color: var(--cl-dim); }
+  .all__toggle .c { transition: transform 0.35s var(--ease); display: inline-block; padding-left: 6px; }
+  .all.open .all__toggle { color: var(--cl-gold); }
+  .all.open .all__toggle .c { transform: rotate(180deg); }
+  .all__list {
+    display: none; flex-wrap: wrap; justify-content: center; gap: 6px 0;
+    max-width: 680px; margin: 14px auto 0; list-style: none;
+  }
+  .all.open .all__list { display: flex; animation: enter 0.45s var(--ease) both; }
+  .all__list li { display: inline-flex; align-items: baseline; }
+  .all__list li + li::before { content: "·"; color: var(--cl-faint); padding: 0 8px; font-size: var(--fs-label-md); }
+  .all__list button {
+    position: relative; padding: 3px 4px;
+    font-family: var(--font-body); font-size: 13px; letter-spacing: var(--track-20); text-transform: uppercase;
+    color: var(--cl-dim); white-space: nowrap;
+    transition: color 0.3s, font-size 0.3s var(--ease);
+  }
+  .all__list button:hover { color: var(--cl-bone); }
+  .all__list button.on { color: var(--cl-gold); font-size: 15px; padding-left: 16px; }
+  .all__list button.on::before {
+    content: ""; position: absolute; left: 4px; top: 50%;
+    width: 4px; height: 4px; margin-top: -2px;
+    background: var(--cl-gold); border-radius: 50%;
+    animation: dotBreathe 5.4s ease-in-out infinite;
+  }
+
+  .chapters { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 0; margin-top: 22px; }
+  .chapters button {
+    padding: 2px 8px; font-family: var(--font-body); font-size: 13px; letter-spacing: var(--track-18);
+    text-transform: uppercase; color: var(--cl-dim); transition: color 0.3s;
+  }
+  .chapters button + button::before { content: "·"; color: var(--cl-faint); padding-right: 14px; }
+  .chapters button:hover { color: var(--cl-bone); }
+  .chapters button.on { color: var(--cl-gold); }
+
+  /* ── the cameo — the one lifted surface. Sharp corners, site geometry. ── */
+  .cameo {
+    margin-top: 52px;
+    background: var(--cameo);
+    padding: 44px 26px 30px;
+    text-align: center;
+    animation: enter 0.6s 0.2s var(--ease) both;
+  }
+  .cameo__kicker { font-family: var(--font-mono); font-size: var(--fs-label-md); letter-spacing: var(--track-26); text-transform: uppercase; color: var(--cl-gold); }
+  .cameo__title {
+    font-family: var(--font-display); font-weight: var(--font-display-wght);
+    font-size: clamp(30px, 4vw, 44px); line-height: var(--lh-title); color: var(--cl-bone);
+    margin: 18px auto 0; max-width: 18ch;
+  }
+  .cameo__meta { font-style: italic; font-size: var(--fs-read-sm); color: var(--cl-dim); margin-top: 10px; }
+  .cameo__meta .badge { padding-left: 8px; }
+  .cameo__meta .badge::before { content: "· "; color: var(--cl-faint); }
+  .cameo__note { font-size: var(--fs-read-sm); line-height: 1.55; color: var(--cl-dim); margin: 14px auto 0; max-width: 48ch; }
+  .cameo__actions { margin-top: 18px; }
+  .cameo__empty { font-style: italic; font-size: 17px; color: var(--cl-faint); padding: 8px 0 6px; }
+
+  /* ── Button — the Sternwarte, cloned VERBATIM from 42-lex-primitives.css.
+        No frame; the dot before the label is the origin. On hover the dot
+        expands, hairline rings bloom out of it (two planets ride the turning
+        rings) and three survey stars radiate forward, then glimmer. ──────── */
+  .lx-btn {
+    position: relative;
+    z-index: 0;
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: var(--fs-label-lg);
+    letter-spacing: var(--track-30);
+    text-transform: uppercase;
+    color: var(--cl-bone);
+    background: transparent;
+    border: 0;
+    padding: 13px 30px 12px 46px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.35s;
+  }
+  .lx-btn::before {
+    content: "";
+    position: absolute;
+    left: 24px;
+    top: 50%;
+    width: 4px;
+    height: 4px;
+    margin: -2px 0 0 -2px;
+    background: var(--cl-faint);
+    border-radius: 50%;
+    transition: background 0.4s, transform 0.5s var(--ease);
+    animation: dotBreathe 5.4s ease-in-out infinite;
+  }
+  .lx-btn:hover,
+  .lx-btn:focus-visible { color: var(--cl-gold); }
+  .lx-btn:hover::before,
+  .lx-btn:focus-visible::before {
+    background: var(--cl-gold);
+    transform: scale(1.7);
+    animation: none;
+  }
+  .lx-btn--primary,
+  .lx-btn--primary::before { color: var(--cl-gold); }
+  .lx-btn--primary::before { background: var(--cl-gold); }
+  .lx-btn--primary:hover,
+  .lx-btn--primary:focus-visible { color: var(--cl-bone); }
+  .lx-btn__mark { color: var(--cl-gold); padding-left: 8px; letter-spacing: 0; }
+
+  .lx-btn__fx { display: block; position: absolute; inset: 0; pointer-events: none; }
+  .lx-btn__rings {
+    position: absolute; left: 24px; top: 50%;
+    width: 88px; height: 88px; margin: -44px 0 0 -44px;
+    color: var(--cl-gold);
+    opacity: 0; transform: scale(0.08);
+    transition: opacity 0.6s ease, transform 0.9s var(--ease);
+    z-index: -1;
+  }
+  .lx-btn__rings g { transform-box: view-box; transform-origin: 50% 50%; }
+  .lx-btn__rings .fr1 { animation: fxTurn 26s linear infinite; }
+  .lx-btn__rings .fr2 { animation: fxTurn 17s linear infinite reverse; }
+  .lx-btn:hover .lx-btn__rings,
+  .lx-btn:focus-visible .lx-btn__rings { opacity: 0.45; transform: scale(1); }
+  .lx-btn__star {
+    position: absolute; left: 24px; top: 50%;
+    width: 3px; height: 3px; margin: -1.5px 0 0 -1.5px;
+    background: var(--cl-bone); border-radius: 50%;
+    opacity: 0;
+    transition: transform 0.7s var(--ease), opacity 0.45s ease;
+  }
+  .lx-btn__star--2 { width: 2px; height: 2px; margin: -1px 0 0 -1px; background: var(--cl-gold); }
+  .lx-btn__star--3 { width: 2.5px; height: 2.5px; margin: -1.25px 0 0 -1.25px; background: var(--cl-gold); }
+  .lx-btn:hover .lx-btn__star--1,
+  .lx-btn:focus-visible .lx-btn__star--1 { transform: translate(-15px, -21px); opacity: 0.9; transition-delay: 0.05s; animation: starTw 5.6s ease-in-out 1.4s infinite; }
+  .lx-btn:hover .lx-btn__star--2,
+  .lx-btn:focus-visible .lx-btn__star--2 { transform: translate(30px, -13px); opacity: 0.9; transition-delay: 0.12s; animation: starTw 6.4s ease-in-out 1.7s infinite; }
+  .lx-btn:hover .lx-btn__star--3,
+  .lx-btn:focus-visible .lx-btn__star--3 { transform: translate(14px, 19px); opacity: 0.85; transition-delay: 0.19s; animation: starTw 7.2s ease-in-out 2s infinite; }
+
+  /* ton-in-ton inset — alternatives sink INTO the surface as dimmed
+     Sternwarte buttons (live .ask-pick__alt geometry: default dot origin,
+     one type step below the primary). */
+  .cameo__alts { margin-top: 30px; background: var(--cameo-inset); padding: 18px 16px 12px; }
+  .cameo__alts-label { font-family: var(--font-mono); font-size: var(--fs-label-xs); letter-spacing: var(--track-20); text-transform: uppercase; color: var(--cl-faint); margin-bottom: 2px; }
+  .cameo__alts-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 8px; }
+  .cameo__alt { font-size: var(--fs-label-md); color: var(--cl-dim); padding-top: 11px; padding-bottom: 10px; }
+
+  .foot { padding: 60px 0 0; font-family: var(--font-mono); font-size: 10px; letter-spacing: var(--track-20); text-transform: uppercase; color: var(--cl-faint); text-align: center; }
+
+  .swap-in { animation: enter 0.5s var(--ease) both; }
+
+  /* Shared choreography keyframes — site names, site values. */
+  @keyframes enter { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+  @keyframes dotBreathe { 50% { opacity: 0.55; } }
+  @keyframes fxTurn { to { transform: rotate(360deg); } }
+  @keyframes starTw { 0%, 100% { opacity: 0.9; } 50% { opacity: 0.4; } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+  @media (min-width: 720px) { .cameo { padding: 50px 56px 34px; } }
+</style>
+</head>
+<body>
+  <div class="lab-bar">
+    <span>LAB · OFOB II — <b>E · CAMEO</b></span>
+    <nav><a href="./d-strata.html">D</a><a href="./f-titelblatt.html">F</a><a href="./index.html">INDEX</a></nav>
+  </div>
+
+  <main class="wrap">
+    <header class="mast">
+      <p class="mast__kicker">Consult the Archive</p>
+      <h1 class="mast__title">Find Your Next Book</h1>
+      <nav class="tools" aria-label="Tools">
+        <a href="#">Ask the Archive</a>
+        <a href="#" aria-current="page">One Faction, One Book</a>
+      </nav>
+    </header>
+
+    <section class="choose">
+      <p class="choose__kicker">Choose your faction</p>
+      <div class="fac">
+        <button type="button" class="fac__arrow" id="prev" aria-label="Previous faction">‹</button>
+        <h2 class="fac__name" id="facName"></h2>
+        <button type="button" class="fac__arrow" id="next" aria-label="Next faction">›</button>
+      </div>
+      <p class="fac__ix"><span id="ixA"></span><span class="sep">/</span><span id="ixB"></span></p>
+      <div class="all" id="all">
+        <button type="button" class="all__toggle" id="allToggle">All factions<span class="c">▾</span></button>
+        <ul class="all__list" id="allList"></ul>
+      </div>
+      <div class="chapters" id="chapters" hidden></div>
+    </section>
+
+    <section class="cameo" aria-live="polite">
+      <div id="cameoSlot"></div>
+    </section>
+
+    <p class="foot">· Archivum Chrono Lexicanum ·</p>
+  </main>
+
+<script>
+const FACTIONS = [{"label":"Adepta Sororitas","picks":[{"t":"Our Martyred Lady","a":"Gav Thorpe","k":"Audio Drama","n":"Amid a schism in the Ecclesiarchy that threatens a second Reign of Blood, the Living Saint Celestine and Inquisitor Greyfax hunt across the Imperium's shrine worlds to root out the heresy behind it."},{"t":"The Rose at War","a":"Danie Ware","k":"Anthology","n":"A collection of Sister Augusta's missions for the Order of the Bloody Rose, gathering the novellas and short stories that follow the Battle Sister across the Imperium's warzones."},{"t":"The Rose in Darkness","a":"Danie Ware","k":"Novel","n":"Sister Superior Augusta of the Order of the Bloody Rose is sent to the shrine world of Opal to recover the skull of Saint Veres during its holiest festival — only to uncover a gene"},{"t":"Morvenn Vahl: Spear of Faith","a":"Jude Reid","k":"Novel","n":"Morvenn Vahl is the Abbess Sanctorum and a High Lord of Terra, a warrior born and a faithful daughter of the Emperor."}]},{"label":"Adeptus Custodes","picks":[{"t":"The Emperor's Legion","a":"Chris Wraight","k":"Series","n":"Cadia has fallen. The Cicatrix Maledictum has torn the galaxy in two, and Terra reels under the shock of psykers awakening and warp-storms tearing at her sky."}]},{"label":"Adeptus Mechanicus","picks":[{"t":"Priests of Mars","a":"Graham McNeill","k":"Novel","n":"The Martian priesthood's thirst for lost knowledge is insatiable."},{"t":"Belisarius Cawl: The Great Work","a":"Guy Haley","k":"Novel","n":"Belisarius Cawl brings Tetrarch Felix, Ultramarines and the battered remnants of the Scythes of the Emperor back to Sotha, the chapter homeworld Hive Fleet Kraken left in ruins."}]},{"label":"Astra Militarum","picks":[{"t":"Fifteen Hours","a":"Mitchel Scanlon","k":"Audiobook","n":"Seventeen-year-old Arvin Larn is conscripted, drilled and shipped to war, and then, through a clerk's error, delivered to the wrong front entirely."}],"chapters":[{"label":"Aeronautica Imperialis","picks":[{"t":"Double Eagle","a":"Dan Abnett","k":"Novel","n":"Sabbat Worlds Crusade companion novel to Gaunt's Ghosts, taking the Crusade to the skies above Enothis."}]},{"label":"Death Korps of Krieg","picks":[{"t":"Krieg","a":"Steve Lyons","k":"Novel","n":"At Hive Arathron, on the edge of the Octarius War, the Death Korps of Krieg grind forward through siege lines that make even other Imperial forces question their sanity."}]},{"label":"Catachan Jungle Fighters","picks":[{"t":"Deathworlder","a":"Victoria Hayward","k":"Novel","n":"On the dying world of Lazulai, all but lost to the tyranids, Major Wulf Khan of the Catachan 903rd 'Night Shrikes' is handed one last mission: lead a squad through the apocalypse t"}]},{"label":"Cadian","picks":[{"t":"Cadia Stands","a":"Justin D. Hill","k":"Novel","n":"Abaddon the Despoiler's Thirteenth Black Crusade has come at last."},{"t":"Minka Lesk: The Last Whiteshield","a":"Justin D. Hill","k":"Novel","n":"Five linked stories trace Minka Lesk's path from frightened recruit to seasoned officer of the Cadian Shock."},{"t":"Catachan Devil","a":"Justin Woolley","k":"Novel","n":"Colonel Haskell Hell Fist Aldalon brings the Catachan 57th Jungle Fighters to Gondwa VI and chooses attack over defence: retake Outpost Four from the rising Ork threat."}]}]},{"label":"Grey Knights","picks":[{"t":"The Emperor's Gift","a":"Aaron Dembski-Bowden","k":"Novel","n":"First-person Grey Knights novel narrated in retrospect by Hyperion of Squad Castian, covering the chapter's part in the First War of Armageddon and the intra-Imperium fallout remembered as the Months of Shame."},{"t":"The Grey Knights Omnibus","a":"Ben Counter","k":"Omnibus","n":"This omnibus collects the complete trilogy following Justicar Alaric of the Grey Knights, the Imperium's hidden brotherhood of daemon-hunters."}]},{"label":"Imperial Agents","picks":[{"t":"Assassinorum: Kingmaker","a":"Robert Rath","k":"Novel","n":"On the Knight World Dominion, a secessionist king has become too dangerous for the Imperium to leave alive."},{"t":"Rites of Passage","a":"Mike Brooks","k":"Novel","n":"Lord Azariel of House Brobantis is dead, and his widow Chettamandey knows exactly who killed him: she did."},{"t":"Ciaphas Cain: The Anthology","a":"Sandy Mitchell","k":"Series","n":"Ciaphas Cain is a true hero of the Imperium: brave, stalwart, a cool head under fire..."}]},{"label":"Imperial Knights","picks":[{"t":"Kingsblade","a":"Andy Clark","k":"Series","n":"The Knight Houses of Adrastapol are noble and righteous, and when the Imperial world of Donatos falls to the heresy of the Word Bearers, High King Tolwyn Draconis leads his towerin"},{"t":"Assassinorum: Kingmaker","a":"Robert Rath","k":"Novel","n":"On the Knight World Dominion, a secessionist king has become too dangerous for the Imperium to leave alive."}]},{"label":"Space Marines","picks":null,"chapters":[{"label":"Ultramarines","picks":[{"t":"Dark Imperium","a":"Guy Haley","k":"Novel","n":"Ten thousand years after he was struck down at the Battle of Thessala, Roboute Guilliman walks the galaxy once more."},{"t":"The Uriel Ventris Chronicles Vol. 1 Omnibus","a":"Graham McNeill","k":"Series","n":"The first three Uriel Ventris novels under Black Library's later 'Chronicles' reissue branding — Nightbringer, Warriors of Ultramar, and Dead Sky, Black Sun — content unchanged from the older Ultramarines Omnibus."}]},{"label":"Blood Angels","picks":[{"t":"Dante","a":"Guy Haley","k":"Novel","n":"Commander Dante has led the Blood Angels for over a thousand years, the longest-serving Chapter Master in the Imperium's history."},{"t":"Dante","a":"Guy Haley","k":"Omnibus","n":"Commander Dante has led the Blood Angels for over a thousand years, the longest-serving Chapter Master in the Imperium's history."}]},{"label":"Dark Angels","picks":[{"t":"The Lion: Sons of the Forest","a":"Mike Brooks","k":"Novel","n":"A man wakes in a vast forest with no memory, then learns the impossible truth: he is Lion El'Jonson, Primarch of the Dark Angels, returned after ten thousand years to a galaxy split by the Great Rift."},{"t":"War of Secrets","a":"Phil Kelly","k":"Novel","n":"On the industrial world of Saltire Vex, Primaris Lieutenant Xedro Farren and his new-forged brothers are deployed alongside the Dark Angels and find their welcome cold."}]},{"label":"Black Templars","picks":[{"t":"Helsreach","a":"Aaron Dembski-Bowden","k":"Novel","n":"When the orks of a vast Waaagh! descend on the industrial world of Armageddon, the Black Templars are among the Chapters that answer the call."}]},{"label":"Deathwatch","picks":[{"t":"Deathwatch","a":"Steve Parker","k":"Omnibus","n":"Drawn from a dozen different Chapters and forged into a single kill-team within an ironclad watch fortress, the Space Marines of Talon Squad are alien-hunters without equal."}]},{"label":"Imperial Fists","picks":[{"t":"Fist of the Imperium","a":"Andy Clark","k":"Short Story","n":"On the mining world of Ghyre, an Imperial Fists Honour Guard has been butchered upon ground they swore to defend, and a hidden cult is poisoning the planet's miners and its complacent aristocracy alike."},{"t":"Apocalypse","a":"Josh Reynolds","k":"Short Story","n":"With the Great Rift torn across the galaxy, Lieutenant Heyd Calder is sent by Roboute Guilliman to hold the cardinal world of Almace against an oncoming Word Bearers crusade."}]},{"label":"Iron Hands","picks":[{"t":"Wrath of Iron","a":"Chris Wraight","k":"Novel","n":"For decades the rulers of the Contqual sub-sector have given themselves over to the worship of Slaanesh, and now their corruption bears terrible fruit: a tear in reality through wh"},{"t":"The Eye of Medusa","a":"David Guymer","k":"Novel","n":"The forge world of Thennos lies under the gunmetal aegis of Medusa, homeworld of the Iron Hands, by treaty as old as the Imperium."}]},{"label":"Raven Guard","picks":[{"t":"Apocalypse","a":"Josh Reynolds","k":"Short Story","n":"With the Great Rift torn across the galaxy, Lieutenant Heyd Calder is sent by Roboute Guilliman to hold the cardinal world of Almace against an oncoming Word Bearers crusade."}]},{"label":"Salamanders","picks":[{"t":"Salamanders: The Omnibus","a":"Nick Kyme","k":"Omnibus","n":"The complete Tome of Fire trilogy in a single volume, gathering Salamander, Firedrake and Nocturne along with a selection of short stories."}]},{"label":"Space Wolves","picks":[{"t":"The Space Wolf Omnibus","a":"William King","k":"Omnibus","n":"The opening Ragnar Blackmane trilogy follows a Fenrisian tribesman from mortal feud to Space Wolves legend."},{"t":"Battle of the Fang","a":"Chris Wraight","k":"Novel","n":"A thousand years after the Horus Heresy, the daemon primarch Magnus the Red leads his Thousand Sons in a vengeful assault on Fenris, home world of the Space Wolves."}]},{"label":"White Scars","picks":[{"t":"Hunt for Voldorius","a":"Andy Hoare","k":"Novel","n":"For more than a decade, Kor'sarro Khan of the White Scars has pursued a single quarry across the stars: Kernax Voldorius, a daemon prince and warleader of the treacherous Alpha Legion."}]}]},{"label":"Chaos Space Marines","picks":null,"chapters":[{"label":"Fabius Bile","picks":[{"t":"Fabius Bile: The Omnibus","a":"Josh Reynolds","k":"Omnibus","n":"Fabius Bile — Primogenitor, Clonelord, Manflayer — was once a loyal Apothecary of the Emperor's Children, now a renegade loathed even by the other traitor Legions."}]},{"label":"Black Legion","picks":[{"t":"The Talon of Horus","a":"Aaron Dembski-Bowden","k":"Novel","n":"When Horus fell, his Legion fell with him."}]},{"label":"Red Corsairs","picks":[{"t":"Huron Blackheart: Master of the Maelstrom","a":"Mike Brooks","k":"Novel","n":"Huron Blackheart rules the Red Corsairs from the Maelstrom, but renegade kingship is never still."}]},{"label":"Alpha Legion","picks":[{"t":"Renegades: Harrowmaster","a":"Mike Brooks","k":"Novel","n":"Harrowmaster Drazus Jate dies in the opening pages, and with him goes the fragile leash holding the Serpent's Teeth warband together."}]},{"label":"Death Guard","picks":[{"t":"The Lords of Silence","a":"Chris Wraight","k":"Novel","n":"First-Captain Vorx leads the Lords of Silence, a Death Guard warband sailing with Abaddon's Thirteenth Black Crusade, when their grand cruiser Solace is flung off course into a nameless stretch of the warp."}]},{"label":"Night Lords","picks":[{"t":"Night Lords: The Omnibus","a":"Aaron Dembski-Bowden","k":"Omnibus","n":"The complete saga of the galaxy's most feared traitors, collecting the Night Lords trilogy — Soul Hunter, Blood Reaver and Void Stalker — alongside the short fiction that frames it."},{"t":"Lord of the Night","a":"Simon Spurrier","k":"Novel","n":"Zso Sahaal — First Captain of the VIII Legion, lost in the warp for ten thousand years since the death of his master Konrad Curze — surfaces back into realspace on the sunless hive"}]},{"label":"Thousand Sons","picks":[{"t":"Ahriman: The Omnibus","a":"John French","k":"Series","n":"The complete saga of the Thousand Sons' greatest sorcerer, gathered into a single volume."},{"t":"Battle of the Fang","a":"Chris Wraight","k":"Novel","n":"A thousand years after the Horus Heresy, the daemon primarch Magnus the Red leads his Thousand Sons in a vengeful assault on Fenris, home world of the Space Wolves."}]},{"label":"World Eaters","picks":[{"t":"Angron: The Red Angel","a":"David Guymer","k":"Novel","n":"In Imperium Nihilus, Angron's return is less a miracle than a wound torn open across half a million abandoned worlds."},{"t":"Khârn: Eater of Worlds","a":"Anthony Reynolds","k":"Novel","n":"The Horus Heresy is broken, and the traitor legions scatter before a vengeful Imperium."}]},{"label":"Emperor's Children","picks":[{"t":"Lucius: The Faultless Blade","a":"Ian St. Martin","k":"Novel","n":"Series-start Lucius novel. Lucius the Eternal — Soulthief, Champion of Slaanesh, doomed to reincarnate in any opponent who kills him without exulting — finds his Emperor's Children"},{"t":"Renegades: Lord of Excess","a":"Rich McCormick","k":"Novel","n":"The Emperor's Children have long since shattered into warring splinters, pillaging the galaxy to feed appetites that can never be sated."}]},{"label":"Word Bearers","picks":[{"t":"The Word Bearers Omnibus","a":"Anthony Reynolds","k":"Omnibus","n":"This collected edition gathers the complete Word Bearers trilogy, Dark Apostle, Dark Disciple, and Dark Creed, plus the short story Torment, charting the relentless ascent of Mardu"}]},{"label":"Iron Warriors","picks":[{"t":"Storm of Iron","a":"Graham McNeill","k":"Novel","n":"Iron Warriors under Warsmith Barban Falk, fronted by the three Grand-Company captains Forrix, Kroeger, and the rising half-breed Honsou, lay siege to the Imperial fortress-world of Hydra Cordatus."}]}]},{"label":"Aeldari","picks":[{"t":"Valedor","a":"Guy Haley","k":"Novel","n":"Apocalypse-scale Eldar novel set at the Battle of Duriel."},{"t":"Path of the Eldar Omnibus","a":"Gav Thorpe","k":"Omnibus","n":"The complete Path of the Eldar trilogy in one volume."}]},{"label":"Drukhari","picks":[{"t":"Lelith Hesperax: Queen of Knives","a":"Mike Brooks","k":"Novel","n":"Lelith Hesperax — peerless Succubus of the Cult of Strife and undisputed champion of Commorragh's arenas — takes to the road alongside the enigmatic Ynnari death cult."},{"t":"Path of the Dark Eldar Omnibus","a":"Andy Chambers","k":"Omnibus","n":"The complete Path of the Dark Eldar trilogy, plus three connected short stories, gathered in one volume."}]},{"label":"Genestealer Cults","picks":[{"t":"Day of Ascension","a":"Adrian Tchaikovsky","k":"Novel","n":"On the forge world Morod, workers spend their lives feeding machines while the Adeptus Mechanicus rule from palatial heights."}]},{"label":"Necrons","picks":[{"t":"The Infinite and the Divine","a":"Robert Rath","k":"Novel","n":"Trazyn the Infinite guards the galleries of Solemnace like a museum, a fortress and a private joke."},{"t":"The Twice-Dead King Omnibus","a":"Nate Crowley","k":"Omnibus","n":"Nate Crowley's complete Twice-Dead King in one volume: the duology Ruin and Reign — exiled lord Oltyx's reckoning with the brother who broke him, the orks at his gates, and the fla"}]},{"label":"Leagues of Votann","picks":[{"t":"The High Kâhl’s Oath","a":"Gav Thorpe","k":"Novel","n":"The galactic core is beset by warp storms of a fury the Leagues of Votann have not seen for ten millennia."}]},{"label":"Orks","picks":[{"t":"Brutal Kunnin","a":"Mike Brooks","k":"Novel","n":"Ufthak Blackhawk, a Goff Big-Mek with more cunning than anyone wants to admit, leads an Ork assault on the forge world Hephaesto and finds Kaptin Badrukk's Freebooterz already looting the prize."},{"t":"Ghazghkull Thraka: Prophet of the Waaagh!","a":"Nate Crowley","k":"Novel","n":"A radical Ordo Xenos inquisitor named Falx has captured a grot calling himself Makari, the personal banner-bearer of Ghazghkull Mag Uruk Thraka — the warlord whose Waaagh!"}]},{"label":"T'au Empire","picks":[{"t":"Elemental Council","k":"Novel","n":"On Cao Quo, a newly annexed human world keeps resisting the T'au Empire with sabotage, insurgency, and stubborn memory."},{"t":"Farsight","a":"Phil Kelly","k":"Novella","n":"When the young and gifted Commander Farsight is chosen to lead a crusade across the Damocles Gulf, the T'au Empire expects an easy reconquest of its lost colonies."}]},{"label":"Tyranids","picks":[{"t":"Valedor","a":"Guy Haley","k":"Omnibus","n":"Apocalypse-scale Eldar novel set at the Battle of Duriel."},{"t":"The Long and Hungry Road","a":"Adrian Tchaikovsky","n":"A rare glimpse inside the tyranid hive mind as a hive fleet's vanguard descends on the doomed world of Chertes, whose defenders mount a resistance that is ultimately consumed."}]},{"label":"Inquisition","picks":[{"t":"Eisenhorn Omnibus","a":"Dan Abnett","k":"Omnibus","n":"Omnibus collecting Xenos, Malleus and Hereticus plus the short stories \"Missing in Action\" and \"Backcloth for a Crown Additional\" — the full first arc of Inquisitor Gregor Eisenhorn's record."},{"t":"Ravenor: The Omnibus","a":"Dan Abnett","k":"Series","n":"Omnibus collecting Ravenor, Ravenor Returned and Ravenor Rogue, plus the short stories \"Thorn Wishes Talon\" and \"Playing Patience\"."},{"t":"The Inquisition War Omnibus","a":"Ian Watson","k":"Omnibus","n":"Jaq Draco's Inquisition War is gathered here as one feverish early-40K epic: an Ordo Malleus inquisitor sent to cleanse a Genestealer-tainted hive world instead uncovers the Hydra,"}]}];
+
+/* The Sternwarte ring HUD (SternwarteRings.tsx, verbatim) — two hairline
+   rings, each carrying a planet dot, around a static inner ring. */
+const BTN_FX = `
+  <span class="lx-btn__fx" aria-hidden="true">
+    <svg class="lx-btn__rings" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="0.8">
+      <g class="fr1">
+        <circle cx="60" cy="60" r="56" pathLength="360" stroke-dasharray="0.5 5.5" stroke-opacity="0.8"/>
+        <circle cx="60" cy="4" r="1.5" fill="currentColor" stroke="none" opacity="0.9"/>
+      </g>
+      <g class="fr2">
+        <circle cx="60" cy="60" r="41" stroke-dasharray="2 7" stroke-opacity="0.5"/>
+        <circle cx="101" cy="60" r="1.1" fill="currentColor" stroke="none" opacity="0.8"/>
+      </g>
+      <circle cx="60" cy="60" r="27" stroke-opacity="0.35"/>
+    </svg>
+    <i class="lx-btn__star lx-btn__star--1"></i>
+    <i class="lx-btn__star lx-btn__star--2"></i>
+    <i class="lx-btn__star lx-btn__star--3"></i>
+  </span>`;
+
+const $ = (id) => document.getElementById(id);
+let fi = 0, ci = 0, pi = 0;
+const pad = (n) => String(n).padStart(2, "0");
+
+function currentPicks() {
+  const f = FACTIONS[fi];
+  if (f.chapters) {
+    const ch = f.chapters[ci];
+    if (ch && ch.picks) return ch.picks;
+    return f.picks || [];
+  }
+  return f.picks || [];
+}
+
+function renderChoose() {
+  const f = FACTIONS[fi];
+  $("facName").textContent = f.label;
+  $("ixA").textContent = pad(fi + 1);
+  $("ixB").textContent = pad(FACTIONS.length);
+  $("allList").innerHTML = FACTIONS.map((x, i) =>
+    `<li><button type="button" class="${i === fi ? "on" : ""}" data-f="${i}">${x.label}</button></li>`
+  ).join("");
+
+  const ch = $("chapters");
+  if (!f.chapters) { ch.hidden = true; ch.innerHTML = ""; return; }
+  ch.hidden = false;
+  const rows = f.picks ? [{ label: "Overall" }, ...f.chapters] : f.chapters;
+  const offset = f.picks ? 1 : 0;
+  ch.innerHTML = rows.map((c, i) => {
+    const real = i - offset;
+    const active = f.picks ? (real === -1 ? ci === -1 : ci === real) : ci === real;
+    return `<button type="button" class="${active ? "on" : ""}" data-c="${real}">${c.label}</button>`;
+  }).join("");
+}
+
+function renderCameo() {
+  const picks = currentPicks();
+  const p = picks[pi] || picks[0];
+  if (!p) {
+    $("cameoSlot").innerHTML = `<div class="swap-in"><p class="cameo__kicker">The archive answers</p><p class="cameo__empty">— no records on file yet —</p></div>`;
+    return;
+  }
+  const idx = picks.indexOf(p);
+  const alts = picks.map((alt, i) => ({ alt, i })).filter((x) => x.i !== idx);
+  $("cameoSlot").innerHTML = `
+    <div class="swap-in">
+      <p class="cameo__kicker">The archive answers</p>
+      <h2 class="cameo__title">${p.t}</h2>
+      <p class="cameo__meta">${p.a ? "by " + p.a : ""}${p.k ? `<span class="badge">${p.k}</span>` : ""}</p>
+      ${p.n ? `<p class="cameo__note">${p.n}</p>` : ""}
+      <p class="cameo__actions">
+        <a class="lx-btn lx-btn--primary" href="#">Open the book<span class="lx-btn__mark">→</span>${BTN_FX}</a>
+      </p>
+      ${alts.length ? `
+        <div class="cameo__alts">
+          <p class="cameo__alts-label">Also on file</p>
+          <div class="cameo__alts-row">
+            ${alts.map(({ alt, i }) =>
+              `<button type="button" class="lx-btn cameo__alt" data-p="${i}">${alt.t}${BTN_FX}</button>`
+            ).join("")}
+          </div>
+        </div>` : ""}
+    </div>`;
+}
+
+function setFaction(i) {
+  fi = (i + FACTIONS.length) % FACTIONS.length;
+  const f = FACTIONS[fi];
+  ci = f.chapters ? (f.picks ? -1 : Math.max(0, f.chapters.findIndex((c) => c.picks))) : 0;
+  pi = 0;
+  renderChoose(); renderCameo();
+}
+
+$("prev").addEventListener("click", () => setFaction(fi - 1));
+$("next").addEventListener("click", () => setFaction(fi + 1));
+$("allToggle").addEventListener("click", () => $("all").classList.toggle("open"));
+$("allList").addEventListener("click", (e) => { const b = e.target.closest("[data-f]"); if (b) setFaction(+b.dataset.f); });
+$("chapters").addEventListener("click", (e) => {
+  const b = e.target.closest("[data-c]"); if (!b) return;
+  ci = +b.dataset.c; pi = 0; renderChoose(); renderCameo();
+});
+$("cameoSlot").addEventListener("click", (e) => { const b = e.target.closest("[data-p]"); if (b) { pi = +b.dataset.p; renderCameo(); } });
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowLeft") setFaction(fi - 1);
+  if (e.key === "ArrowRight") setFaction(fi + 1);
+});
+
+setFaction(0);
+</script>
+</body>
+</html>
