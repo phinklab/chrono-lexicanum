@@ -220,15 +220,18 @@
   color: var(--cl-faint);
 }
 /* Alternatives — the node's other curated picks, named by title (the old
-   "Alternative" cycler hid that there was a choice at all). Clicking a chip
-   swaps that pick into the verdict block above. */
+   "Alternative" cycler hid that there was a choice at all). They ride the
+   global Sternwarte button grammar (.lx-btn, 42-lex-primitives.css): origin
+   dot in front, hover blooms it gold — slimmed one step so they sit under
+   the primary CTA without competing with it. Clicking one swaps that pick
+   into the verdict block above. */
 .ask-pick__alts {
-  margin-top: 20px;
+  margin-top: 14px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: baseline;
-  gap: 8px 10px;
+  gap: 0 6px;
 }
 .ask-pick__alts-label {
   font-family: var(--font-mono);
@@ -238,21 +241,11 @@
   color: var(--cl-faint);
 }
 .ask-pick__alt {
-  background: none;
-  border: 1px solid var(--cl-hair);
-  border-radius: 999px;
-  padding: 4px 13px;
-  font-family: var(--font-body);
-  font-size: 13px;
-  letter-spacing: var(--track-14);
-  color: var(--cl-dim);
-  cursor: pointer;
-  transition: color 0.3s, border-color 0.3s;
+  font-size: var(--fs-label-md);
+  padding: 9px 14px 8px 32px;
 }
-.ask-pick__alt:hover,
-.ask-pick__alt:focus-visible {
-  color: var(--cl-gold);
-  border-color: color-mix(in srgb, var(--cl-gold) 55%, transparent);
+.ask-pick__alt::before {
+  left: 14px;
 }
 
 @media (max-width: 640px) {

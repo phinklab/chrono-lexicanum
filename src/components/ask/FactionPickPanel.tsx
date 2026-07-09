@@ -73,7 +73,7 @@ export default function FactionPickPanel({ contextLabel, picks }: FactionPickPan
               <button
                 key={p.title}
                 type="button"
-                className="ask-pick__alt"
+                className="lx-btn ask-pick__alt"
                 onClick={() => setIndex(i)}
               >
                 {p.title}
