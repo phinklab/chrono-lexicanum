@@ -26,8 +26,8 @@ type FactionPickPanelProps = {
  * a time. The rail/chips above already name the faction + chapter, so the
  * kicker is just the role; `contextLabel` survives only for the screen-reader
  * count. When the node carries ≥2 picks the others are listed BY TITLE as
- * alternative chips below the verdict (ephemeral client state, NOT in the
- * URL) — clicking one swaps it into the verdict block. A resolved pick links
+ * dimmed Sternwarte buttons below the verdict (ephemeral client state, NOT in
+ * the URL) — clicking one swaps it into the verdict block. A resolved pick links
  * to `/buch/{slug}`, which the existing intercepting route opens as the book
  * popup; an unresolved pick renders its title without a link.
  */
@@ -65,21 +65,24 @@ export default function FactionPickPanel({ contextLabel, picks }: FactionPickPan
 
       {picks.length > 1 && (
         <div className="ask-pick__alts">
-          <span className="ask-pick__alts-label">
+          <p className="ask-pick__alts-label">
             {picks.length === 2 ? "Alternative" : "Alternatives"}
-          </span>
-          {picks.map((p, i) =>
-            i === safeIndex ? null : (
-              <button
-                key={p.title}
-                type="button"
-                className="lx-btn ask-pick__alt"
-                onClick={() => setIndex(i)}
-              >
-                {p.title}
-              </button>
-            ),
-          )}
+          </p>
+          <div className="ask-pick__alts-row">
+            {picks.map((p, i) =>
+              i === safeIndex ? null : (
+                <button
+                  key={p.title}
+                  type="button"
+                  className="lx-btn ask-pick__alt"
+                  onClick={() => setIndex(i)}
+                >
+                  {p.title}
+                  <BtnFx />
+                </button>
+              ),
+            )}
+          </div>
           <span className="ask-sr-only">
             Pick {safeIndex + 1} of {picks.length} for {contextLabel}.
           </span>
