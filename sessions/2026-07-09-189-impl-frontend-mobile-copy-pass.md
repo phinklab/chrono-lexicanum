@@ -113,10 +113,24 @@ the existing pieces…"). Eyebrow „Chrono · Lexicanum — Originals" →
 Der display-große `ofob__faction`-Titel ist raus (sr-only-h2 bleibt für die
 Heading-Struktur); der aktive Rail-Eintrag trägt die Identität: Gold, 15px,
 Breathing-Dot davor (Button-Grammatik). Der „Alternative 1/2"-Cycler ist
-durch sichtbare, benannte Chips ersetzt (`.ask-pick__alt`, Pill mit
-Hairline-Border; Klick tauscht den Pick in den Verdict-Block). Em-Dashes
-in der Sub-Line („One faction, one book: …") und im Step-II-Note
-(„· optional") ersetzt.
+durch sichtbare, benannte Alternativen ersetzt; Klick tauscht den Pick in
+den Verdict-Block. Em-Dashes in der Sub-Line („One faction, one book: …")
+und im Step-II-Note („· optional") ersetzt.
+
+Nach Philipps Feedback in zwei Runden nachgezogen: (a) die Alternativen
+sind keine Pill-Chips mehr, sondern volle Sternwarte-Buttons — `.lx-btn`
+in Default-Geometrie **mit `BtnFx`** (ohne das FX-Kind gibt es keinen
+sichtbaren Hover-Bloom; Dot/Ringe sind auf left 24px gepinnt, darum keine
+Padding-Overrides mehr), gedimmt und eine Typo-Stufe unter dem goldenen
+Haupt-CTA, Label auf eigener Zeile. (b) Die Carousel-Pfeile saßen absolut
+an den Stage-Rändern und landeten optisch neben dem Buchtitel (lasen sich
+als Buch-Wechsler) — jetzt eine Stepper-Zeile `‹ 09/12 ›` direkt unter dem
+Rail, außerhalb des keyed Slides. Nebenbefund dabei: der Dev-Server
+servierte nach dem CSS-Umbau einen stalen Turbopack-CSS-Chunk (alte
+Pill-Regeln bei neuem Markup) — Kur wie gehabt: Server killen, `.next`
+löschen, neu starten. Datenlücke notiert: die Drukhari-Picks in
+`faction-starters.json` tragen kein `author`/`kind` (Verdict wirkt dadurch
+kahl) — Batches-Strang.
 
 ## Decisions & Abweichungen
 
