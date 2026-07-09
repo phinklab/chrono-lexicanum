@@ -135,29 +135,46 @@ export default function FactionCarousel({
       </div>
 
       <div className="ofob__stage">
-        <button
-          type="button"
-          className="ofob__arrow ofob__arrow--prev"
-          onClick={() => goToFaction(factionIndex - 1)}
-          aria-label="Previous faction"
-        >
-          <span aria-hidden>‹</span>
-        </button>
-
-        {/* Keyed on the faction so the reveal animation re-fires per slide. */}
-        <div className="ofob__slide" key={faction.slug}>
+        {/* Faction stepper — arrows + index on one line, directly under the
+            rail. They cycle the FACTION; parked at the stage edges they read
+            as if they cycled the book below. Outside the keyed slide so the
+            chrome doesn't re-animate on every swap. */}
+        <div className="ofob__nav">
+          <button
+            type="button"
+            className="ofob__arrow"
+            onClick={() => goToFaction(factionIndex - 1)}
+            aria-label="Previous faction"
+          >
+            <span aria-hidden>‹</span>
+          </button>
           <p className="ofob__index" aria-hidden>
             {String(factionIndex + 1).padStart(2, "0")}
             <span className="ofob__index-sep">/</span>
             {String(nodes.length).padStart(2, "0")}
           </p>
-          <h2 className="ofob__faction">{faction.label}</h2>
+          <button
+            type="button"
+            className="ofob__arrow"
+            onClick={() => goToFaction(factionIndex + 1)}
+            aria-label="Next faction"
+          >
+            <span aria-hidden>›</span>
+          </button>
+        </div>
+
+        {/* Keyed on the faction so the reveal animation re-fires per slide. */}
+        <div className="ofob__slide" key={faction.slug}>
+          {/* The faction is named by the highlighted rail entry above — a
+              second display-size repetition of it pushed the actual verdict
+              (the book) down the hierarchy. Kept for screen readers. */}
+          <h2 className="ask-sr-only">{faction.label}</h2>
 
           {showChapters && (
             <>
               <p className="ofob__step">
                 <span className="ofob__step-n">II</span>Narrow to a chapter
-                <span className="ofob__step-note"> — optional</span>
+                <span className="ofob__step-note"> · optional</span>
               </p>
               <div className="ofob__chapters" aria-label={`${faction.label} chapters`}>
                 {facets.map((f, i) => {
@@ -192,15 +209,6 @@ export default function FactionCarousel({
             <p className="ofob__empty">No entry point on file yet.</p>
           )}
         </div>
-
-        <button
-          type="button"
-          className="ofob__arrow ofob__arrow--next"
-          onClick={() => goToFaction(factionIndex + 1)}
-          aria-label="Next faction"
-        >
-          <span aria-hidden>›</span>
-        </button>
       </div>
     </div>
   );

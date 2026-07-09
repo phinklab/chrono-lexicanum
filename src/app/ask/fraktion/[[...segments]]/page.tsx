@@ -91,7 +91,7 @@ export default async function AskFactionPage({ params }: AskFactionPageProps) {
             Find Your Next Book
           </h1>
           <p className="ask-console__sub">
-            One faction, one book — choose an army and the archive answers with
+            One faction, one book: choose an army and the archive answers with
             a single curated doorway, not a reading list.
           </p>
           <RouteScrollCue

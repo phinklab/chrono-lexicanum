@@ -9,13 +9,15 @@
  * hydration.
  */
 
-import { useCallback, useEffect, useMemo, useReducer, useRef, useSyncExternalStore } from "react";
+import { useCallback, useEffect, useMemo, useReducer, useRef, useState, useSyncExternalStore } from "react";
 
 import { parseMapHash, writeMapHash } from "@/lib/map/hash";
 import type { MapPayload } from "@/lib/map/payload";
 import { catalogSource } from "@/lib/map/pin-source";
 import { COURSES } from "@/lib/map/routes";
+import { useOverlayBackGuard } from "@/lib/map/useOverlayBackGuard";
 import type { ZonesMode } from "@/lib/map/zones";
+import { useMediaQuery } from "@/lib/useMediaQuery";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 
 import { Cartouche, Overture } from "./Cartouche";
@@ -143,6 +145,9 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
   // zones themselves (zones.json, published) still ship.
   const zoneEdit = process.env.NODE_ENV === "development" && zoneEditParam;
   const [state, dispatch] = useReducer(reducer, INITIAL);
+  // Sheet expansion lives here (not in CartoucheSheet) so the phone
+  // back-guard below can dismiss it.
+  const [sheetOpen, setSheetOpen] = useState(false);
   const bus = useMemo(() => new ChartBus(), []);
   const magRef = useRef<HTMLSpanElement | null>(null);
 
@@ -186,6 +191,22 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
     },
     [bus, source, applySelClass],
   );
+
+  /* Phone back gesture: one guard history entry while any dismissible
+     overlay is open — back closes the topmost (sheet > world popup >
+     voyage) instead of leaving the site. Desktop stays history-free. */
+  const narrow = useMediaQuery("(max-width: 900px)");
+  useOverlayBackGuard(narrow, [
+    { open: sheetOpen, close: () => setSheetOpen(false) },
+    { open: state.selectedId !== null, close: () => selectWorld(null) },
+    {
+      open: state.courseId !== null,
+      close: () => {
+        // Dispatching the active id toggles the course off.
+        if (state.courseId) dispatch({ type: "course", id: state.courseId });
+      },
+    },
+  ]);
 
   /* Route-scoped chrome: body class (burger instead of rail), scroll lock */
   useEffect(() => {
@@ -301,6 +322,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           names={state.names}
           zones={state.zones}
           courseId={state.courseId}
+          condensed={state.condensed}
           reduce={reduce}
           magRef={magRef}
           onCondense={condense}
@@ -353,6 +375,8 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
         nihilus={state.nihilus}
         filtered={anyFiltered}
         suppressed={state.selectedId !== null}
+        open={sheetOpen}
+        onOpenChange={setSheetOpen}
         onPick={pick}
         onCourse={(id) => dispatch({ type: "course", id })}
         onToggleLumen={() => dispatch({ type: "toggleLumen" })}

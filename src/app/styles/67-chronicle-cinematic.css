@@ -1444,7 +1444,7 @@
      dossier kicker and the INDEX view. */
   .chron .cine-band {
     top: auto;
-    bottom: calc(58px + env(safe-area-inset-bottom, 0px));
+    bottom: calc(72px + env(safe-area-inset-bottom, 0px));
     left: 50%;
     transform: translateX(-50%);
     width: min(52vw, 210px);
@@ -1471,7 +1471,9 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: calc(38px + env(safe-area-inset-bottom, 0px));
+    /* 52px clears the mode toggle's band (~12–46px) — the caption used to
+       sit at 38px and collide with it. */
+    bottom: calc(52px + env(safe-area-inset-bottom, 0px));
     z-index: 13;
     font-family: var(--font-mono);
     font-size: var(--fs-label-3xs);
@@ -1479,6 +1481,9 @@
     text-transform: uppercase;
     color: var(--parchment-dim);
     white-space: nowrap;
+    max-width: 78vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
     pointer-events: none;
   }
 
@@ -1495,10 +1500,10 @@
     max-width: none;
     /* Bottom padding lifts the dossier well clear of the bottom edge — the
        phone has the whole stage, the text shouldn't cling to the rim. The
-       vh share raises it into the free middle; the 76px floor always clears
-       dot band + toggle strip. Gradient stops strengthened so the text
-       stays readable that far up. */
-    padding: 16px 16px calc(76px + 15vh + env(safe-area-inset-bottom, 0px)) var(--text-x);
+       vh share raises it into the free middle; the 96px floor always clears
+       dot band (now topping out at ~92px) + era caption + toggle strip.
+       Gradient stops strengthened so the text stays readable that far up. */
+    padding: 16px 16px calc(96px + 15vh + env(safe-area-inset-bottom, 0px)) var(--text-x);
     background: linear-gradient(
       to top,
       rgba(2, 4, 8, 0.82),
@@ -1644,16 +1649,11 @@
   .chron .arch-next .an-name { font-size: var(--fs-read); }
 }
 
-/* Touch phones: the stage reads "the other way round" — the story is pulled
-   DOWN toward the reader (swipe down = advance), not pushed up like a
-   document. The scroll proxy holds no visible content, so mirroring it flips
-   only the gesture mapping: scroll values, snap points and the t-driven
-   animation stay identical. Gated on coarse pointers — the mirror would
-   invert wheels/trackpads too. The pull-back gesture in CinematicView.tsx
-   checks the same media condition. */
-@media (max-width: 760px) and (pointer: coarse) {
-  .chron .cine-scroll { transform: scaleY(-1); }
-}
+/* Touch phones read the stage "the other way round" (swipe down = advance).
+   That flip lives entirely in CinematicView.tsx's scrollTop ⇄ t mapping —
+   a CSS scaleY(-1) mirror on the scroll proxy used to do it, but transformed
+   scroll containers lose native fling/momentum + snap on phone engines
+   (drag felt heavy, snapped back to entry 0). Keep the proxy untransformed. */
 
 /* short phones (SE-class) — compress the dossier so the stage keeps air */
 @media (max-width: 760px) and (max-height: 700px) {

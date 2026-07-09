@@ -43,6 +43,22 @@ const SPACING = 140; // px between rail nodes (screen y)
 const DEPTH = 420; // px z-recession per node
 const PULL_MAX = 300; // wheel/touch distance to re-enter the previous era
 
+/* Touch phones read the stage "the other way round": the story is pulled
+   DOWN toward the reader (swipe down = advance), not pushed up like a
+   document. Implemented purely in the scrollTop ⇄ t mapping (toTop/toT
+   below) — entry 0 rests at the BOTTOM of the proxy, the terminus at the
+   top. The former CSS scaleY(-1) mirror on .cine-scroll achieved the same
+   reading but broke native touch fling/momentum + scroll-snap on phone
+   engines (drags felt heavy and snapped back to entry 0). Module-singleton
+   MQL, same pattern as useMediaQuery.ts — reading .matches per scroll event
+   is free, constructing a list per event is not. */
+let flipMql: MediaQueryList | null = null;
+const isFlipped = () => {
+  if (typeof window === "undefined") return false;
+  flipMql ??= window.matchMedia("(max-width: 760px) and (pointer: coarse)");
+  return flipMql.matches;
+};
+
 interface CinematicViewProps {
   era: ChronicleEraData;
   eras: ChronicleEraData[];
@@ -286,20 +302,39 @@ export default function CinematicView({
 
   // Navigation
 
-  const goTo = useCallback((i: number) => {
-    const sc = scrollRef.current;
-    if (!sc) return;
-    sc.scrollTo({
-      top: i * sc.clientHeight,
-      behavior: reducedRef.current ? "auto" : "smooth",
-    });
-  }, []);
+  // scrollTop ⇄ t conversions — on flipped (touch-phone) stages the proxy
+  // scrolls "backwards": t = 0 (entry 0) is the bottom edge, the terminus
+  // zone (t = N + 1) the top.
+  const toTop = useCallback(
+    (sc: HTMLElement, t: number) => (isFlipped() ? N + 1 - t : t) * sc.clientHeight,
+    [N],
+  );
+  const toT = useCallback(
+    (sc: HTMLElement) => {
+      const raw = sc.scrollTop / (sc.clientHeight || 1);
+      return isFlipped() ? N + 1 - raw : raw;
+    },
+    [N],
+  );
+
+  const goTo = useCallback(
+    (i: number) => {
+      const sc = scrollRef.current;
+      if (!sc) return;
+      sc.scrollTo({
+        top: toTop(sc, i),
+        behavior: reducedRef.current ? "auto" : "smooth",
+      });
+    },
+    [toTop],
+  );
 
   const onScroll = () => {
     const sc = scrollRef.current;
     if (!sc) return;
-    const h = sc.clientHeight || 1;
-    tRef.current.t = sc.scrollTop / h;
+    // Clamp: rubber-banding past the start edge would otherwise read as a
+    // terminus overshoot on the flipped mapping and skip an era.
+    tRef.current.t = clamp(toT(sc), 0, N + 1);
     animateCine();
     const idx = Math.round(tRef.current.t);
     if (idx !== entryRef.current && idx < N) onEntryChange(clamp(idx, 0, N - 1));
@@ -320,11 +355,11 @@ export default function CinematicView({
     if (prevActiveRef.current === null || (active && !prevActiveRef.current)) {
       readGeometry();
       const sc = scrollRef.current;
-      if (sc) sc.scrollTop = entryRef.current * sc.clientHeight;
+      if (sc) sc.scrollTop = toTop(sc, entryRef.current);
       jumpCine(entryRef.current);
     }
     prevActiveRef.current = active;
-  }, [active, jumpCine, readGeometry]);
+  }, [active, jumpCine, readGeometry, toTop]);
 
   // keep position locked to the active event on resize / breakpoint flips
   useEffect(() => {
@@ -332,12 +367,12 @@ export default function CinematicView({
       readGeometry();
       const sc = scrollRef.current;
       if (!sc) return;
-      sc.scrollTop = entryRef.current * sc.clientHeight;
+      sc.scrollTop = toTop(sc, entryRef.current);
       jumpCine(entryRef.current);
     };
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
-  }, [jumpCine, readGeometry]);
+  }, [jumpCine, readGeometry, toTop]);
 
   // per-event artwork overlay: crossfade the active event's own background
   // (EVENT_ART) in over the era cover, and back out when its slide is left.
@@ -417,11 +452,17 @@ export default function CinematicView({
     const section = sectionRef.current;
     let pull = 0;
     let pullTimer: ReturnType<typeof setTimeout> | undefined;
+    // "At the era's first entry" = the proxy rests at its start edge —
+    // scrollTop 0 normally, the bottom edge on the flipped mapping.
+    const atStart = () => {
+      const sc = scrollRef.current;
+      if (!sc) return true;
+      return isFlipped()
+        ? sc.scrollTop >= sc.scrollHeight - sc.clientHeight - 1
+        : sc.scrollTop <= 1;
+    };
     const canPullBack = () =>
-      !wipeRef.current &&
-      !introOnRef.current &&
-      (scrollRef.current?.scrollTop ?? 0) <= 1 &&
-      !siteMenuOpen();
+      !wipeRef.current && !introOnRef.current && atStart() && !siteMenuOpen();
     const setPull = (v: number) => {
       pull = clamp(v, 0, PULL_MAX);
       backPullRef.current?.style.setProperty(
@@ -444,19 +485,15 @@ export default function CinematicView({
       pullTimer = setTimeout(() => setPull(0), 700);
     };
     let touchY0: number | null = null;
-    // Mirrors the CSS gesture flip on the scroll proxy (67-chronicle-
-    // cinematic.css): on touch phones advancing is a downward swipe, so the
-    // pull into the previous era is the upward one.
-    const flipped = window.matchMedia(
-      "(max-width: 760px) and (pointer: coarse)",
-    ).matches;
     const onTouchStart = (e: TouchEvent) => {
       touchY0 = e.touches[0].clientY;
     };
+    // On flipped (touch-phone) stages advancing is the downward swipe, so
+    // the pull into the previous era is the upward one.
     const onTouchMove = (e: TouchEvent) => {
       if (touchY0 == null || !canPullBack()) return;
       const dy = e.touches[0].clientY - touchY0;
-      const pullDy = flipped ? -dy : dy;
+      const pullDy = isFlipped() ? -dy : dy;
       if (pullDy > 0) setPull(pullDy * 1.3);
     };
     const onTouchEnd = () => {

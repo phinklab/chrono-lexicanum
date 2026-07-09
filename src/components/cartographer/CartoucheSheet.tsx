@@ -8,8 +8,9 @@
  * vocabulary — SeekPanel, Courses, Overlays and the census filter (children).
  *
  * State flows through the same reducer dispatches as the desktop cartouche;
- * this component only owns "is the sheet open" plus its drag. Picking a seek
- * hit or a course collapses the sheet so the camera flight stays visible.
+ * "is the sheet open" lives in the root (the phone back-guard needs to close
+ * it), this component owns only the drag. Picking a seek hit or a course
+ * collapses the sheet so the camera flight stays visible.
  *
  * Drag: a small Pointer-Events follow on the grip with a distance threshold
  * on release — from open the sheet follows via transform; from closed the
@@ -38,6 +39,9 @@ interface CartoucheSheetProps {
   filtered: boolean;
   /** World popup open — the dock steps aside and returns when it closes. */
   suppressed: boolean;
+  /** Sheet expanded — owned by the root so the back-guard can dismiss it. */
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
   onPick: (id: string) => void;
   onCourse: (id: string) => void;
   onToggleLumen: () => void;
@@ -57,13 +61,14 @@ export default function CartoucheSheet({
   nihilus,
   filtered,
   suppressed,
+  open,
+  onOpenChange,
   onPick,
   onCourse,
   onToggleLumen,
   onToggleNihilus,
   children,
 }: CartoucheSheetProps) {
-  const [open, setOpen] = useState(false);
   const [openSecs, setOpenSecs] = useState<ReadonlySet<SectionId>>(new Set(["census"]));
   const sheetRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -89,24 +94,24 @@ export default function CartoucheSheet({
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         e.stopPropagation();
-        setOpen(false);
+        onOpenChange(false);
       }
     };
     window.addEventListener("keydown", onKey, true);
     return () => window.removeEventListener("keydown", onKey, true);
-  }, [open]);
+  }, [open, onOpenChange]);
 
   const pick = (id: string) => {
-    setOpen(false);
+    onOpenChange(false);
     onPick(id);
   };
   const pickCourse = (id: string) => {
-    setOpen(false);
+    onOpenChange(false);
     onCourse(id);
   };
 
   const openWithSeek = () => {
-    setOpen(true);
+    onOpenChange(true);
     requestAnimationFrame(() => inputRef.current?.focus());
   };
 
@@ -152,11 +157,11 @@ export default function CartoucheSheet({
     el.style.height = "";
     el.classList.remove("dragging");
     if (!drag.moved) {
-      setOpen((o) => !o);
+      onOpenChange(!open);
       return;
     }
-    if (open && dy > DRAG_CLOSE) setOpen(false);
-    else if (!open && dy < DRAG_OPEN) setOpen(true);
+    if (open && dy > DRAG_CLOSE) onOpenChange(false);
+    else if (!open && dy < DRAG_OPEN) onOpenChange(true);
   };
 
   const activeCourse = COURSES.find((c) => c.id === courseId) ?? null;
@@ -164,7 +169,7 @@ export default function CartoucheSheet({
 
   return (
     <>
-      {open && <div className="cg-sheet-backdrop" onPointerDown={() => setOpen(false)} />}
+      {open && <div className="cg-sheet-backdrop" onPointerDown={() => onOpenChange(false)} />}
       <div
         ref={sheetRef}
         className={`cg-sheet${open ? " open" : ""}${suppressed && !open ? " hidden" : ""}`}

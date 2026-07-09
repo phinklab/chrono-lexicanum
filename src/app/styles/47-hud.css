@@ -1,7 +1,8 @@
 /* 47-hud.css
    Hero HUD: the auspex disc pair (AuspexPair.tsx) and the survey points
-   (FloatingCoord.tsx). Both sit under the masthead text (z 2 vs z 3) and
-   disappear on narrow viewports. */
+   (FloatingCoord.tsx). Both sit under the masthead text (z 2 vs z 3). On
+   narrow viewports (2026-07-09, formerly hidden there) the pair collapses
+   to the single centered main disc; the survey points ride along. */
 
 .auspex-pair {
   position: absolute;
@@ -113,12 +114,6 @@
   color: var(--cl-dim);
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
   white-space: nowrap;
-}
-@media (max-width: 980px) {
-  .survey,
-  .auspex-pair {
-    display: none;
-  }
 }
 @media (prefers-reduced-motion: reduce) {
   .survey {

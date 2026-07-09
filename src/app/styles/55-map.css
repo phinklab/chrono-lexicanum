@@ -1890,6 +1890,9 @@ body.cg-on-map .site-brand .site-brand__map {
 
 /* Reduced motion: everything stands still */
 @media (prefers-reduced-motion: reduce) {
+  /* Extra specificity: must also beat the mobile lite-route fade-in
+     (.cg-course--lite .cg-rtFly), which is declared later in the file. */
+  .cg-chart .cg-course--lite .cg-rtFly,
   .cg-rtFly,
   .cg-inst .i-ticks,
   .cg-inst .i-dash,
@@ -2031,6 +2034,17 @@ body.cg-on-map .site-brand .site-brand__map {
     backdrop-filter: none;
   }
 
+  /* Own compositing layers: the chart svg repaints under every camera
+     transform and phone GPUs drop un-promoted fixed chrome above it (the
+     voyage dock card vanishing mid-pan). Same fix the media player already
+     carries (56-media-player.css). `will-change` rather than translateZ(0)
+     because all three animate transform in their show/hide transitions. */
+  .cg-ccard--dock,
+  .cg-pop,
+  .cg-sheet {
+    will-change: transform;
+  }
+
   /* Course route: the infinite marching-dash animation on mask-revealed
      paths re-rasterizes the whole svg every frame — visible flicker while
      panning with a voyage active, and fixed chrome above it (media-player
@@ -2043,6 +2057,27 @@ body.cg-on-map .site-brand .site-brand__map {
   .cg-chart.moving .cg-routeDraw,
   .cg-chart.moving .cg-rt-st {
     animation-play-state: paused;
+  }
+
+  /* Lite route: below 900px RoutesLayer skips the <mask> entirely — the
+     mask alone forces the per-frame re-raster, march or no march. The legs
+     fade in on the desktop draw-in cadence instead. Opacity lives ONLY in
+     the keyframe so the reduced-motion `animation: none` degrades to a
+     plainly visible route. */
+  .cg-course--lite .cg-rtFly {
+    animation: cgRtLegIn 0.9s var(--ease) both;
+    animation-delay: calc(var(--i) * 1.45s + 0.35s);
+  }
+  .cg-chart.moving .cg-course--lite .cg-rtFly {
+    animation-play-state: paused;
+  }
+  @keyframes cgRtLegIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
   /* Backdrop while the drawer is up — also stops accidental chart pans. */

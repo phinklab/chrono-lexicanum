@@ -2,7 +2,8 @@
  * RoutesLayer — the active course: legs draw station by station (mask
  * reveal), then the dots keep marching in travel direction (convoy
  * gesture). Station rings bloom with the leg cadence. Mounted only while a
- * course is active — mounting restarts the CSS choreography.
+ * course is active — mounting restarts the CSS choreography. Below 900px
+ * the masks are skipped (`cg-course--lite`): legs fade in instead.
  */
 
 import { useMemo } from "react";
@@ -10,6 +11,7 @@ import type { CSSProperties } from "react";
 
 import type { Course } from "@/lib/map/routes";
 import type { FeaturedWorld } from "@/lib/map/payload";
+import { useMediaQuery } from "@/lib/useMediaQuery";
 import { GOLD } from "./chart-geometry";
 
 interface RoutesLayerProps {
@@ -19,6 +21,11 @@ interface RoutesLayerProps {
 
 export default function RoutesLayer({ course, featured }: RoutesLayerProps) {
   const byName = useMemo(() => new Map(featured.map((f) => [f.name, f])), [featured]);
+  // Phones skip the <mask> draw-in entirely: a masked subtree re-rasterizes
+  // on every camera frame (route flicker; fixed chrome above the svg drops
+  // out of compositing). The legs fade in on the same cadence instead —
+  // `cg-course--lite` in 55-map.css.
+  const narrow = useMediaQuery("(max-width: 900px)");
   if (!course) return null;
 
   const stations = course.stations
@@ -26,22 +33,24 @@ export default function RoutesLayer({ course, featured }: RoutesLayerProps) {
     .filter((s): s is { world: FeaturedWorld; i: number } => s.world !== undefined);
 
   return (
-    <g className="cg-course">
-      <defs>
-        {course.legs.map((d, li) => (
-          <mask id={`cg-m-${course.id}-${li}`} key={li}>
-            <path
-              d={d}
-              fill="none"
-              stroke="#fff"
-              strokeWidth={8}
-              pathLength={1}
-              className="cg-routeDraw"
-              style={{ "--i": li } as CSSProperties}
-            />
-          </mask>
-        ))}
-      </defs>
+    <g className={narrow ? "cg-course cg-course--lite" : "cg-course"}>
+      {!narrow && (
+        <defs>
+          {course.legs.map((d, li) => (
+            <mask id={`cg-m-${course.id}-${li}`} key={li}>
+              <path
+                d={d}
+                fill="none"
+                stroke="#fff"
+                strokeWidth={8}
+                pathLength={1}
+                className="cg-routeDraw"
+                style={{ "--i": li } as CSSProperties}
+              />
+            </mask>
+          ))}
+        </defs>
+      )}
       {course.legs.map((d, li) => (
         <path
           key={li}
@@ -54,7 +63,8 @@ export default function RoutesLayer({ course, featured }: RoutesLayerProps) {
           strokeDasharray="1.6 4.6"
           strokeLinecap="round"
           vectorEffect="non-scaling-stroke"
-          mask={`url(#cg-m-${course.id}-${li})`}
+          style={{ "--i": li } as CSSProperties}
+          mask={narrow ? undefined : `url(#cg-m-${course.id}-${li})`}
         />
       ))}
       {stations.map(({ world, i }) => (

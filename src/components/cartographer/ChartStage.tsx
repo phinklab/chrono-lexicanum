@@ -59,6 +59,8 @@ interface ChartStageProps {
    *  `svg.zones-dim`); off = fades out #cg-fields (CSS `svg.nozones`). */
   zones: ZonesMode;
   courseId: string | null;
+  /** Overture veil lifted? The tap that lifts it must not also pick a pin. */
+  condensed: boolean;
   reduce: boolean;
   magRef: RefObject<HTMLSpanElement | null>;
   onCondense: () => void;
@@ -74,6 +76,7 @@ export default function ChartStage({
   names,
   zones,
   courseId,
+  condensed,
   reduce,
   magRef,
   onCondense,
@@ -97,11 +100,13 @@ export default function ChartStage({
   const onPickRef = useRef(onPick);
   const onCondenseRef = useRef(onCondense);
   const reduceRef = useRef(reduce);
+  const condensedRef = useRef(condensed);
   useEffect(() => {
     onPickRef.current = onPick;
     onCondenseRef.current = onCondense;
     reduceRef.current = reduce;
-  }, [onPick, onCondense, reduce]);
+    condensedRef.current = condensed;
+  }, [onPick, onCondense, reduce, condensed]);
 
   useEffect(() => {
     const svg = svgRef.current;
@@ -279,6 +284,10 @@ export default function ChartStage({
     // Focus doesn't move either, so blur the seek field explicitly.
     e.preventDefault();
     if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
+    // Read BEFORE condensing: the gesture that lifts the overture veil must
+    // not double as a pin pick (first tap on the chart was selecting
+    // whatever world happened to sit under the finger).
+    const overtureUp = !condensedRef.current;
     onCondenseRef.current();
     cancelAnimationFrame(flight.current);
     // Mouse/pen: capture only once a real drag starts (pointermove threshold).
@@ -300,7 +309,7 @@ export default function ChartStage({
         tx: c.tx,
         ty: c.ty,
         moved: false,
-        hitId: hit ? hit.getAttribute("data-pin") : null,
+        hitId: overtureUp || !hit ? null : hit.getAttribute("data-pin"),
       };
       svg.classList.add("dragging");
     } else if (pointers.current.size === 2) {

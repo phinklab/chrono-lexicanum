@@ -1,8 +1,9 @@
 /* 54-ask-faction.css
    "One faction, one book" — three mono steps: I the faction rail + stage
-   (arrows, index, the faction name in the display voice), II the chapter row
-   (optional), III the entry-point panel. The tool doors themselves ride the
-   arch-door grammar (31-catalogue.css). */
+   (arrows, index; the chosen faction is named by its highlighted rail entry,
+   not by a second display-size title), II the chapter row (optional), III
+   the entry-point panel with the alternative picks named beneath it. The
+   tool doors themselves ride the arch-door grammar (31-catalogue.css). */
 
 .ofob {
   outline: none;
@@ -57,6 +58,7 @@
   font-size: var(--fs-label-md);
 }
 .ofob__rail-btn {
+  position: relative;
   background: none;
   border: 0;
   padding: 3px 4px;
@@ -67,43 +69,58 @@
   color: var(--cl-dim);
   cursor: pointer;
   white-space: nowrap;
-  transition: color 0.3s;
+  transition: color 0.3s, font-size 0.3s var(--ease);
 }
 .ofob__rail-btn:hover {
   color: var(--cl-bone);
 }
+/* The active entry IS the faction title now (the big display-voice heading
+   below is retired): gold, a step larger, with the breathing origin dot of
+   the button grammar in front. */
 .ofob__rail-btn[data-active="true"] {
   color: var(--cl-gold);
+  font-size: 15px;
+  padding-left: 16px;
+}
+.ofob__rail-btn[data-active="true"]::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  margin-top: -2px;
+  background: var(--cl-gold);
+  border-radius: 50%;
+  animation: dotBreathe 5.4s ease-in-out infinite;
 }
 
-/* The stage: arrows + index + the faction name. */
+/* The stage: one quiet stepper line (arrow, index, arrow) under the rail,
+   the keyed slide below. The arrows used to sit absolutely at the stage
+   edges, which parked them beside the book title — reading as if they
+   cycled the book instead of the faction. */
 .ofob__stage {
-  position: relative;
   text-align: center;
-  margin-top: 26px;
+  margin-top: 20px;
+}
+.ofob__nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 .ofob__arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
   background: none;
   border: 0;
-  padding: 8px 12px;
-  font-size: 22px;
+  padding: 4px 14px;
+  font-size: 20px;
   line-height: var(--lh-solid);
   color: var(--cl-dim);
   cursor: pointer;
   transition: color 0.3s;
-  z-index: 1;
 }
 .ofob__arrow:hover {
   color: var(--cl-gold);
-}
-.ofob__arrow--prev {
-  left: 0;
-}
-.ofob__arrow--next {
-  right: 0;
 }
 .ofob__slide {
   animation: enter 0.6s var(--ease) both;
@@ -117,15 +134,6 @@
 }
 .ofob__index-sep {
   padding: 0 5px;
-}
-.ofob__faction {
-  margin: 10px 0 0;
-  font-family: var(--font-display);
-  font-weight: var(--font-display-wght-hero);
-  font-size: clamp(34px, 4.6vw, 54px);
-  line-height: var(--lh-solid);
-  letter-spacing: var(--font-display-track);
-  color: var(--cl-bone);
 }
 
 /* Step II: chapters */
@@ -209,26 +217,34 @@
   font-size: var(--fs-read-xs);
   color: var(--cl-faint);
 }
-.ask-pick__reshuffle {
-  margin-top: 14px;
+/* Alternatives — the node's other curated picks, named by title (the old
+   "Alternative" cycler hid that there was a choice at all). Full Sternwarte
+   buttons (.lx-btn + BtnFx, 42-lex-primitives.css) at the DEFAULT geometry:
+   the dot sits at left 24px and the hover rings/stars are pinned to that
+   same origin, so any padding override would tear them apart. Dimmed and a
+   type step below the gold primary CTA so the hierarchy stays with "Open
+   the book"; the label gets its own line. Clicking one swaps that pick into
+   the verdict block above. */
+.ask-pick__alts {
+  margin-top: 26px;
 }
-.ask-pick__count {
-  padding-left: 8px;
+.ask-pick__alts-label {
+  margin: 0 0 2px;
   font-family: var(--font-mono);
-  font-style: normal;
   font-size: var(--fs-label-xs);
-  letter-spacing: 0.12em;
+  letter-spacing: var(--track-20);
+  text-transform: uppercase;
   color: var(--cl-faint);
 }
-
-@media (max-width: 640px) {
-  .ofob__arrow {
-    position: static;
-    transform: none;
-  }
-  .ofob__stage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.ask-pick__alts-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 8px;
+}
+.ask-pick__alt {
+  font-size: var(--fs-label-md);
+  color: var(--cl-dim);
+  padding-top: 11px;
+  padding-bottom: 10px;
 }

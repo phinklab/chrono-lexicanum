@@ -68,7 +68,7 @@ export default function ArtworkPage() {
   return (
     <main className="legal">
       <header className="legal__head">
-        <p className="legal__eyebrow">Chrono · Lexicanum — Originals</p>
+        <p className="legal__eyebrow">Chrono · Lexicanum · Originals</p>
         <h1 className="legal__title">Artwork</h1>
         <div className="legal__rule" aria-hidden />
       </header>
@@ -84,13 +84,16 @@ export default function ArtworkPage() {
           <div className="legal__section-rule" aria-hidden />
           <p className="legal__p">
             The painted backdrops of this archive are original works by me,
-            made for the site in countless hours of trying to learn digital
-            artwork and photobashing. There is no AI involved, so you can use
-            them for your Warhammer fan projects in line with GW&apos;s non-AI
-            policy. You are welcome to download them for any use you see fit —
-            attribution to the Chrono Lexicanum page is appreciated but not
-            needed. Book covers and the Chronicle&apos;s era artwork are not
-            offered here — those remain with their credited artists.
+            made for the site in countless hours of trying to learn and get
+            better at digital painting. There is no AI involved in creating
+            these, so you can use them for your Warhammer fan projects in line
+            with GW&apos;s non-AI policy. You are welcome to download them for
+            any use you see fit; attribution to the Chrono Lexicanum page is
+            appreciated but not needed. Book covers and the Chronicle&apos;s
+            era artwork are not offered here, as those remain with their
+            credited artists. I&apos;ll keep improving the existing pieces and
+            adding new ones whenever this hobby wins a slice of my free time,
+            so check back once in a while if you are curious.
           </p>
           <div className="legal__art">
             {PIECES.map((p) => (

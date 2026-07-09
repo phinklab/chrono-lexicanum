@@ -38,6 +38,20 @@ const nextConfig: NextConfig = {
   // Strict mode catches common bugs early; keep on in dev.
   reactStrictMode: true,
 
+  // Pin the workspace root to THIS app dir. Without it Turbopack infers the
+  // root from lockfiles and, inside a git worktree, picks the PARENT repo
+  // (C:\...\chrono-lexicanum) — modules can then resolve from the parent's
+  // node_modules (duplicate React = dead hydration). `process.cwd()` is the
+  // dir `next dev`/`next build` runs in, i.e. this checkout; `__dirname`
+  // resolves wrongly in the compiled config. Dev-only concern, but harmless
+  // and correct for every checkout.
+  turbopack: { root: process.cwd() },
+
+  // Phone testing against the LAN URL (http://<LAN-IP>:3000): Next blocks
+  // cross-origin requests to /_next dev resources by default; allow the dev
+  // machine's LAN address. Dev-only setting, ignored in production builds.
+  allowedDevOrigins: ["192.168.1.104"],
+
   // /compendium (ISR, revalidate=300) still prerenders at build and shares the
   // max-5 pooler pool with ~1100 entity detail pages rendering concurrently —
   // its cold aggregate fill can exceed the 60s default and abort the deploy.
