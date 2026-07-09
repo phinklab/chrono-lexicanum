@@ -71,7 +71,10 @@ export function writeMapHash(patch: MapHashPatch): void {
     const hash = qs ? "#" + decodeURIComponent(qs) : "";
     const newUrl = window.location.pathname + window.location.search + hash;
     try {
-      window.history.replaceState(null, "", newUrl);
+      // Preserve the CURRENT entry's state object: Next's router keeps its
+      // restore data there, and the mobile back-guard tags its entry with
+      // {cgGuard:true} — replacing with null would wipe both.
+      window.history.replaceState(window.history.state, "", newUrl);
     } catch {
       // Some embedded contexts refuse replaceState — sharing degrades, the map works.
     }
