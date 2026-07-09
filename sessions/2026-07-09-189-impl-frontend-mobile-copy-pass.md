@@ -142,6 +142,18 @@ in der Sub-Line („One faction, one book: …") und im Step-II-Note
   HUD-Ambient + Vox auf Home/Archive/Compendium/Ask, BrandBeacon beim
   Scrollen, neue Texte, Ask-Rail/Chips.
 
+## Nachtrag: Dev-Env-Fix (Burger tot auf localhost)
+
+Philipp meldete nach der Übergabe ein totes Burger-Menü auf localhost. Kein
+Code-Problem: der frische Claude-Worktree hatte keine eigenen
+`node_modules` — Node löste alles aus dem Eltern-Repo auf, Turbopack wählte
+darum das Eltern-Repo als Workspace-Root (Lockfile-Warnung im Log) und
+mischte zwei Checkouts. Fix: `npm ci` im Worktree + `next.config.ts` pinnt
+`turbopack.root: process.cwd()` (mit `__dirname` löst die kompilierte
+Config falsch auf) und erlaubt `allowedDevOrigins: ["192.168.1.104"]` fürs
+Handy-Testen gegen die LAN-URL (Next 16 blockt cross-origin-Zugriffe auf
+`/_next`-Dev-Ressourcen sonst). Beides dev-only, in Prod-Builds wirkungslos.
+
 ## Open / For next session
 
 - BrandBeacon ist ein Platzhalter — echtes Logo-Mark ausstehend.
