@@ -3,12 +3,12 @@
 /**
  * ChartStage — the <svg> chart with the imperative camera.
  *
- * Camera = {tx, ty, k} in refs; every gesture writes the world-<g> transform
- * and the `--cg-ik` counter-scale var directly in the same frame — 1054 pins
- * keep constant screen size without a single React re-render. Zoom bands
- * (label tiers, dust veil) gate purely via CSS on `data-band`; `data-band`
- * and `--cg-ik` are deliberately NOT React-managed so re-renders never
- * clobber them.
+ * Camera = {tx, ty, k} in refs; every gesture writes the same transform to
+ * two sibling SVGs in one frame. The base plane holds the ~2000-node static
+ * chart; the motion plane holds animated linework. Keeping those paint
+ * surfaces separate prevents a dash/opacity frame from re-rasterizing the
+ * whole chart on phone GPUs. `--cg-ik` and zoom bands stay imperative so
+ * 1054 pins keep constant screen size without a React re-render.
  */
 
 import { useEffect, useRef } from "react";
@@ -67,6 +67,8 @@ interface ChartStageProps {
   /** Tap on a pin (worldId) or on empty chart (null). */
   onPick: (worldId: string | null) => void;
   children: ReactNode;
+  /** Frequently animated SVG content, isolated from the static chart. */
+  motionLayer: ReactNode;
 }
 
 export default function ChartStage({
@@ -82,9 +84,12 @@ export default function ChartStage({
   onCondense,
   onPick,
   children,
+  motionLayer,
 }: ChartStageProps) {
   const svgRef = useRef<SVGSVGElement | null>(null);
   const camGRef = useRef<SVGGElement | null>(null);
+  const motionSvgRef = useRef<SVGSVGElement | null>(null);
+  const motionGRef = useRef<SVGGElement | null>(null);
   const cam = useRef<CamRef>({ tx: 0, ty: 0, k: 1, k0: 1, vw: 1, vh: 1, ox: 0, oy: 0, band: "" });
   const drag = useRef<DragRef | null>(null);
   const pinch = useRef<PinchRef | null>(null);
@@ -111,14 +116,18 @@ export default function ChartStage({
   useEffect(() => {
     const svg = svgRef.current;
     const camG = camGRef.current;
-    if (!svg || !camG) return;
+    const motionSvg = motionSvgRef.current;
+    const motionG = motionGRef.current;
+    if (!svg || !camG || !motionSvg || !motionG) return;
     const c = cam.current;
 
     const clampK = (x: number) => Math.max(c.k0 * 0.75, Math.min(c.k0 * 9, x));
 
     let lastIk = "";
     const apply = () => {
-      camG.setAttribute("transform", `translate(${c.tx} ${c.ty}) scale(${c.k})`);
+      const transform = `translate(${c.tx} ${c.ty}) scale(${c.k})`;
+      camG.setAttribute("transform", transform);
+      motionG.setAttribute("transform", transform);
       // Guards: DOMTokenList.add and setProperty rewrite the attribute even
       // when nothing changes — an every-frame same-value write invalidates
       // style recalc for the whole 2000-node svg subtree.
@@ -126,14 +135,19 @@ export default function ChartStage({
       if (ik !== lastIk) {
         lastIk = ik;
         svg.style.setProperty("--cg-ik", ik);
+        motionSvg.style.setProperty("--cg-ik", ik);
       }
       // While the camera moves, pins sweep under the stationary cursor and
       // Chrome re-hit-tests :hover — a cascade of label/glyph transitions
       // (the "all labels flicker" bug). `.moving` gates those hover rules;
       // it decays shortly after the last frame.
       if (!svg.classList.contains("moving")) svg.classList.add("moving");
+      if (!motionSvg.classList.contains("moving")) motionSvg.classList.add("moving");
       if (moveTimer.current) clearTimeout(moveTimer.current);
-      moveTimer.current = setTimeout(() => svg.classList.remove("moving"), 160);
+      moveTimer.current = setTimeout(() => {
+        svg.classList.remove("moving");
+        motionSvg.classList.remove("moving");
+      }, 160);
       // Four bands: 0 overview, 1 tier-1 names, 2 tier-2 names, 3 dust names
       // + full dust opacity. Thresholds roughly geometric (×1.8).
       const band =
@@ -141,6 +155,7 @@ export default function ChartStage({
       if (band !== c.band) {
         c.band = band;
         svg.setAttribute("data-band", band);
+        motionSvg.setAttribute("data-band", band);
         const mag = magRef.current;
         if (mag) {
           mag.classList.add("bump");
@@ -398,11 +413,13 @@ export default function ChartStage({
     }
   };
 
+  const chartClass = `cg-chart${lumen ? " lumen" : ""}${nihilus ? " nihilus" : ""}${names ? " names" : ""}${zones === "off" ? " nozones" : ""}${zones === "dim" ? " zones-dim" : ""}`;
+
   return (
     <div className="cg-stage">
       <svg
         ref={svgRef}
-        className={`cg-chart${lumen ? " lumen" : ""}${nihilus ? " nihilus" : ""}${names ? " names" : ""}${zones === "off" ? " nozones" : ""}${zones === "dim" ? " zones-dim" : ""}`}
+        className={`${chartClass} cg-chart--base`}
         data-route={courseId ?? undefined}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
@@ -413,6 +430,17 @@ export default function ChartStage({
       >
         <g ref={camGRef}>{children}</g>
       </svg>
+      <div className="cg-motion-plane" aria-hidden="true">
+        <svg
+          ref={motionSvgRef}
+          className={`${chartClass} cg-chart--motion`}
+          data-route={courseId ?? undefined}
+          role="presentation"
+          focusable="false"
+        >
+          <g ref={motionGRef}>{motionLayer}</g>
+        </svg>
+      </div>
     </div>
   );
 }

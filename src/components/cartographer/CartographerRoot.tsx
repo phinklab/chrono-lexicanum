@@ -376,6 +376,14 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           magRef={magRef}
           onCondense={condense}
           onPick={pick}
+          motionLayer={
+            <>
+              <LumenNihilus />
+              <RoutesLayer resolved={activeVoyage} progress={voyageProgress} />
+              <TerraInstrument />
+              {selectedWorld && <Selection key={selectedWorld.id} world={selectedWorld} />}
+            </>
+          }
         >
           <HatchDefs />
           <GridDots />
@@ -391,10 +399,6 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           />
           <PinLayer featured={payload.featured} hiddenCls={state.hiddenCls} hiIds={hiIds} />
           <RegionLabels regions={payload.regions} featured={payload.featured} />
-          <LumenNihilus />
-          <RoutesLayer resolved={activeVoyage} progress={voyageProgress} />
-          <TerraInstrument />
-          {selectedWorld && <Selection key={selectedWorld.id} world={selectedWorld} />}
           {zoneEdit && <ZoneEditor bus={bus} />}
         </ChartStage>
       )}
