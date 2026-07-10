@@ -15,9 +15,10 @@
  *
  * World stations render as rings (deduped by id — repeat visits share one
  * ring at the FIRST visit's step); waypoints render as small dashed dots ON
- * their leg. Below 900px masks are skipped entirely (`cg-course--lite`):
- * legs fade in on the same gating. Mounted only while a journey is active —
- * mounting restarts the CSS choreography.
+ * their leg. Below 900px masks are skipped entirely (`cg-course--lite`),
+ * while the route keeps moving inside ChartStage's isolated motion plane.
+ * Mounted only while a journey is active — mounting restarts the CSS
+ * choreography.
  */
 
 import type { CSSProperties } from "react";
@@ -33,10 +34,9 @@ interface RoutesLayerProps {
 }
 
 export default function RoutesLayer({ resolved, progress }: RoutesLayerProps) {
-  // Phones skip the <mask> draw-in entirely: a masked subtree re-rasterizes
-  // on every camera frame (route flicker; fixed chrome above the svg drops
-  // out of compositing). The legs fade in on the same cadence instead —
-  // `cg-course--lite` in 55-map.css.
+  // Phones skip the <mask> draw-in entirely. The dash still moves, but its
+  // repaint is confined to ChartStage's lightweight motion SVG instead of
+  // the ~2000-node base chart. See `cg-course--lite` in 55-map.css.
   const narrow = useMediaQuery("(max-width: 900px)");
   if (!resolved || resolved.legs.length < 1) return null;
 

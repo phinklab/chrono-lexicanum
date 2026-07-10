@@ -112,6 +112,24 @@ body.cg-on-map .site-brand .site-brand__map {
   cursor: grabbing;
 }
 
+/* Animated SVG strokes invalidate paint every frame. Keeping them in their
+   own root SVG means phone browsers repaint this lightweight surface instead
+   of the chart's ~2000 static nodes. The wrapper is the compositor boundary;
+   ChartStage writes the same camera transform to both SVGs in one frame. */
+.cg-motion-plane {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  contain: strict;
+  isolation: isolate;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+.cg-motion-plane svg {
+  pointer-events: none;
+  cursor: default;
+}
+
 /* Pins: the counter-scale keeps ~1050 glyphs at constant screen size */
 .cg-pi {
   transform: scale(var(--cg-ik, 1));
@@ -2118,28 +2136,25 @@ body.cg-on-map .site-brand .site-brand__map {
     will-change: transform;
   }
 
-  /* Course route: the infinite marching-dash animation on mask-revealed
-     paths re-rasterizes the whole svg every frame — visible flicker while
-     panning with a voyage active, and fixed chrome above it (media-player
-     card) can drop out of compositing entirely on phone GPUs. The convoy
-     march is a desktop nicety; here the drawn route stands still, and the
-     draw-in/station blooms pause while the camera moves. */
-  .cg-rtFly {
-    animation: none;
-  }
+  /* Route linework is isolated from the static chart above. Camera gestures
+     pause paint-only animation briefly; at rest the convoy still marches and
+     no longer invalidates the map or fixed chrome on phone GPUs. */
   .cg-chart.moving .cg-routeDraw,
   .cg-chart.moving .cg-rt-st {
     animation-play-state: paused;
   }
 
-  /* Lite route: below 900px RoutesLayer skips the <mask> entirely — the
-     mask alone forces the per-frame re-raster, march or no march. The legs
-     fade in on the desktop draw-in cadence instead. Opacity lives ONLY in
-     the keyframe so the reduced-motion `animation: none` degrades to a
-     plainly visible route. */
+  /* Lite route: phones skip the mask, fade each leg in on the desktop
+     cadence, then keep its dashes moving inside the isolated motion plane.
+     Opacity lives only in the keyframe so reduced motion degrades to a
+     plainly visible, stationary route. */
   .cg-course--lite .cg-rtFly {
-    animation: cgRtLegIn 0.9s var(--ease) both;
-    animation-delay: calc(var(--i) * 1.45s + 0.35s);
+    animation:
+      cgRtLegIn 0.9s var(--ease) both,
+      cgRtFly 7s linear infinite;
+    animation-delay:
+      calc(var(--i) * 1.45s + 0.35s),
+      calc(var(--i) * 1.45s + 1.25s);
   }
   .cg-chart.moving .cg-course--lite .cg-rtFly {
     animation-play-state: paused;
