@@ -17,19 +17,18 @@ Differences from neighbouring docs:
 
 ## Open
 
-- **Globaler Focus-Reset frisst alle Focus-Ringe** (2026-07-08, Session 185).
-  `10-base.css` setzt `:focus, :focus-visible { outline: none !important; }` —
-  damit sind sämtliche späteren `:focus-visible`-Overrides ohne `!important`
-  tote Regeln (`main.entity`/`main.podcasts` in 59/62, die Gold-Outlines in
-  56-media-player). Tastatur-Nutzer sehen keinerlei Fokus. Fix braucht eine
-  Design-Entscheidung (Gold-Hairline-Ring sitewide?) und einen Sichtdurchgang,
-  deshalb nicht im 185er-Sweep erledigt.
-- **SiteLegal-Zeile: vorläufiger Platz unter dem MediaPlayer** (2026-07-02,
-  Impl 179). Die site-weite `IMPRESSUM · DATENSCHUTZ`-Mono-Zeile (`SiteLegal.tsx`,
-  fixed unten links, 9px, faint) ist ein vorläufiger Philipp-Entscheid für die
-  footerlosen Desktop-Flächen (Map/Timeline/Entities). Polish-Optionen laut
-  Impl-Report: gestalteter Slot im Rail-Fuß oder Entity-Footer. Beim 178er-
-  Map-Neubau prüfen, ob sie mit Map-Chrome unten links kollidiert.
+Keine rein kosmetischen Blocker mit eigener Priorität. Neue Kleinigkeiten nur
+hier aufnehmen, wenn sie nicht bereits Teil der Launch-Gates oder der
+kanonischen Worklist sind.
+
+## Promoted / reconciled 2026-07-10
+
+- **Globaler Focus-Reset** ist kein Kosmetik-Item mehr. Der site-weite
+  `outline: none !important`-Fehler ist verpflichtender Scope der Launch-A11y-
+  Session S8, inklusive `:focus-visible`, Forced Colors und Sichtdurchgang.
+- **SiteLegal-Zeile** führt inzwischen `Impressum · Datenschutz · Artwork`;
+  `/artwork` ist eine öffentliche ungated Route. Die alte 178er-Map-
+  Kollisionsprüfung ist durch die Mobile-/Chrome-Welle 185–190 überholt.
 
 ## Shipped in Session 185 (2026-07-08)
 

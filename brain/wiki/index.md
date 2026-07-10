@@ -2,102 +2,79 @@
 title: Wiki index — master catalog
 type: reference
 created: 2026-05-09
-updated: 2026-07-06
+updated: 2026-07-10
 sources: []
 related:
   - ../CLAUDE.md
   - ./project-state.md
+  - ./worklist.md
   - ./log.md
 confidence: high
 ---
 
 # Wiki index
 
-> Master catalog. Every wiki page with one-line description + `updated` date. Cowork and Claude Code read this **third** on session start (after top-level [`/CLAUDE.md`](../../CLAUDE.md) and [`../CLAUDE.md`](../CLAUDE.md)). Use it to pick the 2–4 pages relevant to a query — don't brute-force load the whole tree.
+> Master catalog. Read this after top-level `CLAUDE.md` and `brain/CLAUDE.md`, then load only the pages relevant to the task.
 
-Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./workflows/session-end.md). Read the [`./log.md`](./log.md) operation log for chronological history.
-
-## Overview pages (start here)
-
-| Page                                             | Description                                                                                                                 | Updated    |
-| ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, what's open, next likely brief. **Stand 2026-07-06:** **Map-Neubau „Cartographer" ging LIVE** (Brief 178 gemergt, P14 komplett + P15/K11 gelöst, `/map` statisch auf 1054 SSOT-Welten, alte Disc gelöscht); Design-Reset 184 + Hygiene-Wave 175/176/177 + CI-Test-Gate 180 gemergt; Per-Buch-SSOT-Korpus (896 Bücher, `db:sync` 9-schrittig); Site preview-gated. Offen bei Philipp (Stand unklar): `apply:podcast` (175), `db:migrate 0015` (180), Weekly-PR #200. Forward: **Brief 181 Product-Prune** (nächster Schnitt) → P12 → 182 → P13 (kanonisch: `worklist.md`). | 2026-07-06 |
-| [open-questions.md](./open-questions.md)         | Items the next architect brief must address (Queue klein halten, 3-5). Aktuell: **(16b/c)** Timeline-Folgen aus impl 137/152: `primaryEraId`-Placeholder (verortet via Brief 173: `scripts/book-apply-shared.ts`, `M41_ERA_ID`) + Atlas-Events. **(18a) via Brief 170 Teil A geliefert, (18b) via Brief 171 Teil B geschlossen** (beide gemergt 2026-06-30/07-01 — aus der Queue). Wave 154–163 + 170/171/172 öffneten keine neue OQ. **16(a) seit Brief 152 geschlossen**; (17) 2026-06-12 geschlossen -> Boards. Wave 174–184 + Map-Neubau 178 öffneten keine neue OQ. | 2026-07-06 |
-| [worklist.md](./worklist.md)                     | **Die eine kanonische Sammelstelle für offene Arbeit** (Konsolidierung 2026-07-01, Brief 173): Forward-Queue (P14 Map **erledigt** via 174/183/178 → 181 Product-Prune → P12 URL/SSG → 182 → P13 Mobile), Blockiert-Liste (P8/P9 ← B8/B9), Geparkt (UI-Gesamt-Pass/Rest-Restyle nach der Map), Maintainer-Merker. Neue offene Punkte landen hier; UI-Kosmetik bleibt bewusst in `docs/ui-backlog.md`. **Stand 2026-07-06:** Map-Neubau 178 gemergt (P14 komplett, P15/K11 gelöst); nächster Schnitt Brief 181 Product-Prune. | 2026-07-06 |
-| [deferred-questions.md](./deferred-questions.md) | Dormant / distant questions that aren't queue-relevant. Promoted back to `open-questions.md` when their trigger fires. Post-074: enthält `chaos`-pov_side-Promote-Pass mit Promote-Trigger. | 2026-07-02 |
-| [architecture.md](./architecture.md)             | High-level system shape, schema overview, module map, key types/enums. **⚠ Stand vor dem Juni-Sweep** — Events-Schema (0012), `/compendium`/`/archive`/`/timeline`-Cinematic, Proxy-Gate, Caching-Layer fehlen noch; Refresh ist ein eigener Ingest-Pass (gegen den Code, nicht aus Reports). | 2026-05-09 |
-| [roadmap.md](./roadmap.md)                       | Phased plan (1–7) with status per phase + sub-phase breakdown for Phase 3 + Ideas Backlog. **Status-Snapshot 2026-06-12:** Phase 3 shipped (Wartung = Weekly-Refresh), Phase 4 + 5 weitgehend shipped (4d Bibliothek offen), Fokus Phase 7 (Polish & Launch). | 2026-06-24 |
-| [onboarding.md](./onboarding.md)                 | First-time setup (local install + GitHub + Supabase + Vercel + optional Obsidian for Atlas).                                | 2026-05-09 |
-| [pipeline-state.md](./pipeline-state.md)         | Phase-3 pipeline detail: V1 legacy + V2 SSOT authority path + resolver layer. **⚠ V1/V2-Crawler physisch ausgebaut (Brief 177, 2026-07-03) — Seite trägt Retirement-Banner, Inhalt ist historisches Archiv; lebender Ingest = Per-Buch-SSOT + Podcast-Delta.** Stand 2026-05-30 — Podcast-Pipeline (S1–S3, YouTube-Adapter, CC-Direct-Tagging), Weekly-Refresh und Extension-Roster (889) fehlen noch; Refresh in einem eigenen Ingest-Pass (File ist mit 93k Chars ohnehin Diet-Kandidat). **Post-PR-112 (2026-05-30):** Brief 105 Daten-Pass — Audiobook-Credits durable appliziert (`work_persons` 785→873, +88 Audio-Rollen; +29 Performer; Durability-Fix Override-Delete author/editor-gescopt; keine Schema-Migration). Post-PR-109 (2026-05-28): Brief 103 Daten-Pass gemergt — neues read-only Triage-Tool `npm run audit:gap-candidates` über `works ⨝ book_details` (325 Kandidaten Raw-Output, HH=73 W40K=252) + zwei Pilot-Override-Backfills HH-0260 / HH-0270 senken NEW-Range gap_works 18→16. Reference locations 288→289 (+pelago), characters 489→490 (+koparnos). Brief-103-Forecast-Korrektur: "~10–20 echte fixable" galt für post-Triage-Subset, nicht den Helper-Raw-Output. UI-Pass bleibt offen (Product-Worktree). | 2026-05-30 |
-| [book-data-overview.md](./book-data-overview.md) | High-level book-data numbers (26 manuals heute, 859 SSOT-Roster ab 058, ~$0.114/book V1 / $0.0199/Buch V2 fresh-Smoke). NOT atlas — pointer to atlas for per-book detail. | 2026-05-09 |
-
-## Decision pages (ADRs with revisit-triggers)
-
-| Page | Decision | Decided | Updated |
-|---|---|---|---|
-| [decisions/book-reviewer-no-apply-path.md](./decisions/book-reviewer-no-apply-path.md) | Buch-Reviewer-Findings (`book-review-queue.json`, Facet-Log, `new-entity-proposals.json`) haben **keinen** Apply-Pfad; Materialisierung in DB/Kataloge ist ein bewusster Hand-Gate (Codex-Auftrag → `curation-overlay.json` bzw. `factions.json`/`locations.json` + Aliases → `db:sync`). B11 + Stage 3 (Briefs 154/155/158). Schützt 149/150-CW-Garantie, entkoppelt vom DB-Freeze, konsistent mit `why-cc-direct-curation.md`. | 2026-06-24 | 2026-06-24 |
-| [decisions/cross-era-identities.md](./decisions/cross-era-identities.md) | Cross-Era-Identitäten (Luna Wolves ↔ Sons of Horus, Kharn ↔ Kharn the Betrayer, Magnus ↔ Magnus the Red, …) werden als **eine Canonical-Row pro Identität** modelliert, Era-spezifische Bezeichnungen wandern in `*-aliases.json`. Faction-Rename + Character-Honor-Title-Split + Primarchen-Pattern; Ausnahme echte Identitäts-Disambig → `## Needs decision`-Stop. Operative Spec im `resolver-pass-runbook.md` §4. Brief 100 (HH-Resolver-Domain-Öffnung). **Post-PR-107:** über den vollen HH-Korpus gehärtet — fünf clean Two-Domain-Pässe (11–15) in Folge ohne `## Needs decision`-Stop, HH-domain datenkomplett 294/294. **Post-PR-108 (Brief 102 HH-Konsolidierungs-Pass):** cross-era-anchor-breach Aggregator-Tripwire = 0 Treffer über alle 18 pinned Surface-Forms = positive ADR-Validation; eine Cross-Era-Doublette consolidated (`merir_astelan→astelan` als Pre-ADR-Carryover aus Pass 13). | 2026-05-26 | 2026-05-27 |
-| [decisions/why-cc-direct-curation.md](./decisions/why-cc-direct-curation.md) | V2-LLM-Stage de-facto ausgemustert; `claude -p`-Subsession produziert die Override-Datei direkt. Maintainer-Kontrolle + Modell-Qualität + Latenz vs. Reproduzierbarkeit + Field-Provenance. Effektiv entschieden seit Brief 061 (2026-05-11), formal-ADR 2026-05-15. | 2026-05-11 | 2026-05-15 |
-| [decisions/faction-policy.md](./decisions/faction-policy.md) | Browse-Root vs. Tree-Root getrennt: Policy lebt in `scripts/seed-data/faction-policy.json` (19 Browse-Roots, `imperium` als Grand-Alignment-Exception), `factions.parent_id` weiter Single-Parent. `factions.json` audit-patched (Chaos-Rename + 14 Reparents), `brain:lint` neue Kategorie. **2026-05-16 (Brief 077, implemented):** Grand-Alignment-Junction-Skip — `imperium`/`chaos` werden in `work_factions` übersprungen, wenn alignment-gleiche Sub-Faction im selben Override-Block resolved ist; `redundantWhenSubPresent` in der Policy-JSON, Skip-Helper `scripts/apply-override-skip.ts` mit DI-Signatur, shared `src/lib/seed/alignment.ts`-Util, Audit-Bucket `factionsSkippedRedundant` in `book_details.notes`-`---surfaceForms---`-Block, Re-Apply 001..020 hat 165 redundante Junctions weggeputzt (`imperium 81 → 6`, `chaos 133 → 43`); Revisit-Trigger für Aeldari-Sub-Splits (Alignment-Equality → Parent-Chain) dokumentiert. | 2026-05-13 | 2026-05-16 |
-| [decisions/location-policy.md](./decisions/location-policy.md) | Locations-Policy + Umbrella-Surface-Form-Skip (Brief 084, implemented 2026-05-19): Sister-Pass zu `faction-policy.md` § Grand-Alignment-Junction-Skip auf der Locations-Achse. Allowlist-basierter Skip in `scripts/seed-data/location-policy.json` → `redundantSurfaceForms` (13 Umbrella-Strings: `Imperium`-Varianten, `Chaos`/`Realm of Chaos`, `the Warp`, `Xenos`/`Aliens`). Skip-Helper `scripts/apply-override-location-skip.ts` als pure DI-Funktion, surface-form-zentriert (nicht ID-zentriert, weil Umbrellas zu `null` resolven). Notes-Bucket-Umsortierungs-Pass: `Imperium`-Surface-Forms wandern von `locationsUnresolved` nach `locationsSkippedRedundant` (Audit-Bucket), `work_locations` bleibt invariant. Erhaltungs-Pfad (Buch trägt nur Umbrella, keine andere Location resolved). Revisit-Trigger: HH-Domain-Forward-Behavior, Audit-Bucket-False-Positives ≥ 5, UI-Map-Filter-Phase. | 2026-05-19 | 2026-05-19 |
-| [decisions/why-sonnet-not-haiku.md](./decisions/why-sonnet-not-haiku.md) | Supersedes Haiku-Default: Pipeline-Enrichment soll mit Sonnet (current major) laufen, weil Cockpit-Audit Datenqualitaets-Pathologien sichtbar macht und der Cost-Aufschlag im Hobby-Rahmen tragbar bleibt. **Post-2026-05-15 historisches Artefakt + Reaktivierungs-Sicherung** — die V2-LLM-Stage läuft nicht mehr (siehe `why-cc-direct-curation.md`). | 2026-05-13 | 2026-05-15 |
-| [decisions/why-excel-ssot-not-crawl.md](./decisions/why-excel-ssot-not-crawl.md) | Discovery-Stage durch Maintainer-kuratierte Excel-SSOT ersetzt (859 Bücher + 191 Collections, deterministischer Loader → `book-roster.json`). Crawler bleiben im Code, ab Brief 058 nicht mehr Default-Eingang | 2026-05-10 | 2026-05-10 |
-| [decisions/karpathy-reset-2026-05-08.md](./decisions/karpathy-reset-2026-05-08.md) | Brain (`brain/` in repo) + Atlas (external Obsidian vault, `~/chrono-atlas/`) — Karpathy LLM Wiki pattern, domain-split | 2026-05-08 | 2026-05-09 |
-| [decisions/why-drizzle-supabase.md](./decisions/why-drizzle-supabase.md) | Next.js + TS + Tailwind + Drizzle + Supabase + Vercel + custom M-scale + string IDs / UUIDs split | 2026-04-28 | 2026-05-09 |
-| [decisions/hardcover-to-goodreads-pivot.md](./decisions/hardcover-to-goodreads-pivot.md) | Rating-Quelle pivotiert von Hardcover auf Goodreads (Brief 086): Hardcover-Hit-Rate stagnierte bei 58 % wegen struktureller Katalog-Lücke; Goodreads-Einzel-Websuche (Page-Read, nicht Snippet) erreichte 197/200. Amendet `no-goodreads.md` fürs Rating-Feld; OL-Fallback + Slug/ID-Stage-6 gestrichen. | 2026-05-20 | 2026-05-20 |
-| [decisions/no-goodreads.md](./decisions/no-goodreads.md) | Drop Goodreads (API discontinued 2020); use Open Library + Hardcover.app instead. **Amended 2026-05-20** fürs Rating-Feld → `hardcover-to-goodreads-pivot.md`. | 2026-05-02 | 2026-05-20 |
-| [decisions/why-bulk-backfill.md](./decisions/why-bulk-backfill.md) | Bulk-backfill (lokal über Nacht, resumable, batched) + monthly maintenance, NOT daily-drift | 2026-05-02 | 2026-05-09 |
-| [decisions/why-multi-source-merge.md](./decisions/why-multi-source-merge.md) | Field-by-field source priority (deterministic, debuggable, source-aware), NOT first-source-wins / consensus | 2026-05-02 | 2026-05-09 |
-| [decisions/plan-reshuffle-2026-05-02.md](./decisions/plan-reshuffle-2026-05-02.md) | Phase 3 ↔ 4 swap; EntryRail dropped; Cartographer + Ask the Archive moved to Phase 5 | 2026-05-02 | 2026-05-09 |
-| [decisions/why-haiku-not-sonnet.md](./decisions/why-haiku-not-sonnet.md) | Superseded by Sonnet-current-major decision; retained as story-continuity stub for the 2026-05-04 Haiku cost/quality trade-off. | 2026-05-04 | 2026-05-13 |
-
-## Workflow pages
+## Current-state pages
 
 | Page | Description | Updated |
 |---|---|---|
-| [workflows/cowork-session.md](./workflows/cowork-session.md) | What Cowork (architect) does each session; rules, tools, push-back patterns, „Simplest thing first"; post-095 sole writer of `sessions/README.md` + `brain/**`; post-2026-06-25 § „PR policy" — Cowork never commits, CC carries the docs in a PR (Brief 165) | 2026-06-25 |
-| [workflows/cc-session.md](./workflows/cc-session.md) | What Claude Code (implementer) does each session; version-research workflow, report tone; post-095 worktree-self-check + strand worktrees never write `brain/**`; post-2026-06-25 § „PR policy" — everything reaches `main` through a PR, CC commits Cowork's docs (Brief 165) | 2026-06-25 |
-| [workflows/sessions-format.md](./workflows/sessions-format.md) | Session log format: naming, frontmatter, status lifecycle, brief/report sections; post-095 strand reports carry the rollup conduit; post-165 lifecycle = brief uncommitted, CC commits it in its PR | 2026-06-25 |
-| [workflows/session-end.md](./workflows/session-end.md) | Cowork's discipline post-CC-report (replaces pre-049 infrastructure-log discipline) | 2026-05-09 |
-| [workflows/ingest.md](./workflows/ingest.md) | Karpathy operation 1/3: how new material flows into wiki synthesis pages | 2026-05-09 |
-| [workflows/query.md](./workflows/query.md) | Karpathy operation 2/3: how to answer questions against the wiki | 2026-05-09 |
-| [workflows/lint.md](./workflows/lint.md) | Karpathy operation 3/3: drift checks. `npm run brain:lint` (script: `scripts/brain-lint.ts`); CI runs `--no-write`. | 2026-05-09 |
-| [workflows/atlas-regen.md](./workflows/atlas-regen.md) | When/how to run `npm run atlas:regen`; vault-path config; discrepancy handling | 2026-05-09 |
+| [project-state.md](./project-state.md) | Pre-launch state: 896 books, 1,114 podcast episodes, 1,055-world Cartographer with Great Journeys/mobile Canvas, preview gate, serial launch mode and immediate S0 blockers. | 2026-07-10 |
+| [worklist.md](./worklist.md) | Canonical open-work queue: launch sequence, operator checks, product/data tails and long-range blockers. | 2026-07-10 |
+| [open-questions.md](./open-questions.md) | Next-session questions: correct the false primary-Era default and make the launch release order internally consistent. | 2026-07-10 |
+| [deferred-questions.md](./deferred-questions.md) | Post-launch/dormant work: preview removal, i18n, Atlas events, measured code splitting, secondary Eras, redirect and dependency triggers. | 2026-07-10 |
+| [roadmap.md](./roadmap.md) | Phase-level status and launch milestones; old crawler subphases pruned to history. | 2026-07-10 |
 
-## Reference pages
+## System pages
 
 | Page | Description | Updated |
 |---|---|---|
-| [glossary.md](./glossary.md) | Project-specific terms (M-scale, source_kind, work_facets, primaryEra, llm_flags, junctionsLocked, batched-3e, …) | 2026-05-09 |
-| [log.md](./log.md) | Append-only operation log (chronological history of Brain edits) | 2026-07-06 |
-| (this file) | Master catalog | 2026-07-06 |
+| [architecture.md](./architecture.md) | Current app/DB/cache/content architecture, sources of truth, frontend surfaces and deployment model. | 2026-07-10 |
+| [pipeline-state.md](./pipeline-state.md) | Living per-book, podcast-delta, weekly-refresh, apply/verify and Cartographer data paths; V1/V2 engines retired. | 2026-07-10 |
+| [book-data-overview.md](./book-data-overview.md) | High-level corpus numbers and canonical shape; no per-book lore. | 2026-07-10 |
+| [glossary.md](./glossary.md) | Active project terminology: schema, per-book operations, Cartographer/Great Journeys, preview/snapshot and memory model. | 2026-07-10 |
+| [onboarding.md](./onboarding.md) | First-time local/Supabase/Vercel/Atlas setup, including full-corpus `db:sync`. | 2026-07-10 |
+| [log.md](./log.md) | Append-only Brain operation history. | 2026-07-10 |
+| (this file) | Complete wiki catalog. | 2026-07-10 |
 
-> **Sessions-Catalog-Hinweis.** Diese Index-Datei listet keine einzelnen Session-Files — Sessions leben unter `sessions/` (rotierende `archive/YYYY-MM/`), die Cowork/CC-Catalog-Pflege passiert in `sessions/README.md` (Active-Threads-Tabelle) und im Archive-Sweep (Brief 099-Pattern). Brief 101 (HH-Bootstrap Guard-Reason-Split, gemergt 2026-05-26), Resolver-Pass 10 (HH-Bootstrap-Apply, gemergt 2026-05-26), der Resolver-Loop-Mehr-Wellen-Lauf Pässe 11–15 (HH-Wellen `ssot-hh-003..030`, PR #107 gemergt 2026-05-27), Brief 102 (HH-Konsolidierungs-Pass, PR #108 gemergt 2026-05-27) und Brief 103 Daten-Pass (Audit-Helper + 2 Pilot-Backfills, PR #109 gemergt 2026-05-28) erscheinen entsprechend in `sessions/README.md` und [`./log.md`](./log.md) — nicht hier.
+## Decisions
 
-## Concept pages
+| Page | Decision | Updated |
+|---|---|---|
+| [decisions/launch-single-worktree-mode.md](./decisions/launch-single-worktree-mode.md) | Temporary serial launch execution from Coordination; strand-pure PRs and normal routing return afterward. | 2026-07-10 |
+| [decisions/book-reviewer-no-apply-path.md](./decisions/book-reviewer-no-apply-path.md) | Reviewer findings require an explicit hand-curation gate; no automatic apply path. | 2026-06-24 |
+| [decisions/cross-era-identities.md](./decisions/cross-era-identities.md) | One canonical identity across eras; names/titles live in aliases unless genuinely distinct. | 2026-05-27 |
+| [decisions/faction-policy.md](./decisions/faction-policy.md) | Browse roots, alignment policy and redundant grand-alignment junction skipping. | 2026-05-16 |
+| [decisions/location-policy.md](./decisions/location-policy.md) | Location umbrella surface-form skip policy and audit buckets. | 2026-05-19 |
+| [decisions/hardcover-to-goodreads-pivot.md](./decisions/hardcover-to-goodreads-pivot.md) | Historical rating-source pivot; crawler path is now retired. | 2026-05-20 |
+| [decisions/no-goodreads.md](./decisions/no-goodreads.md) | Original Goodreads rejection, later amended for rating lookup. | 2026-05-20 |
+| [decisions/why-cc-direct-curation.md](./decisions/why-cc-direct-curation.md) | Historical shift from V2 LLM stage to direct reviewed curation; engine later removed. | 2026-05-15 |
+| [decisions/why-excel-ssot-not-crawl.md](./decisions/why-excel-ssot-not-crawl.md) | Maintainer roster replaced discovery crawl; later evolved into per-book SSOT. | 2026-05-10 |
+| [decisions/why-sonnet-not-haiku.md](./decisions/why-sonnet-not-haiku.md) | Historical model-quality choice before the LLM engine retirement. | 2026-05-15 |
+| [decisions/why-haiku-not-sonnet.md](./decisions/why-haiku-not-sonnet.md) | Superseded historical cost/quality decision retained for continuity. | 2026-05-13 |
+| [decisions/why-bulk-backfill.md](./decisions/why-bulk-backfill.md) | Historical batched-backfill decision; live maintenance is per-book + weekly. | 2026-05-09 |
+| [decisions/why-multi-source-merge.md](./decisions/why-multi-source-merge.md) | Historical field-by-field source-priority architecture. | 2026-05-09 |
+| [decisions/why-drizzle-supabase.md](./decisions/why-drizzle-supabase.md) | Stack, ID split and M-scale foundation. | 2026-05-09 |
+| [decisions/plan-reshuffle-2026-05-02.md](./decisions/plan-reshuffle-2026-05-02.md) | Ingestion before Discovery; Cartographer/Ask moved into Phase 5. | 2026-05-09 |
+| [decisions/karpathy-reset-2026-05-08.md](./decisions/karpathy-reset-2026-05-08.md) | Brain/Atlas split and Karpathy-style engineering wiki. | 2026-05-09 |
 
-(none planned in 049 — folded into glossary entries; if a glossary entry grows past ~3 sentences, it becomes a `concepts/<slug>.md` page in a future Ingest pass)
+## Workflows
 
-## Source-summary pages
-
-(none — `raw/` files have their own banners; `wiki/` doesn't carry source-summary pages today)
+| Page | Description | Updated |
+|---|---|---|
+| [workflows/cc-session.md](./workflows/cc-session.md) | Implementer workflow, PR ownership and temporary serial launch exception. | 2026-07-10 |
+| [workflows/sessions-format.md](./workflows/sessions-format.md) | Session naming/frontmatter/lifecycle/archive rules, including `superseded`. | 2026-07-10 |
+| [workflows/cowork-session.md](./workflows/cowork-session.md) | Architect workflow and PR/rollup ownership. | 2026-06-25 |
+| [workflows/session-end.md](./workflows/session-end.md) | Post-report ingest and always-read pruning discipline. | 2026-06-01 |
+| [workflows/ingest.md](./workflows/ingest.md) | Fold new sources into current wiki synthesis. | 2026-05-09 |
+| [workflows/query.md](./workflows/query.md) | Answer from the wiki with source-aware fallbacks. | 2026-05-09 |
+| [workflows/lint.md](./workflows/lint.md) | Brain lint categories, budgets and `--no-write` CI mode. | 2026-05-09 |
+| [workflows/atlas-regen.md](./workflows/atlas-regen.md) | Regenerate the external Postgres→Obsidian mirror. | 2026-05-09 |
 
 ## Outside the wiki
 
-- **Raw sources** (immutable): [`../raw/historical/`](../raw/historical/), [`../raw/reviews/`](../raw/reviews/). Files there have `snapshot-*` or `review-*` frontmatter banners. Latest reviews: `2026-05-09-brain-structure-review.md` (Karpathy-Reset audit), `2026-05-09-codex-v2-pilot-review.md` (V2-Pipeline + Faction-Repräsentation).
-- **Outputs** (generated, not part of executable knowledge): [`../outputs/lint/`](../outputs/lint/) for lint reports.
-- **Sessions** (project history; raw form): top-level [`../../sessions/`](../../sessions/). Linked from wiki pages via `sources:` frontmatter.
-- **Atlas** (external Obsidian vault, book domain): `~/chrono-atlas/` (default). Generated via `npm run atlas:regen`. **Never auto-loaded** — see [`./workflows/atlas-regen.md`](./workflows/atlas-regen.md).
-
-## Read-order on session-start
-
-1. Top-level [`/CLAUDE.md`](../../CLAUDE.md) — auto-loaded; stack + conventions + version policy
-2. [`../CLAUDE.md`](../CLAUDE.md) — Brain schema (Karpathy frame, three operations, frontmatter)
-3. **This file** (master catalog)
-4. [`./project-state.md`](./project-state.md) — "where are we now"
-5. [`./open-questions.md`](./open-questions.md) — what's queued
-6. Whatever's relevant to today's task (pull from this catalog by topic)
-
-## Notes on sources
-
-This catalog is a roll-up of every page under `brain/wiki/`; it has no external sources of its own (`sources: []`). Source-chains live on the pages it indexes.
+- Raw immutable sources: [`../raw/`](../raw/)
+- Generated lint outputs: [`../outputs/`](../outputs/)
+- Session history: [`../../sessions/`](../../sessions/)
+- Per-work domain mirror: external `chrono-atlas` vault, loaded only on explicit request
