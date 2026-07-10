@@ -39,6 +39,8 @@ interface VoyageTourProps {
   onFin: () => void;
   /** Tour skipped/left early — free mode with the ambient draw-in. */
   onSkip: () => void;
+  /** Leave the journey entirely and return to the neutral chart. */
+  onExit: () => void;
 }
 
 export default function VoyageTour({
@@ -50,6 +52,7 @@ export default function VoyageTour({
   onStep,
   onFin,
   onSkip,
+  onExit,
 }: VoyageTourProps) {
   const n = resolved.stations.length;
   const last = step >= n - 1;
@@ -111,7 +114,13 @@ export default function VoyageTour({
   if (!st) return null;
   return (
     <div className={`cg-ccard cg-ccard--dock cg-tour show${suppressed ? " hide" : ""}`} key={step}>
-      <button className="cpg cg-tour-x" title="End the tour" onClick={onSkip}>
+      <button
+        type="button"
+        className="cpg cg-tour-x"
+        title="End the journey"
+        aria-label="End the journey"
+        onClick={onExit}
+      >
         ✕
       </button>
       <p className="ck">

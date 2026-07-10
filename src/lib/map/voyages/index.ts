@@ -19,7 +19,7 @@ import type { Voyage } from "./types";
 
 export type { LegOverride, Voyage, VoyageStation, VoyageStop, VoyageWaypoint } from "./types";
 export { isWaypoint } from "./types";
-export { resolveVoyage } from "./resolve";
+export { pointOnLeg, resolveVoyage } from "./resolve";
 export type { ResolvedStation, ResolvedVoyage, VoyageChart } from "./resolve";
 
 export const VOYAGES: readonly Voyage[] = [

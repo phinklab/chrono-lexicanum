@@ -4,11 +4,11 @@
  * ChartStage — the <svg> chart with the imperative camera.
  *
  * Camera = {tx, ty, k} in refs; every gesture writes the same transform to
- * two sibling SVGs in one frame. The base plane holds the ~2000-node static
- * chart; the motion plane holds animated linework. Keeping those paint
- * surfaces separate prevents a dash/opacity frame from re-rasterizing the
- * whole chart on phone GPUs. `--cg-ik` and zoom bands stay imperative so
- * 1054 pins keep constant screen size without a React re-render.
+ * two sibling SVGs in one frame. The base plane holds the large static chart;
+ * the motion plane holds desktop linework. Mobile line motion is rasterized
+ * separately by RouteMotionCanvas because mobile engines repaint animated
+ * SVG strokes in software. `--cg-ik` and zoom bands stay imperative so 1054
+ * pins keep constant screen size without a React re-render.
  */
 
 import { useEffect, useRef } from "react";

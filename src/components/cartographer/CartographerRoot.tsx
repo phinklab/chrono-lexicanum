@@ -25,6 +25,7 @@ import CartoucheSheet from "./CartoucheSheet";
 import Census from "./Census";
 import ChartStage from "./ChartStage";
 import CourseCards from "./CourseCards";
+import RouteMotionCanvas from "./RouteMotionCanvas";
 import RoutesLayer from "./RoutesLayer";
 import Selection from "./Selection";
 import VoyageTour from "./VoyageTour";
@@ -364,43 +365,51 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
       </span>
 
       {mounted && (
-        <ChartStage
-          bus={bus}
-          lumen={state.lumen}
-          nihilus={state.nihilus}
-          names={state.names}
-          zones={state.zones}
-          courseId={state.voyage?.id ?? null}
-          condensed={state.condensed}
-          reduce={reduce}
-          magRef={magRef}
-          onCondense={condense}
-          onPick={pick}
-          motionLayer={
-            <>
-              <LumenNihilus />
-              <RoutesLayer resolved={activeVoyage} progress={voyageProgress} />
-              <TerraInstrument />
-              {selectedWorld && <Selection key={selectedWorld.id} world={selectedWorld} />}
-            </>
-          }
-        >
-          <HatchDefs />
-          <GridDots />
-          <PolarFrame />
-          <SegmentumWatermarks />
-          {/* Zone fields come exclusively from the hand-curated zones.json. */}
-          <g id="cg-fields">{!zoneEdit && <ZonesLayer />}</g>
-          <DustLayer
-            payload={payload}
-            hiddenCls={state.hiddenCls}
-            dustOff={state.dustOff}
-            worksOnly={state.worksOnly}
+        <>
+          <ChartStage
+            bus={bus}
+            lumen={state.lumen}
+            nihilus={state.nihilus}
+            names={state.names}
+            zones={state.zones}
+            courseId={state.voyage?.id ?? null}
+            condensed={state.condensed}
+            reduce={reduce}
+            magRef={magRef}
+            onCondense={condense}
+            onPick={pick}
+            motionLayer={
+              <>
+                <LumenNihilus />
+                <RoutesLayer resolved={activeVoyage} progress={voyageProgress} />
+                <TerraInstrument />
+                {selectedWorld && <Selection key={selectedWorld.id} world={selectedWorld} />}
+              </>
+            }
+          >
+            <HatchDefs />
+            <GridDots />
+            <PolarFrame />
+            <SegmentumWatermarks />
+            {/* Zone fields come exclusively from the hand-curated zones.json. */}
+            <g id="cg-fields">{!zoneEdit && <ZonesLayer />}</g>
+            <DustLayer
+              payload={payload}
+              hiddenCls={state.hiddenCls}
+              dustOff={state.dustOff}
+              worksOnly={state.worksOnly}
+            />
+            <PinLayer featured={payload.featured} hiddenCls={state.hiddenCls} hiIds={hiIds} />
+            <RegionLabels regions={payload.regions} featured={payload.featured} />
+            {zoneEdit && <ZoneEditor bus={bus} />}
+          </ChartStage>
+          <RouteMotionCanvas
+            bus={bus}
+            resolved={activeVoyage}
+            progress={voyageProgress}
+            reduce={reduce}
           />
-          <PinLayer featured={payload.featured} hiddenCls={state.hiddenCls} hiIds={hiIds} />
-          <RegionLabels regions={payload.regions} featured={payload.featured} />
-          {zoneEdit && <ZoneEditor bus={bus} />}
-        </ChartStage>
+        </>
       )}
 
       <Overture condensed={state.condensed} payload={payload} />
@@ -458,6 +467,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           onStep={(step) => dispatch({ type: "voyageStep", step })}
           onFin={() => dispatch({ type: "voyageFree", step: activeVoyage.stations.length })}
           onSkip={() => dispatch({ type: "voyageFree", step: -1 })}
+          onExit={() => dispatch({ type: "voyageEnd" })}
         />
       )}
 
