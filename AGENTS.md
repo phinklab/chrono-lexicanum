@@ -65,17 +65,19 @@ What strands **do** keep writing (unchanged): their own code/data paths (Product
 
 The rule is bound to the **worktree path**, not to the agent — the path is pinned at session-start (below). The question "may I write `brain/`?" reduces to "am I in the coordination worktree?". An agent implementing a meta/session brief in the coordination worktree edits `brain/` freely; an agent in a strand worktree never does.
 
+**Temporary launch exception (decided 2026-07-10).** While the maintainer's serial launch programme is active, its sessions run one at a time from the coordination worktree `C:\Users\Phil\chrono-lexicanum`, even when the logical strand is Product or Batches. This suspends **worktree routing only**: derive and announce the logical strand from the explicit launch prompt, use its branch prefix, keep each PR's contents strand-pure, keep `brain/**` + `sessions/README.md` in separate coordination PRs, and never run parallel launch sessions. Kickoff may use the maintainer-local launch prompt collection instead of a per-session architect brief; implementer reports remain required. Normal three-worktree routing resumes after launch/post-launch cleanup or immediately if parallel work restarts. Durable rationale: `brain/wiki/decisions/launch-single-worktree-mode.md`.
+
 At the start of any implementation session:
 
 1. Run `git branch --show-current` and `git status --short --branch`.
-2. Infer the strand from the current worktree path. The agent always derives the strand itself — never ask the maintainer which worktree this is.
+2. Infer the strand from the current worktree path. The agent always derives the strand itself — never ask the maintainer which worktree this is. During the temporary launch exception above, infer the **logical** strand from the explicit launch prompt while the physical worktree stays Coordination.
 3. If the current branch is `main`, detached, a bootstrap branch, or a previously merged task branch, create a fresh task branch from `origin/main` before editing. This holds for **every** session, doc-only included (see PR policy above — no direct-to-`main`):
    - Product/UI: `codex/product-<short-slug>`
    - Batch/Ingestion: `codex/ingest-batches-<short-slug>`
    - Meta/session-only (incl. doc-only coordination + brain rollups): `codex/session-<NNN>-<short-slug>`
 4. Do not branch from an inflight feature branch unless Philipp explicitly says this session continues that exact branch.
 5. **Before editing any files, announce the detected worktree, strand, and task-branch in one sentence** (e.g. *"Worktree: `chrono-lexicanum-batches`, Strang: Batch/Ingestion, Branch: `codex/ingest-batches-foo`."*). A wrong-folder mistake becomes visible immediately.
-6. **If the task does not match the detected strand** — UI work in the Batches worktree, batch/resolver work in the Product worktree, a Brain/Rollup edit asked for from a strand worktree, or vice versa — **halt and ask back** instead of starting in the wrong place. This is a self-check, not a maintainer question; the agent reads the path and decides.
+6. **If the task does not match the detected strand** — UI work in the Batches worktree, batch/resolver work in the Product worktree, a Brain/Rollup edit asked for from a strand worktree, or vice versa — **halt and ask back** instead of starting in the wrong place. The only active exception is the explicit serial launch mode above; it permits logical Product/Batches work from Coordination but not mixed-strand PR contents or parallel execution.
 
 When Philipp says `fertig`, `PR erstellen`, or equivalent (every session now ends here — doc-only work included, see PR policy above):
 

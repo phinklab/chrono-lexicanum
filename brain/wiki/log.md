@@ -1691,3 +1691,19 @@ Von Philipp beauftragter „wir sind von der Doku gerade nicht auf dem aktuellen
 **Buchhaltung:** README-Tabelle: neue 178-impl-Zeile (Brief lief als Plan-Mode-Plan, kein sessions-arch-File); Kopf 07-06 (178 in „gemergt", Forward-Queue startet bei 181); Budget-Trim — die acht voll-gemergten Alt-Zeilen 166–173 aus der aktiven Tabelle entfernt (Historie bleibt in `archive/` + hier), 14 Zeilen bleiben. 121-Board-Zeile: P14/178 → erledigt, 181 = nächster Schnitt.
 
 **Edits (Cowork, uncommitted — reiten im nächsten CC-Koordinations-PR):** `project-state.md` (Header/Latest-state mit 178-Lead + Kondensat Design/Hygiene/Reviewer, What's running `/map`, What's open, Next likely brief → 181, Kleinkram-178-Zeile, maintainer-ops-Softening), `sessions/README.md` (Kopf, 178-Zeile, 166–173-Trim, 121-Board-Zeile), `worklist.md` (§ A P14 erledigt + 181 startbar, § E Map-A11y-Note auf `cartographer/*`, § F drei neue/aktualisierte Merker), `index.md` (Frontmatter + 3 One-Liner + log-/self-Daten), `open-questions.md` (Datum + Kopfnotiz — keine neue OQ), `log.md` (dieser Eintrag). Keine Code-/DB-Änderungen. OQ 16b/c unverändert.
+
+---
+
+## 2026-07-10 · Coordination · Rollup 178b/185–192 + W28 + Launch-Vorbereitung
+
+**Basis:** `main`/alle drei Worktrees auf `9977cd3`. Batch/Ingestion wurde von `6172e88` fast-forwarded; Coordination und Product waren bereits aktuell. Alle vorhandenen ungetrackten Dateien blieben unangetastet. Rollup-Report: `sessions/2026-07-10-193-impl-brain-launch-rollup.md`.
+
+**Eingelesen:** 178b sowie Sessions 185–192 vollständig, Weekly Refresh W28, Briefs 181/182, aktuelle Boards/Rollups und die beiden maintainer-lokalen Launch-Arbeitsdateien. Die Launch-Dateien bleiben auf Philipps Anweisung ungetrackt und werden nicht als dauerhafte Brain-Quelle verlinkt.
+
+**Ist-Stand:** Brief 181 durch Session 185/PR #226 umgesetzt; 182 durch das neue Launch-Programm superseded, nicht implementiert. Product-/Mobile-Welle 185–190 brachte Prune/Token-Hygiene, Map-/Chronicle-/Player-Mobile, `/artwork`, Heading/Copy-Polish, history-sichere Map-Overlays und Great Journeys. Cartographer aktuell: **1055 Welten**, **1352/1710** platzierte Werk-Kanten, 15 handkuratierte Zonen, 923 lazy World-Blurbs, 8 Reisen / 101 Akte. **191 ist widerlegt/superseded**; 192 ist der kanonische Mobile-Pfad (Canvas ≤900 px, 30 fps, DPR ≤2; Desktop-SVG bleibt). W28: zwei Buchkandidaten ignoriert, +10 Podcast-Episoden live appliziert, Cursor fortgeschrieben; Podcast-Gesamt **1114**. CI-Aggregat **30 DB-freie Suiten**.
+
+**Launch-Betrieb:** temporär serielle Sessions im Koordinations-Worktree, aber strandreine PR-Inhalte und kein Direct-to-`main`; Entscheidung in `decisions/launch-single-worktree-mode.md`. Durable Queue: S0/Preflight → Build-Snapshot/DB-freier Build → Runtime-/DB-Hardening → Routen/SEO → Payload/A11y → Readiness/Gate-off → Post-Launch-Cleanup.
+
+**Needs-decision vor S1a:** URL-Matrix, Host/Domain, Era-Policy, Error-Tracker; außerdem vier Planwidersprüche schließen (keine Prod-Mutation mit ungemergtem Era-Code, Revalidation nach Snapshot-Deploy, echter `RUNTIME_DATABASE_URL`-Consumer, finaler Snapshot-PR getrennt vom Coordination-Protokoll). Migration 0015 und Prod-`db:drift` bleiben unbelegt; Pixel/Chrome-Check für 192 offen.
+
+**Wiki-Ingest:** `project-state`, `worklist`, `open-questions`, `deferred-questions`, `roadmap`, `architecture`, `pipeline-state`, `book-data-overview`, `glossary`, `onboarding`, `index`, Workflows und öffentliche/session READMEs auf aktuellen Stand gezogen; historische V1/V2-/26-Bücher-Prosa aus lebenden Übersichten entfernt. OQ 16b in Launch S0/S1a promoviert, neuer OQ 19 für Release-Reihenfolge; 16c Atlas-Events nach Deferred verschoben.

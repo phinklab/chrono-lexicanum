@@ -2,10 +2,11 @@
 title: Onboarding — first-time setup
 type: workflow
 created: 2026-05-09
-updated: 2026-05-09
+updated: 2026-07-10
 sources:
   - ../raw/historical/2026-05-08-pre-reset/ONBOARDING.md
   - ../../sessions/archive/2026-05/2026-05-08-049-arch-karpathy-brain-atlas-reset.md
+  - ../../sessions/2026-07-10-193-impl-brain-launch-rollup.md
 related:
   - ./project-state.md
   - ./workflows/atlas-regen.md
@@ -15,7 +16,7 @@ confidence: high
 
 # Onboarding — first-time setup
 
-> Follow this once. After that, daily work is `git pull && npm run dev`. Total time: ~30 minutes for the repo + Vercel side; +5 minutes if you also set up Obsidian for the Atlas.
+> Follow this once. After that, daily work is fetch/update plus `npm run dev`. Total time: ~30 minutes for the repo + Vercel side; +5 minutes if you also set up Obsidian for the Atlas.
 
 You'll set up four things, in this order:
 
@@ -71,30 +72,30 @@ Wait ~2 minutes. Then **Settings → Database → Connection string** (URI tab):
 
 Then **Settings → API** — copy `Project URL`, `anon public` key, `service_role` key (keep secret).
 
-Create `.env.local`:
+Create `.env.local` (PowerShell):
 
-```bash
-cp .env.example .env.local
+```powershell
+Copy-Item .env.example .env.local
 ```
 
 Fill in:
 
 ```env
 DATABASE_URL="postgresql://postgres.[REF]:[PWD]@aws-1-eu-central-1.pooler.supabase.com:6543/postgres"
-NEXT_PUBLIC_SUPABASE_URL="https://[REF].supabase.co"
-NEXT_PUBLIC_SUPABASE_ANON_KEY="eyJ..."
-SUPABASE_SERVICE_ROLE_KEY="eyJ..."
 NEXT_PUBLIC_SITE_URL="http://localhost:3000"
-ANTHROPIC_API_KEY="sk-ant-..."     # for Phase-3 LLM enrichment (optional in dev)
-HARDCOVER_API_TOKEN="..."          # for Phase-3 Hardcover crawler (optional in dev)
 ```
+
+Fill additional preview/admin or operator-only values only for the feature or
+script you are running; `.env.example` documents them. The retired book
+crawler/LLM engine is not part of normal setup.
 
 Generate + apply schema:
 
 ```bash
 npm run db:generate    # writes src/db/migrations/0000_*.sql
 npm run db:migrate     # applies to Supabase
-npm run db:seed        # ~26 books + reference data (eras, factions, sectors, locations, services, facets, persons)
+npm run db:seed        # reference/bootstrap seed, including the historical 26-book base
+npm run db:sync        # materializes the full 896-book corpus + podcast/timeline/curation tails
 ```
 
 Verify in Drizzle Studio (`npm run db:studio`).

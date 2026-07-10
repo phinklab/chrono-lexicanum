@@ -2,14 +2,16 @@
 session: 2026-07-02-182
 role: architect
 date: 2026-07-02
-status: open
+status: superseded
 slug: launch-tech
 parent: null
-links: [2026-07-02-179, 2026-06-03-121]
+links: [2026-07-02-179, 2026-06-03-121, 2026-07-10-193]
 commits: []
 ---
 
 # 182 — Launch-Tech: Focus-visible-Fix, SEO-Paket, Observability (121-Product)
+
+> **Superseded 2026-07-10 by the maintainer's serial launch programme.** The detailed replacement spec and kickoff prompts are intentionally local/untracked; durable mode, ordering and blockers are recorded in Session 193 and the Brain worklist. This status does **not** mean the SEO/A11y/observability outcomes below are implemented.
 
 ## Goal
 

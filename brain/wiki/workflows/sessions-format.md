@@ -2,13 +2,14 @@
 title: Session log format
 type: workflow
 created: 2026-05-09
-updated: 2026-06-25
+updated: 2026-07-10
 sources:
   - ../../../docs/agents/SESSIONS.md
   - ../../../sessions/_templates/architect-brief.md
   - ../../../sessions/_templates/implementer-report.md
   - ../../../sessions/archive/2026-05/2026-05-09-051-arch-brain-slim-pass.md
   - ../../../sessions/archive/2026-05/2026-05-23-095-arch-rollup-ownership.md
+  - ../../../sessions/2026-07-10-193-impl-brain-launch-rollup.md
 related:
   - ./cowork-session.md
   - ./cc-session.md
@@ -53,7 +54,7 @@ Every session starts with YAML frontmatter:
 session: 2026-04-28-002
 role: architect            # architect | implementer
 date: 2026-04-28
-status: open               # open | answered | implemented | needs-decision | archived
+status: open               # open | answered | implemented | needs-decision | superseded | archived
 slug: phase-1-handoff
 parent: null               # session id this responds to (null for new threads)
 links:                     # other sessions referenced
@@ -70,6 +71,7 @@ commits: []                # git commit hashes produced by this session
 | `implemented` | A brief whose implementer report has been merged. Set on the brief, not the report. |
 | `needs-decision` | An implementer report that surfaces a question Cowork must answer before work continues. Brief's status flips too. |
 | `answered` | A brief that's been replied to. Cowork sets this when reading a report. |
+| `superseded` | A brief whose intended outcome moved into a newer programme/spec before implementation. Add a visible banner naming the durable replacement source; do not use this for completed work. |
 | `archived` | Old enough that nobody needs it on the front page. Move to `sessions/archive/YYYY-MM/` manually when a phase wraps. |
 
 ## Lifecycle

@@ -2,14 +2,16 @@
 session: 2026-07-02-181
 role: architect
 date: 2026-07-02
-status: open
+status: implemented
 slug: product-prune-pass
 parent: null
-links: [2026-06-03-121, 2026-07-02-177]
+links: [2026-06-03-121, 2026-07-02-177, 2026-07-08-185]
 commits: []
 ---
 
 # 181 — Product-Prune-Pass: Lab-Löschung + dokumentierte Dead-Code-Marker (121-Product)
+
+> **Implemented by Session 185 / PR #226 (2026-07-08).** The app `/lab` routes, matcher bypass, dead Compendium/filter/token surfaces and duplicated search-index block were removed. Session 190 later added new static `public/lab/ofob` Ask prototypes; those are not a regression of the deleted app routes and have their own pre-launch disposition.
 
 ## Goal
 

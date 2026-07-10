@@ -2,16 +2,18 @@
 title: Claude Code session workflow
 type: workflow
 created: 2026-05-09
-updated: 2026-06-25
+updated: 2026-07-10
 sources:
   - ../../../docs/agents/CLAUDE_CODE.md
   - ../../../docs/agents/SESSIONS.md
   - ../../../sessions/archive/2026-05/2026-05-23-095-arch-rollup-ownership.md
   - ../../../CLAUDE.md
+  - ../../../sessions/2026-07-10-193-impl-brain-launch-rollup.md
 related:
   - ./cowork-session.md
   - ./sessions-format.md
   - ./session-end.md
+  - ../decisions/launch-single-worktree-mode.md
 confidence: high
 ---
 
@@ -22,7 +24,7 @@ confidence: high
 ## How a CC session begins
 
 1. `git pull` (or `git status` if Philipp already pulled).
-2. **Self-check the worktree.** Run `git branch --show-current` and `git status --short --branch`. Infer the strand from the worktree path — CC always derives the strand itself, never asks the maintainer which worktree this is. **Announce the detected worktree, strand, and task-branch in one sentence** before touching any files (e.g. *"Worktree: `chrono-lexicanum-batches`, Strang: Batch/Ingestion, Branch: `codex/ingest-batches-foo`."*). If the task Philipp gave doesn't match the detected strand — UI work in the Batches worktree, batch/resolver work in the Product worktree, a Brain/Rollup edit from a strand worktree, or vice versa — **halt and ask back** before starting. Detail in [`/CLAUDE.md`](../../../CLAUDE.md) § "Parallel worktrees" + [`/AGENTS.md`](../../../AGENTS.md) § "Parallel worktree git protocol".
+2. **Self-check the worktree.** Run `git branch --show-current` and `git status --short --branch`. Infer the strand from the worktree path — CC always derives the strand itself, never asks the maintainer which worktree this is. **Announce the detected worktree, strand, and task-branch in one sentence** before touching any files (e.g. *"Worktree: `chrono-lexicanum-batches`, Strang: Batch/Ingestion, Branch: `codex/ingest-batches-foo`."*). If the task Philipp gave doesn't match the detected strand — UI work in the Batches worktree, batch/resolver work in the Product worktree, a Brain/Rollup edit from a strand worktree, or vice versa — **halt and ask back** before starting. **Temporary exception:** during the maintainer's serial launch programme, the physical path stays Coordination while the explicit launch prompt supplies the logical Product/Batches/Coordination strand; PR contents remain strand-pure and no launch sessions run in parallel. Detail in [`/CLAUDE.md`](../../../CLAUDE.md) § "Parallel worktrees", [`/AGENTS.md`](../../../AGENTS.md) § "Parallel worktree git protocol" and [`../decisions/launch-single-worktree-mode.md`](../decisions/launch-single-worktree-mode.md).
 3. List recent files in `sessions/` — sort by name. The brief to pick up is the highest-numbered `*-arch-*.md` with `status: open`. **Cowork's briefs are no longer pushed to `main`** (§ "PR policy") — the open brief is an *uncommitted* file in the coordination worktree (`C:\Users\Phil\chrono-lexicanum\sessions\`). In a strand worktree, read it from that path; you'll copy it into your branch to commit it with your work.
 4. Read it end-to-end. Read referenced files (`brain/wiki/architecture.md`, `brain/wiki/roadmap.md`, `brain/wiki/pipeline-state.md`, etc.) the brief points at.
 5. **If anything in the brief is ambiguous or wrong, do NOT silently fix it.** Either ask Philipp in the terminal, or — if Philipp isn't around — write a short `*-impl-*.md` with `status: needs-decision` describing what's unclear, commit, stop.

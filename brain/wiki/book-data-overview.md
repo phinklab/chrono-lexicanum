@@ -2,13 +2,13 @@
 title: Book data overview
 type: overview
 created: 2026-05-09
-updated: 2026-05-09
+updated: 2026-07-10
 sources:
-  - ../../scripts/seed-data/books.json
-  - ../../sessions/archive/2026-05/2026-05-01-021-arch-rich-seed-2b.md
-  - ../../sessions/archive/2026-05/2026-05-02-022-impl-rich-seed-2b.md
-  - ../../ingest/.archive/v1/backfill-20260508-2101.diff.json
-  - ../../sessions/archive/2026-05/2026-05-08-047-impl-pipeline-hardening.md
+  - ../../scripts/seed-data/books/
+  - ../../scripts/seed-data/map-worlds.json
+  - ../../sessions/2026-07-10-193-impl-brain-launch-rollup.md
+  - ../../sessions/archive/2026-06/2026-06-30-171-impl-per-book-ssot-migration.md
+  - ../../ingest/refresh/2026-W28/report.md
 related:
   - ./pipeline-state.md
   - ./project-state.md
@@ -18,59 +18,39 @@ confidence: high
 
 # Book data — high-level numbers
 
-> **NOT a per-book index.** This page answers *how much data do we have, in what shape, where is it canonical*. Per-book detail (synopses, factions, plot, sources) lives in **Postgres** (canonical) and the external **Atlas** (mechanical mirror via `npm run atlas:regen`).
->
-> This page exists in Brain so the LLM can answer "roughly how many books, how complete, what's the latest cost" without paging in 800-book detail. If you find yourself adding per-book detail here, stop — that's an Atlas concern.
+> Engineering-scale overview, not a per-book index. Per-work content lives in Postgres and the external generated Atlas.
 
-## Sources of book data
+## Canonical shape
 
-| Where | Status | What's there |
-|---|---|---|
-| `scripts/seed-data/books.json` | committed, 26 books | Hand-curated Stufe 2b roster (sessions 021/022). Full annotation: factions, persons, facets, external_links. Every field hand-verified by Philipp. |
-| Postgres (`works` + `book_details` + junctions) | live | The 26 manuals + reference tables (eras, factions, sectors, locations, persons, services, facet_categories, facet_values, characters, series). No pipeline-discovered books yet (3d-Apply not shipped). |
-| `ingest/.last-run/v2-batch-*.diff.json` | committed | Active V2-Batch dry-run output (post-055). Visible at `/ingest` route. Pre-056 generations (V1 backfills, V2-Pilot, intermediate V2-Batch) archived under `ingest/.archive/{v1,v2-pilot,v2-batch}/`. |
-| Pipeline discovery (Wikipedia master-lists) | dry-run | ~700 unique books across 4 lists (Hauptliste + HH-novels + Siege_of_Terra + Eisenhorn). Post-3b numbers: 701 unique, 96 cross-page-duplicates resolved. |
-| External `chrono-atlas/` Obsidian vault | regenerated on demand | Mechanical mirror of Postgres via `npm run atlas:regen`. Default `~/chrono-atlas/`. |
+- **896 books** in `scripts/seed-data/books/<slug>.json` (`book-v1`), one durable file per book.
+- Split: **599 W40K** (`W40K-0001…0599`) + **297 Horus Heresy** (`HH-0001…0297`).
+- **59** files contain collection membership, totaling **196 collection edges**.
+- Postgres `works` + `book_details` + junction tables are the runtime source of truth after apply.
+- `scripts/seed-data/books.json`, the master Excel, old roster/extension and override batches are frozen historical/equivalence inputs, not the live corpus.
 
-## Counts at a glance
+## Coverage layers
 
-- **Manual books seeded in DB:** 26 (Stufe 2b)
-- **Discovered via pipeline:** ~700 (Wikipedia master-lists, 4 pages, dry-run only)
-- **Books written to DB by the pipeline:** 0 (Apply-Step 3d not shipped)
-- **Books with full pipeline-enriched data (committed diffs, dry-run):** ~80 cumulatively (5 in 035 + 7 in 037 + 20 in 039 + 20 in 042 + 50 in 044 + 9 in 047 — with overlap on the 1–40 testing slice)
-- **Reference rows (canonical):** 7 eras, ~25 factions, 21 series, sectors+locations, ~85 facet values across 12 categories, 18 services
-- **Junctions populated:** all 26 manuals have full faction/character/facet/external_link annotation
+- Books carry bibliographic/detail data, synopsis and curated relations through the per-book files and reference catalogs.
+- Entity blurbs cover the established faction/character/location sets; per-row provenance remains in the seed data.
+- Timeline membership comes from curated event/work and setting-date data, not automatic prose extraction.
+- Cartographer is a separate static projection: 1,055 catalog worlds and 1,352/1,710 placed work edges. Location linkage and map placement are related but not identical.
+- Podcasts are separate work kinds, currently 1,114 applied episode works; they are not counted in the 896 books.
 
-## Latest pipeline cost
+## Apply and rebuild
 
-From `ingest/.archive/v1/backfill-20260508-2101.diff.json` (9 books, 047-impl test, archived in 056):
+- Target one book: `npm run apply:book -- --slug <slug>`.
+- Converge the corpus: `npm run apply:book -- --all --mode post-retirement` (step 2 of `db:sync`).
+- Verify without healing: `apply:book --verify` / `db:drift`.
+- Disaster recovery uses confirm-gated `db:rebuild`; the per-book files must be sufficient to restore the book corpus.
 
-- **$0.114/book** (–3% vs 044 baseline of $0.118/book)
-- Extrapolated voll-lauf for ~750 remaining: **~$85** (close to original Brief-040 estimate of $88)
-- Driven by Anthropic Haiku 4.5 + Web Search; Sonnet 4.6 alternative would be ~3× more expensive (see [`./decisions/why-haiku-not-sonnet.md`](./decisions/why-haiku-not-sonnet.md))
+The migration from legacy batches to per-book files was proven DB-free with an empty projection diff: 896 books, zero row deltas and 196/196 collection edges.
 
-## What "26 manuals" includes
+## New releases
 
-The Stufe 2b roster (sessions 021/022) prioritized prestige reads with clean lore-anchors:
+Weekly Refresh detects candidate books but does not auto-promote them. A maintainer chooses promote/ignore/defer; promoted works get a curated per-book file and targeted apply after merge. In W28 both proposed books were correctly ignored, so the corpus remains 896.
 
-- Eisenhorn: Xenos / Malleus / Hereticus
-- Ravenor: Ravenor / Ravenor Returned / Ravenor Rogue
-- Horus Heresy selected first-Phase entries
-- Gaunt's Ghosts entry points
-- Standalone classics with strong protagonist-class signals
+## Known data debt
 
-Full list: `scripts/seed-data/books.json`. Per-book inspection: in Postgres (`SELECT slug, title FROM works WHERE kind='book' AND source_kind='manual'`) or in the Atlas after `npm run atlas:regen`.
-
-## What's NOT here
-
-- **Per-book synopsis, plot, factions, sources, ratings.** Postgres + Atlas.
-- **Per-pipeline-run drill-down.** That's `/ingest` route + `/ingest/[runId]` (Phase-3.5 dashboard) for committed diffs, or per-diff JSON inspection for raw.
-- **Future-roster planning** (which 800 books we ultimately want, in what order). Mostly subsumed by Wikipedia's master-list — the discovery output IS the planned roster, modulo Cowork-side filtering for prestige sequencing.
-
-## Cross-references
-
-- For pipeline detail (modules, levers, current numbers): [`./pipeline-state.md`](./pipeline-state.md)
-- For the regen flow: [`./workflows/atlas-regen.md`](./workflows/atlas-regen.md)
-- For why we chose this multi-source-merge architecture: [`./decisions/why-multi-source-merge.md`](./decisions/why-multi-source-merge.md)
-- For why bulk-backfill (not daily-drift): [`./decisions/why-bulk-backfill.md`](./decisions/why-bulk-backfill.md)
-- For the Stufe-2a schema redesign that put 26 books in: [`./architecture.md`](./architecture.md)
+- Blanket `primary_era_id = time_ending` is false editorial data and is promoted into the launch Era fix.
+- 315 character sentinels remain parked for future hand curation.
+- Per-book detail belongs in Postgres/Atlas, never this Brain page.
