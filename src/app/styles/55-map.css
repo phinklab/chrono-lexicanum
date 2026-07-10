@@ -112,22 +112,27 @@ body.cg-on-map .site-brand .site-brand__map {
   cursor: grabbing;
 }
 
-/* Animated SVG strokes invalidate paint every frame. Keeping them in their
-   own root SVG means phone browsers repaint this lightweight surface instead
-   of the chart's ~2000 static nodes. The wrapper is the compositor boundary;
-   ChartStage writes the same camera transform to both SVGs in one frame. */
+/* Desktop keeps animated linework in a separate SVG tree. Mobile does not
+   animate SVG paint properties at all; RouteMotionCanvas owns the moving
+   journey dashes there. Do not force this plane into a compositor backing
+   store on either Blink or WebKit. */
 .cg-motion-plane {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  contain: strict;
-  isolation: isolate;
-  transform: translateZ(0);
-  backface-visibility: hidden;
 }
 .cg-motion-plane svg {
   pointer-events: none;
   cursor: default;
+}
+.cg-route-canvas {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 11;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
 /* Pins: the counter-scale keeps ~1050 glyphs at constant screen size */
@@ -1548,8 +1553,12 @@ body.cg-on-map .site-brand .site-brand__map {
   position: absolute;
   top: 9px;
   right: 11px;
+  z-index: 1;
   padding: 4px 6px;
   font-size: 10px;
+}
+.cg-tour .cg-tour-x + .ck {
+  padding-right: 34px;
 }
 
 /* Zoomer + readout */
@@ -2136,36 +2145,31 @@ body.cg-on-map .site-brand .site-brand__map {
     will-change: transform;
   }
 
-  /* Route linework is isolated from the static chart above. Camera gestures
-     pause paint-only animation briefly; at rest the convoy still marches and
-     no longer invalidates the map or fixed chrome on phone GPUs. */
-  .cg-chart.moving .cg-routeDraw,
-  .cg-chart.moving .cg-rt-st {
-    animation-play-state: paused;
-  }
-
-  /* Lite route: phones skip the mask, fade each leg in on the desktop
-     cadence, then keep its dashes moving inside the isolated motion plane.
-     Opacity lives only in the keyframe so reduced motion degrades to a
-     plainly visible, stationary route. */
+  /* WebKit/Blink rasterize animated SVG stroke paint on the CPU. On phones
+     the motion SVG is therefore fully static; Canvas carries the route
+     reveal + dash movement without invalidating an SVG backing store. */
+  .cg-chart--motion *,
   .cg-course--lite .cg-rtFly {
-    animation:
-      cgRtLegIn 0.9s var(--ease) both,
-      cgRtFly 7s linear infinite;
-    animation-delay:
-      calc(var(--i) * 1.45s + 0.35s),
-      calc(var(--i) * 1.45s + 1.25s);
+    animation: none !important;
+    transition: none !important;
   }
-  .cg-chart.moving .cg-course--lite .cg-rtFly {
-    animation-play-state: paused;
+  .cg-route-canvas {
+    display: block;
   }
-  @keyframes cgRtLegIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+  .cg-course--lite .cg-rtFly {
+    visibility: hidden;
+  }
+  .cg-course--lite .cg-rt-st {
+    opacity: 0.8;
+  }
+  .cg-course--lite .cg-rt-lbl {
+    opacity: 0.85;
+  }
+  .cg-chart--motion .cg-inst .i-blip {
+    opacity: 0.5;
+  }
+  .cg-chart--motion .cg-sel :is(.sst1, .sst2, .sst3) {
+    opacity: 0;
   }
 
   /* Backdrop while the drawer is up — also stops accidental chart pans. */
@@ -2333,6 +2337,21 @@ body.cg-on-map .site-brand .site-brand__map {
     right: 12px;
     width: auto;
     top: auto;
-    bottom: calc(96px + env(safe-area-inset-bottom, 0px));
+    /* The collapsed drawer is 114px tall when its JOURNEY/FILTER badges are
+       present. Keep a deliberate 12px interaction gap so its drag grip can
+       never cover the tour actions, including on safe-area devices. */
+    bottom: calc(126px + env(safe-area-inset-bottom, 0px));
+  }
+  .cg-tour .cg-tour-x {
+    top: 0;
+    right: 0;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+  }
+  .cg-tour .cg-tour-x + .ck {
+    padding-right: 44px;
   }
 }
