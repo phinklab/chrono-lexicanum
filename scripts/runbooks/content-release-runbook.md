@@ -120,26 +120,35 @@ Era-Set-Abgleich, Hot-ID-Payload-Vollständigkeit) und deterministisch.
 Erst wenn der neue Production-Deploy live ist (E4-Reihenfolge; ein POST vor dem
 Deploy würde einen Stand revalidieren, den es noch gar nicht gibt):
 
-1. **Revalidation — genau EIN Aufruf.** Bis S3a das dedizierte npm-Script
-   liefert, manuell:
+1. **Revalidation — genau EIN Aufruf** (seit S3a das dedizierte Script):
+
+   ```bash
+   npm run release:revalidate
+   ```
+
+   Liest `REVALIDATE_BASE_URL` + `REVALIDATE_TOKEN` aus `.env.local`, sendet
+   genau **einen** POST an `<base>/api/revalidate` (Timeout 30 s, kein Retry)
+   und ist fail-loud: Exit 0 nur bei HTTP 200 — die Ausgabe listet die
+   invalidierten Tags + Pfade. Bei Fehlschlag nennt die Ausgabe die Recovery
+   (503 = `REVALIDATE_TOKEN` fehlt im Deployment, 401 = Token-Mismatch,
+   Timeout = Zustand **unklar**, der POST kann verarbeitet worden sein — der
+   Endpoint ist idempotent, nach Klärung genau einen erneuten POST). Notfall-
+   Fallback, falls Node/tsx selbst kaputt ist (identischer Vertrag, ein POST,
+   Status prüfen):
 
    ```bash
    curl -X POST https://<production-host>/api/revalidate \
      -H "Authorization: Bearer $REVALIDATE_TOKEN"
    ```
 
-   Statuscode prüfen: 200 ⇒ ok. Alles andere ⇒ fail-loud behandeln — Fehler
-   notieren, Ursache klären (503 = Token nicht konfiguriert, 401 = falsches
-   Token), Aufruf nach Behebung genau einmal wiederholen. (Ab S3a ersetzt der
-   explizite, fail-loud Post-Deploy-Befehl diesen curl; er bleibt genau ein
-   POST an genau dieser Stelle des Ablaufs.)
-
 2. **Live-Smoke** (Browser, kalter Blick): Home lädt mit Suchvorschlägen ·
    `/archive/podcasts` zeigt die Shows · 2–3 Hot-Entities (z. B.
    `/charakter/roboute_guilliman`, `/fraktion/thousand_sons`) · ein im Release
    geändertes Buch über `/buch/<slug>`. Sichtbar alter Stand nach Revalidation
-   ⇒ nicht raten: Cache-Semantik prüfen (Tag-Invalidierung ist
-   stale-while-revalidate — erster Request kann noch alt sein, zweiter nicht).
+   ⇒ nicht raten: das ist seit S2 ein **echtes Problem** — die Invalidierung
+   ist `revalidateTag(tag, { expire: 0 })` (sofortige Expiration, NICHT
+   stale-while-revalidate), schon der erste Request muss den neuen Stand
+   zeigen. Deploy-Reihenfolge, Token und Tag-Abdeckung prüfen.
 
 ## Fehlerfälle, kompakt
 
