@@ -6,8 +6,8 @@
  * `src/lib/entity/loader.ts`.
  *
  * Wrapped in React `cache()` (per-request memo: `generateMetadata` + the default
- * export dedupe to a single fan-out) with try/catch → null so one flaky row
- * degrades to a 404 instead of failing `next build`.
+ * export dedupe to a single fan-out). Error contract (S2, see
+ * `src/lib/db-cache.ts`): data | null (unknown slug) | throw (DB error).
  */
 import "server-only";
 import { cache } from "react";
@@ -150,25 +150,23 @@ async function loadBookBySlug(slug: string) {
 }
 
 /**
- * Load one book's full detail payload by slug, or null if missing/unloadable.
- * `cache()`-memoised per request; shared by the canonical page + the modal.
+ * Load one book's full detail payload by slug, or null if the slug does not
+ * exist. `cache()`-memoised per request; shared by the canonical page + the
+ * modal.
  *
  * The per-slug `cachedRead` layer serves repeat visits from Next's persistent
  * Data Cache instead of re-running the 8-query fan-out on every request —
  * under load the uncached route degraded from 0.21 s to a 90 s timeout.
  * One book's payload is a few KB, far under the 2 MB cache cap. A
  * missing slug caches as `null` (a stable 404 is a legitimate result); a DB
- * error is never cached and degrades to `null` for that one request. The
+ * error is never cached and THROWS into the route's error boundary — an
+ * outage must read as a fault, not as a 404 (S2 contract). The
  * `books` tag is invalidated by `POST /api/revalidate` after ingestion.
  */
-export const loadBook = cache(async (slug: string) => {
-  try {
-    return await cachedRead(() => loadBookBySlug(slug), ["book", slug], {
-      tags: ["books"],
-    })();
-  } catch {
-    return null;
-  }
-});
+export const loadBook = cache(async (slug: string) =>
+  cachedRead(() => loadBookBySlug(slug), ["book", slug], {
+    tags: ["books"],
+  })(),
+);
 
 export type BookDetail = NonNullable<Awaited<ReturnType<typeof loadBook>>>;

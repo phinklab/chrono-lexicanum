@@ -14,36 +14,43 @@
  * Without `REVALIDATE_TOKEN` in the environment the route is disabled (503) —
  * it is never open by accident.
  *
- * Beyond the catalogue tags, every call also purges the entity detail routes
- * (/charakter, /welt, /fraktion, /person) by path. Those routes prerender only a
- * curated hot subset and serve the long tail via on-demand ISR through
- * `loadEntity`, which carries NO catalogue tag — so `revalidateTag` alone would
- * leave an already-rendered entity page stale until its 24 h ISR backstop. The
- * path purge closes that loop so an apply run's fresh data shows on the next
- * request.
+ * Invalidation semantics (S2 decision): `revalidateTag(tag, { expire: 0 })` —
+ * IMMEDIATE expiration, not stale-while-revalidate. The string profile
+ * `"max"` would be SWR per the Next 16 docs: the first request after the call
+ * still serves the OLD data and only triggers a background refresh. Content
+ * releases here are rare and correctness-driven (E4: the snapshot PR is the
+ * deploy; this POST is the explicit post-deploy step), so the first reader
+ * after a release must see the new state — paying one cold fill per tag is
+ * the right trade. `{ expire: 0 }` is the documented route-handler pattern
+ * for exactly this (`updateTag` is server-action-only).
  *
- * Best-effort extras per call: the in-process memory caches (`/archive`
- * browse blob, /ask book cache) are cleared too. Those only exist per
- * serverless instance, so other warm instances refresh by TTL — acceptable
- * for a read-mostly catalogue.
+ * Beyond the catalogue tags, every call also purges the entity detail routes
+ * (/charakter, /welt, /fraktion, /person) by path. `loadEntity` reads carry
+ * the `entities` tag since S2, which already invalidates the data cache AND
+ * the pages that rendered from it — the path purge stays as a belt-and-braces
+ * layer for pages rendered before the tag existed and can be dropped once a
+ * post-release check confirms tag propagation on the deployed runtime.
+ *
+ * Best-effort extras per call: `resetMemoryCaches()` clears every in-process
+ * memory cache (`/archive` browse blob, /ask book list, /ask matrix). Those
+ * only exist per serverless instance, so other warm instances refresh by TTL
+ * — acceptable for a read-mostly catalogue.
  */
 import { revalidatePath, revalidateTag } from "next/cache";
 import { NextResponse, type NextRequest } from "next/server";
 import { CATALOGUE_TAGS, resetMemoryCaches } from "@/lib/db-cache";
-import { clearAskRecommendationCache } from "@/lib/ask/recommend";
-import { clearAskMatrixCache } from "@/lib/ask/matrix";
 import { timingSafeEqualStr } from "@/lib/timingSafeEqual";
 
 const KNOWN_TAGS: ReadonlySet<string> = new Set(CATALOGUE_TAGS);
 
 /**
- * The on-demand-ISR entity detail routes. Purged by path on every
- * call because their `loadEntity` reads carry no catalogue tag (so the tag loop
- * misses them) and an entity page is cross-cutting — any catalogue change
- * (works, factions, characters …) can alter it, so there is no clean per-tag
- * mapping. Over-purging on-demand pages is cheap: each just re-renders from the
- * DB on its next visit. The `[slug]` pattern + `'page'` invalidates every slug
- * under the dynamic segment in one call.
+ * The on-demand-ISR entity detail routes. Since S2 their `loadEntity` reads
+ * carry the cross-cutting `entities` tag (any catalogue change can alter an
+ * entity page, so one tag covers all four types); this path purge is the
+ * belt-and-braces layer documented in the header. Over-purging on-demand
+ * pages is cheap: each just re-renders from the DB on its next visit. The
+ * `[slug]` pattern + `'page'` invalidates every slug under the dynamic
+ * segment in one call.
  */
 const ENTITY_ROUTES = [
   "/charakter/[slug]",
@@ -96,15 +103,13 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     // No / non-JSON body → default to all catalogue tags.
   }
 
-  // Next 16 requires a cacheLife profile; "max" is the documented hard-purge
-  // form for route handlers (`updateTag` is server-action-only).
-  for (const tag of tags) revalidateTag(tag, "max");
-  // Entity ISR pages carry no catalogue tag (see ENTITY_ROUTES) — purge by path
-  // so already-rendered long-tail pages refresh on next request, not at backstop.
+  // `{ expire: 0 }` = immediate expiration (see header). NOT the string
+  // profile "max" — that is stale-while-revalidate and would serve the old
+  // catalogue to the first post-release reader.
+  for (const tag of tags) revalidateTag(tag, { expire: 0 });
+  // Belt-and-braces path purge for the entity ISR pages (see ENTITY_ROUTES).
   for (const route of ENTITY_ROUTES) revalidatePath(route, "page");
   resetMemoryCaches();
-  clearAskRecommendationCache();
-  clearAskMatrixCache();
 
   return NextResponse.json({ revalidated: tags, paths: [...ENTITY_ROUTES] });
 }

@@ -5,6 +5,7 @@
  */
 import { db } from "@/db/client";
 import { factions as factionsTable } from "@/db/schema";
+import { memoryCachedRead } from "@/lib/memory-cache";
 import { passesHardAskBoundaries } from "./boundaries";
 import { ANCHOR_SLUGS, anchorMeritFor } from "./anchors";
 import { compareByMerit } from "./compare";
@@ -101,8 +102,6 @@ interface TagEvaluation {
 const EMPTY_SET: ReadonlySet<string> = new Set<string>();
 
 const XENOS_ROOTS = ["eldar", "tau", "necrons", "tyranids", "orks"];
-
-let cachedAskBooks: Promise<AskBookWork[]> | null = null;
 
 function optionByQuestion(): Map<string, Map<string, AskOption>> {
   const map = new Map<string, Map<string, AskOption>>();
@@ -287,14 +286,18 @@ async function loadAskBooks(): Promise<AskBookWork[]> {
   });
 }
 
-async function loadAskBooksForRecommend(cacheBooks: boolean | undefined): Promise<AskBookWork[]> {
-  if (!cacheBooks) return loadAskBooks();
-  cachedAskBooks ??= loadAskBooks();
-  return cachedAskBooks;
-}
+/**
+ * The book list behind `recommend()` when callers opt into caching
+ * (`cacheBooks: true` — the /ask hot path). `memoryCachedRead` supplies the
+ * three properties the ad-hoc promise slot lacked: a TTL (the list otherwise
+ * lived until process death), rejection eviction (a failed fill never poisons
+ * follow-up requests), and coalescing of concurrent fills. Cleared by
+ * `POST /api/revalidate` via `resetMemoryCaches()` after an apply run.
+ */
+const cachedAskBooks = memoryCachedRead(loadAskBooks);
 
-export function clearAskRecommendationCache(): void {
-  cachedAskBooks = null;
+async function loadAskBooksForRecommend(cacheBooks: boolean | undefined): Promise<AskBookWork[]> {
+  return cacheBooks ? cachedAskBooks() : loadAskBooks();
 }
 
 function categoryFacets(book: AskBookWork, categoryId: string): ReadonlySet<string> {

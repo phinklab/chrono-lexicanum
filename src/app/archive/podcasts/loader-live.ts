@@ -101,78 +101,12 @@ function byNewest(
   return b.pubDateMs - a.pubDateMs;
 }
 
+/** Index contract (S2, see `src/lib/db-cache.ts`): DB errors throw — never an
+ *  empty hall standing in for an outage. */
 export async function loadPodcastIndexLive(): Promise<PodcastIndexShow[]> {
-  try {
-    const [showRows, episodeRows] = await Promise.all([
-      db.query.works.findMany({
-        where: (w, { eq }) => eq(w.kind, "podcast"),
-        columns: { id: true, slug: true, title: true, coverUrl: true },
-        with: {
-          podcastDetails: { columns: { imageUrl: true } },
-          externalLinks: {
-            columns: { serviceId: true, url: true },
-            with: { service: { columns: { name: true, displayOrder: true } } },
-          },
-        },
-      }),
-      db.query.works.findMany({
-        where: (w, { eq }) => eq(w.kind, "podcast_episode"),
-        columns: { id: true, title: true },
-        with: {
-          podcastEpisodeDetails: {
-            columns: { podcastWorkId: true, pubDate: true },
-          },
-        },
-      }),
-    ]);
-
-    // Bucket episode stubs under their show.
-    const byShow = new Map<string, EpisodeStub[]>();
-    for (const w of episodeRows) {
-      const d = w.podcastEpisodeDetails;
-      if (!d) continue;
-      const stub: EpisodeStub = {
-        id: w.id,
-        title: w.title,
-        pubDateMs: toMs(d.pubDate),
-      };
-      const bucket = byShow.get(d.podcastWorkId);
-      if (bucket) bucket.push(stub);
-      else byShow.set(d.podcastWorkId, [stub]);
-    }
-
-    return showRows
-      .map((w) => {
-        const eps = (byShow.get(w.id) ?? []).sort(byNewest);
-        const years = eps
-          .map((e) => yearOf(e.pubDateMs))
-          .filter((y): y is number => y != null);
-        return {
-          id: w.id,
-          slug: w.slug,
-          title: w.title,
-          artUrl: w.coverUrl ?? w.podcastDetails?.imageUrl ?? null,
-          episodeCount: eps.length,
-          firstPubYear: years.length ? Math.min(...years) : null,
-          lastPubYear: years.length ? Math.max(...years) : null,
-          platformLinks: buildPlatformLinks(w.externalLinks),
-          latest: eps.slice(0, 3),
-        };
-      })
-      .sort((a, b) => b.episodeCount - a.episodeCount);
-  } catch (err) {
-    const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
-    console.error(`[/podcasts] index fetch failed (${msg}); rendering empty hall.`);
-    return [];
-  }
-}
-
-export async function loadPodcastShowLive(
-  slug: string,
-): Promise<PodcastShowDetail | null> {
-  try {
-    const show = await db.query.works.findFirst({
-      where: (w, { and, eq }) => and(eq(w.kind, "podcast"), eq(w.slug, slug)),
+  const [showRows, episodeRows] = await Promise.all([
+    db.query.works.findMany({
+      where: (w, { eq }) => eq(w.kind, "podcast"),
       columns: { id: true, slug: true, title: true, coverUrl: true },
       with: {
         podcastDetails: { columns: { imageUrl: true } },
@@ -181,137 +115,183 @@ export async function loadPodcastShowLive(
           with: { service: { columns: { name: true, displayOrder: true } } },
         },
       },
-    });
-    if (!show) return null;
+    }),
+    db.query.works.findMany({
+      where: (w, { eq }) => eq(w.kind, "podcast_episode"),
+      columns: { id: true, title: true },
+      with: {
+        podcastEpisodeDetails: {
+          columns: { podcastWorkId: true, pubDate: true },
+        },
+      },
+    }),
+  ]);
 
-    // No `show` relation on the episode self-link → resolve episode workIds via
-    // an explicit podcastWorkId filter, then load them with their tags in one
-    // relational fan-out.
-    const idRows = await db
-      .select({ id: podcastEpisodeDetails.workId })
-      .from(podcastEpisodeDetails)
-      .where(eq(podcastEpisodeDetails.podcastWorkId, show.id));
-    const ids = idRows.map((r) => r.id);
+  // Bucket episode stubs under their show.
+  const byShow = new Map<string, EpisodeStub[]>();
+  for (const w of episodeRows) {
+    const d = w.podcastEpisodeDetails;
+    if (!d) continue;
+    const stub: EpisodeStub = {
+      id: w.id,
+      title: w.title,
+      pubDateMs: toMs(d.pubDate),
+    };
+    const bucket = byShow.get(d.podcastWorkId);
+    if (bucket) bucket.push(stub);
+    else byShow.set(d.podcastWorkId, [stub]);
+  }
 
-    const epRows = ids.length
-      ? await db.query.works.findMany({
-          where: (w) => inArray(w.id, ids),
-          columns: { id: true, title: true },
-          with: {
-            podcastEpisodeDetails: {
-              columns: {
-                audioUrl: true,
-                durationSec: true,
-                pubDate: true,
-                episodeKind: true,
-              },
-            },
-            externalLinks: {
-              columns: { kind: true, serviceId: true, url: true },
-            },
-            factions: {
-              columns: { role: true },
-              with: { faction: { columns: { id: true, name: true } } },
+  return showRows
+    .map((w) => {
+      const eps = (byShow.get(w.id) ?? []).sort(byNewest);
+      const years = eps
+        .map((e) => yearOf(e.pubDateMs))
+        .filter((y): y is number => y != null);
+      return {
+        id: w.id,
+        slug: w.slug,
+        title: w.title,
+        artUrl: w.coverUrl ?? w.podcastDetails?.imageUrl ?? null,
+        episodeCount: eps.length,
+        firstPubYear: years.length ? Math.min(...years) : null,
+        lastPubYear: years.length ? Math.max(...years) : null,
+        platformLinks: buildPlatformLinks(w.externalLinks),
+        latest: eps.slice(0, 3),
+      };
+    })
+    .sort((a, b) => b.episodeCount - a.episodeCount);
+}
+
+/** Detail contract (S2): data | null (unknown slug) | throw (DB error). */
+export async function loadPodcastShowLive(
+  slug: string,
+): Promise<PodcastShowDetail | null> {
+  const show = await db.query.works.findFirst({
+    where: (w, { and, eq }) => and(eq(w.kind, "podcast"), eq(w.slug, slug)),
+    columns: { id: true, slug: true, title: true, coverUrl: true },
+    with: {
+      podcastDetails: { columns: { imageUrl: true } },
+      externalLinks: {
+        columns: { serviceId: true, url: true },
+        with: { service: { columns: { name: true, displayOrder: true } } },
+      },
+    },
+  });
+  if (!show) return null;
+
+  // No `show` relation on the episode self-link → resolve episode workIds via
+  // an explicit podcastWorkId filter, then load them with their tags in one
+  // relational fan-out.
+  const idRows = await db
+    .select({ id: podcastEpisodeDetails.workId })
+    .from(podcastEpisodeDetails)
+    .where(eq(podcastEpisodeDetails.podcastWorkId, show.id));
+  const ids = idRows.map((r) => r.id);
+
+  const epRows = ids.length
+    ? await db.query.works.findMany({
+        where: (w) => inArray(w.id, ids),
+        columns: { id: true, title: true },
+        with: {
+          podcastEpisodeDetails: {
+            columns: {
+              audioUrl: true,
+              durationSec: true,
+              pubDate: true,
+              episodeKind: true,
             },
           },
-        })
-      : [];
-
-    const episodes: PodcastEpisode[] = epRows
-      .map((w) => {
-        const d = w.podcastEpisodeDetails;
-        // YouTube shows have no MP3 (audioUrl NULL) but carry a `watch` link to
-        // the video; surface it so the row can offer "View ↗".
-        const watchUrl =
-          w.externalLinks.find(
-            (l) => l.kind === "watch" || l.serviceId === "youtube",
-          )?.url ?? null;
-        return {
-          id: w.id,
-          title: w.title,
-          pubDateMs: toMs(d?.pubDate),
-          durationSec: d?.durationSec ?? null,
-          episodeKind: d?.episodeKind ?? null,
-          audioUrl: d?.audioUrl ?? null,
-          watchUrl,
-          factions: topFactions(w.factions),
-        };
+          externalLinks: {
+            columns: { kind: true, serviceId: true, url: true },
+          },
+          factions: {
+            columns: { role: true },
+            with: { faction: { columns: { id: true, name: true } } },
+          },
+        },
       })
-      .sort(byNewest);
+    : [];
 
-    const years = episodes
-      .map((e) => yearOf(e.pubDateMs))
-      .filter((y): y is number => y != null);
+  const episodes: PodcastEpisode[] = epRows
+    .map((w) => {
+      const d = w.podcastEpisodeDetails;
+      // YouTube shows have no MP3 (audioUrl NULL) but carry a `watch` link to
+      // the video; surface it so the row can offer "View ↗".
+      const watchUrl =
+        w.externalLinks.find(
+          (l) => l.kind === "watch" || l.serviceId === "youtube",
+        )?.url ?? null;
+      return {
+        id: w.id,
+        title: w.title,
+        pubDateMs: toMs(d?.pubDate),
+        durationSec: d?.durationSec ?? null,
+        episodeKind: d?.episodeKind ?? null,
+        audioUrl: d?.audioUrl ?? null,
+        watchUrl,
+        factions: topFactions(w.factions),
+      };
+    })
+    .sort(byNewest);
 
-    return {
-      id: show.id,
-      slug: show.slug,
-      title: show.title,
-      artUrl: show.coverUrl ?? show.podcastDetails?.imageUrl ?? null,
-      episodeCount: episodes.length,
-      firstPubYear: years.length ? Math.min(...years) : null,
-      lastPubYear: years.length ? Math.max(...years) : null,
-      platformLinks: buildPlatformLinks(show.externalLinks),
-      episodes,
-    };
-  } catch (err) {
-    const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
-    console.error(
-      `[/podcasts/${slug}] show fetch failed (${msg}); treating as not found.`,
-    );
-    return null;
-  }
+  const years = episodes
+    .map((e) => yearOf(e.pubDateMs))
+    .filter((y): y is number => y != null);
+
+  return {
+    id: show.id,
+    slug: show.slug,
+    title: show.title,
+    artUrl: show.coverUrl ?? show.podcastDetails?.imageUrl ?? null,
+    episodeCount: episodes.length,
+    firstPubYear: years.length ? Math.min(...years) : null,
+    lastPubYear: years.length ? Math.max(...years) : null,
+    platformLinks: buildPlatformLinks(show.externalLinks),
+    episodes,
+  };
 }
 
 /** Live body of the typeahead projection — see `loadPodcastSearchIndex` in
  *  `./loader` (the façade owns the per-request `cache()` wrapper). */
 export async function loadPodcastSearchIndexLive(): Promise<PodcastSearchData> {
-  try {
-    const [showRows, episodeRows] = await Promise.all([
-      db.query.works.findMany({
-        where: (w, { eq }) => eq(w.kind, "podcast"),
-        columns: { id: true, slug: true, title: true },
-      }),
-      db.query.works.findMany({
-        where: (w, { eq }) => eq(w.kind, "podcast_episode"),
-        columns: { id: true, title: true },
-        with: {
-          podcastEpisodeDetails: { columns: { podcastWorkId: true } },
-        },
-      }),
-    ]);
+  const [showRows, episodeRows] = await Promise.all([
+    db.query.works.findMany({
+      where: (w, { eq }) => eq(w.kind, "podcast"),
+      columns: { id: true, slug: true, title: true },
+    }),
+    db.query.works.findMany({
+      where: (w, { eq }) => eq(w.kind, "podcast_episode"),
+      columns: { id: true, title: true },
+      with: {
+        podcastEpisodeDetails: { columns: { podcastWorkId: true } },
+      },
+    }),
+  ]);
 
-    const showById = new Map(
-      showRows.map((s) => [s.id, { slug: s.slug, title: s.title }]),
-    );
-    const countBySlug = new Map<string, number>();
-    const episodes: PodcastSearchData["episodes"] = [];
-    for (const w of episodeRows) {
-      const showId = w.podcastEpisodeDetails?.podcastWorkId;
-      const show = showId ? showById.get(showId) : undefined;
-      if (!show) continue;
-      episodes.push({
-        id: w.id,
-        title: w.title,
-        showSlug: show.slug,
-        showTitle: show.title,
-      });
-      countBySlug.set(show.slug, (countBySlug.get(show.slug) ?? 0) + 1);
-    }
-
-    const shows = showRows.map((s) => ({
-      slug: s.slug,
-      title: s.title,
-      episodeCount: countBySlug.get(s.slug) ?? 0,
-    }));
-
-    return { shows, episodes };
-  } catch (err) {
-    const msg =
-      err instanceof Error ? `${err.name}: ${err.message}` : String(err);
-    console.error(
-      `[/podcasts] search index fetch failed (${msg}); search omits podcasts.`,
-    );
-    return { shows: [], episodes: [] };
+  const showById = new Map(
+    showRows.map((s) => [s.id, { slug: s.slug, title: s.title }]),
+  );
+  const countBySlug = new Map<string, number>();
+  const episodes: PodcastSearchData["episodes"] = [];
+  for (const w of episodeRows) {
+    const showId = w.podcastEpisodeDetails?.podcastWorkId;
+    const show = showId ? showById.get(showId) : undefined;
+    if (!show) continue;
+    episodes.push({
+      id: w.id,
+      title: w.title,
+      showSlug: show.slug,
+      showTitle: show.title,
+    });
+    countBySlug.set(show.slug, (countBySlug.get(show.slug) ?? 0) + 1);
   }
+
+  const shows = showRows.map((s) => ({
+    slug: s.slug,
+    title: s.title,
+    episodeCount: countBySlug.get(s.slug) ?? 0,
+  }));
+
+  return { shows, episodes };
 }

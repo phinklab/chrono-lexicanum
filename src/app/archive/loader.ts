@@ -9,8 +9,9 @@
  * this into the unified search index) the data comes from the committed
  * snapshot artifact; at request time it comes from Postgres via a lazy
  * `import()` of `./loader-live`. This module must never statically import
- * `@/db` — the DB-free CI build depends on it. The live path still degrades
- * to an empty hall on a runtime DB error (S2 tightens that contract).
+ * `@/db` — the DB-free CI build depends on it. Index contract (S2, see
+ * `src/lib/db-cache.ts`): an array — a runtime DB error THROWS into the
+ * route's error boundary, never an empty hall.
  */
 import "server-only";
 import { memoryCachedRead } from "@/lib/db-cache";
@@ -89,18 +90,19 @@ async function fetchBrowseBooks(): Promise<BrowseData> {
  * and concurrent requests coalesce onto the same in-flight read instead of
  * each firing their own pool-exhausting query (six
  * parallel `/archive` requests were measured starving the whole `max:5`
- * pool). An empty
- * result is the degraded DB-error shape and is never retained.
+ * pool). A rejected fill is evicted immediately, so a transient DB failure
+ * never pins an error for the rest of the TTL.
  */
-export const loadBrowseBooks = memoryCachedRead(fetchBrowseBooks, {
-  isDegraded: (d) => d.books.length === 0,
-});
+export const loadBrowseBooks = memoryCachedRead(fetchBrowseBooks);
 
 /**
  * Resolve a `?focus=<workId>` deep-link target to its book slug, independent of
  * the browse list above — robust against any future filter/limit on the
  * catalogue query (the timeline chips link here). Unknown id, non-book
  * kind, malformed UUID or DB error all degrade to null (graceful no-op).
+ * Deliberately OUTSIDE the S2 throw contract: the id is client-controlled
+ * (a malformed UUID is a Postgres error, not an outage), and a failed
+ * deep-link nicety must not take down an otherwise healthy archive render.
  * Only reachable at request time (`/archive` is searchParams-dynamic), so it
  * goes straight to the live module.
  */

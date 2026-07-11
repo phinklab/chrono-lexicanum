@@ -116,25 +116,21 @@ async function personenSource(): Promise<PersonenRow[]> {
 // React `cache()` for per-request dedup. The first request per TTL window does
 // the real read; every concurrent visitor is served from cache, so the ~7
 // queries this surface fans out no longer multiply by visitor-count and never
-// swamp the `max:5` pool. The four reads always return non-empty data in normal
-// operation (the archive always has factions, characters, worlds and authors),
-// so an empty result means the read failed → `isDegraded` keeps it out of the
-// cache. See `src/lib/db-cache.ts` for the full rationale.
+// swamp the `max:5` pool. Error contract (S2, see `src/lib/db-cache.ts`): the
+// source queries THROW on DB failure, a rejected fill is never cached, and the
+// error surfaces at the route's boundary — an outage no longer renders as an
+// empty category.
 const cachedFactionGuide = cachedRead(factionGuideSource, ["compendium", "faction-guide"], {
   tags: ["compendium", "factions"],
-  isDegraded: (rows) => rows.length === 0,
 });
 const cachedCharaktere = cachedRead(charaktereSource, ["compendium", "charaktere-rows"], {
   tags: ["compendium", "characters"],
-  isDegraded: (rows) => rows.length === 0,
 });
 const cachedWelten = cachedRead(weltenSource, ["compendium", "welten-rows"], {
   tags: ["compendium", "worlds"],
-  isDegraded: (rows) => rows.length === 0,
 });
 const cachedPersonen = cachedRead(personenSource, ["compendium", "personen-rows"], {
   tags: ["compendium", "authors"],
-  isDegraded: (rows) => rows.length === 0,
 });
 
 // Per-category builders
@@ -209,8 +205,9 @@ export const loadPrimarchItems = cache(async (): Promise<CompendiumItem[]> => {
         name = merge.name;
         // Honest union count = exactly the works the merged detail page lists
         // (deduped across the twins). Reuse the cached entity loader so the card's
-        // "N appearances" can never drift from the page it links to. On a failed
-        // read the cheap aggregate (canonical twin only) is the graceful fallback.
+        // "N appearances" can never drift from the page it links to. A vanished
+        // id falls back to the cheap aggregate (canonical twin only); a DB
+        // failure throws (S2 contract).
         const view = await loadEntity("character", id);
         if (view) {
           workCount = view.worksByKind.reduce((n, g) => n + g.works.length, 0);

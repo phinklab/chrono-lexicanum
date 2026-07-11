@@ -6,13 +6,17 @@
  *     routes: at build time the curated hot-id list comes straight from the
  *     committed snapshot (zero DB reads on the build path); at request time it
  *     intersects the curated constant with the live table.
- *   - `loadEntity(type, id)` returns the frame-agnostic `EntityView` (or null
- *     for a missing / unloadable id → the page calls `notFound()`). At build
+ *   - `loadEntity(type, id)` returns the frame-agnostic `EntityView`, or null
+ *     for a genuinely missing id → the page calls `notFound()`; DB errors
+ *     THROW into the route's error boundary (S2 contract, see
+ *     `src/lib/db-cache.ts`). At build
  *     time — only ever reached with hot ids, via `generateStaticParams` — it
  *     reads the per-entity snapshot payload (fail-closed: a missing artifact
  *     throws and fails the build). At request time (on-demand long tail, ISR
  *     refresh, modal intercepts, compendium merges) it lazy-imports the live
- *     Postgres module. Wrapped in React `cache()` so a route's
+ *     Postgres module behind a per-id `cachedRead` layer (tag `entities`, the
+ *     loadBook pattern) so repeat reads serve from the persistent Data Cache.
+ *     Wrapped in React `cache()` so a route's
  *     `generateMetadata` + default export dedupe to a single read per request.
  *   - `listEntityIds(type)` (all ids, currently unconsumed — reserved for the
  *     S5 sitemap) always takes the live path.
@@ -23,6 +27,7 @@
  */
 import "server-only";
 import { cache } from "react";
+import { cachedRead } from "@/lib/db-cache";
 import {
   isBuildPhase,
   readSnapshotArtifact,
@@ -58,8 +63,14 @@ export async function listHotEntityIds(type: EntityType): Promise<string[]> {
 }
 
 /**
- * Load one entity's full view payload, or null if the id is missing/unloadable.
- * `cache()`-memoised per request so metadata + page share one read.
+ * Load one entity's full view payload, or null if the id does not exist (→
+ * `notFound()`); DB errors throw. `cache()`-memoised per request so metadata +
+ * page share one read.
+ *
+ * The runtime path adds a per-id `cachedRead` layer: one `EntityView` is a few
+ * KB (far under the 2 MB entry cap), a missing id caches as a stable `null`,
+ * and the `entities` tag lets `POST /api/revalidate` refresh every entity read
+ * after an apply run instead of waiting for the 24 h ISR backstop.
  */
 export const loadEntity = cache(
   async (type: EntityType, id: string): Promise<EntityView | null> => {
@@ -67,6 +78,8 @@ export const loadEntity = cache(
       return readSnapshotEntity<EntityView>(type, id);
     }
     const { loadEntityLive } = await import("./loader-live");
-    return loadEntityLive(type, id);
+    return cachedRead(() => loadEntityLive(type, id), ["entity", type, id], {
+      tags: ["entities"],
+    })();
   },
 );

@@ -11,6 +11,7 @@
  * shaped like the prototype's `CHRONICLE_ERAS`.
  */
 import { db } from "@/db/client";
+import { cachedRead } from "@/lib/db-cache";
 import { resolveEpisodeShows } from "@/lib/work-links";
 import {
   ERA_VIEW_CONFIG,
@@ -129,95 +130,103 @@ function buildChip(
 
 /**
  * Full timeline payload, ordered by era `sortOrder` / event `sortIndex` /
- * chip `position`. Returns null when the DB is unreachable — the page renders
- * an honest empty state instead of a 500.
+ * chip `position`. Index contract (S2, see `src/lib/db-cache.ts`): an array
+ * (legitimately empty while the spine is unseeded) — DB errors THROW into the
+ * route's error boundary, never a silently empty chronicle.
  */
-export async function loadChronicleTimeline(): Promise<ChronicleEraData[] | null> {
-  try {
-    const eraRows = await db.query.eras.findMany({
-      orderBy: (e, { asc }) => [asc(e.sortOrder)],
-      with: {
-        events: {
-          orderBy: (ev, { asc }) => [asc(ev.sortIndex)],
-          with: {
-            works: {
-              orderBy: (ew, { asc }) => [asc(ew.position)],
-              columns: { role: true, displayLabel: true },
-              with: {
-                work: {
-                  columns: { id: true, slug: true, title: true, kind: true },
-                  with: {
-                    persons: {
-                      where: (wp, { eq }) => eq(wp.role, "author"),
-                      orderBy: (wp, { asc }) => [asc(wp.displayOrder)],
-                      columns: { personId: true },
-                      with: { person: { columns: { name: true } } },
-                    },
-                    podcastEpisodeDetails: { columns: { episode: true } },
+async function fetchChronicleTimeline(): Promise<ChronicleEraData[]> {
+  const eraRows = await db.query.eras.findMany({
+    orderBy: (e, { asc }) => [asc(e.sortOrder)],
+    with: {
+      events: {
+        orderBy: (ev, { asc }) => [asc(ev.sortIndex)],
+        with: {
+          works: {
+            orderBy: (ew, { asc }) => [asc(ew.position)],
+            columns: { role: true, displayLabel: true },
+            with: {
+              work: {
+                columns: { id: true, slug: true, title: true, kind: true },
+                with: {
+                  persons: {
+                    where: (wp, { eq }) => eq(wp.role, "author"),
+                    orderBy: (wp, { asc }) => [asc(wp.displayOrder)],
+                    columns: { personId: true },
+                    with: { person: { columns: { name: true } } },
                   },
+                  podcastEpisodeDetails: { columns: { episode: true } },
                 },
-                series: { columns: { id: true, name: true } },
               },
+              series: { columns: { id: true, name: true } },
             },
           },
         },
       },
-    });
+    },
+  });
 
-    const episodeIds = eraRows.flatMap((era) =>
-      era.events.flatMap((ev) =>
-        ev.works
-          .filter((h) => h.work?.kind === "podcast_episode")
-          .map((h) => h.work!.id),
-      ),
-    );
-    const shows = await resolveEpisodeShows(episodeIds);
+  const episodeIds = eraRows.flatMap((era) =>
+    era.events.flatMap((ev) =>
+      ev.works
+        .filter((h) => h.work?.kind === "podcast_episode")
+        .map((h) => h.work!.id),
+    ),
+  );
+  const shows = await resolveEpisodeShows(episodeIds);
 
-    return eraRows.map((era) => {
-      const view =
-        ERA_VIEW_CONFIG[era.id] ??
-        fallbackEraView(Number(era.startY), Number(era.endY));
-      const toY = (scale: string | null): number => {
-        if (scale == null) return 0;
-        const v = Number(scale);
-        if (!Number.isFinite(v)) return 0;
-        return view.axis.unit === "millennia" ? v / 1000 : v - view.axis.baseY;
-      };
-      return {
-        id: era.id,
-        m: era.mLabel ?? era.name,
-        name: era.name,
-        short: era.short ?? era.name,
-        sub: era.sub ?? "",
-        tagline: era.tagline ?? "",
-        intro: era.intro ?? era.tagline ?? "",
-        cover: era.coverRef ?? "",
-        grouping: view.grouping,
-        groupLabel: view.groupLabel ?? null,
-        baseM: view.baseM ?? null,
-        domain: view.domain,
-        ticks: view.ticks,
-        events: era.events.map((ev) => ({
-          id: ev.id,
-          title: ev.title,
-          dateLabel: ev.dateLabel,
-          tier: ev.tier,
-          approx: ev.approx,
-          offscale: ev.offscale,
-          blurb: ev.blurb,
-          y0: ev.offscale ? 0 : toY(ev.startY),
-          y1: ev.offscale ? 0 : toY(ev.endY ?? ev.startY),
-          artCreditName: ev.artCreditName,
-          artCreditUrl: ev.artCreditUrl,
-          media: ev.works
-            .map((h) => buildChip(h, shows))
-            .filter((c): c is ChronicleChip => c !== null),
-        })),
-      };
-    });
-  } catch (err) {
-    const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
-    console.error(`[/timeline] loadChronicleTimeline failed (${msg}).`);
-    return null;
-  }
+  return eraRows.map((era) => {
+    const view =
+      ERA_VIEW_CONFIG[era.id] ??
+      fallbackEraView(Number(era.startY), Number(era.endY));
+    const toY = (scale: string | null): number => {
+      if (scale == null) return 0;
+      const v = Number(scale);
+      if (!Number.isFinite(v)) return 0;
+      return view.axis.unit === "millennia" ? v / 1000 : v - view.axis.baseY;
+    };
+    return {
+      id: era.id,
+      m: era.mLabel ?? era.name,
+      name: era.name,
+      short: era.short ?? era.name,
+      sub: era.sub ?? "",
+      tagline: era.tagline ?? "",
+      intro: era.intro ?? era.tagline ?? "",
+      cover: era.coverRef ?? "",
+      grouping: view.grouping,
+      groupLabel: view.groupLabel ?? null,
+      baseM: view.baseM ?? null,
+      domain: view.domain,
+      ticks: view.ticks,
+      events: era.events.map((ev) => ({
+        id: ev.id,
+        title: ev.title,
+        dateLabel: ev.dateLabel,
+        tier: ev.tier,
+        approx: ev.approx,
+        offscale: ev.offscale,
+        blurb: ev.blurb,
+        y0: ev.offscale ? 0 : toY(ev.startY),
+        y1: ev.offscale ? 0 : toY(ev.endY ?? ev.startY),
+        artCreditName: ev.artCreditName,
+        artCreditUrl: ev.artCreditUrl,
+        media: ev.works
+          .map((h) => buildChip(h, shows))
+          .filter((c): c is ChronicleChip => c !== null),
+      })),
+    };
+  });
 }
+
+/**
+ * The public entry point: the two-round-trip spine read behind Next's
+ * persistent Data Cache (the headline route previously re-queried Postgres on
+ * every request). The spine payload is a few hundred KB at most — far under
+ * the 2 MB entry cap — and changes only with a timeline apply run, which
+ * purges the `timeline` tag via `POST /api/revalidate`.
+ */
+export const loadChronicleTimeline = cachedRead(
+  fetchChronicleTimeline,
+  ["timeline"],
+  { tags: ["timeline"] },
+);

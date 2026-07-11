@@ -178,10 +178,11 @@ export function parseManifest(raw: string | null): SnapshotManifest | null {
 /**
  * Hard minimums per core projection — roughly HALF of the live counts measured
  * read-only on 2026-07-11 (books 889 · podcast shows 4 · episodes 1114 ·
- * factions 227 · characters 500 · locations 442 · persons 136). The src
- * loaders degrade to `[]`/`null` on DB errors; the exporter must never inherit
- * that pattern, and a "successful" run that lost half the catalog is a failed
- * run too (empty OR implausibly small ⇒ abort before writing).
+ * factions 227 · characters 500 · locations 442 · persons 136). The pre-S2
+ * src loaders degraded to `[]`/`null` on DB errors (they throw since S2); the
+ * exporter must never inherit a degrade pattern, and a "successful" run that
+ * lost half the catalog is a failed run too (empty OR implausibly small ⇒
+ * abort before writing).
  */
 export const MIN_COUNTS = {
   books: 450,
