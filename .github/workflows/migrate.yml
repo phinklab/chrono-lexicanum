@@ -1,27 +1,112 @@
-# Manual production-DB migration (Report 144 § B.1).
+# Production-DB migration + migration rehearsal (Report 144 § B.1, Launch S3a).
 #
 # Migrations are deliberately DECOUPLED from the Vercel build: `vercel-build`
 # used to run `tsx scripts/migrate.ts && next build`, which migrated the prod
 # DB on every deploy — including rollbacks and doc-only redeploys — and a
 # failing migration aborted the deploy with the DB possibly mid-state. Build
 # reproducibility and DB migration are different risk classes, so applying a
-# migration is now an explicit act: trigger this workflow from the Actions tab
+# migration is an explicit act: trigger this workflow from the Actions tab
 # (or run `npm run db:migrate` locally against .env.local).
 #
-# Requires the `DATABASE_URL` repository secret — use the Supabase *pooler*
-# URL (the direct connection is IPv6-only, which GitHub-hosted runners lack).
+# Two jobs (Launch S3a Punkt 4):
+#
+#   rehearsal — runs on every PR touching migrations/role scripts AND before
+#     every production migration. Migrates a FRESH Postgres service container,
+#     proves the second run is idempotent ("applied 0 migration(s)"), applies
+#     the runtime-role grants twice (idempotent), and runs the runtime-role
+#     positive/negative probes (scripts/verify-runtime-role.ts). The container
+#     speaks no TLS — `sslmode=disable` is allowed ONLY here, enforced by the
+#     loopback guard in scripts/pg-ssl.ts. Supabase stays TLS-required.
+#
+#   migrate — manual dispatch only, gated by the `production-db` GitHub
+#     Environment (required-reviewer approval — configured in Settings →
+#     Environments, see scripts/runbooks/db-roles-runbook.md). Uses the
+#     MIGRATION_DATABASE_URL environment secret: the privileged Supabase
+#     *pooler* URL (the direct connection is IPv6-only, which GitHub-hosted
+#     runners lack). The Vercel runtime never holds this credential (S3b
+#     cutover moves it to the least-privilege RUNTIME_DATABASE_URL).
 name: migrate
 
 on:
   workflow_dispatch:
+  pull_request:
+    paths:
+      - 'src/db/migrations/**'
+      - 'scripts/migrate.ts'
+      - 'scripts/apply-db-roles.ts'
+      - 'scripts/runtime-role.ts'
+      - 'scripts/verify-runtime-role.ts'
+      - 'scripts/pg-ssl.ts'
+      - '.github/workflows/migrate.yml'
 
-concurrency:
-  group: migrate-prod
-  cancel-in-progress: false
+permissions:
+  contents: read
 
 jobs:
-  migrate:
+  rehearsal:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_PASSWORD: rehearsal
+        ports:
+          - '5432:5432'
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      # Throwaway service container — the ONLY place sslmode=disable is legal
+      # (loopback guard in scripts/pg-ssl.ts).
+      REHEARSAL_DATABASE_URL: postgres://postgres:rehearsal@127.0.0.1:5432/postgres?sslmode=disable
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Migrate a fresh Postgres
+        env:
+          DATABASE_URL: ${{ env.REHEARSAL_DATABASE_URL }}
+        run: npx tsx scripts/migrate.ts
+
+      - name: Second run must be idempotent (applies nothing)
+        env:
+          DATABASE_URL: ${{ env.REHEARSAL_DATABASE_URL }}
+        run: |
+          set -euo pipefail
+          npx tsx scripts/migrate.ts | tee second-run.log
+          grep -q 'applied 0 migration' second-run.log
+
+      - name: Apply runtime-role grants — twice, proving idempotence
+        env:
+          DATABASE_URL: ${{ env.REHEARSAL_DATABASE_URL }}
+        run: |
+          set -euo pipefail
+          npx tsx scripts/apply-db-roles.ts --login-password ci-rehearsal
+          npx tsx scripts/apply-db-roles.ts --login-password ci-rehearsal
+
+      - name: Runtime-role probes (allowlist readable, submissions/DML/DDL denied)
+        env:
+          RUNTIME_DATABASE_URL: postgres://chrono_runtime:ci-rehearsal@127.0.0.1:5432/postgres?sslmode=disable
+        run: npx tsx scripts/verify-runtime-role.ts
+
+  migrate:
+    if: github.event_name == 'workflow_dispatch'
+    needs: rehearsal
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: production-db
+    concurrency:
+      group: migrate-prod
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v7
 
@@ -34,4 +119,4 @@ jobs:
 
       - run: npx tsx scripts/migrate.ts
         env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          MIGRATION_DATABASE_URL: ${{ secrets.MIGRATION_DATABASE_URL }}
