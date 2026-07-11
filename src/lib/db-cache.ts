@@ -14,6 +14,27 @@
  * each TTL window does the real read; every other concurrent visitor — across
  * serverless instances — is served from Next's persistent Data Cache.
  *
+ * ## Loader error contract (Launch S2)
+ *
+ * Every public loader follows one convention — three states, no Result
+ * framework:
+ *
+ *   - **Detail loaders** (one entity/book/show by id or slug) return the data,
+ *     or `null` for genuine absence (no such row), and THROW on DB/shape
+ *     errors. Only `null` leads to `notFound()`; a throw reaches the route's
+ *     error boundary.
+ *   - **Index loaders** (catalogue lists) return an array — legitimately empty
+ *     is a valid result — and THROW on DB/shape errors.
+ *
+ * So a DB outage renders an error surface, never a 404 and never an "empty
+ * archive". The cache layers below inherit that contract: a throwing fill is
+ * never persisted (Next's `unstable_cache` only stores resolved values), the
+ * error propagates to the caller exactly once per request (no retry
+ * fallback), and — on the warm path — an expired entry whose background
+ * refresh fails keeps serving the last good value (`unstable_cache` returns
+ * the stale response when its revalidation callback rejects), which preserves
+ * the stale-good behaviour during a transient incident.
+ *
  * Why `unstable_cache` and not the newer `'use cache'` directive: `'use cache'`
  * requires the app-wide `cacheComponents` flag, which (a) is a project-wide
  * behaviour switch that deletes every `export const revalidate` we already rely
@@ -27,17 +48,18 @@
 import "server-only";
 import { cache } from "react";
 import { unstable_cache } from "next/cache";
+import { READ_CACHE_TTL } from "@/lib/memory-cache";
 
-/**
- * Default TTL for cached catalogue reads, in seconds. Stale-by-up-to-an-hour is
- * fine — the data only changes when an ingestion/apply run lands (roughly
- * weekly). A short TTL (e.g. 300 s) means a heavy cold refill every five
- * minutes; the /compendium fill was measured at 60–120 s and wedges the whole
- * `max:5` pool while it runs, so the refill must be rare, not frequent.
- * Freshness after an apply run comes from on-demand invalidation
- * (`POST /api/revalidate` → `revalidateTag`), not from a short TTL.
- */
-export const READ_CACHE_TTL = 3600;
+// The per-instance sibling (`memoryCachedRead`, its reset registry and the
+// shared TTL) lives in `src/lib/memory-cache.ts` — a deliberately
+// `server-only`-free module so the ask engine stays loadable from the manual
+// tsx scripts. Re-exported here so server code keeps one import home for the
+// caching layer.
+export {
+  READ_CACHE_TTL,
+  memoryCachedRead,
+  resetMemoryCaches,
+} from "@/lib/memory-cache";
 
 /**
  * Canonical registry of catalogue cache tags. Every `cachedRead` call site
@@ -53,28 +75,29 @@ export const CATALOGUE_TAGS = [
   "authors",
   "archive",
   "books",
+  "entities",
+  "podcasts",
+  "timeline",
 ] as const;
 
-interface CachedReadOptions<T> {
+interface CachedReadOptions {
   /** Cache tags for on-demand invalidation (e.g. from the ingestion pipeline). */
   tags?: string[];
   /** TTL override (seconds). Defaults to {@link READ_CACHE_TTL}. */
   revalidate?: number;
-  /**
-   * Returns true when a result is a *degraded* (DB-error) fallback that must NOT
-   * be cached. Our loaders swallow DB errors into an empty result; without this
-   * guard a single transient failure during a cache-fill would persist "empty"
-   * for the whole TTL. When `isDegraded` returns true we throw inside the cached
-   * scope so `unstable_cache` skips persisting, and the caller falls back to a
-   * live read for that one request — the next request retries.
-   */
-  isDegraded?: (value: T) => boolean;
 }
 
 /**
  * Wrap a zero-arg DB loader so its result is cached across requests (and across
  * serverless instances) for {@link READ_CACHE_TTL} seconds. Layers React
  * `cache()` on top so repeat calls within a single request collapse to one.
+ *
+ * Error semantics follow the S2 contract (file header): the loader THROWS on
+ * DB/shape errors. `unstable_cache` never persists a rejected fill, so a cold
+ * failure propagates to the error boundary and the next request retries; a
+ * failure while refreshing an expired entry serves the last good value
+ * (stale-good). There is deliberately NO catch-and-retry here — a failing
+ * source is hit exactly once per request.
  *
  * The loader MUST return a JSON-serializable value (no `Date`, class instances,
  * or `Buffer`) — `unstable_cache` serializes through the Data Cache. All current
@@ -91,89 +114,8 @@ interface CachedReadOptions<T> {
 export function cachedRead<T>(
   fn: () => Promise<T>,
   keyParts: string[],
-  options: CachedReadOptions<T> = {},
+  options: CachedReadOptions = {},
 ): () => Promise<T> {
-  const { tags, revalidate = READ_CACHE_TTL, isDegraded } = options;
-
-  const fetchFresh = unstable_cache(
-    async (): Promise<T> => {
-      const value = await fn();
-      if (isDegraded?.(value)) {
-        throw new Error(`[db-cache] degraded read (${keyParts.join(":")}) — not caching`);
-      }
-      return value;
-    },
-    keyParts,
-    { revalidate, tags },
-  );
-
-  return cache(async (): Promise<T> => {
-    try {
-      return await fetchFresh();
-    } catch {
-      // Degraded result (or a real cache/read error). Fall back to a single live
-      // read — the underlying loaders already degrade to an empty value on DB
-      // failure, so this never throws and never caches the bad result.
-      return fn();
-    }
-  });
-}
-
-/** Reset hooks for every {@link memoryCachedRead} instance (best-effort,
- *  current process only) — called by `POST /api/revalidate` alongside
- *  `revalidateTag` so an apply run can also nudge the in-memory layer. */
-const memoryCacheResets: Array<() => void> = [];
-
-export function resetMemoryCaches(): void {
-  for (const reset of memoryCacheResets) reset();
-}
-
-/**
- * In-memory, per-instance sibling of {@link cachedRead} for read-mostly
- * payloads that exceed Next's 2 MB per-cache-entry limit and therefore cannot
- * use the persistent Data Cache (the `/archive` browse blob: 2.60 MB full,
- * 2.21 MB with truncated synopses — measured at 889 books).
- *
- * The cache holds the *promise*, so concurrent callers coalesce onto one
- * in-flight read — the anti-stampede property that stops N parallel `/archive`
- * requests from firing N pool-exhausting queries. Scope is
- * one server process: each serverless instance fills once per TTL window,
- * which trades the cross-instance sharing of `cachedRead` for freedom from the
- * size cap. A degraded or thrown fill is dropped immediately so the next
- * request retries instead of pinning a bad value for the whole TTL.
- */
-export function memoryCachedRead<T>(
-  fn: () => Promise<T>,
-  options: { ttlSeconds?: number; isDegraded?: (value: T) => boolean } = {},
-): () => Promise<T> {
-  const { ttlSeconds = READ_CACHE_TTL, isDegraded } = options;
-  let cached: Promise<T> | null = null;
-  let expiresAt = 0;
-  let fillSeq = 0;
-  memoryCacheResets.push(() => {
-    cached = null;
-  });
-
-  return async (): Promise<T> => {
-    if (cached && expiresAt > Date.now()) return cached;
-    // Sequence number guards the late-resolution paths: a degraded/failed fill
-    // only clears the slot if no newer fill has replaced it in the meantime.
-    const seq = ++fillSeq;
-    const value = (async () => {
-      try {
-        const v = await fn();
-        // A degraded (empty-on-error) fill serves this round of callers but is
-        // not retained — the next request retries instead of pinning a bad
-        // value for the whole TTL.
-        if (isDegraded?.(v) && seq === fillSeq) cached = null;
-        return v;
-      } catch (err) {
-        if (seq === fillSeq) cached = null;
-        throw err;
-      }
-    })();
-    cached = value;
-    expiresAt = Date.now() + ttlSeconds * 1000;
-    return value;
-  };
+  const { tags, revalidate = READ_CACHE_TTL } = options;
+  return cache(unstable_cache(fn, keyParts, { revalidate, tags }));
 }

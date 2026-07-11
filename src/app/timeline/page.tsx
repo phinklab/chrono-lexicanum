@@ -58,15 +58,18 @@ export default async function TimelinePage({ searchParams }: TimelinePageProps) 
     redirect(`/timeline?era=${LEGACY_ERA[eraRaw]}${view}`);
   }
 
+  // A DB outage THROWS out of the loader into the root error boundary (S2
+  // contract) — this branch is only the honest empty state of an unseeded
+  // events spine.
   const eras = await loadChronicleTimeline();
-  if (!eras || eras.length === 0) {
+  if (eras.length === 0) {
     return (
       <main className="chron-shell">
         <div className="chron-empty">
           <div className="ce-kicker">CHRONICA · TEMPORIS</div>
           <p className="ce-text">
-            The archive is unreachable — the chronicle cannot be opened.
-            Try again in a moment.
+            The chronicle holds no entries yet — no eras have reached the
+            archive.
           </p>
         </div>
       </main>

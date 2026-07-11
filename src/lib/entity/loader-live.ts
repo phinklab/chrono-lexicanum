@@ -5,9 +5,9 @@
  * of hot pages, and the compendium's merged-primarch counts. At build time
  * the façade serves the hot subset from the committed snapshot.
  *
- * The whole `loadEntityLive` body is wrapped in try/catch → `null` so one
- * flaky row degrades to a 404 instead of a hard error (S2 revisits that
- * contract). Reverse-junction works carry everything off `works` itself
+ * Error contract (S2, see `src/lib/db-cache.ts`): a missing head row returns
+ * `null` (→ 404); DB/shape errors THROW into the caller's error boundary — an
+ * outage must never read as a 404. Reverse-junction works carry everything off `works` itself
  * (slug/kind/coverUrl/releaseYear) — no `book_details` join needed. Per-page
  * fan-out is at most 4 queries in one `Promise.all`, well under the `max:5`
  * pooler cap (`src/db/client.ts`).
@@ -521,89 +521,80 @@ async function loadPerson(id: string): Promise<EntityView | null> {
 
 // Live bodies behind the façade in ./loader
 
-/** Live body of `listEntityIds` — see the façade for the contract. */
+/** Live body of `listEntityIds` — see the façade for the contract. Index
+ *  contract (S2): the full id list; DB errors throw. */
 export async function listEntityIdsLive(type: EntityType): Promise<string[]> {
-  try {
-    if (type === "character") {
-      const rows = await db
-        .select({ id: charactersTable.id })
-        .from(charactersTable);
-      return rows.map((r) => r.id);
-    }
-    if (type === "faction") {
-      const rows = await db.select({ id: factionsTable.id }).from(factionsTable);
-      return rows.map((r) => r.id);
-    }
-    if (type === "person") {
-      const rows = await db.select({ id: personsTable.id }).from(personsTable);
-      return rows.map((r) => r.id);
-    }
-    const rows = await db.select({ id: locationsTable.id }).from(locationsTable);
+  if (type === "character") {
+    const rows = await db
+      .select({ id: charactersTable.id })
+      .from(charactersTable);
     return rows.map((r) => r.id);
-  } catch {
-    return [];
   }
+  if (type === "faction") {
+    const rows = await db.select({ id: factionsTable.id }).from(factionsTable);
+    return rows.map((r) => r.id);
+  }
+  if (type === "person") {
+    const rows = await db.select({ id: personsTable.id }).from(personsTable);
+    return rows.map((r) => r.id);
+  }
+  const rows = await db.select({ id: locationsTable.id }).from(locationsTable);
+  return rows.map((r) => r.id);
 }
 
 /**
  * Live body of `listHotEntityIds`: intersect the curated {@link HOT_ENTITY_IDS}
  * with the live table — one ID-only `where id in (…)` query over at most a few
  * dozen ids, never a `loadEntity` fanout. A curated id that was later
- * renamed/merged away is simply dropped. try/catch → [] so a DB hiccup
- * degrades to all-on-demand rendering rather than a hard failure.
+ * renamed/merged away is simply dropped. Index contract (S2): DB errors throw
+ * (the build path never reaches this module — it reads the snapshot).
  */
 export async function listHotEntityIdsLive(type: EntityType): Promise<string[]> {
   const ids = [...HOT_ENTITY_IDS[type]];
   if (ids.length === 0) return [];
-  try {
-    if (type === "character") {
-      const rows = await db
-        .select({ id: charactersTable.id })
-        .from(charactersTable)
-        .where(inArray(charactersTable.id, ids));
-      return rows.map((r) => r.id);
-    }
-    if (type === "faction") {
-      const rows = await db
-        .select({ id: factionsTable.id })
-        .from(factionsTable)
-        .where(inArray(factionsTable.id, ids));
-      return rows.map((r) => r.id);
-    }
-    if (type === "person") {
-      const rows = await db
-        .select({ id: personsTable.id })
-        .from(personsTable)
-        .where(inArray(personsTable.id, ids));
-      return rows.map((r) => r.id);
-    }
+  if (type === "character") {
     const rows = await db
-      .select({ id: locationsTable.id })
-      .from(locationsTable)
-      .where(inArray(locationsTable.id, ids));
+      .select({ id: charactersTable.id })
+      .from(charactersTable)
+      .where(inArray(charactersTable.id, ids));
     return rows.map((r) => r.id);
-  } catch {
-    return [];
   }
+  if (type === "faction") {
+    const rows = await db
+      .select({ id: factionsTable.id })
+      .from(factionsTable)
+      .where(inArray(factionsTable.id, ids));
+    return rows.map((r) => r.id);
+  }
+  if (type === "person") {
+    const rows = await db
+      .select({ id: personsTable.id })
+      .from(personsTable)
+      .where(inArray(personsTable.id, ids));
+    return rows.map((r) => r.id);
+  }
+  const rows = await db
+    .select({ id: locationsTable.id })
+    .from(locationsTable)
+    .where(inArray(locationsTable.id, ids));
+  return rows.map((r) => r.id);
 }
 
-/** Live body of `loadEntity` — the façade owns the per-request `cache()`. */
+/** Live body of `loadEntity` — the façade owns the per-request `cache()` and
+ *  the `cachedRead` layer. Detail contract (S2): data | null (unknown id) |
+ *  throw (DB error). */
 export async function loadEntityLive(
   type: EntityType,
   id: string,
 ): Promise<EntityView | null> {
-  try {
-    switch (type) {
-      case "character":
-        return await loadCharacter(id);
-      case "faction":
-        return await loadFaction(id);
-      case "location":
-        return await loadLocation(id);
-      case "person":
-        return await loadPerson(id);
-    }
-  } catch {
-    return null;
+  switch (type) {
+    case "character":
+      return loadCharacter(id);
+    case "faction":
+      return loadFaction(id);
+    case "location":
+      return loadLocation(id);
+    case "person":
+      return loadPerson(id);
   }
 }

@@ -38,129 +38,125 @@ function synopsisTeaser(raw: string | null): string | null {
   return `${safe.trimEnd()}…`;
 }
 
+/** Index contract (S2, see `src/lib/db-cache.ts`): DB errors throw — never an
+ *  empty hall standing in for an outage. */
 export async function fetchBrowseBooksLive(): Promise<BrowseData> {
-  try {
-    const [rows, erasRows] = await Promise.all([
-      db.query.works.findMany({
-        where: (w, { eq }) => eq(w.kind, "book"),
-        columns: {
-          id: true,
-          slug: true,
-          title: true,
-          synopsis: true,
-          coverUrl: true,
-          releaseYear: true,
-          startY: true,
-          endY: true,
+  const [rows, erasRows] = await Promise.all([
+    db.query.works.findMany({
+      where: (w, { eq }) => eq(w.kind, "book"),
+      columns: {
+        id: true,
+        slug: true,
+        title: true,
+        synopsis: true,
+        coverUrl: true,
+        releaseYear: true,
+        startY: true,
+        endY: true,
+      },
+      with: {
+        bookDetails: {
+          columns: {
+            format: true,
+            pageCount: true,
+            seriesIndex: true,
+            primaryEraId: true,
+          },
+          with: { series: { columns: { name: true } } },
         },
-        with: {
-          bookDetails: {
-            columns: {
-              format: true,
-              pageCount: true,
-              seriesIndex: true,
-              primaryEraId: true,
+        factions: {
+          columns: { role: true },
+          with: {
+            faction: {
+              columns: { id: true, name: true, alignment: true, parentId: true },
             },
-            with: { series: { columns: { name: true } } },
-          },
-          factions: {
-            columns: { role: true },
-            with: {
-              faction: {
-                columns: { id: true, name: true, alignment: true, parentId: true },
-              },
-            },
-          },
-          facets: {
-            columns: {},
-            with: {
-              facetValue: {
-                columns: { id: true, name: true, categoryId: true },
-                with: { category: { columns: { name: true } } },
-              },
-            },
-          },
-          persons: {
-            columns: { role: true },
-            with: { person: { columns: { name: true } } },
           },
         },
-      }),
-      db
-        .select({
-          id: erasTable.id,
-          name: erasTable.name,
-          sortOrder: erasTable.sortOrder,
-        })
-        .from(erasTable),
-    ]);
+        facets: {
+          columns: {},
+          with: {
+            facetValue: {
+              columns: { id: true, name: true, categoryId: true },
+              with: { category: { columns: { name: true } } },
+            },
+          },
+        },
+        persons: {
+          columns: { role: true },
+          with: { person: { columns: { name: true } } },
+        },
+      },
+    }),
+    db
+      .select({
+        id: erasTable.id,
+        name: erasTable.name,
+        sortOrder: erasTable.sortOrder,
+      })
+      .from(erasTable),
+  ]);
 
-    const erasById = new Map(erasRows.map((e) => [e.id, e.name]));
+  const erasById = new Map(erasRows.map((e) => [e.id, e.name]));
 
-    const books: BrowseBook[] = rows.map((w) => {
-      const authors = w.persons
-        .filter((wp) => wp.role === "author")
-        .map((wp) => wp.person.name);
+  const books: BrowseBook[] = rows.map((w) => {
+    const authors = w.persons
+      .filter((wp) => wp.role === "author")
+      .map((wp) => wp.person.name);
 
-      const factions: BrowseFaction[] = w.factions
-        .map((wf) => ({
-          id: wf.faction.id,
-          name: wf.faction.name,
-          role: wf.role ?? null,
-          alignment: wf.faction.alignment ?? null,
-          parentId: wf.faction.parentId ?? null,
-        }))
-        .sort((a, b) => a.name.localeCompare(b.name, "en"));
+    const factions: BrowseFaction[] = w.factions
+      .map((wf) => ({
+        id: wf.faction.id,
+        name: wf.faction.name,
+        role: wf.role ?? null,
+        alignment: wf.faction.alignment ?? null,
+        parentId: wf.faction.parentId ?? null,
+      }))
+      .sort((a, b) => a.name.localeCompare(b.name, "en"));
 
-      const facets: BrowseFacet[] = w.facets
-        .filter((wf) => isVisibleFacetCategory(wf.facetValue.categoryId))
-        .map((wf) => ({
-          id: wf.facetValue.id,
-          name: wf.facetValue.name,
-          categoryId: wf.facetValue.categoryId,
-          categoryName: wf.facetValue.category?.name ?? null,
-        }))
-        .sort((a, b) => {
-          const cat = (a.categoryName ?? "").localeCompare(
-            b.categoryName ?? "",
-            "en",
-          );
-          return cat !== 0 ? cat : a.name.localeCompare(b.name, "en");
-        });
+    const facets: BrowseFacet[] = w.facets
+      .filter((wf) => isVisibleFacetCategory(wf.facetValue.categoryId))
+      .map((wf) => ({
+        id: wf.facetValue.id,
+        name: wf.facetValue.name,
+        categoryId: wf.facetValue.categoryId,
+        categoryName: wf.facetValue.category?.name ?? null,
+      }))
+      .sort((a, b) => {
+        const cat = (a.categoryName ?? "").localeCompare(
+          b.categoryName ?? "",
+          "en",
+        );
+        return cat !== 0 ? cat : a.name.localeCompare(b.name, "en");
+      });
 
-      const eraId = w.bookDetails?.primaryEraId ?? null;
+    const eraId = w.bookDetails?.primaryEraId ?? null;
 
-      return {
-        id: w.id,
-        slug: w.slug,
-        title: w.title,
-        synopsis: synopsisTeaser(w.synopsis),
-        coverUrl: w.coverUrl,
-        releaseYear: w.releaseYear,
-        startY: w.startY == null ? null : Number(w.startY),
-        endY: w.endY == null ? null : Number(w.endY),
-        format: w.bookDetails?.format ?? null,
-        pageCount: w.bookDetails?.pageCount ?? null,
-        eraId,
-        eraName: eraId ? erasById.get(eraId) ?? null : null,
-        seriesName: w.bookDetails?.series?.name ?? null,
-        seriesIndex: w.bookDetails?.seriesIndex ?? null,
-        authors,
-        factions,
-        facets,
-      };
-    });
+    return {
+      id: w.id,
+      slug: w.slug,
+      title: w.title,
+      synopsis: synopsisTeaser(w.synopsis),
+      coverUrl: w.coverUrl,
+      releaseYear: w.releaseYear,
+      startY: w.startY == null ? null : Number(w.startY),
+      endY: w.endY == null ? null : Number(w.endY),
+      format: w.bookDetails?.format ?? null,
+      pageCount: w.bookDetails?.pageCount ?? null,
+      eraId,
+      eraName: eraId ? erasById.get(eraId) ?? null : null,
+      seriesName: w.bookDetails?.series?.name ?? null,
+      seriesIndex: w.bookDetails?.seriesIndex ?? null,
+      authors,
+      factions,
+      facets,
+    };
+  });
 
-    const eras: EraOption[] = erasRows
-      .map((e) => ({ id: e.id, name: e.name, sortOrder: e.sortOrder }))
-      .sort((a, b) => a.sortOrder - b.sortOrder);
+  const eras: EraOption[] = erasRows
+    .map((e) => ({ id: e.id, name: e.name, sortOrder: e.sortOrder }))
+    .sort((a, b) => a.sortOrder - b.sortOrder);
 
-    return { books, eras };
-  } catch (err) {
-    const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
-    console.error(`[/archive] DB fetch failed (${msg}); rendering empty hall.`);
-    return { books: [], eras: [] };
-  }
+  return { books, eras };
 }
 
 /** Live body of `bookSlugById` — see the façade in `./loader` for the contract. */

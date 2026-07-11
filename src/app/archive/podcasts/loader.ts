@@ -32,6 +32,7 @@
  */
 import "server-only";
 import { cache } from "react";
+import { cachedRead } from "@/lib/db-cache";
 import {
   isBuildPhase,
   readSnapshotArtifact,
@@ -100,22 +101,32 @@ export interface PodcastShowDetail {
 }
 
 // loadPodcastIndex — the /archive/podcasts hall (prerendered, revalidate=3600).
-// Build: committed snapshot (fail-closed). Runtime (ISR refresh): live DB.
+// Build: committed snapshot (fail-closed). Runtime (ISR refresh): live DB
+// behind `cachedRead` — the `podcasts` tag lets `POST /api/revalidate` surface
+// a fresh ingest immediately instead of waiting out the ISR window. Index
+// contract (S2): an array; DB errors throw.
 export async function loadPodcastIndex(): Promise<PodcastIndexShow[]> {
   if (isBuildPhase()) {
     return readSnapshotArtifact<PodcastIndexShow[]>("podcastIndex");
   }
   const { loadPodcastIndexLive } = await import("./loader-live");
-  return loadPodcastIndexLive();
+  return cachedRead(loadPodcastIndexLive, ["podcast-index"], {
+    tags: ["podcasts"],
+  })();
 }
 
 // loadPodcastShow — show details render on demand only (empty
-// `generateStaticParams` on the route), so this always takes the live path.
+// `generateStaticParams` on the route), so this always takes the live path,
+// behind a per-slug `cachedRead` (the loadBook pattern: a missing slug caches
+// as a stable `null`, a DB error throws and is never cached). Even the
+// biggest show's episode list is a few hundred KB — under the 2 MB entry cap.
 export async function loadPodcastShow(
   slug: string,
 ): Promise<PodcastShowDetail | null> {
   const { loadPodcastShowLive } = await import("./loader-live");
-  return loadPodcastShowLive(slug);
+  return cachedRead(() => loadPodcastShowLive(slug), ["podcast-show", slug], {
+    tags: ["podcasts"],
+  })();
 }
 
 // Unified search index (books + podcasts share one typeahead).
@@ -138,14 +149,18 @@ export interface PodcastSearchData {
 
 /** `cache()`-wrapped so a page that also calls it elsewhere in one render
  *  dedupes the round-trip. Build: committed snapshot (fail-closed). Runtime:
- *  live DB, degrading to empty on an unreachable DB. */
+ *  live DB behind `cachedRead` — `/archive` is searchParams-dynamic and
+ *  composes this into every request, so without the cross-request layer the
+ *  two projection queries would run per visitor. DB errors throw (S2). */
 export const loadPodcastSearchIndex = cache(
   async (): Promise<PodcastSearchData> => {
     if (isBuildPhase()) {
       return readSnapshotArtifact<PodcastSearchData>("podcastSearch");
     }
     const { loadPodcastSearchIndexLive } = await import("./loader-live");
-    return loadPodcastSearchIndexLive();
+    return cachedRead(loadPodcastSearchIndexLive, ["podcast-search"], {
+      tags: ["podcasts"],
+    })();
   },
 );
 

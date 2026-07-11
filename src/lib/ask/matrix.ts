@@ -18,6 +18,7 @@
  * "Browse deeper" goes live. The cache is cleared via the same revalidate path
  * as `cachedAskBooks`.
  */
+import { memoryCachedRead } from "@/lib/memory-cache";
 import { compareByMerit } from "./compare";
 import { recommend } from "./recommend";
 import type { AskAnswers, AskRecommendation } from "./types";
@@ -135,8 +136,6 @@ export function resolveAskCell(
   });
 }
 
-let matrixPromise: Promise<Map<string, AskRecommendation[]>> | null = null;
-
 async function buildMatrix(): Promise<Map<string, AskRecommendation[]>> {
   const cells = new Map<string, AskRecommendation[]>();
   for (const experience of EXPERIENCES) {
@@ -157,19 +156,20 @@ async function buildMatrix(): Promise<Map<string, AskRecommendation[]>> {
 }
 
 /**
+ * The 144-cell matrix behind the /ask hot path. `memoryCachedRead` keeps the
+ * rejection eviction the ad-hoc promise slot already had (a transient DB
+ * failure must not wedge /ask) and adds the TTL + fill coalescing it lacked.
+ * Cleared by `POST /api/revalidate` via `resetMemoryCaches()`.
+ */
+const cachedMatrix = memoryCachedRead(buildMatrix);
+
+/**
  * The production accessor: returns the Top-`MATRIX_CELL_LIMIT` cell for a
  * complete profile from the precomputed, cached 144-cell matrix (`any_*`
  * resolved by merging cached concrete cells). Builds the matrix on first use.
  */
 export async function getAskMatrixCell(answers: AskAnswers): Promise<AskRecommendation[]> {
-  if (!matrixPromise) {
-    matrixPromise = buildMatrix();
-    // Don't cache a rejection — a transient DB failure must not wedge /ask.
-    matrixPromise.catch(() => {
-      matrixPromise = null;
-    });
-  }
-  const matrix = await matrixPromise;
+  const matrix = await cachedMatrix();
   return resolveFromCells(answers, MATRIX_CELL_LIMIT, (concrete) =>
     matrix.get(
       cellKey(
@@ -180,8 +180,4 @@ export async function getAskMatrixCell(answers: AskAnswers): Promise<AskRecommen
       ),
     ) ?? [],
   );
-}
-
-export function clearAskMatrixCache(): void {
-  matrixPromise = null;
 }
