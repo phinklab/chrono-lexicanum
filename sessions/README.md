@@ -17,20 +17,22 @@ For naming, lifecycle and archiving, see [`brain/wiki/workflows/sessions-format.
 
 ## Current head — 2026-07-11
 
-`main` is at `2226d65`. The product is in pre-launch hardening behind the preview gate.
+`main` is at `013c955` (S0 merged, PR #240). The product is in pre-launch hardening behind the preview gate.
 
 - **Corpus/runtime:** 896 per-book SSOT books; W28 applied podcast state = 1,114 episodes; 30 DB-free test suites.
 - **Cartographer:** 1,055 worlds, 15 hand-curated zones, 923 lazy world blurbs and 8 Great Journeys / 101 acts. Mobile journey motion uses the Canvas path from Session 192; Session 191's isolated SVG-plane attempt is superseded.
 - **Product wave 185–190:** Brief 181 prune delivered; app `/lab` removed; mobile map/Chronicle/player and responsive catalogue work shipped; `/artwork` is public; redundant headings/copy cleaned; Great Journeys shipped. Static `public/lab/ofob` Ask prototypes were later reintroduced intentionally.
 - **Launch mode:** sessions run serially from the coordination worktree; the plan and kickoff prompts are canonical in-repo since S0 ([`docs/launch-master-plan.md`](../docs/launch-master-plan.md) + [`docs/launch-session-prompts.md`](../docs/launch-session-prompts.md)). PR contents remain strand-pure and `main` remains read-only.
 - **S0 closed (Session 194, 2026-07-11):** URL matrix = full EN migration incl. `/buch → /book` (`/person` stays; plan Appendix A); canonical host `https://www.chrono-lexicanum.com` (already wired); Era default (stamp removal + bucketing + `NULL`, S1a); error-only tracker yes (S5).
-- **Next:** close the four release-order contradictions (OQ 19), then S1a.
+- **OQ 19 closed (Session 195, 2026-07-11):** release order authoritative in the plan — S1a split into Code-PR + S1a-Snapshot release PR; revalidation is an explicit post-deploy command (S3a); `RUNTIME_DATABASE_URL` consumer switch is S3b with maintainer-gated cutover; snapshot PRs stay separate from coordination evidence.
+- **Next:** S1a (Code-PR) per `docs/launch-session-prompts.md`.
 - **Operator checks:** migration `0015`, optional production `db:drift`, and Philipps Pixel/Chrome verdict for Session 192.
 
 ## Active / load-bearing threads
 
 | Session | Role | Status | Topic |
 |---|---|---|---|
+| [195-impl-launch-release-preflight](./2026-07-11-195-impl-launch-release-preflight.md) | implementer | complete | OQ-19-Preflight: release order canonized (S1a split, post-deploy revalidation, S3b runtime cutover, PR separation); OQ 19 closed. |
 | [194-impl-launch-s0](./2026-07-11-194-impl-launch-s0.md) | implementer | complete | Launch S0: plan + prompts canonicalized under `docs/`; URL matrix, host, Era and tracker decisions recorded (plan Appendix A). |
 | [193-impl-brain-launch-rollup](./2026-07-10-193-impl-brain-launch-rollup.md) | implementer | complete | Coordination ingest through 192 + W28; durable launch-mode/preflight record. |
 | [192-impl-mobile-cartographer-canvas](./2026-07-10-192-impl-mobile-cartographer-canvas.md) | implementer | complete | Canonical mobile route-motion fix: Canvas ≤900 px, 30 fps, DPR ≤2; SVG paint animation off on mobile; Pixel verdict pending. |

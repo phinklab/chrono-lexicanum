@@ -4,6 +4,7 @@ type: overview
 created: 2026-05-09
 updated: 2026-07-11
 sources:
+  - ../../sessions/2026-07-11-195-impl-launch-release-preflight.md
   - ../../sessions/2026-07-11-194-impl-launch-s0.md
   - ../../docs/launch-master-plan.md
   - ../../sessions/2026-07-10-193-impl-brain-launch-rollup.md
@@ -23,20 +24,11 @@ confidence: high
 
 > Questions the **next** coordination brief/session must close. Keep this queue small; dormant work belongs in [`deferred-questions.md`](./deferred-questions.md), operational work in [`worklist.md`](./worklist.md), and closed history in [`log.md`](./log.md).
 
-## (19) Make the launch release order internally consistent
-
-`Owner: Philipp + Codex (preflight before S1a)` · `Sessions: 193, 194` · `Follow-up: close before S1a starts`
-
-S0 (Session 194) closed the four maintainer decisions but deliberately did not touch the release order — the plan (now canonical at `docs/launch-master-plan.md`) still contains four incompatible contracts that must be resolved before implementation:
-
-1. Era/apply code may not mutate production before its PR is merged.
-2. Revalidation must follow the snapshot deploy, or the `db:sync` hook must be explicitly suppressible/deferred during a two-stage release.
-3. Moving Vercel to `RUNTIME_DATABASE_URL` requires an actual consumer change in `src/db/client.ts`; a scripts-only DB-hardening PR cannot complete the cutover.
-4. The final snapshot is a Batches release PR/deploy; its evidence protocol is a separate coordination artifact, not a mixed-strand PR.
-
-A short preflight (Cowork or a mini coordination pass) should write one authoritative sequence into the plan and adjust the S1a/S3a prompts to it before S1a starts.
+*No open architecture questions right now.* The launch programme's next step is **S1a (Code-PR)** per `docs/launch-session-prompts.md`; dormant items live in [`deferred-questions.md`](./deferred-questions.md).
 
 ---
+
+**19 (launch release order) closed in Session 195 (OQ-19-Preflight, 2026-07-11, Philipp-confirmed):** all four contradictions resolved in `docs/launch-master-plan.md` + prompts — (1) S1a split into a Code-PR (no production writes) and a separate "S1a-Snapshot" release PR (one `db:sync` after merge + freeze + explicit Go; the snapshot PR is the deploy); (2) `db:sync` never auto-revalidates — S3a ships an explicit fail-loud post-deploy revalidation command the E4 runbook calls exactly once after the snapshot deploy; (3) the `RUNTIME_DATABASE_URL` consumer switch in `src/db/client.ts` is S3b (Product) with a transitional fallback and a maintainer-gated Vercel cutover; (4) snapshot artifacts ship in Batches release PRs, the launch-readiness protocol + rollups stay separate coordination PRs. Durable record: plan §§ S1a/S3a/S3b/Launch-Readiness + Nachtrag 2026-07-11.
 
 **16b (Era policy) closed in S0/Session 194:** Philipp chose the default variant — remove the blanket stamp, bucket mechanically from setting dates, else `NULL`; Chronicle verified unaffected (reads only the `eras`/`events` spine). Implementation is plan § S1a; the durable record lives in `docs/launch-master-plan.md` § Entscheidungen.
 

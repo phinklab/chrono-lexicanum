@@ -5,6 +5,7 @@ created: 2026-07-01
 updated: 2026-07-11
 sources:
   - ../../sessions/README.md
+  - ../../sessions/2026-07-11-195-impl-launch-release-preflight.md
   - ../../sessions/2026-07-11-194-impl-launch-s0.md
   - ../../docs/launch-master-plan.md
   - ../../sessions/2026-07-10-193-impl-brain-launch-rollup.md
@@ -33,7 +34,7 @@ The launch plan is the active execution programme and is canonical in-repo since
 
 1. **S0 — decisions closed (Session 194, 2026-07-11).**
    - Decided: URL matrix = full EN migration incl. `/buch → /book` (`/person` stays; details in plan Appendix A); canonical host `https://www.chrono-lexicanum.com` (already wired, apex 308s to www); Era default (stamp removal + mechanical bucketing + `NULL`, S1a); error-only tracker yes (S5).
-   - **Still open before S1a (OQ 19):** correct four release-order issues — no production apply from unmerged Era code; revalidation after snapshot deploy (or explicitly suppressible); wire the runtime credential into the actual DB client; split the final snapshot deploy from the coordination evidence report.
+   - **OQ 19 closed (Session 195, 2026-07-11):** release order authoritative in the plan — S1a = Code-PR (no production writes) + separate S1a-Snapshot release PR (sync after merge + Go; snapshot PR = deploy); revalidation = explicit fail-loud post-deploy command (S3a); `RUNTIME_DATABASE_URL` consumer switch = S3b with maintainer-gated cutover; snapshot PRs stay separate from coordination evidence. **Next session: S1a (Code-PR).**
    - Brief 181 is implemented via Session 185. Brief 182 is superseded by the launch programme, not implemented.
 2. **Build stability.** Versioned public build projections + manifest; DB-free build consumers and required build gate; loader error semantics/caches; least-privilege runtime/migration credentials; CSP/login/health/audio hardening.
 3. **Launch contract.** Canonical routes and book ISR; book projection added to the snapshot; SEO/robots/sitemap/OG/observability plus launch/rollback runbook.

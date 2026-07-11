@@ -1726,3 +1726,15 @@ Von Philipp beauftragter „wir sind von der Doku gerade nicht auf dem aktuellen
 **Statusbereinigung:** Briefe 181 (implemented) / 182 (superseded) waren bereits durch Session 193 korrekt gebucht — keine weitere Änderung. README war durch 193 bereits neu geschrieben; S0 ergänzt nur die kanonische Live-URL und den Plan-Link.
 
 **Wiki-Ingest:** `project-state` (Plan kanonisch, S0-Entscheidungen, Open-now-Liste), `worklist` (§A S0 geschlossen, Local-plan-safety-Merker entfernt), `open-questions` (16b geschlossen; OQ 19 bleibt — die vier Release-Reihenfolge-Widersprüche sind bewusst NICHT in S0 gelöst und stehen vor S1a an), `sessions/README.md`, `README.md`, dieser Log-Eintrag.
+
+---
+
+## 2026-07-11 · Coordination · OQ-19-Preflight — Release-Reihenfolge kanonisiert (Session 195)
+
+**Basis:** Branch `codex/session-195-launch-release-preflight` von `main` (`013c955`, S0 gemerged via PR #240). Report: `sessions/2026-07-11-195-impl-launch-release-preflight.md`.
+
+**Entscheidungen (Philipp, 2026-07-11, „A und B bestätigt"):** Sechs Entwurfs-Entscheidungen bestätigt (A1 S1a-Zweiteilung Code-PR/S1a-Snapshot; A2 Era-Dateninvariante — echte M41-Bücher behalten `time_ending`, 44/97 code-verifiziert; A3 enge package.json-Ausnahme nur `snapshot:regen`; A4 Manifest-Determinismus mit Timestamp-Carry-forward; A5 scriptseitiger `import type`-Exporter-Seam; A6 Migration-0015-Paritäts-Check vor jedem Produktions-Write). Drei offene Punkte entschieden: **B1** — `db:sync` löst keine Revalidation aus; S3a liefert einen expliziten, fail-loud Post-Deploy-Befehl, das E4-Runbook ruft ihn genau einmal nach erfolgreichem Snapshot-Deploy auf. **B2** — der `RUNTIME_DATABASE_URL`-Consumer-Wechsel in `src/db/client.ts` gehört zu S3b (Product) mit Übergangs-Fallback und maintainer-gehaltenem Vercel-Cutover; S3a liefert nur Rolle/Grants/Credential. **B3** — Snapshot-Artefakte bleiben im Batches-Release-PR; Launch-Readiness-Protokoll + Rollups bleiben separate Koordinations-PRs.
+
+**Docs:** `docs/launch-master-plan.md` (E4-Präzisierung, § S2-Hinweis, § S3a Punkte 3+5 + Fertig-wenn, § S3b neuer Punkt 5 + Fertig-wenn, Launch-Readiness PR-Schnitt + Punkt 6, Changelog-9-Korrektur, Nachtrag-Vertagungssatz ersetzt) und `docs/launch-session-prompts.md` (Statustabelle S3a/S3b, S3a-/S3b-Prompts, S1a-Snapshot-Punkt 6, Launch-Readiness B3) widerspruchsfrei; die S1a-Zweiteilung war als uncommitted Vorarbeit schon im Working Tree und wurde verifiziert übernommen.
+
+**Wiki-Ingest:** `open-questions` (OQ 19 geschlossen, Queue leer), `project-state` (Preflight-Absatz, Open-now, Next action = S1a Code-PR), `worklist` (§ A OQ-19-Zeile geschlossen), `sessions/README.md` (Head `013c955`, 195-Zeile), dieser Log-Eintrag. Keine Code-, DB-, Deploy- oder Revalidation-Aktion in dieser Session.

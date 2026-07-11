@@ -17,11 +17,12 @@ Begleitdokument zu [`launch-master-plan.md`](./launch-master-plan.md) (v2 + E8).
 | # | Session | Branch | Voraussetzung | Status |
 |---|---|---|---|---|
 | 1 | S0 — Kanonisierung & Entscheidungen | `codex/session-194-launch-s0` | — | ☑ (Session 194) |
-| 2 | S1a — Snapshot-Exporter & Era-Fix | `codex/ingest-batches-snapshot-exporter` | S0 | ☐ |
-| 3 | S1b — DB-freie Consumer & CI | `codex/product-build-decouple` | S1a | ☐ |
+| 2 | S1a — Snapshot-Exporter & Era-Fix (Code-PR) | `codex/ingest-batches-snapshot-exporter` | S0 | ☐ |
+| 2b | S1a-Snapshot — Produktions-Sync & Initial-Artefakte | `codex/ingest-batches-initial-snapshot` | S1a gemerged + Freeze + Go | ☐ |
+| 3 | S1b — DB-freie Consumer & CI | `codex/product-build-decouple` | S1a-Snapshot | ☐ |
 | 4 | S2 — Fehlersemantik & Caches | `codex/product-error-semantics` | S1b | ☐ |
-| 5 | S3a — DB-Rollen & Apply-Hook | `codex/ingest-batches-db-hardening` | S2 | ☐ |
-| 6 | S3b — CSP, Login, Health, Audio | `codex/product-csp-login-audio` | S0 (E6) | ☐ |
+| 5 | S3a — DB-Rollen & Release-Revalidation | `codex/ingest-batches-db-hardening` | S2 | ☐ |
+| 6 | S3b — CSP, Login, Audio, Runtime-DB-Cutover | `codex/product-csp-login-audio` | S0 (E6) + S3a | ☐ |
 | 7 | S4 — Kanonische Routen & Book-ISR | `codex/product-canonical-routes` | S0-Matrix, S2 | ☐ |
 | 8 | S4b — Buch-Projektion → Snapshot (Mini) | `codex/ingest-batches-book-snapshot` | S4 | ☐ |
 | 9 | S5 — SEO, Observability, Launch-Runbook | `codex/product-seo-launch` | S3b + S4b | ☐ |
@@ -62,25 +63,49 @@ Kein Commit/PR, bis ich „fertig" sage.
 
 ---
 
-## S1a — Snapshot-Exporter, Manifest, Era-Fix, Release-Runbook
+## S1a — Snapshot-Exporter, Manifest, Era-Fix, Release-Runbook (Code-PR)
 
-**Ziel:** Versionierter Build-Snapshot (nur echte Build-Projektionen) + Manifest + Era-Datenkorrektur + zweistufiges Release-Runbook. **PR-Inhalt:** Batches-rein.
+**Ziel:** Versionierter Build-Snapshot (nur echte Build-Projektionen) + Manifest + Era-Fix im Apply-Pfad + zweistufiges Release-Runbook. **PR-Inhalt:** Batches-rein, nur Code/Tests/Runbook — Produktions-Sync und Artefakte folgen als eigene Session „S1a-Snapshot" (nächster Block). Kein Produktions-Write mit ungemergtem Code (E4 / OQ 19).
 
 ```text
-Launch-Session S1a — Snapshot-Exporter, Manifest, Era-Fix, Release-Runbook.
+Launch-Session S1a — Snapshot-Exporter, Manifest, Era-Fix, Release-Runbook. Code-PR: KEINE Produktions-Writes, KEINE committeten Artefakte.
 
-Worktree: C:\Users\Phil\chrono-lexicanum (E8-Ausnahme laut docs/launch-master-plan.md). Frischer Branch codex/ingest-batches-snapshot-exporter von origin/main. Voraussetzung: S0 gemerged (Era-Entscheidung liegt vor) — sonst stoppen und melden.
+Worktree: C:\Users\Phil\chrono-lexicanum (E8-Ausnahme laut docs/launch-master-plan.md). Vor Branch-Erstellung git status prüfen: Diffs an getrackten Dateien ⇒ stoppen und fragen; untrackte Maintainer-Dateien (z. B. outputs/) liegen lassen und niemals stagen. Frischer Branch codex/ingest-batches-snapshot-exporter von origin/main. Voraussetzung: S0 gemerged (Era-Entscheidung liegt vor) — sonst stoppen und melden.
 
-Verbindliche Spec: docs/launch-master-plan.md § „Session 1a" (+ „Arbeitsmodus", „Leitplanken"). PR-Inhalt bleibt Batches-rein (scripts/**, Runbook, Artefakte); nötige src/-Anpassungen nur notieren → S1b/S2.
+Verbindliche Spec: docs/launch-master-plan.md § „Session 1a" (+ „Arbeitsmodus", „Leitplanken"). Diese Session schreibt NICHT in die Produktions-DB — kein db:sync, kein apply:*; lesende Probeläufe (Exporter, Verifikations-SELECTs) sind ok. PR-Inhalt bleibt Batches-rein: scripts/** + Runbook + GENAU EIN package.json-Eintrag (snapshot:regen — dokumentierte Ausnahme, sonst nichts an package.json); keine src/**-, keine brain/**-Änderungen (nötige src-Anpassungen nur notieren → S1b/S2; taucht ein brain-Diff auf: stoppen).
 
 Kernpunkte (Details im Plan-§):
-1. scripts/build-snapshot.ts + npm-Script snapshot:regen — exportiert NUR die konkreten Build-Projektionen (Home, Podcast-Index, kuratierte Entity-Prerender-Subsets; Liste und Ausschlüsse stehen im Plan-§). Export-Shapes = Loader-Rückgabeformen; diff-freundliche, committete JSONs.
-2. Manifest: Erzeugungszeitpunkt, Quell-Migrationsstand, Counts, Content-Hash pro Datei.
-3. Era-Fix gemäß S0-Entscheidung: den M41_ERA_ID-Pauschalstempel aus scripts/book-apply-shared.ts entfernen. Das Bucketing aus den Setting-Dates gehört in den APPLY-PFAD (Ableitung beim Upsert), NICHT als One-off-UPDATE — es muss einen db:rebuild überleben. Danach einmal db:sync/apply:book --all laufen lassen; Null-Toleranz von Ask/Suche verifizieren (nur lesen, nichts in src/ ändern).
-4. Initiale Artefakte NACH dem Era-Fix erzeugen und committen.
-5. Release-Runbook (zweistufiger Content-Release, E4) unter scripts/runbooks/.
+1. scripts/build-snapshot.ts + npm-Script snapshot:regen — exportiert NUR die konkreten Build-Projektionen (Home, Podcast-Index, kuratierte Entity-Prerender-Subsets; Liste und Ausschlüsse stehen im Plan-§). Die produktiven src-Loader sind server-only und aus tsx nicht ausführbar: der Exporter implementiert eigene DB-Projektionen unter scripts/**; Typen aus src/** ausschließlich per `import type` (zur Laufzeit getilgt) + Contract-Tests, damit Export-Shapes = Loader-Rückgabeformen bleiben. Fail-closed: DB-/Shape-Fehler werfen; leere Kernprojektionen, fehlende Hot-ID-Payloads oder unplausible Counts brechen den Lauf VOR dem Schreiben ab — niemals still leere Artefakte (die src-Loader degradieren bei DB-Fehlern zu []/null; dieses Muster nicht erben).
+2. Manifest: Erzeugungszeitpunkt, Quell-Migrationsstand, Counts, Content-Hash pro Datenartefakt (das Manifest hasht sich nicht selbst). Determinismus: bei inhaltlich identischem Ergebnis wird der vorhandene Erzeugungszeitpunkt übernommen — zwei Läufe ohne DB-Änderung ⇒ byte-identische Dateien.
+3. Era-Fix gemäß S0-Entscheidung, im APPLY-PFAD (Ableitung beim Upsert, muss db:rebuild überleben — kein One-off-UPDATE): M41_ERA_ID-Pauschalstempel aus scripts/book-apply-shared.ts entfernen; ein purer Helper bucketet primary_era_id aus scripts/seed-data/book-dates.json × eras.json (startY bestimmt den Bucket; keine book-dates-Zeile ⇒ NULL; gilt für --slug wie --all; apply:curation-overlay bleibt als letzter Tail höher priorisiert). Apply und Tests nutzen denselben Helper. Mit-Scope (alles Batches): apply-book.ts-Header, book-apply-shared.ts-Kommentare, scripts/test-apply-book.ts (assertiert heute den Stempel), scripts/runbooks/add-book-runbook.md, scripts/runbooks/weekly-refresh-runbook.md. WICHTIG: echte M41-Bücher behalten time_ending zu Recht (reguläre Era 41000–41999; aktuell 44 von 97 book-dates-Einträgen) — verboten ist nur time_ending OHNE passende Setting-Date; Acceptance ist diese Dateninvariante, kein Grep nach dem Literal. Null-Toleranz von Ask/Suche nur lesend verifizieren; stale Kommentare unter src/lib/ask/** report-only → S2/S6.
+4. Release-Runbook (zweistufiger Content-Release, E4) unter scripts/runbooks/: Content-Freeze → read-only Migrations-Head-Parität (Repo == DB; Abweichung ⇒ Stopp, keine improvisierte Migration) → explizites Go → genau ein vollständig grüner db:sync (enthält apply:book --all — nicht zusätzlich laufen lassen) → Artefakte auf frischem Batches-Branch regenerieren → Manifest/Counts/Hashes/Diff prüfen → Snapshot-PR = Deploy → Revalidation + Live-Smoke.
 
-Verifikation: zwei snapshot:regen-Läufe ohne DB-Änderung ⇒ leerer Diff · kein time_ending-Platzhalter mehr in DB-Sicht/Snapshot · die vier PR-Gates (typecheck, lint, test, next build).
+Verifikation: npm run typecheck · npm run lint · npm test · npm run build · npm run test:apply-book · Era-Helper-Tests decken Bucket-Grenzen + NULL-Fall · Exporter-Doppellauf gegen unveränderte DB ⇒ byte-identische Ausgaben (nur lokal prüfen, nichts committen).
+Abschluss: Impl-Report unter sessions/. Kein Commit/PR, bis ich „fertig" sage.
+```
+
+---
+
+## S1a-Snapshot — Produktions-Sync (Era-Fix) & initiale Artefakte
+
+**Ziel:** Erster Lauf des S1a-Release-Runbooks: Era-Fix mit gemergtem Code in die Produktions-DB, dann initiale Snapshot-Artefakte + Manifest. **Der Snapshot-PR ist der Deploy (E4).**
+
+```text
+Launch-Session S1a-Snapshot — Produktions-Sync (Era-Fix) & initiale Snapshot-Artefakte, nach dem S1a-Release-Runbook.
+
+Worktree: C:\Users\Phil\chrono-lexicanum (E8-Ausnahme laut docs/launch-master-plan.md). Vor Branch-Erstellung git status prüfen: Diffs an getrackten Dateien ⇒ stoppen; untrackte Maintainer-Dateien liegen lassen, niemals stagen. Frischer Branch codex/ingest-batches-initial-snapshot von origin/main. Voraussetzungen: S1a gemerged UND Content-Freeze von mir bestätigt — sonst stoppen und melden.
+
+Verbindliche Spec: das in S1a committete Release-Runbook (scripts/runbooks/) + docs/launch-master-plan.md § „Session 1a".
+
+Ablauf:
+1. Read-only-Preflight: Migrations-Head-Parität Repo == DB (Repo-Kopf derzeit 0015_keen_tag). Abweichung ⇒ stoppen und melden; keine Migration improvisieren.
+2. MEIN explizites Go abwarten, dann genau ein npm run db:sync (enthält apply:book --all — nicht doppelt laufen lassen). Scheitert die Kette: Ursache melden; erneuter Lauf nur nach Rücksprache (die Kette ist idempotent).
+3. Era-Invariante read-only verifizieren: jede gesetzte primary_era_id ist aus book-dates.json × eras.json ableitbar (Kurationsoverlay ausgenommen); ohne Setting-Date ⇒ NULL; echte M41-Bücher tragen time_ending zu Recht.
+4. npm run snapshot:regen; Manifest/Counts/Hashes prüfen; zweiter Lauf ⇒ leerer Diff.
+5. Der PR enthält NUR Artefakte + Manifest, keine Code-Änderungen.
+6. Revalidation NIE vor dem Deploy: sie folgt laut Runbook ERST nach dem Merge dieses PRs (= Deploy, E4) — als manueller curl laut Runbook, solange der explizite S3a-Befehl noch nicht existiert (B1). Nichts davon in dieser Session ausführen.
+
+Verifikation: Determinismus-Doppellauf · Invarianten-Check + Counts im Report · die vier PR-Gates.
 Abschluss: Impl-Report unter sessions/ (Counts/Messwerte rein). Kein Commit/PR, bis ich „fertig" sage.
 ```
 
@@ -93,7 +118,7 @@ Abschluss: Impl-Report unter sessions/ (Counts/Messwerte rein). Kein Commit/PR, 
 ```text
 Launch-Session S1b — DB-freie Build-Consumer, CI-Gate, Toolchain.
 
-Worktree: C:\Users\Phil\chrono-lexicanum (E8-Ausnahme laut docs/launch-master-plan.md). Frischer Branch codex/product-build-decouple von origin/main. Voraussetzung: S1a gemerged (Snapshot-Artefakte existieren).
+Worktree: C:\Users\Phil\chrono-lexicanum (E8-Ausnahme laut docs/launch-master-plan.md). Frischer Branch codex/product-build-decouple von origin/main. Voraussetzung: S1a UND S1a-Snapshot gemerged (Snapshot-Artefakte existieren auf main).
 
 Verbindliche Spec: docs/launch-master-plan.md § „Session 1b" (+ „Leitplanken").
 
@@ -127,7 +152,7 @@ Kernpunkte:
 2. db-cache-Doppelaufruf entfernen (src/lib/db-cache.ts, catch ruft fn() erneut); stale-good-Verhalten erhalten.
 3. Caching + Tags nachrüsten: loadTimeline, loadEntity, Podcast-Index/Shows; CATALOGUE_TAGS erweitern.
 4. cachedAskBooks: Rejection-Eviction + TTL (matrixPromise HAT die Eviction schon — matrix.ts:167-170, nicht doppelt bauen).
-5. Revalidation-Semantik: revalidateTag(tag,"max") ist SWR (Next-16-Doku); der „hard-purge"-Kommentar in /api/revalidate ist falsch. Entscheidung umsetzen ({ expire: 0 } ist die Empfehlung für den Apply-Hook), Kommentar fixen.
+5. Revalidation-Semantik: revalidateTag(tag,"max") ist SWR (Next-16-Doku); der „hard-purge"-Kommentar in /api/revalidate ist falsch. Entscheidung umsetzen ({ expire: 0 } ist die Empfehlung für den Release-Revalidation-Befehl aus S3a), Kommentar fixen.
 6. DB-freie Tests: Zustands-Matrix pro Loader, Cache-Pfade cold/warm/fail, Eviction.
 
 Verifikation: Tests belegen — DB-Ausfall nie 404/leeres Archiv, fehlgeschlagene Quelle genau 1× pro Request, keine vergifteten Promises, Query-Zähler cold/warm · die vier PR-Gates.
@@ -136,39 +161,39 @@ Abschluss: Impl-Report unter sessions/. Kein Commit/PR, bis ich „fertig" sage.
 
 ---
 
-## S3a — DB-Rollen, Migrations-Rehearsal, Apply-Hook
+## S3a — DB-Rollen, Migrations-Rehearsal, Release-Revalidation
 
-**Ziel:** Least-Privilege-Runtime-Rolle mit Allowlist, geprobter Migrationsweg, operativ angebundene Revalidation.
+**Ziel:** Least-Privilege-Runtime-Rolle mit Allowlist, geprobter Migrationsweg, expliziter Post-Deploy-Revalidation-Befehl (B1). Der Runtime-Consumer-Wechsel in `src/db/client.ts` ist ausdrücklich S3b.
 
 ```text
-Launch-Session S3a — DB-Rollen, Migrations-Rehearsal, Apply-Hook.
+Launch-Session S3a — DB-Rollen, Migrations-Rehearsal, Release-Revalidation.
 
-Worktree: C:\Users\Phil\chrono-lexicanum (E8-Ausnahme laut docs/launch-master-plan.md). Frischer Branch codex/ingest-batches-db-hardening von origin/main. Voraussetzung: S2 gemerged (der Hook zielt auf den dort fixierten Endpoint).
+Worktree: C:\Users\Phil\chrono-lexicanum (E8-Ausnahme laut docs/launch-master-plan.md). Frischer Branch codex/ingest-batches-db-hardening von origin/main. Voraussetzung: S2 gemerged (der Revalidation-Befehl zielt auf den dort fixierten Endpoint).
 
 Verbindliche Spec: docs/launch-master-plan.md § „Session 3a". PR-Inhalt: Batches + .github (scripts/**, migrate.yml, .env.example) — keine src/-Edits.
 
 Kernpunkte:
 1. Runtime-Rolle mit expliziter Allowlist (Katalog-SELECT + preview_invite_activations-Upsert); KEIN Default-Grant auf künftige Tabellen; submissions bleibt unlesbar. Grants als nachvollziehbare Migration bzw. dokumentiertes SQL-Skript.
 2. Negativtests als Skript: submissions-Read und Katalog-DML/DDL müssen mit der Runtime-Rolle scheitern.
-3. Credential-Trennung: RUNTIME_DATABASE_URL (Vercel) / MIGRATION_DATABASE_URL (Workflow); lokale Apply-/Ingest-Skripte behalten bewusst das privilegierte Credential.
+3. Credential-Trennung: Runtime-Rolle + RUNTIME_DATABASE_URL-Credential anlegen und dokumentieren; MIGRATION_DATABASE_URL für den Migrations-Workflow; lokale Apply-/Ingest-Skripte behalten bewusst das privilegierte Credential. Der Consumer-Wechsel in src/db/client.ts und der Vercel-Cutover sind ausdrücklich S3b (B2) — hier KEINE src/**-Änderung.
 4. migrate.yml: Environment + Approval, timeout-minutes, minimale permissions; CI-Rehearsal gegen frisches Postgres + zweiter idempotenter Lauf; TLS-Opt-out in scripts/migrate.ts NUR für den CI-Service-Container.
-5. Apply-Hook: genau EIN Revalidation-POST nach vollständig grünem db:sync (REVALIDATE_BASE_URL, Timeout, Statusprüfung, Recovery-Meldung).
+5. Release-Revalidation (B1): db:sync löst KEINE Revalidation aus. Stattdessen ein expliziter, fail-loud Befehl (genau EIN POST; REVALIDATE_BASE_URL, Timeout, Statusprüfung, Recovery-Meldung), den das E4-Release-Runbook genau einmal NACH erfolgreichem Snapshot-Deploy aufruft; bei Sync-/Snapshot-/Deploy-Fehler keine Revalidation. Das S1a-Release-Runbook auf diesen Befehl nachziehen.
 6. statement_timeout-Entscheidung dokumentieren; .env.example-Hygiene (tote Supabase-Vars raus, neue Vars dokumentieren).
 
-Verifikation: Negativtests grün · Rehearsal migriert frisches Postgres, zweiter Lauf idempotent · ein db:sync-Lauf endet mit genau einem geloggten Revalidation-POST · die vier PR-Gates.
+Verifikation: Negativtests grün · Rehearsal migriert frisches Postgres, zweiter Lauf idempotent · Revalidation-Befehl fail-loud belegt (Erfolgs- + erzwungener Fehlerfall, gegen eine Testumgebung — kein Produktions-POST) · db:sync löst nachweislich keine Revalidation aus · die vier PR-Gates.
 Abschluss: Impl-Report; Vercel-Env-Änderungen als klare TODO-Liste an mich (ich setze sie im Dashboard). Kein Commit/PR, bis ich „fertig" sage.
 ```
 
 ---
 
-## S3b — CSP, Login, Health, Audio
+## S3b — CSP, Login, Health, Audio, Runtime-DB-Cutover
 
-**Ziel:** Prod-CSP ohne unsafe-eval, timing-safe Login, gebündelter Healthcheck, tokenloses Audio.
+**Ziel:** Prod-CSP ohne unsafe-eval, timing-safe Login, gebündelter Healthcheck, tokenloses Audio, Runtime liest `RUNTIME_DATABASE_URL` (Cutover mit Maintainer-Haltepunkten, B2).
 
 ```text
-Launch-Session S3b — CSP, Login, Health, Audio.
+Launch-Session S3b — CSP, Login, Health, Audio, Runtime-DB-Cutover.
 
-Worktree: C:\Users\Phil\chrono-lexicanum (E8-Ausnahme laut docs/launch-master-plan.md). Frischer Branch codex/product-csp-login-audio von origin/main. Voraussetzung: S0 gemerged (Observability-Entscheidung für die CSP-Einträge).
+Worktree: C:\Users\Phil\chrono-lexicanum (E8-Ausnahme laut docs/launch-master-plan.md). Frischer Branch codex/product-csp-login-audio von origin/main. Voraussetzungen: S0 gemerged (Observability-Entscheidung für die CSP-Einträge) UND S3a gemerged (Runtime-Rolle + RUNTIME_DATABASE_URL-Credential existieren).
 
 Verbindliche Spec: docs/launch-master-plan.md § „Session 3b".
 
@@ -177,8 +202,9 @@ Kernpunkte:
 2. login/actions.ts auf timingSafeEqualStr umstellen (der direkte Vergleich in Zeile ~25; die Helper-Funktion existiert).
 3. Healthcheck bündeln/throttlen oder Readiness abtrennen.
 4. Audio: committete signierte Supabase-URLs → tokenlose Public-Bucket-URLs, erst nach Range-/CORS-Check. Den Bucket-Flip mache ich im Supabase-Dashboard — sag mir wann und was genau.
+5. Runtime-DB-Cutover (B2): src/db/client.ts liest RUNTIME_DATABASE_URL mit Übergangs-Fallback auf DATABASE_URL (lokal + Skripte unverändert privilegiert). Reihenfolge: ich setze RUNTIME_DATABASE_URL in Vercel VOR dem Merge (sag mir rechtzeitig Bescheid — expliziter Haltepunkt); Merge + Deploy mit Fallback-Code; nach verifiziertem Deploy entferne ich das privilegierte DATABASE_URL aus Vercel (zweiter Haltepunkt). Kein Deploy darf ohne gültige Runtime-URL entstehen; die End-Verifikation „nur Runtime-Credential in Produktion" ist Launch-Readiness Punkt 6.
 
-Verifikation: lokaler Prod-Build ohne unsafe-eval in der CSP · Audio 200/206 + Range belegt · die vier PR-Gates. Login + Player prüfe ich im Browser.
+Verifikation: lokaler Prod-Build ohne unsafe-eval in der CSP · Audio 200/206 + Range belegt · Cutover-Fallback belegt (Build/Boot grün mit nur RUNTIME_DATABASE_URL wie mit nur DATABASE_URL) · die vier PR-Gates. Login + Player prüfe ich im Browser.
 Abschluss: Impl-Report unter sessions/. Kein Commit/PR, bis ich „fertig" sage.
 ```
 
@@ -398,11 +424,11 @@ Verbindliche Spec: docs/launch-master-plan.md § „Launch-Readiness" (12 Punkte
 
 Ablauf:
 1. Die 12 Punkte der Reihe nach abarbeiten und JEDEN mit Beleg (Kommando + Ergebnis) in einem Launch-Protokoll unter sessions/ dokumentieren. Was du selbst prüfen kannst (Migrationsstand, Drift, Rollen-Negativtests, Snapshot-Manifest, Audio-Header, lokale Smokes, kalter/warmer Production-Smoke), prüfst du; was mich braucht (Vercel-Env/Deployment-Protection, Domain/DNS, Gate-Flip, physische Pixel-Abnahme), legst du mir als klaren Einzelschritt vor und WARTEST.
-2. Der finale Snapshot läuft nach dem zweistufigen Release-Runbook (E4).
+2. Der finale Snapshot läuft nach dem zweistufigen Release-Runbook (E4) — als eigener Batches-Release-PR; das Protokoll dieser Session bleibt ein separater Koordinations-PR (B3: kein gemischter Snapshot-/Evidence-PR).
 3. Rollback-Ziel + konkreter Abort-Befehl stehen VOR dem Gate-Flip im Protokoll.
 4. Nach meinem Go: Gate-off → neuer Production-Deploy → Live-Crawl-Smoke (robots, sitemap, canonicals, redirects, OG, keine noindex-/localhost-Reste, Analytics-/Error-Events kommen an).
 
-Abschluss: vollständiges Protokoll als Session-Report; PR mit dem Protokoll, wenn ich „fertig" sage. Bei jedem roten Punkt: stoppen, melden, nicht weiterflippen.
+Abschluss: vollständiges Protokoll als Session-Report; Koordinations-PR mit dem Protokoll, wenn ich „fertig" sage. Bei jedem roten Punkt: stoppen, melden, nicht weiterflippen.
 ```
 
 ---
