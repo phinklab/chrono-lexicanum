@@ -2,7 +2,7 @@
 title: Wiki index — master catalog
 type: reference
 created: 2026-05-09
-updated: 2026-07-10
+updated: 2026-07-11
 sources: []
 related:
   - ../CLAUDE.md
@@ -20,9 +20,9 @@ confidence: high
 
 | Page | Description | Updated |
 |---|---|---|
-| [project-state.md](./project-state.md) | Pre-launch state: 896 books, 1,114 podcast episodes, 1,055-world Cartographer with Great Journeys/mobile Canvas, preview gate, serial launch mode and immediate S0 blockers. | 2026-07-10 |
-| [worklist.md](./worklist.md) | Canonical open-work queue: launch sequence, operator checks, product/data tails and long-range blockers. | 2026-07-10 |
-| [open-questions.md](./open-questions.md) | Next-session questions: correct the false primary-Era default and make the launch release order internally consistent. | 2026-07-10 |
+| [project-state.md](./project-state.md) | Pre-launch state: 896 books, 1,114 podcast episodes, 1,055-world Cartographer with Great Journeys/mobile Canvas, preview gate, serial launch mode with canonical plan under `docs/` and closed S0 decisions. | 2026-07-11 |
+| [worklist.md](./worklist.md) | Canonical open-work queue: launch sequence (S0 closed), operator checks, product/data tails and long-range blockers. | 2026-07-11 |
+| [open-questions.md](./open-questions.md) | Next-session questions: make the launch release order internally consistent (OQ 19) before S1a. | 2026-07-11 |
 | [deferred-questions.md](./deferred-questions.md) | Post-launch/dormant work: preview removal, i18n, Atlas events, measured code splitting, secondary Eras, redirect and dependency triggers. | 2026-07-10 |
 | [roadmap.md](./roadmap.md) | Phase-level status and launch milestones; old crawler subphases pruned to history. | 2026-07-10 |
 
@@ -35,8 +35,8 @@ confidence: high
 | [book-data-overview.md](./book-data-overview.md) | High-level corpus numbers and canonical shape; no per-book lore. | 2026-07-10 |
 | [glossary.md](./glossary.md) | Active project terminology: schema, per-book operations, Cartographer/Great Journeys, preview/snapshot and memory model. | 2026-07-10 |
 | [onboarding.md](./onboarding.md) | First-time local/Supabase/Vercel/Atlas setup, including full-corpus `db:sync`. | 2026-07-10 |
-| [log.md](./log.md) | Append-only Brain operation history. | 2026-07-10 |
-| (this file) | Complete wiki catalog. | 2026-07-10 |
+| [log.md](./log.md) | Append-only Brain operation history. | 2026-07-11 |
+| (this file) | Complete wiki catalog. | 2026-07-11 |
 
 ## Decisions
 

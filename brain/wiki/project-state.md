@@ -2,9 +2,11 @@
 title: Project state
 type: overview
 created: 2026-05-09
-updated: 2026-07-10
+updated: 2026-07-11
 sources:
   - ../../sessions/README.md
+  - ../../sessions/2026-07-11-194-impl-launch-s0.md
+  - ../../docs/launch-master-plan.md
   - ../../sessions/2026-07-10-193-impl-brain-launch-rollup.md
   - ../../sessions/2026-07-06-178b-impl-map-polish.md
   - ../../sessions/2026-07-08-185-impl-website-review-mobile.md
@@ -25,7 +27,7 @@ related:
 confidence: high
 ---
 
-# Project state — 2026-07-10
+# Project state — 2026-07-11
 
 > Current-state anchor. History lives in [`log.md`](./log.md), git and the session reports.
 
@@ -33,14 +35,14 @@ confidence: high
 
 Chrono · Lexicanum is in **pre-launch hardening**. The public product shape is complete: Chronicle, Cartographer, Ask the Archive, Archive/Podcasts, Compendium and entity/book detail surfaces are live behind the temporary preview gate. The old crawler/backfill phase is retired; content maintenance is the per-book SSOT plus additive podcast and weekly-refresh flows.
 
-The active programme is a serial launch campaign. Its detailed master plan and kickoff prompts are maintainer-local working files and deliberately remain untracked. Durable Brain state records only the decisions, order and current blockers; planned work is not described as shipped.
+The active programme is a serial launch campaign. Since S0 (Session 194) its master plan and kickoff prompts are canonical in-repo documents: [`docs/launch-master-plan.md`](../../docs/launch-master-plan.md) (spec + decisions + URL matrix appendix) and [`docs/launch-session-prompts.md`](../../docs/launch-session-prompts.md) (kickoff prompts). Brain records decisions, order and current blockers; planned work is not described as shipped.
 
 ## Working mode
 
 - `main` is read-only; every durable change still reaches it through a task branch and PR.
 - During the launch campaign only, sessions run serially from the **coordination worktree**. This is a temporary exception to worktree routing, not to strand-pure PR contents or Rollup Ownership.
 - `brain/**` and `sessions/README.md` remain coordination-only. The Product/Batches bootstrap worktrees stay available but are not used in parallel while the exception is active.
-- Session kickoff comes from the maintainer-local prompt collection; implementer reports remain mandatory. Normal three-worktree routing resumes after the campaign.
+- Session kickoff comes from `docs/launch-session-prompts.md`; implementer reports remain mandatory. Normal three-worktree routing resumes after the campaign.
 
 ## Product now
 
@@ -73,8 +75,14 @@ Maintainer decisions already fixed for the programme:
 - Content releases are two-stage: merge/apply content, generate and review the fresh snapshot on its own branch, deploy that snapshot, then revalidate and live-smoke.
 - A deliberately small Playwright + axe smoke set will become required; it is not the start of a broad browser-test suite.
 - The 92-vh ceremonial hero remains for organic visits; query/filter arrivals jump to results.
-- Vercel Web Analytics + Speed Insights are the only fixed analytics layer. An optional error-only tracker is still an S0 choice.
 - Payload, CSS/LCP, foundational A11y, Chronicle A11y and Cartographer payload/A11y are all pre-gate requirements. Map LOD is conditional on a real-device measurement after the payload/A11y pass.
+
+S0 decisions (Philipp, 2026-07-11, recorded in the plan and its Appendix A):
+
+- **URL matrix:** full English migration of the remaining German paths before launch — `/buch → /book`, `/charakter → /character`, `/fraktion → /faction`, `/welt → /world`, Compendium category slugs → EN, `/ask/fraktion → /ask/faction`; `/person` stays (covers authors *and* narrators). All old paths 308 with query strings forwarded verbatim; sitemap/canonical and `/api/revalidate` path assignments live in the plan's Appendix A. Implemented in S4/S5.
+- **Canonical host:** `https://www.chrono-lexicanum.com`. The Strato-registered domain is already wired: www serves the Vercel project (preview gate answers), the apex 308s to www preserving path + query.
+- **Era policy:** default variant — remove the blanket `time_ending` stamp, bucket mechanically from setting dates where present, else `NULL` (S1a). Verified: Chronicle reads only the curated `eras`/`events` spine, never `books.era_id`.
+- **Observability:** Vercel Web Analytics + Speed Insights, **plus one error-only tracker** (no replay, no tracing, no PII); package choice and activation in S5.
 
 Planned sequence, condensed: **S0 decisions/preflight → build snapshot + DB-free consumers → loader/cache semantics → DB/runtime hardening → canonical routes + book snapshot → SEO/observability → payload/CSS/A11y → Chronicle and Cartographer A11y → launch-readiness evidence → gate off → post-launch cleanup.** Exact task specs stay in the local working plan.
 
@@ -82,12 +90,11 @@ Planned sequence, condensed: **S0 decisions/preflight → build snapshot + DB-fr
 
 The canonical queue is [`worklist.md`](./worklist.md). The immediate blockers are:
 
-1. S0 decisions: final URL matrix, canonical production host/domain, Era policy, optional error-only tracker.
-2. Launch-plan preflight: prevent production writes with unmerged Era code; align revalidation with the snapshot deploy; add the missing `RUNTIME_DATABASE_URL` consumer change; keep the final snapshot PR separate from the coordination evidence report.
-3. Verify migration `0015`, optional production `db:drift`, and the Pixel/Chrome verdict for Session 192.
+1. Launch-plan preflight (OQ 19, still open after S0): prevent production writes with unmerged Era code; align revalidation with the snapshot deploy; add the missing `RUNTIME_DATABASE_URL` consumer change; keep the final snapshot PR separate from the coordination evidence report.
+2. Verify migration `0015`, optional production `db:drift`, and the Pixel/Chrome verdict for Session 192.
 
 Smaller product/data follow-ups (Cameo live implementation, Legal i18n, Galaspar/Myr source gap, `arthas_moloch` mapping, episode anchors, survey-mode tracing and other polish) stay in `worklist.md`; they do not outrank the launch gate.
 
 ## Next action
 
-Run the launch S0/preflight coordination session. Do not begin S1a until the four maintainer decisions and the four release-order contradictions above are closed.
+Merge the S0 PR (Session 194), then close the four release-order contradictions (OQ 19) before starting S1a. The four maintainer decisions are made and recorded in the plan.

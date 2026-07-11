@@ -1707,3 +1707,22 @@ Von Philipp beauftragter „wir sind von der Doku gerade nicht auf dem aktuellen
 **Needs-decision vor S1a:** URL-Matrix, Host/Domain, Era-Policy, Error-Tracker; außerdem vier Planwidersprüche schließen (keine Prod-Mutation mit ungemergtem Era-Code, Revalidation nach Snapshot-Deploy, echter `RUNTIME_DATABASE_URL`-Consumer, finaler Snapshot-PR getrennt vom Coordination-Protokoll). Migration 0015 und Prod-`db:drift` bleiben unbelegt; Pixel/Chrome-Check für 192 offen.
 
 **Wiki-Ingest:** `project-state`, `worklist`, `open-questions`, `deferred-questions`, `roadmap`, `architecture`, `pipeline-state`, `book-data-overview`, `glossary`, `onboarding`, `index`, Workflows und öffentliche/session READMEs auf aktuellen Stand gezogen; historische V1/V2-/26-Bücher-Prosa aus lebenden Übersichten entfernt. OQ 16b in Launch S0/S1a promoviert, neuer OQ 19 für Release-Reihenfolge; 16c Atlas-Events nach Deferred verschoben.
+
+---
+
+## 2026-07-11 · Coordination · Launch S0 — Plan kanonisiert + vier Entscheidungen (Session 194)
+
+**Basis:** Branch `codex/session-194-launch-s0` von `origin/main` (`2226d65`). Report: `sessions/2026-07-11-194-impl-launch-s0.md`.
+
+**Plan kanonisiert:** `docs/launch-master-plan.md` (v2 + E8) und `docs/launch-session-prompts.md` sind jetzt versionierte Repo-Dokumente — der bisherige "deliberately untracked"-Status (Session 193) ist damit beendet. Der Plan ist die verbindliche Spec der Launch-Sessions; die Prompts sind der Kickoff-Mechanismus.
+
+**Vier S0-Entscheidungen (Philipp, 2026-07-11), im Plan §Entscheidungen + Anhang A festgeschrieben:**
+
+1. **URL-Matrix:** vollständige EN-Migration vor Launch — `/buch→/book`, `/charakter→/character`, `/fraktion→/faction`, `/welt→/world`, Compendium-Kategorien EN, `/ask/fraktion→/ask/faction`; `/person` bleibt (deckt Autoren + Sprecher). 308-Redirects mit unverändert weitergereichtem Querystring; Sitemap-/Canonical-Zuordnung und `/api/revalidate`-Pfade in Anhang A. Umsetzung S4/S5.
+2. **Host:** `https://www.chrono-lexicanum.com` — Strato-Domain bereits verdrahtet (www = Vercel-Projekt, Apex 308t pfad-/query-erhaltend auf www; 2026-07-11 verifiziert).
+3. **Era:** Default — Pauschalstempel raus, mechanisches Bucketing aus Setting-Dates, Rest NULL (S1a). Verifiziert: Chronicle liest nur die eras/events-Spine, nie `books.era_id`.
+4. **Observability:** Vercel Analytics + Speed Insights + genau EIN error-only Tracker (kein Replay/Tracing/PII), Wahl + Aktivierung S5.
+
+**Statusbereinigung:** Briefe 181 (implemented) / 182 (superseded) waren bereits durch Session 193 korrekt gebucht — keine weitere Änderung. README war durch 193 bereits neu geschrieben; S0 ergänzt nur die kanonische Live-URL und den Plan-Link.
+
+**Wiki-Ingest:** `project-state` (Plan kanonisch, S0-Entscheidungen, Open-now-Liste), `worklist` (§A S0 geschlossen, Local-plan-safety-Merker entfernt), `open-questions` (16b geschlossen; OQ 19 bleibt — die vier Release-Reihenfolge-Widersprüche sind bewusst NICHT in S0 gelöst und stehen vor S1a an), `sessions/README.md`, `README.md`, dieser Log-Eintrag.

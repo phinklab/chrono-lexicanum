@@ -3,7 +3,7 @@
 > A fan-made archive of Warhammer 40,000 novels, podcasts and lore paths — by era, faction, world and mood.
 > Unofficial. Warhammer 40,000 © Games Workshop. No affiliation.
 
-**Status: pre-launch hardening.** The live preview is currently access-gated while performance, accessibility, SEO and release operations are finished: <https://chrono-lexicanum.vercel.app/>
+**Status: pre-launch hardening.** The live preview is currently access-gated while performance, accessibility, SEO and release operations are finished: <https://www.chrono-lexicanum.com/> (canonical host; the `*.vercel.app` deploy URL redirects there at launch). The launch programme itself is tracked in [`docs/launch-master-plan.md`](./docs/launch-master-plan.md).
 
 The archive currently contains:
 
