@@ -1,0 +1,215 @@
+{
+  "type": "character",
+  "id": "alpharius",
+  "name": "Alpharius Omegon",
+  "blurb": {
+    "text": "The last-discovered primarch and twin of Omegon, who together led the Alpha Legion; master of infiltration, his death and identity were deliberately obscured.",
+    "confidence": 0.9,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Alpharius"
+  },
+  "facts": [
+    {
+      "label": "Allegiance",
+      "value": {
+        "type": "faction",
+        "id": "alpha_legion",
+        "name": "Alpha Legion"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "legion",
+          "title": "Legion",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/legion",
+          "showTitle": null
+        },
+        {
+          "slug": "deliverance-lost",
+          "title": "Deliverance Lost",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/deliverance-lost",
+          "showTitle": null
+        },
+        {
+          "slug": "the-primarchs",
+          "title": "The Primarchs",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-primarchs",
+          "showTitle": null
+        },
+        {
+          "slug": "the-serpent-beneath",
+          "title": "The Serpent Beneath",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-serpent-beneath",
+          "showTitle": null
+        },
+        {
+          "slug": "hunters-moon",
+          "title": "Hunter's Moon",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/buch/hunters-moon",
+          "showTitle": null
+        },
+        {
+          "slug": "praetorian-of-dorn",
+          "title": "Praetorian of Dorn",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/praetorian-of-dorn",
+          "showTitle": null
+        },
+        {
+          "slug": "scions-of-the-emperor",
+          "title": "Scions of the Emperor",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/scions-of-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "alpharius-head-of-the-hydra",
+          "title": "Alpharius: Head of the Hydra",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/alpharius-head-of-the-hydra",
+          "showTitle": null
+        },
+        {
+          "slug": "blood-of-the-emperor",
+          "title": "Blood of the Emperor",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/blood-of-the-emperor",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-8863086",
+          "title": "ALPHA LEGION: I AM ALPHARIUS, THIS IS A LIE | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-5bf45c24-cea2-4780-ac08-e843ef47fe6c",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-10876237",
+          "title": "ALPHA LEGION: HYDRA DOMINATUS | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-a6e61e5c-cac7-4a36-8dfa-dc41f5d62706",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-28eb0d2e-aa8d-11ef-b226-5f61143a557b",
+          "title": "Episode 63 - \"Where are they now\" Primarch edition - the Traitors.",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-030896d9-45a1-44fb-bef8-7e8f207be189",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-16098930",
+          "title": "Interview with Black Library writer Mike Brooks: Brutal Kunnin', Drukhari, Warhammer & More",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-c36d9c59-5723-4b78-be13-c6e16a4b01de",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-faa90e90-607e-4efb-8baa-552d1db6c7df",
+          "title": "Episode 105 - The Ultramarines, from the start of the Heresy to the fall of Guilliman",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-6ec8daee-1630-4798-a8d4-73719d4ab685",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-cec2a2e0-2c5a-4abc-9311-86b760583644",
+          "title": "Episode 122 - The Alpha Legion pt1 the rise of the 20th.",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-6c76c640-7d2c-43bd-8bf9-fad6d610d208",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-0737273c-228e-4f3f-8d55-2a3356b268ca",
+          "title": "Episode 123 - The Alpha Legion pt2, Alph legion take their place amoungst the legions (and irritate all of them in the process)",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-f0ade1f6-272b-4182-ace0-f761fdbbcd82",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-c75f7226-52bc-4462-a109-200830e0d831",
+          "title": "Episode 124 - The Alpha Legion pt3, death of Alpharius, and the Omegon, and then Alpharius again, and again maybe?",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-44b1fa10-4e15-484f-8cff-1b0fd08a5366",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18506596",
+          "title": "SIEGE OF TERRA: The First Wall Falls | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-6b646dcf-e44e-4c29-9723-781e0f7005b8",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

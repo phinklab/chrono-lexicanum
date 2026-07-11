@@ -1,0 +1,1376 @@
+[
+  {
+    "id": "dan_abnett",
+    "name": "Dan Abnett",
+    "nameSort": "Abnett, Dan",
+    "workCount": 50,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "edoardo_albert",
+    "name": "Edoardo Albert",
+    "nameSort": "Albert, Edoardo",
+    "workCount": 3,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "tom_allenby",
+    "name": "Tom Allenby",
+    "nameSort": "Allenby, Tom",
+    "workCount": 1,
+    "isAuthor": false,
+    "roles": [
+      "narrator"
+    ]
+  },
+  {
+    "id": "david_annandale",
+    "name": "David Annandale",
+    "nameSort": "Annandale, David",
+    "workCount": 41,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "j_h_archer",
+    "name": "J. H. Archer",
+    "nameSort": "Archer, J. H.",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "gareth_armstrong",
+    "name": "Gareth Armstrong",
+    "nameSort": "Armstrong, Gareth",
+    "workCount": 11,
+    "isAuthor": false,
+    "roles": [
+      "full_cast",
+      "narrator"
+    ]
+  },
+  {
+    "id": "john_banks",
+    "name": "John Banks",
+    "nameSort": "Banks, John",
+    "workCount": 3,
+    "isAuthor": false,
+    "roles": [
+      "narrator"
+    ]
+  },
+  {
+    "id": "sean_barrett",
+    "name": "Seán Barrett",
+    "nameSort": "Barrett, Seán",
+    "workCount": 2,
+    "isAuthor": false,
+    "roles": [
+      "full_cast"
+    ]
+  },
+  {
+    "id": "barrington_j_bayley",
+    "name": "Barrington J. Bayley",
+    "nameSort": "Bayley, Barrington J.",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "jonathan_d_beer",
+    "name": "Jonathan D Beer",
+    "nameSort": "Beer, Jonathan D",
+    "workCount": 3,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "james_brogdan",
+    "name": "James Brogdan",
+    "nameSort": "Brogdan, James",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "james_brogden",
+    "name": "James Brogden",
+    "nameSort": "Brogden, James",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "mike_brooks",
+    "name": "Mike Brooks",
+    "nameSort": "Brooks, Mike",
+    "workCount": 15,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "braden_campbell",
+    "name": "Braden Campbell",
+    "nameSort": "Campbell, Braden",
+    "workCount": 2,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "sarah_cawkwell",
+    "name": "Sarah Cawkwell",
+    "nameSort": "Cawkwell, Sarah",
+    "workCount": 3,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "andy_chambers",
+    "name": "Andy Chambers",
+    "nameSort": "Chambers, Andy",
+    "workCount": 6,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "nicolette_chin",
+    "name": "Nicolette Chin",
+    "nameSort": "Chin, Nicolette",
+    "workCount": 1,
+    "isAuthor": false,
+    "roles": [
+      "narrator"
+    ]
+  },
+  {
+    "id": "mark_clapham",
+    "name": "Mark Clapham",
+    "nameSort": "Clapham, Mark",
+    "workCount": 2,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "andy_clark",
+    "name": "Andy Clark",
+    "nameSort": "Clark, Andy",
+    "workCount": 10,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "marc_collins",
+    "name": "Marc Collins",
+    "nameSort": "Collins, Marc",
+    "workCount": 7,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "ben_counter",
+    "name": "Ben Counter",
+    "nameSort": "Counter, Ben",
+    "workCount": 26,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "brian_craig",
+    "name": "Brian Craig",
+    "nameSort": "Craig, Brian",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "william_crowe",
+    "name": "William Crowe",
+    "nameSort": "Crowe, William",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "nate_crowley",
+    "name": "Nate Crowley",
+    "nameSort": "Crowley, Nate",
+    "workCount": 5,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "callum_davis",
+    "name": "Callum Davis",
+    "nameSort": "Davis, Callum",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "rupert_degas",
+    "name": "Rupert Degas",
+    "nameSort": "Degas, Rupert",
+    "workCount": 1,
+    "isAuthor": false,
+    "roles": [
+      "full_cast"
+    ]
+  },
+  {
+    "id": "aaron_dembski_bowden",
+    "name": "Aaron Dembski-Bowden",
+    "nameSort": "Dembski-Bowden, Aaron",
+    "workCount": 31,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "chris_dows",
+    "name": "Chris Dows",
+    "nameSort": "Dows, Chris",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "c_z_dunn",
+    "name": "C.Z. Dunn",
+    "nameSort": "Dunn, C.Z.",
+    "workCount": 5,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "brandon_easton",
+    "name": "Brandon Easton",
+    "nameSort": "Easton, Brandon",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "martyn_ellis",
+    "name": "Martyn Ellis",
+    "nameSort": "Ellis, Martyn",
+    "workCount": 1,
+    "isAuthor": false,
+    "roles": [
+      "full_cast"
+    ]
+  },
+  {
+    "id": "mark_elstob",
+    "name": "Mark Elstob",
+    "nameSort": "Elstob, Mark",
+    "workCount": 1,
+    "isAuthor": false,
+    "roles": [
+      "narrator"
+    ]
+  },
+  {
+    "id": "chris_fairbank",
+    "name": "Chris Fairbank",
+    "nameSort": "Fairbank, Chris",
+    "workCount": 3,
+    "isAuthor": false,
+    "roles": [
+      "full_cast"
+    ]
+  },
+  {
+    "id": "matthew_farrer",
+    "name": "Matthew Farrer",
+    "nameSort": "Farrer, Matthew",
+    "workCount": 9,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "peter_fehervari",
+    "name": "Peter Fehervari",
+    "nameSort": "Fehervari, Peter",
+    "workCount": 7,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "steven_b_fischer",
+    "name": "Steven B. Fischer",
+    "nameSort": "Fischer, Steven B.",
+    "workCount": 2,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "denny_flowers",
+    "name": "Denny Flowers",
+    "nameSort": "Flowers, Denny",
+    "workCount": 7,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "chris_forrester",
+    "name": "Chris Forrester",
+    "nameSort": "Forrester, Chris",
+    "workCount": 2,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "john_french",
+    "name": "John French",
+    "nameSort": "French, John",
+    "workCount": 38,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "toby_frost",
+    "name": "Toby Frost",
+    "nameSort": "Frost, Toby",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "marc_gascoigne",
+    "name": "Marc Gascoigne",
+    "nameSort": "Gascoigne, Marc",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "c_s_goto",
+    "name": "C.S. Goto",
+    "nameSort": "Goto, C.S.",
+    "workCount": 9,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "l_j_goulding",
+    "name": "L.J. Goulding",
+    "nameSort": "Goulding, L.J.",
+    "workCount": 3,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "laurie_goulding",
+    "name": "Laurie Goulding",
+    "nameSort": "Goulding, Laurie",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "lora_gray",
+    "name": "Lora Gray",
+    "nameSort": "Gray, Lora",
+    "workCount": 2,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "jonathan_green",
+    "name": "Jonathan Green",
+    "nameSort": "Green, Jonathan",
+    "workCount": 5,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "emma_gregory",
+    "name": "Emma Gregory",
+    "nameSort": "Gregory, Emma",
+    "workCount": 5,
+    "isAuthor": false,
+    "roles": [
+      "co_narrator"
+    ]
+  },
+  {
+    "id": "david_guymer",
+    "name": "David Guymer",
+    "nameSort": "Guymer, David",
+    "workCount": 9,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "guy_haley",
+    "name": "Guy Haley",
+    "nameSort": "Haley, Guy",
+    "workCount": 39,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "rachel_harrison",
+    "name": "Rachel Harrison",
+    "nameSort": "Harrison, Rachel",
+    "workCount": 2,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "michael_f_haspil",
+    "name": "Michael F. Haspil",
+    "nameSort": "Haspil, Michael F.",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "victoria_hayward",
+    "name": "Victoria Hayward",
+    "nameSort": "Hayward, Victoria",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "justin_d_hill",
+    "name": "Justin D. Hill",
+    "nameSort": "Hill, Justin D.",
+    "workCount": 10,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "darius_hinks",
+    "name": "Darius Hinks",
+    "nameSort": "Hinks, Darius",
+    "workCount": 10,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "andy_hoare",
+    "name": "Andy Hoare",
+    "nameSort": "Hoare, Andy",
+    "workCount": 6,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "kelly_hotten",
+    "name": "Kelly Hotten",
+    "nameSort": "Hotten, Kelly",
+    "workCount": 1,
+    "isAuthor": false,
+    "roles": [
+      "narrator"
+    ]
+  },
+  {
+    "id": "rhuairidh_james",
+    "name": "Rhuairidh James",
+    "nameSort": "James, Rhuairidh",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "andy_jones",
+    "name": "Andy Jones",
+    "nameSort": "Jones, Andy",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "nicholas_kaufmann",
+    "name": "Nicholas Kaufmann",
+    "nameSort": "Kaufmann, Nicholas",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "paul_kearney",
+    "name": "Paul Kearney",
+    "nameSort": "Kearney, Paul",
+    "workCount": 3,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "phil_kearney",
+    "name": "Phil Kearney",
+    "nameSort": "Kearney, Phil",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "jonathan_keeble",
+    "name": "Jonathan Keeble",
+    "nameSort": "Keeble, Jonathan",
+    "workCount": 13,
+    "isAuthor": false,
+    "roles": [
+      "co_narrator",
+      "narrator"
+    ]
+  },
+  {
+    "id": "matt_keefe",
+    "name": "Matt Keefe",
+    "nameSort": "Keefe, Matt",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "phil_kelly",
+    "name": "Phil Kelly",
+    "nameSort": "Kelly, Phil",
+    "workCount": 9,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "christopher_kent",
+    "name": "Christopher Kent",
+    "nameSort": "Kent, Christopher",
+    "workCount": 1,
+    "isAuthor": false,
+    "roles": [
+      "narrator"
+    ]
+  },
+  {
+    "id": "william_king",
+    "name": "William King",
+    "nameSort": "King, William",
+    "workCount": 11,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "gary_kloster",
+    "name": "Gary Kloster",
+    "nameSort": "Kloster, Gary",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "nick_kyme",
+    "name": "Nick Kyme",
+    "nameSort": "Kyme, Nick",
+    "workCount": 38,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "jeremy_lambert",
+    "name": "Jeremy Lambert",
+    "nameSort": "Lambert, Jeremy",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "mike_lee",
+    "name": "Mike Lee",
+    "nameSort": "Lee, Mike",
+    "workCount": 4,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "lee_lightner",
+    "name": "Lee Lightner",
+    "nameSort": "Lightner, Lee",
+    "workCount": 3,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "toby_longworth",
+    "name": "Toby Longworth",
+    "nameSort": "Longworth, Toby",
+    "workCount": 18,
+    "isAuthor": false,
+    "roles": [
+      "co_narrator",
+      "narrator"
+    ]
+  },
+  {
+    "id": "dale_lucas",
+    "name": "Dale Lucas",
+    "nameSort": "Lucas, Dale",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "graeme_lyon",
+    "name": "Graeme Lyon",
+    "nameSort": "Lyon, Graeme",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "steve_lyons",
+    "name": "Steve Lyons",
+    "nameSort": "Lyons, Steve",
+    "workCount": 8,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "bruce_mackinnon",
+    "name": "Bruce Mackinnon",
+    "nameSort": "Mackinnon, Bruce",
+    "workCount": 2,
+    "isAuthor": false,
+    "roles": [
+      "narrator"
+    ]
+  },
+  {
+    "id": "robbie_macniven",
+    "name": "Robbie MacNiven",
+    "nameSort": "MacNiven, Robbie",
+    "workCount": 8,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "george_mann",
+    "name": "George Mann",
+    "nameSort": "Mann, George",
+    "workCount": 4,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "ian_st_martin",
+    "name": "Ian St. Martin",
+    "nameSort": "Martin, Ian St.",
+    "workCount": 7,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "rich_mccormick",
+    "name": "Rich McCormick",
+    "nameSort": "McCormick, Rich",
+    "workCount": 2,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "will_mcdermott",
+    "name": "Will McDermott",
+    "nameSort": "McDermott, Will",
+    "workCount": 4,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "graham_mcneill",
+    "name": "Graham McNeill",
+    "nameSort": "McNeill, Graham",
+    "workCount": 53,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "alan_merrett",
+    "name": "Alan Merrett",
+    "nameSort": "Merrett, Alan",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "jamie_mistry_evans",
+    "name": "Jamie Mistry-Evans",
+    "nameSort": "Mistry-Evans, Jamie",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "sandy_mitchell",
+    "name": "Sandy Mitchell",
+    "nameSort": "Mitchell, Sandy",
+    "workCount": 13,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "kim_newman",
+    "name": "Kim Newman",
+    "nameSort": "Newman, Kim",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "jake_ozga",
+    "name": "Jake Ozga",
+    "nameSort": "Ozga, Jake",
+    "workCount": 2,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "charlotte_page",
+    "name": "Charlotte Page",
+    "nameSort": "Page, Charlotte",
+    "workCount": 1,
+    "isAuthor": false,
+    "roles": [
+      "full_cast"
+    ]
+  },
+  {
+    "id": "jamie_parker",
+    "name": "Jamie Parker",
+    "nameSort": "Parker, Jamie",
+    "workCount": 1,
+    "isAuthor": false,
+    "roles": [
+      "full_cast"
+    ]
+  },
+  {
+    "id": "steve_parker",
+    "name": "Steve Parker",
+    "nameSort": "Parker, Steve",
+    "workCount": 5,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "joe_parrino",
+    "name": "Joe Parrino",
+    "nameSort": "Parrino, Joe",
+    "workCount": 2,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "thomas_parrott",
+    "name": "Thomas Parrott",
+    "nameSort": "Parrott, Thomas",
+    "workCount": 2,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "stephen_perring",
+    "name": "Stephen Perring",
+    "nameSort": "Perring, Stephen",
+    "workCount": 3,
+    "isAuthor": false,
+    "roles": [
+      "narrator"
+    ]
+  },
+  {
+    "id": "robert_rath",
+    "name": "Robert Rath",
+    "nameSort": "Rath, Robert",
+    "workCount": 3,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "penelope_rawlins",
+    "name": "Penelope Rawlins",
+    "nameSort": "Rawlins, Penelope",
+    "workCount": 3,
+    "isAuthor": false,
+    "roles": [
+      "co_narrator"
+    ]
+  },
+  {
+    "id": "richard_reed",
+    "name": "Richard Reed",
+    "nameSort": "Reed, Richard",
+    "workCount": 1,
+    "isAuthor": false,
+    "roles": [
+      "narrator"
+    ]
+  },
+  {
+    "id": "jude_reid",
+    "name": "Jude Reid",
+    "nameSort": "Reid, Jude",
+    "workCount": 3,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "gordon_rennie",
+    "name": "Gordon Rennie",
+    "nameSort": "Rennie, Gordon",
+    "workCount": 4,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "anthony_reynolds",
+    "name": "Anthony Reynolds",
+    "nameSort": "Reynolds, Anthony",
+    "workCount": 9,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "josh_reynolds",
+    "name": "Josh Reynolds",
+    "nameSort": "Reynolds, Josh",
+    "workCount": 14,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "chris_roberson",
+    "name": "Chris Roberson",
+    "nameSort": "Roberson, Chris",
+    "workCount": 2,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "rob_sanders",
+    "name": "Rob Sanders",
+    "nameSort": "Sanders, Rob",
+    "workCount": 20,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "mitchel_scanlon",
+    "name": "Mitchel Scanlon",
+    "nameSort": "Scanlon, Mitchel",
+    "workCount": 2,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "cavan_scott",
+    "name": "Cavan Scott",
+    "nameSort": "Scott, Cavan",
+    "workCount": 7,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "david_seddon",
+    "name": "David Seddon",
+    "nameSort": "Seddon, David",
+    "workCount": 1,
+    "isAuthor": false,
+    "roles": [
+      "narrator"
+    ]
+  },
+  {
+    "id": "andy_smillie",
+    "name": "Andy Smillie",
+    "nameSort": "Smillie, Andy",
+    "workCount": 8,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "theo_solomon",
+    "name": "Theo Solomon",
+    "nameSort": "Solomon, Theo",
+    "workCount": 1,
+    "isAuthor": false,
+    "roles": [
+      "narrator"
+    ]
+  },
+  {
+    "id": "lucien_soulban",
+    "name": "Lucien Soulban",
+    "nameSort": "Soulban, Lucien",
+    "workCount": 2,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "andrew_james_spooner",
+    "name": "Andrew James Spooner",
+    "nameSort": "Spooner, Andrew James",
+    "workCount": 1,
+    "isAuthor": false,
+    "roles": [
+      "co_narrator"
+    ]
+  },
+  {
+    "id": "simon_spurrier",
+    "name": "Simon Spurrier",
+    "nameSort": "Spurrier, Simon",
+    "workCount": 2,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "j_s_stearns",
+    "name": "J.S. Stearns",
+    "nameSort": "Stearns, J.S.",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "anna_stephens",
+    "name": "Anna Stephens",
+    "nameSort": "Stephens, Anna",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "james_cameron_stewart",
+    "name": "James Cameron Stewart",
+    "nameSort": "Stewart, James Cameron",
+    "workCount": 1,
+    "isAuthor": false,
+    "roles": [
+      "narrator"
+    ]
+  },
+  {
+    "id": "richard_strachan",
+    "name": "Richard Strachan",
+    "nameSort": "Strachan, Richard",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "james_swallow",
+    "name": "James Swallow",
+    "nameSort": "Swallow, James",
+    "workCount": 31,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "adrian_tchaikovsky",
+    "name": "Adrian Tchaikovsky",
+    "nameSort": "Tchaikovsky, Adrian",
+    "workCount": 2,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "gav_thorpe",
+    "name": "Gav Thorpe",
+    "nameSort": "Thorpe, Gav",
+    "workCount": 57,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "chris_thursten",
+    "name": "Chris Thursten",
+    "nameSort": "Thursten, Chris",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "david_timson",
+    "name": "David Timson",
+    "nameSort": "Timson, David",
+    "workCount": 5,
+    "isAuthor": false,
+    "roles": [
+      "full_cast",
+      "narrator"
+    ]
+  },
+  {
+    "id": "mike_vincent",
+    "name": "Mike Vincent",
+    "nameSort": "Vincent, Mike",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "danie_ware",
+    "name": "Danie Ware",
+    "nameSort": "Ware, Danie",
+    "workCount": 8,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "ian_watson",
+    "name": "Ian Watson",
+    "nameSort": "Watson, Ian",
+    "workCount": 5,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "timothy_watson",
+    "name": "Timothy Watson",
+    "nameSort": "Watson, Timothy",
+    "workCount": 1,
+    "isAuthor": false,
+    "roles": [
+      "narrator"
+    ]
+  },
+  {
+    "id": "danny_webb",
+    "name": "Danny Webb",
+    "nameSort": "Webb, Danny",
+    "workCount": 2,
+    "isAuthor": false,
+    "roles": [
+      "narrator"
+    ]
+  },
+  {
+    "id": "c_l_werner",
+    "name": "C.L. Werner",
+    "nameSort": "Werner, C.L.",
+    "workCount": 4,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "matt_westbrook",
+    "name": "Matt Westbrook",
+    "nameSort": "Westbrook, Matt",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "peter_whickam",
+    "name": "Peter Whickam",
+    "nameSort": "Whickam, Peter",
+    "workCount": 1,
+    "isAuthor": false,
+    "roles": [
+      "co_narrator"
+    ]
+  },
+  {
+    "id": "richard_williams",
+    "name": "Richard Williams",
+    "nameSort": "Williams, Richard",
+    "workCount": 3,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "andrew_wincott",
+    "name": "Andrew Wincott",
+    "nameSort": "Wincott, Andrew",
+    "workCount": 2,
+    "isAuthor": false,
+    "roles": [
+      "narrator"
+    ]
+  },
+  {
+    "id": "chris_winterton",
+    "name": "Chris Winterton",
+    "nameSort": "Winterton, Chris",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "justin_wooley",
+    "name": "Justin Wooley",
+    "nameSort": "Wooley, Justin",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "justin_woolley",
+    "name": "Justin Woolley",
+    "nameSort": "Woolley, Justin",
+    "workCount": 2,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "alec_worley",
+    "name": "Alec Worley",
+    "nameSort": "Worley, Alec",
+    "workCount": 2,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "charles_wraight",
+    "name": "Charles Wraight",
+    "nameSort": "Wraight, Charles",
+    "workCount": 1,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "chris_wraight",
+    "name": "Chris Wraight",
+    "nameSort": "Wraight, Chris",
+    "workCount": 39,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "rob_young",
+    "name": "Rob Young",
+    "nameSort": "Young, Rob",
+    "workCount": 2,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  },
+  {
+    "id": "henry_zou",
+    "name": "Henry Zou",
+    "nameSort": "Zou, Henry",
+    "workCount": 4,
+    "isAuthor": true,
+    "roles": [
+      "author"
+    ]
+  }
+]

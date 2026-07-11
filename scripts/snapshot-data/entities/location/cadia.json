@@ -1,0 +1,411 @@
+{
+  "type": "location",
+  "id": "cadia",
+  "name": "Cadia",
+  "blurb": {
+    "text": "A fortress world that long guarded the Cadian Gate, the most stable passage out of the Eye of Terror, until it was destroyed during the 13th Black Crusade.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Cadia"
+  },
+  "facts": [
+    {
+      "label": "Sector",
+      "value": "Segmentum Obscurus"
+    }
+  ],
+  "tags": [
+    "astra_militarum",
+    "cadia"
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "the-first-heretic",
+          "title": "The First Heretic",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-first-heretic",
+          "showTitle": null
+        },
+        {
+          "slug": "ragnar-blackmane",
+          "title": "Ragnar Blackmane",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/ragnar-blackmane",
+          "showTitle": null
+        },
+        {
+          "slug": "astra-militarum",
+          "title": "Astra Militarum",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/astra-militarum",
+          "showTitle": null
+        },
+        {
+          "slug": "cadia-stands",
+          "title": "Cadia Stands",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/cadia-stands",
+          "showTitle": null
+        },
+        {
+          "slug": "the-helwinter-gate",
+          "title": "The Helwinter Gate",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-helwinter-gate",
+          "showTitle": null
+        },
+        {
+          "slug": "minka-lesk-the-last-whiteshield",
+          "title": "Minka Lesk: The Last Whiteshield",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/minka-lesk-the-last-whiteshield",
+          "showTitle": null
+        },
+        {
+          "slug": "creed-ashes-of-cadia",
+          "title": "Creed: Ashes of Cadia",
+          "kind": "book",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/creed-ashes-of-cadia",
+          "showTitle": null
+        },
+        {
+          "slug": "fall-of-cadia",
+          "title": "Fall of Cadia",
+          "kind": "book",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/fall-of-cadia",
+          "showTitle": null
+        },
+        {
+          "slug": "darkness-eternal",
+          "title": "Darkness Eternal",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/darkness-eternal",
+          "showTitle": null
+        },
+        {
+          "slug": "veterans-of-the-fall",
+          "title": "Veterans of the Fall",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/veterans-of-the-fall",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "luetin09-zujo6vcsggs",
+          "title": "PLANETS of the IMPERIUM - WAR | The fall of CADIA | WARHAMMER 40,000 Lore / History",
+          "kind": "podcast_episode",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-3a89868b-da97-4a07-8587-4cf518b718d9",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-7a6de118-88f0-5e27-8849-0f4bfe0a66c3",
+          "title": "65 - Abaddon's Black Crusades Pt. 2",
+          "kind": "podcast_episode",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-c4b05e06-21be-48d1-9873-93fcde4d7ca3",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-8549385",
+          "title": "FALL OF CADIA: THE PLANET BROKE BEFORE THE GUARD DID",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-0d73555d-9141-4438-afbc-c5168b3acb74",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-8464770",
+          "title": "LUNA WOLVES/SONS OF HORUS: PRELUDE TO THE FALL OF CADIA | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-4432583f-5db4-4e61-9e0a-02ef6087ac2d",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-11910614",
+          "title": "CADIA (still) STANDS: IMPERIAL GUARD TODAY | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-f62d8666-6aba-408b-b540-105bc937a66b",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "luetin09-htaa-ap7t2o",
+          "title": "40K - KASRKIN ORIGINS - CADIAN SPEC OPS | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-f0de2ca2-851a-4c94-bc1d-a3ca50b28a11",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-14413035",
+          "title": "CADIA NEVER FELL, ACTUALLY | Warhammer 40k Lore feat Kirioth",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-e091a400-46f4-4e78-a8be-c54dba30d6f5",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-14464917",
+          "title": "Episode 21 - Abaddon pt 3 - Abaddon goes crusading.",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-a46797a5-a7fe-463a-9851-aa9527d8fe8b",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-15372048",
+          "title": "Episode 42 - The Regiments of the Imperial Guard",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-12f6e8f3-cb2d-4c96-9d17-796fd20479ad",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "lorehammer-cf31ab0b-efde-47ad-9d30-9275b4a5c505",
+          "title": "208 - The Segmentum Obscurus",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-8e8c37f5-96e3-4b6c-959a-653d72b7b22b",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "the-40k-lorecast-d8584d66-0637-11f0-9e9a-d3ec9457bcb1",
+          "title": "Episode 80 - Ynnari pt3 - Cawl and Guilliman save the Imperium",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-0c36d1f2-8eb6-435e-ae4c-520cfbaf956a",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-8a8b390d-c022-4be1-b655-b407a9dab293",
+          "title": "Episode 145 - Word Bearers pt 2 - The emperor's censure and the legions subsequent jaunt into the eye of terror",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-a4671979-51d8-4299-91b7-488d0d687197",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-19170717",
+          "title": "Why the Iron Warriors are Purging Cadia... Again | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-dea46d52-9716-4f74-ba7e-e18cf9193a6b",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Other worlds in sector",
+      "items": [
+        {
+          "type": "location",
+          "id": "armageddon",
+          "name": "Armageddon"
+        },
+        {
+          "type": "location",
+          "id": "asaheim",
+          "name": "Asaheim"
+        },
+        {
+          "type": "location",
+          "id": "caliban",
+          "name": "Caliban"
+        },
+        {
+          "type": "location",
+          "id": "certus_minor",
+          "name": "Certus-Minor"
+        },
+        {
+          "type": "location",
+          "id": "crannog_mons",
+          "name": "Crannog Mons"
+        },
+        {
+          "type": "location",
+          "id": "davin",
+          "name": "Davin"
+        },
+        {
+          "type": "location",
+          "id": "eye_of_terror",
+          "name": "Eye of Terror"
+        },
+        {
+          "type": "location",
+          "id": "fabris_calivant",
+          "name": "Fabris Calivant"
+        },
+        {
+          "type": "location",
+          "id": "fenris",
+          "name": "Fenris"
+        },
+        {
+          "type": "location",
+          "id": "gildar_secundus",
+          "name": "Gildar Secundus"
+        },
+        {
+          "type": "location",
+          "id": "herodian_iv",
+          "name": "Herodian IV"
+        },
+        {
+          "type": "location",
+          "id": "honoria",
+          "name": "Honoria"
+        },
+        {
+          "type": "location",
+          "id": "istvaan_iii",
+          "name": "Istvaan III"
+        },
+        {
+          "type": "location",
+          "id": "istvaan_system",
+          "name": "Istvaan System"
+        },
+        {
+          "type": "location",
+          "id": "istvaan_v",
+          "name": "Istvaan V"
+        },
+        {
+          "type": "location",
+          "id": "kadillus_harbour",
+          "name": "Kadillus Harbour"
+        },
+        {
+          "type": "location",
+          "id": "lastrati",
+          "name": "Lastrati"
+        },
+        {
+          "type": "location",
+          "id": "malouri",
+          "name": "Malouri"
+        },
+        {
+          "type": "location",
+          "id": "medrengard",
+          "name": "Medrengard"
+        },
+        {
+          "type": "location",
+          "id": "northwilds",
+          "name": "Northwilds"
+        },
+        {
+          "type": "location",
+          "id": "nostramo",
+          "name": "Nostramo"
+        },
+        {
+          "type": "location",
+          "id": "piety_v",
+          "name": "Piety V"
+        },
+        {
+          "type": "location",
+          "id": "prospero",
+          "name": "Prospero"
+        },
+        {
+          "type": "location",
+          "id": "fang",
+          "name": "The Fang"
+        },
+        {
+          "type": "location",
+          "id": "tizca",
+          "name": "Tizca"
+        },
+        {
+          "type": "location",
+          "id": "urgall_depression",
+          "name": "Urgall Depression"
+        },
+        {
+          "type": "location",
+          "id": "void",
+          "name": "Warp Corridor"
+        },
+        {
+          "type": "location",
+          "id": "zaramund",
+          "name": "Zaramund"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "type": "character",
+  "id": "garviel_loken",
+  "name": "Garviel Loken",
+  "blurb": {
+    "text": "Garviel Loken is a Captain of the Luna Wolves and member of the Mournival, Horus's inner council of advisors. He serves as the primary moral conscience and POV character of the Horus Heresy's opening trilogy, witnessing the Legion's fall from within.",
+    "confidence": 0.97,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Garviel_Loken"
+  },
+  "facts": [
+    {
+      "label": "Allegiance",
+      "value": {
+        "type": "faction",
+        "id": "sons_of_horus",
+        "name": "Sons of Horus"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "false-gods",
+          "title": "False Gods",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/false-gods",
+          "showTitle": null
+        },
+        {
+          "slug": "galaxy-in-flames",
+          "title": "Galaxy in Flames",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/galaxy-in-flames",
+          "showTitle": null
+        },
+        {
+          "slug": "horus-rising",
+          "title": "Horus Rising",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/horus-rising",
+          "showTitle": null
+        },
+        {
+          "slug": "garro-legion-of-one",
+          "title": "Garro: Legion of One",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/garro-legion-of-one",
+          "showTitle": null
+        },
+        {
+          "slug": "little-horus",
+          "title": "Little Horus",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/little-horus",
+          "showTitle": null
+        },
+        {
+          "slug": "grey-angel",
+          "title": "Grey Angel",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/grey-angel",
+          "showTitle": null
+        },
+        {
+          "slug": "luna-mendax",
+          "title": "Luna Mendax",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/luna-mendax",
+          "showTitle": null
+        },
+        {
+          "slug": "vengeful-spirit",
+          "title": "Vengeful Spirit",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/vengeful-spirit",
+          "showTitle": null
+        },
+        {
+          "slug": "crusades-end",
+          "title": "Crusade's End",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/crusades-end",
+          "showTitle": null
+        },
+        {
+          "slug": "garro-weapons-of-fate",
+          "title": "Garro: Weapons of Fate",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/garro-weapons-of-fate",
+          "showTitle": null
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

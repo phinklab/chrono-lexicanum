@@ -1,0 +1,705 @@
+{
+  "type": "faction",
+  "id": "sons_of_horus",
+  "name": "Sons of Horus",
+  "blurb": {
+    "text": "The XVI Legion, Horus's own Space Marines, who formed the heart of his rebellion during the Horus Heresy and were later reforged as the Black Legion.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Sons_of_Horus"
+  },
+  "facts": [
+    {
+      "label": "Alignment",
+      "value": "Chaos"
+    },
+    {
+      "label": "Parent faction",
+      "value": {
+        "type": "faction",
+        "id": "heretic_astartes",
+        "name": "Heretic Astartes"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "false-gods",
+          "title": "False Gods",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/false-gods",
+          "showTitle": null
+        },
+        {
+          "slug": "galaxy-in-flames",
+          "title": "Galaxy in Flames",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/galaxy-in-flames",
+          "showTitle": null
+        },
+        {
+          "slug": "horus-rising",
+          "title": "Horus Rising",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/horus-rising",
+          "showTitle": null
+        },
+        {
+          "slug": "collected-visions",
+          "title": "Collected Visions",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/collected-visions",
+          "showTitle": null
+        },
+        {
+          "slug": "the-flight-of-the-eisenstein",
+          "title": "The Flight of the Eisenstein",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-flight-of-the-eisenstein",
+          "showTitle": null
+        },
+        {
+          "slug": "age-of-darkness",
+          "title": "Age of Darkness",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/age-of-darkness",
+          "showTitle": null
+        },
+        {
+          "slug": "aurelian",
+          "title": "Aurelian",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/aurelian",
+          "showTitle": null
+        },
+        {
+          "slug": "garro-legion-of-one",
+          "title": "Garro: Legion of One",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/garro-legion-of-one",
+          "showTitle": null
+        },
+        {
+          "slug": "little-horus",
+          "title": "Little Horus",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/little-horus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-outcast-dead",
+          "title": "The Outcast Dead",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-outcast-dead",
+          "showTitle": null
+        },
+        {
+          "slug": "death-of-a-silversmith",
+          "title": "Death of a Silversmith",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/death-of-a-silversmith",
+          "showTitle": null
+        },
+        {
+          "slug": "shadows-of-treachery",
+          "title": "Shadows of Treachery",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/shadows-of-treachery",
+          "showTitle": null
+        },
+        {
+          "slug": "warmaster",
+          "title": "Warmaster",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/warmaster",
+          "showTitle": null
+        },
+        {
+          "slug": "luna-mendax",
+          "title": "Luna Mendax",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/luna-mendax",
+          "showTitle": null
+        },
+        {
+          "slug": "the-kaban-project",
+          "title": "The Kaban Project",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-kaban-project",
+          "showTitle": null
+        },
+        {
+          "slug": "wolf-hunt",
+          "title": "Wolf Hunt",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/wolf-hunt",
+          "showTitle": null
+        },
+        {
+          "slug": "brotherhood-of-the-moon",
+          "title": "Brotherhood of the Moon",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/brotherhood-of-the-moon",
+          "showTitle": null
+        },
+        {
+          "slug": "death-and-defiance",
+          "title": "Death and Defiance",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/death-and-defiance",
+          "showTitle": null
+        },
+        {
+          "slug": "echoes-of-ruin",
+          "title": "Echoes of Ruin",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/echoes-of-ruin",
+          "showTitle": null
+        },
+        {
+          "slug": "ravenlord",
+          "title": "Ravenlord",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/ravenlord",
+          "showTitle": null
+        },
+        {
+          "slug": "the-final-compliance-of-sixty-three-fourteen",
+          "title": "The Final Compliance of Sixty-Three Fourteen",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-final-compliance-of-sixty-three-fourteen",
+          "showTitle": null
+        },
+        {
+          "slug": "the-talon-of-horus",
+          "title": "The Talon of Horus",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-talon-of-horus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-wolf-of-ash-and-fire",
+          "title": "The Wolf of Ash and Fire",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-wolf-of-ash-and-fire",
+          "showTitle": null
+        },
+        {
+          "slug": "vengeful-spirit",
+          "title": "Vengeful Spirit",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/vengeful-spirit",
+          "showTitle": null
+        },
+        {
+          "slug": "blades-of-the-traitor",
+          "title": "Blades of the Traitor",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/blades-of-the-traitor",
+          "showTitle": null
+        },
+        {
+          "slug": "gunsight",
+          "title": "Gunsight",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/gunsight",
+          "showTitle": null
+        },
+        {
+          "slug": "legacies-of-betrayal",
+          "title": "Legacies of Betrayal",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/legacies-of-betrayal",
+          "showTitle": null
+        },
+        {
+          "slug": "meduson",
+          "title": "Meduson",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/meduson",
+          "showTitle": null
+        },
+        {
+          "slug": "raptor",
+          "title": "Raptor",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/raptor",
+          "showTitle": null
+        },
+        {
+          "slug": "twisted",
+          "title": "Twisted",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/twisted",
+          "showTitle": null
+        },
+        {
+          "slug": "crusades-end",
+          "title": "Crusade's End",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/crusades-end",
+          "showTitle": null
+        },
+        {
+          "slug": "grey-talon",
+          "title": "Grey Talon",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/grey-talon",
+          "showTitle": null
+        },
+        {
+          "slug": "the-either",
+          "title": "The Either",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-either",
+          "showTitle": null
+        },
+        {
+          "slug": "dark-compliance",
+          "title": "Dark Compliance",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/dark-compliance",
+          "showTitle": null
+        },
+        {
+          "slug": "eye-of-terra",
+          "title": "Eye of Terra",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/eye-of-terra",
+          "showTitle": null
+        },
+        {
+          "slug": "old-earth",
+          "title": "Old Earth",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/old-earth",
+          "showTitle": null
+        },
+        {
+          "slug": "shattered-legions",
+          "title": "Shattered Legions",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/shattered-legions",
+          "showTitle": null
+        },
+        {
+          "slug": "slaves-to-darkness",
+          "title": "Slaves to Darkness",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/slaves-to-darkness",
+          "showTitle": null
+        },
+        {
+          "slug": "sons-of-the-emperor",
+          "title": "Sons of the Emperor",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/sons-of-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "the-burden-of-loyalty",
+          "title": "The Burden of Loyalty",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-burden-of-loyalty",
+          "showTitle": null
+        },
+        {
+          "slug": "visions-of-heresy-2018-ed",
+          "title": "Visions of Heresy (2018 ed.)",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/visions-of-heresy-2018-ed",
+          "showTitle": null
+        },
+        {
+          "slug": "wolfsbane",
+          "title": "Wolfsbane",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/wolfsbane",
+          "showTitle": null
+        },
+        {
+          "slug": "blackshields-the-broken-chain",
+          "title": "Blackshields: The Broken Chain",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/blackshields-the-broken-chain",
+          "showTitle": null
+        },
+        {
+          "slug": "the-lost-and-the-damned",
+          "title": "The Lost and the Damned",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-lost-and-the-damned",
+          "showTitle": null
+        },
+        {
+          "slug": "the-solar-war",
+          "title": "The Solar War",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-solar-war",
+          "showTitle": null
+        },
+        {
+          "slug": "saturnine",
+          "title": "Saturnine",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/saturnine",
+          "showTitle": null
+        },
+        {
+          "slug": "mortis",
+          "title": "Mortis",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/mortis",
+          "showTitle": null
+        },
+        {
+          "slug": "warhawk",
+          "title": "Warhawk",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/warhawk",
+          "showTitle": null
+        },
+        {
+          "slug": "echoes-of-eternity",
+          "title": "Echoes of Eternity",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/echoes-of-eternity",
+          "showTitle": null
+        },
+        {
+          "slug": "the-end-and-the-death-vol-1",
+          "title": "The End and The Death Vol. 1",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-end-and-the-death-vol-1",
+          "showTitle": null
+        },
+        {
+          "slug": "the-end-and-the-death-vol-2",
+          "title": "The End and The Death Vol. 2",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-end-and-the-death-vol-2",
+          "showTitle": null
+        },
+        {
+          "slug": "the-end-and-the-death-vol-3",
+          "title": "The End and The Death Vol. 3",
+          "kind": "book",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-end-and-the-death-vol-3",
+          "showTitle": null
+        },
+        {
+          "slug": "dropsite-massacre",
+          "title": "Dropsite Massacre",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/dropsite-massacre",
+          "showTitle": null
+        },
+        {
+          "slug": "era-of-ruin",
+          "title": "Era Of Ruin",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/era-of-ruin",
+          "showTitle": null
+        },
+        {
+          "slug": "flames-of-betrayal",
+          "title": "Flames of Betrayal",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/flames-of-betrayal",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-8464770",
+          "title": "LUNA WOLVES/SONS OF HORUS: PRELUDE TO THE FALL OF CADIA | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-4432583f-5db4-4e61-9e0a-02ef6087ac2d",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "luetin09-v2den-pzty",
+          "title": "40K - THE TITANIC DOOM OF MOLECH | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-2dfbed47-5f78-442b-921f-c68cb29ce97e",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-14394868",
+          "title": "Episode 19 - Abaddon pt 1 - The Origins and fall of Ezekyle.",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-f44c5d65-6d7e-4b80-89f5-4e560d5e2348",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-15713515",
+          "title": "HORUS RISING | Warhammer 40k Book Review & Discussion",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-63c1bc5f-1ac2-44a8-8f43-b2ed58d1e412",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-15355759",
+          "title": "Sevatar: We were murderers first, last and always | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-7292fd8d-d94f-44db-8fc0-6777f50f87ce",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-8636d857-eee5-4ac8-b97f-a0bd7c239b4f",
+          "title": "Episode 139 - The Raven Guard pt 1 - Creation of the 19th and discovery of Corax",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-715f2c6c-c7c5-480c-8987-b28c4ce2f68d",
+          "showTitle": "The 40k Lorecast"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Key characters",
+      "items": [
+        {
+          "type": "character",
+          "id": "argonis",
+          "name": "Argonis"
+        },
+        {
+          "type": "character",
+          "id": "garviel_loken",
+          "name": "Garviel Loken"
+        },
+        {
+          "type": "character",
+          "id": "hastur_sejanus",
+          "name": "Hastur Sejanus"
+        },
+        {
+          "type": "character",
+          "id": "horus",
+          "name": "Horus"
+        },
+        {
+          "type": "character",
+          "id": "horus_aximand",
+          "name": "Horus Aximand"
+        },
+        {
+          "type": "character",
+          "id": "iacton_qruze",
+          "name": "Iacton Qruze"
+        },
+        {
+          "type": "character",
+          "id": "maloghurst_the_twisted",
+          "name": "Maloghurst the Twisted"
+        },
+        {
+          "type": "character",
+          "id": "severian",
+          "name": "Severian"
+        },
+        {
+          "type": "character",
+          "id": "tarik_torgaddon",
+          "name": "Tarik Torgaddon"
+        },
+        {
+          "type": "character",
+          "id": "tybalt_marr",
+          "name": "Tybalt Marr"
+        }
+      ]
+    }
+  ]
+}

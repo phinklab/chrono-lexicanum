@@ -1,0 +1,340 @@
+{
+  "type": "location",
+  "id": "caliban",
+  "name": "Caliban",
+  "blurb": {
+    "text": "The forest world that was the Dark Angels' homeworld and Lion El'Jonson's adopted home, destroyed during Luther's rebellion.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Caliban"
+  },
+  "facts": [
+    {
+      "label": "Sector",
+      "value": "Segmentum Obscurus"
+    }
+  ],
+  "tags": [
+    "dark_angels"
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "descent-of-angels",
+          "title": "Descent of Angels",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/descent-of-angels",
+          "showTitle": null
+        },
+        {
+          "slug": "fallen-angels",
+          "title": "Fallen Angels",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/fallen-angels",
+          "showTitle": null
+        },
+        {
+          "slug": "tales-of-heresy",
+          "title": "Tales of Heresy",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/tales-of-heresy",
+          "showTitle": null
+        },
+        {
+          "slug": "grey-angel",
+          "title": "Grey Angel",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/grey-angel",
+          "showTitle": null
+        },
+        {
+          "slug": "cypher-guardian-of-order",
+          "title": "Cypher: Guardian of Order",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/cypher-guardian-of-order",
+          "showTitle": null
+        },
+        {
+          "slug": "luna-mendax",
+          "title": "Luna Mendax",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/buch/luna-mendax",
+          "showTitle": null
+        },
+        {
+          "slug": "master-of-the-first",
+          "title": "Master of the First",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/master-of-the-first",
+          "showTitle": null
+        },
+        {
+          "slug": "angels-of-caliban",
+          "title": "Angels of Caliban",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/angels-of-caliban",
+          "showTitle": null
+        },
+        {
+          "slug": "dreadwing",
+          "title": "Dreadwing",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/buch/dreadwing",
+          "showTitle": null
+        },
+        {
+          "slug": "luther-first-of-the-fallen",
+          "title": "Luther: First of the Fallen",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/luther-first-of-the-fallen",
+          "showTitle": null
+        },
+        {
+          "slug": "the-lion-sons-of-the-forest",
+          "title": "The Lion: Sons of the Forest",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-lion-sons-of-the-forest",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-12635425",
+          "title": "LION EL'JONSON: ALL HAIL THE COMING OF THE DESTROYER | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-207fce51-f120-4f46-956d-7e33adb6a15d",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-https-api-spreaker-com-episode-63322184",
+          "title": "131 - Lion El'Jonson, Origins and Great Crusade",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-04996497-aa12-42d5-a41e-4f615e799225",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-https-api-spreaker-com-episode-63394251",
+          "title": "132 - Lion El'Jonson, Horus Heresy and Great Scouring",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-96ed2286-2d5c-44b5-938b-3e125750211e",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-14346928",
+          "title": "THE LION: SON OF THE FOREST | Warhammer 40k Book Club",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-a5d65a68-299e-4b8d-b18c-5f32e1e879f3",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-19463596",
+          "title": "Cypher: The Fallen Angel Who Walked to the Golden Throne | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-b335a2e2-d36e-446d-a3ef-7ffca3bbde4c",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Other worlds in sector",
+      "items": [
+        {
+          "type": "location",
+          "id": "armageddon",
+          "name": "Armageddon"
+        },
+        {
+          "type": "location",
+          "id": "asaheim",
+          "name": "Asaheim"
+        },
+        {
+          "type": "location",
+          "id": "cadia",
+          "name": "Cadia"
+        },
+        {
+          "type": "location",
+          "id": "certus_minor",
+          "name": "Certus-Minor"
+        },
+        {
+          "type": "location",
+          "id": "crannog_mons",
+          "name": "Crannog Mons"
+        },
+        {
+          "type": "location",
+          "id": "davin",
+          "name": "Davin"
+        },
+        {
+          "type": "location",
+          "id": "eye_of_terror",
+          "name": "Eye of Terror"
+        },
+        {
+          "type": "location",
+          "id": "fabris_calivant",
+          "name": "Fabris Calivant"
+        },
+        {
+          "type": "location",
+          "id": "fenris",
+          "name": "Fenris"
+        },
+        {
+          "type": "location",
+          "id": "gildar_secundus",
+          "name": "Gildar Secundus"
+        },
+        {
+          "type": "location",
+          "id": "herodian_iv",
+          "name": "Herodian IV"
+        },
+        {
+          "type": "location",
+          "id": "honoria",
+          "name": "Honoria"
+        },
+        {
+          "type": "location",
+          "id": "istvaan_iii",
+          "name": "Istvaan III"
+        },
+        {
+          "type": "location",
+          "id": "istvaan_system",
+          "name": "Istvaan System"
+        },
+        {
+          "type": "location",
+          "id": "istvaan_v",
+          "name": "Istvaan V"
+        },
+        {
+          "type": "location",
+          "id": "kadillus_harbour",
+          "name": "Kadillus Harbour"
+        },
+        {
+          "type": "location",
+          "id": "lastrati",
+          "name": "Lastrati"
+        },
+        {
+          "type": "location",
+          "id": "malouri",
+          "name": "Malouri"
+        },
+        {
+          "type": "location",
+          "id": "medrengard",
+          "name": "Medrengard"
+        },
+        {
+          "type": "location",
+          "id": "northwilds",
+          "name": "Northwilds"
+        },
+        {
+          "type": "location",
+          "id": "nostramo",
+          "name": "Nostramo"
+        },
+        {
+          "type": "location",
+          "id": "piety_v",
+          "name": "Piety V"
+        },
+        {
+          "type": "location",
+          "id": "prospero",
+          "name": "Prospero"
+        },
+        {
+          "type": "location",
+          "id": "fang",
+          "name": "The Fang"
+        },
+        {
+          "type": "location",
+          "id": "tizca",
+          "name": "Tizca"
+        },
+        {
+          "type": "location",
+          "id": "urgall_depression",
+          "name": "Urgall Depression"
+        },
+        {
+          "type": "location",
+          "id": "void",
+          "name": "Warp Corridor"
+        },
+        {
+          "type": "location",
+          "id": "zaramund",
+          "name": "Zaramund"
+        }
+      ]
+    }
+  ]
+}

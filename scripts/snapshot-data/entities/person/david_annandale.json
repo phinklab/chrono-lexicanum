@@ -1,0 +1,425 @@
+{
+  "type": "person",
+  "id": "david_annandale",
+  "name": "David Annandale",
+  "facts": [],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "veritas-ferrum",
+          "title": "Veritas Ferrum",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/veritas-ferrum",
+          "showTitle": null
+        },
+        {
+          "slug": "chains-of-golgotha",
+          "title": "Chains of Golgotha",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/chains-of-golgotha",
+          "showTitle": null
+        },
+        {
+          "slug": "mephiston-lord-of-death",
+          "title": "Mephiston: Lord of Death",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/mephiston-lord-of-death",
+          "showTitle": null
+        },
+        {
+          "slug": "stormseer",
+          "title": "Stormseer",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/stormseer",
+          "showTitle": null
+        },
+        {
+          "slug": "the-death-of-antagonis",
+          "title": "The Death of Antagonis",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-death-of-antagonis",
+          "showTitle": null
+        },
+        {
+          "slug": "forge-master",
+          "title": "Forge Master",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/forge-master",
+          "showTitle": null
+        },
+        {
+          "slug": "imperial-creed",
+          "title": "Imperial Creed",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/imperial-creed",
+          "showTitle": null
+        },
+        {
+          "slug": "overfiend",
+          "title": "Overfiend",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/overfiend",
+          "showTitle": null
+        },
+        {
+          "slug": "sanctus-reach-maledictus",
+          "title": "Sanctus Reach: Maledictus",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/sanctus-reach-maledictus",
+          "showTitle": null
+        },
+        {
+          "slug": "shadow-captain",
+          "title": "Shadow Captain",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/shadow-captain",
+          "showTitle": null
+        },
+        {
+          "slug": "the-damnation-of-pythos",
+          "title": "The Damnation of Pythos",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-damnation-of-pythos",
+          "showTitle": null
+        },
+        {
+          "slug": "iron-corpses",
+          "title": "Iron Corpses",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/iron-corpses",
+          "showTitle": null
+        },
+        {
+          "slug": "the-pyres-of-armageddon",
+          "title": "The Pyres of Armageddon",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-pyres-of-armageddon",
+          "showTitle": null
+        },
+        {
+          "slug": "the-unburdened",
+          "title": "The Unburdened",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-unburdened",
+          "showTitle": null
+        },
+        {
+          "slug": "lemartes-guardian-of-the-lost",
+          "title": "Lemartes: Guardian of the Lost",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/lemartes-guardian-of-the-lost",
+          "showTitle": null
+        },
+        {
+          "slug": "roboute-guilliman-lord-of-ultramar",
+          "title": "Roboute Guilliman: Lord of Ultramar",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/roboute-guilliman-lord-of-ultramar",
+          "showTitle": null
+        },
+        {
+          "slug": "the-hunt-for-vulkan",
+          "title": "The Hunt for Vulkan",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-hunt-for-vulkan",
+          "showTitle": null
+        },
+        {
+          "slug": "the-last-wall",
+          "title": "The Last Wall",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-last-wall",
+          "showTitle": null
+        },
+        {
+          "slug": "warden-of-the-blade",
+          "title": "Warden of the Blade",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/warden-of-the-blade",
+          "showTitle": null
+        },
+        {
+          "slug": "watchers-in-death",
+          "title": "Watchers in Death",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/watchers-in-death",
+          "showTitle": null
+        },
+        {
+          "slug": "castellan",
+          "title": "Castellan",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/castellan",
+          "showTitle": null
+        },
+        {
+          "slug": "curse-of-the-wulfen",
+          "title": "Curse of the Wulfen",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/curse-of-the-wulfen",
+          "showTitle": null
+        },
+        {
+          "slug": "ruinstorm",
+          "title": "Ruinstorm",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ruinstorm",
+          "showTitle": null
+        },
+        {
+          "slug": "the-binary-succession",
+          "title": "The Binary Succession",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-binary-succession",
+          "showTitle": null
+        },
+        {
+          "slug": "warlord-fury-of-the-god-machine",
+          "title": "Warlord: Fury of the God Machine",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/warlord-fury-of-the-god-machine",
+          "showTitle": null
+        },
+        {
+          "slug": "abyssal",
+          "title": "Abyssal",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/abyssal",
+          "showTitle": null
+        },
+        {
+          "slug": "prologue-to-nikaea",
+          "title": "Prologue To Nikaea",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/prologue-to-nikaea",
+          "showTitle": null
+        },
+        {
+          "slug": "spear-of-ultramar",
+          "title": "Spear of Ultramar",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/spear-of-ultramar",
+          "showTitle": null
+        },
+        {
+          "slug": "the-atonement-of-fire",
+          "title": "The Atonement of Fire",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-atonement-of-fire",
+          "showTitle": null
+        },
+        {
+          "slug": "vulkan-lord-of-drakes",
+          "title": "Vulkan: Lord of Drakes",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/vulkan-lord-of-drakes",
+          "showTitle": null
+        },
+        {
+          "slug": "yarrick-the-omnibus",
+          "title": "Yarrick: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/yarrick-the-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-house-of-the-night-and-chain",
+          "title": "The House of the Night and Chain",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-house-of-the-night-and-chain",
+          "showTitle": null
+        },
+        {
+          "slug": "the-hunt",
+          "title": "The Hunt",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-hunt",
+          "showTitle": null
+        },
+        {
+          "slug": "the-revelation-of-the-word",
+          "title": "The Revelation of the Word",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-revelation-of-the-word",
+          "showTitle": null
+        },
+        {
+          "slug": "ephrael-stern-the-heretic-saint",
+          "title": "Ephrael Stern: The Heretic Saint",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ephrael-stern-the-heretic-saint",
+          "showTitle": null
+        },
+        {
+          "slug": "the-deacon-of-wounds",
+          "title": "The Deacon of Wounds",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-deacon-of-wounds",
+          "showTitle": null
+        },
+        {
+          "slug": "the-vintage",
+          "title": "The Vintage",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-vintage",
+          "showTitle": null
+        },
+        {
+          "slug": "mortarion-the-pale-king",
+          "title": "Mortarion: The Pale King",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/mortarion-the-pale-king",
+          "showTitle": null
+        },
+        {
+          "slug": "saints-of-the-imperium",
+          "title": "Saints of the Imperium",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/saints-of-the-imperium",
+          "showTitle": null
+        },
+        {
+          "slug": "yarrick-imperial-creed",
+          "title": "Yarrick: Imperial Creed",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/yarrick-imperial-creed",
+          "showTitle": null
+        },
+        {
+          "slug": "apostle",
+          "title": "Apostle",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/apostle",
+          "showTitle": null
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

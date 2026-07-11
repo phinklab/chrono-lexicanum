@@ -1,0 +1,790 @@
+{
+  "type": "faction",
+  "id": "iron_warriors",
+  "name": "Iron Warriors",
+  "blurb": {
+    "text": "A traitor Space Marine Legion descended from Perturabo, master siege-breakers embittered against the Imperium and now in service to Chaos.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Iron_Warriors"
+  },
+  "facts": [
+    {
+      "label": "Alignment",
+      "value": "Chaos"
+    },
+    {
+      "label": "Parent faction",
+      "value": {
+        "type": "faction",
+        "id": "heretic_astartes",
+        "name": "Heretic Astartes"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "storm-of-iron",
+          "title": "Storm of Iron",
+          "kind": "book",
+          "releaseYear": 2002,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/storm-of-iron",
+          "showTitle": null
+        },
+        {
+          "slug": "dead-sky-black-sun",
+          "title": "Dead Sky, Black Sun",
+          "kind": "book",
+          "releaseYear": 2004,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/dead-sky-black-sun",
+          "showTitle": null
+        },
+        {
+          "slug": "the-ultramarines-omnibus",
+          "title": "The Ultramarines Omnibus",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-ultramarines-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "collected-visions",
+          "title": "Collected Visions",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/collected-visions",
+          "showTitle": null
+        },
+        {
+          "slug": "iron-warrior",
+          "title": "Iron Warrior",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/iron-warrior",
+          "showTitle": null
+        },
+        {
+          "slug": "ravens-flight",
+          "title": "Raven's Flight",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/ravens-flight",
+          "showTitle": null
+        },
+        {
+          "slug": "the-chapters-due",
+          "title": "The Chapter's Due",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-chapters-due",
+          "showTitle": null
+        },
+        {
+          "slug": "age-of-darkness",
+          "title": "Age of Darkness",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/age-of-darkness",
+          "showTitle": null
+        },
+        {
+          "slug": "forgotten-sons",
+          "title": "Forgotten Sons",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/forgotten-sons",
+          "showTitle": null
+        },
+        {
+          "slug": "the-iron-within",
+          "title": "The Iron Within",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-iron-within",
+          "showTitle": null
+        },
+        {
+          "slug": "architect-of-fate",
+          "title": "Architect of Fate",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/architect-of-fate",
+          "showTitle": null
+        },
+        {
+          "slug": "endeavour-of-will",
+          "title": "Endeavour of Will",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/endeavour-of-will",
+          "showTitle": null
+        },
+        {
+          "slug": "iron-warriors-the-omnibus",
+          "title": "Iron Warriors: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/iron-warriors-the-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "shadows-of-treachery",
+          "title": "Shadows of Treachery",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/shadows-of-treachery",
+          "showTitle": null
+        },
+        {
+          "slug": "the-siege-of-castellax",
+          "title": "The Siege of Castellax",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-siege-of-castellax",
+          "showTitle": null
+        },
+        {
+          "slug": "ultramarines-the-second-omnibus",
+          "title": "Ultramarines: The Second Omnibus",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/ultramarines-the-second-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "angel-exterminatus",
+          "title": "Angel Exterminatus",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/angel-exterminatus",
+          "showTitle": null
+        },
+        {
+          "slug": "malodrax",
+          "title": "Malodrax",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/malodrax",
+          "showTitle": null
+        },
+        {
+          "slug": "seventh-retribution",
+          "title": "Seventh Retribution",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/seventh-retribution",
+          "showTitle": null
+        },
+        {
+          "slug": "tallarn-executioner",
+          "title": "Tallarn: Executioner",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/tallarn-executioner",
+          "showTitle": null
+        },
+        {
+          "slug": "the-crimson-fist",
+          "title": "The Crimson Fist",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-crimson-fist",
+          "showTitle": null
+        },
+        {
+          "slug": "black-oculus",
+          "title": "Black Oculus",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/black-oculus",
+          "showTitle": null
+        },
+        {
+          "slug": "blades-of-the-traitor",
+          "title": "Blades of the Traitor",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/blades-of-the-traitor",
+          "showTitle": null
+        },
+        {
+          "slug": "iron-corpses",
+          "title": "Iron Corpses",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/iron-corpses",
+          "showTitle": null
+        },
+        {
+          "slug": "ironfire",
+          "title": "Ironfire",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/ironfire",
+          "showTitle": null
+        },
+        {
+          "slug": "tallarn-ironclad",
+          "title": "Tallarn: Ironclad",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/tallarn-ironclad",
+          "showTitle": null
+        },
+        {
+          "slug": "tallarn-witness",
+          "title": "Tallarn: Witness",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/tallarn-witness",
+          "showTitle": null
+        },
+        {
+          "slug": "tech-priest",
+          "title": "Tech-Priest",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/tech-priest",
+          "showTitle": null
+        },
+        {
+          "slug": "the-eagles-talon",
+          "title": "The Eagle's Talon",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-eagles-talon",
+          "showTitle": null
+        },
+        {
+          "slug": "adeptus-mechanicus-omnibus",
+          "title": "Adeptus Mechanicus Omnibus",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/adeptus-mechanicus-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "echoes-of-the-long-war",
+          "title": "Echoes of the Long War",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/echoes-of-the-long-war",
+          "showTitle": null
+        },
+        {
+          "slug": "tallarn-siren",
+          "title": "Tallarn: Siren",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/tallarn-siren",
+          "showTitle": null
+        },
+        {
+          "slug": "the-last-phoenix",
+          "title": "The Last Phoenix",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-last-phoenix",
+          "showTitle": null
+        },
+        {
+          "slug": "throneworld",
+          "title": "Throneworld",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/throneworld",
+          "showTitle": null
+        },
+        {
+          "slug": "corax",
+          "title": "Corax",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/corax",
+          "showTitle": null
+        },
+        {
+          "slug": "cult-of-the-warmason",
+          "title": "Cult of the Warmason",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/cult-of-the-warmason",
+          "showTitle": null
+        },
+        {
+          "slug": "eye-of-terra",
+          "title": "Eye of Terra",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/eye-of-terra",
+          "showTitle": null
+        },
+        {
+          "slug": "magnus-the-red-master-of-prospero",
+          "title": "Magnus the Red: Master of Prospero",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/magnus-the-red-master-of-prospero",
+          "showTitle": null
+        },
+        {
+          "slug": "perturabo-stone-and-iron",
+          "title": "Perturabo: Stone and Iron",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/perturabo-stone-and-iron",
+          "showTitle": null
+        },
+        {
+          "slug": "perturabo-the-hammer-of-olympia",
+          "title": "Perturabo: The Hammer of Olympia",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/perturabo-the-hammer-of-olympia",
+          "showTitle": null
+        },
+        {
+          "slug": "shattered-legions",
+          "title": "Shattered Legions",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/shattered-legions",
+          "showTitle": null
+        },
+        {
+          "slug": "tallarn",
+          "title": "Tallarn",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/tallarn",
+          "showTitle": null
+        },
+        {
+          "slug": "of-honour-and-iron",
+          "title": "Of Honour and Iron",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/of-honour-and-iron",
+          "showTitle": null
+        },
+        {
+          "slug": "slaves-to-darkness",
+          "title": "Slaves to Darkness",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/slaves-to-darkness",
+          "showTitle": null
+        },
+        {
+          "slug": "sons-of-the-emperor",
+          "title": "Sons of the Emperor",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/sons-of-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "spear-of-ultramar",
+          "title": "Spear of Ultramar",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/spear-of-ultramar",
+          "showTitle": null
+        },
+        {
+          "slug": "the-lords-of-terra",
+          "title": "The Lords of Terra",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-lords-of-terra",
+          "showTitle": null
+        },
+        {
+          "slug": "visions-of-heresy-2018-ed",
+          "title": "Visions of Heresy (2018 ed.)",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/visions-of-heresy-2018-ed",
+          "showTitle": null
+        },
+        {
+          "slug": "iron-warriors-the-complete-honsou-omnibus",
+          "title": "Iron Warriors: The Complete Honsou Omnibus",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/iron-warriors-the-complete-honsou-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "scions-of-the-emperor",
+          "title": "Scions of the Emperor",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/scions-of-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "the-uriel-ventris-chronicles-vol-1-omnibus",
+          "title": "The Uriel Ventris Chronicles Vol. 1 Omnibus",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-uriel-ventris-chronicles-vol-1-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-uriel-ventris-chronicles-vol-2-omnibus",
+          "title": "The Uriel Ventris Chronicles Vol. 2 Omnibus",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-uriel-ventris-chronicles-vol-2-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "ember-of-extinction",
+          "title": "Ember of Extinction",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/ember-of-extinction",
+          "showTitle": null
+        },
+        {
+          "slug": "saturnine",
+          "title": "Saturnine",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/saturnine",
+          "showTitle": null
+        },
+        {
+          "slug": "the-first-wall",
+          "title": "The First Wall",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-first-wall",
+          "showTitle": null
+        },
+        {
+          "slug": "the-gates-of-bones",
+          "title": "The Gates of Bones",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-gates-of-bones",
+          "showTitle": null
+        },
+        {
+          "slug": "dropsite-massacre",
+          "title": "Dropsite Massacre",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/dropsite-massacre",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "luetin09-dpxvr7-jr7a",
+          "title": "THE WORST FATE IN 40K - CHAOS DAEMONCULABA | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-ba741288-645d-4d10-b5ed-a5e09dbd82ef",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-y0g-i-oqvh4",
+          "title": "40K - THE TITANIC CATACLYSM OF IRON | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-bcefe7cd-701c-4e9a-8213-391188c51b7c",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-9361652",
+          "title": "IRON WARRIORS: IRON WITHIN, IRON WITHOUT! | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-73abc294-c1dd-484c-b231-43a66512d2b6",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-9321787",
+          "title": "PERTURABO: THE LORD OF IRON | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-bbcc6925-4bca-4dcb-94f3-125b6e17ff6d",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-9834705",
+          "title": "DAEMONCULABA: ACTUALLY PRETTY BAD | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-fa0686d1-f6c3-45e9-965b-943b08d9e68f",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-13356488",
+          "title": "STORM OF IRON | Warhammer 40k Book Club",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-205b7932-38f2-4061-b386-e2ebbf283684",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-2bc9c7be-ca0a-11ef-9632-27e6595c6a37",
+          "title": "150 - Perturabo, Origins and Great Crusade",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-89fc90e8-c405-4c5e-86bb-d37450d01d8b",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2bf93670-ca0a-11ef-9632-8f27d7525d29",
+          "title": "151 - Perturabo, Horus Heresy and Great Scouring",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-f8786419-e03c-4450-b860-2215546cf3d8",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2c2b2c84-ca0a-11ef-9632-bb8cc34b6daa",
+          "title": "152 - Iron Warriors, 30k Legion Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-e9977d50-912a-474b-b6a4-5c301de29790",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2c5b5cba-ca0a-11ef-9632-2b1a11a8fe19",
+          "title": "153 - Iron Warriors, 40k Warband Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-d1c14437-f1e9-4c11-928d-aafc9527b156",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18624352",
+          "title": "TALLARN DESERT RAIDERS | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-3c089a3c-8320-4f19-b004-d56e3771a172",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-19134411",
+          "title": "What Perturabo Has Been Doing for 10,000 Years | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-0ba0f329-7dc0-4da7-8d76-207c63599f97",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-19170717",
+          "title": "Why the Iron Warriors are Purging Cadia... Again | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-dea46d52-9716-4f74-ba7e-e18cf9193a6b",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Key characters",
+      "items": [
+        {
+          "type": "character",
+          "id": "barabas_dantioch",
+          "name": "Barabas Dantioch"
+        },
+        {
+          "type": "character",
+          "id": "barban_falk",
+          "name": "Barban Falk"
+        },
+        {
+          "type": "character",
+          "id": "berossus",
+          "name": "Berossus"
+        },
+        {
+          "type": "character",
+          "id": "forrix",
+          "name": "Forrix"
+        },
+        {
+          "type": "character",
+          "id": "honsou",
+          "name": "Honsou"
+        },
+        {
+          "type": "character",
+          "id": "hrend",
+          "name": "Hrend"
+        },
+        {
+          "type": "character",
+          "id": "koparnos",
+          "name": "Koparnos"
+        },
+        {
+          "type": "character",
+          "id": "kroeger",
+          "name": "Kroeger"
+        },
+        {
+          "type": "character",
+          "id": "perturabo",
+          "name": "Perturabo"
+        }
+      ]
+    }
+  ]
+}

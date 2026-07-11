@@ -1,0 +1,586 @@
+{
+  "type": "person",
+  "id": "gav_thorpe",
+  "name": "Gav Thorpe",
+  "oneLine": "British author and game designer. Long-time Black Library writer; Path of the Eldar trilogy, Angels of Caliban, Deliverance Lost, and a steady stream of Aeldari and Dark Angels work.",
+  "facts": [],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "13th-legion",
+          "title": "13th Legion",
+          "kind": "book",
+          "releaseYear": 2001,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/13th-legion",
+          "showTitle": null
+        },
+        {
+          "slug": "kill-team",
+          "title": "Kill Team",
+          "kind": "book",
+          "releaseYear": 2001,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/kill-team",
+          "showTitle": null
+        },
+        {
+          "slug": "angels-of-darkness",
+          "title": "Angels of Darkness",
+          "kind": "book",
+          "releaseYear": 2003,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/angels-of-darkness",
+          "showTitle": null
+        },
+        {
+          "slug": "annihilation-squad",
+          "title": "Annihilation Squad",
+          "kind": "book",
+          "releaseYear": 2004,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/annihilation-squad",
+          "showTitle": null
+        },
+        {
+          "slug": "the-last-chancers-omnibus",
+          "title": "The Last Chancers Omnibus",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-last-chancers-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "call-of-the-lion",
+          "title": "Call of the Lion",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/call-of-the-lion",
+          "showTitle": null
+        },
+        {
+          "slug": "space-hulk",
+          "title": "Space Hulk",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/space-hulk",
+          "showTitle": null
+        },
+        {
+          "slug": "path-of-the-warrior",
+          "title": "Path of the Warrior",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/path-of-the-warrior",
+          "showTitle": null
+        },
+        {
+          "slug": "ravens-flight",
+          "title": "Raven's Flight",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ravens-flight",
+          "showTitle": null
+        },
+        {
+          "slug": "deliverance-lost",
+          "title": "Deliverance Lost",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/deliverance-lost",
+          "showTitle": null
+        },
+        {
+          "slug": "path-of-the-seer",
+          "title": "Path of the Seer",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/path-of-the-seer",
+          "showTitle": null
+        },
+        {
+          "slug": "the-face-of-treachery",
+          "title": "The Face of Treachery",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-face-of-treachery",
+          "showTitle": null
+        },
+        {
+          "slug": "the-purging-of-kadillus",
+          "title": "The Purging of Kadillus",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-purging-of-kadillus",
+          "showTitle": null
+        },
+        {
+          "slug": "catechism-of-hate",
+          "title": "Catechism of Hate",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/catechism-of-hate",
+          "showTitle": null
+        },
+        {
+          "slug": "path-of-the-outcast",
+          "title": "Path of the Outcast",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/path-of-the-outcast",
+          "showTitle": null
+        },
+        {
+          "slug": "the-divine-word",
+          "title": "The Divine Word",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-divine-word",
+          "showTitle": null
+        },
+        {
+          "slug": "the-lion",
+          "title": "The Lion",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-lion",
+          "showTitle": null
+        },
+        {
+          "slug": "corax-soulforge",
+          "title": "Corax: Soulforge",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/corax-soulforge",
+          "showTitle": null
+        },
+        {
+          "slug": "cypher-guardian-of-order",
+          "title": "Cypher: Guardian of Order",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/cypher-guardian-of-order",
+          "showTitle": null
+        },
+        {
+          "slug": "honour-to-the-dead",
+          "title": "Honour to the Dead",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/honour-to-the-dead",
+          "showTitle": null
+        },
+        {
+          "slug": "ravenwing",
+          "title": "Ravenwing",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ravenwing",
+          "showTitle": null
+        },
+        {
+          "slug": "master-of-sanctity",
+          "title": "Master of Sanctity",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/master-of-sanctity",
+          "showTitle": null
+        },
+        {
+          "slug": "master-of-the-first",
+          "title": "Master of the First",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/master-of-the-first",
+          "showTitle": null
+        },
+        {
+          "slug": "path-of-the-eldar-omnibus",
+          "title": "Path of the Eldar Omnibus",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/path-of-the-eldar-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "ravenlord",
+          "title": "Ravenlord",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ravenlord",
+          "showTitle": null
+        },
+        {
+          "slug": "sin-of-damnation",
+          "title": "Sin of Damnation",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/sin-of-damnation",
+          "showTitle": null
+        },
+        {
+          "slug": "the-value-of-fear",
+          "title": "The Value of Fear",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-value-of-fear",
+          "showTitle": null
+        },
+        {
+          "slug": "asurmen-hand-of-asuryan",
+          "title": "Asurmen: Hand of Asuryan",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/asurmen-hand-of-asuryan",
+          "showTitle": null
+        },
+        {
+          "slug": "by-the-lions-command",
+          "title": "By the Lion's Command",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/by-the-lions-command",
+          "showTitle": null
+        },
+        {
+          "slug": "lords-of-caliban",
+          "title": "Lords of Caliban",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/lords-of-caliban",
+          "showTitle": null
+        },
+        {
+          "slug": "raptor",
+          "title": "Raptor",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/raptor",
+          "showTitle": null
+        },
+        {
+          "slug": "the-unforgiven",
+          "title": "The Unforgiven",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-unforgiven",
+          "showTitle": null
+        },
+        {
+          "slug": "angels-of-caliban",
+          "title": "Angels of Caliban",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/angels-of-caliban",
+          "showTitle": null
+        },
+        {
+          "slug": "azrael",
+          "title": "Azrael",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/azrael",
+          "showTitle": null
+        },
+        {
+          "slug": "inheritor",
+          "title": "Inheritor",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/inheritor",
+          "showTitle": null
+        },
+        {
+          "slug": "legacy-of-caliban-the-omnibus",
+          "title": "Legacy of Caliban: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/legacy-of-caliban-the-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-beast-must-die",
+          "title": "The Beast Must Die",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-beast-must-die",
+          "showTitle": null
+        },
+        {
+          "slug": "the-emperor-expects",
+          "title": "The Emperor Expects",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-emperor-expects",
+          "showTitle": null
+        },
+        {
+          "slug": "the-grey-raven",
+          "title": "The Grey Raven",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-grey-raven",
+          "showTitle": null
+        },
+        {
+          "slug": "the-thirteenth-wolf",
+          "title": "The Thirteenth Wolf",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-thirteenth-wolf",
+          "showTitle": null
+        },
+        {
+          "slug": "valerius",
+          "title": "Valerius",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/valerius",
+          "showTitle": null
+        },
+        {
+          "slug": "corax",
+          "title": "Corax",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/corax",
+          "showTitle": null
+        },
+        {
+          "slug": "jain-zar-the-storm-of-silence",
+          "title": "Jain Zar: The Storm of Silence",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/jain-zar-the-storm-of-silence",
+          "showTitle": null
+        },
+        {
+          "slug": "lorgar-bearer-of-the-word",
+          "title": "Lorgar: Bearer of the Word",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/lorgar-bearer-of-the-word",
+          "showTitle": null
+        },
+        {
+          "slug": "the-board-is-set",
+          "title": "The Board is Set",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-board-is-set",
+          "showTitle": null
+        },
+        {
+          "slug": "ghost-warrior",
+          "title": "Ghost Warrior",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ghost-warrior",
+          "showTitle": null
+        },
+        {
+          "slug": "imperator-wrath-of-the-omnissiah",
+          "title": "Imperator: Wrath of the Omnissiah",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/imperator-wrath-of-the-omnissiah",
+          "showTitle": null
+        },
+        {
+          "slug": "our-martyred-lady",
+          "title": "Our Martyred Lady",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/our-martyred-lady",
+          "showTitle": null
+        },
+        {
+          "slug": "the-ashes-of-prospero",
+          "title": "The Ashes of Prospero",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-ashes-of-prospero",
+          "showTitle": null
+        },
+        {
+          "slug": "wild-rider",
+          "title": "Wild Rider",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/wild-rider",
+          "showTitle": null
+        },
+        {
+          "slug": "armageddon-saint",
+          "title": "Armageddon Saint",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/armageddon-saint",
+          "showTitle": null
+        },
+        {
+          "slug": "indomitus",
+          "title": "Indomitus",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/indomitus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-first-wall",
+          "title": "The First Wall",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-first-wall",
+          "showTitle": null
+        },
+        {
+          "slug": "luther-first-of-the-fallen",
+          "title": "Luther: First of the Fallen",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/luther-first-of-the-fallen",
+          "showTitle": null
+        },
+        {
+          "slug": "the-wolftime",
+          "title": "The Wolftime",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-wolftime",
+          "showTitle": null
+        },
+        {
+          "slug": "rogal-dorn-the-emperors-crusader",
+          "title": "Rogal Dorn: The Emperor's Crusader",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/rogal-dorn-the-emperors-crusader",
+          "showTitle": null
+        },
+        {
+          "slug": "the-high-kahls-oath",
+          "title": "The High Kâhl’s Oath",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-high-kahls-oath",
+          "showTitle": null
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

@@ -1,0 +1,270 @@
+{
+  "type": "faction",
+  "id": "nurgle",
+  "name": "Nurgle",
+  "blurb": {
+    "text": "Nurgle is the Chaos God of disease, entropy, and dark fecundity, offering his followers a grotesque form of immortality through pestilence. His servants embrace decay as a gift, finding perverse joy in spreading suffering across the galaxy in their patron's name.",
+    "confidence": 0.97,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Nurgle"
+  },
+  "facts": [
+    {
+      "label": "Alignment",
+      "value": "Chaos"
+    },
+    {
+      "label": "Parent faction",
+      "value": {
+        "type": "faction",
+        "id": "chaos",
+        "name": "Chaos"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "daemon-world",
+          "title": "Daemon World",
+          "kind": "book",
+          "releaseYear": 2003,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/daemon-world",
+          "showTitle": null
+        },
+        {
+          "slug": "the-lords-of-silence",
+          "title": "The Lords of Silence",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-lords-of-silence",
+          "showTitle": null
+        },
+        {
+          "slug": "plague-of-the-nurglings",
+          "title": "Plague of the Nurglings",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/plague-of-the-nurglings",
+          "showTitle": null
+        },
+        {
+          "slug": "king-of-pigs",
+          "title": "King of Pigs",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/king-of-pigs",
+          "showTitle": null
+        },
+        {
+          "slug": "the-resting-places",
+          "title": "The Resting Places",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-resting-places",
+          "showTitle": null
+        },
+        {
+          "slug": "unholy-tales-of-horror-woe-from-the-imperium",
+          "title": "Unholy Tales of Horror & Woe From The Imperium",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/unholy-tales-of-horror-woe-from-the-imperium",
+          "showTitle": null
+        },
+        {
+          "slug": "creed-ashes-of-cadia",
+          "title": "Creed: Ashes of Cadia",
+          "kind": "book",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/creed-ashes-of-cadia",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-75e8d948-6b97-5d68-9726-281baaa7c812",
+          "title": "Listener Lore 9",
+          "kind": "podcast_episode",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-8992eab4-9a75-40f5-b286-61a1ef22b9ea",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "luetin09-kpxcw8jcrza",
+          "title": "THE DEATH HEADS OF NURGLE (Blight Grenades) | Warhammer 40,000 Loregear",
+          "kind": "podcast_episode",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/luetin09#ep-5c0a97cb-1fd5-421b-8022-807b27c8d6f2",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-stglqrds-90",
+          "title": "40K's WORST TIMES TO BE ALIVE [1] | WARHAMMER 40,000 Lore / History",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-8d82bb52-b377-41bd-918f-ceb9ffac1aea",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-9564768",
+          "title": "NURGLE: YOUR LOVING GRANDPA, THE LORD OF PESTILENCE | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-4c6b86a1-3720-4c23-9a46-307a657d6ac9",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-10303312",
+          "title": "DEATH GUARD: WE ARE NURGLE'S REAPING BLADE | Warhammer 40k lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-713f2d25-10dc-44c6-a8d0-dfc8815d91ea",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-https-api-spreaker-com-episode-63032074",
+          "title": "122 - Beastiary and Herbarium, Warp Edition",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-0076d7c7-2107-4876-a6f6-0a1fc02a0098",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-421d45d2-4fe4-498e-ba74-bcfb9e5f9db4",
+          "title": "122 - Bestiary and Herbarium, Warp Edition",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-302d7f96-b10a-4a97-ac47-56a287994881",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-15033964",
+          "title": "Episode 35 - Deep dive into the Gods of Chaos Pt 2 - Nurgle and Slaanesh",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-c5a00938-861b-4e1b-9a06-1ead0bb5243c",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-15731416",
+          "title": "Episode 53 - The Death Guard pt 2- The split of Mortarian and Typhus",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-0a57b7ec-770d-4db6-bb9f-e02c0c24538a",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "lorehammer-2c8c46b8-ca0a-11ef-9632-3388ff8492b7",
+          "title": "154 - Gods of Chaos and The Great Game",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-ea6289ad-49bf-4eb3-97cd-815e3ffb6858",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2cec3406-ca0a-11ef-9632-23a5cd268638",
+          "title": "156 - Nurgle, The Lord of Decay",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-b703b34c-dffd-4cc6-a258-191d02bd0451",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2ec9269e-ca0a-11ef-9632-dbdde8ae5fac",
+          "title": "166 - Plague Legions of Nurgle",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-355ab402-52eb-4155-8022-8ce42c63a420",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-3084545e-ca0a-11ef-9632-c39faacf4235",
+          "title": "175 - Nurgle's Cult of Decay",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-2fe0a5bc-f949-436b-92e9-abe98214aca9",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-17026474",
+          "title": "You’ve been LIED TO about NURGLE | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-84883a46-6111-4754-90f6-f81a6e05aa61",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18827868",
+          "title": "The Plague Wars Have Begun | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-5b4e80f8-b8ab-4b54-82bd-2eb935445fb5",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Key characters",
+      "items": [
+        {
+          "type": "character",
+          "id": "nurgle",
+          "name": "Nurgle"
+        }
+      ]
+    }
+  ]
+}

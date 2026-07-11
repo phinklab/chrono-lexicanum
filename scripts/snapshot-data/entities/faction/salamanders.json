@@ -1,0 +1,565 @@
+{
+  "type": "faction",
+  "id": "salamanders",
+  "name": "Salamanders",
+  "blurb": {
+    "text": "A loyalist Space Marine Chapter from the volcanic world of Nocturne, descended from Vulkan and known for master craftsmanship, flame weaponry, and protecting civilians.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Salamanders"
+  },
+  "facts": [
+    {
+      "label": "Alignment",
+      "value": "Imperium"
+    },
+    {
+      "label": "Parent faction",
+      "value": {
+        "type": "faction",
+        "id": "adeptus_astartes",
+        "name": "Adeptus Astartes"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "collected-visions",
+          "title": "Collected Visions",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/collected-visions",
+          "showTitle": null
+        },
+        {
+          "slug": "salamander",
+          "title": "Salamander",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/salamander",
+          "showTitle": null
+        },
+        {
+          "slug": "firedrake",
+          "title": "Firedrake",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/firedrake",
+          "showTitle": null
+        },
+        {
+          "slug": "age-of-darkness",
+          "title": "Age of Darkness",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/age-of-darkness",
+          "showTitle": null
+        },
+        {
+          "slug": "forgotten-sons",
+          "title": "Forgotten Sons",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/forgotten-sons",
+          "showTitle": null
+        },
+        {
+          "slug": "nocturne",
+          "title": "Nocturne",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/nocturne",
+          "showTitle": null
+        },
+        {
+          "slug": "promethean-sun",
+          "title": "Promethean Sun",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/promethean-sun",
+          "showTitle": null
+        },
+        {
+          "slug": "feat-of-iron",
+          "title": "Feat of Iron",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/feat-of-iron",
+          "showTitle": null
+        },
+        {
+          "slug": "strike-and-fade",
+          "title": "Strike and Fade",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/strike-and-fade",
+          "showTitle": null
+        },
+        {
+          "slug": "tome-of-fire",
+          "title": "Tome of Fire",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/tome-of-fire",
+          "showTitle": null
+        },
+        {
+          "slug": "salamanders-rebirth",
+          "title": "Salamanders: Rebirth",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/salamanders-rebirth",
+          "showTitle": null
+        },
+        {
+          "slug": "salamanders-the-omnibus",
+          "title": "Salamanders: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/salamanders-the-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "scorched-earth",
+          "title": "Scorched Earth",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/scorched-earth",
+          "showTitle": null
+        },
+        {
+          "slug": "the-unremembered-empire",
+          "title": "The Unremembered Empire",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-unremembered-empire",
+          "showTitle": null
+        },
+        {
+          "slug": "vulkan-lives",
+          "title": "Vulkan Lives",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/vulkan-lives",
+          "showTitle": null
+        },
+        {
+          "slug": "echoes-of-ruin",
+          "title": "Echoes of Ruin",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/echoes-of-ruin",
+          "showTitle": null
+        },
+        {
+          "slug": "forge-master",
+          "title": "Forge Master",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/forge-master",
+          "showTitle": null
+        },
+        {
+          "slug": "overfiend",
+          "title": "Overfiend",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/overfiend",
+          "showTitle": null
+        },
+        {
+          "slug": "seditions-gate",
+          "title": "Sedition's Gate",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/seditions-gate",
+          "showTitle": null
+        },
+        {
+          "slug": "the-damnation-of-pythos",
+          "title": "The Damnation of Pythos",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-damnation-of-pythos",
+          "showTitle": null
+        },
+        {
+          "slug": "the-seventh-serpent",
+          "title": "The Seventh Serpent",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-seventh-serpent",
+          "showTitle": null
+        },
+        {
+          "slug": "artefacts",
+          "title": "Artefacts",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/artefacts",
+          "showTitle": null
+        },
+        {
+          "slug": "deathfire",
+          "title": "Deathfire",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/deathfire",
+          "showTitle": null
+        },
+        {
+          "slug": "legacies-of-betrayal",
+          "title": "Legacies of Betrayal",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/legacies-of-betrayal",
+          "showTitle": null
+        },
+        {
+          "slug": "meduson",
+          "title": "Meduson",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/meduson",
+          "showTitle": null
+        },
+        {
+          "slug": "hell-night",
+          "title": "Hell Night",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/hell-night",
+          "showTitle": null
+        },
+        {
+          "slug": "sons-of-the-forge",
+          "title": "Sons of the Forge",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/sons-of-the-forge",
+          "showTitle": null
+        },
+        {
+          "slug": "the-beast-must-die",
+          "title": "The Beast Must Die",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-beast-must-die",
+          "showTitle": null
+        },
+        {
+          "slug": "old-earth",
+          "title": "Old Earth",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/old-earth",
+          "showTitle": null
+        },
+        {
+          "slug": "shattered-legions",
+          "title": "Shattered Legions",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/shattered-legions",
+          "showTitle": null
+        },
+        {
+          "slug": "born-of-flame",
+          "title": "Born of Flame",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/born-of-flame",
+          "showTitle": null
+        },
+        {
+          "slug": "massacre",
+          "title": "Massacre",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/massacre",
+          "showTitle": null
+        },
+        {
+          "slug": "sons-of-the-emperor",
+          "title": "Sons of the Emperor",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/sons-of-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "visions-of-heresy-2018-ed",
+          "title": "Visions of Heresy (2018 ed.)",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/visions-of-heresy-2018-ed",
+          "showTitle": null
+        },
+        {
+          "slug": "vulkan-lord-of-drakes",
+          "title": "Vulkan: Lord of Drakes",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/vulkan-lord-of-drakes",
+          "showTitle": null
+        },
+        {
+          "slug": "mercy-of-the-dragon",
+          "title": "Mercy of the Dragon",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/mercy-of-the-dragon",
+          "showTitle": null
+        },
+        {
+          "slug": "the-sons-of-selenar",
+          "title": "The Sons of Selenar",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-sons-of-selenar",
+          "showTitle": null
+        },
+        {
+          "slug": "dropsite-massacre",
+          "title": "Dropsite Massacre",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/dropsite-massacre",
+          "showTitle": null
+        },
+        {
+          "slug": "the-shattered-and-the-soulless",
+          "title": "The Shattered and the Soulless",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-shattered-and-the-soulless",
+          "showTitle": null
+        },
+        {
+          "slug": "world-ablaze",
+          "title": "World Ablaze",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/world-ablaze",
+          "showTitle": null
+        },
+        {
+          "slug": "war-for-armageddon-omnibus",
+          "title": "War for Armageddon Omnibus",
+          "kind": "book",
+          "releaseYear": null,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/war-for-armageddon-omnibus",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-9802589",
+          "title": "SALAMANDERS: WE ARE BORN OF FIRE | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-fa41f99c-7ce3-49ab-907a-b73807c90d8f",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-9774224",
+          "title": "VULKAN (LIVES): THE HAMMER OF SALVATION | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-5a982d63-5d2f-44d6-a87e-476fd6673d06",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "luetin09-azmhqme4xe8",
+          "title": "40K BEGINNERS - THE ASTARTES CHAPTERS [Part 1] | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-478c4e8a-6943-4378-a5fb-b62c6ebf022b",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-15467460",
+          "title": "SECOND WAR FOR ARMAGEDDON: PRACTICE RUN (TRILLIONS DEAD) | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-73aa00a1-dc59-4fd7-8e46-45b330e98898",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-ae7a725b-179b-4209-b8b7-172210d97898",
+          "title": "Episode 115 - The Salamanders, rise of the 18th legion and Vulkan",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-75468a4b-3341-4575-a87b-98658bf1fb1b",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-d38acdd7-8571-4f9f-8480-3e6de6e9ab51",
+          "title": "Episode 116 - The Salamanders, Vulkan takes one to the dome, and then another, and then some more.... fine Vulkan just dies a lot",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-381c36f6-024c-4366-8e95-546bb210782c",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-03a85d69-776a-4c13-a707-d2c82e941fbb",
+          "title": "Episode 117 - Salamanders - Key characters and successor chapters.",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-78b9b182-9eb1-4fc8-a9e2-88a27702d6f9",
+          "showTitle": "The 40k Lorecast"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Key characters",
+      "items": [
+        {
+          "type": "character",
+          "id": "artellus_numeon",
+          "name": "Artellus Numeon"
+        },
+        {
+          "type": "character",
+          "id": "dakir",
+          "name": "Dak'ir"
+        },
+        {
+          "type": "character",
+          "id": "elysius",
+          "name": "Elysius"
+        },
+        {
+          "type": "character",
+          "id": "ferren_areios",
+          "name": "Ferren Areios"
+        },
+        {
+          "type": "character",
+          "id": "heka_tan",
+          "name": "Heka'tan"
+        },
+        {
+          "type": "character",
+          "id": "khi_dem",
+          "name": "Khi'dem"
+        },
+        {
+          "type": "character",
+          "id": "tsugan",
+          "name": "Tsu'gan"
+        },
+        {
+          "type": "character",
+          "id": "vulkan",
+          "name": "Vulkan"
+        }
+      ]
+    }
+  ]
+}

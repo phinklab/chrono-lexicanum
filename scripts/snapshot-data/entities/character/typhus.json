@@ -1,0 +1,135 @@
+{
+  "type": "character",
+  "id": "typhus",
+  "name": "Typhus",
+  "blurb": {
+    "text": "Herald of Nurgle and host of the Destroyer Hive, a lord of the Death Guard who once served as Mortarion's First Captain under the name Calas Typhon.",
+    "confidence": 0.9,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Typhus"
+  },
+  "facts": [
+    {
+      "label": "Allegiance",
+      "value": {
+        "type": "faction",
+        "id": "death_guard",
+        "name": "Death Guard"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "the-lion",
+          "title": "The Lion",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-lion",
+          "showTitle": null
+        },
+        {
+          "slug": "by-the-lions-command",
+          "title": "By the Lion's Command",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/by-the-lions-command",
+          "showTitle": null
+        },
+        {
+          "slug": "exocytosis",
+          "title": "Exocytosis",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/exocytosis",
+          "showTitle": null
+        },
+        {
+          "slug": "plague-war",
+          "title": "Plague War",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/plague-war",
+          "showTitle": null
+        },
+        {
+          "slug": "the-buried-dagger",
+          "title": "The Buried Dagger",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-buried-dagger",
+          "showTitle": null
+        },
+        {
+          "slug": "the-end-and-the-death-vol-3",
+          "title": "The End and The Death Vol. 3",
+          "kind": "book",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-end-and-the-death-vol-3",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "the-40k-lorecast-buzzsprout-15731396",
+          "title": "Episode 52 - The Death Guard pt 1- The origins of Mortarian and Typhus",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-aeaa1185-fc7d-4f08-ac92-e81dc9418897",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-15731416",
+          "title": "Episode 53 - The Death Guard pt 2- The split of Mortarian and Typhus",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-0a57b7ec-770d-4db6-bb9f-e02c0c24538a",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-28eb0d2e-aa8d-11ef-b226-5f61143a557b",
+          "title": "Episode 63 - \"Where are they now\" Primarch edition - the Traitors.",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-030896d9-45a1-44fb-bef8-7e8f207be189",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-15072277",
+          "title": "TYPHUS: THE HERALD OF NURGLE | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-8061dd73-807e-4c99-a7a1-e0506c3fb843",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

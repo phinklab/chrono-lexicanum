@@ -1,0 +1,475 @@
+{
+  "type": "location",
+  "id": "mars",
+  "name": "Mars",
+  "blurb": {
+    "text": "The red planet of the Sol System, a sacred forge world and seat of the Adeptus Mechanicus that supplies much of the Imperium's war materiel.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Mars"
+  },
+  "facts": [
+    {
+      "label": "Sector",
+      "value": "Segmentum Solar"
+    }
+  ],
+  "tags": [
+    "mechanicus"
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "collected-visions",
+          "title": "Collected Visions",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/collected-visions",
+          "showTitle": null
+        },
+        {
+          "slug": "mechanicum",
+          "title": "Mechanicum",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/mechanicum",
+          "showTitle": null
+        },
+        {
+          "slug": "priests-of-mars",
+          "title": "Priests of Mars",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/priests-of-mars",
+          "showTitle": null
+        },
+        {
+          "slug": "shadows-of-treachery",
+          "title": "Shadows of Treachery",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/shadows-of-treachery",
+          "showTitle": null
+        },
+        {
+          "slug": "lords-of-mars",
+          "title": "Lords of Mars",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/lords-of-mars",
+          "showTitle": null
+        },
+        {
+          "slug": "the-kaban-project",
+          "title": "The Kaban Project",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-kaban-project",
+          "showTitle": null
+        },
+        {
+          "slug": "gods-of-mars",
+          "title": "Gods of Mars",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/gods-of-mars",
+          "showTitle": null
+        },
+        {
+          "slug": "vorax",
+          "title": "Vorax",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/vorax",
+          "showTitle": null
+        },
+        {
+          "slug": "cybernetica",
+          "title": "Cybernetica",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/cybernetica",
+          "showTitle": null
+        },
+        {
+          "slug": "echoes-of-the-long-war",
+          "title": "Echoes of the Long War",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/echoes-of-the-long-war",
+          "showTitle": null
+        },
+        {
+          "slug": "into-exhile",
+          "title": "Into Exhile",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/into-exhile",
+          "showTitle": null
+        },
+        {
+          "slug": "myriad",
+          "title": "Myriad",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/myriad",
+          "showTitle": null
+        },
+        {
+          "slug": "forges-of-mars-omnibus",
+          "title": "Forges of Mars Omnibus",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/forges-of-mars-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-binary-succession",
+          "title": "The Binary Succession",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-binary-succession",
+          "showTitle": null
+        },
+        {
+          "slug": "the-burden-of-loyalty",
+          "title": "The Burden of Loyalty",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-burden-of-loyalty",
+          "showTitle": null
+        },
+        {
+          "slug": "visions-of-heresy-2018-ed",
+          "title": "Visions of Heresy (2018 ed.)",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/visions-of-heresy-2018-ed",
+          "showTitle": null
+        },
+        {
+          "slug": "the-lightning-hall",
+          "title": "The Lightning Hall",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-lightning-hall",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "luetin09-f0gobe51-c",
+          "title": "THE RISE & FALL OF THE MECHANICUM OF MARS | WARHAMMER 40,000 Lore [Mechanicus History]",
+          "kind": "podcast_episode",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-fd06d109-5d2c-4c47-bf1e-0f8f8f5036bf",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-11706040",
+          "title": "IMPERIAL TITAN TYPES: FROM SCOUTS TO GIANTS TO PSY-NIGHTMARES | Warhammer 40k lore feat Kirioth",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-8afc2f40-9f4d-46b5-a7cf-46c4eb6a7042",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "luetin09-foeov6ahi4y",
+          "title": "40K - THE ADEPTUS MECHANICUS | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-e9354ce9-f443-4d70-8cc7-ea80e3701a80",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-13959782",
+          "title": "Episode 8 - Horus invades and the Imperium tries to Hold",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-ddebb3fd-c19e-4335-afaa-9c56ddddf421",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-14208429",
+          "title": "VOSTROYAN FIRSTBORN - A FAMILY TRADITION | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-4ad6a8d4-2cae-445e-aab5-0db1f4eddf06",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-16140280",
+          "title": "Dark Mechanicum: FOR SCIENCE! | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-f8a9cf09-db81-4dc5-8dd2-627fc6b4c76c",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-15884515",
+          "title": "Episode 56 - Adeptus Mechanicus pt 1 - Rise of the Mechanicum and creation of the Adeptus Mechanicus",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-fcffa962-1d88-4892-b1c4-0d7977dbc434",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-14502039",
+          "title": "VASHTORR RETURNS IN CAWL vs. NECRONS DOOMSDAY WEAPON EXTRAVAGANZA | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-1d3e0027-8331-488f-94f6-65416617efa3",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-313b4114-ca0a-11ef-9632-af47e3b5cfda",
+          "title": "179 - Deus Mechanicus, The Machine God, The Omnissiah and The Motive Force",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-a47871f8-d4e2-40a5-bf6b-dddbdaca15b4",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "the-40k-lorecast-daec0230-0f55-11f0-806f-f3e439ee0f59",
+          "title": "Episode 82 - Knights pt 2 - Discovery by the imperium and addition to the fold",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-75d4ea2d-55ca-45c7-9925-46133d674d96",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-dadd757e-ab77-4fcb-8a37-6a47ab48eeba",
+          "title": "Episode 93 - The War of The Beast pt2. Terra is saved but the galaxy is still in danger",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-6696d173-eb7b-459b-9e83-8a1d8e732090",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18047691",
+          "title": "War Of The Beast: Waaagh Of The Worlds!",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-5e3e74f6-b8fb-468c-9f51-e3f8e31360ff",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-d9fb513f-f011-41a2-ba4f-459eca9fa2e5",
+          "title": "Bonus 52 - Cryptids",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-e94efd2e-1189-4b5e-9c9f-98abc748217c",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-19286906",
+          "title": "Skitarii: Mars' Immortal Cyborg Legions | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-d89706e6-d15b-402a-8b32-039f16c0ae81",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Other worlds in sector",
+      "items": [
+        {
+          "type": "location",
+          "id": "albia",
+          "name": "Albia"
+        },
+        {
+          "type": "location",
+          "id": "alia",
+          "name": "Alia"
+        },
+        {
+          "type": "location",
+          "id": "ardamantua",
+          "name": "Ardamantua"
+        },
+        {
+          "type": "location",
+          "id": "delphic_battlement",
+          "name": "Delphic Battlement"
+        },
+        {
+          "type": "location",
+          "id": "eternity_gate",
+          "name": "Eternity Gate"
+        },
+        {
+          "type": "location",
+          "id": "eternity_wall_spaceport",
+          "name": "Eternity Wall Spaceport"
+        },
+        {
+          "type": "location",
+          "id": "ghyre",
+          "name": "Ghyre"
+        },
+        {
+          "type": "location",
+          "id": "golden_throne",
+          "name": "Golden Throne"
+        },
+        {
+          "type": "location",
+          "id": "gyptus",
+          "name": "Gyptus"
+        },
+        {
+          "type": "location",
+          "id": "hy_brasil",
+          "name": "Hy Brasil"
+        },
+        {
+          "type": "location",
+          "id": "imperial_palace",
+          "name": "Imperial Palace"
+        },
+        {
+          "type": "location",
+          "id": "jupiter",
+          "name": "Jupiter"
+        },
+        {
+          "type": "location",
+          "id": "lions_gate_spaceport",
+          "name": "Lion's Gate Spaceport"
+        },
+        {
+          "type": "location",
+          "id": "luna",
+          "name": "Luna"
+        },
+        {
+          "type": "location",
+          "id": "mercury_wall",
+          "name": "Mercury Wall"
+        },
+        {
+          "type": "location",
+          "id": "necromunda",
+          "name": "Necromunda"
+        },
+        {
+          "type": "location",
+          "id": "pluto",
+          "name": "Pluto"
+        },
+        {
+          "type": "location",
+          "id": "potence",
+          "name": "Potence"
+        },
+        {
+          "type": "location",
+          "id": "sanctum_imperialis",
+          "name": "Sanctum Imperialis"
+        },
+        {
+          "type": "location",
+          "id": "saturnine_gate",
+          "name": "Saturnine Gate"
+        },
+        {
+          "type": "location",
+          "id": "sol_system",
+          "name": "Sol System"
+        },
+        {
+          "type": "location",
+          "id": "terra",
+          "name": "Terra"
+        },
+        {
+          "type": "location",
+          "id": "great_rift",
+          "name": "The Great Rift"
+        },
+        {
+          "type": "location",
+          "id": "titan",
+          "name": "Titan"
+        },
+        {
+          "type": "location",
+          "id": "vorganthian",
+          "name": "Vorganthian"
+        }
+      ]
+    }
+  ]
+}

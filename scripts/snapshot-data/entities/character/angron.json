@@ -1,0 +1,405 @@
+{
+  "type": "character",
+  "id": "angron",
+  "name": "Angron",
+  "blurb": {
+    "text": "Primarch of the World Eaters, enslaved by neural implants that drove him to berserk rage; he fell to the Blood God Khorne and became a daemon primarch.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Angron"
+  },
+  "facts": [
+    {
+      "label": "Allegiance",
+      "value": {
+        "type": "faction",
+        "id": "world_eaters",
+        "name": "World Eaters"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "galaxy-in-flames",
+          "title": "Galaxy in Flames",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/galaxy-in-flames",
+          "showTitle": null
+        },
+        {
+          "slug": "after-deshea",
+          "title": "After Desh'ea",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/after-deshea",
+          "showTitle": null
+        },
+        {
+          "slug": "tales-of-heresy",
+          "title": "Tales of Heresy",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/tales-of-heresy",
+          "showTitle": null
+        },
+        {
+          "slug": "butchers-nails",
+          "title": "Butcher's Nails",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/butchers-nails",
+          "showTitle": null
+        },
+        {
+          "slug": "horus-heresy-the-scripts-volume-i",
+          "title": "Horus Heresy: The Scripts: Volume I",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/horus-heresy-the-scripts-volume-i",
+          "showTitle": null
+        },
+        {
+          "slug": "angron",
+          "title": "Angron",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/angron",
+          "showTitle": null
+        },
+        {
+          "slug": "betrayer",
+          "title": "Betrayer",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/betrayer",
+          "showTitle": null
+        },
+        {
+          "slug": "lord-of-the-red-sands",
+          "title": "Lord of the Red Sands",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/lord-of-the-red-sands",
+          "showTitle": null
+        },
+        {
+          "slug": "the-imperial-truth",
+          "title": "The Imperial Truth",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-imperial-truth",
+          "showTitle": null
+        },
+        {
+          "slug": "heart-of-the-conqueror",
+          "title": "Heart of the Conqueror",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/heart-of-the-conqueror",
+          "showTitle": null
+        },
+        {
+          "slug": "legacies-of-betrayal",
+          "title": "Legacies of Betrayal",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/legacies-of-betrayal",
+          "showTitle": null
+        },
+        {
+          "slug": "war-without-end",
+          "title": "War Without End",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/war-without-end",
+          "showTitle": null
+        },
+        {
+          "slug": "slaves-to-darkness",
+          "title": "Slaves to Darkness",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/slaves-to-darkness",
+          "showTitle": null
+        },
+        {
+          "slug": "sons-of-the-emperor",
+          "title": "Sons of the Emperor",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/sons-of-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "angron-slave-of-nuceria",
+          "title": "Angron: Slave of Nuceria",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/angron-slave-of-nuceria",
+          "showTitle": null
+        },
+        {
+          "slug": "ghost-of-nuceria",
+          "title": "Ghost of Nuceria",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/ghost-of-nuceria",
+          "showTitle": null
+        },
+        {
+          "slug": "the-lost-and-the-damned",
+          "title": "The Lost and the Damned",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-lost-and-the-damned",
+          "showTitle": null
+        },
+        {
+          "slug": "angron-the-red-angel",
+          "title": "Angron: The Red Angel",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/angron-the-red-angel",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-8719695",
+          "title": "ANGRON OF THE WORLD EATERS: I AM ALWAYS ANGRY | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-f9354bbd-0422-467d-9937-9ffad1328cf8",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "luetin09-auexeu0-z7u",
+          "title": "40K  - ANGRON & THE BUTCHERS NAILS | Warhammer 40,000 History / Loregear",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-1d2f129f-6f62-4183-ae94-77a61eaeb738",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-11338501",
+          "title": "BETRAYER | Warhammer 40k Book club & review",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-6e7f1061-ac25-4109-ab60-ff39037e3803",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-12304627",
+          "title": "ARKS OF OMEN & ANGRON REBORN | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-f600a235-2e59-4caf-b7bb-1fc9700a1ec8",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-13917624",
+          "title": "Episode 7 - Chaos Always Corrupts,",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-b8cf9dc6-9526-4c4f-b9e9-d6f67f522f9c",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-15372048",
+          "title": "Episode 42 - The Regiments of the Imperial Guard",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-12f6e8f3-cb2d-4c96-9d17-796fd20479ad",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-28eb0d2e-aa8d-11ef-b226-5f61143a557b",
+          "title": "Episode 63 - \"Where are they now\" Primarch edition - the Traitors.",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-030896d9-45a1-44fb-bef8-7e8f207be189",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "luetin09-tyg9juqicfo",
+          "title": "40K BEGINNERS - TRAITOR ASTARTES [Part 3] | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-0a06c906-23cf-4ab0-9a17-a963cccbe833",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-d18rfiparne",
+          "title": "40K PRIMARCHS - SANGUINIUS - THE RISE AND FALL OF AN ANGEL | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/luetin09#ep-dee94531-4850-43c3-9240-2c0d01559ef5",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "the-40k-lorecast-e54a0429-e984-45f9-9ff5-2a384c59f297",
+          "title": "Episode 97 - World Eaters pt 1",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-b7ba9acf-6ea9-47f1-b254-034fa7822d92",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-03d41228-68f5-43c3-b393-915c0bc5539a",
+          "title": "Episode 98 - World Eaters pt 2",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-df7e71ee-c28e-4caf-bbd4-3b51b5d15456",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-7ae53afa-408b-4452-ba08-451bc353b1a8",
+          "title": "Episode 99 - World Eaters pt 3",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-1959fa16-ad69-4f6d-afcf-21341c2d266b",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-17741685",
+          "title": "KHÂRN - Nailed It: Angron Parenting Method | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-b271571c-02af-4bae-b10b-f8d3012e3b81",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-3d6ec396-fa9a-4421-857a-3eb07aed08a6",
+          "title": "219 - Angron, Origins and Great Crusade",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-e5e4ac45-8475-4277-9c48-e93a41489290",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-824b87de-07cf-46e1-8e2e-4af6c5d2e5cb",
+          "title": "220 - Angron, Horus Heresy and Great Scouring",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-3d5d5e7e-92f2-40e9-86aa-5199b4bd23ce",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-e9b8b91b-18f4-48d1-bed8-7abf26b3dd13",
+          "title": "221 - World Eaters, 30k Legion Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-251daca0-fbf2-4fcb-9407-e8a2abd9b2a2",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-d8113db6-1fe3-4256-bb0d-35e3245f4e86",
+          "title": "222 - World Eaters, 40k Warband Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-bce0c6a4-76ec-4296-88ae-34ecae37e13f",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-c19183a1-32ad-4548-a5bc-3d49309ae5ed",
+          "title": "By Blade and Bolter Pt. 1 - KoS: History, Geneseed and Appearance",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-20f30f7b-e62b-4d81-90fa-dab022ab611c",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "the-40k-lorecast-de0c18e9-2f95-490d-975d-f36c795c5853",
+          "title": "Episode 120 - 1st (ish) War of Armageddon - The Battle for Armageddon",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-260dbb13-7dbb-4ce1-977a-573412d82dd4",
+          "showTitle": "The 40k Lorecast"
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

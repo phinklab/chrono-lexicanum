@@ -1,0 +1,605 @@
+{
+  "type": "faction",
+  "id": "raven_guard",
+  "name": "Raven Guard",
+  "blurb": {
+    "text": "A loyalist Space Marine Chapter descended from the primarch Corax, specialising in stealth, raids, and lightning strikes.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Raven_Guard"
+  },
+  "facts": [
+    {
+      "label": "Alignment",
+      "value": "Imperium"
+    },
+    {
+      "label": "Parent faction",
+      "value": {
+        "type": "faction",
+        "id": "adeptus_astartes",
+        "name": "Adeptus Astartes"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "collected-visions",
+          "title": "Collected Visions",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/collected-visions",
+          "showTitle": null
+        },
+        {
+          "slug": "cadian-blood",
+          "title": "Cadian Blood",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/cadian-blood",
+          "showTitle": null
+        },
+        {
+          "slug": "hunt-for-voldorius",
+          "title": "Hunt for Voldorius",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/hunt-for-voldorius",
+          "showTitle": null
+        },
+        {
+          "slug": "ravens-flight",
+          "title": "Raven's Flight",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/ravens-flight",
+          "showTitle": null
+        },
+        {
+          "slug": "age-of-darkness",
+          "title": "Age of Darkness",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/age-of-darkness",
+          "showTitle": null
+        },
+        {
+          "slug": "deliverance-lost",
+          "title": "Deliverance Lost",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/deliverance-lost",
+          "showTitle": null
+        },
+        {
+          "slug": "the-face-of-treachery",
+          "title": "The Face of Treachery",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-face-of-treachery",
+          "showTitle": null
+        },
+        {
+          "slug": "horus-heresy-the-scripts-volume-i",
+          "title": "Horus Heresy: The Scripts: Volume I",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/horus-heresy-the-scripts-volume-i",
+          "showTitle": null
+        },
+        {
+          "slug": "kryptos",
+          "title": "Kryptos",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/kryptos",
+          "showTitle": null
+        },
+        {
+          "slug": "shadows-of-treachery",
+          "title": "Shadows of Treachery",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/shadows-of-treachery",
+          "showTitle": null
+        },
+        {
+          "slug": "the-divine-word",
+          "title": "The Divine Word",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-divine-word",
+          "showTitle": null
+        },
+        {
+          "slug": "the-unkindness-of-ravens",
+          "title": "The Unkindness of Ravens",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-unkindness-of-ravens",
+          "showTitle": null
+        },
+        {
+          "slug": "angel-exterminatus",
+          "title": "Angel Exterminatus",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/angel-exterminatus",
+          "showTitle": null
+        },
+        {
+          "slug": "corax-soulforge",
+          "title": "Corax: Soulforge",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/corax-soulforge",
+          "showTitle": null
+        },
+        {
+          "slug": "vulkan-lives",
+          "title": "Vulkan Lives",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/vulkan-lives",
+          "showTitle": null
+        },
+        {
+          "slug": "blood-oath",
+          "title": "Blood Oath",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/blood-oath",
+          "showTitle": null
+        },
+        {
+          "slug": "broken-sword",
+          "title": "Broken Sword",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/broken-sword",
+          "showTitle": null
+        },
+        {
+          "slug": "damocles",
+          "title": "Damocles",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/damocles",
+          "showTitle": null
+        },
+        {
+          "slug": "honour-imperialis-omnibus",
+          "title": "Honour Imperialis Omnibus",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/honour-imperialis-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "hunters-snare",
+          "title": "Hunter's Snare",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/hunters-snare",
+          "showTitle": null
+        },
+        {
+          "slug": "overfiend",
+          "title": "Overfiend",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/overfiend",
+          "showTitle": null
+        },
+        {
+          "slug": "ravenlord",
+          "title": "Ravenlord",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/ravenlord",
+          "showTitle": null
+        },
+        {
+          "slug": "shadow-captain",
+          "title": "Shadow Captain",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/shadow-captain",
+          "showTitle": null
+        },
+        {
+          "slug": "the-damnation-of-pythos",
+          "title": "The Damnation of Pythos",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-damnation-of-pythos",
+          "showTitle": null
+        },
+        {
+          "slug": "the-seventh-serpent",
+          "title": "The Seventh Serpent",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-seventh-serpent",
+          "showTitle": null
+        },
+        {
+          "slug": "the-value-of-fear",
+          "title": "The Value of Fear",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-value-of-fear",
+          "showTitle": null
+        },
+        {
+          "slug": "cybernetica",
+          "title": "Cybernetica",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/cybernetica",
+          "showTitle": null
+        },
+        {
+          "slug": "meduson",
+          "title": "Meduson",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/meduson",
+          "showTitle": null
+        },
+        {
+          "slug": "raptor",
+          "title": "Raptor",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/raptor",
+          "showTitle": null
+        },
+        {
+          "slug": "echoes-of-imperium",
+          "title": "Echoes of Imperium",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/echoes-of-imperium",
+          "showTitle": null
+        },
+        {
+          "slug": "shrike",
+          "title": "Shrike",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/shrike",
+          "showTitle": null
+        },
+        {
+          "slug": "sons-of-corax",
+          "title": "Sons of Corax",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/sons-of-corax",
+          "showTitle": null
+        },
+        {
+          "slug": "the-grey-raven",
+          "title": "The Grey Raven",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-grey-raven",
+          "showTitle": null
+        },
+        {
+          "slug": "valerius",
+          "title": "Valerius",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/valerius",
+          "showTitle": null
+        },
+        {
+          "slug": "corax",
+          "title": "Corax",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/corax",
+          "showTitle": null
+        },
+        {
+          "slug": "echoes-of-revelation",
+          "title": "Echoes of Revelation",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/echoes-of-revelation",
+          "showTitle": null
+        },
+        {
+          "slug": "shattered-legions",
+          "title": "Shattered Legions",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/shattered-legions",
+          "showTitle": null
+        },
+        {
+          "slug": "corax-lord-of-shadows",
+          "title": "Corax: Lord of Shadows",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/corax-lord-of-shadows",
+          "showTitle": null
+        },
+        {
+          "slug": "massacre",
+          "title": "Massacre",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/massacre",
+          "showTitle": null
+        },
+        {
+          "slug": "visions-of-heresy-2018-ed",
+          "title": "Visions of Heresy (2018 ed.)",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/visions-of-heresy-2018-ed",
+          "showTitle": null
+        },
+        {
+          "slug": "apocalypse",
+          "title": "Apocalypse",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/apocalypse",
+          "showTitle": null
+        },
+        {
+          "slug": "the-sons-of-selenar",
+          "title": "The Sons of Selenar",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-sons-of-selenar",
+          "showTitle": null
+        },
+        {
+          "slug": "masters-of-shadow",
+          "title": "Masters of Shadow",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/masters-of-shadow",
+          "showTitle": null
+        },
+        {
+          "slug": "dropsite-massacre",
+          "title": "Dropsite Massacre",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/dropsite-massacre",
+          "showTitle": null
+        },
+        {
+          "slug": "the-shattered-and-the-soulless",
+          "title": "The Shattered and the Soulless",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-shattered-and-the-soulless",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "luetin09-azmhqme4xe8",
+          "title": "40K BEGINNERS - THE ASTARTES CHAPTERS [Part 1] | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-478c4e8a-6943-4378-a5fb-b62c6ebf022b",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-13756527",
+          "title": "CORVUS CORAX: NEVERMORE | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-d8347b3d-fa5e-43c1-9663-35ecf103e1a7",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-13800541",
+          "title": "RAVEN GUARD: VICTORUS AUT MORTIS | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-f40b2126-e51d-4a8d-bf7b-95bda7645bcc",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-19430569",
+          "title": "Carcharodons: The Silent Hunters | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-7fe961b4-4506-4440-808f-3f55d70edd57",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-0737273c-228e-4f3f-8d55-2a3356b268ca",
+          "title": "Episode 123 - The Alpha Legion pt2, Alph legion take their place amoungst the legions (and irritate all of them in the process)",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-f0ade1f6-272b-4182-ace0-f761fdbbcd82",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-8636d857-eee5-4ac8-b97f-a0bd7c239b4f",
+          "title": "Episode 139 - The Raven Guard pt 1 - Creation of the 19th and discovery of Corax",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-715f2c6c-c7c5-480c-8987-b28c4ce2f68d",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-64185d62-9123-4710-a545-ce0f16ad6fe2",
+          "title": "Episode 140 - The Raven Guard pt 2 - Corax remakes the Raven Guard in his own image",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-40e8341c-cbf7-4cf3-91b4-40ca3c528a42",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-3ab8fe25-4938-4ad1-964a-fa669f96903b",
+          "title": "Episode 141 - Raven Guard pt 3 - Isstvan 5 and the legions rebirth.",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-10a222de-13d6-4356-b9db-e3bbd251765d",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-19096925",
+          "title": "Farsight's Bitter Rival: Commander Shadowsun | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-ebf1a120-068c-4045-9f52-4495d853067d",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Key characters",
+      "items": [
+        {
+          "type": "character",
+          "id": "branne_nev",
+          "name": "Branne Nev"
+        },
+        {
+          "type": "character",
+          "id": "corax",
+          "name": "Corax"
+        },
+        {
+          "type": "character",
+          "id": "kaedes_nex",
+          "name": "Kaedes Nex"
+        },
+        {
+          "type": "character",
+          "id": "nykona_sharrowkyn",
+          "name": "Nykona Sharrowkyn"
+        }
+      ]
+    }
+  ]
+}

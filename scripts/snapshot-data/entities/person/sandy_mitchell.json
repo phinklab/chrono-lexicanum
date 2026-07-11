@@ -1,0 +1,146 @@
+{
+  "type": "person",
+  "id": "sandy_mitchell",
+  "name": "Sandy Mitchell",
+  "oneLine": "Pseudonym of British author Alex Stewart. Best known for the Ciaphas Cain series — first-person memoirs of an Imperial Commissar that play 40k for satire while keeping the lore.",
+  "facts": [],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "for-the-emperor",
+          "title": "For the Emperor",
+          "kind": "book",
+          "releaseYear": 2003,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/for-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "caves-of-ice",
+          "title": "Caves of Ice",
+          "kind": "book",
+          "releaseYear": 2004,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/caves-of-ice",
+          "showTitle": null
+        },
+        {
+          "slug": "the-traitors-hand",
+          "title": "The Traitor's Hand",
+          "kind": "book",
+          "releaseYear": 2005,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-traitors-hand",
+          "showTitle": null
+        },
+        {
+          "slug": "death-or-glory",
+          "title": "Death or Glory",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/death-or-glory",
+          "showTitle": null
+        },
+        {
+          "slug": "duty-calls",
+          "title": "Duty Calls",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/duty-calls",
+          "showTitle": null
+        },
+        {
+          "slug": "cains-last-stand",
+          "title": "Cain's Last Stand",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/cains-last-stand",
+          "showTitle": null
+        },
+        {
+          "slug": "the-emperors-finest",
+          "title": "The Emperor's Finest",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-emperors-finest",
+          "showTitle": null
+        },
+        {
+          "slug": "old-soldiers-never-die",
+          "title": "Old Soldiers Never Die",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/old-soldiers-never-die",
+          "showTitle": null
+        },
+        {
+          "slug": "the-last-ditch",
+          "title": "The Last Ditch",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-last-ditch",
+          "showTitle": null
+        },
+        {
+          "slug": "the-greater-good",
+          "title": "The Greater Good",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-greater-good",
+          "showTitle": null
+        },
+        {
+          "slug": "choose-your-enemies",
+          "title": "Choose Your Enemies",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/choose-your-enemies",
+          "showTitle": null
+        },
+        {
+          "slug": "vainglorious",
+          "title": "Vainglorious",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/vainglorious",
+          "showTitle": null
+        },
+        {
+          "slug": "ciaphas-cain-the-anthology",
+          "title": "Ciaphas Cain: The Anthology",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ciaphas-cain-the-anthology",
+          "showTitle": null
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

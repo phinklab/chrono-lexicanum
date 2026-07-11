@@ -1,0 +1,444 @@
+{
+  "generatedAt": "2026-07-11T19:01:29.398Z",
+  "sourceMigration": {
+    "count": 16,
+    "lastTag": "0015_keen_tag",
+    "lastHash": "a37bede08babd69c4625f58fa40f6f2b8c246f4af6e6a4c43a77caa4fd81e172"
+  },
+  "counts": {
+    "books": 896,
+    "eras": 8,
+    "podcastIndexShows": 4,
+    "podcastSearchShows": 4,
+    "podcastSearchEpisodes": 1114,
+    "factionGuideRows": 228,
+    "charaktereRows": 507,
+    "weltenRows": 446,
+    "personenRows": 137,
+    "hotIds": {
+      "character": 30,
+      "faction": 39,
+      "location": 13,
+      "person": 14
+    },
+    "entityViews": 96
+  },
+  "artifacts": [
+    {
+      "path": "browse-books.json",
+      "sha256": "eabbc8cb5e47566f035a5444bcf64b89c8c060d34defb957651d56980fe0c63e"
+    },
+    {
+      "path": "charaktere-rows.json",
+      "sha256": "cba4c546680657746121bf7f68c8970788e449126d0bd8fade531dc37b7bd6b4"
+    },
+    {
+      "path": "entities/character/ahzek_ahriman.json",
+      "sha256": "da6833b332f113db1001829b96746d35aca6d6479f38a190730122a99b7f5fad"
+    },
+    {
+      "path": "entities/character/alpharius.json",
+      "sha256": "3f8cd00218ed5204823c129ad0107bd4d15fa9dd1cc0b2076e4164917150529e"
+    },
+    {
+      "path": "entities/character/angron.json",
+      "sha256": "62f53c9af86966a9946ac4da86fb660ba09cf036aefb60e6e23b6e0013ab7206"
+    },
+    {
+      "path": "entities/character/belisarius_cawl.json",
+      "sha256": "85bfafaa72252fa0220bd6c46106a85a64c9e2db46b58f1928df46d307aa2090"
+    },
+    {
+      "path": "entities/character/ciaphas_cain.json",
+      "sha256": "cc30d8b156e29bb3861bc03e3b618455109e011bff5ea52a9bb6326ce9a73978"
+    },
+    {
+      "path": "entities/character/corax.json",
+      "sha256": "2ccb9b368eb9697d5204f63418e98e83c72cd85b5fd6692076747056c5ca4563"
+    },
+    {
+      "path": "entities/character/cypher.json",
+      "sha256": "89fcb9662033c27cbe958f66c2300b22b0a5b484ebf8ac4b2e2817b0fa282946"
+    },
+    {
+      "path": "entities/character/ferrus_manus.json",
+      "sha256": "c22cd9ff5a0f5b76141c50da89fb194399ed3aac18709385243b70e31dd28f97"
+    },
+    {
+      "path": "entities/character/fulgrim.json",
+      "sha256": "4ce013315e5d6b3eef5958b463dfc142a2ee7fa07d252432f0da0133cb1606a6"
+    },
+    {
+      "path": "entities/character/garviel_loken.json",
+      "sha256": "5da66cce0eb5b9816d089e43ad51cd3c33c4507176a47e08d624036a0f97e57b"
+    },
+    {
+      "path": "entities/character/gregor_eisenhorn.json",
+      "sha256": "8679d4087cb8188bdf2c2042b6dbd7f128fa00d642f864f5bd07e67f9f6ffd64"
+    },
+    {
+      "path": "entities/character/horus.json",
+      "sha256": "74f1a417f5d486ab5c99c86a52df2a89b23436638fdc557d6fa3561705570424"
+    },
+    {
+      "path": "entities/character/ibram_gaunt.json",
+      "sha256": "7d92e8ac1022e879f984f3ce3ebd18ed7c737a99c09bd48bc36f79e64f01e35b"
+    },
+    {
+      "path": "entities/character/jaghatai_khan.json",
+      "sha256": "841ebd3561494ee91df8d3b6ba6f9afc1851fc4125da65c700da4e55565468ec"
+    },
+    {
+      "path": "entities/character/konrad_curze.json",
+      "sha256": "51d4111b2c805ebe9d49854ca29140ed051ed892602d49ac5d330a3ee85a2962"
+    },
+    {
+      "path": "entities/character/leman_russ.json",
+      "sha256": "09174ef056280f05288e5053627c179ced5662a9af78ed8b5451822e70aec4f5"
+    },
+    {
+      "path": "entities/character/lion_el_jonson.json",
+      "sha256": "2ccf1c67521623a0a92ff5cd5eacde26dabebb545bae4206307e259ebeb7d658"
+    },
+    {
+      "path": "entities/character/lorgar.json",
+      "sha256": "524369dee6a9393f7b9d737c3cca15c1becc99ccab65127e0202e9a187403808"
+    },
+    {
+      "path": "entities/character/magnus_the_red.json",
+      "sha256": "1118fd891fc9c71e36b74d1bb3d9b8d0f47df889578f2f475932056886b2787a"
+    },
+    {
+      "path": "entities/character/mortarion.json",
+      "sha256": "ed1a616e929a11b10163a8ca47f8a8d1fe2fc4950531faa78d222c87ea5abb88"
+    },
+    {
+      "path": "entities/character/perturabo.json",
+      "sha256": "daa58fa4731af78c0a3f133de55eb06dc36565e64b1696b654102e3f639405a7"
+    },
+    {
+      "path": "entities/character/ragnar_blackmane.json",
+      "sha256": "309706624a375e08cda3141534884050774842a7fed2ca933a225e41fdf09242"
+    },
+    {
+      "path": "entities/character/roboute_guilliman.json",
+      "sha256": "428b1ea65f45cf7e6b70aaa90a82db4ee565c1411be8b89bea3a600ebced0117"
+    },
+    {
+      "path": "entities/character/rogal_dorn.json",
+      "sha256": "1299f0596a399825aafca3de9927345f6545916866fc51300cd048d64970035a"
+    },
+    {
+      "path": "entities/character/sanguinius.json",
+      "sha256": "324075fadff6d8d8eedd1d3dc5ffa84e7be15f458565660ee3a63e72c1d12ca8"
+    },
+    {
+      "path": "entities/character/sigismund.json",
+      "sha256": "821c27d0c24da081cd4ff1d3a585a9b3874d4486675e56c7c99e045f15ca5bfc"
+    },
+    {
+      "path": "entities/character/the_emperor.json",
+      "sha256": "7661c34e139053fdebd408a811115567c8d5b0ea4b76f5e2505d73c726255dea"
+    },
+    {
+      "path": "entities/character/typhus.json",
+      "sha256": "dd264bf6ec7b95f1db4ca85adf99db5c13c043e6215956c458e5bb3f4d8e48d2"
+    },
+    {
+      "path": "entities/character/uriel_ventris.json",
+      "sha256": "6f51e2708720478dac2f3b23e19b55c9ab6cafebcbb29f6c457738a45c53290d"
+    },
+    {
+      "path": "entities/character/vulkan.json",
+      "sha256": "ea81179095d6956f56d244f2d6242749134f88e74c49f9a65acacdcb5ecb635d"
+    },
+    {
+      "path": "entities/faction/alpha_legion.json",
+      "sha256": "6cf9dfe8ce4ceef7bd61bc77c324e7f7260815ff1437d579ca0c8f887604feab"
+    },
+    {
+      "path": "entities/faction/astra_militarum.json",
+      "sha256": "f4db7cdb7c82a00ca865af5799fb08a27f57e5f5f200931a458bbd83fcedf540"
+    },
+    {
+      "path": "entities/faction/black_legion.json",
+      "sha256": "3033b53b29854b829e22a2489222f2fa55c36508ca217325d50eea5604a84fe9"
+    },
+    {
+      "path": "entities/faction/black_templars.json",
+      "sha256": "20b01c33eca8ba0041358db087fd90197d6b868aad8a52d98cecd9b51b21a23a"
+    },
+    {
+      "path": "entities/faction/blood_angels.json",
+      "sha256": "1eec385b4ff58c7b20d0f6321abd7f3318c032659b4135ace9c3f3332bfe881a"
+    },
+    {
+      "path": "entities/faction/chaos.json",
+      "sha256": "13e938fb5fb5853b0d356a35065c9d2afa2dc7f8cb8ec5bcd30c90d866fb8dd7"
+    },
+    {
+      "path": "entities/faction/custodes.json",
+      "sha256": "9511b65a26d9dbf734d748895b520af7af9159ce4f0c6383f8fb8836b484be15"
+    },
+    {
+      "path": "entities/faction/dark_angels.json",
+      "sha256": "2990acee00504f4aa9401279670ad48a5d79d3ef2ec31adcab3e30ccb33adfae"
+    },
+    {
+      "path": "entities/faction/death_guard.json",
+      "sha256": "1d5e885fac168480328b1ffcbae013704571ae651d1a91e0a7cdef4c02310eaf"
+    },
+    {
+      "path": "entities/faction/deathwatch.json",
+      "sha256": "9f75d5ba6907a48844b967d8105ac3e3d147c920e345aa9b440162314e620dec"
+    },
+    {
+      "path": "entities/faction/eldar.json",
+      "sha256": "dce36a3f2be5b10bbbabdf28e742d9078378b1cd2b6b5ac3254aaa7a3bb45014"
+    },
+    {
+      "path": "entities/faction/emperors_children.json",
+      "sha256": "6e1b389e0683870ddcbf35ee0be3531037a9adc8ef2644155c49b1feffd73f38"
+    },
+    {
+      "path": "entities/faction/grey_knights.json",
+      "sha256": "3342c9e1ecef6ee4d6ecf2c4b9f20dfff734cad892278dbb88148530a57c4a2b"
+    },
+    {
+      "path": "entities/faction/imperial_fists.json",
+      "sha256": "36f284ed57c9c4e1fda2e2dbc55bd9fc09a899879b6c9546ce22fa4504ebb154"
+    },
+    {
+      "path": "entities/faction/imperium.json",
+      "sha256": "a117e926044b99df9123547cddcb2afd27e0dd87430314d952d58b70266518c7"
+    },
+    {
+      "path": "entities/faction/inquisition.json",
+      "sha256": "a5c6d4d0b40fd15b142d815d174240e40ee980d15866ab2901baca230e298684"
+    },
+    {
+      "path": "entities/faction/iron_hands.json",
+      "sha256": "a08ee5413b4c52d2fe10d69e4b52b4156d10548d367d94e1da282e6be79a1bbf"
+    },
+    {
+      "path": "entities/faction/iron_warriors.json",
+      "sha256": "86ff7b3a556d1b95cc2b5dd7461186bba6984f712c99e75811abceae27a36ed1"
+    },
+    {
+      "path": "entities/faction/khorne.json",
+      "sha256": "5c3e4b7d5c106e8a85e5cd1768f7eae5e979c087e789e3ee112c2c13d9b2a52f"
+    },
+    {
+      "path": "entities/faction/mechanicus.json",
+      "sha256": "faa0e306ff6445dcc17b3fef0827adaf276f6817004caaf90829082cc9d47b50"
+    },
+    {
+      "path": "entities/faction/necrons.json",
+      "sha256": "4a05c0f57b9a24045edc9fd6614f950ce94c51dd86ff56ab8164c3bebd75f0bf"
+    },
+    {
+      "path": "entities/faction/night_lords.json",
+      "sha256": "351f3e395600330352563f46aab2b7e33ae5026573eaa111b2416d5a75be0a7d"
+    },
+    {
+      "path": "entities/faction/nurgle.json",
+      "sha256": "adab75307f29625e9457016297ce8394e32cd7712cefe744ad20601441eedb63"
+    },
+    {
+      "path": "entities/faction/orks.json",
+      "sha256": "967d98d2b369e12e52fbc4a6861068d271299f4303ae039571b10758a8909937"
+    },
+    {
+      "path": "entities/faction/raven_guard.json",
+      "sha256": "cc7f0d4761473dd33447cabcbd51d971814734806695dfa86303f31bb3a4f310"
+    },
+    {
+      "path": "entities/faction/salamanders.json",
+      "sha256": "840667f65be9623763b35429c96618528a3ebee93ff1f509870d08a6cf117d62"
+    },
+    {
+      "path": "entities/faction/sisters_of_battle.json",
+      "sha256": "e1b2cf61185b527944d3adf73fb8c8343cbce3f112d8a6432cefc2c16ee9e313"
+    },
+    {
+      "path": "entities/faction/slaanesh.json",
+      "sha256": "6bbae22dee53e1ce02f8d04cc4e0237957cebb4a35b5c1d96d9f5c0b584fed9c"
+    },
+    {
+      "path": "entities/faction/sons_of_horus.json",
+      "sha256": "4901ee13579f20c0bc5dfab105f35f1d1a86c60f13f6ab1dc321b6b271f9e7c4"
+    },
+    {
+      "path": "entities/faction/space_wolves.json",
+      "sha256": "9b973fda5d069c392409756155c1ca1e3033d9f58319e35d2a0a2e2c0fd5282a"
+    },
+    {
+      "path": "entities/faction/tanith_first.json",
+      "sha256": "f62f7a023b38e447990c904aeb9e09f219910854588ebd12d0a28d5a8f22de86"
+    },
+    {
+      "path": "entities/faction/tau.json",
+      "sha256": "570fdce3ffd384068c846cc335913ae936e007c224e47533a8ffc94d6c9db5bc"
+    },
+    {
+      "path": "entities/faction/thousand_sons.json",
+      "sha256": "c4df08cdb1ca281793162953dedf538eebd2ea91cc1aa03d361039dc4c1c3c8c"
+    },
+    {
+      "path": "entities/faction/tyranids.json",
+      "sha256": "367683f55df510237ae1097a0ce5e4e47d3264fc2cedfa46c0bb4d233f1bfd9e"
+    },
+    {
+      "path": "entities/faction/tzeentch.json",
+      "sha256": "99a39ab08e80414af27c293d84f10bf483eb7feca0240a5a7d929021823c0ed9"
+    },
+    {
+      "path": "entities/faction/ultramarines.json",
+      "sha256": "6161f507ee14d2b1bec94c00f94686e0b2bcb5a8cfa6b5ea66c5903e05431a88"
+    },
+    {
+      "path": "entities/faction/white_scars.json",
+      "sha256": "99512ae7afb18f01180fa2043a04ad45331c71a65603bae9975856e08f7748fb"
+    },
+    {
+      "path": "entities/faction/word_bearers.json",
+      "sha256": "19ebc195e49e13e2a36d48b5244c49a0e64252d9aeb71f790a11c802d25ab745"
+    },
+    {
+      "path": "entities/faction/world_eaters.json",
+      "sha256": "194b918b876dafb6c8fea2d11486825026756137008ae894fe8b485e4742bdfe"
+    },
+    {
+      "path": "entities/location/armageddon.json",
+      "sha256": "e82f290fb816a550ad0b249db1bb77d4e2e6f05e7494d6aab2d1d48a46e3ef42"
+    },
+    {
+      "path": "entities/location/baal.json",
+      "sha256": "e4e462552582bdafd4a0cdaa082a07a51ebdd26eb7b8b02b3b0c0aef724f696f"
+    },
+    {
+      "path": "entities/location/cadia.json",
+      "sha256": "4b01b952276593cd229b91ebce4b34b1f039d4716052c3362563ff18adfb79e6"
+    },
+    {
+      "path": "entities/location/caliban.json",
+      "sha256": "2ca58bcc326c9ddd65a7f6bf1ecfa56237c3d7a010fcc1cd5faede3b4d0eb690"
+    },
+    {
+      "path": "entities/location/calth.json",
+      "sha256": "89cd6c780b17746a695bb289484aa22af982481ed16f0e13609bf4d92c03dc0a"
+    },
+    {
+      "path": "entities/location/fenris.json",
+      "sha256": "d9a028f39a75d13931c199f04d7bef371ee11a31e51f15aab356c77cfe25a479"
+    },
+    {
+      "path": "entities/location/istvaan_v.json",
+      "sha256": "fec72f199571026a96b556b2bae03a35153619328bf774d5fd80bcf6f0ccd491"
+    },
+    {
+      "path": "entities/location/luna.json",
+      "sha256": "282a20417bb86b589de787250f2d2cb369c0ba9ed3803484ed78d68566fbd808"
+    },
+    {
+      "path": "entities/location/macragge.json",
+      "sha256": "fe8e579fe35abb14ae4cc9689b9cf15d83d426309d76006a6feb0af16de314af"
+    },
+    {
+      "path": "entities/location/mars.json",
+      "sha256": "76221857595a9e67e78a569b68b3e59c1c6d4b9e8406019d119a5e060706b2ca"
+    },
+    {
+      "path": "entities/location/nocturne.json",
+      "sha256": "e3e89765fd5aa6ad23b886dfc310ca440b4be329a700bbc37075fcf8bc4d7e6c"
+    },
+    {
+      "path": "entities/location/prospero.json",
+      "sha256": "e238b4889cfe004758abb8adb1eabfc7ecd178c9b89fb3b4095b90615f8af4d9"
+    },
+    {
+      "path": "entities/location/terra.json",
+      "sha256": "5e1a00dd69dc53a93637a91afc346ddcbe70268da54ebe3efc2eb63df5039de2"
+    },
+    {
+      "path": "entities/person/aaron_dembski_bowden.json",
+      "sha256": "031c7d10590d6bd250d8b10fefb2ab0a35fc83486d4062b9da22c46bd9583de7"
+    },
+    {
+      "path": "entities/person/ben_counter.json",
+      "sha256": "edaba71a7576872c3f335ffc1f4011e24c9ac43a89a7439f203394e3dfa82519"
+    },
+    {
+      "path": "entities/person/chris_wraight.json",
+      "sha256": "8784fabeb54206e917b38f54834c6c1fa599a11ef4c1d4870f6ba6a4f7aaf28f"
+    },
+    {
+      "path": "entities/person/dan_abnett.json",
+      "sha256": "988eead56b5bbfcdd379b9c7db5eb268f6c5986578350706931c37d67e1b9265"
+    },
+    {
+      "path": "entities/person/david_annandale.json",
+      "sha256": "c60be39ecc10827664c9b2b990f9e2c41bdb6674534b4948937dc2ebb6f1aa7e"
+    },
+    {
+      "path": "entities/person/gav_thorpe.json",
+      "sha256": "f953df6ca14e962dd14c4386b50b88a1b23f598a0093f90b59470bcb5c0b37ef"
+    },
+    {
+      "path": "entities/person/graham_mcneill.json",
+      "sha256": "36247778e6b89bfcd420f28681afc69a7e1512f0a49a8de8c69779815fae8b99"
+    },
+    {
+      "path": "entities/person/guy_haley.json",
+      "sha256": "f904ece5fe1806281accf60cadfa0e5fe9a930dd952e11f844ddce64e2338fde"
+    },
+    {
+      "path": "entities/person/james_swallow.json",
+      "sha256": "88b7993956513edd4a6476cc8c283b9f03f6afa00710b23d4f2d94a007333be8"
+    },
+    {
+      "path": "entities/person/john_french.json",
+      "sha256": "4f25570d237a986a9df56bc75121306733377585c56b48786ce707b189701116"
+    },
+    {
+      "path": "entities/person/mike_brooks.json",
+      "sha256": "4ca7a411152c3c7912f11a24c8e1b1a611f52c0254c7f81964827438e5d4d8de"
+    },
+    {
+      "path": "entities/person/nick_kyme.json",
+      "sha256": "364fc8fa82cbeb5897dcbfdc8d15087b4b0de0549778fd271b6a648186defa34"
+    },
+    {
+      "path": "entities/person/sandy_mitchell.json",
+      "sha256": "14c5be0258d1d523c06c7ae43b6e479dfcb389fbbac70ee50083c701339be42a"
+    },
+    {
+      "path": "entities/person/william_king.json",
+      "sha256": "9c58399567a4e26a87eead04212fd565e9bff85493ed1c8e5e145a9ecefd0f71"
+    },
+    {
+      "path": "entity-hot-ids.json",
+      "sha256": "108589f2d9ee549444dc5073f152bcdbb00d98ea6272e7254eaf5df86b6f6805"
+    },
+    {
+      "path": "faction-guide.json",
+      "sha256": "d99903853109faffb79f3320d940c1e24434299590e1dc46390093a3c4eee050"
+    },
+    {
+      "path": "personen-rows.json",
+      "sha256": "421b63a7fc35a7bd4f65b31271c41c1caefa08a5d86ee6d7f66e641378650d9c"
+    },
+    {
+      "path": "podcast-index.json",
+      "sha256": "f0a0a48d31ba3fca986a78851395fc75e10961f3c4f34554de8b035592133baf"
+    },
+    {
+      "path": "podcast-search.json",
+      "sha256": "a4b93fcdd6c350d68b0deecee8432d1125bdc2f76896be0c3f3a23526c45d83a"
+    },
+    {
+      "path": "welten-rows.json",
+      "sha256": "b2ac0b881054f36e2a1662fb27a5f4c531602cd5218667b814f8ad7b62a4a317"
+    }
+  ]
+}

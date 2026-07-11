@@ -1,0 +1,571 @@
+{
+  "type": "location",
+  "id": "armageddon",
+  "name": "Armageddon",
+  "blurb": {
+    "text": "A heavily industrialised hive world fought over in a series of devastating wars, most famously against the Ork Warlord Ghazghkull Thraka.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Armageddon"
+  },
+  "facts": [
+    {
+      "label": "Sector",
+      "value": "Segmentum Obscurus"
+    }
+  ],
+  "tags": [
+    "astra_militarum",
+    "orks"
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "crusade-for-armageddon",
+          "title": "Crusade for Armageddon",
+          "kind": "book",
+          "releaseYear": 2003,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/crusade-for-armageddon",
+          "showTitle": null
+        },
+        {
+          "slug": "annihilation-squad",
+          "title": "Annihilation Squad",
+          "kind": "book",
+          "releaseYear": 2004,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/annihilation-squad",
+          "showTitle": null
+        },
+        {
+          "slug": "conquest-of-armageddon",
+          "title": "Conquest of Armageddon",
+          "kind": "book",
+          "releaseYear": 2005,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/conquest-of-armageddon",
+          "showTitle": null
+        },
+        {
+          "slug": "the-last-chancers-omnibus",
+          "title": "The Last Chancers Omnibus",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-last-chancers-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "helsreach",
+          "title": "Helsreach",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/helsreach",
+          "showTitle": null
+        },
+        {
+          "slug": "the-armageddon-omnibus",
+          "title": "The Armageddon Omnibus",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-armageddon-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-emperors-gift",
+          "title": "The Emperor's Gift",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-emperors-gift",
+          "showTitle": null
+        },
+        {
+          "slug": "blood-and-fire",
+          "title": "Blood and Fire",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/blood-and-fire",
+          "showTitle": null
+        },
+        {
+          "slug": "angrons-monolith",
+          "title": "Angron's Monolith",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/angrons-monolith",
+          "showTitle": null
+        },
+        {
+          "slug": "dantes-canyon",
+          "title": "Dante's Canyon",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/dantes-canyon",
+          "showTitle": null
+        },
+        {
+          "slug": "the-eternal-crusader",
+          "title": "The Eternal Crusader",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-eternal-crusader",
+          "showTitle": null
+        },
+        {
+          "slug": "the-pyres-of-armageddon",
+          "title": "The Pyres of Armageddon",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-pyres-of-armageddon",
+          "showTitle": null
+        },
+        {
+          "slug": "astra-militarum",
+          "title": "Astra Militarum",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/astra-militarum",
+          "showTitle": null
+        },
+        {
+          "slug": "at-gaius-point",
+          "title": "At Gaius Point",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/at-gaius-point",
+          "showTitle": null
+        },
+        {
+          "slug": "crusaders-of-dorn",
+          "title": "Crusaders of Dorn",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/crusaders-of-dorn",
+          "showTitle": null
+        },
+        {
+          "slug": "the-relic",
+          "title": "The Relic",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-relic",
+          "showTitle": null
+        },
+        {
+          "slug": "dante",
+          "title": "Dante",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/dante",
+          "showTitle": null
+        },
+        {
+          "slug": "yarrick-the-omnibus",
+          "title": "Yarrick: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/yarrick-the-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "armageddon-saint",
+          "title": "Armageddon Saint",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/armageddon-saint",
+          "showTitle": null
+        },
+        {
+          "slug": "ghazghkull-thraka-prophet-of-the-waaagh",
+          "title": "Ghazghkull Thraka: Prophet of the Waaagh!",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ghazghkull-thraka-prophet-of-the-waaagh",
+          "showTitle": null
+        },
+        {
+          "slug": "armageddon-season-of-fire",
+          "title": "Armageddon: Season of Fire",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/armageddon-season-of-fire",
+          "showTitle": null
+        },
+        {
+          "slug": "carnage-unending",
+          "title": "Carnage Unending",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/carnage-unending",
+          "showTitle": null
+        },
+        {
+          "slug": "legends-of-the-waaagh",
+          "title": "Legends of the Waaagh!",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/legends-of-the-waaagh",
+          "showTitle": null
+        },
+        {
+          "slug": "world-ablaze",
+          "title": "World Ablaze",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/world-ablaze",
+          "showTitle": null
+        },
+        {
+          "slug": "war-for-armageddon-omnibus",
+          "title": "War for Armageddon Omnibus",
+          "kind": "book",
+          "releaseYear": null,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/war-for-armageddon-omnibus",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-14990177",
+          "title": "ARMAGEDDON STEEL LEGION: RAISE HIGH THE BANNERS OF VENGEANCE | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-f99e4744-1ddc-484c-8a0c-432323bad6bd",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-15372048",
+          "title": "Episode 42 - The Regiments of the Imperial Guard",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-12f6e8f3-cb2d-4c96-9d17-796fd20479ad",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-14457522",
+          "title": "MONTHS OF SHAME: DON'T MESS WITH WOLVES | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-9336f41b-e1d7-4862-9555-50d32e6710c9",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-15467460",
+          "title": "SECOND WAR FOR ARMAGEDDON: PRACTICE RUN (TRILLIONS DEAD) | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-73aa00a1-dc59-4fd7-8e46-45b330e98898",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-2aacce8a-ca0a-11ef-9632-af27de1b9861",
+          "title": "144 - Armageddon Steel Legion",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-581b2105-dab4-43ca-b62a-5eee64936550",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "the-40k-lorecast-03a85d69-776a-4c13-a707-d2c82e941fbb",
+          "title": "Episode 117 - Salamanders - Key characters and successor chapters.",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-78b9b182-9eb1-4fc8-a9e2-88a27702d6f9",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-17396972",
+          "title": "THE FOURTH WAR FOR ARMAGEDDON | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-3b517a34-4f46-4844-aab9-26c6b1a60080",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "luetin09-wju7qje3it0",
+          "title": "THIS DISGRACE - MUST END!! - 40K Legends - YARRICK | Warhammer 40,000 Lore/Discussion",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-fb1159ca-8805-416e-ac47-9379667095de",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-tumvrrtpgps",
+          "title": "40K 11ED - VINDICATION FOR YARRICK - AMID LORE ARMAGEDDON | Warhammer 40,000 History/Rant/Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-9b63e1e6-facb-4137-959e-2e50981a2209",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "lorehammer-d9fb513f-f011-41a2-ba4f-459eca9fa2e5",
+          "title": "Bonus 52 - Cryptids",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-e94efd2e-1189-4b5e-9c9f-98abc748217c",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "the-40k-lorecast-de0c18e9-2f95-490d-975d-f36c795c5853",
+          "title": "Episode 120 - 1st (ish) War of Armageddon - The Battle for Armageddon",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-260dbb13-7dbb-4ce1-977a-573412d82dd4",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-4154cebf-dfd8-4de7-a890-205b169ffb67",
+          "title": "Episode 121 - The Months of Shame",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-af4a0f0f-477f-4a94-ab4e-d31e9bdf66c0",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18982530",
+          "title": "The Salt Must Flow - AdeptiCon 2026: Great Minis, Terrible WiFi",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-0bd17abd-5c06-499b-9f01-211adbc247ec",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-19248030",
+          "title": "Warlord of Warlords: Black Templars Vs Ghazghkull | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-1cfaffcf-4b8a-4722-89f4-2ee5282246dc",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Other worlds in sector",
+      "items": [
+        {
+          "type": "location",
+          "id": "asaheim",
+          "name": "Asaheim"
+        },
+        {
+          "type": "location",
+          "id": "cadia",
+          "name": "Cadia"
+        },
+        {
+          "type": "location",
+          "id": "caliban",
+          "name": "Caliban"
+        },
+        {
+          "type": "location",
+          "id": "certus_minor",
+          "name": "Certus-Minor"
+        },
+        {
+          "type": "location",
+          "id": "crannog_mons",
+          "name": "Crannog Mons"
+        },
+        {
+          "type": "location",
+          "id": "davin",
+          "name": "Davin"
+        },
+        {
+          "type": "location",
+          "id": "eye_of_terror",
+          "name": "Eye of Terror"
+        },
+        {
+          "type": "location",
+          "id": "fabris_calivant",
+          "name": "Fabris Calivant"
+        },
+        {
+          "type": "location",
+          "id": "fenris",
+          "name": "Fenris"
+        },
+        {
+          "type": "location",
+          "id": "gildar_secundus",
+          "name": "Gildar Secundus"
+        },
+        {
+          "type": "location",
+          "id": "herodian_iv",
+          "name": "Herodian IV"
+        },
+        {
+          "type": "location",
+          "id": "honoria",
+          "name": "Honoria"
+        },
+        {
+          "type": "location",
+          "id": "istvaan_iii",
+          "name": "Istvaan III"
+        },
+        {
+          "type": "location",
+          "id": "istvaan_system",
+          "name": "Istvaan System"
+        },
+        {
+          "type": "location",
+          "id": "istvaan_v",
+          "name": "Istvaan V"
+        },
+        {
+          "type": "location",
+          "id": "kadillus_harbour",
+          "name": "Kadillus Harbour"
+        },
+        {
+          "type": "location",
+          "id": "lastrati",
+          "name": "Lastrati"
+        },
+        {
+          "type": "location",
+          "id": "malouri",
+          "name": "Malouri"
+        },
+        {
+          "type": "location",
+          "id": "medrengard",
+          "name": "Medrengard"
+        },
+        {
+          "type": "location",
+          "id": "northwilds",
+          "name": "Northwilds"
+        },
+        {
+          "type": "location",
+          "id": "nostramo",
+          "name": "Nostramo"
+        },
+        {
+          "type": "location",
+          "id": "piety_v",
+          "name": "Piety V"
+        },
+        {
+          "type": "location",
+          "id": "prospero",
+          "name": "Prospero"
+        },
+        {
+          "type": "location",
+          "id": "fang",
+          "name": "The Fang"
+        },
+        {
+          "type": "location",
+          "id": "tizca",
+          "name": "Tizca"
+        },
+        {
+          "type": "location",
+          "id": "urgall_depression",
+          "name": "Urgall Depression"
+        },
+        {
+          "type": "location",
+          "id": "void",
+          "name": "Warp Corridor"
+        },
+        {
+          "type": "location",
+          "id": "zaramund",
+          "name": "Zaramund"
+        }
+      ]
+    }
+  ]
+}

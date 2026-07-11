@@ -1,0 +1,285 @@
+{
+  "type": "character",
+  "id": "ibram_gaunt",
+  "name": "Ibram Gaunt",
+  "blurb": {
+    "text": "A Colonel-Commissar of the Astra Militarum who leads the Tanith First-and-Only; the protagonist of the Gaunt's Ghosts novels set in the Sabbat Worlds Crusade.",
+    "confidence": 0.9,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ibram_Gaunt"
+  },
+  "facts": [
+    {
+      "label": "Allegiance",
+      "value": {
+        "type": "faction",
+        "id": "commissariat",
+        "name": "Commissariat"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "first-and-only",
+          "title": "First and Only",
+          "kind": "book",
+          "releaseYear": 1999,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/first-and-only",
+          "showTitle": null
+        },
+        {
+          "slug": "ghostmaker",
+          "title": "Ghostmaker",
+          "kind": "book",
+          "releaseYear": 2000,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/ghostmaker",
+          "showTitle": null
+        },
+        {
+          "slug": "necropolis",
+          "title": "Necropolis",
+          "kind": "book",
+          "releaseYear": 2000,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/necropolis",
+          "showTitle": null
+        },
+        {
+          "slug": "honour-guard",
+          "title": "Honour Guard",
+          "kind": "book",
+          "releaseYear": 2001,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/honour-guard",
+          "showTitle": null
+        },
+        {
+          "slug": "straight-silver",
+          "title": "Straight Silver",
+          "kind": "book",
+          "releaseYear": 2002,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/straight-silver",
+          "showTitle": null
+        },
+        {
+          "slug": "the-guns-of-tanith",
+          "title": "The Guns of Tanith",
+          "kind": "book",
+          "releaseYear": 2002,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-guns-of-tanith",
+          "showTitle": null
+        },
+        {
+          "slug": "gaunts-ghosts-the-founding-omnibus-1-3",
+          "title": "Gaunt's Ghosts: The Founding Omnibus, 1-3",
+          "kind": "book",
+          "releaseYear": 2003,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/gaunts-ghosts-the-founding-omnibus-1-3",
+          "showTitle": null
+        },
+        {
+          "slug": "sabbat-martyr",
+          "title": "Sabbat Martyr",
+          "kind": "book",
+          "releaseYear": 2003,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/sabbat-martyr",
+          "showTitle": null
+        },
+        {
+          "slug": "traitor-general",
+          "title": "Traitor General",
+          "kind": "book",
+          "releaseYear": 2004,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/traitor-general",
+          "showTitle": null
+        },
+        {
+          "slug": "his-last-command",
+          "title": "His Last Command",
+          "kind": "book",
+          "releaseYear": 2005,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/his-last-command",
+          "showTitle": null
+        },
+        {
+          "slug": "the-armour-of-contempt",
+          "title": "The Armour of Contempt",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-armour-of-contempt",
+          "showTitle": null
+        },
+        {
+          "slug": "gaunts-ghosts-the-saint-omnibus-4-7",
+          "title": "Gaunt's Ghosts: The Saint Omnibus, 4-7",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/gaunts-ghosts-the-saint-omnibus-4-7",
+          "showTitle": null
+        },
+        {
+          "slug": "only-in-death",
+          "title": "Only in Death",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/only-in-death",
+          "showTitle": null
+        },
+        {
+          "slug": "blood-pact",
+          "title": "Blood Pact",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/blood-pact",
+          "showTitle": null
+        },
+        {
+          "slug": "gaunts-ghosts-the-lost-omnibus-8-11",
+          "title": "Gaunt's Ghosts: The Lost Omnibus, 8-11",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/gaunts-ghosts-the-lost-omnibus-8-11",
+          "showTitle": null
+        },
+        {
+          "slug": "sabbat-worlds",
+          "title": "Sabbat Worlds",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/sabbat-worlds",
+          "showTitle": null
+        },
+        {
+          "slug": "salvations-reach",
+          "title": "Salvation's Reach",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/salvations-reach",
+          "showTitle": null
+        },
+        {
+          "slug": "sabbat-crusade",
+          "title": "Sabbat Crusade",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/sabbat-crusade",
+          "showTitle": null
+        },
+        {
+          "slug": "the-warmaster",
+          "title": "The Warmaster",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-warmaster",
+          "showTitle": null
+        },
+        {
+          "slug": "gaunts-ghosts-the-victory-omnibus-part-one-12-13",
+          "title": "Gaunt's Ghosts: The Victory Omnibus Part One, 12-13",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/gaunts-ghosts-the-victory-omnibus-part-one-12-13",
+          "showTitle": null
+        },
+        {
+          "slug": "the-anarch",
+          "title": "The Anarch",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-anarch",
+          "showTitle": null
+        },
+        {
+          "slug": "sabbat-war",
+          "title": "Sabbat War",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/sabbat-war",
+          "showTitle": null
+        },
+        {
+          "slug": "the-vincula-insurgency",
+          "title": "The Vincula Insurgency",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-vincula-insurgency",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-8837141",
+          "title": "GAUNT'S GHOSTS: FIRST AND ONLY | Warhammer 40k book Review and Discussion",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-c33492bb-3527-4096-8aeb-0f4022781b0b",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-15372048",
+          "title": "Episode 42 - The Regiments of the Imperial Guard",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-12f6e8f3-cb2d-4c96-9d17-796fd20479ad",
+          "showTitle": "The 40k Lorecast"
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

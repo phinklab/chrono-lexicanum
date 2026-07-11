@@ -1,0 +1,184 @@
+[
+  {
+    "id": "4c71657c-222b-4872-b97f-7daa0a6e302f",
+    "slug": "lorehammer",
+    "title": "Lorehammer - A Warhammer 40k Podcast",
+    "artUrl": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/44031394/3dbb9303c9852a37.jpg",
+    "episodeCount": 399,
+    "firstPubYear": 2017,
+    "lastPubYear": 2026,
+    "platformLinks": [
+      {
+        "serviceId": "apple_podcasts",
+        "url": "https://podcasts.apple.com/podcast/id1266540593",
+        "label": "Apple Podcasts"
+      },
+      {
+        "serviceId": "official_website",
+        "url": "https://linktr.ee/Lorehammer40k",
+        "label": "Website"
+      },
+      {
+        "serviceId": "rss",
+        "url": "https://anchor.fm/s/1070b29c8/podcast/rss",
+        "label": "RSS"
+      }
+    ],
+    "latest": [
+      {
+        "id": "6f1b3572-c5b5-4ee5-a5e2-2fe16a81c4a5",
+        "title": "AD FREE on Lorehammer Patreon",
+        "pubDateMs": 1783116600000
+      },
+      {
+        "id": "1cecac67-c53d-470a-b05a-e07d88dfddec",
+        "title": "Edition Eras Pt. 4 - 8th and 9th",
+        "pubDateMs": 1783107840000
+      },
+      {
+        "id": "e0a5037f-bb8e-474e-a4e6-be14dd32c5b5",
+        "title": "Edition Eras Pt. 3 - 5th, 6th and 7th ",
+        "pubDateMs": 1782727200000
+      }
+    ]
+  },
+  {
+    "id": "6427ef91-b8b8-466f-a6cd-c4b53a4f6006",
+    "slug": "adeptus-ridiculous",
+    "title": "Adeptus Ridiculous",
+    "artUrl": "https://storage.buzzsprout.com/q6of4by1uqpz2q5d9mmcz5ymepfb?.jpg",
+    "episodeCount": 368,
+    "firstPubYear": 2020,
+    "lastPubYear": 2026,
+    "platformLinks": [
+      {
+        "serviceId": "apple_podcasts",
+        "url": "https://podcasts.apple.com/podcast/id1679817767",
+        "label": "Apple Podcasts"
+      },
+      {
+        "serviceId": "spotify",
+        "url": "https://open.spotify.com/show/6KnaAHvqf0pgTs3Kw3qQTR",
+        "label": "Spotify"
+      },
+      {
+        "serviceId": "youtube",
+        "url": "https://www.youtube.com/channel/UCPfZBLCYNEonc-Cyk1QUHPA",
+        "label": "YouTube"
+      },
+      {
+        "serviceId": "official_website",
+        "url": "https://www.adeptusridiculous.com/",
+        "label": "Website"
+      },
+      {
+        "serviceId": "rss",
+        "url": "https://rss.buzzsprout.com/1497970.rss",
+        "label": "RSS"
+      }
+    ],
+    "latest": [
+      {
+        "id": "b335a2e2-d36e-446d-a3ef-7ffca3bbde4c",
+        "title": "Cypher: The Fallen Angel Who Walked to the Golden Throne | Warhammer 40k Lore",
+        "pubDateMs": 1783526400000
+      },
+      {
+        "id": "7fe961b4-4506-4440-808f-3f55d70edd57",
+        "title": "Carcharodons: The Silent Hunters | Warhammer 40k Lore",
+        "pubDateMs": 1782921600000
+      },
+      {
+        "id": "5103945f-88ab-4633-a50b-29784922336d",
+        "title": "You Have Been Lied To About 40k Orks | Warhammer 40k Lore",
+        "pubDateMs": 1782316800000
+      }
+    ]
+  },
+  {
+    "id": "cf008a06-5625-43d2-9c19-b0ce89e6edb8",
+    "slug": "luetin09",
+    "title": "Luetin09",
+    "artUrl": "https://yt3.ggpht.com/ytc/AIdro_kzjOl8pH7aEyLzSobTMfxihB2qLU6IeNdGU8zOWnRUAg4=s800-c-k-c0x00ffffff-no-rj",
+    "episodeCount": 192,
+    "firstPubYear": 2014,
+    "lastPubYear": 2026,
+    "platformLinks": [
+      {
+        "serviceId": "youtube",
+        "url": "https://www.youtube.com/@luetin09",
+        "label": "YouTube"
+      }
+    ],
+    "latest": [
+      {
+        "id": "9a442a13-215c-4872-b968-52d1b15f372c",
+        "title": "40K LEGENDS - TRAZYN THE INFINITE | Warhammer 40,000 Lore/History",
+        "pubDateMs": 1781377338000
+      },
+      {
+        "id": "d090e0b9-7be8-4844-b266-739345ff99b5",
+        "title": "THE EMPEROR WAS DEFEATED - BEFORE - THE SIEGE OF TERRA | Warhammer 40,000 Lore/History",
+        "pubDateMs": 1779487594000
+      },
+      {
+        "id": "9675726a-5211-4024-9782-e5ea8b36fde8",
+        "title": "40K - THE SILENT DEATH OF STC - Anything goes now? | Warhammer 40,000 Lore/Discussion",
+        "pubDateMs": 1778441997000
+      }
+    ]
+  },
+  {
+    "id": "823ea84f-2abe-4a62-93df-b8f10d2dbbb1",
+    "slug": "the-40k-lorecast",
+    "title": "The 40k Lorecast",
+    "artUrl": "https://media.redcircle.com/images/2025/5/13/20/27c7ddbc-c7eb-4d15-b305-ce9e8834f144_-535dda26d00f_da4230511c4076e9ed53cb4872e8cabe.jpg",
+    "episodeCount": 155,
+    "firstPubYear": 2023,
+    "lastPubYear": 2026,
+    "platformLinks": [
+      {
+        "serviceId": "apple_podcasts",
+        "url": "https://podcasts.apple.com/podcast/id1709093251",
+        "label": "Apple Podcasts"
+      },
+      {
+        "serviceId": "spotify",
+        "url": "https://open.spotify.com/show/2Z8HKiDH3nlvFzO2H18GHI",
+        "label": "Spotify"
+      },
+      {
+        "serviceId": "youtube",
+        "url": "https://www.youtube.com/@40KLorecast",
+        "label": "YouTube"
+      },
+      {
+        "serviceId": "official_website",
+        "url": "https://the40klorecast.com/",
+        "label": "Website"
+      },
+      {
+        "serviceId": "rss",
+        "url": "https://feeds.redcircle.com/cc233adb-de43-49be-bb76-9720292ddc98",
+        "label": "RSS"
+      }
+    ],
+    "latest": [
+      {
+        "id": "65243250-5ee6-4f90-b569-edfb9ed2cb44",
+        "title": "Episode 146 - Word Bearers pt 3 - Heresy is a go, but Erebus and Lorgar have some different ideas of next steps",
+        "pubDateMs": 1783378834000
+      },
+      {
+        "id": "a4671979-51d8-4299-91b7-488d0d687197",
+        "title": "Episode 145 - Word Bearers pt 2 - The emperor's censure and the legions subsequent jaunt into the eye of terror",
+        "pubDateMs": 1782774018000
+      },
+      {
+        "id": "f8cb2021-36ee-4325-8613-f1683a2279b9",
+        "title": "Episode 144 - The Word Bearers pt 1 - The creation of the Imperial Heralds and the complete opposite thing happening on Colchis",
+        "pubDateMs": 1782169240000
+      }
+    ]
+  }
+]

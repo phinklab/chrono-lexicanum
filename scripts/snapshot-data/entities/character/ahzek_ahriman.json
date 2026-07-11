@@ -1,0 +1,215 @@
+{
+  "type": "character",
+  "id": "ahzek_ahriman",
+  "name": "Ahzek Ahriman",
+  "blurb": {
+    "text": "Chief Librarian of the Thousand Sons during the Great Crusade, Ahriman cast the catastrophic Rubric of Ahriman to save his Legion from the Flesh Change — instead sealing most of them within their armour as dust. Exiled by Magnus, he has since pursued forbidden sorcery across the galaxy in search of the Black Library.",
+    "confidence": 0.98,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ahzek_Ahriman"
+  },
+  "facts": [
+    {
+      "label": "Allegiance",
+      "value": {
+        "type": "faction",
+        "id": "thousand_sons",
+        "name": "Thousand Sons"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "a-thousand-sons",
+          "title": "A Thousand Sons",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/a-thousand-sons",
+          "showTitle": null
+        },
+        {
+          "slug": "atlas-infernal",
+          "title": "Atlas Infernal",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/atlas-infernal",
+          "showTitle": null
+        },
+        {
+          "slug": "ahriman-exile",
+          "title": "Ahriman: Exile",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/ahriman-exile",
+          "showTitle": null
+        },
+        {
+          "slug": "thief-of-revelations",
+          "title": "Thief of Revelations",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/thief-of-revelations",
+          "showTitle": null
+        },
+        {
+          "slug": "ahriman-sorcerer",
+          "title": "Ahriman: Sorcerer",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/ahriman-sorcerer",
+          "showTitle": null
+        },
+        {
+          "slug": "ahriman-exodus",
+          "title": "Ahriman: Exodus",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ahriman-exodus",
+          "showTitle": null
+        },
+        {
+          "slug": "ahriman-unchanged",
+          "title": "Ahriman: Unchanged",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/ahriman-unchanged",
+          "showTitle": null
+        },
+        {
+          "slug": "the-razing-of-prospero",
+          "title": "The Razing of Prospero",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-razing-of-prospero",
+          "showTitle": null
+        },
+        {
+          "slug": "ahriman-the-omnibus",
+          "title": "Ahriman: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/ahriman-the-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-crimson-king",
+          "title": "The Crimson King",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-crimson-king",
+          "showTitle": null
+        },
+        {
+          "slug": "morningstar",
+          "title": "Morningstar",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/morningstar",
+          "showTitle": null
+        },
+        {
+          "slug": "the-solar-war",
+          "title": "The Solar War",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-solar-war",
+          "showTitle": null
+        },
+        {
+          "slug": "ahriman-eternal",
+          "title": "Ahriman: Eternal",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/ahriman-eternal",
+          "showTitle": null
+        },
+        {
+          "slug": "ahriman-undying",
+          "title": "Ahriman: Undying",
+          "kind": "book",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/ahriman-undying",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "the-40k-lorecast-buzzsprout-14780111",
+          "title": "Episode 28 - The Legend of Ahriman Pt1",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-72fc5583-d197-45f6-a7ef-137d55068582",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-14834209",
+          "title": "Episode 29 - Ahriman Pt 2",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-9a17a6fc-707e-46ff-9d78-a787b9cf0c33",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-28eb0d2e-aa8d-11ef-b226-5f61143a557b",
+          "title": "Episode 63 - \"Where are they now\" Primarch edition - the Traitors.",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-030896d9-45a1-44fb-bef8-7e8f207be189",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-14948643",
+          "title": "THE THOUSAND SONS: ALL IS DUST | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-1352d913-fc06-4b10-940b-da458118f5a7",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

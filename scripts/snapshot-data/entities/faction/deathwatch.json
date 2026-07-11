@@ -1,0 +1,239 @@
+{
+  "type": "faction",
+  "id": "deathwatch",
+  "name": "Deathwatch",
+  "blurb": {
+    "text": "An elite Space Marine force drawn from many Chapters to serve the Ordo Xenos, specialising in combating alien threats.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Deathwatch"
+  },
+  "facts": [
+    {
+      "label": "Alignment",
+      "value": "Imperium"
+    },
+    {
+      "label": "Parent faction",
+      "value": {
+        "type": "faction",
+        "id": "adeptus_astartes",
+        "name": "Adeptus Astartes"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "warrior-brood",
+          "title": "Warrior Brood",
+          "kind": "book",
+          "releaseYear": 2005,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/warrior-brood",
+          "showTitle": null
+        },
+        {
+          "slug": "warrior-coven",
+          "title": "Warrior Coven",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/warrior-coven",
+          "showTitle": null
+        },
+        {
+          "slug": "deathwatch",
+          "title": "Deathwatch",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/deathwatch",
+          "showTitle": null
+        },
+        {
+          "slug": "deathwatch-legends",
+          "title": "Deathwatch (Legends)",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/deathwatch-legends",
+          "showTitle": null
+        },
+        {
+          "slug": "storm-of-damocles",
+          "title": "Storm of Damocles",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/storm-of-damocles",
+          "showTitle": null
+        },
+        {
+          "slug": "the-last-son-of-dorn",
+          "title": "The Last Son of Dorn",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-last-son-of-dorn",
+          "showTitle": null
+        },
+        {
+          "slug": "watchers-in-death",
+          "title": "Watchers in Death",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/watchers-in-death",
+          "showTitle": null
+        },
+        {
+          "slug": "shadowbreaker",
+          "title": "Shadowbreaker",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/shadowbreaker",
+          "showTitle": null
+        },
+        {
+          "slug": "legends-of-the-wolf-the-omnibus",
+          "title": "Legends of the Wolf: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/legends-of-the-wolf-the-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-dark-coil-ascension",
+          "title": "The Dark Coil: Ascension",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-dark-coil-ascension",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-33-ordo-xenos-and-the-deathwatch-4669b0c9818919aa21cedf48789d03c8",
+          "title": "33 - Ordo Xenos and the Deathwatch",
+          "kind": "podcast_episode",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-68c3de9e-aa4e-497c-a3e5-87d5e7ec0e38",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-listener-lore-4-d1810303a6f73a92bec8d3ff085d885d",
+          "title": "Listener Lore 4",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-a0b31c74-727b-4178-b320-bb53dc07f4a8",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-13375457",
+          "title": "DEATHWATCH: THE SHIELD THAT SLAYS | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-76f31e1b-9e66-45f6-b861-8e13c4bec224",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-14601400",
+          "title": "Episode 24 - The Ordo Xenos",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-74f35abe-36c0-4652-8846-57e45c172788",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-14592876",
+          "title": "WARHAMMERISH MOVIES BOOKS & GAMES (Who ripped who off?) | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-b2a3c42d-e3c8-4074-8f8a-8c2ad445a9b7",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-637a1f82-7a1c-4c24-ab8d-8cd89e6726c2",
+          "title": "Episode 119 - Demetrian Titus - lead up to, events of, and post of Space Marine 2.",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-ca42e989-331d-4179-a3dd-f2b73fdedb58",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-15c01fe4-d28f-11ef-ab83-eb0e902560d5",
+          "title": "Episode 70 - Death Watch pt 1 - Who are the Death Watch and how does one become one",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-358acc0d-2d70-47b7-9f01-f3ae49a6b068",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-69f174fc-d71a-11ef-b810-339e9b856ba0",
+          "title": "Episode 71 - Death Watch pt 2 - Their weapons, tactics, facilites, stories and more.",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-0813a596-d0fd-43b1-b21a-952f43a57fd9",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-1087921d-2a28-42d2-a2e5-c5a43ce6cd0c",
+          "title": "Episode 94 - War of the Beast pt3",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-c3db0ee2-7bc7-4294-a6be-fc52aefc1bb4",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18047691",
+          "title": "War Of The Beast: Waaagh Of The Worlds!",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-5e3e74f6-b8fb-468c-9f51-e3f8e31360ff",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

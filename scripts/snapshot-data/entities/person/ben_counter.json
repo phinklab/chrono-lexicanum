@@ -1,0 +1,281 @@
+{
+  "type": "person",
+  "id": "ben_counter",
+  "name": "Ben Counter",
+  "oneLine": "British author. Black Library long-runner; Soul Drinkers series, Grey Knights trilogy, and several Horus Heresy entries (Battle for the Abyss, Galaxy in Flames).",
+  "facts": [
+    {
+      "label": "Born",
+      "value": "1976"
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "soul-drinker",
+          "title": "Soul Drinker",
+          "kind": "book",
+          "releaseYear": 2002,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/soul-drinker",
+          "showTitle": null
+        },
+        {
+          "slug": "daemon-world",
+          "title": "Daemon World",
+          "kind": "book",
+          "releaseYear": 2003,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/daemon-world",
+          "showTitle": null
+        },
+        {
+          "slug": "the-bleeding-chalice",
+          "title": "The Bleeding Chalice",
+          "kind": "book",
+          "releaseYear": 2003,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-bleeding-chalice",
+          "showTitle": null
+        },
+        {
+          "slug": "grey-knights",
+          "title": "Grey Knights",
+          "kind": "book",
+          "releaseYear": 2004,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/grey-knights",
+          "showTitle": null
+        },
+        {
+          "slug": "crimson-tears",
+          "title": "Crimson Tears",
+          "kind": "book",
+          "releaseYear": 2005,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/crimson-tears",
+          "showTitle": null
+        },
+        {
+          "slug": "dark-adeptus",
+          "title": "Dark Adeptus",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/dark-adeptus",
+          "showTitle": null
+        },
+        {
+          "slug": "galaxy-in-flames",
+          "title": "Galaxy in Flames",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/galaxy-in-flames",
+          "showTitle": null
+        },
+        {
+          "slug": "the-soul-drinkers-omnibus",
+          "title": "The Soul Drinkers Omnibus",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-soul-drinkers-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "chapter-war",
+          "title": "Chapter War",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/chapter-war",
+          "showTitle": null
+        },
+        {
+          "slug": "battle-for-the-abyss",
+          "title": "Battle for the Abyss",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/battle-for-the-abyss",
+          "showTitle": null
+        },
+        {
+          "slug": "hammer-of-daemons",
+          "title": "Hammer of Daemons",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/hammer-of-daemons",
+          "showTitle": null
+        },
+        {
+          "slug": "hellforged",
+          "title": "Hellforged",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/hellforged",
+          "showTitle": null
+        },
+        {
+          "slug": "the-grey-knights-omnibus",
+          "title": "The Grey Knights Omnibus",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-grey-knights-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "daenyathos",
+          "title": "Daenyathos",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/daenyathos",
+          "showTitle": null
+        },
+        {
+          "slug": "endeavour-of-will",
+          "title": "Endeavour of Will",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/endeavour-of-will",
+          "showTitle": null
+        },
+        {
+          "slug": "phalanx",
+          "title": "Phalanx",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/phalanx",
+          "showTitle": null
+        },
+        {
+          "slug": "malodrax",
+          "title": "Malodrax",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/malodrax",
+          "showTitle": null
+        },
+        {
+          "slug": "seventh-retribution",
+          "title": "Seventh Retribution",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/seventh-retribution",
+          "showTitle": null
+        },
+        {
+          "slug": "soul-drinkers-annihilation-second-omnibus",
+          "title": "Soul Drinkers: Annihilation Second Omnibus",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/soul-drinkers-annihilation-second-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "arjac-rockfist-anvil-of-fenris",
+          "title": "Arjac Rockfist: Anvil of Fenris",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/arjac-rockfist-anvil-of-fenris",
+          "showTitle": null
+        },
+        {
+          "slug": "black-leviathan",
+          "title": "Black Leviathan",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/black-leviathan",
+          "showTitle": null
+        },
+        {
+          "slug": "sanctus-reach-blood-on-the-mountain",
+          "title": "Sanctus Reach: Blood on the Mountain",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/sanctus-reach-blood-on-the-mountain",
+          "showTitle": null
+        },
+        {
+          "slug": "the-world-engine",
+          "title": "The World Engine",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-world-engine",
+          "showTitle": null
+        },
+        {
+          "slug": "cassius",
+          "title": "Cassius",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/cassius",
+          "showTitle": null
+        },
+        {
+          "slug": "twelve-wolves",
+          "title": "Twelve Wolves",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/twelve-wolves",
+          "showTitle": null
+        },
+        {
+          "slug": "traitor-by-deed",
+          "title": "Traitor by Deed",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/traitor-by-deed",
+          "showTitle": null
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

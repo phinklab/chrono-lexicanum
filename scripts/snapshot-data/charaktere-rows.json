@@ -1,0 +1,4058 @@
+[
+  {
+    "id": "abaddon_the_despoiler",
+    "name": "Abaddon the Despoiler",
+    "primaryFactionId": "black_legion",
+    "primaryFactionName": "Black Legion",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 31
+  },
+  {
+    "id": "aeonid_thiel",
+    "name": "Aeonid Thiel",
+    "primaryFactionId": "ultramarines",
+    "primaryFactionName": "Ultramarines",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 7
+  },
+  {
+    "id": "aestred_thurga",
+    "name": "Aestred Thurga",
+    "primaryFactionId": "order_pronatus",
+    "primaryFactionName": "Order Pronatus",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "agun_soric",
+    "name": "Agun Soric",
+    "primaryFactionId": "verghastite_ghosts",
+    "primaryFactionName": "Verghastite Ghosts",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "agusto_zidarov",
+    "name": "Agusto Zidarov",
+    "primaryFactionId": "adeptus_arbites",
+    "primaryFactionName": "Adeptus Arbites",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "ahzek_ahriman",
+    "name": "Ahzek Ahriman",
+    "primaryFactionId": "thousand_sons",
+    "primaryFactionName": "Thousand Sons",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 18
+  },
+  {
+    "id": "alaric",
+    "name": "Alaric",
+    "primaryFactionId": "grey_knights",
+    "primaryFactionName": "Grey Knights",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "aleksei_lev_tieron",
+    "name": "Aleksei Lev Tieron",
+    "primaryFactionId": "senatorum_imperialis",
+    "primaryFactionName": "Senatorum Imperialis",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "alexis_polux",
+    "name": "Alexis Polux",
+    "primaryFactionId": "imperial_fists",
+    "primaryFactionName": "Imperial Fists",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "alicia_kar_manticos",
+    "name": "Alicia Kar Manticos",
+    "primaryFactionId": "house_chimaeros",
+    "primaryFactionName": "House Chimaeros",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "alivia_sureka",
+    "name": "Alivia Sureka",
+    "primaryFactionId": "imperium",
+    "primaryFactionName": "Imperium of Man",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "alizebeth_bequin",
+    "name": "Alizebeth Bequin",
+    "primaryFactionId": "inquisition",
+    "primaryFactionName": "Inquisition",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 5
+  },
+  {
+    "id": "alpharius",
+    "name": "Alpharius",
+    "primaryFactionId": "alpha_legion",
+    "primaryFactionName": "Alpha Legion",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 18
+  },
+  {
+    "id": "amadeus_kaias_incarius",
+    "name": "Amadeus Kaias Incarius",
+    "primaryFactionId": "mentors",
+    "primaryFactionName": "Mentors",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "amar_astarte",
+    "name": "Amar Astarte",
+    "primaryFactionId": "imperium",
+    "primaryFactionName": "Imperium of Man",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "amberley_vail",
+    "name": "Amberley Vail",
+    "primaryFactionId": "inquisition",
+    "primaryFactionName": "Inquisition",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 13
+  },
+  {
+    "id": "ambrosius_roth",
+    "name": "Ambrosius Roth",
+    "primaryFactionId": "armageddon_steel_legion",
+    "primaryFactionName": "Armageddon Steel Legion",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "amendera_kendel",
+    "name": "Amendera Kendel",
+    "primaryFactionId": "talons_of_the_emperor",
+    "primaryFactionName": "Talons of the Emperor",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "amit",
+    "name": "Amit",
+    "primaryFactionId": "flesh_tearers",
+    "primaryFactionName": "Flesh Tearers",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 8
+  },
+  {
+    "id": "amon",
+    "name": "Amon",
+    "primaryFactionId": "thousand_sons",
+    "primaryFactionName": "Thousand Sons",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 1
+  },
+  {
+    "id": "ana_curth",
+    "name": "Ana Curth",
+    "primaryFactionId": "tanith_first",
+    "primaryFactionName": "Tanith First-and-Only",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 7
+  },
+  {
+    "id": "anakwanar_sek",
+    "name": "Anakwanar Sek",
+    "primaryFactionId": "sons_of_sek",
+    "primaryFactionName": "Sons of Sek",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 5
+  },
+  {
+    "id": "angron",
+    "name": "Angron",
+    "primaryFactionId": "world_eaters",
+    "primaryFactionName": "World Eaters",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 37
+  },
+  {
+    "id": "annael",
+    "name": "Annael",
+    "primaryFactionId": "dark_angels",
+    "primaryFactionName": "Dark Angels",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "anton",
+    "name": "Anton",
+    "primaryFactionId": "astra_militarum",
+    "primaryFactionName": "Astra Militarum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "anuradha",
+    "name": "Anuradha",
+    "primaryFactionId": "emperors_spears",
+    "primaryFactionName": "Emperor's Spears",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "aquillon",
+    "name": "Aquillon",
+    "primaryFactionId": "custodes",
+    "primaryFactionName": "Adeptus Custodes",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "aradryan",
+    "name": "Aradryan",
+    "primaryFactionId": "eldar",
+    "primaryFactionName": "Aeldari",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 4
+  },
+  {
+    "id": "arcadese",
+    "name": "Arcadese",
+    "primaryFactionId": "ultramarines",
+    "primaryFactionName": "Ultramarines",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "arcadian_leontus",
+    "name": "Arcadian Leontus",
+    "primaryFactionId": "astra_militarum",
+    "primaryFactionName": "Astra Militarum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "archamus",
+    "name": "Archamus",
+    "primaryFactionId": "imperial_fists",
+    "primaryFactionName": "Imperial Fists",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "ardaric_vaanes",
+    "name": "Ardaric Vaanes",
+    "primaryFactionId": "lords_of_unholy_host",
+    "primaryFactionName": "Lords of the Unholy Host",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 9
+  },
+  {
+    "id": "argel_tal",
+    "name": "Argel Tal",
+    "primaryFactionId": "word_bearers",
+    "primaryFactionName": "Word Bearers",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 2
+  },
+  {
+    "id": "argonis",
+    "name": "Argonis",
+    "primaryFactionId": "sons_of_horus",
+    "primaryFactionName": "Sons of Horus",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 1
+  },
+  {
+    "id": "ario_barzano",
+    "name": "Ario Barzano",
+    "primaryFactionId": "inquisition",
+    "primaryFactionName": "Inquisition",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "arkhan_land",
+    "name": "Arkhan Land",
+    "primaryFactionId": "mechanicus",
+    "primaryFactionName": "Adeptus Mechanicus",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "arkio",
+    "name": "Arkio",
+    "primaryFactionId": "blood_angels",
+    "primaryFactionName": "Blood Angels",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "artellus_numeon",
+    "name": "Artellus Numeon",
+    "primaryFactionId": "salamanders",
+    "primaryFactionName": "Salamanders",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "arvin_larn",
+    "name": "Arvin Larn",
+    "primaryFactionId": "astra_militarum",
+    "primaryFactionName": "Astra Militarum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "asdrubael_vect",
+    "name": "Asdrubael Vect",
+    "primaryFactionId": "eldar",
+    "primaryFactionName": "Aeldari",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 8
+  },
+  {
+    "id": "asenath_hyades",
+    "name": "Asenath Hyades",
+    "primaryFactionId": "order_of_the_last_candle",
+    "primaryFactionName": "Order of the Last Candle",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "asmodai",
+    "name": "Asmodai",
+    "primaryFactionId": "dark_angels",
+    "primaryFactionName": "Dark Angels",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "astelan",
+    "name": "Astelan",
+    "primaryFactionId": "fallen_angels",
+    "primaryFactionName": "Fallen Angels",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 6
+  },
+  {
+    "id": "astor_sabbathiel",
+    "name": "Astor Sabbathiel",
+    "primaryFactionId": "inquisition",
+    "primaryFactionName": "Inquisition",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "astorath",
+    "name": "Astorath",
+    "primaryFactionId": "blood_angels",
+    "primaryFactionName": "Blood Angels",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "astraeos",
+    "name": "Astraeos",
+    "primaryFactionId": "thousand_sons",
+    "primaryFactionName": "Thousand Sons",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 3
+  },
+  {
+    "id": "asurmen",
+    "name": "Asurmen",
+    "primaryFactionId": "eldar",
+    "primaryFactionName": "Aeldari",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 2
+  },
+  {
+    "id": "atharva",
+    "name": "Atharva",
+    "primaryFactionId": "thousand_sons",
+    "primaryFactionName": "Thousand Sons",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 1
+  },
+  {
+    "id": "audus",
+    "name": "Audus",
+    "primaryFactionId": "rogue_traders",
+    "primaryFactionName": "Rogue Traders",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "aunrai",
+    "name": "Aun'rai",
+    "primaryFactionId": "tau",
+    "primaryFactionName": "T'au Empire",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 3
+  },
+  {
+    "id": "azkaellon",
+    "name": "Azkaellon",
+    "primaryFactionId": "sanguinary_guard",
+    "primaryFactionName": "Sanguinary Guard",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 7
+  },
+  {
+    "id": "azrael",
+    "name": "Azrael",
+    "primaryFactionId": "dark_angels",
+    "primaryFactionName": "Dark Angels",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 5
+  },
+  {
+    "id": "baggit",
+    "name": "Baggit",
+    "primaryFactionId": "ratlings",
+    "primaryFactionName": "Ratlings",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "bail_sharr",
+    "name": "Bail Sharr",
+    "primaryFactionId": "carcharodons",
+    "primaryFactionName": "Carcharodons",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "ban_daur",
+    "name": "Ban Daur",
+    "primaryFactionId": "verghastite_ghosts",
+    "primaryFactionName": "Verghastite Ghosts",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 9
+  },
+  {
+    "id": "barabas_dantioch",
+    "name": "Barabas Dantioch",
+    "primaryFactionId": "iron_warriors",
+    "primaryFactionName": "Iron Warriors",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 3
+  },
+  {
+    "id": "barban_falk",
+    "name": "Barban Falk",
+    "primaryFactionId": "iron_warriors",
+    "primaryFactionName": "Iron Warriors",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 3
+  },
+  {
+    "id": "barthusa_narek",
+    "name": "Barthusa Narek",
+    "primaryFactionId": "word_bearers",
+    "primaryFactionName": "Word Bearers",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 1
+  },
+  {
+    "id": "bastun_hasp",
+    "name": "Bastun Hasp",
+    "primaryFactionId": "commissariat",
+    "primaryFactionName": "Commissariat",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "belial",
+    "name": "Belial",
+    "primaryFactionId": "dark_angels",
+    "primaryFactionName": "Dark Angels",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "belisarius_cawl",
+    "name": "Belisarius Cawl",
+    "primaryFactionId": "mechanicus",
+    "primaryFactionName": "Adeptus Mechanicus",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 15
+  },
+  {
+    "id": "bellathonis",
+    "name": "Bellathonis",
+    "primaryFactionId": "eldar",
+    "primaryFactionName": "Aeldari",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 3
+  },
+  {
+    "id": "beltayn",
+    "name": "Beltayn",
+    "primaryFactionId": "tanith_first",
+    "primaryFactionName": "Tanith First-and-Only",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "berek_thunderfist",
+    "name": "Berek Thunderfist",
+    "primaryFactionId": "space_wolves",
+    "primaryFactionName": "Space Wolves",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "berossus",
+    "name": "Berossus",
+    "primaryFactionId": "iron_warriors",
+    "primaryFactionName": "Iron Warriors",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 3
+  },
+  {
+    "id": "beta_bequin",
+    "name": "Beta Bequin",
+    "primaryFactionId": "inquisition",
+    "primaryFactionName": "Inquisition",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "bjorn",
+    "name": "Bjorn",
+    "primaryFactionId": "space_wolves",
+    "primaryFactionName": "Space Wolves",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 7
+  },
+  {
+    "id": "bonin",
+    "name": "Bonin",
+    "primaryFactionId": "tanith_first",
+    "primaryFactionName": "Tanith First-and-Only",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "bragg",
+    "name": "Bragg",
+    "primaryFactionId": "tanith_first",
+    "primaryFactionName": "Tanith First-and-Only",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "branne_nev",
+    "name": "Branne Nev",
+    "primaryFactionId": "raven_guard",
+    "primaryFactionName": "Raven Guard",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 5
+  },
+  {
+    "id": "bree_jagdea",
+    "name": "Bree Jagdea",
+    "primaryFactionId": "aeronautica_imperialis",
+    "primaryFactionName": "Aeronautica Imperialis",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "brielle",
+    "name": "Brielle",
+    "primaryFactionId": "house_escher",
+    "primaryFactionName": "House Escher",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "brielle_gerrit",
+    "name": "Brielle Gerrit",
+    "primaryFactionId": "rogue_traders",
+    "primaryFactionName": "Rogue Traders",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "brin_milo",
+    "name": "Brin Milo",
+    "primaryFactionId": "tanith_first",
+    "primaryFactionName": "Tanith First-and-Only",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "bronislaw_czevak",
+    "name": "Bronislaw Czevak",
+    "primaryFactionId": "ordo_xenos",
+    "primaryFactionName": "Ordo Xenos",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "brostin",
+    "name": "Brostin",
+    "primaryFactionId": "tanith_first",
+    "primaryFactionName": "Tanith First-and-Only",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "brynngar",
+    "name": "Brynngar",
+    "primaryFactionId": "space_wolves",
+    "primaryFactionName": "Space Wolves",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "bulveye",
+    "name": "Bulveye",
+    "primaryFactionId": "space_wolves",
+    "primaryFactionName": "Space Wolves",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "burias",
+    "name": "Burias",
+    "primaryFactionId": "word_bearers",
+    "primaryFactionName": "Word Bearers",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 4
+  },
+  {
+    "id": "caffran",
+    "name": "Caffran",
+    "primaryFactionId": "tanith_first",
+    "primaryFactionName": "Tanith First-and-Only",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 11
+  },
+  {
+    "id": "caleb_cursebound",
+    "name": "Caleb Cursebound",
+    "primaryFactionId": "necromunda",
+    "primaryFactionName": "Necromunda",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "captain_aeschelus",
+    "name": "Captain Aeschelus",
+    "primaryFactionId": "ultramarines",
+    "primaryFactionName": "Ultramarines",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "captain_idaeus",
+    "name": "Captain Idaeus",
+    "primaryFactionId": "ultramarines",
+    "primaryFactionName": "Ultramarines",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "captain_leoten_sempter",
+    "name": "Captain Leoten Sempter",
+    "primaryFactionId": "imperial_navy",
+    "primaryFactionName": "Imperial Navy",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "captain_raphael",
+    "name": "Captain Raphael",
+    "primaryFactionId": "blood_angels",
+    "primaryFactionName": "Blood Angels",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "captain_sebastev",
+    "name": "Captain Sebastev",
+    "primaryFactionId": "vostroyan_firstborn",
+    "primaryFactionName": "Vostroyan Firstborn",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "cardinal_crimson",
+    "name": "Cardinal Crimson",
+    "primaryFactionId": "redemptionists",
+    "primaryFactionName": "Redemptionists",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "carl_thonius",
+    "name": "Carl Thonius",
+    "primaryFactionId": "inquisition",
+    "primaryFactionName": "Inquisition",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "carmenta",
+    "name": "Carmenta",
+    "primaryFactionId": "thousand_sons",
+    "primaryFactionName": "Thousand Sons",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 2
+  },
+  {
+    "id": "cassius",
+    "name": "Cassius",
+    "primaryFactionId": "ultramarines",
+    "primaryFactionName": "Ultramarines",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "castrmen_orth",
+    "name": "Castrmen Orth",
+    "primaryFactionId": "iron_hands",
+    "primaryFactionName": "Iron Hands",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "cato_sicarius",
+    "name": "Cato Sicarius",
+    "primaryFactionId": "ultramarines",
+    "primaryFactionName": "Ultramarines",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 9
+  },
+  {
+    "id": "caxton",
+    "name": "Caxton",
+    "primaryFactionId": "mechanicus",
+    "primaryFactionName": "Adeptus Mechanicus",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "cestus",
+    "name": "Cestus",
+    "primaryFactionId": "ultramarines",
+    "primaryFactionName": "Ultramarines",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "chaplain_astador",
+    "name": "Chaplain Astador",
+    "primaryFactionId": "mortifactors",
+    "primaryFactionName": "Mortifactors",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "chaplain_tangata_manu",
+    "name": "Chaplain Tangata Manu",
+    "primaryFactionId": "carcharodons",
+    "primaryFactionName": "Carcharodons",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "cherubael",
+    "name": "Cherubael",
+    "primaryFactionId": "chaos",
+    "primaryFactionName": "Chaos",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 6
+  },
+  {
+    "id": "ciaphas_cain",
+    "name": "Ciaphas Cain",
+    "primaryFactionId": "commissariat",
+    "primaryFactionName": "Commissariat",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 17
+  },
+  {
+    "id": "clodde",
+    "name": "Clodde",
+    "primaryFactionId": "ogryns",
+    "primaryFactionName": "Ogryns",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "colm_corbec",
+    "name": "Colm Corbec",
+    "primaryFactionId": "tanith_first",
+    "primaryFactionName": "Tanith First-and-Only",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 11
+  },
+  {
+    "id": "colonel_iron_hand_straken",
+    "name": "Colonel Iron Hand Straken",
+    "primaryFactionId": "catachan_jungle_fighters",
+    "primaryFactionName": "Catachan Jungle Fighters",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "colonel_schaeffer",
+    "name": "Colonel Schaeffer",
+    "primaryFactionId": "last_chancers",
+    "primaryFactionName": "Last Chancers",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 5
+  },
+  {
+    "id": "commander_dante",
+    "name": "Commander Dante",
+    "primaryFactionId": "blood_angels",
+    "primaryFactionName": "Blood Angels",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 7
+  },
+  {
+    "id": "commander_farsight",
+    "name": "Commander Farsight",
+    "primaryFactionId": "tau",
+    "primaryFactionName": "T'au Empire",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 13
+  },
+  {
+    "id": "commander_shadowsun",
+    "name": "Commander Shadowsun",
+    "primaryFactionId": "tau",
+    "primaryFactionName": "T'au Empire",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 11
+  },
+  {
+    "id": "commissar_flint",
+    "name": "Commissar Flint",
+    "primaryFactionId": "commissariat",
+    "primaryFactionName": "Commissariat",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "constantin_valdor",
+    "name": "Constantin Valdor",
+    "primaryFactionId": "custodes",
+    "primaryFactionName": "Adeptus Custodes",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 13
+  },
+  {
+    "id": "corax",
+    "name": "Corax",
+    "primaryFactionId": "raven_guard",
+    "primaryFactionName": "Raven Guard",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 17
+  },
+  {
+    "id": "corswain",
+    "name": "Corswain",
+    "primaryFactionId": "dark_angels",
+    "primaryFactionName": "Dark Angels",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "crius",
+    "name": "Crius",
+    "primaryFactionId": "iron_hands",
+    "primaryFactionName": "Iron Hands",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "crysos_morturg",
+    "name": "Crysos Morturg",
+    "primaryFactionId": "blackshields",
+    "primaryFactionName": "Blackshields",
+    "primaryFactionAlignment": "neutral",
+    "workCount": 1
+  },
+  {
+    "id": "ctesias",
+    "name": "Ctesias",
+    "primaryFactionId": "thousand_sons",
+    "primaryFactionName": "Thousand Sons",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 4
+  },
+  {
+    "id": "cypher",
+    "name": "Cypher",
+    "primaryFactionId": "fallen_angels",
+    "primaryFactionName": "Fallen Angels",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 7
+  },
+  {
+    "id": "cyrion",
+    "name": "Cyrion",
+    "primaryFactionId": "night_lords",
+    "primaryFactionName": "Night Lords",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 6
+  },
+  {
+    "id": "daenyathos",
+    "name": "Daenyathos",
+    "primaryFactionId": "soul_drinkers",
+    "primaryFactionName": "Soul Drinkers",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 3
+  },
+  {
+    "id": "dakir",
+    "name": "Dak'ir",
+    "primaryFactionId": "salamanders",
+    "primaryFactionName": "Salamanders",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 6
+  },
+  {
+    "id": "dalchian_rassaq",
+    "name": "Dalchian Rassaq",
+    "primaryFactionId": "night_lords",
+    "primaryFactionName": "Night Lords",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 1
+  },
+  {
+    "id": "dalia_cythera",
+    "name": "Dalia Cythera",
+    "primaryFactionId": "mechanicus",
+    "primaryFactionName": "Adeptus Mechanicus",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "dalin_criid",
+    "name": "Dalin Criid",
+    "primaryFactionId": "belladon",
+    "primaryFactionName": "Belladon",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "danial_tan_draconis",
+    "name": "Danial Tan Draconis",
+    "primaryFactionId": "house_draconis",
+    "primaryFactionName": "House Draconis",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "darnath_lysander",
+    "name": "Darnath Lysander",
+    "primaryFactionId": "imperial_fists",
+    "primaryFactionName": "Imperial Fists",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 5
+  },
+  {
+    "id": "daron_nisato",
+    "name": "Daron Nisato",
+    "primaryFactionId": "astra_militarum",
+    "primaryFactionName": "Astra Militarum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "darya_nevic",
+    "name": "Darya Nevic",
+    "primaryFactionId": "astra_militarum",
+    "primaryFactionName": "Astra Militarum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "djoseras",
+    "name": "Djoseras",
+    "primaryFactionId": "necrons",
+    "primaryFactionName": "Necrons",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 3
+  },
+  {
+    "id": "drakan_vangorich",
+    "name": "Drakan Vangorich",
+    "primaryFactionId": "officio_assassinorum",
+    "primaryFactionName": "Officio Assassinorum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 9
+  },
+  {
+    "id": "dreagher",
+    "name": "Dreagher",
+    "primaryFactionId": "world_eaters",
+    "primaryFactionName": "World Eaters",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 2
+  },
+  {
+    "id": "duke_sliscus",
+    "name": "Duke Sliscus",
+    "primaryFactionId": "eldar",
+    "primaryFactionName": "Aeldari",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 1
+  },
+  {
+    "id": "duke_venalitor",
+    "name": "Duke Venalitor",
+    "primaryFactionId": "khorne",
+    "primaryFactionName": "Khorne",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 2
+  },
+  {
+    "id": "eidolon",
+    "name": "Eidolon",
+    "primaryFactionId": "emperors_children",
+    "primaryFactionName": "Emperor's Children",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 8
+  },
+  {
+    "id": "eldrad_ulthran",
+    "name": "Eldrad Ulthran",
+    "primaryFactionId": "eldar",
+    "primaryFactionName": "Aeldari",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 6
+  },
+  {
+    "id": "elim_rawne",
+    "name": "Elim Rawne",
+    "primaryFactionId": "tanith_first",
+    "primaryFactionName": "Tanith First-and-Only",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 23
+  },
+  {
+    "id": "elysius",
+    "name": "Elysius",
+    "primaryFactionId": "salamanders",
+    "primaryFactionName": "Salamanders",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "endryd_haar",
+    "name": "Endryd Haar",
+    "primaryFactionId": "blackshields",
+    "primaryFactionName": "Blackshields",
+    "primaryFactionAlignment": "neutral",
+    "workCount": 4
+  },
+  {
+    "id": "enok_innokenti",
+    "name": "Enok Innokenti",
+    "primaryFactionId": "chaos",
+    "primaryFactionName": "Chaos",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 2
+  },
+  {
+    "id": "ephrael_stern",
+    "name": "Ephrael Stern",
+    "primaryFactionId": "sisters_of_battle",
+    "primaryFactionName": "Adepta Sororitas",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "erasmus_crowl",
+    "name": "Erasmus Crowl",
+    "primaryFactionId": "inquisition",
+    "primaryFactionName": "Inquisition",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "erebus",
+    "name": "Erebus",
+    "primaryFactionId": "word_bearers",
+    "primaryFactionName": "Word Bearers",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 13
+  },
+  {
+    "id": "eristede_kell",
+    "name": "Eristede Kell",
+    "primaryFactionId": "officio_assassinorum",
+    "primaryFactionName": "Officio Assassinorum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "erud_vahn",
+    "name": "Erud Vahn",
+    "primaryFactionId": "blackshields",
+    "primaryFactionName": "Blackshields",
+    "primaryFactionAlignment": "neutral",
+    "workCount": 1
+  },
+  {
+    "id": "esha_ani_mohana",
+    "name": "Esha Ani Mohana",
+    "primaryFactionId": "legio_solaria",
+    "primaryFactionName": "Legio Solaria",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "euphrati_keeler",
+    "name": "Euphrati Keeler",
+    "primaryFactionId": "lectitio_divinitatus",
+    "primaryFactionName": "Lectitio Divinitatus",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 5
+  },
+  {
+    "id": "fabius_bile",
+    "name": "Fabius Bile",
+    "primaryFactionId": "fabius_bile_coterie",
+    "primaryFactionName": "Fabius Bile's Coterie",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 17
+  },
+  {
+    "id": "falx",
+    "name": "Falx",
+    "primaryFactionId": "ordo_xenos",
+    "primaryFactionName": "Ordo Xenos",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "fel_zharost",
+    "name": "Fel Zharost",
+    "primaryFactionId": "night_lords",
+    "primaryFactionName": "Night Lords",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 2
+  },
+  {
+    "id": "felyx_chass",
+    "name": "Felyx Chass",
+    "primaryFactionId": "verghastite_ghosts",
+    "primaryFactionName": "Verghastite Ghosts",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "ferren_areios",
+    "name": "Ferren Areios",
+    "primaryFactionId": "salamanders",
+    "primaryFactionName": "Salamanders",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "ferrus_manus",
+    "name": "Ferrus Manus",
+    "primaryFactionId": "iron_hands",
+    "primaryFactionName": "Iron Hands",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 22
+  },
+  {
+    "id": "fleapit",
+    "name": "Fleapit",
+    "primaryFactionId": null,
+    "primaryFactionName": null,
+    "primaryFactionAlignment": null,
+    "workCount": 5
+  },
+  {
+    "id": "forrix",
+    "name": "Forrix",
+    "primaryFactionId": "iron_warriors",
+    "primaryFactionName": "Iron Warriors",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 5
+  },
+  {
+    "id": "fulgrim",
+    "name": "Fulgrim",
+    "primaryFactionId": "emperors_children",
+    "primaryFactionName": "Emperor's Children",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 35
+  },
+  {
+    "id": "gabriel_angelos",
+    "name": "Gabriel Angelos",
+    "primaryFactionId": "blood_ravens",
+    "primaryFactionName": "Blood Ravens",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "gabriel_seth",
+    "name": "Gabriel Seth",
+    "primaryFactionId": "flesh_tearers",
+    "primaryFactionName": "Flesh Tearers",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "gabriela_belisarius",
+    "name": "Gabriela Belisarius",
+    "primaryFactionId": "house_belisarius",
+    "primaryFactionName": "House Belisarius",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "galatea",
+    "name": "Galatea",
+    "primaryFactionId": "mechanicus",
+    "primaryFactionName": "Adeptus Mechanicus",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "galba",
+    "name": "Galba",
+    "primaryFactionId": "iron_hands",
+    "primaryFactionName": "Iron Hands",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "garran_crowe",
+    "name": "Garran Crowe",
+    "primaryFactionId": "grey_knights",
+    "primaryFactionName": "Grey Knights",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "garviel_loken",
+    "name": "Garviel Loken",
+    "primaryFactionId": "sons_of_horus",
+    "primaryFactionName": "Sons of Horus",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 10
+  },
+  {
+    "id": "gavriel",
+    "name": "Gavriel",
+    "primaryFactionId": "blood_angels",
+    "primaryFactionName": "Blood Angels",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "gerome_landerson",
+    "name": "Gerome Landerson",
+    "primaryFactionId": "gereon_resistance",
+    "primaryFactionName": "Gereon Resistance",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "ghargatuloth",
+    "name": "Ghargatuloth",
+    "primaryFactionId": "tzeentch",
+    "primaryFactionName": "Tzeentch",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 2
+  },
+  {
+    "id": "ghazghkull_thraka",
+    "name": "Ghazghkull Thraka",
+    "primaryFactionId": "orks",
+    "primaryFactionName": "Orks",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 21
+  },
+  {
+    "id": "gideon_ravenor",
+    "name": "Gideon Ravenor",
+    "primaryFactionId": "inquisition",
+    "primaryFactionName": "Inquisition",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 9
+  },
+  {
+    "id": "godwyn_fischig",
+    "name": "Godwyn Fischig",
+    "primaryFactionId": "inquisition",
+    "primaryFactionName": "Inquisition",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "gol_kolea",
+    "name": "Gol Kolea",
+    "primaryFactionId": "verghastite_ghosts",
+    "primaryFactionName": "Verghastite Ghosts",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "gregor_eisenhorn",
+    "name": "Gregor Eisenhorn",
+    "primaryFactionId": "inquisition",
+    "primaryFactionName": "Inquisition",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 10
+  },
+  {
+    "id": "grekh",
+    "name": "Grekh",
+    "primaryFactionId": "kroot",
+    "primaryFactionName": "Kroot",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 3
+  },
+  {
+    "id": "grimaldus",
+    "name": "Grimaldus",
+    "primaryFactionId": "black_templars",
+    "primaryFactionName": "Black Templars",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "grimm",
+    "name": "Grimm",
+    "primaryFactionId": "squats",
+    "primaryFactionName": "Squats",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "grotsnik",
+    "name": "Grotsnik",
+    "primaryFactionId": "orks",
+    "primaryFactionName": "Orks",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 2
+  },
+  {
+    "id": "grukk_face_rippa",
+    "name": "Grukk Face-Rippa",
+    "primaryFactionId": "orks",
+    "primaryFactionName": "Orks",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 3
+  },
+  {
+    "id": "gunnlaugur",
+    "name": "Gunnlaugur",
+    "primaryFactionId": "space_wolves",
+    "primaryFactionName": "Space Wolves",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "hadeya_etsul",
+    "name": "Hadeya Etsul",
+    "primaryFactionId": "cadian_shock_troops",
+    "primaryFactionName": "Cadian Shock Troops",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "haldron_44_stroika",
+    "name": "Haldron-44 Stroika",
+    "primaryFactionId": "mechanicus",
+    "primaryFactionName": "Adeptus Mechanicus",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "harek_ironhelm",
+    "name": "Harek Ironhelm",
+    "primaryFactionId": "space_wolves",
+    "primaryFactionName": "Space Wolves",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "harleen_amity",
+    "name": "Harleen Amity",
+    "primaryFactionId": "inquisition",
+    "primaryFactionName": "Inquisition",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "harlon_nayl",
+    "name": "Harlon Nayl",
+    "primaryFactionId": "inquisition",
+    "primaryFactionName": "Inquisition",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 5
+  },
+  {
+    "id": "hasik_khan",
+    "name": "Hasik Khan",
+    "primaryFactionId": "white_scars",
+    "primaryFactionName": "White Scars",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "hastur_sejanus",
+    "name": "Hastur Sejanus",
+    "primaryFactionId": "sons_of_horus",
+    "primaryFactionName": "Sons of Horus",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 1
+  },
+  {
+    "id": "hathor_maat",
+    "name": "Hathor Maat",
+    "primaryFactionId": "thousand_sons",
+    "primaryFactionName": "Thousand Sons",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 2
+  },
+  {
+    "id": "heka_tan",
+    "name": "Heka'tan",
+    "primaryFactionId": "salamanders",
+    "primaryFactionName": "Salamanders",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "helbrecht",
+    "name": "Helbrecht",
+    "primaryFactionId": "black_templars",
+    "primaryFactionName": "Black Templars",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "helig_gallor",
+    "name": "Helig Gallor",
+    "primaryFactionId": "knights_errant",
+    "primaryFactionName": "Knights Errant",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "heritor_asphodel",
+    "name": "Heritor Asphodel",
+    "primaryFactionId": "zoican_host",
+    "primaryFactionName": "Zoican Host",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 2
+  },
+  {
+    "id": "hlaine_larkin",
+    "name": "Hlaine Larkin",
+    "primaryFactionId": "tanith_first",
+    "primaryFactionName": "Tanith First-and-Only",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 21
+  },
+  {
+    "id": "holguin",
+    "name": "Holguin",
+    "primaryFactionId": "dark_angels",
+    "primaryFactionName": "Dark Angels",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "honsou",
+    "name": "Honsou",
+    "primaryFactionId": "iron_warriors",
+    "primaryFactionName": "Iron Warriors",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 12
+  },
+  {
+    "id": "horus",
+    "name": "Horus",
+    "primaryFactionId": "sons_of_horus",
+    "primaryFactionName": "Sons of Horus",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 67
+  },
+  {
+    "id": "horus_aximand",
+    "name": "Horus Aximand",
+    "primaryFactionId": "sons_of_horus",
+    "primaryFactionName": "Sons of Horus",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 5
+  },
+  {
+    "id": "hoyyon_phrax",
+    "name": "Hoyyon Phrax",
+    "primaryFactionId": "rogue_traders",
+    "primaryFactionName": "Rogue Traders",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "hrend",
+    "name": "Hrend",
+    "primaryFactionId": "iron_warriors",
+    "primaryFactionName": "Iron Warriors",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 2
+  },
+  {
+    "id": "huron_blackheart",
+    "name": "Huron Blackheart",
+    "primaryFactionId": "red_corsairs",
+    "primaryFactionName": "Red Corsairs",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 10
+  },
+  {
+    "id": "hurtado_bronzi",
+    "name": "Hurtado Bronzi",
+    "primaryFactionId": "astra_militarum",
+    "primaryFactionName": "Astra Militarum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "hydragyrum",
+    "name": "Hydragyrum",
+    "primaryFactionId": "ordo_sinister",
+    "primaryFactionName": "Ordo Sinister",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "iacton_qruze",
+    "name": "Iacton Qruze",
+    "primaryFactionId": "sons_of_horus",
+    "primaryFactionName": "Sons of Horus",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 4
+  },
+  {
+    "id": "ibram_gaunt",
+    "name": "Ibram Gaunt",
+    "primaryFactionId": "commissariat",
+    "primaryFactionName": "Commissariat",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 25
+  },
+  {
+    "id": "idriss_krendl",
+    "name": "Idriss Krendl",
+    "primaryFactionId": "mechanicus",
+    "primaryFactionName": "Adeptus Mechanicus",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "iktinos",
+    "name": "Iktinos",
+    "primaryFactionId": "soul_drinkers",
+    "primaryFactionName": "Soul Drinkers",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 2
+  },
+  {
+    "id": "iktomi",
+    "name": "Iktomi",
+    "primaryFactionId": "ratskins",
+    "primaryFactionName": "Ratskins",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "ilya_ravallion",
+    "name": "Ilya Ravallion",
+    "primaryFactionId": "white_scars",
+    "primaryFactionName": "White Scars",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "ingethel",
+    "name": "Ingethel",
+    "primaryFactionId": "daemons",
+    "primaryFactionName": "Daemons",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 1
+  },
+  {
+    "id": "ingvar",
+    "name": "Ingvar",
+    "primaryFactionId": "space_wolves",
+    "primaryFactionName": "Space Wolves",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "ahri_ravara",
+    "name": "Inquisitor Ahri Ravara",
+    "primaryFactionId": "ordo_hereticus",
+    "primaryFactionName": "Ordo Hereticus",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "inquisitor_covenant",
+    "name": "Inquisitor Covenant",
+    "primaryFactionId": "inquisition",
+    "primaryFactionName": "Inquisition",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "inquisitor_drake",
+    "name": "Inquisitor Drake",
+    "primaryFactionId": "inquisition",
+    "primaryFactionName": "Inquisition",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "inquisitor_grand",
+    "name": "Inquisitor Grand",
+    "primaryFactionId": "inquisition",
+    "primaryFactionName": "Inquisition",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "inquisitor_iobel",
+    "name": "Inquisitor Iobel",
+    "primaryFactionId": "inquisition",
+    "primaryFactionName": "Inquisition",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "inquisitor_rostov",
+    "name": "Inquisitor Rostov",
+    "primaryFactionId": "inquisition",
+    "primaryFactionName": "Inquisition",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "inquisitor_thaddeus",
+    "name": "Inquisitor Thaddeus",
+    "primaryFactionId": "inquisition",
+    "primaryFactionName": "Inquisition",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "inquisitor_wienand",
+    "name": "Inquisitor Wienand",
+    "primaryFactionId": "inquisition",
+    "primaryFactionName": "Inquisition",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "iron_queen_orlah",
+    "name": "Iron Queen Orlah",
+    "primaryFactionId": "imperial_knights",
+    "primaryFactionName": "Imperial Knights",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "isador_akios",
+    "name": "Isador Akios",
+    "primaryFactionId": "blood_ravens",
+    "primaryFactionName": "Blood Ravens",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "iskandar_khayon",
+    "name": "Iskandar Khayon",
+    "primaryFactionId": "black_legion",
+    "primaryFactionName": "Black Legion",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 2
+  },
+  {
+    "id": "isola",
+    "name": "Isola",
+    "primaryFactionId": "rogue_traders",
+    "primaryFactionName": "Rogue Traders",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "ivan",
+    "name": "Ivan",
+    "primaryFactionId": "astra_militarum",
+    "primaryFactionName": "Astra Militarum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "ivan_sternberg",
+    "name": "Ivan Sternberg",
+    "primaryFactionId": "inquisition",
+    "primaryFactionName": "Inquisition",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "ivar_krakenblood",
+    "name": "Ivar Krakenblood",
+    "primaryFactionId": "space_wolves",
+    "primaryFactionName": "Space Wolves",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "iyanna_arienal",
+    "name": "Iyanna Arienal",
+    "primaryFactionId": "ynnari",
+    "primaryFactionName": "Ynnari",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 1
+  },
+  {
+    "id": "jaghatai_khan",
+    "name": "Jaghatai Khan",
+    "primaryFactionId": "white_scars",
+    "primaryFactionName": "White Scars",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 18
+  },
+  {
+    "id": "jain_zar",
+    "name": "Jain Zar",
+    "primaryFactionId": "eldar",
+    "primaryFactionName": "Aeldari",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 1
+  },
+  {
+    "id": "janus_draik",
+    "name": "Janus Draik",
+    "primaryFactionId": "rogue_traders",
+    "primaryFactionName": "Rogue Traders",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "jaq_draco",
+    "name": "Jaq Draco",
+    "primaryFactionId": "inquisition",
+    "primaryFactionName": "Inquisition",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 5
+  },
+  {
+    "id": "jarene",
+    "name": "Jarene",
+    "primaryFactionId": "house_escher",
+    "primaryFactionName": "House Escher",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "jarulek",
+    "name": "Jarulek",
+    "primaryFactionId": "word_bearers",
+    "primaryFactionName": "Word Bearers",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 2
+  },
+  {
+    "id": "john_grammaticus",
+    "name": "John Grammaticus",
+    "primaryFactionId": "cabal",
+    "primaryFactionName": "Cabal",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 7
+  },
+  {
+    "id": "julius_kaesoron",
+    "name": "Julius Kaesoron",
+    "primaryFactionId": "emperors_children",
+    "primaryFactionName": "Emperor's Children",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 2
+  },
+  {
+    "id": "jurgen",
+    "name": "Jurgen",
+    "primaryFactionId": "astra_militarum",
+    "primaryFactionName": "Astra Militarum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 13
+  },
+  {
+    "id": "ka_bandha",
+    "name": "Ka'Bandha",
+    "primaryFactionId": "daemons",
+    "primaryFactionName": "Daemons",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 4
+  },
+  {
+    "id": "kaedes_nex",
+    "name": "Kaedes Nex",
+    "primaryFactionId": "raven_guard",
+    "primaryFactionName": "Raven Guard",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "kai_zulane",
+    "name": "Kai Zulane",
+    "primaryFactionId": "adeptus_astra_telepathica",
+    "primaryFactionName": "Adeptus Astra Telepathica",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "kairos_fateweaver",
+    "name": "Kairos Fateweaver",
+    "primaryFactionId": "tzeentch",
+    "primaryFactionName": "Tzeentch",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 2
+  },
+  {
+    "id": "kal_jerico",
+    "name": "Kal Jerico",
+    "primaryFactionId": "necromunda",
+    "primaryFactionName": "Necromunda",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "kaleb_arin",
+    "name": "Kaleb Arin",
+    "primaryFactionId": "death_guard",
+    "primaryFactionName": "Death Guard",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 1
+  },
+  {
+    "id": "kandawire",
+    "name": "Kandawire",
+    "primaryFactionId": "imperium",
+    "primaryFactionName": "Imperium of Man",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "kara_swole",
+    "name": "Kara Swole",
+    "primaryFactionId": "inquisition",
+    "primaryFactionName": "Inquisition",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "kardan_stronos",
+    "name": "Kardan Stronos",
+    "primaryFactionId": "iron_hands",
+    "primaryFactionName": "Iron Hands",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "karlaen",
+    "name": "Karlaen",
+    "primaryFactionId": "blood_angels",
+    "primaryFactionName": "Blood Angels",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "kasper_hawser",
+    "name": "Kasper Hawser",
+    "primaryFactionId": "imperium",
+    "primaryFactionName": "Imperium of Man",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "katarinya_greyfax",
+    "name": "Katarinya Greyfax",
+    "primaryFactionId": "inquisition",
+    "primaryFactionName": "Inquisition",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "katsuhiro",
+    "name": "Katsuhiro",
+    "primaryFactionId": "astra_militarum",
+    "primaryFactionName": "Astra Militarum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "kelbor_hal",
+    "name": "Kelbor-Hal",
+    "primaryFactionId": "mechanicus",
+    "primaryFactionName": "Adeptus Mechanicus",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "khalid_hassan",
+    "name": "Khalid Hassan",
+    "primaryFactionId": "officio_sigillite",
+    "primaryFactionName": "Officio Sigillite",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "kharn_the_betrayer",
+    "name": "Khârn the Betrayer",
+    "primaryFactionId": "world_eaters",
+    "primaryFactionName": "World Eaters",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 21
+  },
+  {
+    "id": "khi_dem",
+    "name": "Khi'dem",
+    "primaryFactionId": "salamanders",
+    "primaryFactionName": "Salamanders",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "kile_simlex",
+    "name": "Kile Simlex",
+    "primaryFactionId": "aeronautica_imperialis",
+    "primaryFactionName": "Aeronautica Imperialis",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "kjel",
+    "name": "Kjel",
+    "primaryFactionId": "space_wolves",
+    "primaryFactionName": "Space Wolves",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "kol_badar",
+    "name": "Kol Badar",
+    "primaryFactionId": "word_bearers",
+    "primaryFactionName": "Word Bearers",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 4
+  },
+  {
+    "id": "konrad_curze",
+    "name": "Konrad Curze",
+    "primaryFactionId": "night_lords",
+    "primaryFactionName": "Night Lords",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 29
+  },
+  {
+    "id": "koorland",
+    "name": "Koorland",
+    "primaryFactionId": "imperial_fists",
+    "primaryFactionName": "Imperial Fists",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 12
+  },
+  {
+    "id": "koparnos",
+    "name": "Koparnos",
+    "primaryFactionId": "iron_warriors",
+    "primaryFactionName": "Iron Warriors",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 1
+  },
+  {
+    "id": "kor_phaeron",
+    "name": "Kor Phaeron",
+    "primaryFactionId": "word_bearers",
+    "primaryFactionName": "Word Bearers",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 8
+  },
+  {
+    "id": "korsarro_khan",
+    "name": "Kor'sarro Khan",
+    "primaryFactionId": "white_scars",
+    "primaryFactionName": "White Scars",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "koriel_zeth",
+    "name": "Koriel Zeth",
+    "primaryFactionId": "mechanicus",
+    "primaryFactionName": "Adeptus Mechanicus",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "korlandril",
+    "name": "Korlandril",
+    "primaryFactionId": "eldar",
+    "primaryFactionName": "Aeldari",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 4
+  },
+  {
+    "id": "kroeger",
+    "name": "Kroeger",
+    "primaryFactionId": "iron_warriors",
+    "primaryFactionName": "Iron Warriors",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 3
+  },
+  {
+    "id": "krom_dragongaze",
+    "name": "Krom Dragongaze",
+    "primaryFactionId": "space_wolves",
+    "primaryFactionName": "Space Wolves",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "kurtha_sedd",
+    "name": "Kurtha Sedd",
+    "primaryFactionId": "word_bearers",
+    "primaryFactionName": "Word Bearers",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 4
+  },
+  {
+    "id": "kyganil",
+    "name": "Kyganil",
+    "primaryFactionId": "harlequins",
+    "primaryFactionName": "Harlequins",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 2
+  },
+  {
+    "id": "kyril_sindermann",
+    "name": "Kyril Sindermann",
+    "primaryFactionId": "imperium",
+    "primaryFactionName": "Imperium of Man",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "lady_chettamandey_brobantis",
+    "name": "Lady Chettamandey Brobantis",
+    "primaryFactionId": "house_brobantis",
+    "primaryFactionName": "House Brobantis",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "lelith_hesperax",
+    "name": "Lelith Hesperax",
+    "primaryFactionId": "drukhari",
+    "primaryFactionName": "Drukhari",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 1
+  },
+  {
+    "id": "leman_russ",
+    "name": "Leman Russ",
+    "primaryFactionId": "space_wolves",
+    "primaryFactionName": "Space Wolves",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 26
+  },
+  {
+    "id": "lemartes",
+    "name": "Lemartes",
+    "primaryFactionId": "blood_angels",
+    "primaryFactionName": "Blood Angels",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "lemuel_gaumon",
+    "name": "Lemuel Gaumon",
+    "primaryFactionId": "imperium",
+    "primaryFactionName": "Imperium of Man",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "leo_lemuel",
+    "name": "Leo Lemuel",
+    "primaryFactionId": "astra_militarum",
+    "primaryFactionName": "Astra Militarum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "leto_barbaden",
+    "name": "Leto Barbaden",
+    "primaryFactionId": "astra_militarum",
+    "primaryFactionName": "Astra Militarum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "lexell_kotov",
+    "name": "Lexell Kotov",
+    "primaryFactionId": "mechanicus",
+    "primaryFactionName": "Adeptus Mechanicus",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "lieutenant_kage",
+    "name": "Lieutenant Kage",
+    "primaryFactionId": "last_chancers",
+    "primaryFactionName": "Last Chancers",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 5
+  },
+  {
+    "id": "lijah_cuu",
+    "name": "Lijah Cuu",
+    "primaryFactionId": "tanith_first",
+    "primaryFactionName": "Tanith First-and-Only",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "linya_tychon",
+    "name": "Linya Tychon",
+    "primaryFactionId": "mechanicus",
+    "primaryFactionName": "Adeptus Mechanicus",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "lion_el_jonson",
+    "name": "Lion El'Jonson",
+    "primaryFactionId": "dark_angels",
+    "primaryFactionName": "Dark Angels",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 33
+  },
+  {
+    "id": "lo_bannick",
+    "name": "Lo Bannick",
+    "primaryFactionId": "cadian_shock_troops",
+    "primaryFactionName": "Cadian Shock Troops",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "logan_grimnar",
+    "name": "Logan Grimnar",
+    "primaryFactionId": "space_wolves",
+    "primaryFactionName": "Space Wolves",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 7
+  },
+  {
+    "id": "lord_commissar_rasp",
+    "name": "Lord Commissar Rasp",
+    "primaryFactionId": "astra_militarum",
+    "primaryFactionName": "Astra Militarum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "lord_general_dravere",
+    "name": "Lord General Dravere",
+    "primaryFactionId": "astra_militarum",
+    "primaryFactionName": "Astra Militarum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "lord_general_lugo",
+    "name": "Lord General Lugo",
+    "primaryFactionId": "astra_militarum",
+    "primaryFactionName": "Astra Militarum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "gerontius_helmawr",
+    "name": "Lord Gerontius Helmawr",
+    "primaryFactionId": "house_helmawr",
+    "primaryFactionName": "House Helmawr",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "lord_helmawr",
+    "name": "Lord Helmawr",
+    "primaryFactionId": "house_helmawr",
+    "primaryFactionName": "House Helmawr",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "lord_medell",
+    "name": "Lord Medell",
+    "primaryFactionId": "imperium",
+    "primaryFactionName": "Imperium of Man",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "lord_solar_macharius",
+    "name": "Lord Solar Macharius",
+    "primaryFactionId": "astra_militarum",
+    "primaryFactionName": "Astra Militarum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 6
+  },
+  {
+    "id": "lord_winterbourne",
+    "name": "Lord Winterbourne",
+    "primaryFactionId": "astra_militarum",
+    "primaryFactionName": "Astra Militarum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "lorgar",
+    "name": "Lorgar",
+    "primaryFactionId": "word_bearers",
+    "primaryFactionName": "Word Bearers",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 27
+  },
+  {
+    "id": "lorii",
+    "name": "Lorii",
+    "primaryFactionId": "last_chancers",
+    "primaryFactionName": "Last Chancers",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "lotara_sarrin",
+    "name": "Lotara Sarrin",
+    "primaryFactionId": "world_eaters",
+    "primaryFactionName": "World Eaters",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 2
+  },
+  {
+    "id": "luce_spinoza",
+    "name": "Luce Spinoza",
+    "primaryFactionId": "inquisition",
+    "primaryFactionName": "Inquisition",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "lucian_gerrit",
+    "name": "Lucian Gerrit",
+    "primaryFactionId": "rogue_traders",
+    "primaryFactionName": "Rogue Traders",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "lucille_von_shard",
+    "name": "Lucille von Shard",
+    "primaryFactionId": "aeronautica_imperialis",
+    "primaryFactionName": "Aeronautica Imperialis",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "lucius_the_eternal",
+    "name": "Lucius the Eternal",
+    "primaryFactionId": "emperors_children",
+    "primaryFactionName": "Emperor's Children",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 13
+  },
+  {
+    "id": "luk_kar_chimaeros",
+    "name": "Luk Kar Chimaeros",
+    "primaryFactionId": "house_chimaeros",
+    "primaryFactionName": "House Chimaeros",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "lukas_the_strifeson",
+    "name": "Lukas the Strifeson",
+    "primaryFactionId": "space_wolves",
+    "primaryFactionName": "Space Wolves",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "luther",
+    "name": "Luther",
+    "primaryFactionId": "order_of_caliban",
+    "primaryFactionName": "The Order of Caliban",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 12
+  },
+  {
+    "id": "mabbon_etogaur",
+    "name": "Mabbon Etogaur",
+    "primaryFactionId": "sons_of_sek",
+    "primaryFactionName": "Sons of Sek",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 6
+  },
+  {
+    "id": "macaroth",
+    "name": "Macaroth",
+    "primaryFactionId": "astra_militarum",
+    "primaryFactionName": "Astra Militarum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "macer_varren",
+    "name": "Macer Varren",
+    "primaryFactionId": "knights_errant",
+    "primaryFactionName": "Knights Errant",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "macha",
+    "name": "Macha",
+    "primaryFactionId": "eldar",
+    "primaryFactionName": "Aeldari",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 4
+  },
+  {
+    "id": "mad_donna",
+    "name": "Mad Donna",
+    "primaryFactionId": "house_escher",
+    "primaryFactionName": "House Escher",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "madail",
+    "name": "Madail",
+    "primaryFactionId": "daemons",
+    "primaryFactionName": "Daemons",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 2
+  },
+  {
+    "id": "madox",
+    "name": "Madox",
+    "primaryFactionId": "thousand_sons",
+    "primaryFactionName": "Thousand Sons",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 4
+  },
+  {
+    "id": "magnus_the_red",
+    "name": "Magnus the Red",
+    "primaryFactionId": "thousand_sons",
+    "primaryFactionName": "Thousand Sons",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 28
+  },
+  {
+    "id": "magos_naicin",
+    "name": "Magos Naicin",
+    "primaryFactionId": "mechanicus",
+    "primaryFactionName": "Adeptus Mechanicus",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "major_mortensen",
+    "name": "Major Mortensen",
+    "primaryFactionId": "astra_militarum",
+    "primaryFactionName": "Astra Militarum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "makari",
+    "name": "Makari",
+    "primaryFactionId": "orks",
+    "primaryFactionName": "Orks",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 1
+  },
+  {
+    "id": "malcador_the_sigillite",
+    "name": "Malcador the Sigillite",
+    "primaryFactionId": "imperium",
+    "primaryFactionName": "Imperium of Man",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 46
+  },
+  {
+    "id": "maloghurst_the_twisted",
+    "name": "Maloghurst the Twisted",
+    "primaryFactionId": "sons_of_horus",
+    "primaryFactionName": "Sons of Horus",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 5
+  },
+  {
+    "id": "marcus_valerius",
+    "name": "Marcus Valerius",
+    "primaryFactionId": "therion_cohort",
+    "primaryFactionName": "Therion Cohort",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "marduk",
+    "name": "Marduk",
+    "primaryFactionId": "word_bearers",
+    "primaryFactionName": "Word Bearers",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 4
+  },
+  {
+    "id": "marneus_calgar",
+    "name": "Marneus Calgar",
+    "primaryFactionId": "ultramarines",
+    "primaryFactionName": "Ultramarines",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 8
+  },
+  {
+    "id": "marshal_brant",
+    "name": "Marshal Brant",
+    "primaryFactionId": "black_templars",
+    "primaryFactionName": "Black Templars",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "maximus_thane",
+    "name": "Maximus Thane",
+    "primaryFactionId": "imperial_fists",
+    "primaryFactionName": "Imperial Fists",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "meh_lindi",
+    "name": "Meh'Lindi",
+    "primaryFactionId": "callidus_temple",
+    "primaryFactionName": "Callidus Temple",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "mekki",
+    "name": "Mekki",
+    "primaryFactionId": "mechanicus",
+    "primaryFactionName": "Adeptus Mechanicus",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 5
+  },
+  {
+    "id": "mendacs",
+    "name": "Mendacs",
+    "primaryFactionId": "alpha_legion",
+    "primaryFactionName": "Alpha Legion",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 1
+  },
+  {
+    "id": "menes_kalliston",
+    "name": "Menes Kalliston",
+    "primaryFactionId": "thousand_sons",
+    "primaryFactionName": "Thousand Sons",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 1
+  },
+  {
+    "id": "menkaura",
+    "name": "Menkaura",
+    "primaryFactionId": "thousand_sons",
+    "primaryFactionName": "Thousand Sons",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 1
+  },
+  {
+    "id": "mephiston",
+    "name": "Mephiston",
+    "primaryFactionId": "blood_angels",
+    "primaryFactionName": "Blood Angels",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 7
+  },
+  {
+    "id": "mercutian",
+    "name": "Mercutian",
+    "primaryFactionId": "night_lords",
+    "primaryFactionName": "Night Lords",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 4
+  },
+  {
+    "id": "meros",
+    "name": "Meros",
+    "primaryFactionId": "blood_angels",
+    "primaryFactionName": "Blood Angels",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "mersadie_oliton",
+    "name": "Mersadie Oliton",
+    "primaryFactionId": "imperium",
+    "primaryFactionName": "Imperium of Man",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "mhotep",
+    "name": "Mhotep",
+    "primaryFactionId": "thousand_sons",
+    "primaryFactionName": "Thousand Sons",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 1
+  },
+  {
+    "id": "midas_betancore",
+    "name": "Midas Betancore",
+    "primaryFactionId": "inquisition",
+    "primaryFactionName": "Inquisition",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "minka_lesk",
+    "name": "Minka Lesk",
+    "primaryFactionId": "astra_militarum",
+    "primaryFactionName": "Astra Militarum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 7
+  },
+  {
+    "id": "mkvenner",
+    "name": "Mkvenner",
+    "primaryFactionId": "tanith_first",
+    "primaryFactionName": "Tanith First-and-Only",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "mogrok",
+    "name": "Mogrok",
+    "primaryFactionId": "orks",
+    "primaryFactionName": "Orks",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 2
+  },
+  {
+    "id": "mohana_mankata_vi",
+    "name": "Mohana Mankata Vi",
+    "primaryFactionId": "talons_of_the_emperor",
+    "primaryFactionName": "Talons of the Emperor",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "morr",
+    "name": "Morr",
+    "primaryFactionId": "eldar",
+    "primaryFactionName": "Aeldari",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 4
+  },
+  {
+    "id": "mortarion",
+    "name": "Mortarion",
+    "primaryFactionId": "death_guard",
+    "primaryFactionName": "Death Guard",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 31
+  },
+  {
+    "id": "morvenn_vahl",
+    "name": "Morvenn Vahl",
+    "primaryFactionId": "sisters_of_battle",
+    "primaryFactionName": "Adepta Sororitas",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "murtan_feygor",
+    "name": "Murtan Feygor",
+    "primaryFactionId": "tanith_first",
+    "primaryFactionName": "Tanith First-and-Only",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "mykola_shonai",
+    "name": "Mykola Shonai",
+    "primaryFactionId": "imperial_navy",
+    "primaryFactionName": "Imperial Navy",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "nathaniel_garro",
+    "name": "Nathaniel Garro",
+    "primaryFactionId": "death_guard",
+    "primaryFactionName": "Death Guard",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 21
+  },
+  {
+    "id": "nemesor_zahndrekh",
+    "name": "Nemesor Zahndrekh",
+    "primaryFactionId": "sautekh_dynasty",
+    "primaryFactionName": "Sautekh Dynasty",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 2
+  },
+  {
+    "id": "nemiel",
+    "name": "Nemiel",
+    "primaryFactionId": "dark_angels",
+    "primaryFactionName": "Dark Angels",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "nightbringer",
+    "name": "Nightbringer",
+    "primaryFactionId": "chaos",
+    "primaryFactionName": "Chaos",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 5
+  },
+  {
+    "id": "nihilan",
+    "name": "Nihilan",
+    "primaryFactionId": "dragon_warriors",
+    "primaryFactionName": "Dragon Warriors",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 3
+  },
+  {
+    "id": "njal_stormcaller",
+    "name": "Njal Stormcaller",
+    "primaryFactionId": "space_wolves",
+    "primaryFactionName": "Space Wolves",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "noches_sturm",
+    "name": "Noches Sturm",
+    "primaryFactionId": "chaos",
+    "primaryFactionName": "Chaos",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 2
+  },
+  {
+    "id": "noxx",
+    "name": "Noxx",
+    "primaryFactionId": "flesh_tearers",
+    "primaryFactionName": "Flesh Tearers",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "nurgle",
+    "name": "Nurgle",
+    "primaryFactionId": "nurgle",
+    "primaryFactionName": "Nurgle",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 15
+  },
+  {
+    "id": "nykona_sharrowkyn",
+    "name": "Nykona Sharrowkyn",
+    "primaryFactionId": "raven_guard",
+    "primaryFactionName": "Raven Guard",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "nyos_yllithian",
+    "name": "Nyos Yllithian",
+    "primaryFactionId": "eldar",
+    "primaryFactionName": "Aeldari",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 4
+  },
+  {
+    "id": "nyxos",
+    "name": "Nyxos",
+    "primaryFactionId": "ordo_malleus",
+    "primaryFactionName": "Ordo Malleus",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "oan_mkoll",
+    "name": "Oan Mkoll",
+    "primaryFactionId": "tanith_first",
+    "primaryFactionName": "Tanith First-and-Only",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 18
+  },
+  {
+    "id": "obadiah_roth",
+    "name": "Obadiah Roth",
+    "primaryFactionId": "inquisition",
+    "primaryFactionName": "Inquisition",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "octavia",
+    "name": "Octavia",
+    "primaryFactionId": "night_lords",
+    "primaryFactionName": "Night Lords",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 4
+  },
+  {
+    "id": "oll_persson",
+    "name": "Oll Persson",
+    "primaryFactionId": "imperium",
+    "primaryFactionName": "Imperium of Man",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 5
+  },
+  {
+    "id": "oltyx",
+    "name": "Oltyx",
+    "primaryFactionId": "necrons",
+    "primaryFactionName": "Necrons",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 4
+  },
+  {
+    "id": "omegon",
+    "name": "Omegon",
+    "primaryFactionId": "alpha_legion",
+    "primaryFactionName": "Alpha Legion",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 8
+  },
+  {
+    "id": "omnid_torquora",
+    "name": "Omnid Torquora",
+    "primaryFactionId": "mechanicus",
+    "primaryFactionName": "Adeptus Mechanicus",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "orikan_the_diviner",
+    "name": "Orikan the Diviner",
+    "primaryFactionId": "necrons",
+    "primaryFactionName": "Necrons",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 2
+  },
+  {
+    "id": "overlord_von_strab",
+    "name": "Overlord von Strab",
+    "primaryFactionId": "astra_militarum",
+    "primaryFactionName": "Astra Militarum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "pallas_ravachol",
+    "name": "Pallas Ravachol",
+    "primaryFactionId": "mechanicus",
+    "primaryFactionName": "Adeptus Mechanicus",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "parmenion_thade",
+    "name": "Parmenion Thade",
+    "primaryFactionId": "cadian_shock_troops",
+    "primaryFactionName": "Cadian Shock Troops",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "pasanius_lysane",
+    "name": "Pasanius Lysane",
+    "primaryFactionId": "ultramarines",
+    "primaryFactionName": "Ultramarines",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 13
+  },
+  {
+    "id": "patience_kys",
+    "name": "Patience Kys",
+    "primaryFactionId": "inquisition",
+    "primaryFactionName": "Inquisition",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 5
+  },
+  {
+    "id": "pedro_kantor",
+    "name": "Pedro Kantor",
+    "primaryFactionId": "crimson_fists",
+    "primaryFactionName": "Crimson Fists",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "perturabo",
+    "name": "Perturabo",
+    "primaryFactionId": "iron_warriors",
+    "primaryFactionName": "Iron Warriors",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 25
+  },
+  {
+    "id": "peto_soneka",
+    "name": "Peto Soneka",
+    "primaryFactionId": "astra_militarum",
+    "primaryFactionName": "Astra Militarum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "pontius_glaw",
+    "name": "Pontius Glaw",
+    "primaryFactionId": "chaos",
+    "primaryFactionName": "Chaos",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 4
+  },
+  {
+    "id": "priad",
+    "name": "Priad",
+    "primaryFactionId": "iron_snakes",
+    "primaryFactionName": "Iron Snakes",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "rafen",
+    "name": "Rafen",
+    "primaryFactionId": "blood_angels",
+    "primaryFactionName": "Blood Angels",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "ragnar_blackmane",
+    "name": "Ragnar Blackmane",
+    "primaryFactionId": "space_wolves",
+    "primaryFactionName": "Space Wolves",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 11
+  },
+  {
+    "id": "raldoron",
+    "name": "Raldoron",
+    "primaryFactionId": "blood_angels",
+    "primaryFactionName": "Blood Angels",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "ranek",
+    "name": "Ranek",
+    "primaryFactionId": "space_wolves",
+    "primaryFactionName": "Space Wolves",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "raus",
+    "name": "Raus",
+    "primaryFactionId": "ratlings",
+    "primaryFactionName": "Ratlings",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "redloss",
+    "name": "Redloss",
+    "primaryFactionId": "dark_angels",
+    "primaryFactionName": "Dark Angels",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "regina_kasteen",
+    "name": "Regina Kasteen",
+    "primaryFactionId": "valhallan_597th",
+    "primaryFactionName": "Valhallan 597th",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 8
+  },
+  {
+    "id": "regulus",
+    "name": "Regulus",
+    "primaryFactionId": "mechanicus",
+    "primaryFactionName": "Adeptus Mechanicus",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "rein",
+    "name": "Rein",
+    "primaryFactionId": "ratlings",
+    "primaryFactionName": "Ratlings",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "remius_stele",
+    "name": "Remius Stele",
+    "primaryFactionId": "word_bearers",
+    "primaryFactionName": "Word Bearers",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 2
+  },
+  {
+    "id": "remus_ventanus",
+    "name": "Remus Ventanus",
+    "primaryFactionId": "ultramarines",
+    "primaryFactionName": "Ultramarines",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "revuel_arvida",
+    "name": "Revuel Arvida",
+    "primaryFactionId": "thousand_sons",
+    "primaryFactionName": "Thousand Sons",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 3
+  },
+  {
+    "id": "rhamah",
+    "name": "Rhamah",
+    "primaryFactionId": "blood_ravens",
+    "primaryFactionName": "Blood Ravens",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "richter",
+    "name": "Richter",
+    "primaryFactionId": "astra_militarum",
+    "primaryFactionName": "Astra Militarum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "roboute_guilliman",
+    "name": "Roboute Guilliman",
+    "primaryFactionId": "ultramarines",
+    "primaryFactionName": "Ultramarines",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 70
+  },
+  {
+    "id": "roboute_surcouf",
+    "name": "Roboute Surcouf",
+    "primaryFactionId": "rogue_traders",
+    "primaryFactionName": "Rogue Traders",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "rogal_dorn",
+    "name": "Rogal Dorn",
+    "primaryFactionId": "imperial_fists",
+    "primaryFactionName": "Imperial Fists",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 51
+  },
+  {
+    "id": "ruput_broklaw",
+    "name": "Ruput Broklaw",
+    "primaryFactionId": "valhallan_597th",
+    "primaryFactionName": "Valhallan 597th",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 7
+  },
+  {
+    "id": "rylanor",
+    "name": "Rylanor",
+    "primaryFactionId": "emperors_children",
+    "primaryFactionName": "Emperor's Children",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 2
+  },
+  {
+    "id": "sabik_wayland",
+    "name": "Sabik Wayland",
+    "primaryFactionId": "iron_hands",
+    "primaryFactionName": "Iron Hands",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "sabreen",
+    "name": "Sabreen",
+    "primaryFactionId": "order_of_our_martyred_lady",
+    "primaryFactionName": "Order of Our Martyred Lady",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "saint_celestine",
+    "name": "Saint Celestine",
+    "primaryFactionId": "sisters_of_battle",
+    "primaryFactionName": "Adepta Sororitas",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "saint_sabbat",
+    "name": "Saint Sabbat",
+    "primaryFactionId": "ecclesiarchy",
+    "primaryFactionName": "Ecclesiarchy",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "saint_veres",
+    "name": "Saint Veres",
+    "primaryFactionId": "ecclesiarchy",
+    "primaryFactionName": "Ecclesiarchy",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "sammael",
+    "name": "Sammael",
+    "primaryFactionId": "dark_angels",
+    "primaryFactionName": "Dark Angels",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "sanakht",
+    "name": "Sanakht",
+    "primaryFactionId": "thousand_sons",
+    "primaryFactionName": "Thousand Sons",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 2
+  },
+  {
+    "id": "sanguinius",
+    "name": "Sanguinius",
+    "primaryFactionId": "blood_angels",
+    "primaryFactionName": "Blood Angels",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 40
+  },
+  {
+    "id": "sanian",
+    "name": "Sanian",
+    "primaryFactionId": "ecclesiarchy",
+    "primaryFactionName": "Ecclesiarchy",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "sapphon",
+    "name": "Sapphon",
+    "primaryFactionId": "dark_angels",
+    "primaryFactionName": "Dark Angels",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "sar_daviel",
+    "name": "Sar Daviel",
+    "primaryFactionId": "order_of_caliban",
+    "primaryFactionName": "The Order of Caliban",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "sarik",
+    "name": "Sarik",
+    "primaryFactionId": "white_scars",
+    "primaryFactionName": "White Scars",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "sarpedon",
+    "name": "Sarpedon",
+    "primaryFactionId": "soul_drinkers",
+    "primaryFactionName": "Soul Drinkers",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 8
+  },
+  {
+    "id": "saul_tarvitz",
+    "name": "Saul Tarvitz",
+    "primaryFactionId": "emperors_children",
+    "primaryFactionName": "Emperor's Children",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 2
+  },
+  {
+    "id": "scabbs",
+    "name": "Scabbs",
+    "primaryFactionId": "necromunda",
+    "primaryFactionName": "Necromunda",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "scrutinator_primus_servalen",
+    "name": "Scrutinator Primus Servalen",
+    "primaryFactionId": "necromunda_enforcers",
+    "primaryFactionName": "Necromunda Enforcers",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "sebastian_yarrick",
+    "name": "Sebastian Yarrick",
+    "primaryFactionId": "astra_militarum",
+    "primaryFactionName": "Astra Militarum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 11
+  },
+  {
+    "id": "septimus",
+    "name": "Septimus",
+    "primaryFactionId": "night_lords",
+    "primaryFactionName": "Night Lords",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 4
+  },
+  {
+    "id": "sergeant_greiss",
+    "name": "Sergeant Greiss",
+    "primaryFactionId": "catachan_jungle_fighters",
+    "primaryFactionName": "Catachan Jungle Fighters",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "sergeant_lorenzo",
+    "name": "Sergeant Lorenzo",
+    "primaryFactionId": "blood_angels",
+    "primaryFactionName": "Blood Angels",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "sergeant_wulfe",
+    "name": "Sergeant Wulfe",
+    "primaryFactionId": "cadian_shock_troops",
+    "primaryFactionName": "Cadian Shock Troops",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "sevatar",
+    "name": "Sevatar",
+    "primaryFactionId": "night_lords",
+    "primaryFactionName": "Night Lords",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 7
+  },
+  {
+    "id": "severian",
+    "name": "Severian",
+    "primaryFactionId": "sons_of_horus",
+    "primaryFactionName": "Sons of Horus",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 3
+  },
+  {
+    "id": "severina_raine",
+    "name": "Severina Raine",
+    "primaryFactionId": "commissariat",
+    "primaryFactionName": "Commissariat",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "shadrak_meduson",
+    "name": "Shadrak Meduson",
+    "primaryFactionId": "iron_hands",
+    "primaryFactionName": "Iron Hands",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 6
+  },
+  {
+    "id": "shaso_oreskaan",
+    "name": "Shas'O Or'es'ka'an",
+    "primaryFactionId": "tau",
+    "primaryFactionName": "T'au Empire",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 3
+  },
+  {
+    "id": "sheed_ranko",
+    "name": "Sheed Ranko",
+    "primaryFactionId": "astra_militarum",
+    "primaryFactionName": "Astra Militarum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "shiban_khan",
+    "name": "Shiban Khan",
+    "primaryFactionId": "white_scars",
+    "primaryFactionName": "White Scars",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 5
+  },
+  {
+    "id": "shira_calpurnia",
+    "name": "Shira Calpurnia",
+    "primaryFactionId": "adeptus_arbites",
+    "primaryFactionName": "Adeptus Arbites",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "sibel_niasta",
+    "name": "Sibel Niasta",
+    "primaryFactionId": "adeptus_astra_telepathica",
+    "primaryFactionName": "Adeptus Astra Telepathica",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "sigismund",
+    "name": "Sigismund",
+    "primaryFactionId": "imperial_fists",
+    "primaryFactionName": "Imperial Fists",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 8
+  },
+  {
+    "id": "sister_evangeline",
+    "name": "Sister Evangeline",
+    "primaryFactionId": "order_of_our_martyred_lady",
+    "primaryFactionName": "Order of Our Martyred Lady",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "sister_miriya",
+    "name": "Sister Miriya",
+    "primaryFactionId": "sisters_of_battle",
+    "primaryFactionName": "Adepta Sororitas",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "sister_superior_augusta",
+    "name": "Sister Superior Augusta",
+    "primaryFactionId": "sisters_of_battle",
+    "primaryFactionName": "Adepta Sororitas",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 6
+  },
+  {
+    "id": "sister_verity",
+    "name": "Sister Verity",
+    "primaryFactionId": "sisters_of_battle",
+    "primaryFactionName": "Adepta Sororitas",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "skraal",
+    "name": "Skraal",
+    "primaryFactionId": "world_eaters",
+    "primaryFactionName": "World Eaters",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 1
+  },
+  {
+    "id": "sobek",
+    "name": "Sobek",
+    "primaryFactionId": "thousand_sons",
+    "primaryFactionName": "Thousand Sons",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 2
+  },
+  {
+    "id": "solomon_akurra",
+    "name": "Solomon Akurra",
+    "primaryFactionId": "alpha_legion",
+    "primaryFactionName": "Alpha Legion",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 2
+  },
+  {
+    "id": "solomon_voss",
+    "name": "Solomon Voss",
+    "primaryFactionId": "imperium",
+    "primaryFactionName": "Imperium of Man",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "solun_decius",
+    "name": "Solun Decius",
+    "primaryFactionId": "death_guard",
+    "primaryFactionName": "Death Guard",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 1
+  },
+  {
+    "id": "sor_talgron",
+    "name": "Sor Talgron",
+    "primaryFactionId": "word_bearers",
+    "primaryFactionName": "Word Bearers",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 2
+  },
+  {
+    "id": "spear",
+    "name": "Spear",
+    "primaryFactionId": "chaos",
+    "primaryFactionName": "Chaos",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 1
+  },
+  {
+    "id": "steloc_aethon",
+    "name": "Steloc Aethon",
+    "primaryFactionId": "ultramarines",
+    "primaryFactionName": "Ultramarines",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "strybjorn_grimskull",
+    "name": "Strybjorn Grimskull",
+    "primaryFactionId": "space_wolves",
+    "primaryFactionName": "Space Wolves",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "susada_syn",
+    "name": "Susada Syn",
+    "primaryFactionId": "astra_militarum",
+    "primaryFactionName": "Astra Militarum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "sven_brujothirson",
+    "name": "Sven Brujothirson",
+    "primaryFactionId": "space_wolves",
+    "primaryFactionName": "Space Wolves",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "sylvanus_thayer",
+    "name": "Sylvanus Thayer",
+    "primaryFactionId": "astra_militarum",
+    "primaryFactionName": "Astra Militarum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "szarekh",
+    "name": "Szarekh",
+    "primaryFactionId": "necrons",
+    "primaryFactionName": "Necrons",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 7
+  },
+  {
+    "id": "tabidiah_kruger",
+    "name": "Tabidiah Kruger",
+    "primaryFactionId": "astra_militarum",
+    "primaryFactionName": "Astra Militarum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "taddeus",
+    "name": "Taddeus",
+    "primaryFactionId": "ecclesiarchy",
+    "primaryFactionName": "Ecclesiarchy",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "tagore",
+    "name": "Tagore",
+    "primaryFactionId": "world_eaters",
+    "primaryFactionName": "World Eaters",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 1
+  },
+  {
+    "id": "talen",
+    "name": "Talen",
+    "primaryFactionId": "astra_militarum",
+    "primaryFactionName": "Astra Militarum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 6
+  },
+  {
+    "id": "talos",
+    "name": "Talos",
+    "primaryFactionId": "night_lords",
+    "primaryFactionName": "Night Lords",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 6
+  },
+  {
+    "id": "tanau_aleya",
+    "name": "Tanau Aleya",
+    "primaryFactionId": "talons_of_the_emperor",
+    "primaryFactionName": "Talons of the Emperor",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "tanna",
+    "name": "Tanna",
+    "primaryFactionId": "black_templars",
+    "primaryFactionName": "Black Templars",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "targutai_yesugei",
+    "name": "Targutai Yesugei",
+    "primaryFactionId": "white_scars",
+    "primaryFactionName": "White Scars",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "tarik_torgaddon",
+    "name": "Tarik Torgaddon",
+    "primaryFactionId": "sons_of_horus",
+    "primaryFactionName": "Sons of Horus",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 5
+  },
+  {
+    "id": "tarkis_blaylock",
+    "name": "Tarkis Blaylock",
+    "primaryFactionId": "mechanicus",
+    "primaryFactionName": "Adeptus Mechanicus",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "te_kahurangi",
+    "name": "Te Kahurangi",
+    "primaryFactionId": "carcharodons",
+    "primaryFactionName": "Carcharodons",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "telemenus",
+    "name": "Telemenus",
+    "primaryFactionId": "dark_angels",
+    "primaryFactionName": "Dark Angels",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "tellos",
+    "name": "Tellos",
+    "primaryFactionId": "soul_drinkers",
+    "primaryFactionName": "Soul Drinkers",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 2
+  },
+  {
+    "id": "telok",
+    "name": "Telok",
+    "primaryFactionId": "mechanicus",
+    "primaryFactionName": "Adeptus Mechanicus",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "tempestor_traxel",
+    "name": "Tempestor Traxel",
+    "primaryFactionId": "tempestus_scions",
+    "primaryFactionName": "Tempestus Scions",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "tetrarch_felix",
+    "name": "Tetrarch Felix",
+    "primaryFactionId": "ultramarines",
+    "primaryFactionName": "Ultramarines",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "teturact",
+    "name": "Teturact",
+    "primaryFactionId": "chaos",
+    "primaryFactionName": "Chaos",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 2
+  },
+  {
+    "id": "the_beast",
+    "name": "The Beast",
+    "primaryFactionId": "orks",
+    "primaryFactionName": "Orks",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 9
+  },
+  {
+    "id": "the_blade_of_antwyr",
+    "name": "The Blade of Antwyr",
+    "primaryFactionId": "daemons",
+    "primaryFactionName": "Daemons",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 2
+  },
+  {
+    "id": "the_emperor",
+    "name": "The Emperor",
+    "primaryFactionId": "imperium",
+    "primaryFactionName": "Imperium of Man",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 124
+  },
+  {
+    "id": "the_exalted",
+    "name": "The Exalted",
+    "primaryFactionId": "night_lords",
+    "primaryFactionName": "Night Lords",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 3
+  },
+  {
+    "id": "the_visarch",
+    "name": "The Visarch",
+    "primaryFactionId": "ynnari",
+    "primaryFactionName": "Ynnari",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 1
+  },
+  {
+    "id": "the_yncarne",
+    "name": "The Yncarne",
+    "primaryFactionId": "ynnari",
+    "primaryFactionName": "Ynnari",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 2
+  },
+  {
+    "id": "thirianna",
+    "name": "Thirianna",
+    "primaryFactionId": "eldar",
+    "primaryFactionName": "Aeldari",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 4
+  },
+  {
+    "id": "tigurius",
+    "name": "Tigurius",
+    "primaryFactionId": "ultramarines",
+    "primaryFactionName": "Ultramarines",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 6
+  },
+  {
+    "id": "tolbek",
+    "name": "Tolbek",
+    "primaryFactionId": "thousand_sons",
+    "primaryFactionName": "Thousand Sons",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 1
+  },
+  {
+    "id": "tolin_dorden",
+    "name": "Tolin Dorden",
+    "primaryFactionId": "tanith_first",
+    "primaryFactionName": "Tanith First-and-Only",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "tolwyn_draconis",
+    "name": "Tolwyn Draconis",
+    "primaryFactionId": "house_draconis",
+    "primaryFactionName": "House Draconis",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "tona_criid",
+    "name": "Tona Criid",
+    "primaryFactionId": "verghastite_ghosts",
+    "primaryFactionName": "Verghastite Ghosts",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 13
+  },
+  {
+    "id": "torin",
+    "name": "Torin",
+    "primaryFactionId": "space_wolves",
+    "primaryFactionName": "Space Wolves",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "torquemada_coteaz",
+    "name": "Torquemada Coteaz",
+    "primaryFactionId": "ordo_malleus",
+    "primaryFactionName": "Ordo Malleus",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "torquill_eliphas",
+    "name": "Torquill Eliphas",
+    "primaryFactionId": "word_bearers",
+    "primaryFactionName": "Word Bearers",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 1
+  },
+  {
+    "id": "torris_vaun",
+    "name": "Torris Vaun",
+    "primaryFactionId": null,
+    "primaryFactionName": null,
+    "primaryFactionAlignment": null,
+    "workCount": 2
+  },
+  {
+    "id": "trajann_valoris",
+    "name": "Trajann Valoris",
+    "primaryFactionId": "custodes",
+    "primaryFactionName": "Adeptus Custodes",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "trazyn_the_infinite",
+    "name": "Trazyn the Infinite",
+    "primaryFactionId": "necrons",
+    "primaryFactionName": "Necrons",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 5
+  },
+  {
+    "id": "tsugan",
+    "name": "Tsu'gan",
+    "primaryFactionId": "salamanders",
+    "primaryFactionName": "Salamanders",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 7
+  },
+  {
+    "id": "tybalt_marr",
+    "name": "Tybalt Marr",
+    "primaryFactionId": "sons_of_horus",
+    "primaryFactionName": "Sons of Horus",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 3
+  },
+  {
+    "id": "tylos_rubio",
+    "name": "Tylos Rubio",
+    "primaryFactionId": "knights_errant",
+    "primaryFactionName": "Knights Errant",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 6
+  },
+  {
+    "id": "typhus",
+    "name": "Typhus",
+    "primaryFactionId": "death_guard",
+    "primaryFactionName": "Death Guard",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 10
+  },
+  {
+    "id": "uber_aemos",
+    "name": "Uber Aemos",
+    "primaryFactionId": "inquisition",
+    "primaryFactionName": "Inquisition",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "ufthak_blackhawk",
+    "name": "Ufthak Blackhawk",
+    "primaryFactionId": "goffs",
+    "primaryFactionName": "Goffs",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 1
+  },
+  {
+    "id": "ulrach_branthan",
+    "name": "Ulrach Branthan",
+    "primaryFactionId": "iron_hands",
+    "primaryFactionName": "Iron Hands",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "ulrik_the_slayer",
+    "name": "Ulrik the Slayer",
+    "primaryFactionId": "space_wolves",
+    "primaryFactionName": "Space Wolves",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 6
+  },
+  {
+    "id": "uriah_olathaire",
+    "name": "Uriah Olathaire",
+    "primaryFactionId": "imperium",
+    "primaryFactionName": "Imperium of Man",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "uriel_ventris",
+    "name": "Uriel Ventris",
+    "primaryFactionId": "ultramarines",
+    "primaryFactionName": "Ultramarines",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 17
+  },
+  {
+    "id": "ursarkar_e_creed",
+    "name": "Ursarkar E. Creed",
+    "primaryFactionId": "cadian_shock_troops",
+    "primaryFactionName": "Cadian Shock Troops",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "ursula_creed",
+    "name": "Ursula Creed",
+    "primaryFactionId": "cadian_shock_troops",
+    "primaryFactionName": "Cadian Shock Troops",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "uzas",
+    "name": "Uzas",
+    "primaryFactionId": "night_lords",
+    "primaryFactionName": "Night Lords",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 5
+  },
+  {
+    "id": "valerian",
+    "name": "Valerian",
+    "primaryFactionId": "custodes",
+    "primaryFactionName": "Adeptus Custodes",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "vargard_obyron",
+    "name": "Vargard Obyron",
+    "primaryFactionId": "sautekh_dynasty",
+    "primaryFactionName": "Sautekh Dynasty",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 1
+  },
+  {
+    "id": "variel_the_flayer",
+    "name": "Variel the Flayer",
+    "primaryFactionId": "red_corsairs",
+    "primaryFactionName": "Red Corsairs",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 3
+  },
+  {
+    "id": "varl",
+    "name": "Varl",
+    "primaryFactionId": "tanith_first",
+    "primaryFactionName": "Tanith First-and-Only",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "vaynom_blenner",
+    "name": "Vaynom Blenner",
+    "primaryFactionId": "commissariat",
+    "primaryFactionName": "Commissariat",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "ven_anders",
+    "name": "Ven Anders",
+    "primaryFactionId": "astra_militarum",
+    "primaryFactionName": "Astra Militarum",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "vethorel",
+    "name": "Vethorel",
+    "primaryFactionId": "mechanicus",
+    "primaryFactionName": "Adeptus Mechanicus",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "viktor_hark",
+    "name": "Viktor Hark",
+    "primaryFactionId": "commissariat",
+    "primaryFactionName": "Commissariat",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 17
+  },
+  {
+    "id": "vitali_googol",
+    "name": "Vitali Googol",
+    "primaryFactionId": "navis_nobilite",
+    "primaryFactionName": "Navis Nobilite",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "vorne",
+    "name": "Vorne",
+    "primaryFactionId": "rogue_traders",
+    "primaryFactionName": "Rogue Traders",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "vorx",
+    "name": "Vorx",
+    "primaryFactionId": "death_guard",
+    "primaryFactionName": "Death Guard",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 1
+  },
+  {
+    "id": "vulkan",
+    "name": "Vulkan",
+    "primaryFactionId": "salamanders",
+    "primaryFactionName": "Salamanders",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 22
+  },
+  {
+    "id": "wotan",
+    "name": "Wotan",
+    "primaryFactionId": "necromunda",
+    "primaryFactionName": "Necromunda",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 3
+  },
+  {
+    "id": "wulf_khan",
+    "name": "Wulf Khan",
+    "primaryFactionId": "catachan_jungle_fighters",
+    "primaryFactionName": "Catachan Jungle Fighters",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "wystan_frauka",
+    "name": "Wystan Frauka",
+    "primaryFactionId": "inquisition",
+    "primaryFactionName": "Inquisition",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 4
+  },
+  {
+    "id": "xantine",
+    "name": "Xantine",
+    "primaryFactionId": "emperors_children",
+    "primaryFactionName": "Emperor's Children",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 1
+  },
+  {
+    "id": "xarl",
+    "name": "Xarl",
+    "primaryFactionId": "night_lords",
+    "primaryFactionName": "Night Lords",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 6
+  },
+  {
+    "id": "yasu_nagasena",
+    "name": "Yasu Nagasena",
+    "primaryFactionId": "officio_sigillite",
+    "primaryFactionName": "Officio Sigillite",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "yeceqath_voice_of_all",
+    "name": "Yeceqath the Voice of All",
+    "primaryFactionId": "chaos",
+    "primaryFactionName": "Chaos",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 1
+  },
+  {
+    "id": "yenekh",
+    "name": "Yenekh",
+    "primaryFactionId": "necrons",
+    "primaryFactionName": "Necrons",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 3
+  },
+  {
+    "id": "yoland",
+    "name": "Yoland",
+    "primaryFactionId": "necromunda",
+    "primaryFactionName": "Necromunda",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "yored_massak",
+    "name": "Yored Massak",
+    "primaryFactionId": "knights_errant",
+    "primaryFactionName": "Knights Errant",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "yosef_sabrat",
+    "name": "Yosef Sabrat",
+    "primaryFactionId": "adeptus_arbites",
+    "primaryFactionName": "Adeptus Arbites",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "yriel",
+    "name": "Yriel",
+    "primaryFactionId": "eldar",
+    "primaryFactionName": "Aeldari",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 1
+  },
+  {
+    "id": "yvraine",
+    "name": "Yvraine",
+    "primaryFactionId": "ynnari",
+    "primaryFactionName": "Ynnari",
+    "primaryFactionAlignment": "xenos",
+    "workCount": 8
+  },
+  {
+    "id": "zadkiel",
+    "name": "Zadkiel",
+    "primaryFactionId": "word_bearers",
+    "primaryFactionName": "Word Bearers",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 1
+  },
+  {
+    "id": "zael_efferneti",
+    "name": "Zael Efferneti",
+    "primaryFactionId": "inquisition",
+    "primaryFactionName": "Inquisition",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 2
+  },
+  {
+    "id": "zagreus_kane",
+    "name": "Zagreus Kane",
+    "primaryFactionId": "mechanicus",
+    "primaryFactionName": "Adeptus Mechanicus",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "zahariel",
+    "name": "Zahariel",
+    "primaryFactionId": "dark_angels",
+    "primaryFactionName": "Dark Angels",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 5
+  },
+  {
+    "id": "zardu_layak",
+    "name": "Zardu Layak",
+    "primaryFactionId": "word_bearers",
+    "primaryFactionName": "Word Bearers",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 3
+  },
+  {
+    "id": "zelia_lor",
+    "name": "Zelia Lor",
+    "primaryFactionId": "imperium",
+    "primaryFactionName": "Imperium of Man",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 6
+  },
+  {
+    "id": "zephon",
+    "name": "Zephon",
+    "primaryFactionId": "blood_angels",
+    "primaryFactionName": "Blood Angels",
+    "primaryFactionAlignment": "imperium",
+    "workCount": 1
+  },
+  {
+    "id": "zso_sahaal",
+    "name": "Zso Sahaal",
+    "primaryFactionId": "night_lords",
+    "primaryFactionName": "Night Lords",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 1
+  },
+  {
+    "id": "zygmunt_molotch",
+    "name": "Zygmunt Molotch",
+    "primaryFactionId": "chaos",
+    "primaryFactionName": "Chaos",
+    "primaryFactionAlignment": "chaos",
+    "workCount": 3
+  }
+]

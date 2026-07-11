@@ -1,0 +1,185 @@
+{
+  "type": "character",
+  "id": "belisarius_cawl",
+  "name": "Belisarius Cawl",
+  "blurb": {
+    "text": "Archmagos Dominus of the Adeptus Mechanicus and one of the most ancient figures in the Imperium. Tasked by Roboute Guilliman ten thousand years ago with developing new weapons and warriors, Cawl is the creator of the Primaris Space Marines and a pivotal figure in the events surrounding the 13th Black Crusade.",
+    "confidence": 0.98,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Belisarius_Cawl"
+  },
+  "facts": [
+    {
+      "label": "Allegiance",
+      "value": {
+        "type": "faction",
+        "id": "mechanicus",
+        "name": "Adeptus Mechanicus"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "dark-imperium",
+          "title": "Dark Imperium",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/dark-imperium",
+          "showTitle": null
+        },
+        {
+          "slug": "wolfsbane",
+          "title": "Wolfsbane",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/wolfsbane",
+          "showTitle": null
+        },
+        {
+          "slug": "belisarius-cawl-the-great-work",
+          "title": "Belisarius Cawl: The Great Work",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/belisarius-cawl-the-great-work",
+          "showTitle": null
+        },
+        {
+          "slug": "avenging-son",
+          "title": "Avenging Son",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/avenging-son",
+          "showTitle": null
+        },
+        {
+          "slug": "genefather",
+          "title": "Genefather",
+          "kind": "book",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/genefather",
+          "showTitle": null
+        },
+        {
+          "slug": "archmagos",
+          "title": "Archmagos",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/archmagos",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-27a61661-1979-5aed-9429-950e963b04f8",
+          "title": "68 - Primaris Marines",
+          "kind": "podcast_episode",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-3538c473-16ad-42fa-ba45-75825a665b66",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-12282429",
+          "title": "Belisarius Cawl: The Great Work | Warhammer 40k Book Club",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-061b4203-486b-4b93-b453-04ec20523d9f",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-15427748",
+          "title": "BELISARIUS CAWL: TRUST ME BRO I DON'T USE AI, XENO TECH OR INVENT STUFF 👌 | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-1ed205bf-aa6a-47b6-9457-9598d9f99d58",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "luetin09-wrpfm6-x83o",
+          "title": "CAWL'S NEXUS PLAN COULD CHANGE EVERYTHING | Warhammer 40,000 Lore/Speculation",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-002a887d-c521-4d96-bf34-7ed07d95a040",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-14502039",
+          "title": "VASHTORR RETURNS IN CAWL vs. NECRONS DOOMSDAY WEAPON EXTRAVAGANZA | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-1d3e0027-8331-488f-94f6-65416617efa3",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-7c2e70ef-bc80-4e7a-abc2-28bb13866efa",
+          "title": "Episode 103 - The Pariah Nexus pt2",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-0c8ee6e2-4046-4b70-901a-0d3a7d82e9fa",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-d8584d66-0637-11f0-9e9a-d3ec9457bcb1",
+          "title": "Episode 80 - Ynnari pt3 - Cawl and Guilliman save the Imperium",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-0c36d1f2-8eb6-435e-ae4c-520cfbaf956a",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "luetin09-wkwh3q3cry0",
+          "title": "BELISARIUS CAWL - THE TRUE OMNISSIAH? | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-2a24318f-4abf-4369-8dab-68c6c7227cb3",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18827868",
+          "title": "The Plague Wars Have Begun | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-5b4e80f8-b8ab-4b54-82bd-2eb935445fb5",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

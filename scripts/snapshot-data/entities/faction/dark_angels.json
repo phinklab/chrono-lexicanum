@@ -1,0 +1,910 @@
+{
+  "type": "faction",
+  "id": "dark_angels",
+  "name": "Dark Angels",
+  "blurb": {
+    "text": "The First Legion, a loyalist Space Marine Chapter descended from Lion El'Jonson that secretly hunts the Fallen — traitors from its own ranks — to atone for an ancient betrayal.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Dark_Angels"
+  },
+  "facts": [
+    {
+      "label": "Alignment",
+      "value": "Imperium"
+    },
+    {
+      "label": "Parent faction",
+      "value": {
+        "type": "faction",
+        "id": "adeptus_astartes",
+        "name": "Adeptus Astartes"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "angels-of-darkness",
+          "title": "Angels of Darkness",
+          "kind": "book",
+          "releaseYear": 2003,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/angels-of-darkness",
+          "showTitle": null
+        },
+        {
+          "slug": "collected-visions",
+          "title": "Collected Visions",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/collected-visions",
+          "showTitle": null
+        },
+        {
+          "slug": "descent-of-angels",
+          "title": "Descent of Angels",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/descent-of-angels",
+          "showTitle": null
+        },
+        {
+          "slug": "sons-of-fenris",
+          "title": "Sons of Fenris",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/sons-of-fenris",
+          "showTitle": null
+        },
+        {
+          "slug": "call-of-the-lion",
+          "title": "Call of the Lion",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/call-of-the-lion",
+          "showTitle": null
+        },
+        {
+          "slug": "fallen-angels",
+          "title": "Fallen Angels",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/fallen-angels",
+          "showTitle": null
+        },
+        {
+          "slug": "space-wolf-the-second-omnibus",
+          "title": "Space Wolf: The Second Omnibus",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/space-wolf-the-second-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "tales-of-heresy",
+          "title": "Tales of Heresy",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/tales-of-heresy",
+          "showTitle": null
+        },
+        {
+          "slug": "age-of-darkness",
+          "title": "Age of Darkness",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/age-of-darkness",
+          "showTitle": null
+        },
+        {
+          "slug": "savage-weapons",
+          "title": "Savage Weapons",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/savage-weapons",
+          "showTitle": null
+        },
+        {
+          "slug": "the-purging-of-kadillus",
+          "title": "The Purging of Kadillus",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-purging-of-kadillus",
+          "showTitle": null
+        },
+        {
+          "slug": "dark-vengeance",
+          "title": "Dark Vengeance",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/dark-vengeance",
+          "showTitle": null
+        },
+        {
+          "slug": "grey-angel",
+          "title": "Grey Angel",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/grey-angel",
+          "showTitle": null
+        },
+        {
+          "slug": "the-lion",
+          "title": "The Lion",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-lion",
+          "showTitle": null
+        },
+        {
+          "slug": "the-primarchs",
+          "title": "The Primarchs",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-primarchs",
+          "showTitle": null
+        },
+        {
+          "slug": "cypher-guardian-of-order",
+          "title": "Cypher: Guardian of Order",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/cypher-guardian-of-order",
+          "showTitle": null
+        },
+        {
+          "slug": "pandorax",
+          "title": "Pandorax",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/pandorax",
+          "showTitle": null
+        },
+        {
+          "slug": "ravenwing",
+          "title": "Ravenwing",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/ravenwing",
+          "showTitle": null
+        },
+        {
+          "slug": "the-imperial-truth",
+          "title": "The Imperial Truth",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-imperial-truth",
+          "showTitle": null
+        },
+        {
+          "slug": "the-unremembered-empire",
+          "title": "The Unremembered Empire",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-unremembered-empire",
+          "showTitle": null
+        },
+        {
+          "slug": "echoes-of-ruin",
+          "title": "Echoes of Ruin",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/echoes-of-ruin",
+          "showTitle": null
+        },
+        {
+          "slug": "horus-heresy-the-scripts-volume-ii",
+          "title": "Horus Heresy: The Scripts: Volume II",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/horus-heresy-the-scripts-volume-ii",
+          "showTitle": null
+        },
+        {
+          "slug": "master-of-sanctity",
+          "title": "Master of Sanctity",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/master-of-sanctity",
+          "showTitle": null
+        },
+        {
+          "slug": "master-of-the-first",
+          "title": "Master of the First",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/master-of-the-first",
+          "showTitle": null
+        },
+        {
+          "slug": "prince-of-crows",
+          "title": "Prince of Crows",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/prince-of-crows",
+          "showTitle": null
+        },
+        {
+          "slug": "the-long-night",
+          "title": "The Long Night",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-long-night",
+          "showTitle": null
+        },
+        {
+          "slug": "by-the-lions-command",
+          "title": "By the Lion's Command",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/by-the-lions-command",
+          "showTitle": null
+        },
+        {
+          "slug": "legacies-of-betrayal",
+          "title": "Legacies of Betrayal",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/legacies-of-betrayal",
+          "showTitle": null
+        },
+        {
+          "slug": "lords-of-caliban",
+          "title": "Lords of Caliban",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/lords-of-caliban",
+          "showTitle": null
+        },
+        {
+          "slug": "ragnar-blackmane",
+          "title": "Ragnar Blackmane",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ragnar-blackmane",
+          "showTitle": null
+        },
+        {
+          "slug": "the-unforgiven",
+          "title": "The Unforgiven",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-unforgiven",
+          "showTitle": null
+        },
+        {
+          "slug": "angels-of-caliban",
+          "title": "Angels of Caliban",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/angels-of-caliban",
+          "showTitle": null
+        },
+        {
+          "slug": "azrael",
+          "title": "Azrael",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/azrael",
+          "showTitle": null
+        },
+        {
+          "slug": "exocytosis",
+          "title": "Exocytosis",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/exocytosis",
+          "showTitle": null
+        },
+        {
+          "slug": "legacy-of-caliban-the-omnibus",
+          "title": "Legacy of Caliban: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/legacy-of-caliban-the-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "leman-russ-the-great-wolf",
+          "title": "Leman Russ: The Great Wolf",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/leman-russ-the-great-wolf",
+          "showTitle": null
+        },
+        {
+          "slug": "space-wolves-scent-of-a-traitor",
+          "title": "Space Wolves: Scent of a Traitor",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/space-wolves-scent-of-a-traitor",
+          "showTitle": null
+        },
+        {
+          "slug": "space-wolves-the-darkness-of-angels",
+          "title": "Space Wolves: The Darkness of Angels",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/space-wolves-the-darkness-of-angels",
+          "showTitle": null
+        },
+        {
+          "slug": "war-without-end",
+          "title": "War Without End",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/war-without-end",
+          "showTitle": null
+        },
+        {
+          "slug": "eye-of-terra",
+          "title": "Eye of Terra",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/eye-of-terra",
+          "showTitle": null
+        },
+        {
+          "slug": "ruinstorm",
+          "title": "Ruinstorm",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/ruinstorm",
+          "showTitle": null
+        },
+        {
+          "slug": "space-wolves-legends",
+          "title": "Space Wolves (Legends)",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/space-wolves-legends",
+          "showTitle": null
+        },
+        {
+          "slug": "the-eye-of-ezekiel",
+          "title": "The Eye of Ezekiel",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-eye-of-ezekiel",
+          "showTitle": null
+        },
+        {
+          "slug": "dreadwing",
+          "title": "Dreadwing",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/dreadwing",
+          "showTitle": null
+        },
+        {
+          "slug": "sons-of-the-emperor",
+          "title": "Sons of the Emperor",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/sons-of-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "visions-of-heresy-2018-ed",
+          "title": "Visions of Heresy (2018 ed.)",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/visions-of-heresy-2018-ed",
+          "showTitle": null
+        },
+        {
+          "slug": "war-of-secrets",
+          "title": "War of Secrets",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/war-of-secrets",
+          "showTitle": null
+        },
+        {
+          "slug": "scions-of-the-emperor",
+          "title": "Scions of the Emperor",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/scions-of-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "lion-eljonson-lord-of-the-first",
+          "title": "Lion El'Jonson: Lord of the First",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/lion-eljonson-lord-of-the-first",
+          "showTitle": null
+        },
+        {
+          "slug": "alpharius-head-of-the-hydra",
+          "title": "Alpharius: Head of the Hydra",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/alpharius-head-of-the-hydra",
+          "showTitle": null
+        },
+        {
+          "slug": "luther-first-of-the-fallen",
+          "title": "Luther: First of the Fallen",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/luther-first-of-the-fallen",
+          "showTitle": null
+        },
+        {
+          "slug": "lord-of-the-fallen",
+          "title": "Lord of the Fallen",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/lord-of-the-fallen",
+          "showTitle": null
+        },
+        {
+          "slug": "the-lion-sons-of-the-forest",
+          "title": "The Lion: Sons of the Forest",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-lion-sons-of-the-forest",
+          "showTitle": null
+        },
+        {
+          "slug": "the-end-and-the-death-vol-3",
+          "title": "The End and The Death Vol. 3",
+          "kind": "book",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-end-and-the-death-vol-3",
+          "showTitle": null
+        },
+        {
+          "slug": "era-of-ruin",
+          "title": "Era Of Ruin",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/era-of-ruin",
+          "showTitle": null
+        },
+        {
+          "slug": "flames-of-betrayal",
+          "title": "Flames of Betrayal",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/flames-of-betrayal",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-listener-lore-6-822fcbbae105e64c97353e8bfdfb4147",
+          "title": "Listener Lore 6",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-1f5518cf-6e49-4296-9c5a-4a3d9aef5575",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "luetin09-azmhqme4xe8",
+          "title": "40K BEGINNERS - THE ASTARTES CHAPTERS [Part 1] | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-478c4e8a-6943-4378-a5fb-b62c6ebf022b",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-12726556",
+          "title": "ARKS OF OMEN: THE LION | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-ded14d82-cb3f-47f4-b574-e84a591fb366",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-12491792",
+          "title": "ARKS OF OMEN: THE SIEGE OF THE ROCK | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-a1b48eae-555c-4d61-8149-b2879a3361df",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-12684761",
+          "title": "DARK ANGELS - REPENT! | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-c353593f-5872-41cc-a310-3a3da928dfe5",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-12635425",
+          "title": "LION EL'JONSON: ALL HAIL THE COMING OF THE DESTROYER | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-207fce51-f120-4f46-956d-7e33adb6a15d",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-https-api-spreaker-com-episode-63322184",
+          "title": "131 - Lion El'Jonson, Origins and Great Crusade",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-04996497-aa12-42d5-a41e-4f615e799225",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-https-api-spreaker-com-episode-63394251",
+          "title": "132 - Lion El'Jonson, Horus Heresy and Great Scouring",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-96ed2286-2d5c-44b5-938b-3e125750211e",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-https-api-spreaker-com-episode-63455019",
+          "title": "133 - Dark Angels, 30k Legion Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-36a8300b-3620-49ab-88c1-3fe72c03d1d5",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-a3e7b690-c706-11ef-bc38-7b2c1edb2ac8",
+          "title": "134 - Dark Angels, 40k Chapter Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-b45018e1-3f05-4b45-ad6e-59e1e3a7baca",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-14236322",
+          "title": "Episode 16 - Dark Angels - The rise of the 1st legion under the Emperor and their reunitment with the Lion.",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-1bddafde-a9ea-403a-8116-112beae9716f",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-14311492",
+          "title": "Episode 17 - Dark Angels Pt2 - Eliminate the Heresy!!..... Wait... are we the heresy too?",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-91a2db2e-d521-496b-86a8-cfe4651bbc85",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-14349224",
+          "title": "Episode 18 - Dark Angels- why they are fun to play.",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-49a1dc5e-0e46-4652-9178-9015542f0463",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-15355759",
+          "title": "Sevatar: We were murderers first, last and always | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-7292fd8d-d94f-44db-8fc0-6777f50f87ce",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-14346928",
+          "title": "THE LION: SON OF THE FOREST | Warhammer 40k Book Club",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-a5d65a68-299e-4b8d-b18c-5f32e1e879f3",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "luetin09-syxozcjs0f0",
+          "title": "40K - THE DARK ANGELS - and return of THE LION | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-512762aa-4a19-4dda-9507-7fc9073b634c",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "the-40k-lorecast-2d4d1595-153f-4ded-a1f5-5807224fc84d",
+          "title": "Episode 100 - Cypher",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-002d595e-21ea-4c6a-af17-4afd22cca4de",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-16778946",
+          "title": "FOOD IN THE IMPERIUM (Yes, corpse-starch is in this one) | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-b7e6e313-f5c4-47d7-a657-9bcdae4a1c07",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-6d6beb9c-56a0-4343-bea9-1b4390765f1d",
+          "title": "232 - Astartes Armoury: Light Vehicles",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-3a4f0eef-ae63-4662-aaff-c3cdb6085858",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-353065b7-324b-4fc1-940f-bbac7d3ee5a9",
+          "title": "Bonus 51 - The Knights of Slaughter",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-e02a77cb-06a8-478e-a5e0-83e6b56a0915",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18788615",
+          "title": "Captain Titus Returns to Kick Some Necron Ass | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-68427d2e-f27c-44ef-a1c3-401f94a37c5b",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-19463596",
+          "title": "Cypher: The Fallen Angel Who Walked to the Golden Throne | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-b335a2e2-d36e-446d-a3ef-7ffca3bbde4c",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-ab48e76e-90f8-4dee-bcb7-6a2ad7474e74",
+          "title": "Episode 133 - The Siege of Vraks pt 1 - Rise of Cardinal Xaphan and the invasion by the imperium",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-4fd13703-fd40-47f0-a246-38968feb8c78",
+          "showTitle": "The 40k Lorecast"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Sub-factions",
+      "items": [
+        {
+          "type": "faction",
+          "id": "order_of_caliban",
+          "name": "The Order of Caliban"
+        }
+      ]
+    },
+    {
+      "label": "Key characters",
+      "items": [
+        {
+          "type": "character",
+          "id": "annael",
+          "name": "Annael"
+        },
+        {
+          "type": "character",
+          "id": "asmodai",
+          "name": "Asmodai"
+        },
+        {
+          "type": "character",
+          "id": "azrael",
+          "name": "Azrael"
+        },
+        {
+          "type": "character",
+          "id": "belial",
+          "name": "Belial"
+        },
+        {
+          "type": "character",
+          "id": "corswain",
+          "name": "Corswain"
+        },
+        {
+          "type": "character",
+          "id": "holguin",
+          "name": "Holguin"
+        },
+        {
+          "type": "character",
+          "id": "lion_el_jonson",
+          "name": "Lion El'Jonson"
+        },
+        {
+          "type": "character",
+          "id": "nemiel",
+          "name": "Nemiel"
+        },
+        {
+          "type": "character",
+          "id": "redloss",
+          "name": "Redloss"
+        },
+        {
+          "type": "character",
+          "id": "sammael",
+          "name": "Sammael"
+        },
+        {
+          "type": "character",
+          "id": "sapphon",
+          "name": "Sapphon"
+        },
+        {
+          "type": "character",
+          "id": "telemenus",
+          "name": "Telemenus"
+        },
+        {
+          "type": "character",
+          "id": "zahariel",
+          "name": "Zahariel"
+        }
+      ]
+    }
+  ]
+}

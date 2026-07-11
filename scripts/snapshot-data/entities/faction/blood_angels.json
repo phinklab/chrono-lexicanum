@@ -1,0 +1,850 @@
+{
+  "type": "faction",
+  "id": "blood_angels",
+  "name": "Blood Angels",
+  "blurb": {
+    "text": "A loyalist Space Marine Chapter descended from the primarch Sanguinius, renowned for nobility and artistry yet cursed by the Red Thirst and the Black Rage.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Blood_Angels"
+  },
+  "facts": [
+    {
+      "label": "Alignment",
+      "value": "Imperium"
+    },
+    {
+      "label": "Parent faction",
+      "value": {
+        "type": "faction",
+        "id": "adeptus_astartes",
+        "name": "Adeptus Astartes"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "deus-encarmine",
+          "title": "Deus Encarmine",
+          "kind": "book",
+          "releaseYear": 2004,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/deus-encarmine",
+          "showTitle": null
+        },
+        {
+          "slug": "deus-sanguinius",
+          "title": "Deus Sanguinius",
+          "kind": "book",
+          "releaseYear": 2005,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/deus-sanguinius",
+          "showTitle": null
+        },
+        {
+          "slug": "collected-visions",
+          "title": "Collected Visions",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/collected-visions",
+          "showTitle": null
+        },
+        {
+          "slug": "red-fury",
+          "title": "Red Fury",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/red-fury",
+          "showTitle": null
+        },
+        {
+          "slug": "space-hulk",
+          "title": "Space Hulk",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/space-hulk",
+          "showTitle": null
+        },
+        {
+          "slug": "black-tide",
+          "title": "Black Tide",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/black-tide",
+          "showTitle": null
+        },
+        {
+          "slug": "fear-to-tread",
+          "title": "Fear to Tread",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/fear-to-tread",
+          "showTitle": null
+        },
+        {
+          "slug": "lost-sons",
+          "title": "Lost Sons",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/lost-sons",
+          "showTitle": null
+        },
+        {
+          "slug": "mephiston-lord-of-death",
+          "title": "Mephiston: Lord of Death",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/mephiston-lord-of-death",
+          "showTitle": null
+        },
+        {
+          "slug": "the-unremembered-empire",
+          "title": "The Unremembered Empire",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-unremembered-empire",
+          "showTitle": null
+        },
+        {
+          "slug": "death-and-defiance",
+          "title": "Death and Defiance",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/death-and-defiance",
+          "showTitle": null
+        },
+        {
+          "slug": "shield-of-baal-deathstorm",
+          "title": "Shield of Baal: Deathstorm",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/shield-of-baal-deathstorm",
+          "showTitle": null
+        },
+        {
+          "slug": "sin-of-damnation",
+          "title": "Sin of Damnation",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/sin-of-damnation",
+          "showTitle": null
+        },
+        {
+          "slug": "sins-of-the-father",
+          "title": "Sins of the Father",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/sins-of-the-father",
+          "showTitle": null
+        },
+        {
+          "slug": "sons-of-wrath",
+          "title": "Sons of Wrath",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/sons-of-wrath",
+          "showTitle": null
+        },
+        {
+          "slug": "the-herald-of-sanguinius",
+          "title": "The Herald of Sanguinius",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-herald-of-sanguinius",
+          "showTitle": null
+        },
+        {
+          "slug": "shadow-knight",
+          "title": "Shadow Knight",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/shadow-knight",
+          "showTitle": null
+        },
+        {
+          "slug": "shield-of-baal-devourer",
+          "title": "Shield of Baal: Devourer",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/shield-of-baal-devourer",
+          "showTitle": null
+        },
+        {
+          "slug": "virtues-of-the-sons",
+          "title": "Virtues of the Sons",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/virtues-of-the-sons",
+          "showTitle": null
+        },
+        {
+          "slug": "angels-of-caliban",
+          "title": "Angels of Caliban",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/angels-of-caliban",
+          "showTitle": null
+        },
+        {
+          "slug": "echoes-of-imperium",
+          "title": "Echoes of Imperium",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/echoes-of-imperium",
+          "showTitle": null
+        },
+        {
+          "slug": "flesh-tearers",
+          "title": "Flesh Tearers",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/flesh-tearers",
+          "showTitle": null
+        },
+        {
+          "slug": "lemartes-guardian-of-the-lost",
+          "title": "Lemartes: Guardian of the Lost",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/lemartes-guardian-of-the-lost",
+          "showTitle": null
+        },
+        {
+          "slug": "pharos",
+          "title": "Pharos",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/pharos",
+          "showTitle": null
+        },
+        {
+          "slug": "virtues-of-the-sons-sins-of-the-father",
+          "title": "Virtues of the Sons/Sins of the Father",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/virtues-of-the-sons-sins-of-the-father",
+          "showTitle": null
+        },
+        {
+          "slug": "dante",
+          "title": "Dante",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/dante",
+          "showTitle": null
+        },
+        {
+          "slug": "mephiston-blood-of-sanguinius",
+          "title": "Mephiston: Blood of Sanguinius",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/mephiston-blood-of-sanguinius",
+          "showTitle": null
+        },
+        {
+          "slug": "ruinstorm",
+          "title": "Ruinstorm",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/ruinstorm",
+          "showTitle": null
+        },
+        {
+          "slug": "shield-of-baal",
+          "title": "Shield of Baal",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/shield-of-baal",
+          "showTitle": null
+        },
+        {
+          "slug": "the-devastation-of-baal",
+          "title": "The Devastation of Baal",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-devastation-of-baal",
+          "showTitle": null
+        },
+        {
+          "slug": "mephiston-revenant-crusade",
+          "title": "Mephiston: Revenant Crusade",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/mephiston-revenant-crusade",
+          "showTitle": null
+        },
+        {
+          "slug": "sons-of-the-emperor",
+          "title": "Sons of the Emperor",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/sons-of-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "the-atonement-of-fire",
+          "title": "The Atonement of Fire",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-atonement-of-fire",
+          "showTitle": null
+        },
+        {
+          "slug": "visions-of-heresy-2018-ed",
+          "title": "Visions of Heresy (2018 ed.)",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/visions-of-heresy-2018-ed",
+          "showTitle": null
+        },
+        {
+          "slug": "bringer-of-sorrow",
+          "title": "Bringer of Sorrow",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/bringer-of-sorrow",
+          "showTitle": null
+        },
+        {
+          "slug": "mephiston-city-of-light",
+          "title": "Mephiston: City of Light",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/mephiston-city-of-light",
+          "showTitle": null
+        },
+        {
+          "slug": "scions-of-the-emperor",
+          "title": "Scions of the Emperor",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/scions-of-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "the-lost-and-the-damned",
+          "title": "The Lost and the Damned",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-lost-and-the-damned",
+          "showTitle": null
+        },
+        {
+          "slug": "the-passing-of-angels",
+          "title": "The Passing of Angels",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-passing-of-angels",
+          "showTitle": null
+        },
+        {
+          "slug": "astorath-angel-of-mercy",
+          "title": "Astorath: Angel of Mercy",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/astorath-angel-of-mercy",
+          "showTitle": null
+        },
+        {
+          "slug": "darkness-in-the-blood",
+          "title": "Darkness in the Blood",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/darkness-in-the-blood",
+          "showTitle": null
+        },
+        {
+          "slug": "saturnine",
+          "title": "Saturnine",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/saturnine",
+          "showTitle": null
+        },
+        {
+          "slug": "echoes-of-eternity",
+          "title": "Echoes of Eternity",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/echoes-of-eternity",
+          "showTitle": null
+        },
+        {
+          "slug": "sanguinius-the-great-angel",
+          "title": "Sanguinius: The Great Angel",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/sanguinius-the-great-angel",
+          "showTitle": null
+        },
+        {
+          "slug": "the-end-and-the-death-vol-1",
+          "title": "The End and The Death Vol. 1",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-end-and-the-death-vol-1",
+          "showTitle": null
+        },
+        {
+          "slug": "the-end-and-the-death-vol-2",
+          "title": "The End and The Death Vol. 2",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-end-and-the-death-vol-2",
+          "showTitle": null
+        },
+        {
+          "slug": "wrath-of-the-lost",
+          "title": "Wrath of the Lost",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/wrath-of-the-lost",
+          "showTitle": null
+        },
+        {
+          "slug": "the-end-and-the-death-vol-3",
+          "title": "The End and The Death Vol. 3",
+          "kind": "book",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-end-and-the-death-vol-3",
+          "showTitle": null
+        },
+        {
+          "slug": "era-of-ruin",
+          "title": "Era Of Ruin",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/era-of-ruin",
+          "showTitle": null
+        },
+        {
+          "slug": "armageddon-season-of-fire",
+          "title": "Armageddon: Season of Fire",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/armageddon-season-of-fire",
+          "showTitle": null
+        },
+        {
+          "slug": "flames-of-betrayal",
+          "title": "Flames of Betrayal",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/flames-of-betrayal",
+          "showTitle": null
+        },
+        {
+          "slug": "world-ablaze",
+          "title": "World Ablaze",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/world-ablaze",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-11529003",
+          "title": "BLOOD ANGELS: For the Emperor and Sanguinius! | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-05ca2374-c5b6-4c28-a04e-a7cab76ebed6",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-ca3cc409-b445-49f2-8a22-0f8c25b4a89a",
+          "title": "Bonus 27 - Sanguinala Short Story Contest",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-ffd3af54-054e-4e65-9bb9-dccedd4d54eb",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-11480579",
+          "title": "SANGUINIUS: FABULOUS HAWK-BOY | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-7828f82f-fc19-4520-bb10-2580949e8690",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "luetin09-azmhqme4xe8",
+          "title": "40K BEGINNERS - THE ASTARTES CHAPTERS [Part 1] | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-478c4e8a-6943-4378-a5fb-b62c6ebf022b",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-13081818",
+          "title": "LEVIATHAN: AND I LOOKED UPON THE GREAT HIVE BEAST, AND KNEW THAT HOPE WAS LOST | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-d9d5937d-70f0-4766-a1c7-47e845493b06",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "luetin09-zq8spgrsyok",
+          "title": "40K LEGENDS - LEMARTES GUARDIAN OF THE LOST | Warhammer 40,000 Lore History",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-a6c6cba9-5678-4d40-9a93-330b83eaa04e",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-15220038",
+          "title": "Episode 39 - Tyranids pt 3 - Imperial history of the Tyranid invasions.",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-d5bf7a98-007c-41ff-97f0-4753f833b50c",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-15467460",
+          "title": "SECOND WAR FOR ARMAGEDDON: PRACTICE RUN (TRILLIONS DEAD) | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-73aa00a1-dc59-4fd7-8e46-45b330e98898",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-15355759",
+          "title": "Sevatar: We were murderers first, last and always | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-7292fd8d-d94f-44db-8fc0-6777f50f87ce",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-36cb9f16-cbff-42c2-ad15-fe7844c693f9",
+          "title": "201 - Sanguinius, Origins and Great Crusade",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-36e60daf-a3c6-47b1-a3bc-517351f4e7b2",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-db88fa1d-232e-44ef-83c7-44b47c0e0e39",
+          "title": "202 - Sanguinius, Horus Heresy",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-d8be5eb5-36f7-4cad-99e9-f8cf2a233a40",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-3d7906ad-9ff1-459c-a43c-2ff62995fc8a",
+          "title": "203 - Blood Angels, 30k Legion Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-5dbf754a-5f37-4d62-8122-87cd9474cff5",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-da5a9f5c-31b9-4856-89cd-0f1f9283cdc6",
+          "title": "204 - Blood Angels, 40k Chapter Era ",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-b1288ee8-27ad-461a-ab95-af31a1a13189",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-d2fd0cb4-2e17-425f-99de-5b5d29875738",
+          "title": "207 - The Ultima Segmentum",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-7a47675c-535a-4f75-8902-ac6fcb689dd5",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "luetin09-d18rfiparne",
+          "title": "40K PRIMARCHS - SANGUINIUS - THE RISE AND FALL OF AN ANGEL | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-dee94531-4850-43c3-9240-2c0d01559ef5",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "lorehammer-14c1c550-7abb-4491-b154-d100bca97b58",
+          "title": "Bonus 50 - Sanguinala Mass",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-f6cbd0c0-653f-46e2-9b3e-31d3fdbe08c0",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-17476619",
+          "title": "DANTE | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-55164365-80c4-4146-b071-1b761b0d15fc",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-6fda0240-e317-11ef-b623-4308392253d8",
+          "title": "Episode 74 - Blood Angels pt1 - The origins",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-5b9fe659-6d84-4a6b-b897-21d921f552f6",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-92821c50-e728-11ef-8213-af33b664c72d",
+          "title": "Episode 75 - Blood Angels pt2 - After the Death of Sanguinius",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-d0a93a49-37d1-49b6-bc54-5e0693b03640",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18370513",
+          "title": "FLESH TEARERS: They're good guys! Sort of | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-9fbdbc28-23f3-4201-b8ec-c67d7bdec839",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Sub-factions",
+      "items": [
+        {
+          "type": "faction",
+          "id": "angels_resplendent",
+          "name": "Angels Resplendent"
+        },
+        {
+          "type": "faction",
+          "id": "sanguinary_guard",
+          "name": "Sanguinary Guard"
+        }
+      ]
+    },
+    {
+      "label": "Key characters",
+      "items": [
+        {
+          "type": "character",
+          "id": "arkio",
+          "name": "Arkio"
+        },
+        {
+          "type": "character",
+          "id": "astorath",
+          "name": "Astorath"
+        },
+        {
+          "type": "character",
+          "id": "captain_raphael",
+          "name": "Captain Raphael"
+        },
+        {
+          "type": "character",
+          "id": "commander_dante",
+          "name": "Commander Dante"
+        },
+        {
+          "type": "character",
+          "id": "gavriel",
+          "name": "Gavriel"
+        },
+        {
+          "type": "character",
+          "id": "karlaen",
+          "name": "Karlaen"
+        },
+        {
+          "type": "character",
+          "id": "lemartes",
+          "name": "Lemartes"
+        },
+        {
+          "type": "character",
+          "id": "mephiston",
+          "name": "Mephiston"
+        },
+        {
+          "type": "character",
+          "id": "meros",
+          "name": "Meros"
+        },
+        {
+          "type": "character",
+          "id": "rafen",
+          "name": "Rafen"
+        },
+        {
+          "type": "character",
+          "id": "raldoron",
+          "name": "Raldoron"
+        },
+        {
+          "type": "character",
+          "id": "sanguinius",
+          "name": "Sanguinius"
+        },
+        {
+          "type": "character",
+          "id": "sergeant_lorenzo",
+          "name": "Sergeant Lorenzo"
+        },
+        {
+          "type": "character",
+          "id": "zephon",
+          "name": "Zephon"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,315 @@
+{
+  "type": "character",
+  "id": "magnus_the_red",
+  "name": "Magnus the Red",
+  "blurb": {
+    "text": "Primarch of the Thousand Sons, a peerless psyker whose pursuit of sorcery led his Legion to ruin and into the service of the Chaos God Tzeentch.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Magnus_the_Red"
+  },
+  "facts": [
+    {
+      "label": "Allegiance",
+      "value": {
+        "type": "faction",
+        "id": "thousand_sons",
+        "name": "Thousand Sons"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "grey-hunter",
+          "title": "Grey Hunter",
+          "kind": "book",
+          "releaseYear": 2002,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/grey-hunter",
+          "showTitle": null
+        },
+        {
+          "slug": "the-space-wolf-omnibus",
+          "title": "The Space Wolf Omnibus",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-space-wolf-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "a-thousand-sons",
+          "title": "A Thousand Sons",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/a-thousand-sons",
+          "showTitle": null
+        },
+        {
+          "slug": "battle-of-the-fang",
+          "title": "Battle of the Fang",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/battle-of-the-fang",
+          "showTitle": null
+        },
+        {
+          "slug": "thief-of-revelations",
+          "title": "Thief of Revelations",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/thief-of-revelations",
+          "showTitle": null
+        },
+        {
+          "slug": "ahriman-exodus",
+          "title": "Ahriman: Exodus",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ahriman-exodus",
+          "showTitle": null
+        },
+        {
+          "slug": "ahriman-unchanged",
+          "title": "Ahriman: Unchanged",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ahriman-unchanged",
+          "showTitle": null
+        },
+        {
+          "slug": "the-hunt-of-magnus",
+          "title": "The Hunt for Magnus",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-hunt-of-magnus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-razing-of-prospero",
+          "title": "The Razing of Prospero",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-razing-of-prospero",
+          "showTitle": null
+        },
+        {
+          "slug": "ahriman-the-omnibus",
+          "title": "Ahriman: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ahriman-the-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "curse-of-the-wulfen",
+          "title": "Curse of the Wulfen",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/buch/curse-of-the-wulfen",
+          "showTitle": null
+        },
+        {
+          "slug": "magnus-the-red-master-of-prospero",
+          "title": "Magnus the Red: Master of Prospero",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/magnus-the-red-master-of-prospero",
+          "showTitle": null
+        },
+        {
+          "slug": "the-crimson-king",
+          "title": "The Crimson King",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-crimson-king",
+          "showTitle": null
+        },
+        {
+          "slug": "the-master-of-mankind",
+          "title": "The Master of Mankind",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-master-of-mankind",
+          "showTitle": null
+        },
+        {
+          "slug": "jaghatai-khan-warhawk-of-chogoris",
+          "title": "Jaghatai Khan: Warhawk of Chogoris",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/jaghatai-khan-warhawk-of-chogoris",
+          "showTitle": null
+        },
+        {
+          "slug": "sons-of-the-emperor",
+          "title": "Sons of the Emperor",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/sons-of-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "morningstar",
+          "title": "Morningstar",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/morningstar",
+          "showTitle": null
+        },
+        {
+          "slug": "the-abyssal-edge",
+          "title": "The Abyssal Edge",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-abyssal-edge",
+          "showTitle": null
+        },
+        {
+          "slug": "blood-of-the-emperor",
+          "title": "Blood of the Emperor",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/blood-of-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "fury-of-magnus",
+          "title": "Fury of Magnus",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/fury-of-magnus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-shattered-and-the-soulless",
+          "title": "The Shattered and the Soulless",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-shattered-and-the-soulless",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "lorehammer-91b85d8c-a695-4ebd-8867-89c2c94992b6",
+          "title": "Listener Lore 17",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-2fb724ec-dabf-4375-989f-bb1d9d099a5b",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-13773587",
+          "title": "Episode 4 - Heresy makes its move",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-0dd8ba05-53c3-4790-be05-c39e248d7f1b",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-14834209",
+          "title": "Episode 29 - Ahriman Pt 2",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-9a17a6fc-707e-46ff-9d78-a787b9cf0c33",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-28eb0d2e-aa8d-11ef-b226-5f61143a557b",
+          "title": "Episode 63 - \"Where are they now\" Primarch edition - the Traitors.",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-030896d9-45a1-44fb-bef8-7e8f207be189",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-14905927",
+          "title": "MAGNUS: THE CRIMSON KING | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-e18cd17e-58fc-43be-a26e-40640a394a70",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-14948643",
+          "title": "THE THOUSAND SONS: ALL IS DUST | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-1352d913-fc06-4b10-940b-da458118f5a7",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "luetin09-tyg9juqicfo",
+          "title": "40K BEGINNERS - TRAITOR ASTARTES [Part 3] | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-0a06c906-23cf-4ab0-9a17-a963cccbe833",
+          "showTitle": "Luetin09"
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

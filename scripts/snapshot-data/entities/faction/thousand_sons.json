@@ -1,0 +1,695 @@
+{
+  "type": "faction",
+  "id": "thousand_sons",
+  "name": "Thousand Sons",
+  "blurb": {
+    "text": "A traitor Space Marine Legion of sorcerers led by the primarch Magnus the Red, whose pursuit of forbidden knowledge drove its fall to the Chaos God Tzeentch.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Thousand_Sons"
+  },
+  "facts": [
+    {
+      "label": "Alignment",
+      "value": "Chaos"
+    },
+    {
+      "label": "Parent faction",
+      "value": {
+        "type": "faction",
+        "id": "heretic_astartes",
+        "name": "Heretic Astartes"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "chaos-child",
+          "title": "Chaos Child",
+          "kind": "book",
+          "releaseYear": 1995,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/chaos-child",
+          "showTitle": null
+        },
+        {
+          "slug": "grey-hunter",
+          "title": "Grey Hunter",
+          "kind": "book",
+          "releaseYear": 2002,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/grey-hunter",
+          "showTitle": null
+        },
+        {
+          "slug": "collected-visions",
+          "title": "Collected Visions",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/collected-visions",
+          "showTitle": null
+        },
+        {
+          "slug": "battle-for-the-abyss",
+          "title": "Battle for the Abyss",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/battle-for-the-abyss",
+          "showTitle": null
+        },
+        {
+          "slug": "the-space-wolf-omnibus",
+          "title": "The Space Wolf Omnibus",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-space-wolf-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "wolfs-honour",
+          "title": "Wolf's Honour",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/wolfs-honour",
+          "showTitle": null
+        },
+        {
+          "slug": "space-wolf-the-second-omnibus",
+          "title": "Space Wolf: The Second Omnibus",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/space-wolf-the-second-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-inquisition-war-omnibus",
+          "title": "The Inquisition War Omnibus",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-inquisition-war-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "a-thousand-sons",
+          "title": "A Thousand Sons",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/a-thousand-sons",
+          "showTitle": null
+        },
+        {
+          "slug": "prospero-burns",
+          "title": "Prospero Burns",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/prospero-burns",
+          "showTitle": null
+        },
+        {
+          "slug": "age-of-darkness",
+          "title": "Age of Darkness",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/age-of-darkness",
+          "showTitle": null
+        },
+        {
+          "slug": "atlas-infernal",
+          "title": "Atlas Infernal",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/atlas-infernal",
+          "showTitle": null
+        },
+        {
+          "slug": "battle-of-the-fang",
+          "title": "Battle of the Fang",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/battle-of-the-fang",
+          "showTitle": null
+        },
+        {
+          "slug": "rebirth",
+          "title": "Rebirth",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/rebirth",
+          "showTitle": null
+        },
+        {
+          "slug": "the-outcast-dead",
+          "title": "The Outcast Dead",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-outcast-dead",
+          "showTitle": null
+        },
+        {
+          "slug": "ahriman-exile",
+          "title": "Ahriman: Exile",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/ahriman-exile",
+          "showTitle": null
+        },
+        {
+          "slug": "lucius-the-eternal-blade",
+          "title": "Lucius: The Eternal Blade",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/lucius-the-eternal-blade",
+          "showTitle": null
+        },
+        {
+          "slug": "thief-of-revelations",
+          "title": "Thief of Revelations",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/thief-of-revelations",
+          "showTitle": null
+        },
+        {
+          "slug": "ahriman-sorcerer",
+          "title": "Ahriman: Sorcerer",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/ahriman-sorcerer",
+          "showTitle": null
+        },
+        {
+          "slug": "seditions-gate",
+          "title": "Sedition's Gate",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/seditions-gate",
+          "showTitle": null
+        },
+        {
+          "slug": "the-talon-of-horus",
+          "title": "The Talon of Horus",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-talon-of-horus",
+          "showTitle": null
+        },
+        {
+          "slug": "ahriman-exodus",
+          "title": "Ahriman: Exodus",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/ahriman-exodus",
+          "showTitle": null
+        },
+        {
+          "slug": "ahriman-unchanged",
+          "title": "Ahriman: Unchanged",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/ahriman-unchanged",
+          "showTitle": null
+        },
+        {
+          "slug": "the-hunt-of-magnus",
+          "title": "The Hunt for Magnus",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-hunt-of-magnus",
+          "showTitle": null
+        },
+        {
+          "slug": "space-wolves-scent-of-a-traitor",
+          "title": "Space Wolves: Scent of a Traitor",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/space-wolves-scent-of-a-traitor",
+          "showTitle": null
+        },
+        {
+          "slug": "the-last-son-of-prospero",
+          "title": "The Last Son of Prospero",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-last-son-of-prospero",
+          "showTitle": null
+        },
+        {
+          "slug": "the-razing-of-prospero",
+          "title": "The Razing of Prospero",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-razing-of-prospero",
+          "showTitle": null
+        },
+        {
+          "slug": "the-thirteenth-wolf",
+          "title": "The Thirteenth Wolf",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-thirteenth-wolf",
+          "showTitle": null
+        },
+        {
+          "slug": "ahriman-the-omnibus",
+          "title": "Ahriman: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/ahriman-the-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "black-legion",
+          "title": "Black Legion",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/black-legion",
+          "showTitle": null
+        },
+        {
+          "slug": "curse-of-the-wulfen",
+          "title": "Curse of the Wulfen",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/curse-of-the-wulfen",
+          "showTitle": null
+        },
+        {
+          "slug": "magnus-the-red-master-of-prospero",
+          "title": "Magnus the Red: Master of Prospero",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/magnus-the-red-master-of-prospero",
+          "showTitle": null
+        },
+        {
+          "slug": "the-crimson-king",
+          "title": "The Crimson King",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-crimson-king",
+          "showTitle": null
+        },
+        {
+          "slug": "the-master-of-mankind",
+          "title": "The Master of Mankind",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-master-of-mankind",
+          "showTitle": null
+        },
+        {
+          "slug": "slaves-to-darkness",
+          "title": "Slaves to Darkness",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/slaves-to-darkness",
+          "showTitle": null
+        },
+        {
+          "slug": "sons-of-the-emperor",
+          "title": "Sons of the Emperor",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/sons-of-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "the-ashes-of-prospero",
+          "title": "The Ashes of Prospero",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-ashes-of-prospero",
+          "showTitle": null
+        },
+        {
+          "slug": "visions-of-heresy-2018-ed",
+          "title": "Visions of Heresy (2018 ed.)",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/visions-of-heresy-2018-ed",
+          "showTitle": null
+        },
+        {
+          "slug": "mephiston-city-of-light",
+          "title": "Mephiston: City of Light",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/mephiston-city-of-light",
+          "showTitle": null
+        },
+        {
+          "slug": "morningstar",
+          "title": "Morningstar",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/morningstar",
+          "showTitle": null
+        },
+        {
+          "slug": "the-abyssal-edge",
+          "title": "The Abyssal Edge",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-abyssal-edge",
+          "showTitle": null
+        },
+        {
+          "slug": "the-solar-war",
+          "title": "The Solar War",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-solar-war",
+          "showTitle": null
+        },
+        {
+          "slug": "mark-of-faith",
+          "title": "Mark of Faith",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/mark-of-faith",
+          "showTitle": null
+        },
+        {
+          "slug": "blood-of-the-emperor",
+          "title": "Blood of the Emperor",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/blood-of-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "fury-of-magnus",
+          "title": "Fury of Magnus",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/fury-of-magnus",
+          "showTitle": null
+        },
+        {
+          "slug": "ahriman-eternal",
+          "title": "Ahriman: Eternal",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/ahriman-eternal",
+          "showTitle": null
+        },
+        {
+          "slug": "the-end-and-the-death-vol-1",
+          "title": "The End and The Death Vol. 1",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-end-and-the-death-vol-1",
+          "showTitle": null
+        },
+        {
+          "slug": "ahriman-undying",
+          "title": "Ahriman: Undying",
+          "kind": "book",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/ahriman-undying",
+          "showTitle": null
+        },
+        {
+          "slug": "the-shattered-and-the-soulless",
+          "title": "The Shattered and the Soulless",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-shattered-and-the-soulless",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-listener-lore-4-d1810303a6f73a92bec8d3ff085d885d",
+          "title": "Listener Lore 4",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-a0b31c74-727b-4178-b320-bb53dc07f4a8",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-14780111",
+          "title": "Episode 28 - The Legend of Ahriman Pt1",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-72fc5583-d197-45f6-a7ef-137d55068582",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-14834209",
+          "title": "Episode 29 - Ahriman Pt 2",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-9a17a6fc-707e-46ff-9d78-a787b9cf0c33",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-14905927",
+          "title": "MAGNUS: THE CRIMSON KING | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-e18cd17e-58fc-43be-a26e-40640a394a70",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-14948643",
+          "title": "THE THOUSAND SONS: ALL IS DUST | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-1352d913-fc06-4b10-940b-da458118f5a7",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-2cbc3b2a-ca0a-11ef-9632-473301cd2734",
+          "title": "155 - Tzeentch, The Lord of Change",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-c53dc097-6641-49ae-810e-1157a0b87cf2",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "luetin09-tyg9juqicfo",
+          "title": "40K BEGINNERS - TRAITOR ASTARTES [Part 3] | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-0a06c906-23cf-4ab0-9a17-a963cccbe833",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-17240479",
+          "title": "You’ve been LIED TO about TZEENTCH | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-998027bb-7e2f-40bc-8baa-6d73aed7a417",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Key characters",
+      "items": [
+        {
+          "type": "character",
+          "id": "ahzek_ahriman",
+          "name": "Ahzek Ahriman"
+        },
+        {
+          "type": "character",
+          "id": "amon",
+          "name": "Amon"
+        },
+        {
+          "type": "character",
+          "id": "astraeos",
+          "name": "Astraeos"
+        },
+        {
+          "type": "character",
+          "id": "atharva",
+          "name": "Atharva"
+        },
+        {
+          "type": "character",
+          "id": "carmenta",
+          "name": "Carmenta"
+        },
+        {
+          "type": "character",
+          "id": "ctesias",
+          "name": "Ctesias"
+        },
+        {
+          "type": "character",
+          "id": "hathor_maat",
+          "name": "Hathor Maat"
+        },
+        {
+          "type": "character",
+          "id": "madox",
+          "name": "Madox"
+        },
+        {
+          "type": "character",
+          "id": "magnus_the_red",
+          "name": "Magnus the Red"
+        },
+        {
+          "type": "character",
+          "id": "menes_kalliston",
+          "name": "Menes Kalliston"
+        },
+        {
+          "type": "character",
+          "id": "menkaura",
+          "name": "Menkaura"
+        },
+        {
+          "type": "character",
+          "id": "mhotep",
+          "name": "Mhotep"
+        },
+        {
+          "type": "character",
+          "id": "revuel_arvida",
+          "name": "Revuel Arvida"
+        },
+        {
+          "type": "character",
+          "id": "sanakht",
+          "name": "Sanakht"
+        },
+        {
+          "type": "character",
+          "id": "sobek",
+          "name": "Sobek"
+        },
+        {
+          "type": "character",
+          "id": "tolbek",
+          "name": "Tolbek"
+        }
+      ]
+    }
+  ]
+}

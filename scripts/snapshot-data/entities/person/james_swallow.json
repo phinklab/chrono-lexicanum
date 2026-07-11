@@ -1,0 +1,325 @@
+{
+  "type": "person",
+  "id": "james_swallow",
+  "name": "James Swallow",
+  "facts": [],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "deus-encarmine",
+          "title": "Deus Encarmine",
+          "kind": "book",
+          "releaseYear": 2004,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/deus-encarmine",
+          "showTitle": null
+        },
+        {
+          "slug": "deus-sanguinius",
+          "title": "Deus Sanguinius",
+          "kind": "book",
+          "releaseYear": 2005,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/deus-sanguinius",
+          "showTitle": null
+        },
+        {
+          "slug": "faith-and-fire",
+          "title": "Faith and Fire",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/faith-and-fire",
+          "showTitle": null
+        },
+        {
+          "slug": "the-flight-of-the-eisenstein",
+          "title": "The Flight of the Eisenstein",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-flight-of-the-eisenstein",
+          "showTitle": null
+        },
+        {
+          "slug": "red-fury",
+          "title": "Red Fury",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/red-fury",
+          "showTitle": null
+        },
+        {
+          "slug": "the-voice",
+          "title": "The Voice",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-voice",
+          "showTitle": null
+        },
+        {
+          "slug": "black-tide",
+          "title": "Black Tide",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/black-tide",
+          "showTitle": null
+        },
+        {
+          "slug": "nemesis",
+          "title": "Nemesis",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/nemesis",
+          "showTitle": null
+        },
+        {
+          "slug": "garro-legion-of-one",
+          "title": "Garro: Legion of One",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/garro-legion-of-one",
+          "showTitle": null
+        },
+        {
+          "slug": "hammer-and-anvil",
+          "title": "Hammer and Anvil",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/hammer-and-anvil",
+          "showTitle": null
+        },
+        {
+          "slug": "liars-due",
+          "title": "Liar's Due",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/liars-due",
+          "showTitle": null
+        },
+        {
+          "slug": "burden-of-duty",
+          "title": "Burden of Duty",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/burden-of-duty",
+          "showTitle": null
+        },
+        {
+          "slug": "fear-to-tread",
+          "title": "Fear to Tread",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/fear-to-tread",
+          "showTitle": null
+        },
+        {
+          "slug": "garro-sword-of-truth",
+          "title": "Garro: Sword of Truth",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/garro-sword-of-truth",
+          "showTitle": null
+        },
+        {
+          "slug": "lost-sons",
+          "title": "Lost Sons",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/lost-sons",
+          "showTitle": null
+        },
+        {
+          "slug": "garro-shield-of-lies",
+          "title": "Garro: Shield of Lies",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/garro-shield-of-lies",
+          "showTitle": null
+        },
+        {
+          "slug": "all-that-remains",
+          "title": "All That Remains",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/all-that-remains",
+          "showTitle": null
+        },
+        {
+          "slug": "garro-vow-of-faith",
+          "title": "Garro: Vow of Faith",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/garro-vow-of-faith",
+          "showTitle": null
+        },
+        {
+          "slug": "gunsight",
+          "title": "Gunsight",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/gunsight",
+          "showTitle": null
+        },
+        {
+          "slug": "exocytosis",
+          "title": "Exocytosis",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/exocytosis",
+          "showTitle": null
+        },
+        {
+          "slug": "ghosts-speak-not-patience",
+          "title": "Ghosts Speak Not & Patience",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ghosts-speak-not-patience",
+          "showTitle": null
+        },
+        {
+          "slug": "the-returned",
+          "title": "The Returned",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-returned",
+          "showTitle": null
+        },
+        {
+          "slug": "garro-ashes-of-fealty",
+          "title": "Garro: Ashes of Fealty",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/garro-ashes-of-fealty",
+          "showTitle": null
+        },
+        {
+          "slug": "garro-burden-of-duty",
+          "title": "Garro: Burden of Duty",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/garro-burden-of-duty",
+          "showTitle": null
+        },
+        {
+          "slug": "garro-oath-of-moment",
+          "title": "Garro: Oath of Moment",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/garro-oath-of-moment",
+          "showTitle": null
+        },
+        {
+          "slug": "garro-weapons-of-fate",
+          "title": "Garro: Weapons of Fate",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/garro-weapons-of-fate",
+          "showTitle": null
+        },
+        {
+          "slug": "sisters-of-battle-the-omnibus",
+          "title": "Sisters of Battle: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/sisters-of-battle-the-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "lanterns-light",
+          "title": "Lantern's Light",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/lanterns-light",
+          "showTitle": null
+        },
+        {
+          "slug": "the-buried-dagger",
+          "title": "The Buried Dagger",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-buried-dagger",
+          "showTitle": null
+        },
+        {
+          "slug": "garro-knight-of-grey",
+          "title": "Garro: Knight of Grey",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/garro-knight-of-grey",
+          "showTitle": null
+        },
+        {
+          "slug": "flames-of-betrayal",
+          "title": "Flames of Betrayal",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/flames-of-betrayal",
+          "showTitle": null
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

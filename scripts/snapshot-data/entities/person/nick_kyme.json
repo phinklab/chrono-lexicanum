@@ -1,0 +1,395 @@
+{
+  "type": "person",
+  "id": "nick_kyme",
+  "name": "Nick Kyme",
+  "facts": [],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "back-from-the-dead",
+          "title": "Back from the Dead",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/back-from-the-dead",
+          "showTitle": null
+        },
+        {
+          "slug": "assault-on-black-reach",
+          "title": "Assault on Black Reach",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/assault-on-black-reach",
+          "showTitle": null
+        },
+        {
+          "slug": "salamander",
+          "title": "Salamander",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/salamander",
+          "showTitle": null
+        },
+        {
+          "slug": "firedrake",
+          "title": "Firedrake",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/firedrake",
+          "showTitle": null
+        },
+        {
+          "slug": "fall-of-damnos",
+          "title": "Fall of Damnos",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/fall-of-damnos",
+          "showTitle": null
+        },
+        {
+          "slug": "forgotten-sons",
+          "title": "Forgotten Sons",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/forgotten-sons",
+          "showTitle": null
+        },
+        {
+          "slug": "nocturne",
+          "title": "Nocturne",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/nocturne",
+          "showTitle": null
+        },
+        {
+          "slug": "promethean-sun",
+          "title": "Promethean Sun",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/promethean-sun",
+          "showTitle": null
+        },
+        {
+          "slug": "feat-of-iron",
+          "title": "Feat of Iron",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/feat-of-iron",
+          "showTitle": null
+        },
+        {
+          "slug": "tome-of-fire",
+          "title": "Tome of Fire",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/tome-of-fire",
+          "showTitle": null
+        },
+        {
+          "slug": "censure",
+          "title": "Censure",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/censure",
+          "showTitle": null
+        },
+        {
+          "slug": "salamanders-rebirth",
+          "title": "Salamanders: Rebirth",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/salamanders-rebirth",
+          "showTitle": null
+        },
+        {
+          "slug": "salamanders-the-omnibus",
+          "title": "Salamanders: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/salamanders-the-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "scorched-earth",
+          "title": "Scorched Earth",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/scorched-earth",
+          "showTitle": null
+        },
+        {
+          "slug": "spear-of-macragge",
+          "title": "Spear of Macragge",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/spear-of-macragge",
+          "showTitle": null
+        },
+        {
+          "slug": "the-gates-of-terra",
+          "title": "The Gates of Terra",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-gates-of-terra",
+          "showTitle": null
+        },
+        {
+          "slug": "vulkan-lives",
+          "title": "Vulkan Lives",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/vulkan-lives",
+          "showTitle": null
+        },
+        {
+          "slug": "strategem",
+          "title": "Strategem",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/strategem",
+          "showTitle": null
+        },
+        {
+          "slug": "artefacts",
+          "title": "Artefacts",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/artefacts",
+          "showTitle": null
+        },
+        {
+          "slug": "chirurgeon",
+          "title": "Chirurgeon",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/chirurgeon",
+          "showTitle": null
+        },
+        {
+          "slug": "deathfire",
+          "title": "Deathfire",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/deathfire",
+          "showTitle": null
+        },
+        {
+          "slug": "imperfect",
+          "title": "Imperfect",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/imperfect",
+          "showTitle": null
+        },
+        {
+          "slug": "the-phoenician",
+          "title": "The Phoenician",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-phoenician",
+          "showTitle": null
+        },
+        {
+          "slug": "hell-night",
+          "title": "Hell Night",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/hell-night",
+          "showTitle": null
+        },
+        {
+          "slug": "red-marked",
+          "title": "Red-Marked",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/red-marked",
+          "showTitle": null
+        },
+        {
+          "slug": "sons-of-the-forge",
+          "title": "Sons of the Forge",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/sons-of-the-forge",
+          "showTitle": null
+        },
+        {
+          "slug": "dreams-of-unity",
+          "title": "Dreams of Unity",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/dreams-of-unity",
+          "showTitle": null
+        },
+        {
+          "slug": "immortal-duty",
+          "title": "Immortal Duty",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/immortal-duty",
+          "showTitle": null
+        },
+        {
+          "slug": "old-earth",
+          "title": "Old Earth",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/old-earth",
+          "showTitle": null
+        },
+        {
+          "slug": "auric-gods",
+          "title": "Auric Gods",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/auric-gods",
+          "showTitle": null
+        },
+        {
+          "slug": "born-of-flame",
+          "title": "Born of Flame",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/born-of-flame",
+          "showTitle": null
+        },
+        {
+          "slug": "nightfane",
+          "title": "Nightfane",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/nightfane",
+          "showTitle": null
+        },
+        {
+          "slug": "mercy-of-the-dragon",
+          "title": "Mercy of the Dragon",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/mercy-of-the-dragon",
+          "showTitle": null
+        },
+        {
+          "slug": "pentimento",
+          "title": "Pentimento",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/pentimento",
+          "showTitle": null
+        },
+        {
+          "slug": "sepulturum",
+          "title": "Sepulturum",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/sepulturum",
+          "showTitle": null
+        },
+        {
+          "slug": "volpone-glory",
+          "title": "Volpone Glory",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/volpone-glory",
+          "showTitle": null
+        },
+        {
+          "slug": "the-iron-kingdom",
+          "title": "The Iron Kingdom",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-iron-kingdom",
+          "showTitle": null
+        },
+        {
+          "slug": "hand-of-abaddon",
+          "title": "Hand Of Abaddon",
+          "kind": "book",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/hand-of-abaddon",
+          "showTitle": null
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

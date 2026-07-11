@@ -1,0 +1,827 @@
+{
+  "type": "faction",
+  "id": "tau",
+  "name": "T'au Empire",
+  "blurb": {
+    "text": "A young, technologically advanced xenos civilisation of the Eastern Fringe, united under the philosophy of the Greater Good and expanding through conquest and diplomacy.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Tau_Empire"
+  },
+  "facts": [
+    {
+      "label": "Alignment",
+      "value": "Xenos"
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "kill-team",
+          "title": "Kill Team",
+          "kind": "book",
+          "releaseYear": 2001,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/kill-team",
+          "showTitle": null
+        },
+        {
+          "slug": "fire-warrior",
+          "title": "Fire Warrior",
+          "kind": "book",
+          "releaseYear": 2003,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/fire-warrior",
+          "showTitle": null
+        },
+        {
+          "slug": "for-the-emperor",
+          "title": "For the Emperor",
+          "kind": "book",
+          "releaseYear": 2003,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/for-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "rogue-star",
+          "title": "Rogue Star",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/rogue-star",
+          "showTitle": null
+        },
+        {
+          "slug": "the-last-chancers-omnibus",
+          "title": "The Last Chancers Omnibus",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-last-chancers-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "star-of-damocles",
+          "title": "Star of Damocles",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/star-of-damocles",
+          "showTitle": null
+        },
+        {
+          "slug": "courage-and-honour",
+          "title": "Courage and Honour",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/courage-and-honour",
+          "showTitle": null
+        },
+        {
+          "slug": "savage-scars",
+          "title": "Savage Scars",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/savage-scars",
+          "showTitle": null
+        },
+        {
+          "slug": "ultramarines-the-second-omnibus",
+          "title": "Ultramarines: The Second Omnibus",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/ultramarines-the-second-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "fire-caste",
+          "title": "Fire Caste",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/fire-caste",
+          "showTitle": null
+        },
+        {
+          "slug": "shadowsun",
+          "title": "Shadowsun",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/shadowsun",
+          "showTitle": null
+        },
+        {
+          "slug": "the-greater-good",
+          "title": "The Greater Good",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-greater-good",
+          "showTitle": null
+        },
+        {
+          "slug": "black-leviathan",
+          "title": "Black Leviathan",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/black-leviathan",
+          "showTitle": null
+        },
+        {
+          "slug": "blood-oath",
+          "title": "Blood Oath",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/blood-oath",
+          "showTitle": null
+        },
+        {
+          "slug": "broken-sword",
+          "title": "Broken Sword",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/broken-sword",
+          "showTitle": null
+        },
+        {
+          "slug": "damocles",
+          "title": "Damocles",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/damocles",
+          "showTitle": null
+        },
+        {
+          "slug": "hunters-snare",
+          "title": "Hunter's Snare",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/hunters-snare",
+          "showTitle": null
+        },
+        {
+          "slug": "farsight",
+          "title": "Farsight",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/farsight",
+          "showTitle": null
+        },
+        {
+          "slug": "blades-of-damocles",
+          "title": "Blades of Damocles",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/blades-of-damocles",
+          "showTitle": null
+        },
+        {
+          "slug": "shaso",
+          "title": "Shas'o",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/shaso",
+          "showTitle": null
+        },
+        {
+          "slug": "storm-of-damocles",
+          "title": "Storm of Damocles",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/storm-of-damocles",
+          "showTitle": null
+        },
+        {
+          "slug": "crisis-of-faith",
+          "title": "Crisis of Faith",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/crisis-of-faith",
+          "showTitle": null
+        },
+        {
+          "slug": "rogue-trader-omnibus",
+          "title": "Rogue Trader Omnibus",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/rogue-trader-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "war-of-secrets",
+          "title": "War of Secrets",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/war-of-secrets",
+          "showTitle": null
+        },
+        {
+          "slug": "secrets-of-the-tau",
+          "title": "Secrets of the Tau",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/secrets-of-the-tau",
+          "showTitle": null
+        },
+        {
+          "slug": "shadowbreaker",
+          "title": "Shadowbreaker",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/shadowbreaker",
+          "showTitle": null
+        },
+        {
+          "slug": "the-uriel-ventris-chronicles-vol-2-omnibus",
+          "title": "The Uriel Ventris Chronicles Vol. 2 Omnibus",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-uriel-ventris-chronicles-vol-2-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "empire-of-lies",
+          "title": "Empire of Lies",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/empire-of-lies",
+          "showTitle": null
+        },
+        {
+          "slug": "kasrkin",
+          "title": "Kasrkin",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/kasrkin",
+          "showTitle": null
+        },
+        {
+          "slug": "shadowsun-the-patient-hunter",
+          "title": "Shadowsun: The Patient Hunter",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/shadowsun-the-patient-hunter",
+          "showTitle": null
+        },
+        {
+          "slug": "longshot",
+          "title": "Longshot",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/longshot",
+          "showTitle": null
+        },
+        {
+          "slug": "elemental-council",
+          "title": "Elemental Council",
+          "kind": "book",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/elemental-council",
+          "showTitle": null
+        },
+        {
+          "slug": "darkness-eternal",
+          "title": "Darkness Eternal",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/darkness-eternal",
+          "showTitle": null
+        },
+        {
+          "slug": "farsight-blade-of-truth",
+          "title": "Farsight: Blade Of Truth",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/farsight-blade-of-truth",
+          "showTitle": null
+        },
+        {
+          "slug": "soldiers-of-the-imperium",
+          "title": "Soldiers of the Imperium",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/soldiers-of-the-imperium",
+          "showTitle": null
+        },
+        {
+          "slug": "the-dark-coil-ascension",
+          "title": "The Dark Coil: Ascension",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-dark-coil-ascension",
+          "showTitle": null
+        },
+        {
+          "slug": "the-dark-coil-damnation",
+          "title": "The Dark Coil: Damnation",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-dark-coil-damnation",
+          "showTitle": null
+        },
+        {
+          "slug": "death-rider",
+          "title": "Death Rider",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/death-rider",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-11-tau-the-greater-good-24b00f90dd1700f333f1ee8f1a4eedd1",
+          "title": "11 - Tau: The Greater Good...?",
+          "kind": "podcast_episode",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-17646905-fc84-4057-b9b6-e91b0bea95ee",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-18-the-minor-xenos-races-part-3-24b00f90dd1700f333f1ee8f1a4eedd1",
+          "title": "18 - The Minor Xenos Races Part 3",
+          "kind": "podcast_episode",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-92e3a1f1-3fc2-427a-baa5-a70a78943cbe",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-29-t-e2-80-99au-culture-1681b81a2ac8fe45e55a0d9fc0fc129d",
+          "title": "29 - Life of a T’au",
+          "kind": "podcast_episode",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-9d6368d3-e990-4e62-9eff-672bde466a0e",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-40-tau-the-first-sphere-of-expansion-81b912f2c9ed4ed584d94e090fc4a58b",
+          "title": "40 - Tau: The First Sphere of Expansion",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-683eba88-913d-4f81-abaf-70705ddf928c",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-52-the-second-sphere-of-expansion-943cf03f2f456fdab3e42c04629d00b8",
+          "title": "52 - The Second Sphere of Expansion",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-89d0aa5f-9df6-4fe3-a17c-d90df5496553",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-bonus-episode-12-an-impromptu-conversation-d0609e20a34198b33a9f3f32666d361f",
+          "title": "Bonus 12 - An Impromptu Conversation",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-9adafb3c-f0e4-43b5-b988-3636713e505c",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-eternal-horizon-part-1-1355a723d7a53090937578fa1b4b6d75",
+          "title": "Eternal Horizon RPG - Part 1",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-9f606719-37ab-4f23-ab34-b3635a827175",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-eternal-horizon-part-2-a892b69dc995e91c5352dd675891249e",
+          "title": "Eternal Horizon RPG - Part 2",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-ad2b5099-f2c0-4a57-92c8-f98a12762f18",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-eternal-horizon-part-3-ae65faeb1ffc867b3f2a352e73fad5b6",
+          "title": "Eternal Horizon RPG - Part 3",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-fceb86dc-a361-4efe-884b-d86e1ad973a8",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-eternal-horizon-part-4-d467b723b63ad57bc2ff3f8f33754fa8",
+          "title": "Eternal Horizon RPG - Part 4",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-791a42e1-17e1-4e9f-89f4-9970292e3eb5",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-e0d89bd1-84e6-4b38-aee4-32e4561de3df",
+          "title": "Eternal Horizon RPG - Part 5",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-4851a623-9ffb-4b7d-9e7a-cc91e5d14f2e",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-eternal-horizon-part-6-efbc0d2a97a17568d724013f8de6cdfe",
+          "title": "Eternal Horizon RPG - Part 6",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-7780d7e6-7550-4d9b-9669-091c5cea716a",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-eternal-horizon-part-7-78a310d508bb8ce4e901a6397c0ea3e4",
+          "title": "Eternal Horizon RPG - Part 7",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-bcad2eeb-22c7-42d0-a1e6-f7131523bb37",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "luetin09-ptzvtmqiwz0",
+          "title": "THE TAU - RACE OVERVIEW - Beginner's Guide | WARHAMMER 40,000 Lore / History",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-a394b7a6-27f1-4435-9e67-3523bb8f5afe",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-m6m9-ofekpk",
+          "title": "WTF IS WARHAMMER 40K? - EXPLAINED - FULL BEGINNER'S GUIDE + EVERY MAJOR FACTION | Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-d25f61f7-baec-4ea6-88d6-571d3342910e",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-2608bcbe-af47-5c97-aa3e-766c4c0f0b39",
+          "title": "63 - Tau Between Spheres",
+          "kind": "podcast_episode",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-6b9007a8-147c-4e05-9591-ff4277588be1",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-85d90cb3-572d-5147-94ac-8afdc2f5fecc",
+          "title": "75 - The Farsight Expedition",
+          "kind": "podcast_episode",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-c88dcb08-5955-4992-9cc7-83a41a59d154",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-566abc49-f528-4d4f-bb81-ad84b5379aff",
+          "title": "87 - The Third Sphere of Expansion",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-135b3afd-0c54-4160-9fb2-b2d65950d949",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-421f224b-408c-4887-b01d-a9f6618916a9",
+          "title": "96 - The 4th and 5th Spheres of Expansion",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-ee7d37cb-a696-4983-a13a-6096b08af622",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-8376827",
+          "title": "TAU: Are They Really THAT Bad? | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-c322c4c4-7430-42ec-87f2-bbadbaafd725",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-10218212",
+          "title": "FARSIGHT ENCLAVES - THE GREATEST GOOD | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-fc27785f-3587-4f01-8de0-f26f32a765a2",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-12593086",
+          "title": "ARKS OF OMEN: FARSIGHT, FALL SEVEN TIMES AND STAND UP EIGHT | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-af595de8-d143-4da5-aca2-8d9f57b5ce25",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-13921062",
+          "title": "RACES OF TAU EMPIRE: THERE IS NO VICTORY WITHOUT UNITY | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-a719a09f-310e-4b92-9475-7db0a998ca6c",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-14098992",
+          "title": "TAU VEHICLES: ALL GRACE AND MEASURED FURY | Warhammer 40k Lore feat Kirioth",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-717fb545-d4c9-49a2-a933-362c6b29ec0f",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "luetin09-o1rl3efnrio",
+          "title": "WHAT IF TYRANIDS RULED THE 40K GALAXY? | WARHAMMER 40,000 LORE / SPECULATION",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/luetin09#ep-5f2cd0e2-202a-404e-ae9a-5958f1b44392",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "lorehammer-e5bd4584-e115-40c8-8d97-a4a41b95f90d",
+          "title": "107 - Kor'vattra, The Tau Navy",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-78bc069d-36d6-4b99-bd24-d9cb4d10e536",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-https-api-spreaker-com-episode-63115870",
+          "title": "125 - Commander Puretide and Students",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-4988492f-16c5-4af4-9b85-46e3558e344e",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "the-40k-lorecast-aee7bb1a-b75e-11ef-9dc0-e7b444284c85",
+          "title": "Episode 65 - The Tau Pt 1 - What they are, where the come from, and how they rose up",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-575ac8b3-e462-4b7f-817a-82a3ebe204b4",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-d2424bfc-b75e-11ef-9bc8-83a146d02adf",
+          "title": "Episode 66 - The Tau Pt 2 - How they fight, their weapons, and their key leaders.",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-f0ffd882-0f58-4cf8-b0e5-ed7815afeb08",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-15967563",
+          "title": "Is Fire Warrior Really That Bad? | Warhammer 40k",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-1b545677-8f87-46bc-a563-3ebed27116f4",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-91cabe30-d070-11ef-ab4f-079098ad4b3f",
+          "title": "137 - T'au'va, Goddess of the Greater Good",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-7b248fc4-b818-4e2f-b39c-43f6f3e33013",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-3260c442-ca0a-11ef-9632-57cb6e9ffc4e",
+          "title": "185 - Chrome, Demiurg and Enoulians",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-e1b3786b-2e4a-4a59-a404-ca7affc0eeac",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-33200460-ca0a-11ef-9632-0b2fbcab0f0c",
+          "title": "188 - Krootis Aviana and Subspecies",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-b3469a29-47a9-45d4-97e3-c448529a58a8",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-36813e6c-ca0a-11ef-9632-8b0ef44791ae",
+          "title": "198 - Tau Empire Auxiliaries",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-befb824f-64d4-4486-b24b-1ff9c8c1f54e",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-17897507",
+          "title": "FARSIGHT | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-3e607afe-6b19-42ab-ba20-9081c7a7186d",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "luetin09-z9a1twhuyrc",
+          "title": "WHAT IF TAU RULED THE 40K GALAXY？| WARHAMMER 40000 LORE/SPECULATION",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-2f8773b1-1442-4c49-8dd5-7135330cab49",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-19096925",
+          "title": "Farsight's Bitter Rival: Commander Shadowsun | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-ebf1a120-068c-4045-9f52-4495d853067d",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Sub-factions",
+      "items": [
+        {
+          "type": "faction",
+          "id": "ethereal_caste",
+          "name": "Ethereal Caste"
+        },
+        {
+          "type": "faction",
+          "id": "fire_caste",
+          "name": "Fire Caste"
+        },
+        {
+          "type": "faction",
+          "id": "kroot",
+          "name": "Kroot"
+        }
+      ]
+    },
+    {
+      "label": "Key characters",
+      "items": [
+        {
+          "type": "character",
+          "id": "aunrai",
+          "name": "Aun'rai"
+        },
+        {
+          "type": "character",
+          "id": "commander_farsight",
+          "name": "Commander Farsight"
+        },
+        {
+          "type": "character",
+          "id": "commander_shadowsun",
+          "name": "Commander Shadowsun"
+        },
+        {
+          "type": "character",
+          "id": "shaso_oreskaan",
+          "name": "Shas'O Or'es'ka'an"
+        }
+      ]
+    }
+  ]
+}
