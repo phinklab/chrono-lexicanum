@@ -5,6 +5,7 @@ created: 2026-05-09
 updated: 2026-07-11
 sources:
   - ../../sessions/README.md
+  - ../../sessions/2026-07-11-195-impl-launch-release-preflight.md
   - ../../sessions/2026-07-11-194-impl-launch-s0.md
   - ../../docs/launch-master-plan.md
   - ../../sessions/2026-07-10-193-impl-brain-launch-rollup.md
@@ -84,17 +85,18 @@ S0 decisions (Philipp, 2026-07-11, recorded in the plan and its Appendix A):
 - **Era policy:** default variant — remove the blanket `time_ending` stamp, bucket mechanically from setting dates where present, else `NULL` (S1a). Verified: Chronicle reads only the curated `eras`/`events` spine, never `books.era_id`.
 - **Observability:** Vercel Web Analytics + Speed Insights, **plus one error-only tracker** (no replay, no tracing, no PII); package choice and activation in S5.
 
-Planned sequence, condensed: **S0 decisions/preflight → build snapshot + DB-free consumers → loader/cache semantics → DB/runtime hardening → canonical routes + book snapshot → SEO/observability → payload/CSS/A11y → Chronicle and Cartographer A11y → launch-readiness evidence → gate off → post-launch cleanup.** Exact task specs stay in the local working plan.
+Release-order preflight (Session 195, 2026-07-11, OQ 19 closed): S1a is split into a **Code-PR** (no production writes) and a separate **"S1a-Snapshot"** release PR (one `db:sync` after merge + freeze + explicit Go; the snapshot PR is the deploy). Revalidation is an explicit fail-loud **post-deploy** command — built in S3a, called exactly once by the E4 runbook after the snapshot deploy, never automatically from `db:sync`. The `RUNTIME_DATABASE_URL` consumer switch in `src/db/client.ts` belongs to **S3b** (Product) with a transitional fallback and a maintainer-gated Vercel cutover. Snapshot artifacts ship in Batches release PRs; launch evidence + rollups stay separate coordination PRs.
+
+Planned sequence, condensed: **S0 decisions/preflight → build snapshot + DB-free consumers → loader/cache semantics → DB/runtime hardening → canonical routes + book snapshot → SEO/observability → payload/CSS/A11y → Chronicle and Cartographer A11y → launch-readiness evidence → gate off → post-launch cleanup.** Exact task specs live in `docs/launch-master-plan.md`.
 
 ## Open now
 
 The canonical queue is [`worklist.md`](./worklist.md). The immediate blockers are:
 
-1. Launch-plan preflight (OQ 19, still open after S0): prevent production writes with unmerged Era code; align revalidation with the snapshot deploy; add the missing `RUNTIME_DATABASE_URL` consumer change; keep the final snapshot PR separate from the coordination evidence report.
-2. Verify migration `0015`, optional production `db:drift`, and the Pixel/Chrome verdict for Session 192.
+1. Verify migration `0015` (also embedded as the read-only parity preflight of S1a-Snapshot), optional production `db:drift`, and the Pixel/Chrome verdict for Session 192.
 
 Smaller product/data follow-ups (Cameo live implementation, Legal i18n, Galaspar/Myr source gap, `arthas_moloch` mapping, episode anchors, survey-mode tracing and other polish) stay in `worklist.md`; they do not outrank the launch gate.
 
 ## Next action
 
-Merge the S0 PR (Session 194), then close the four release-order contradictions (OQ 19) before starting S1a. The four maintainer decisions are made and recorded in the plan.
+Merge the Session-195 preflight PR, then start **S1a (Code-PR)** (`codex/ingest-batches-snapshot-exporter`) from `docs/launch-session-prompts.md`. OQ 19 is closed; the release order is authoritative in the plan.
