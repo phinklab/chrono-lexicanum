@@ -14,7 +14,8 @@
  * as CJS, where top-level await is unavailable.)
  *
  * Covers (item-10 list): idempotency + junction-scope (in-memory simulation of
- * the per-work delete-then-insert writer), primary_era_id constant, notes round-
+ * the per-work delete-then-insert writer), primary_era_id era-bucketing (dated
+ * slug → bucket, undated → NULL — Launch S1a), notes round-
  * trip (legacy-equivalent composition), the halt-before-mutation validators,
  * collections ownership, persons-slug derivation + the persons.json-once
  * contract, the reference/facet prolog wiring, and a static guard that the
@@ -32,6 +33,7 @@ import {
   validateBookFile,
   type BookFileV1,
 } from "./book-file";
+import { buildEraContext } from "./era-bucket";
 
 let pass = 0;
 let fail = 0;
@@ -123,10 +125,12 @@ async function main(): Promise<void> {
   process.env.DATABASE_URL ??= "postgres://stub:stub@127.0.0.1:5432/stub";
 
   const {
-    M41_ERA_ID,
     buildAuthorshipBlock,
     buildSurfaceFormsBlock,
     composeNotes,
+    computeBookRows,
+    loadLocationSkipContext,
+    loadSkipContext,
     pickFinalFormat,
     validateEntityRoles,
     validateRatingOverrides,
@@ -136,12 +140,49 @@ async function main(): Promise<void> {
   const { seedFacets, seedReferenceAndFacetProlog, seedResolverExtensions } = await import("./seed-prolog");
   const { slugifyPerson } = await import("@/lib/seed/persons");
 
+  const skipCtx = await loadSkipContext();
+  const locationSkipCtx = await loadLocationSkipContext();
+
   console.log("apply-book");
 
-  // --- primary_era_id (insert AND update use the same const) ----------------
+  // --- primary_era_id (bucketed via era context; insert AND update run the
+  // --- same computeBookRows, so the parity is by construction) --------------
 
-  check("M41_ERA_ID is the 'time_ending' placeholder (insert + update parity)", () => {
-    assert.equal(M41_ERA_ID, "time_ending");
+  const syntheticEras = [
+    { id: "time_ending", start: 41000, end: 41999 },
+    { id: "indomitus", start: 42000, end: 42100 },
+  ];
+
+  check("computeBookRows buckets primaryEraId from the book's book-dates row", () => {
+    const eraCtx = buildEraContext(
+      [{ slug: "example-new-release", startY: 41000 }],
+      syntheticEras,
+    );
+    const rows = computeBookRows(
+      projectToOverrideBook(parsed()),
+      projectToRosterBook(parsed()),
+      null,
+      skipCtx,
+      locationSkipCtx,
+      eraCtx,
+    );
+    assert.equal(rows.bookDetails.primaryEraId, "time_ending");
+  });
+
+  check("computeBookRows writes primaryEraId = null for a book without a setting date", () => {
+    const eraCtx = buildEraContext(
+      [{ slug: "some-other-book", startY: 42000 }],
+      syntheticEras,
+    );
+    const rows = computeBookRows(
+      projectToOverrideBook(parsed()),
+      projectToRosterBook(parsed()),
+      null,
+      skipCtx,
+      locationSkipCtx,
+      eraCtx,
+    );
+    assert.equal(rows.bookDetails.primaryEraId, null);
   });
 
   // --- notes round-trip (legacy-equivalent composition) ---------------------

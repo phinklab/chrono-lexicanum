@@ -35,6 +35,7 @@
     "loop:next": "tsx scripts/loop-next-batch.ts",
     "resolver:next-wave": "tsx scripts/resolver-loop-detect.ts",
     "atlas:regen": "tsx --env-file=.env.local scripts/atlas-regen.ts",
+    "snapshot:regen": "tsx --env-file=.env.local scripts/build-snapshot.ts",
     "brain:lint": "tsx scripts/brain-lint.ts",
     "test:brain-lint-budgets": "tsx scripts/test-brain-lint-budgets.ts",
     "audit:ask-combinations": "tsx --env-file=.env.local scripts/audit-ask-combinations.ts",

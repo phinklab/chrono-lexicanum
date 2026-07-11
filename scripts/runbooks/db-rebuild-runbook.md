@@ -193,7 +193,7 @@ Für jedes aufgelöste `final`-Buch: jede add-Edge präsent (mit Rolle), jede Su
 - **Kein From-absolutely-empty-Bootstrap.** Migrationen + Base-Reference-Seed sind Vorbedingung, nicht Teil der Befehle.
 - **Kein Konsolidierungs-Lauf.** Die human-gegateten Konsolidierungs-Skripte gehören nicht in eine automatisierte Sequenz. Die Merges leben in den committeten Reference-JSONs; die Re-Apply reproduziert den konsolidierten Korpus. `consolidation-pass-2.config.json` ist bewusst entkoppelt und wird vom Auto-Derive **nicht** angefasst.
 - **Kein `db:seed`.** `db:seed` ist der Legacy-V1-26-Manuals-Dev-Seed (anderer ID-Raum) und liegt nicht auf dem SSOT-Pfad.
-- **Kein OQ-16(b)-Fix.** Der `primaryEraId`-Placeholder-Overstamp im Auto-Apply bleibt unverändert — der Curation-Overlay-Tail korrigiert ihn per Hand-Fix pro Buch (eigener Brief).
+- ~~Kein OQ-16(b)-Fix~~ **Seit Launch S1a gefixt:** der Auto-Apply stempelt kein `time_ending`-Placeholder mehr, sondern bucketet `primaryEraId` mechanisch aus `book-dates.json` × `eras.json` (`scripts/era-bucket.ts`; keine Setting-Date ⇒ `NULL`). Der Curation-Overlay-Tail bleibt der letzte Schritt und gewinnt weiterhin per Hand-Fix pro Buch.
 - **Kein Targeted-/`--only`-Modus** (Brief 157). Default ist Voll-Roster-Re-Apply.
 
 ---

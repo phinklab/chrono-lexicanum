@@ -302,7 +302,9 @@ batch / slot / `loop:next` / `book-roster.extension.json` dance:
    (Legacy roster + `books/`), additive id allocation, curation validation. Fix any red
    before applying.
 4. **On Philipp's explicit go** (the DB-write gate — § add-book-runbook): `npm run apply:book -- --slug <slug>`.
-   Idempotent; writes works/book_details/junctions/persons; `primary_era_id = "time_ending"`;
+   Idempotent; writes works/book_details/junctions/persons; `primary_era_id` is bucketed
+   from `book-dates.json` × `eras.json` (no setting date ⇒ `NULL` — add a `book-dates.json`
+   row in the same PR if the book's setting date is known, § add-book-runbook);
    the reference/facet **prolog runs first**, so a brand-new faction/location/facet resolves
    without a full `db:sync`. (`--all` re-applies every per-book file — it is also the
    `db:sync` step-3 tail.)

@@ -12,7 +12,10 @@
  *     brand-new faction/location/facet resolves without a full db:sync;
  *   - validates facets/roles/synopses/ratings before any mutation;
  *   - replaces details/junctions/links ONLY for the targeted work(s);
- *   - book_details.primary_era_id = "time_ending" on insert AND update;
+ *   - book_details.primary_era_id is bucketed mechanically from
+ *     scripts/seed-data/book-dates.json × eras.json (Launch S1a, `./era-bucket`)
+ *     on insert AND update — no setting date ⇒ NULL, never guessed; the
+ *     curation overlay stays the last db:sync tail and wins on this field;
  *   - `--all` is deterministic and is the additive `db:sync` tail (runs right
  *     after the legacy corpus, before podcast/audiobook/timeline/curation);
  *   - auto-created authors/editors land in persons.json once at run end;
@@ -67,6 +70,7 @@ import {
   type CorpusMode,
   type LoadedBookFile,
 } from "./book-file";
+import { loadEraContext } from "./era-bucket";
 import { seedReferenceAndFacetProlog } from "./seed-prolog";
 
 // =============================================================================
@@ -139,7 +143,8 @@ Usage:
 Behaviour:
   - Runs the non-destructive reference/facet seed prolog before validating.
   - One transaction per book; idempotent on works.external_book_id.
-  - book_details.primary_era_id = "time_ending" on insert and update.
+  - book_details.primary_era_id: bucketed from book-dates.json × eras.json
+    (startY picks the era; no setting date ⇒ NULL) on insert and update.
   - Collection files own collects[]; member applies leave work_collections alone.
   - Unknown authors/editors are appended to scripts/seed-data/persons.json.
   - --all on an empty books/ folder is a clean no-op (exit 0).
@@ -304,6 +309,8 @@ async function runApply(mode: { slug: string; all: boolean; corpusMode: CorpusMo
 
   const skipCtx = await loadSkipContext();
   const locationSkipCtx = await loadLocationSkipContext();
+  // Pure book-dates × eras lookup; throws on seed drift (halt before mutation).
+  const eraCtx = loadEraContext();
 
   // Persons pre-pass over the selected books (their own authors/editors).
   const rosterByExternalId = new Map<string, RosterBook>(
@@ -321,7 +328,7 @@ async function runApply(mode: { slug: string; all: boolean; corpusMode: CorpusMo
     const roster = projectToRosterBook(book);
     const override = projectToOverrideBook(book);
     const series = seriesAnchorOf(book);
-    const result = await applyBook(override, roster, series, skipCtx, locationSkipCtx);
+    const result = await applyBook(override, roster, series, skipCtx, locationSkipCtx, eraCtx);
     externalIdToUuid.set(result.externalBookId, result.workId);
     results.push(result);
     console.log(

@@ -51,6 +51,7 @@ import {
   projectToRosterBook,
   seriesAnchorOf,
 } from "./book-file";
+import { loadEraContext } from "./era-bucket";
 import type { RosterCollection } from "./seed-data/types";
 
 const EQUIV_DIR = resolve(process.cwd(), "ingest", ".equivalence");
@@ -124,6 +125,9 @@ export async function runProjectionDiff(): Promise<ProjectionDiffResult> {
 
   const skipCtx = await loadSkipContext();
   const locationSkipCtx = await loadLocationSkipContext();
+  // Same era context on BOTH sides: the era anchor derives from the (proven
+  // equal) slug, so it can never be the projection-diff surface.
+  const eraCtx = loadEraContext();
 
   const rowDeltas: ProjectionDiffResult["rowDeltas"] = [];
   const missingPerBook: string[] = [];
@@ -133,13 +137,14 @@ export async function runProjectionDiff(): Promise<ProjectionDiffResult> {
       missingPerBook.push(override.externalBookId);
       continue;
     }
-    const legacyRows = computeBookRows(override, rosterBook, series, skipCtx, locationSkipCtx);
+    const legacyRows = computeBookRows(override, rosterBook, series, skipCtx, locationSkipCtx, eraCtx);
     const perBookRows = computeBookRows(
       projectToOverrideBook(perBook),
       projectToRosterBook(perBook),
       seriesAnchorOf(perBook),
       skipCtx,
       locationSkipCtx,
+      eraCtx,
     );
     const legacyStr = stable(legacyRows);
     const perBookStr = stable(perBookRows);
