@@ -1,5 +1,5 @@
 /**
- * Compendium data layer. SERVER-ONLY (imports `@/db`).
+ * Compendium data layer — DB-FREE façade (Launch S1b Loader-Weiche).
  *
  * Each of the five categories is built from an existing aggregate query — no new
  * SQL: factions reuse `/fraktionen`'s `loadFactionGuide` (+ its `hasContent`
@@ -7,6 +7,13 @@
  * `getWeltenRows`, `getPersonenRows`). The builders map those rows to the pure
  * `CompendiumItem` shape — a resolved entity `href` plus pre-computed display
  * strings — so the pages and the client controls stay db-free.
+ *
+ * Source switch: the snapshot cuts at exactly these four `cachedRead` SOURCE
+ * reads (see `scripts/snapshot-shared.ts`) — everything above them (items,
+ * counts, suggestions) is pure and runs unchanged at build time, where Home's
+ * unified search index composes the compendium suggestions into a prerender.
+ * At request time the sources lazy-import their live DB modules; this module
+ * must never statically import `@/db` (the DB-free CI build depends on it).
  *
  * Everything is wrapped in React `cache()`: a category page reads its own items
  * AND the layout reads all-five counts in the same request; caching collapses
@@ -17,16 +24,16 @@ import "server-only";
 import { cache } from "react";
 import { cachedRead } from "@/lib/db-cache";
 import {
-  getCharaktereRows,
-  getPersonenRows,
-  getWeltenRows,
+  isBuildPhase,
+  readSnapshotArtifact,
+} from "@/lib/snapshot/build-data";
+import type {
+  CharaktereRow,
+  PersonenRow,
+  WeltenRow,
 } from "./queries";
 import { factionDot } from "@/lib/faction-colors";
-import {
-  loadFactionGuide,
-  type Alignment,
-  type FactionGuide,
-} from "@/app/fraktionen/loader";
+import type { Alignment, FactionGuide } from "@/app/fraktionen/loader";
 import { hasContent } from "@/app/fraktionen/filters";
 import { loadEntity } from "@/lib/entity/loader";
 import {
@@ -79,6 +86,30 @@ function factionStats(f: FactionGuide): string | null {
   return parts.length > 0 ? parts.join(" · ") : null;
 }
 
+// Source switches (Launch S1b): build → committed snapshot artifact
+// (fail-closed), request time → lazy import of the live DB module. The switch
+// sits UNDER `cachedRead`, so the caching contract is unchanged either way.
+async function factionGuideSource(): Promise<FactionGuide[]> {
+  if (isBuildPhase()) return readSnapshotArtifact<FactionGuide[]>("factionGuide");
+  const { loadFactionGuide } = await import("@/app/fraktionen/loader");
+  return loadFactionGuide();
+}
+async function charaktereSource(): Promise<CharaktereRow[]> {
+  if (isBuildPhase()) return readSnapshotArtifact<CharaktereRow[]>("charaktereRows");
+  const { getCharaktereRows } = await import("./queries");
+  return getCharaktereRows();
+}
+async function weltenSource(): Promise<WeltenRow[]> {
+  if (isBuildPhase()) return readSnapshotArtifact<WeltenRow[]>("weltenRows");
+  const { getWeltenRows } = await import("./queries");
+  return getWeltenRows();
+}
+async function personenSource(): Promise<PersonenRow[]> {
+  if (isBuildPhase()) return readSnapshotArtifact<PersonenRow[]>("personenRows");
+  const { getPersonenRows } = await import("./queries");
+  return getPersonenRows();
+}
+
 // Cached source rows (shared ACROSS requests + within one request).
 // `cachedRead` wraps each source loader in Next's persistent Data Cache
 // (`unstable_cache`, shared across requests and serverless instances) plus a
@@ -89,19 +120,19 @@ function factionStats(f: FactionGuide): string | null {
 // operation (the archive always has factions, characters, worlds and authors),
 // so an empty result means the read failed → `isDegraded` keeps it out of the
 // cache. See `src/lib/db-cache.ts` for the full rationale.
-const cachedFactionGuide = cachedRead(loadFactionGuide, ["compendium", "faction-guide"], {
+const cachedFactionGuide = cachedRead(factionGuideSource, ["compendium", "faction-guide"], {
   tags: ["compendium", "factions"],
   isDegraded: (rows) => rows.length === 0,
 });
-const cachedCharaktere = cachedRead(getCharaktereRows, ["compendium", "charaktere-rows"], {
+const cachedCharaktere = cachedRead(charaktereSource, ["compendium", "charaktere-rows"], {
   tags: ["compendium", "characters"],
   isDegraded: (rows) => rows.length === 0,
 });
-const cachedWelten = cachedRead(getWeltenRows, ["compendium", "welten-rows"], {
+const cachedWelten = cachedRead(weltenSource, ["compendium", "welten-rows"], {
   tags: ["compendium", "worlds"],
   isDegraded: (rows) => rows.length === 0,
 });
-const cachedPersonen = cachedRead(getPersonenRows, ["compendium", "personen-rows"], {
+const cachedPersonen = cachedRead(personenSource, ["compendium", "personen-rows"], {
   tags: ["compendium", "authors"],
   isDegraded: (rows) => rows.length === 0,
 });
