@@ -1,0 +1,305 @@
+{
+  "type": "faction",
+  "id": "grey_knights",
+  "name": "Grey Knights",
+  "blurb": {
+    "text": "A secret Space Marine Chapter of psykers raised to combat daemons, serving as the militant arm of the Ordo Malleus.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Grey_Knights"
+  },
+  "facts": [
+    {
+      "label": "Alignment",
+      "value": "Imperium"
+    },
+    {
+      "label": "Parent faction",
+      "value": {
+        "type": "faction",
+        "id": "adeptus_astartes",
+        "name": "Adeptus Astartes"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "grey-knights",
+          "title": "Grey Knights",
+          "kind": "book",
+          "releaseYear": 2004,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/grey-knights",
+          "showTitle": null
+        },
+        {
+          "slug": "dark-adeptus",
+          "title": "Dark Adeptus",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/dark-adeptus",
+          "showTitle": null
+        },
+        {
+          "slug": "hammer-of-daemons",
+          "title": "Hammer of Daemons",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/hammer-of-daemons",
+          "showTitle": null
+        },
+        {
+          "slug": "the-grey-knights-omnibus",
+          "title": "The Grey Knights Omnibus",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-grey-knights-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-emperors-gift",
+          "title": "The Emperor's Gift",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-emperors-gift",
+          "showTitle": null
+        },
+        {
+          "slug": "pandorax",
+          "title": "Pandorax",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/pandorax",
+          "showTitle": null
+        },
+        {
+          "slug": "sanctus-reach-maledictus",
+          "title": "Sanctus Reach: Maledictus",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/sanctus-reach-maledictus",
+          "showTitle": null
+        },
+        {
+          "slug": "warden-of-the-blade",
+          "title": "Warden of the Blade",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/warden-of-the-blade",
+          "showTitle": null
+        },
+        {
+          "slug": "castellan",
+          "title": "Castellan",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/castellan",
+          "showTitle": null
+        },
+        {
+          "slug": "curse-of-the-wulfen",
+          "title": "Curse of the Wulfen",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/curse-of-the-wulfen",
+          "showTitle": null
+        },
+        {
+          "slug": "angron-the-red-angel",
+          "title": "Angron: The Red Angel",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/angron-the-red-angel",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-32-ordo-malleus-and-the-grey-knights-d883f794932f3665e77a679f33af40cb",
+          "title": "32 - Ordo Malleus and the Grey Knights",
+          "kind": "podcast_episode",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-c7b46f74-4bf6-47fb-8566-df21af84dee3",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "luetin09-8jdpzr63sx8",
+          "title": "THE GREY KNIGHTS [Part 1] - WARHAMMER 40,000 Lore / History",
+          "kind": "podcast_episode",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-2d44b775-8249-4fa5-aa57-6f6f754181c8",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-xxcj6fx6rqi",
+          "title": "THE GREY KNIGHTS [Part 2 - Vengeance] - WARHAMMER 40,000 Lore / History",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-a2d5d2d5-5ed8-4ff6-8f81-e80c224d3f9f",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-13164319",
+          "title": "THE GREY KNIGHTS: KNIGHT HARDER feat. DRAIGO & CROWE | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-9204b38b-70c2-492b-bc9a-684f274dcb79",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-13123752",
+          "title": "THE GREY KNIGHTS: ORIGINS | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-3344daef-5cba-404f-939a-e9074c97f086",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-29d9ad11-2d39-4b9c-a1f8-e58539b70695",
+          "title": "102 - Malcador the Sigilite",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-22c4b063-f09b-4df1-b29f-9c745ae73461",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-15812635",
+          "title": "Episode 54 - The Grey Knights pt 1 - The Flight of the Eisenstein and the Knights Errant.",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-990f0b02-fe71-4a39-8c33-bbe7435819d0",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-15828324",
+          "title": "Episode 55 - The Grey Knights pt 2 - The rise of the Grey Knights",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-8eba03df-c3c9-4060-a101-e55d2ee604d4",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-14457522",
+          "title": "MONTHS OF SHAME: DON'T MESS WITH WOLVES | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-9336f41b-e1d7-4862-9555-50d32e6710c9",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-7d048f94-c0da-11ef-b345-3b6dd5fd0a7d",
+          "title": "Episode 69 - GW Rules Oopsies - When lore and tabletop rules dont mix",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-87451b5c-1c0d-4e1c-867e-aaf61f2b0a25",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "lorehammer-512277d7-4ac7-4bef-9052-c658529a8978",
+          "title": "Edition Eras Pt. 3 - 5th, 6th and 7th ",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-e0a5037f-bb8e-474e-a4e6-be14dd32c5b5",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "the-40k-lorecast-de0c18e9-2f95-490d-975d-f36c795c5853",
+          "title": "Episode 120 - 1st (ish) War of Armageddon - The Battle for Armageddon",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-260dbb13-7dbb-4ce1-977a-573412d82dd4",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-4154cebf-dfd8-4de7-a890-205b169ffb67",
+          "title": "Episode 121 - The Months of Shame",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-af4a0f0f-477f-4a94-ab4e-d31e9bdf66c0",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-33ef13a5-4de8-4ebf-b876-82ed36e53cae",
+          "title": "Episode 135 - The Siege of Vraks pt 3 - The arrival of the inquisition and the final siege on Vraks",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-32cfde48-d6a2-40f3-9c1b-142dad05362d",
+          "showTitle": "The 40k Lorecast"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Key characters",
+      "items": [
+        {
+          "type": "character",
+          "id": "alaric",
+          "name": "Alaric"
+        },
+        {
+          "type": "character",
+          "id": "garran_crowe",
+          "name": "Garran Crowe"
+        }
+      ]
+    }
+  ]
+}

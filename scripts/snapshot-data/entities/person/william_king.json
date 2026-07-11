@@ -1,0 +1,125 @@
+{
+  "type": "person",
+  "id": "william_king",
+  "name": "William King",
+  "facts": [],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "space-wolf",
+          "title": "Space Wolf",
+          "kind": "book",
+          "releaseYear": 1999,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/space-wolf",
+          "showTitle": null
+        },
+        {
+          "slug": "ragnars-claw",
+          "title": "Ragnar's Claw",
+          "kind": "book",
+          "releaseYear": 2000,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ragnars-claw",
+          "showTitle": null
+        },
+        {
+          "slug": "farseer",
+          "title": "Farseer",
+          "kind": "book",
+          "releaseYear": 2002,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/farseer",
+          "showTitle": null
+        },
+        {
+          "slug": "grey-hunter",
+          "title": "Grey Hunter",
+          "kind": "book",
+          "releaseYear": 2002,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/grey-hunter",
+          "showTitle": null
+        },
+        {
+          "slug": "wolfblade",
+          "title": "Wolfblade",
+          "kind": "book",
+          "releaseYear": 2003,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/wolfblade",
+          "showTitle": null
+        },
+        {
+          "slug": "the-space-wolf-omnibus",
+          "title": "The Space Wolf Omnibus",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-space-wolf-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "space-wolf-the-second-omnibus",
+          "title": "Space Wolf: The Second Omnibus",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/space-wolf-the-second-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "angel-of-fire",
+          "title": "Angel of Fire",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/angel-of-fire",
+          "showTitle": null
+        },
+        {
+          "slug": "fist-of-demetrius",
+          "title": "Fist of Demetrius",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/fist-of-demetrius",
+          "showTitle": null
+        },
+        {
+          "slug": "fall-of-macharius",
+          "title": "Fall of Macharius",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/fall-of-macharius",
+          "showTitle": null
+        },
+        {
+          "slug": "the-macharian-crusade-omnibus",
+          "title": "The Macharian Crusade Omnibus",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-macharian-crusade-omnibus",
+          "showTitle": null
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

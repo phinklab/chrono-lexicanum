@@ -1,0 +1,165 @@
+{
+  "type": "person",
+  "id": "mike_brooks",
+  "name": "Mike Brooks",
+  "facts": [],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "wanted-dead",
+          "title": "Wanted: Dead",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/wanted-dead",
+          "showTitle": null
+        },
+        {
+          "slug": "rites-of-passage",
+          "title": "Rites of Passage",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/rites-of-passage",
+          "showTitle": null
+        },
+        {
+          "slug": "underhive-a-necromunda-anthology",
+          "title": "Underhive: A Necromunda Anthology",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/underhive-a-necromunda-anthology",
+          "showTitle": null
+        },
+        {
+          "slug": "brutal-kunnin",
+          "title": "Brutal Kunnin",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/brutal-kunnin",
+          "showTitle": null
+        },
+        {
+          "slug": "road-to-redemption",
+          "title": "Road to Redemption",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/road-to-redemption",
+          "showTitle": null
+        },
+        {
+          "slug": "the-serpents-dance",
+          "title": "The Serpent's Dance",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-serpents-dance",
+          "showTitle": null
+        },
+        {
+          "slug": "alpharius-head-of-the-hydra",
+          "title": "Alpharius: Head of the Hydra",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/alpharius-head-of-the-hydra",
+          "showTitle": null
+        },
+        {
+          "slug": "da-gobbos-revenge",
+          "title": "Da Gobbo's Revenge",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/da-gobbos-revenge",
+          "showTitle": null
+        },
+        {
+          "slug": "huron-blackheart-master-of-the-maelstrom",
+          "title": "Huron Blackheart: Master of the Maelstrom",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/huron-blackheart-master-of-the-maelstrom",
+          "showTitle": null
+        },
+        {
+          "slug": "renegades-harrowmaster",
+          "title": "Renegades: Harrowmaster",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/renegades-harrowmaster",
+          "showTitle": null
+        },
+        {
+          "slug": "the-lion-sons-of-the-forest",
+          "title": "The Lion: Sons of the Forest",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-lion-sons-of-the-forest",
+          "showTitle": null
+        },
+        {
+          "slug": "warboss",
+          "title": "Warboss",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/warboss",
+          "showTitle": null
+        },
+        {
+          "slug": "lelith-hesperax-queen-of-knives",
+          "title": "Lelith Hesperax: Queen of Knives",
+          "kind": "book",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/lelith-hesperax-queen-of-knives",
+          "showTitle": null
+        },
+        {
+          "slug": "voidscarred",
+          "title": "Voidscarred",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/voidscarred",
+          "showTitle": null
+        },
+        {
+          "slug": "ghost-legion",
+          "title": "Ghost Legion",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ghost-legion",
+          "showTitle": null
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

@@ -1,0 +1,572 @@
+{
+  "type": "location",
+  "id": "istvaan_v",
+  "name": "Istvaan V",
+  "blurb": {
+    "text": "The world that was the site of the Dropsite Massacre, where Horus's traitors ambushed and devastated the loyalist Legions early in the Horus Heresy.",
+    "confidence": 0.85,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Isstvan_V"
+  },
+  "facts": [
+    {
+      "label": "Sector",
+      "value": "Segmentum Obscurus"
+    }
+  ],
+  "tags": [
+    "world_eaters",
+    "night_lords",
+    "iron_warriors"
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "collected-visions",
+          "title": "Collected Visions",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/collected-visions",
+          "showTitle": null
+        },
+        {
+          "slug": "fulgrim",
+          "title": "Fulgrim",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/fulgrim",
+          "showTitle": null
+        },
+        {
+          "slug": "ravens-flight",
+          "title": "Raven's Flight",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/ravens-flight",
+          "showTitle": null
+        },
+        {
+          "slug": "the-first-heretic",
+          "title": "The First Heretic",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-first-heretic",
+          "showTitle": null
+        },
+        {
+          "slug": "age-of-darkness",
+          "title": "Age of Darkness",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/age-of-darkness",
+          "showTitle": null
+        },
+        {
+          "slug": "aurelian",
+          "title": "Aurelian",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/aurelian",
+          "showTitle": null
+        },
+        {
+          "slug": "deliverance-lost",
+          "title": "Deliverance Lost",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/deliverance-lost",
+          "showTitle": null
+        },
+        {
+          "slug": "the-face-of-treachery",
+          "title": "The Face of Treachery",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-face-of-treachery",
+          "showTitle": null
+        },
+        {
+          "slug": "horus-heresy-the-scripts-volume-i",
+          "title": "Horus Heresy: The Scripts: Volume I",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/horus-heresy-the-scripts-volume-i",
+          "showTitle": null
+        },
+        {
+          "slug": "shadows-of-treachery",
+          "title": "Shadows of Treachery",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/shadows-of-treachery",
+          "showTitle": null
+        },
+        {
+          "slug": "strike-and-fade",
+          "title": "Strike and Fade",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/strike-and-fade",
+          "showTitle": null
+        },
+        {
+          "slug": "veritas-ferrum",
+          "title": "Veritas Ferrum",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/veritas-ferrum",
+          "showTitle": null
+        },
+        {
+          "slug": "angel-exterminatus",
+          "title": "Angel Exterminatus",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/angel-exterminatus",
+          "showTitle": null
+        },
+        {
+          "slug": "riven",
+          "title": "Riven",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/riven",
+          "showTitle": null
+        },
+        {
+          "slug": "scorched-earth",
+          "title": "Scorched Earth",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/scorched-earth",
+          "showTitle": null
+        },
+        {
+          "slug": "vulkan-lives",
+          "title": "Vulkan Lives",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/vulkan-lives",
+          "showTitle": null
+        },
+        {
+          "slug": "echoes-of-ruin",
+          "title": "Echoes of Ruin",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/echoes-of-ruin",
+          "showTitle": null
+        },
+        {
+          "slug": "legacies-of-betrayal",
+          "title": "Legacies of Betrayal",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/legacies-of-betrayal",
+          "showTitle": null
+        },
+        {
+          "slug": "raptor",
+          "title": "Raptor",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/raptor",
+          "showTitle": null
+        },
+        {
+          "slug": "the-phoenician",
+          "title": "The Phoenician",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-phoenician",
+          "showTitle": null
+        },
+        {
+          "slug": "grey-talon",
+          "title": "Grey Talon",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/grey-talon",
+          "showTitle": null
+        },
+        {
+          "slug": "corax",
+          "title": "Corax",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/corax",
+          "showTitle": null
+        },
+        {
+          "slug": "eye-of-terra",
+          "title": "Eye of Terra",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/eye-of-terra",
+          "showTitle": null
+        },
+        {
+          "slug": "immortal-duty",
+          "title": "Immortal Duty",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/immortal-duty",
+          "showTitle": null
+        },
+        {
+          "slug": "massacre",
+          "title": "Massacre",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/massacre",
+          "showTitle": null
+        },
+        {
+          "slug": "visions-of-heresy-2018-ed",
+          "title": "Visions of Heresy (2018 ed.)",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/visions-of-heresy-2018-ed",
+          "showTitle": null
+        },
+        {
+          "slug": "dropsite-massacre",
+          "title": "Dropsite Massacre",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/dropsite-massacre",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-11616993",
+          "title": "DORNIAN HERESY: WARHAMMER IN THE MULTIVERSE OF MADNESS | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-7cc3537b-7e5b-4a8d-817c-8395305de7ab",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-13773587",
+          "title": "Episode 4 - Heresy makes its move",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-0dd8ba05-53c3-4790-be05-c39e248d7f1b",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-13830301",
+          "title": "Episode 5 - The imperium is Fragmented while Chaos corrupts",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-83433549-be30-401a-89c6-e258780a61e8",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-13917624",
+          "title": "Episode 7 - Chaos Always Corrupts,",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-b8cf9dc6-9526-4c4f-b9e9-d6f67f522f9c",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "lorehammer-48a567c2-72ce-4d19-b391-2b035448108e",
+          "title": "212 - Ferrus Manus, Horus Heresy",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-fa2147e5-bac3-4e35-aed1-906c8ee23c69",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-a1a110e5-9f57-4749-8507-5b4cdf872781",
+          "title": "213 - Iron Hands, 30k Legion Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-fa78b18d-00a6-4a1b-88e5-aad1e90a2099",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "the-40k-lorecast-d38acdd7-8571-4f9f-8480-3e6de6e9ab51",
+          "title": "Episode 116 - The Salamanders, Vulkan takes one to the dome, and then another, and then some more.... fine Vulkan just dies a lot",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-381c36f6-024c-4366-8e95-546bb210782c",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-9dce241e-a112-409a-bf5a-a8d320769aee",
+          "title": "Episode 85 - Emperor's Children pt 1 - The Rise and Fall of the 3rd Legion",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-97fe7e1e-94ab-4754-9724-e957da203d08",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-03d41228-68f5-43c3-b393-915c0bc5539a",
+          "title": "Episode 98 - World Eaters pt 2",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-df7e71ee-c28e-4caf-bbd4-3b51b5d15456",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-0737273c-228e-4f3f-8d55-2a3356b268ca",
+          "title": "Episode 123 - The Alpha Legion pt2, Alph legion take their place amoungst the legions (and irritate all of them in the process)",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-f0ade1f6-272b-4182-ace0-f761fdbbcd82",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-931e2790-9750-45f9-9eec-bf2a9d65e537",
+          "title": "Episode 137 - The Night Lords pt2 - Konrad joins the Heresy and does both a good and terrible job at the same time",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-6ab730c5-2d93-4b9e-93b6-f562e74e1519",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-3ab8fe25-4938-4ad1-964a-fa669f96903b",
+          "title": "Episode 141 - Raven Guard pt 3 - Isstvan 5 and the legions rebirth.",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-10a222de-13d6-4356-b9db-e3bbd251765d",
+          "showTitle": "The 40k Lorecast"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Other worlds in sector",
+      "items": [
+        {
+          "type": "location",
+          "id": "armageddon",
+          "name": "Armageddon"
+        },
+        {
+          "type": "location",
+          "id": "asaheim",
+          "name": "Asaheim"
+        },
+        {
+          "type": "location",
+          "id": "cadia",
+          "name": "Cadia"
+        },
+        {
+          "type": "location",
+          "id": "caliban",
+          "name": "Caliban"
+        },
+        {
+          "type": "location",
+          "id": "certus_minor",
+          "name": "Certus-Minor"
+        },
+        {
+          "type": "location",
+          "id": "crannog_mons",
+          "name": "Crannog Mons"
+        },
+        {
+          "type": "location",
+          "id": "davin",
+          "name": "Davin"
+        },
+        {
+          "type": "location",
+          "id": "eye_of_terror",
+          "name": "Eye of Terror"
+        },
+        {
+          "type": "location",
+          "id": "fabris_calivant",
+          "name": "Fabris Calivant"
+        },
+        {
+          "type": "location",
+          "id": "fenris",
+          "name": "Fenris"
+        },
+        {
+          "type": "location",
+          "id": "gildar_secundus",
+          "name": "Gildar Secundus"
+        },
+        {
+          "type": "location",
+          "id": "herodian_iv",
+          "name": "Herodian IV"
+        },
+        {
+          "type": "location",
+          "id": "honoria",
+          "name": "Honoria"
+        },
+        {
+          "type": "location",
+          "id": "istvaan_iii",
+          "name": "Istvaan III"
+        },
+        {
+          "type": "location",
+          "id": "istvaan_system",
+          "name": "Istvaan System"
+        },
+        {
+          "type": "location",
+          "id": "kadillus_harbour",
+          "name": "Kadillus Harbour"
+        },
+        {
+          "type": "location",
+          "id": "lastrati",
+          "name": "Lastrati"
+        },
+        {
+          "type": "location",
+          "id": "malouri",
+          "name": "Malouri"
+        },
+        {
+          "type": "location",
+          "id": "medrengard",
+          "name": "Medrengard"
+        },
+        {
+          "type": "location",
+          "id": "northwilds",
+          "name": "Northwilds"
+        },
+        {
+          "type": "location",
+          "id": "nostramo",
+          "name": "Nostramo"
+        },
+        {
+          "type": "location",
+          "id": "piety_v",
+          "name": "Piety V"
+        },
+        {
+          "type": "location",
+          "id": "prospero",
+          "name": "Prospero"
+        },
+        {
+          "type": "location",
+          "id": "fang",
+          "name": "The Fang"
+        },
+        {
+          "type": "location",
+          "id": "tizca",
+          "name": "Tizca"
+        },
+        {
+          "type": "location",
+          "id": "urgall_depression",
+          "name": "Urgall Depression"
+        },
+        {
+          "type": "location",
+          "id": "void",
+          "name": "Warp Corridor"
+        },
+        {
+          "type": "location",
+          "id": "zaramund",
+          "name": "Zaramund"
+        }
+      ]
+    }
+  ]
+}

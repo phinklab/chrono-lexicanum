@@ -1,0 +1,1345 @@
+{
+  "type": "faction",
+  "id": "ultramarines",
+  "name": "Ultramarines",
+  "blurb": {
+    "text": "A renowned loyalist Space Marine Chapter born of the gene-seed of Roboute Guilliman, ruling the realm of Ultramar from the world of Macragge.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ultramarines"
+  },
+  "facts": [
+    {
+      "label": "Alignment",
+      "value": "Imperium"
+    },
+    {
+      "label": "Parent faction",
+      "value": {
+        "type": "faction",
+        "id": "adeptus_astartes",
+        "name": "Adeptus Astartes"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "nightbringer",
+          "title": "Nightbringer",
+          "kind": "book",
+          "releaseYear": 2002,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/nightbringer",
+          "showTitle": null
+        },
+        {
+          "slug": "warriors-of-the-ultramar",
+          "title": "Warriors of the Ultramar",
+          "kind": "book",
+          "releaseYear": 2003,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/warriors-of-the-ultramar",
+          "showTitle": null
+        },
+        {
+          "slug": "dead-sky-black-sun",
+          "title": "Dead Sky, Black Sun",
+          "kind": "book",
+          "releaseYear": 2004,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/dead-sky-black-sun",
+          "showTitle": null
+        },
+        {
+          "slug": "the-ultramarines-omnibus",
+          "title": "The Ultramarines Omnibus",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-ultramarines-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "collected-visions",
+          "title": "Collected Visions",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/collected-visions",
+          "showTitle": null
+        },
+        {
+          "slug": "assault-on-black-reach",
+          "title": "Assault on Black Reach",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/assault-on-black-reach",
+          "showTitle": null
+        },
+        {
+          "slug": "battle-for-the-abyss",
+          "title": "Battle for the Abyss",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/battle-for-the-abyss",
+          "showTitle": null
+        },
+        {
+          "slug": "the-killing-ground",
+          "title": "The Killing Ground",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-killing-ground",
+          "showTitle": null
+        },
+        {
+          "slug": "courage-and-honour",
+          "title": "Courage and Honour",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/courage-and-honour",
+          "showTitle": null
+        },
+        {
+          "slug": "iron-warrior",
+          "title": "Iron Warrior",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/iron-warrior",
+          "showTitle": null
+        },
+        {
+          "slug": "the-chapters-due",
+          "title": "The Chapter's Due",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-chapters-due",
+          "showTitle": null
+        },
+        {
+          "slug": "the-first-heretic",
+          "title": "The First Heretic",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-first-heretic",
+          "showTitle": null
+        },
+        {
+          "slug": "age-of-darkness",
+          "title": "Age of Darkness",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/age-of-darkness",
+          "showTitle": null
+        },
+        {
+          "slug": "fall-of-damnos",
+          "title": "Fall of Damnos",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/fall-of-damnos",
+          "showTitle": null
+        },
+        {
+          "slug": "forgotten-sons",
+          "title": "Forgotten Sons",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/forgotten-sons",
+          "showTitle": null
+        },
+        {
+          "slug": "garro-legion-of-one",
+          "title": "Garro: Legion of One",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/garro-legion-of-one",
+          "showTitle": null
+        },
+        {
+          "slug": "rules-of-engagement",
+          "title": "Rules of Engagement",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/rules-of-engagement",
+          "showTitle": null
+        },
+        {
+          "slug": "catechism-of-hate",
+          "title": "Catechism of Hate",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/catechism-of-hate",
+          "showTitle": null
+        },
+        {
+          "slug": "iron-warriors-the-omnibus",
+          "title": "Iron Warriors: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/iron-warriors-the-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "know-no-fear",
+          "title": "Know No Fear",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/know-no-fear",
+          "showTitle": null
+        },
+        {
+          "slug": "ultramarines-the-second-omnibus",
+          "title": "Ultramarines: The Second Omnibus",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/ultramarines-the-second-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "betrayer",
+          "title": "Betrayer",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/betrayer",
+          "showTitle": null
+        },
+        {
+          "slug": "censure",
+          "title": "Censure",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/censure",
+          "showTitle": null
+        },
+        {
+          "slug": "honour-to-the-dead",
+          "title": "Honour to the Dead",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/honour-to-the-dead",
+          "showTitle": null
+        },
+        {
+          "slug": "spear-of-macragge",
+          "title": "Spear of Macragge",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/spear-of-macragge",
+          "showTitle": null
+        },
+        {
+          "slug": "the-gates-of-terra",
+          "title": "The Gates of Terra",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-gates-of-terra",
+          "showTitle": null
+        },
+        {
+          "slug": "the-unremembered-empire",
+          "title": "The Unremembered Empire",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-unremembered-empire",
+          "showTitle": null
+        },
+        {
+          "slug": "armour-of-faith",
+          "title": "Armour of Faith",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/armour-of-faith",
+          "showTitle": null
+        },
+        {
+          "slug": "engines-of-war",
+          "title": "Engines of War",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/engines-of-war",
+          "showTitle": null
+        },
+        {
+          "slug": "horus-heresy-the-scripts-volume-ii",
+          "title": "Horus Heresy: The Scripts: Volume II",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/horus-heresy-the-scripts-volume-ii",
+          "showTitle": null
+        },
+        {
+          "slug": "plague-harvest",
+          "title": "Plague Harvest",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/plague-harvest",
+          "showTitle": null
+        },
+        {
+          "slug": "seditions-gate",
+          "title": "Sedition's Gate",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/seditions-gate",
+          "showTitle": null
+        },
+        {
+          "slug": "strategem",
+          "title": "Strategem",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/strategem",
+          "showTitle": null
+        },
+        {
+          "slug": "the-purge",
+          "title": "The Purge",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-purge",
+          "showTitle": null
+        },
+        {
+          "slug": "a-safe-and-shadowed-place",
+          "title": "A Safe and Shadowed Place",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/a-safe-and-shadowed-place",
+          "showTitle": null
+        },
+        {
+          "slug": "betrayal-at-calth",
+          "title": "Betrayal at Calth",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/betrayal-at-calth",
+          "showTitle": null
+        },
+        {
+          "slug": "deathfire",
+          "title": "Deathfire",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/deathfire",
+          "showTitle": null
+        },
+        {
+          "slug": "legacies-of-betrayal",
+          "title": "Legacies of Betrayal",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/legacies-of-betrayal",
+          "showTitle": null
+        },
+        {
+          "slug": "the-honoured",
+          "title": "The Honoured",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-honoured",
+          "showTitle": null
+        },
+        {
+          "slug": "the-unburdened",
+          "title": "The Unburdened",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-unburdened",
+          "showTitle": null
+        },
+        {
+          "slug": "angels-of-caliban",
+          "title": "Angels of Caliban",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/angels-of-caliban",
+          "showTitle": null
+        },
+        {
+          "slug": "blades-of-damocles",
+          "title": "Blades of Damocles",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/blades-of-damocles",
+          "showTitle": null
+        },
+        {
+          "slug": "calgars-siege",
+          "title": "Calgar's Siege",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/calgars-siege",
+          "showTitle": null
+        },
+        {
+          "slug": "cassius",
+          "title": "Cassius",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/cassius",
+          "showTitle": null
+        },
+        {
+          "slug": "echoes-of-imperium",
+          "title": "Echoes of Imperium",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/echoes-of-imperium",
+          "showTitle": null
+        },
+        {
+          "slug": "pharos",
+          "title": "Pharos",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/pharos",
+          "showTitle": null
+        },
+        {
+          "slug": "red-marked",
+          "title": "Red-Marked",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/red-marked",
+          "showTitle": null
+        },
+        {
+          "slug": "roboute-guilliman-lord-of-ultramar",
+          "title": "Roboute Guilliman: Lord of Ultramar",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/roboute-guilliman-lord-of-ultramar",
+          "showTitle": null
+        },
+        {
+          "slug": "the-heart-of-the-pharos",
+          "title": "The Heart of the Pharos",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-heart-of-the-pharos",
+          "showTitle": null
+        },
+        {
+          "slug": "the-plagues-of-orath",
+          "title": "The Plagues of Orath",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-plagues-of-orath",
+          "showTitle": null
+        },
+        {
+          "slug": "ultramarines-legends",
+          "title": "Ultramarines (Legends)",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/ultramarines-legends",
+          "showTitle": null
+        },
+        {
+          "slug": "war-without-end",
+          "title": "War Without End",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/war-without-end",
+          "showTitle": null
+        },
+        {
+          "slug": "calgars-fury",
+          "title": "Calgar's Fury",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/calgars-fury",
+          "showTitle": null
+        },
+        {
+          "slug": "dark-imperium",
+          "title": "Dark Imperium",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/dark-imperium",
+          "showTitle": null
+        },
+        {
+          "slug": "eye-of-terra",
+          "title": "Eye of Terra",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/eye-of-terra",
+          "showTitle": null
+        },
+        {
+          "slug": "garro-oath-of-moment",
+          "title": "Garro: Oath of Moment",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/garro-oath-of-moment",
+          "showTitle": null
+        },
+        {
+          "slug": "mark-of-calth",
+          "title": "Mark of Calth",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/mark-of-calth",
+          "showTitle": null
+        },
+        {
+          "slug": "ruinstorm",
+          "title": "Ruinstorm",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/ruinstorm",
+          "showTitle": null
+        },
+        {
+          "slug": "the-devastation-of-baal",
+          "title": "The Devastation of Baal",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-devastation-of-baal",
+          "showTitle": null
+        },
+        {
+          "slug": "the-emperors-legion",
+          "title": "The Emperor's Legion",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-emperors-legion",
+          "showTitle": null
+        },
+        {
+          "slug": "the-laurel-of-defiance",
+          "title": "The Laurel of Defiance",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-laurel-of-defiance",
+          "showTitle": null
+        },
+        {
+          "slug": "blood-of-iax",
+          "title": "Blood of Iax",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/blood-of-iax",
+          "showTitle": null
+        },
+        {
+          "slug": "death-knell",
+          "title": "Death Knell",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/death-knell",
+          "showTitle": null
+        },
+        {
+          "slug": "ferrus-manus-the-gorgon-of-medusa",
+          "title": "Ferrus Manus: The Gorgon of Medusa",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ferrus-manus-the-gorgon-of-medusa",
+          "showTitle": null
+        },
+        {
+          "slug": "hubris-of-monarchia",
+          "title": "Hubris of Monarchia",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/hubris-of-monarchia",
+          "showTitle": null
+        },
+        {
+          "slug": "nightfane",
+          "title": "Nightfane",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/nightfane",
+          "showTitle": null
+        },
+        {
+          "slug": "of-honour-and-iron",
+          "title": "Of Honour and Iron",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/of-honour-and-iron",
+          "showTitle": null
+        },
+        {
+          "slug": "plague-war",
+          "title": "Plague War",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/plague-war",
+          "showTitle": null
+        },
+        {
+          "slug": "spear-of-ultramar",
+          "title": "Spear of Ultramar",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/spear-of-ultramar",
+          "showTitle": null
+        },
+        {
+          "slug": "the-atonement-of-fire",
+          "title": "The Atonement of Fire",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-atonement-of-fire",
+          "showTitle": null
+        },
+        {
+          "slug": "visions-of-heresy-2018-ed",
+          "title": "Visions of Heresy (2018 ed.)",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/visions-of-heresy-2018-ed",
+          "showTitle": null
+        },
+        {
+          "slug": "belisarius-cawl-the-great-work",
+          "title": "Belisarius Cawl: The Great Work",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/belisarius-cawl-the-great-work",
+          "showTitle": null
+        },
+        {
+          "slug": "illyrium",
+          "title": "Illyrium",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/illyrium",
+          "showTitle": null
+        },
+        {
+          "slug": "iron-warriors-the-complete-honsou-omnibus",
+          "title": "Iron Warriors: The Complete Honsou Omnibus",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/iron-warriors-the-complete-honsou-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "scions-of-the-emperor",
+          "title": "Scions of the Emperor",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/scions-of-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "the-uriel-ventris-chronicles-vol-1-omnibus",
+          "title": "The Uriel Ventris Chronicles Vol. 1 Omnibus",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-uriel-ventris-chronicles-vol-1-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-uriel-ventris-chronicles-vol-2-omnibus",
+          "title": "The Uriel Ventris Chronicles Vol. 2 Omnibus",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-uriel-ventris-chronicles-vol-2-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "avenging-son",
+          "title": "Avenging Son",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/avenging-son",
+          "showTitle": null
+        },
+        {
+          "slug": "godblight",
+          "title": "Godblight",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/godblight",
+          "showTitle": null
+        },
+        {
+          "slug": "indomitus",
+          "title": "Indomitus",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/indomitus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-swords-of-calth",
+          "title": "The Swords of Calth",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-swords-of-calth",
+          "showTitle": null
+        },
+        {
+          "slug": "the-wolftime",
+          "title": "The Wolftime",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-wolftime",
+          "showTitle": null
+        },
+        {
+          "slug": "throne-of-light",
+          "title": "Throne of Light",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/throne-of-light",
+          "showTitle": null
+        },
+        {
+          "slug": "leviathan",
+          "title": "Leviathan",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/leviathan",
+          "showTitle": null
+        },
+        {
+          "slug": "hand-of-abaddon",
+          "title": "Hand Of Abaddon",
+          "kind": "book",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/hand-of-abaddon",
+          "showTitle": null
+        },
+        {
+          "slug": "the-end-and-the-death-vol-3",
+          "title": "The End and The Death Vol. 3",
+          "kind": "book",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-end-and-the-death-vol-3",
+          "showTitle": null
+        },
+        {
+          "slug": "era-of-ruin",
+          "title": "Era Of Ruin",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/era-of-ruin",
+          "showTitle": null
+        },
+        {
+          "slug": "master-of-rites",
+          "title": "Master of Rites",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/master-of-rites",
+          "showTitle": null
+        },
+        {
+          "slug": "the-silent-king",
+          "title": "The Silent King",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-silent-king",
+          "showTitle": null
+        },
+        {
+          "slug": "flames-of-betrayal",
+          "title": "Flames of Betrayal",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/flames-of-betrayal",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "luetin09-zp-kcmwe340",
+          "title": "IMPERIUM - TYRANIDS FIRST CONTACT & The Battle of Macragge | WARHAMMER 40,000 Lore / History",
+          "kind": "podcast_episode",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-eac1d32d-293d-4602-b2d8-cecd0cc88700",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-bonus-episode-12-an-impromptu-conversation-d0609e20a34198b33a9f3f32666d361f",
+          "title": "Bonus 12 - An Impromptu Conversation",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-9adafb3c-f0e4-43b5-b988-3636713e505c",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "luetin09-joxya-4t58g",
+          "title": "THE DEATH OF KNOWLEDGE - Why Can't Humanity Invent in 40K? | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/luetin09#ep-8dcc3029-d781-44f6-8bb4-509cfea397a4",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-dpxvr7-jr7a",
+          "title": "THE WORST FATE IN 40K - CHAOS DAEMONCULABA | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/luetin09#ep-ba741288-645d-4d10-b5ed-a5e09dbd82ef",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-9685136",
+          "title": "BATTLE FOR MACRAGGE: DEATH IS HERE! | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-9732c9e7-2e89-4f75-b159-bb212a2bcb6a",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-8631021",
+          "title": "RESURRECTION OF ROBOUTE GUILLIMAN | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-abc94423-6181-4342-afc5-0a68f6101ec2",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-8592191",
+          "title": "ROBOUTE GUILLIMAN AND THE ULTRAMARINES (But mostly Guilliman) | Warhammer 40k lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-6da8bc7b-6aed-4fb3-8768-12f4b1df1439",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "luetin09-tmuv3k-0eng",
+          "title": "40K - THE GREAT NACHMUND WAR [1]: VIGILUS | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/luetin09#ep-00bf385d-3b47-46e9-ab6c-554160318954",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-cxeliwe0vh8",
+          "title": "40K BEGINNERS - THE ASTARTES CHAPTERS [Part 2] | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-0d40fef7-3410-4cd4-a774-9f28b393892a",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-13874466",
+          "title": "Episode 6 - Horus strikes at the Loyalist forces and the Loyalists begin to strike back at Horus",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-ee6affb4-31cd-421b-a5ab-8126d7a76828",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-13583645",
+          "title": "IT IS I, CATO SICARIUS, AND THIS IS MY EPISODE | Warhammer 40k lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-1bdfcd53-b0d1-43eb-b71b-940133758da4",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-https-api-spreaker-com-episode-62760823",
+          "title": "Bonus 31 - Space Marine Video Game",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-533e69a6-5d66-4b3f-9cde-385bbe4adaf5",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-15967563",
+          "title": "Is Fire Warrior Really That Bad? | Warhammer 40k",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-1b545677-8f87-46bc-a563-3ebed27116f4",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-15467460",
+          "title": "SECOND WAR FOR ARMAGEDDON: PRACTICE RUN (TRILLIONS DEAD) | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-73aa00a1-dc59-4fd7-8e46-45b330e98898",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "luetin09-aeqfxprajni",
+          "title": "SPACE MARINE 2 - TITUS LORE - DEEP DIVE | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-3163df95-4dd5-46a1-b9be-84880a5cf1be",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-15786193",
+          "title": "ULTRAMARINES FT. Luetin: ULTRADEPRESSION, SPACE MARINE 2, TABLETOP VS LORE | Warhammer 40k",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-84e52107-f771-498d-8306-2cf12ff56add",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-d2fd0cb4-2e17-425f-99de-5b5d29875738",
+          "title": "207 - The Ultima Segmentum",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-7a47675c-535a-4f75-8902-ac6fcb689dd5",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "the-40k-lorecast-7ff11733-e09e-47fd-8ee2-b807e3cf7bf3",
+          "title": "Episode 104 - The Ultramarines pt 1",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-7ea11f49-0905-470c-bac4-6a4521be1a3b",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-faa90e90-607e-4efb-8baa-552d1db6c7df",
+          "title": "Episode 105 - The Ultramarines, from the start of the Heresy to the fall of Guilliman",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-6ec8daee-1630-4798-a8d4-73719d4ab685",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-dc65a3a2-8cdb-43aa-9beb-440d4e903dc5",
+          "title": "Episode 106 - The Ultramarines, their epic characters!",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-c4ce6342-775f-4875-9183-74247f604cec",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-184f77dd-54c4-4068-946a-ae97c569cb4a",
+          "title": "Episode 118 - Demetrian Titus - His origins and events of Graia",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-4fc6d132-6efe-41dc-b856-5aab7fa259b1",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-637a1f82-7a1c-4c24-ab8d-8cd89e6726c2",
+          "title": "Episode 119 - Demetrian Titus - lead up to, events of, and post of Space Marine 2.",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-ca42e989-331d-4179-a3dd-f2b73fdedb58",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "lorehammer-749eff83-e84d-4d7f-871a-6bd159635545",
+          "title": "228 - Roboute Guilliman, Origins and Great Crusade",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-34d5018a-4be9-430f-84de-5c9bbde71451",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-d7663870-9b71-4ed8-b6e1-6f05a8eff437",
+          "title": "229 - Roboute Guilliman, Horus Heresy and Great Scouring",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-d00a56e1-72c2-42d5-b271-443ca2cfdcc3",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-42b9ee95-a915-44df-aee1-9a5ae91ded02",
+          "title": "230 - Ultramarines, 30k Legion Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-a549aa68-9d4c-432a-973a-8cd49dab96ea",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-5246382a-c1ec-4d2b-8ba2-b988284ae9c3",
+          "title": "231 - Ultramarines, 40k Chapter Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-2df0830f-7e78-4063-8080-459ae6a650b4",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18906948",
+          "title": "​Are You Winning, Guilliman? (Dark Imperium: Godblight) | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-1f57677d-9767-45de-b1eb-eeae5088b2a7",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18788615",
+          "title": "Captain Titus Returns to Kick Some Necron Ass | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-68427d2e-f27c-44ef-a1c3-401f94a37c5b",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-0884cb37-b56c-4440-86f8-679892c27842",
+          "title": "Episode 129 - The 500 Worlds pt3 - Titus and Ammentar win?",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-4d567ef6-49d1-4729-8373-780d2d950cc8",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18827868",
+          "title": "The Plague Wars Have Begun | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-5b4e80f8-b8ab-4b54-82bd-2eb935445fb5",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-19361091",
+          "title": "URIEL VENTRIS: Least Depressed Named Ultramarine | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-9000aa5b-c13c-4157-8dce-05fe7ed1d4b6",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Sub-factions",
+      "items": [
+        {
+          "type": "faction",
+          "id": "novamarines",
+          "name": "Novamarines"
+        },
+        {
+          "type": "faction",
+          "id": "tome_keepers",
+          "name": "Tome Keepers"
+        }
+      ]
+    },
+    {
+      "label": "Key characters",
+      "items": [
+        {
+          "type": "character",
+          "id": "aeonid_thiel",
+          "name": "Aeonid Thiel"
+        },
+        {
+          "type": "character",
+          "id": "arcadese",
+          "name": "Arcadese"
+        },
+        {
+          "type": "character",
+          "id": "captain_aeschelus",
+          "name": "Captain Aeschelus"
+        },
+        {
+          "type": "character",
+          "id": "captain_idaeus",
+          "name": "Captain Idaeus"
+        },
+        {
+          "type": "character",
+          "id": "cassius",
+          "name": "Cassius"
+        },
+        {
+          "type": "character",
+          "id": "cato_sicarius",
+          "name": "Cato Sicarius"
+        },
+        {
+          "type": "character",
+          "id": "cestus",
+          "name": "Cestus"
+        },
+        {
+          "type": "character",
+          "id": "marneus_calgar",
+          "name": "Marneus Calgar"
+        },
+        {
+          "type": "character",
+          "id": "pasanius_lysane",
+          "name": "Pasanius Lysane"
+        },
+        {
+          "type": "character",
+          "id": "remus_ventanus",
+          "name": "Remus Ventanus"
+        },
+        {
+          "type": "character",
+          "id": "roboute_guilliman",
+          "name": "Roboute Guilliman"
+        },
+        {
+          "type": "character",
+          "id": "steloc_aethon",
+          "name": "Steloc Aethon"
+        },
+        {
+          "type": "character",
+          "id": "tetrarch_felix",
+          "name": "Tetrarch Felix"
+        },
+        {
+          "type": "character",
+          "id": "tigurius",
+          "name": "Tigurius"
+        },
+        {
+          "type": "character",
+          "id": "uriel_ventris",
+          "name": "Uriel Ventris"
+        }
+      ]
+    }
+  ]
+}

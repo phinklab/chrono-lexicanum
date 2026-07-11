@@ -1,0 +1,115 @@
+{
+  "type": "character",
+  "id": "sigismund",
+  "name": "Sigismund",
+  "blurb": {
+    "text": "First Captain of the Imperial Fists during the Horus Heresy, Sigismund was renowned as the greatest swordsman in the Legiones Astartes. His unwavering faith in the Emperor led him to found the Black Templars Chapter after the Heresy's end.",
+    "confidence": 0.98,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Sigismund"
+  },
+  "facts": [
+    {
+      "label": "Allegiance",
+      "value": {
+        "type": "faction",
+        "id": "imperial_fists",
+        "name": "Imperial Fists"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "horus-heresy-the-scripts-volume-i",
+          "title": "Horus Heresy: The Scripts: Volume I",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/horus-heresy-the-scripts-volume-i",
+          "showTitle": null
+        },
+        {
+          "slug": "templar",
+          "title": "Templar",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/templar",
+          "showTitle": null
+        },
+        {
+          "slug": "champion-of-oaths",
+          "title": "Champion of Oaths",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/champion-of-oaths",
+          "showTitle": null
+        },
+        {
+          "slug": "praetorian-of-dorn",
+          "title": "Praetorian of Dorn",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/praetorian-of-dorn",
+          "showTitle": null
+        },
+        {
+          "slug": "the-solar-war",
+          "title": "The Solar War",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-solar-war",
+          "showTitle": null
+        },
+        {
+          "slug": "mortis",
+          "title": "Mortis",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/mortis",
+          "showTitle": null
+        },
+        {
+          "slug": "sigismund-the-eternal-crusader",
+          "title": "Sigismund: The Eternal Crusader",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/sigismund-the-eternal-crusader",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "the-40k-lorecast-a8a58992-e548-471d-9759-2e3263e69efb",
+          "title": "Episode 88 - Imperial Fists pt 2 - post Heresy Fists, Crimson fists, and Sigismund",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-b6747c0d-6ae5-4a7e-bac7-7fe2c51969ac",
+          "showTitle": "The 40k Lorecast"
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

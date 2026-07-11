@@ -1,0 +1,1587 @@
+{
+  "type": "faction",
+  "id": "imperium",
+  "name": "Imperium of Man",
+  "blurb": {
+    "text": "The Imperium of Man: the vast, authoritarian interstellar empire of humanity, spanning a million worlds and ruled in the name of the God-Emperor of Mankind.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Imperium"
+  },
+  "facts": [
+    {
+      "label": "Alignment",
+      "value": "Imperium"
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "daenyathos",
+          "title": "Daenyathos",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/daenyathos",
+          "showTitle": null
+        },
+        {
+          "slug": "ghost-of-nuceria",
+          "title": "Ghost of Nuceria",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ghost-of-nuceria",
+          "showTitle": null
+        },
+        {
+          "slug": "the-infinite-and-the-divine",
+          "title": "The Infinite and the Divine",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-infinite-and-the-divine",
+          "showTitle": null
+        },
+        {
+          "slug": "traitor-by-deed",
+          "title": "Traitor by Deed",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/traitor-by-deed",
+          "showTitle": null
+        },
+        {
+          "slug": "shadowsun-the-patient-hunter",
+          "title": "Shadowsun: The Patient Hunter",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "background",
+          "href": "/buch/shadowsun-the-patient-hunter",
+          "showTitle": null
+        },
+        {
+          "slug": "warboss",
+          "title": "Warboss",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/warboss",
+          "showTitle": null
+        },
+        {
+          "slug": "elemental-council",
+          "title": "Elemental Council",
+          "kind": "book",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/elemental-council",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "luetin09-cvztagq4qjc",
+          "title": "IMPERIUM OF MAN | Warhammer 40,000 Overview",
+          "kind": "podcast_episode",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-5761728c-2398-4518-b7b1-237adac476ed",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-6eckziaatbw",
+          "title": "PLANETS of the IMPERIUM - CIVILISED | WARHAMMER 40,000 Lore / History",
+          "kind": "podcast_episode",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-88eb3df0-c44e-48d8-ba50-ad61b24710b9",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-2f3y2bjzdjq",
+          "title": "THE EMPEROR OF MAN [2] Heresy & The Imperium - WARHAMMER 40,000 Lore / History",
+          "kind": "podcast_episode",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-8b0e4a5c-69d8-4c46-bf4c-c4ff1bd51be0",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "lorehammer-http-lorehammer-podbean-com-e-05-humanity-pre-imperium",
+          "title": "05 - Humanity: Pre-Imperium",
+          "kind": "podcast_episode",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-e9dbf84f-8b2e-4742-b1eb-b347bc6b7e60",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-06-humanity-the-great-crusade-24b00f90dd1700f333f1ee8f1a4eedd1",
+          "title": "06 - Humanity: The Great Crusade",
+          "kind": "podcast_episode",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-0046a9c6-50f8-49e0-8514-1fdf36bdbedd",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-08-humanity-age-of-the-imperium-24b00f90dd1700f333f1ee8f1a4eedd1",
+          "title": "08 - Humanity: Age of the Imperium",
+          "kind": "podcast_episode",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-78d1bcc3-59ad-4de9-91a2-0ab398afff39",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-15-the-minor-xenos-races-part-1-24b00f90dd1700f333f1ee8f1a4eedd1",
+          "title": "15 - The Minor Xenos Races Part 1",
+          "kind": "podcast_episode",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-e49621f2-a8f4-4027-8119-2612dda8b4cb",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-21-forces-of-the-astartes-24b00f90dd1700f333f1ee8f1a4eedd1",
+          "title": "21 - Forces of the Astartes",
+          "kind": "podcast_episode",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-761abfa6-14a8-40ea-a387-2ce0c1fdab19",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "luetin09-zujo6vcsggs",
+          "title": "PLANETS of the IMPERIUM - WAR | The fall of CADIA | WARHAMMER 40,000 Lore / History",
+          "kind": "podcast_episode",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-3a89868b-da97-4a07-8587-4cf518b718d9",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-si29i9abaj8",
+          "title": "THE IMPERIUM'S 10 WORST JOBS | WARHAMMER 40,000 Lore / History",
+          "kind": "podcast_episode",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-eeb27c73-cd07-4c83-9ce5-e1f04c3147b9",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-oct4pncfb7c",
+          "title": "40K - INDUSTRIALISED BIRTH & YOUR WORTH  | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-eb974adf-c9bf-400b-894a-4ade9a7d788f",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-forirrbbbw",
+          "title": "40K EXTERMINATUS - The Planet Killer | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-1dbe12a6-f862-456c-89dc-62e9b658e069",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-53-heretic-astartes-aa408074cad4d24041c71206dea6a64f",
+          "title": "53 - Heretic Astartes",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-ea1e3aa9-b640-4ba3-9a1d-163609cf980f",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-54-imperial-planet-classification-b2191ed5a98fd4cefdf8e22f1b58484c",
+          "title": "54 - Imperial Planet Classification",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-55859a60-a292-4165-99ec-4ae00cf8b594",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "luetin09-sgchrmrmryi",
+          "title": "PLANETS of the IMPERIUM - DEATH | WARHAMMER 40,000 Lore / History",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-e888cd5a-7c9c-436b-9447-06a4423a9103",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-riyvcdaooc4",
+          "title": "THE EMPEROR OF MAN [3] The Imperial Lie - WARHAMMER 40,000 Lore / History",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-e385e093-bf55-4b88-887f-775df5709618",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-au3l7wsn4nu",
+          "title": "THE IMPERIUM'S 10 BEST JOBS | WARHAMMER 40,000 Lore / History",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-a80d064e-d28a-4cab-99d7-fdb76c99d8cc",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-1mfl4pkaayk",
+          "title": "THE IMPERIUM'S 10 WORST DEFEATS - PART 1 | WARHAMMER 40,000 Lore / History",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-48221c0f-a262-4b65-8691-9b7fda78c896",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-cjz2wkk3an0",
+          "title": "THE IMPERIUM'S 10 WORST DEFEATS - PART 2 | WARHAMMER 40,000 Lore / History",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-9e36ed87-94de-4ee4-a575-3fdc4d170c14",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-m6m9-ofekpk",
+          "title": "WTF IS WARHAMMER 40K? - EXPLAINED - FULL BEGINNER'S GUIDE + EVERY MAJOR FACTION | Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-d25f61f7-baec-4ea6-88d6-571d3342910e",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-jxin5tp2ra8",
+          "title": "40K - CHRONOSTRIFE WAR - Is it actually M42?? | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/luetin09#ep-036772b7-7ba1-4b6e-b7e4-3564a7333136",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-8hxx3o7qqqc",
+          "title": "40K - THE TERMINUS DECREE / THE END OF THE EMPEROR & HUMANITY | WARHAMMER 40,000 Lore/Speculation",
+          "kind": "podcast_episode",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/luetin09#ep-1fe708ac-8dcd-4d29-be6d-75471636203a",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-5-clqwrmjbs",
+          "title": "40K DARK ORIGINS [4] Time Theory & The Warp - Conclusions | WARHAMMER 40,000 History/Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/luetin09#ep-720af6d6-00b1-4918-8fcc-2efff7f13e65",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-c09ed4b3-1c2d-5234-89e0-0c1a5d930207",
+          "title": "64 - Abaddon's Black Crusades Pt. 1",
+          "kind": "podcast_episode",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-b38fa02c-4dd1-4787-bdaa-3077af2d76cf",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-27a61661-1979-5aed-9429-950e963b04f8",
+          "title": "68 - Primaris Marines",
+          "kind": "podcast_episode",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-3538c473-16ad-42fa-ba45-75825a665b66",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-a12215f3-cc35-57a4-adc0-8a255e825173",
+          "title": "73 - Tyranids: Non-Synapse Creatures",
+          "kind": "podcast_episode",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-18e59da5-afc2-4795-8733-c97bfe79274c",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "luetin09-tiwjfdhql2i",
+          "title": "40K - THE EMPEROR OF MAN [4] A Self Fulfilling Prophecy | WARHAMMER 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/luetin09#ep-546f95d4-48d6-404c-9ca8-4d6b0f1e560e",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-t-piimmphn8",
+          "title": "40K - THE RISE & FALL OF A FORGE WORLD  |  Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/luetin09#ep-065097bb-4341-4250-9273-bead7c55eae6",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-7514242",
+          "title": "Horus Heresy [GONE WRONG] | Origins of Warhammer 40k",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-e2c9b849-dc92-4c4f-8006-bd25e1dc2ca8",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-7649674",
+          "title": "Origins of The Sisters of Battle, or Why The Age of Apostasy sucked so much?",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-cdcdc415-9155-43af-9632-5a2ce5c7a264",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "luetin09-zy9ct0zw1fm",
+          "title": "THE IMPERIUM'S WORST JOBS - Part 2 | WARHAMMER 40,000 Lore / History",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-e78777eb-bfc8-424a-af74-604521bf11b4",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-bswr37wt2f8",
+          "title": "40K - THE SQUATS RETURN? THEY NEVER WENT AWAY - Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/luetin09#ep-92201b14-0018-4b63-91bd-5b4a317fb0b5",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "lorehammer-ca3cc409-b445-49f2-8a22-0f8c25b4a89a",
+          "title": "Bonus 27 - Sanguinala Short Story Contest",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-ffd3af54-054e-4e65-9bb9-dccedd4d54eb",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-11786948",
+          "title": "IMPERIAL NAVY:  ANCHORS AWEIGH, MY BOYS, ANCHORS AWEIGH! | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-e3b92dee-1782-4429-86c9-4925b2899201",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-11480579",
+          "title": "SANGUINIUS: FABULOUS HAWK-BOY | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-7828f82f-fc19-4520-bb10-2580949e8690",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-11018889",
+          "title": "The First Heretic - Book club & Discussion | Warhammer books",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-7c4d4058-b422-4193-8452-529d8a884a49",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-10758650",
+          "title": "Warhammer 40k Horror: The Watcher in the Rain",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-59b2cb32-9c6b-4c30-ab0b-0afe161c883a",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "luetin09-srnibr3qpqm",
+          "title": "40K - THE EMPEROR OF MAN [5] ABANDON HIM IN M41? | WARHAMMER 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-002f0227-a292-4741-abf9-3c76e29cc1a6",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-14043659",
+          "title": "BADAB WAR FINALE: THE ONLY REWARD FOR LOYALTY IS BETRAYAL | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-6613c546-3abf-4d40-8679-be39f2508ca7",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-14017212",
+          "title": "BADAB WAR: BECOME UNGOVERNABLE | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-f0c98624-5f35-4253-9e61-1832cf695388",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-13959782",
+          "title": "Episode 8 - Horus invades and the Imperium tries to Hold",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-ddebb3fd-c19e-4335-afaa-9c56ddddf421",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-12444680",
+          "title": "KILLER SQUIRRELS, FLYING SNAKES & MECHA-INSECTS: HORRORS OF THE BLACKSTONE FORTRESS! | Warhammer 40k",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-e6cc4937-c754-4665-b5b4-42e2c30c86f0",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-13081818",
+          "title": "LEVIATHAN: AND I LOOKED UPON THE GREAT HIVE BEAST, AND KNEW THAT HOPE WAS LOST | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-d9d5937d-70f0-4766-a1c7-47e845493b06",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "luetin09-v-duls7pjjy",
+          "title": "WHAT IF CHAOS RULED THE 40K GALAXY? | WARHAMMER 40,000 LORE / SPECULATION",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/luetin09#ep-f99cbcc1-1c8f-4ae4-8854-feee8d997af9",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-o1rl3efnrio",
+          "title": "WHAT IF TYRANIDS RULED THE 40K GALAXY? | WARHAMMER 40,000 LORE / SPECULATION",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/luetin09#ep-5f2cd0e2-202a-404e-ae9a-5958f1b44392",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "lorehammer-29d9ad11-2d39-4b9c-a1f8-e58539b70695",
+          "title": "102 - Malcador the Sigilite",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-22c4b063-f09b-4df1-b29f-9c745ae73461",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-d3e38d9f-7aa7-4779-8705-270447636527",
+          "title": "114 - Hive Cities and Highborn",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-1e993b60-7fcb-4657-9a20-41d94a76c4ae",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-https-api-spreaker-com-episode-62590152",
+          "title": "114 - Hive Cities and Highborns",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-ca81c95f-a65f-4d98-9af8-5259fc57c503",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-https-api-spreaker-com-episode-62691287",
+          "title": "117 - Severan Dominate, Maintaining the Front",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-593535e4-78a9-46cc-8400-1cc74f9281fc",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-https-api-spreaker-com-episode-62801801",
+          "title": "119 - Severan Dominate, A Fledging Empire",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-46f95419-a435-472a-b57e-a8e91c721d67",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-d504ee3c-c3db-445b-9ffc-f62096727bfb",
+          "title": "119 - Severan Domination, A Fledging Empire",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-fbce64b6-1696-4590-9774-4221e2c07192",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-https-api-spreaker-com-episode-62974139",
+          "title": "120 - Imperial Relics, Chaos Artifacts and Xenos Curiosities",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-46208d74-0ea5-4c7d-af71-aa0ab56058c2",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-https-api-spreaker-com-episode-63305825",
+          "title": "129 - The Primarch Project",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-b0d8f5cc-8ac5-4231-a93d-e03917a7529b",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-https-api-spreaker-com-episode-63328677",
+          "title": "130 - Founding a Legion",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-40545cd1-95c3-4709-81ed-7ed07160310e",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-e0602ecf-2af1-464f-abaf-691f6e037ad3",
+          "title": "130 - Founding of a Legion",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-7b1dd032-3183-4163-a44f-47d71cb700f8",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "luetin09-jrjg-dvy2mw",
+          "title": "40K NECROMUNDA [1] - HIVE CITY GANG WARS | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/luetin09#ep-7578e1ec-76ce-4626-bbf7-a913fe35ce7b",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "lorehammer-80f64066-f61a-49b1-bb56-9e691c5a6213",
+          "title": "Bonus 29 - Warlords of Old Terra Lore Battle",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-abff2983-ba2c-4bb4-aa3c-c15de58545e3",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-https-api-spreaker-com-episode-62991774",
+          "title": "Bonus 32 - Mark and Trevor Forever 2gether",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-00eeb2c9-dda3-417f-9c1f-4a7deb9faf1c",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-https-api-spreaker-com-episode-63455456",
+          "title": "Bonus 33 - Happy Sanguinala and Other Celebrations",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-6e86d09d-577f-4c11-8094-46bbb5f301ca",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-14212200",
+          "title": "Episode 15 - The Scouring.... well really just the start of the Imperium going to hell in a handbasket trying to kill everyone and everything associated with Chaos",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-6158c722-0c31-4328-9f35-54974f82ecbe",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-14521943",
+          "title": "Episode 22 - Rogue Traders",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-3c45fd67-dc93-4192-b80c-73a201ca5643",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-14701799",
+          "title": "Episode 26 - Types of worlds in the Imperium Of Man",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-81640f23-f7b0-4dc8-8931-fb9f7c223a7e",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-14718750",
+          "title": "Episode 27 -  Hive worlds (Yes they are as bad as you think)",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-92a2a2de-c246-4075-9771-8a72ec2bf6f7",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-15010590",
+          "title": "Episode 34 - Deep dive into the Gods of Chaos pt 1 - Khorne & Tzeentch",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-c3afd3f7-e2ba-48ca-80c4-c532a837e947",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-15033964",
+          "title": "Episode 35 - Deep dive into the Gods of Chaos Pt 2 - Nurgle and Slaanesh",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-c5a00938-861b-4e1b-9a06-1ead0bb5243c",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-15040382",
+          "title": "Episode 36 - Imperial Psychers, Black Ships, and the Astronomican",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-5b20d316-eedb-4d3a-9ac8-239df51a8aae",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-15416783",
+          "title": "Episode 43 - The weapons of the imperium",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-ce1867de-56d2-4a12-b2c6-7d6c37a0f0be",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-aee7bb1a-b75e-11ef-9dc0-e7b444284c85",
+          "title": "Episode 65 - The Tau Pt 1 - What they are, where the come from, and how they rose up",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-575ac8b3-e462-4b7f-817a-82a3ebe204b4",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-16200319",
+          "title": "FALSE GODS | Warhammer 40k Book Review & Discussion",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-25e1a42a-45ad-4faf-9439-04654a4d6be4",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-16183679",
+          "title": "HIVE CITIES: I HATE IT HERE | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-f22fea25-0df1-4d50-8db6-6c8af8ecccb7",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-15713515",
+          "title": "HORUS RISING | Warhammer 40k Book Review & Discussion",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-63c1bc5f-1ac2-44a8-8f43-b2ed58d1e412",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "luetin09-bzcnweebf2g",
+          "title": "LOST WORLDS THAT COULD CHANGE THE IMPERIUM | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/luetin09#ep-fbc80631-07f4-4a1d-99d5-423dd6a3bc28",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-14457522",
+          "title": "MONTHS OF SHAME: DON'T MESS WITH WOLVES | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-9336f41b-e1d7-4862-9555-50d32e6710c9",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-15545534",
+          "title": "NACHMUND RIFT: WAR OF NIGHTMARES | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-2ceb46ab-0cbe-4f2b-ae32-e93a1c41883d",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-15581294",
+          "title": "NACHMUND WAR: THE HERALD OF THE APOCALYPSE | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-a111d0d9-2c1f-4179-bb3f-071078b25f5b",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-14239778",
+          "title": "SERVITORS: I HAVE NO VOX AND I MUST SCREAM | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-128258c1-f1d1-4b3d-a94f-27ebdf3cd708",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-16018891",
+          "title": "THE BODY HORROR OF WARHAMMER 40K | Warhammer Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-39a6589f-1eb6-4ddc-b8f0-077b6e3c1cc2",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-15726615",
+          "title": "We will now talk about Space Marine 2 for over an hour (SPOILERS)",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-9b39643f-3f92-457e-a740-c5387975928f",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-e8a8466e-c706-11ef-9fbe-b745dcd7d777",
+          "title": "135 - The High Lords of Terra",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-b15d77c1-142f-44cb-9d76-9bfc8bc68c42",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-299711cc-ca0a-11ef-9632-e3b8507f8405",
+          "title": "138 - The Votann and Other Technologies",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-eaf3f7a7-97a2-40ef-b00d-806fb419b4d9",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2b9bc044-ca0a-11ef-9632-af2c56608214",
+          "title": "149 - Teleportation Variation",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-e2ace328-dc07-4aa6-82d8-4ddd8aed7306",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2e0ed3de-ca0a-11ef-9632-e71976c71e91",
+          "title": "162 - Jaghatai Khan, Horus Heresy and Great Scouring",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-309ef6e1-5679-45b9-aa39-d7353ee20110",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2fc65256-ca0a-11ef-9632-1385d88493da",
+          "title": "171 - Leman Russ, Horus Heresy and Great Scouring",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-7a5efb97-4e2b-43d6-9898-9f64bf2db793",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-3084545e-ca0a-11ef-9632-c39faacf4235",
+          "title": "175 - Nurgle's Cult of Decay",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-2fe0a5bc-f949-436b-92e9-abe98214aca9",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-3230c652-ca0a-11ef-9632-e34d8cd6075e",
+          "title": "184 - Xenos, Aliens and Strangers",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-8cc3fe3a-0ffa-431b-aa3d-0bf07cefbe55",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-3260c442-ca0a-11ef-9632-57cb6e9ffc4e",
+          "title": "185 - Chrome, Demiurg and Enoulians",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-e1b3786b-2e4a-4a59-a404-ca7affc0eeac",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-32c0290a-ca0a-11ef-9632-df06a03d0e87",
+          "title": "186 - Fra'al, Hrud and Jindarii",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-0a2b7511-2089-4c2c-90dc-4dabe9fe4b78",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-337cfd5a-ca0a-11ef-9632-2781084eab81",
+          "title": "190 - Konrad Curze, Origins and Great Crusade",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-fd1ff281-7177-49c0-bddf-188f09c1f405",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-33aff6ba-ca0a-11ef-9632-13b711ca155c",
+          "title": "191 - Konrad Curze, Horus Heresy and Great Scouring",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-d02aaf71-0373-4d67-887c-2f4b0c75a80e",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-3621aeb6-ca0a-11ef-9632-df2c118474a4",
+          "title": "196 - Slanni, Slaugth and Sslyth",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-2f95da54-5e0e-45ec-aa36-b001a841ba45",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-36813e6c-ca0a-11ef-9632-8b0ef44791ae",
+          "title": "198 - Tau Empire Auxiliaries",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-befb824f-64d4-4486-b24b-1ff9c8c1f54e",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-db6c8d88-37ce-409f-a967-0d30919ba2e7",
+          "title": "205 - The Milky Way Galaxy",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-1926716a-47a5-4bb4-b7ee-3c8d1a5456fc",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-ce50fe7d-bcd6-4733-9e3f-cf98317b4919",
+          "title": "210 - The Segmentum Pacificus",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-50d60a38-69e4-430f-9136-395211d70ddc",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-97a46724-2577-4f16-bb33-92528632c904",
+          "title": "218 - Astartes Armoury: Dreadnoughts ",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-442d8ba4-5eb2-4bc1-80d0-52ec4c1dac85",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "luetin09-ntvl-grs2ii",
+          "title": "5 BIGGEST PROBLEMS IN 40K LORE - That GW Can’t Fix! | WARHAMMER 40,000 LORE/DISCUSSION",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-9d72eeac-0249-43dc-b4c2-6e37339af9c6",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-5rxiisoaxw",
+          "title": "AGE OF APOSTASY NOW - 40K LORE MUST MOVE ON | WARHAMMER 40,000 Lore/Speculation",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/luetin09#ep-2e75f3f0-a49c-419c-a73f-a32cc116516f",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "lorehammer-9d5ed5da-40be-41ac-8d28-899bbce7678b",
+          "title": "Bonus 49 - The Astra Crota",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-dea36edf-7eb0-413d-8976-5fceb4919098",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-14c1c550-7abb-4491-b154-d100bca97b58",
+          "title": "Bonus 50 - Sanguinala Mass",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-f6cbd0c0-653f-46e2-9b3e-31d3fdbe08c0",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-15d1fd16-d4fa-47f4-b8ef-8eb906c5d961",
+          "title": "Da Freeboota WaaaRghPG Pt. X",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-e6e64cba-241e-4e44-a3cb-23409d2cc759",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-17357141",
+          "title": "DOGS OF WARHAMMER (They're all good boys) | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-ec0e4b95-68de-4d21-9e14-19076968f1d9",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18177375",
+          "title": "Entertainment in the 41st Millennium: Mandatory Fun | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-2394b30b-74a7-473d-9f23-b0284470b190",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-5f355046-8997-4223-a475-8687a4bc5bd3",
+          "title": "Episode 102 - The Pariah Nexus pt 1",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-6f1e9692-1ff8-4717-abcb-ed1940ff3f32",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-1c56700c-2609-4392-9493-61dbaf60f1d5",
+          "title": "Episode 107 - The Squats!",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-16cfcab7-39c2-4110-b8b0-aa30a68b804b",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-69f174fc-d71a-11ef-b810-339e9b856ba0",
+          "title": "Episode 71 - Death Watch pt 2 - Their weapons, tactics, facilites, stories and more.",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-0813a596-d0fd-43b1-b21a-952f43a57fd9",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-2be2659a-d7e7-11ef-a2ff-4b554d2b9fbd",
+          "title": "Episode 73 - Random Xenos of the Galaxy pt 2",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-b2eceff4-724a-46c1-b31d-b88f40b3660d",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-aa421c72-db28-440f-a1aa-ce9dd6f13d8c",
+          "title": "Episode 90 - Warp Travel in the 40K Universe for the Imperium",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-3e379235-737b-482f-b6f6-faf26e834a9e",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-936df3b7-c741-4fc7-9e1a-91ff5d3de03d",
+          "title": "Episode 91 - The Fleets of the Imperium",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-4303dd41-d0b6-4902-b62b-e39dc3c8caeb",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-dadd757e-ab77-4fcb-8a37-6a47ab48eeba",
+          "title": "Episode 93 - The War of The Beast pt2. Terra is saved but the galaxy is still in danger",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-6696d173-eb7b-459b-9e83-8a1d8e732090",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-bfeca66f-dac6-41d6-b749-59f41e7f7154",
+          "title": "Episode 96 - What is an imperial crusade",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-99f644ee-f1bf-44ad-a110-511a065f45c7",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-16778946",
+          "title": "FOOD IN THE IMPERIUM (Yes, corpse-starch is in this one) | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-b7e6e313-f5c4-47d7-a657-9bcdae4a1c07",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-16737934",
+          "title": "IMPERIUM IS IN SHAMBLES: NACHMUND WAR INTENSIFIES | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-162e3a4a-0373-445f-9929-64f0f2bde701",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-17810708",
+          "title": "LOGAN GRIMNAR | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-d135695e-cad6-4649-af2e-a95469bf4601",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-17665120",
+          "title": "Suffer Not The Alien to Live...Unless..? | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-58e77787-9b37-461f-a1ff-5940440064e6",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-17202715",
+          "title": "THE IMPERIAL PALACE | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-cf92cf87-a811-4eed-a2c2-21e5e5bbafa8",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18016027",
+          "title": "War Of The Beast: And They Were Roommates | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-847e46b9-4e90-4449-b0a5-5c58acc26569",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-17976317",
+          "title": "WAR OF THE BEAST: Rocks fall, Imperial Fists Die | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-2778f576-995f-49a2-8e25-890a23cb7fbd",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "luetin09-pagqdofv9lo",
+          "title": "WHAT IF - ASTARTES NEVER EXISTED? | WARHAMMER 40000 LORE/SPECULATION - 40K",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-3ae73bd4-ddf9-4ad2-b0ab-09ecb248ded4",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-z9a1twhuyrc",
+          "title": "WHAT IF TAU RULED THE 40K GALAXY？| WARHAMMER 40000 LORE/SPECULATION",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/luetin09#ep-2f8773b1-1442-4c49-8dd5-7135330cab49",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "lorehammer-f973b915-0e04-410b-8c55-da6a928349ee",
+          "title": "226 - Astartes Armoury: Rare and Retired Weapons",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-ad9316a2-4e83-40e2-af56-4b09980ff884",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-54fcc386-dcf9-4e35-ac7b-54a6397f597b",
+          "title": "238 - Astartes Armoury: Rare and Retired Vehicles Pt. 2",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-a80a3f68-f270-4226-9a0c-4733d282fa19",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-d9fb513f-f011-41a2-ba4f-459eca9fa2e5",
+          "title": "Bonus 52 - Cryptids",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-e94efd2e-1189-4b5e-9c9f-98abc748217c",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-a8c80978-3423-4db3-bbaf-0899fd65392b",
+          "title": "Bonus 53 - Love Blooms",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-bcc305f0-2038-45bd-b485-d30004ceb916",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "the-40k-lorecast-3979ef9c-1f9b-4c52-acc8-8665df34b960",
+          "title": "Episode 127 - The 500 worlds pt 1 - The galaxy is a dumpster fire, so time for Ultramar to save it",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-9e691fc1-307a-4dbb-a129-f2c5786040b6",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-d6c6bed4-d3eb-4feb-9b04-1ed3a6a0ca3c",
+          "title": "Episode 142 - Space Hulks, yeah.... they can be kind of a nightmare",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-b265608f-83ad-44dc-9297-3af74329a06f",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-19096925",
+          "title": "Farsight's Bitter Rival: Commander Shadowsun | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-ebf1a120-068c-4045-9f52-4495d853067d",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-19059078",
+          "title": "​I LIVED, HERETIC: The Legend of Yarrick | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-e54179c2-73d6-4b53-88cd-362999771673",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-80d92da7-8645-408c-9505-87f23f5fc29b",
+          "title": "Mark's Manifesto 6 - Are Xenos Just Set Dressing?",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-0dc784b4-0947-40d6-b039-a414b649a924",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-19209256",
+          "title": "The Humans Who QUIT The Imperium & Survived | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-3c81a11d-3bb5-47bc-8796-b040db64b515",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Sub-factions",
+      "items": [
+        {
+          "type": "faction",
+          "id": "sisters_of_battle",
+          "name": "Adepta Sororitas"
+        },
+        {
+          "type": "faction",
+          "id": "adeptus_administratum",
+          "name": "Adeptus Administratum"
+        },
+        {
+          "type": "faction",
+          "id": "adeptus_arbites",
+          "name": "Adeptus Arbites"
+        },
+        {
+          "type": "faction",
+          "id": "adeptus_astartes",
+          "name": "Adeptus Astartes"
+        },
+        {
+          "type": "faction",
+          "id": "adeptus_astra_telepathica",
+          "name": "Adeptus Astra Telepathica"
+        },
+        {
+          "type": "faction",
+          "id": "custodes",
+          "name": "Adeptus Custodes"
+        },
+        {
+          "type": "faction",
+          "id": "mechanicus",
+          "name": "Adeptus Mechanicus"
+        },
+        {
+          "type": "faction",
+          "id": "astra_militarum",
+          "name": "Astra Militarum"
+        },
+        {
+          "type": "faction",
+          "id": "commissariat",
+          "name": "Commissariat"
+        },
+        {
+          "type": "faction",
+          "id": "crusader_host",
+          "name": "Crusader Host"
+        },
+        {
+          "type": "faction",
+          "id": "ecclesiarchy",
+          "name": "Ecclesiarchy"
+        },
+        {
+          "type": "faction",
+          "id": "imperial_navy",
+          "name": "Imperial Navy"
+        },
+        {
+          "type": "faction",
+          "id": "inquisition",
+          "name": "Inquisition"
+        },
+        {
+          "type": "faction",
+          "id": "knights_errant",
+          "name": "Knights Errant"
+        },
+        {
+          "type": "faction",
+          "id": "lectitio_divinitatus",
+          "name": "Lectitio Divinitatus"
+        },
+        {
+          "type": "faction",
+          "id": "navis_nobilite",
+          "name": "Navis Nobilite"
+        },
+        {
+          "type": "faction",
+          "id": "necromunda",
+          "name": "Necromunda"
+        },
+        {
+          "type": "faction",
+          "id": "officio_assassinorum",
+          "name": "Officio Assassinorum"
+        },
+        {
+          "type": "faction",
+          "id": "officio_sigillite",
+          "name": "Officio Sigillite"
+        },
+        {
+          "type": "faction",
+          "id": "rogue_traders",
+          "name": "Rogue Traders"
+        },
+        {
+          "type": "faction",
+          "id": "selenar_gene_cult",
+          "name": "Selenar Gene-Cult"
+        },
+        {
+          "type": "faction",
+          "id": "senatorum_imperialis",
+          "name": "Senatorum Imperialis"
+        },
+        {
+          "type": "faction",
+          "id": "squats",
+          "name": "Squats"
+        },
+        {
+          "type": "faction",
+          "id": "talons_of_the_emperor",
+          "name": "Talons of the Emperor"
+        },
+        {
+          "type": "faction",
+          "id": "thunder_warriors",
+          "name": "Thunder Warriors"
+        }
+      ]
+    },
+    {
+      "label": "Key characters",
+      "items": [
+        {
+          "type": "character",
+          "id": "alivia_sureka",
+          "name": "Alivia Sureka"
+        },
+        {
+          "type": "character",
+          "id": "amar_astarte",
+          "name": "Amar Astarte"
+        },
+        {
+          "type": "character",
+          "id": "kandawire",
+          "name": "Kandawire"
+        },
+        {
+          "type": "character",
+          "id": "kasper_hawser",
+          "name": "Kasper Hawser"
+        },
+        {
+          "type": "character",
+          "id": "kyril_sindermann",
+          "name": "Kyril Sindermann"
+        },
+        {
+          "type": "character",
+          "id": "lemuel_gaumon",
+          "name": "Lemuel Gaumon"
+        },
+        {
+          "type": "character",
+          "id": "lord_medell",
+          "name": "Lord Medell"
+        },
+        {
+          "type": "character",
+          "id": "malcador_the_sigillite",
+          "name": "Malcador the Sigillite"
+        },
+        {
+          "type": "character",
+          "id": "mersadie_oliton",
+          "name": "Mersadie Oliton"
+        },
+        {
+          "type": "character",
+          "id": "oll_persson",
+          "name": "Oll Persson"
+        },
+        {
+          "type": "character",
+          "id": "solomon_voss",
+          "name": "Solomon Voss"
+        },
+        {
+          "type": "character",
+          "id": "the_emperor",
+          "name": "The Emperor"
+        },
+        {
+          "type": "character",
+          "id": "uriah_olathaire",
+          "name": "Uriah Olathaire"
+        },
+        {
+          "type": "character",
+          "id": "zelia_lor",
+          "name": "Zelia Lor"
+        }
+      ]
+    }
+  ]
+}

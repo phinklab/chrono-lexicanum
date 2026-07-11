@@ -1,0 +1,540 @@
+{
+  "type": "faction",
+  "id": "white_scars",
+  "name": "White Scars",
+  "blurb": {
+    "text": "A loyalist Space Marine Chapter descended from Jaghatai Khan, masters of fast-moving hit-and-run warfare drawn from the plains world of Chogoris.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/White_Scars"
+  },
+  "facts": [
+    {
+      "label": "Alignment",
+      "value": "Imperium"
+    },
+    {
+      "label": "Parent faction",
+      "value": {
+        "type": "faction",
+        "id": "adeptus_astartes",
+        "name": "Adeptus Astartes"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "collected-visions",
+          "title": "Collected Visions",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/collected-visions",
+          "showTitle": null
+        },
+        {
+          "slug": "hunt-for-voldorius",
+          "title": "Hunt for Voldorius",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/hunt-for-voldorius",
+          "showTitle": null
+        },
+        {
+          "slug": "little-horus",
+          "title": "Little Horus",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/little-horus",
+          "showTitle": null
+        },
+        {
+          "slug": "savage-scars",
+          "title": "Savage Scars",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/savage-scars",
+          "showTitle": null
+        },
+        {
+          "slug": "brotherhood-of-the-storm",
+          "title": "Brotherhood of the Storm",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/brotherhood-of-the-storm",
+          "showTitle": null
+        },
+        {
+          "slug": "stormseer",
+          "title": "Stormseer",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/stormseer",
+          "showTitle": null
+        },
+        {
+          "slug": "blood-oath",
+          "title": "Blood Oath",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/blood-oath",
+          "showTitle": null
+        },
+        {
+          "slug": "brotherhood-of-the-moon",
+          "title": "Brotherhood of the Moon",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/brotherhood-of-the-moon",
+          "showTitle": null
+        },
+        {
+          "slug": "damocles",
+          "title": "Damocles",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/damocles",
+          "showTitle": null
+        },
+        {
+          "slug": "dantes-canyon",
+          "title": "Dante's Canyon",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/dantes-canyon",
+          "showTitle": null
+        },
+        {
+          "slug": "hunters-snare",
+          "title": "Hunter's Snare",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/hunters-snare",
+          "showTitle": null
+        },
+        {
+          "slug": "overfiend",
+          "title": "Overfiend",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/overfiend",
+          "showTitle": null
+        },
+        {
+          "slug": "scars",
+          "title": "Scars",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/scars",
+          "showTitle": null
+        },
+        {
+          "slug": "seditions-gate",
+          "title": "Sedition's Gate",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/seditions-gate",
+          "showTitle": null
+        },
+        {
+          "slug": "templar",
+          "title": "Templar",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/templar",
+          "showTitle": null
+        },
+        {
+          "slug": "blades-of-the-traitor",
+          "title": "Blades of the Traitor",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/blades-of-the-traitor",
+          "showTitle": null
+        },
+        {
+          "slug": "legacies-of-betrayal",
+          "title": "Legacies of Betrayal",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/legacies-of-betrayal",
+          "showTitle": null
+        },
+        {
+          "slug": "wolf-king",
+          "title": "Wolf King",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/wolf-king",
+          "showTitle": null
+        },
+        {
+          "slug": "grey-talon",
+          "title": "Grey Talon",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/grey-talon",
+          "showTitle": null
+        },
+        {
+          "slug": "storm-of-damocles",
+          "title": "Storm of Damocles",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/storm-of-damocles",
+          "showTitle": null
+        },
+        {
+          "slug": "the-last-son-of-prospero",
+          "title": "The Last Son of Prospero",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-last-son-of-prospero",
+          "showTitle": null
+        },
+        {
+          "slug": "the-path-of-heaven",
+          "title": "The Path of Heaven",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-path-of-heaven",
+          "showTitle": null
+        },
+        {
+          "slug": "war-without-end",
+          "title": "War Without End",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/war-without-end",
+          "showTitle": null
+        },
+        {
+          "slug": "eye-of-terra",
+          "title": "Eye of Terra",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/eye-of-terra",
+          "showTitle": null
+        },
+        {
+          "slug": "restorer",
+          "title": "Restorer",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/restorer",
+          "showTitle": null
+        },
+        {
+          "slug": "the-last-hunt",
+          "title": "The Last Hunt",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-last-hunt",
+          "showTitle": null
+        },
+        {
+          "slug": "jaghatai-khan-warhawk-of-chogoris",
+          "title": "Jaghatai Khan: Warhawk of Chogoris",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/jaghatai-khan-warhawk-of-chogoris",
+          "showTitle": null
+        },
+        {
+          "slug": "rogue-trader-omnibus",
+          "title": "Rogue Trader Omnibus",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/rogue-trader-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "visions-of-heresy-2018-ed",
+          "title": "Visions of Heresy (2018 ed.)",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/visions-of-heresy-2018-ed",
+          "showTitle": null
+        },
+        {
+          "slug": "apocalypse",
+          "title": "Apocalypse",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/apocalypse",
+          "showTitle": null
+        },
+        {
+          "slug": "scions-of-the-emperor",
+          "title": "Scions of the Emperor",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/scions-of-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "the-lost-and-the-damned",
+          "title": "The Lost and the Damned",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-lost-and-the-damned",
+          "showTitle": null
+        },
+        {
+          "slug": "saturnine",
+          "title": "Saturnine",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/saturnine",
+          "showTitle": null
+        },
+        {
+          "slug": "warhawk",
+          "title": "Warhawk",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/warhawk",
+          "showTitle": null
+        },
+        {
+          "slug": "era-of-ruin",
+          "title": "Era Of Ruin",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/era-of-ruin",
+          "showTitle": null
+        },
+        {
+          "slug": "flames-of-betrayal",
+          "title": "Flames of Betrayal",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/flames-of-betrayal",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-8973988",
+          "title": "JAGHATAI KHAN: OVERLOOKED, MISUNDERSTOOD, AWESOME | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-9f39abb8-0ced-42f6-b95e-da6e941e58e4",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-9011864",
+          "title": "WHITE SCARS - FOR THE EMPEROR AND THE KHAN! | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-7ad71ef3-c0ca-4662-ada1-8c70e93865df",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "luetin09-cxeliwe0vh8",
+          "title": "40K BEGINNERS - THE ASTARTES CHAPTERS [Part 2] | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-0d40fef7-3410-4cd4-a774-9f28b393892a",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "lorehammer-2ddf2a8a-ca0a-11ef-9632-4baf18a69ca6",
+          "title": "161 - Jaghatai Khan, Origins and Great Crusade",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-0c84a845-e516-4517-a597-dd07dc8129f2",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2e0ed3de-ca0a-11ef-9632-e71976c71e91",
+          "title": "162 - Jaghatai Khan, Horus Heresy and Great Scouring",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-309ef6e1-5679-45b9-aa39-d7353ee20110",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2e3d3b70-ca0a-11ef-9632-4bed21a03e49",
+          "title": "163 - White Scars, 30k Legion Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-2d2972f5-4afc-466b-aede-4ce49e37aada",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2e6cd8ee-ca0a-11ef-9632-af8ad0ea978d",
+          "title": "164 - White Scars, 40k Chapter Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-1f02dc99-7e8c-4c43-a038-adc38c76ec5f",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-9d5ed5da-40be-41ac-8d28-899bbce7678b",
+          "title": "Bonus 49 - The Astra Crota",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-dea36edf-7eb0-413d-8976-5fceb4919098",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "the-40k-lorecast-0737273c-228e-4f3f-8d55-2a3356b268ca",
+          "title": "Episode 123 - The Alpha Legion pt2, Alph legion take their place amoungst the legions (and irritate all of them in the process)",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-f0ade1f6-272b-4182-ace0-f761fdbbcd82",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18546285",
+          "title": "SIEGE OF TERRA: Abaddon's Brat Summer | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-7c273467-f618-47ae-910d-8534c4503d0d",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Key characters",
+      "items": [
+        {
+          "type": "character",
+          "id": "hasik_khan",
+          "name": "Hasik Khan"
+        },
+        {
+          "type": "character",
+          "id": "ilya_ravallion",
+          "name": "Ilya Ravallion"
+        },
+        {
+          "type": "character",
+          "id": "jaghatai_khan",
+          "name": "Jaghatai Khan"
+        },
+        {
+          "type": "character",
+          "id": "korsarro_khan",
+          "name": "Kor'sarro Khan"
+        },
+        {
+          "type": "character",
+          "id": "sarik",
+          "name": "Sarik"
+        },
+        {
+          "type": "character",
+          "id": "shiban_khan",
+          "name": "Shiban Khan"
+        },
+        {
+          "type": "character",
+          "id": "targutai_yesugei",
+          "name": "Targutai Yesugei"
+        }
+      ]
+    }
+  ]
+}

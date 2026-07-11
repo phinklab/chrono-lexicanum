@@ -1,0 +1,205 @@
+{
+  "type": "character",
+  "id": "uriel_ventris",
+  "name": "Uriel Ventris",
+  "blurb": {
+    "text": "A Captain of the Ultramarines and protagonist of Graham McNeill's Ultramarines novels, known for bending the strictures of the Codex Astartes.",
+    "confidence": 0.9,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Uriel_Ventris"
+  },
+  "facts": [
+    {
+      "label": "Allegiance",
+      "value": {
+        "type": "faction",
+        "id": "ultramarines",
+        "name": "Ultramarines"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "nightbringer",
+          "title": "Nightbringer",
+          "kind": "book",
+          "releaseYear": 2002,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/nightbringer",
+          "showTitle": null
+        },
+        {
+          "slug": "warriors-of-the-ultramar",
+          "title": "Warriors of the Ultramar",
+          "kind": "book",
+          "releaseYear": 2003,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/warriors-of-the-ultramar",
+          "showTitle": null
+        },
+        {
+          "slug": "dead-sky-black-sun",
+          "title": "Dead Sky, Black Sun",
+          "kind": "book",
+          "releaseYear": 2004,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/dead-sky-black-sun",
+          "showTitle": null
+        },
+        {
+          "slug": "the-ultramarines-omnibus",
+          "title": "The Ultramarines Omnibus",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-ultramarines-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-killing-ground",
+          "title": "The Killing Ground",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-killing-ground",
+          "showTitle": null
+        },
+        {
+          "slug": "courage-and-honour",
+          "title": "Courage and Honour",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/courage-and-honour",
+          "showTitle": null
+        },
+        {
+          "slug": "iron-warrior",
+          "title": "Iron Warrior",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/iron-warrior",
+          "showTitle": null
+        },
+        {
+          "slug": "the-chapters-due",
+          "title": "The Chapter's Due",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-chapters-due",
+          "showTitle": null
+        },
+        {
+          "slug": "iron-warriors-the-omnibus",
+          "title": "Iron Warriors: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/iron-warriors-the-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "ultramarines-the-second-omnibus",
+          "title": "Ultramarines: The Second Omnibus",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/ultramarines-the-second-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "iron-warriors-the-complete-honsou-omnibus",
+          "title": "Iron Warriors: The Complete Honsou Omnibus",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/iron-warriors-the-complete-honsou-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-uriel-ventris-chronicles-vol-1-omnibus",
+          "title": "The Uriel Ventris Chronicles Vol. 1 Omnibus",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-uriel-ventris-chronicles-vol-1-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-uriel-ventris-chronicles-vol-2-omnibus",
+          "title": "The Uriel Ventris Chronicles Vol. 2 Omnibus",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-uriel-ventris-chronicles-vol-2-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-swords-of-calth",
+          "title": "The Swords of Calth",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-swords-of-calth",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "luetin09-dpxvr7-jr7a",
+          "title": "THE WORST FATE IN 40K - CHAOS DAEMONCULABA | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-ba741288-645d-4d10-b5ed-a5e09dbd82ef",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "the-40k-lorecast-dc65a3a2-8cdb-43aa-9beb-440d4e903dc5",
+          "title": "Episode 106 - The Ultramarines, their epic characters!",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-c4ce6342-775f-4875-9183-74247f604cec",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-19361091",
+          "title": "URIEL VENTRIS: Least Depressed Named Ultramarine | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-9000aa5b-c13c-4157-8dce-05fe7ed1d4b6",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

@@ -1,0 +1,930 @@
+{
+  "type": "faction",
+  "id": "word_bearers",
+  "name": "Word Bearers",
+  "blurb": {
+    "text": "A traitor Space Marine Legion descended from Lorgar, the first to embrace Chaos worship, which spread the faith of the Dark Gods and helped instigate the Horus Heresy.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Word_Bearers"
+  },
+  "facts": [
+    {
+      "label": "Alignment",
+      "value": "Chaos"
+    },
+    {
+      "label": "Parent faction",
+      "value": {
+        "type": "faction",
+        "id": "heretic_astartes",
+        "name": "Heretic Astartes"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "daemon-world",
+          "title": "Daemon World",
+          "kind": "book",
+          "releaseYear": 2003,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/daemon-world",
+          "showTitle": null
+        },
+        {
+          "slug": "deus-encarmine",
+          "title": "Deus Encarmine",
+          "kind": "book",
+          "releaseYear": 2004,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/deus-encarmine",
+          "showTitle": null
+        },
+        {
+          "slug": "deus-sanguinius",
+          "title": "Deus Sanguinius",
+          "kind": "book",
+          "releaseYear": 2005,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/deus-sanguinius",
+          "showTitle": null
+        },
+        {
+          "slug": "false-gods",
+          "title": "False Gods",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/false-gods",
+          "showTitle": null
+        },
+        {
+          "slug": "galaxy-in-flames",
+          "title": "Galaxy in Flames",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/galaxy-in-flames",
+          "showTitle": null
+        },
+        {
+          "slug": "collected-visions",
+          "title": "Collected Visions",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/collected-visions",
+          "showTitle": null
+        },
+        {
+          "slug": "dark-apostle",
+          "title": "Dark Apostle",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/dark-apostle",
+          "showTitle": null
+        },
+        {
+          "slug": "battle-for-the-abyss",
+          "title": "Battle for the Abyss",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/battle-for-the-abyss",
+          "showTitle": null
+        },
+        {
+          "slug": "dark-disciple",
+          "title": "Dark Disciple",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/dark-disciple",
+          "showTitle": null
+        },
+        {
+          "slug": "scions-of-the-storm",
+          "title": "Scions of the Storm",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/scions-of-the-storm",
+          "showTitle": null
+        },
+        {
+          "slug": "tales-of-heresy",
+          "title": "Tales of Heresy",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/tales-of-heresy",
+          "showTitle": null
+        },
+        {
+          "slug": "dark-creed",
+          "title": "Dark Creed",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/dark-creed",
+          "showTitle": null
+        },
+        {
+          "slug": "nemesis",
+          "title": "Nemesis",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/nemesis",
+          "showTitle": null
+        },
+        {
+          "slug": "the-first-heretic",
+          "title": "The First Heretic",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-first-heretic",
+          "showTitle": null
+        },
+        {
+          "slug": "aurelian",
+          "title": "Aurelian",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/aurelian",
+          "showTitle": null
+        },
+        {
+          "slug": "rules-of-engagement",
+          "title": "Rules of Engagement",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/rules-of-engagement",
+          "showTitle": null
+        },
+        {
+          "slug": "butchers-nails",
+          "title": "Butcher's Nails",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/butchers-nails",
+          "showTitle": null
+        },
+        {
+          "slug": "fear-to-tread",
+          "title": "Fear to Tread",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/fear-to-tread",
+          "showTitle": null
+        },
+        {
+          "slug": "know-no-fear",
+          "title": "Know No Fear",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/know-no-fear",
+          "showTitle": null
+        },
+        {
+          "slug": "the-word-bearers-omnibus",
+          "title": "The Word Bearers Omnibus",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-word-bearers-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "angron",
+          "title": "Angron",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/angron",
+          "showTitle": null
+        },
+        {
+          "slug": "betrayer",
+          "title": "Betrayer",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/betrayer",
+          "showTitle": null
+        },
+        {
+          "slug": "censure",
+          "title": "Censure",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/censure",
+          "showTitle": null
+        },
+        {
+          "slug": "corax-soulforge",
+          "title": "Corax: Soulforge",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/corax-soulforge",
+          "showTitle": null
+        },
+        {
+          "slug": "honour-to-the-dead",
+          "title": "Honour to the Dead",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/honour-to-the-dead",
+          "showTitle": null
+        },
+        {
+          "slug": "scorched-earth",
+          "title": "Scorched Earth",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/scorched-earth",
+          "showTitle": null
+        },
+        {
+          "slug": "heart-of-the-conqueror",
+          "title": "Heart of the Conqueror",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/heart-of-the-conqueror",
+          "showTitle": null
+        },
+        {
+          "slug": "horus-heresy-the-scripts-volume-ii",
+          "title": "Horus Heresy: The Scripts: Volume II",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/horus-heresy-the-scripts-volume-ii",
+          "showTitle": null
+        },
+        {
+          "slug": "seditions-gate",
+          "title": "Sedition's Gate",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/seditions-gate",
+          "showTitle": null
+        },
+        {
+          "slug": "templar",
+          "title": "Templar",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/templar",
+          "showTitle": null
+        },
+        {
+          "slug": "the-purge",
+          "title": "The Purge",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-purge",
+          "showTitle": null
+        },
+        {
+          "slug": "betrayal-at-calth",
+          "title": "Betrayal at Calth",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/betrayal-at-calth",
+          "showTitle": null
+        },
+        {
+          "slug": "deathfire",
+          "title": "Deathfire",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/deathfire",
+          "showTitle": null
+        },
+        {
+          "slug": "legacies-of-betrayal",
+          "title": "Legacies of Betrayal",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/legacies-of-betrayal",
+          "showTitle": null
+        },
+        {
+          "slug": "the-honoured",
+          "title": "The Honoured",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-honoured",
+          "showTitle": null
+        },
+        {
+          "slug": "the-unburdened",
+          "title": "The Unburdened",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-unburdened",
+          "showTitle": null
+        },
+        {
+          "slug": "children-of-sicarus",
+          "title": "Children of Sicarus",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/children-of-sicarus",
+          "showTitle": null
+        },
+        {
+          "slug": "crusades-end",
+          "title": "Crusade's End",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/crusades-end",
+          "showTitle": null
+        },
+        {
+          "slug": "inheritor",
+          "title": "Inheritor",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/inheritor",
+          "showTitle": null
+        },
+        {
+          "slug": "war-without-end",
+          "title": "War Without End",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/war-without-end",
+          "showTitle": null
+        },
+        {
+          "slug": "child-of-chaos",
+          "title": "Child of Chaos",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/child-of-chaos",
+          "showTitle": null
+        },
+        {
+          "slug": "corax",
+          "title": "Corax",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/corax",
+          "showTitle": null
+        },
+        {
+          "slug": "eye-of-terra",
+          "title": "Eye of Terra",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/eye-of-terra",
+          "showTitle": null
+        },
+        {
+          "slug": "garro-oath-of-moment",
+          "title": "Garro: Oath of Moment",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/garro-oath-of-moment",
+          "showTitle": null
+        },
+        {
+          "slug": "garro-weapons-of-fate",
+          "title": "Garro: Weapons of Fate",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/garro-weapons-of-fate",
+          "showTitle": null
+        },
+        {
+          "slug": "kingsblade",
+          "title": "Kingsblade",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/kingsblade",
+          "showTitle": null
+        },
+        {
+          "slug": "mark-of-calth",
+          "title": "Mark of Calth",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/mark-of-calth",
+          "showTitle": null
+        },
+        {
+          "slug": "ruinstorm",
+          "title": "Ruinstorm",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/ruinstorm",
+          "showTitle": null
+        },
+        {
+          "slug": "the-laurel-of-defiance",
+          "title": "The Laurel of Defiance",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-laurel-of-defiance",
+          "showTitle": null
+        },
+        {
+          "slug": "born-of-flame",
+          "title": "Born of Flame",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/born-of-flame",
+          "showTitle": null
+        },
+        {
+          "slug": "hubris-of-monarchia",
+          "title": "Hubris of Monarchia",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/hubris-of-monarchia",
+          "showTitle": null
+        },
+        {
+          "slug": "slaves-to-darkness",
+          "title": "Slaves to Darkness",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/slaves-to-darkness",
+          "showTitle": null
+        },
+        {
+          "slug": "the-lords-of-silence",
+          "title": "The Lords of Silence",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-lords-of-silence",
+          "showTitle": null
+        },
+        {
+          "slug": "visions-of-heresy-2018-ed",
+          "title": "Visions of Heresy (2018 ed.)",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/visions-of-heresy-2018-ed",
+          "showTitle": null
+        },
+        {
+          "slug": "apocalypse",
+          "title": "Apocalypse",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/apocalypse",
+          "showTitle": null
+        },
+        {
+          "slug": "the-lost-and-the-damned",
+          "title": "The Lost and the Damned",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-lost-and-the-damned",
+          "showTitle": null
+        },
+        {
+          "slug": "the-revelation-of-the-word",
+          "title": "The Revelation of the Word",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-revelation-of-the-word",
+          "showTitle": null
+        },
+        {
+          "slug": "the-solar-war",
+          "title": "The Solar War",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-solar-war",
+          "showTitle": null
+        },
+        {
+          "slug": "masters-of-shadow",
+          "title": "Masters of Shadow",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/masters-of-shadow",
+          "showTitle": null
+        },
+        {
+          "slug": "the-gates-of-bones",
+          "title": "The Gates of Bones",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-gates-of-bones",
+          "showTitle": null
+        },
+        {
+          "slug": "echoes-of-eternity",
+          "title": "Echoes of Eternity",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/echoes-of-eternity",
+          "showTitle": null
+        },
+        {
+          "slug": "throne-of-light",
+          "title": "Throne of Light",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/throne-of-light",
+          "showTitle": null
+        },
+        {
+          "slug": "the-end-and-the-death-vol-1",
+          "title": "The End and The Death Vol. 1",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-end-and-the-death-vol-1",
+          "showTitle": null
+        },
+        {
+          "slug": "the-end-and-the-death-vol-2",
+          "title": "The End and The Death Vol. 2",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-end-and-the-death-vol-2",
+          "showTitle": null
+        },
+        {
+          "slug": "dropsite-massacre",
+          "title": "Dropsite Massacre",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/dropsite-massacre",
+          "showTitle": null
+        },
+        {
+          "slug": "oaths-of-damnation",
+          "title": "Oaths of Damnation",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/oaths-of-damnation",
+          "showTitle": null
+        },
+        {
+          "slug": "saints-of-the-imperium",
+          "title": "Saints of the Imperium",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/saints-of-the-imperium",
+          "showTitle": null
+        },
+        {
+          "slug": "apostle",
+          "title": "Apostle",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/apostle",
+          "showTitle": null
+        },
+        {
+          "slug": "zardu-layak-the-crimson-apostle",
+          "title": "Zardu Layak: The Crimson Apostle",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/zardu-layak-the-crimson-apostle",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-7390693",
+          "title": "Horus and the First Seeds of Heresy (Or Erebus Ruins Everything) | Origins of Warhammer 40k",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-cdbe2d61-ac98-417e-b9b3-b1ae05535263",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-11338501",
+          "title": "BETRAYER | Warhammer 40k Book club & review",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-6e7f1061-ac25-4109-ab60-ff39037e3803",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-10999642",
+          "title": "LORGAR AURELIAN: AVERAGE CHAOS ENJOYER | Warhammer 40k Lore  Adeptus Ridiculous 154K subscribers",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-3889a315-111b-4b2c-b0cd-b11287b1f811",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-11018889",
+          "title": "The First Heretic - Book club & Discussion | Warhammer books",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-7c4d4058-b422-4193-8452-529d8a884a49",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-11036384",
+          "title": "WORD BEARERS: LET YOUR DARK LIGHT SHINE UPON US | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-3748a754-dcf6-4fe4-97cb-e554fa879864",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-13874466",
+          "title": "Episode 6 - Horus strikes at the Loyalist forces and the Loyalists begin to strike back at Horus",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-ee6affb4-31cd-421b-a5ab-8126d7a76828",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-15967563",
+          "title": "Is Fire Warrior Really That Bad? | Warhammer 40k",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-1b545677-8f87-46bc-a563-3ebed27116f4",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-faa90e90-607e-4efb-8baa-552d1db6c7df",
+          "title": "Episode 105 - The Ultramarines, from the start of the Heresy to the fall of Guilliman",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-6ec8daee-1630-4798-a8d4-73719d4ab685",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "luetin09-tl8izv0mkpq",
+          "title": "THE SLEEPER LEGION - WHO WON THE HERESY | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-65ddeabe-ffdb-4dc3-8571-cf403340441c",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "the-40k-lorecast-ccea1f33-ef34-4da1-951a-150a6f6fee28",
+          "title": "Episode 144 - The Word Bearers pt 1 - The creation of the Imperial Heralds and the complete opposite thing happening on Colchis",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-f8cb2021-36ee-4325-8613-f1683a2279b9",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-8a8b390d-c022-4be1-b655-b407a9dab293",
+          "title": "Episode 145 - Word Bearers pt 2 - The emperor's censure and the legions subsequent jaunt into the eye of terror",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-a4671979-51d8-4299-91b7-488d0d687197",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-ca1a53a7-b25e-4a5d-889b-bab3f68e2c9e",
+          "title": "Episode 146 - Word Bearers pt 3 - Heresy is a go, but Erebus and Lorgar have some different ideas of next steps",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-65243250-5ee6-4f90-b569-edfb9ed2cb44",
+          "showTitle": "The 40k Lorecast"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Key characters",
+      "items": [
+        {
+          "type": "character",
+          "id": "argel_tal",
+          "name": "Argel Tal"
+        },
+        {
+          "type": "character",
+          "id": "barthusa_narek",
+          "name": "Barthusa Narek"
+        },
+        {
+          "type": "character",
+          "id": "burias",
+          "name": "Burias"
+        },
+        {
+          "type": "character",
+          "id": "erebus",
+          "name": "Erebus"
+        },
+        {
+          "type": "character",
+          "id": "jarulek",
+          "name": "Jarulek"
+        },
+        {
+          "type": "character",
+          "id": "kol_badar",
+          "name": "Kol Badar"
+        },
+        {
+          "type": "character",
+          "id": "kor_phaeron",
+          "name": "Kor Phaeron"
+        },
+        {
+          "type": "character",
+          "id": "kurtha_sedd",
+          "name": "Kurtha Sedd"
+        },
+        {
+          "type": "character",
+          "id": "lorgar",
+          "name": "Lorgar"
+        },
+        {
+          "type": "character",
+          "id": "marduk",
+          "name": "Marduk"
+        },
+        {
+          "type": "character",
+          "id": "remius_stele",
+          "name": "Remius Stele"
+        },
+        {
+          "type": "character",
+          "id": "sor_talgron",
+          "name": "Sor Talgron"
+        },
+        {
+          "type": "character",
+          "id": "torquill_eliphas",
+          "name": "Torquill Eliphas"
+        },
+        {
+          "type": "character",
+          "id": "zadkiel",
+          "name": "Zadkiel"
+        },
+        {
+          "type": "character",
+          "id": "zardu_layak",
+          "name": "Zardu Layak"
+        }
+      ]
+    }
+  ]
+}

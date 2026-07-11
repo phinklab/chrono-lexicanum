@@ -1,0 +1,236 @@
+{
+  "type": "location",
+  "id": "luna",
+  "name": "Luna",
+  "blurb": {
+    "text": "Earth's moon in the Sol System, an early conquest of the Emperor's unification and home to the gene-cults that helped create the first Space Marines.",
+    "confidence": 0.9,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Luna"
+  },
+  "facts": [
+    {
+      "label": "Sector",
+      "value": "Segmentum Solar"
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "luna-mendax",
+          "title": "Luna Mendax",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/luna-mendax",
+          "showTitle": null
+        },
+        {
+          "slug": "ghosts-speak-not-patience",
+          "title": "Ghosts Speak Not & Patience",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/ghosts-speak-not-patience",
+          "showTitle": null
+        },
+        {
+          "slug": "the-silent-war",
+          "title": "The Silent War",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-silent-war",
+          "showTitle": null
+        },
+        {
+          "slug": "garro-weapons-of-fate",
+          "title": "Garro: Weapons of Fate",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/garro-weapons-of-fate",
+          "showTitle": null
+        },
+        {
+          "slug": "the-emperors-legion",
+          "title": "The Emperor's Legion",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-emperors-legion",
+          "showTitle": null
+        },
+        {
+          "slug": "the-regents-shadow",
+          "title": "The Regent's Shadow",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-regents-shadow",
+          "showTitle": null
+        },
+        {
+          "slug": "the-sons-of-selenar",
+          "title": "The Sons of Selenar",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-sons-of-selenar",
+          "showTitle": null
+        },
+        {
+          "slug": "the-shattered-and-the-soulless",
+          "title": "The Shattered and the Soulless",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-shattered-and-the-soulless",
+          "showTitle": null
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Other worlds in sector",
+      "items": [
+        {
+          "type": "location",
+          "id": "albia",
+          "name": "Albia"
+        },
+        {
+          "type": "location",
+          "id": "alia",
+          "name": "Alia"
+        },
+        {
+          "type": "location",
+          "id": "ardamantua",
+          "name": "Ardamantua"
+        },
+        {
+          "type": "location",
+          "id": "delphic_battlement",
+          "name": "Delphic Battlement"
+        },
+        {
+          "type": "location",
+          "id": "eternity_gate",
+          "name": "Eternity Gate"
+        },
+        {
+          "type": "location",
+          "id": "eternity_wall_spaceport",
+          "name": "Eternity Wall Spaceport"
+        },
+        {
+          "type": "location",
+          "id": "ghyre",
+          "name": "Ghyre"
+        },
+        {
+          "type": "location",
+          "id": "golden_throne",
+          "name": "Golden Throne"
+        },
+        {
+          "type": "location",
+          "id": "gyptus",
+          "name": "Gyptus"
+        },
+        {
+          "type": "location",
+          "id": "hy_brasil",
+          "name": "Hy Brasil"
+        },
+        {
+          "type": "location",
+          "id": "imperial_palace",
+          "name": "Imperial Palace"
+        },
+        {
+          "type": "location",
+          "id": "jupiter",
+          "name": "Jupiter"
+        },
+        {
+          "type": "location",
+          "id": "lions_gate_spaceport",
+          "name": "Lion's Gate Spaceport"
+        },
+        {
+          "type": "location",
+          "id": "mars",
+          "name": "Mars"
+        },
+        {
+          "type": "location",
+          "id": "mercury_wall",
+          "name": "Mercury Wall"
+        },
+        {
+          "type": "location",
+          "id": "necromunda",
+          "name": "Necromunda"
+        },
+        {
+          "type": "location",
+          "id": "pluto",
+          "name": "Pluto"
+        },
+        {
+          "type": "location",
+          "id": "potence",
+          "name": "Potence"
+        },
+        {
+          "type": "location",
+          "id": "sanctum_imperialis",
+          "name": "Sanctum Imperialis"
+        },
+        {
+          "type": "location",
+          "id": "saturnine_gate",
+          "name": "Saturnine Gate"
+        },
+        {
+          "type": "location",
+          "id": "sol_system",
+          "name": "Sol System"
+        },
+        {
+          "type": "location",
+          "id": "terra",
+          "name": "Terra"
+        },
+        {
+          "type": "location",
+          "id": "great_rift",
+          "name": "The Great Rift"
+        },
+        {
+          "type": "location",
+          "id": "titan",
+          "name": "Titan"
+        },
+        {
+          "type": "location",
+          "id": "vorganthian",
+          "name": "Vorganthian"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,435 @@
+{
+  "type": "character",
+  "id": "sanguinius",
+  "name": "Sanguinius",
+  "blurb": {
+    "text": "Primarch of the Blood Angels, a winged and beloved figure who died defending Terra in single combat against the Warmaster Horus.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Sanguinius"
+  },
+  "facts": [
+    {
+      "label": "Allegiance",
+      "value": {
+        "type": "faction",
+        "id": "blood_angels",
+        "name": "Blood Angels"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "fear-to-tread",
+          "title": "Fear to Tread",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/fear-to-tread",
+          "showTitle": null
+        },
+        {
+          "slug": "lost-sons",
+          "title": "Lost Sons",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/buch/lost-sons",
+          "showTitle": null
+        },
+        {
+          "slug": "the-unremembered-empire",
+          "title": "The Unremembered Empire",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-unremembered-empire",
+          "showTitle": null
+        },
+        {
+          "slug": "death-and-defiance",
+          "title": "Death and Defiance",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/death-and-defiance",
+          "showTitle": null
+        },
+        {
+          "slug": "sins-of-the-father",
+          "title": "Sins of the Father",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/sins-of-the-father",
+          "showTitle": null
+        },
+        {
+          "slug": "the-herald-of-sanguinius",
+          "title": "The Herald of Sanguinius",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-herald-of-sanguinius",
+          "showTitle": null
+        },
+        {
+          "slug": "virtues-of-the-sons",
+          "title": "Virtues of the Sons",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/virtues-of-the-sons",
+          "showTitle": null
+        },
+        {
+          "slug": "angels-of-caliban",
+          "title": "Angels of Caliban",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/angels-of-caliban",
+          "showTitle": null
+        },
+        {
+          "slug": "echoes-of-imperium",
+          "title": "Echoes of Imperium",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/echoes-of-imperium",
+          "showTitle": null
+        },
+        {
+          "slug": "pharos",
+          "title": "Pharos",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/pharos",
+          "showTitle": null
+        },
+        {
+          "slug": "virtues-of-the-sons-sins-of-the-father",
+          "title": "Virtues of the Sons/Sins of the Father",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/virtues-of-the-sons-sins-of-the-father",
+          "showTitle": null
+        },
+        {
+          "slug": "ruinstorm",
+          "title": "Ruinstorm",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/ruinstorm",
+          "showTitle": null
+        },
+        {
+          "slug": "jaghatai-khan-warhawk-of-chogoris",
+          "title": "Jaghatai Khan: Warhawk of Chogoris",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/jaghatai-khan-warhawk-of-chogoris",
+          "showTitle": null
+        },
+        {
+          "slug": "sons-of-the-emperor",
+          "title": "Sons of the Emperor",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/sons-of-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "the-atonement-of-fire",
+          "title": "The Atonement of Fire",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-atonement-of-fire",
+          "showTitle": null
+        },
+        {
+          "slug": "scions-of-the-emperor",
+          "title": "Scions of the Emperor",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/scions-of-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "the-lost-and-the-damned",
+          "title": "The Lost and the Damned",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-lost-and-the-damned",
+          "showTitle": null
+        },
+        {
+          "slug": "the-passing-of-angels",
+          "title": "The Passing of Angels",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-passing-of-angels",
+          "showTitle": null
+        },
+        {
+          "slug": "saturnine",
+          "title": "Saturnine",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/saturnine",
+          "showTitle": null
+        },
+        {
+          "slug": "echoes-of-eternity",
+          "title": "Echoes of Eternity",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/echoes-of-eternity",
+          "showTitle": null
+        },
+        {
+          "slug": "mortarion-the-pale-king",
+          "title": "Mortarion: The Pale King",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/mortarion-the-pale-king",
+          "showTitle": null
+        },
+        {
+          "slug": "sanguinius-the-great-angel",
+          "title": "Sanguinius: The Great Angel",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/sanguinius-the-great-angel",
+          "showTitle": null
+        },
+        {
+          "slug": "the-end-and-the-death-vol-1",
+          "title": "The End and The Death Vol. 1",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-end-and-the-death-vol-1",
+          "showTitle": null
+        },
+        {
+          "slug": "the-end-and-the-death-vol-2",
+          "title": "The End and The Death Vol. 2",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-end-and-the-death-vol-2",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-11529003",
+          "title": "BLOOD ANGELS: For the Emperor and Sanguinius! | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-05ca2374-c5b6-4c28-a04e-a7cab76ebed6",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-ca3cc409-b445-49f2-8a22-0f8c25b4a89a",
+          "title": "Bonus 27 - Sanguinala Short Story Contest",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-ffd3af54-054e-4e65-9bb9-dccedd4d54eb",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-11480579",
+          "title": "SANGUINIUS: FABULOUS HAWK-BOY | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-7828f82f-fc19-4520-bb10-2580949e8690",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-14005092",
+          "title": "Episode 9 - The Heresy Concludes",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-ac8658b9-155b-493f-af4d-b8f4ab8d3787",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "lorehammer-https-api-spreaker-com-episode-63455456",
+          "title": "Bonus 33 - Happy Sanguinala and Other Celebrations",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-6e86d09d-577f-4c11-8094-46bbb5f301ca",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "the-40k-lorecast-1d991538-b3ca-11ef-9e65-93440c7d0434",
+          "title": "Episode 64 - \"Where are they now\" Primarch edition - the Loyalists",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-6b30f93f-e381-4b17-8cae-444d559d53f2",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "lorehammer-36cb9f16-cbff-42c2-ad15-fe7844c693f9",
+          "title": "201 - Sanguinius, Origins and Great Crusade",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-36e60daf-a3c6-47b1-a3bc-517351f4e7b2",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-db88fa1d-232e-44ef-83c7-44b47c0e0e39",
+          "title": "202 - Sanguinius, Horus Heresy",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-d8be5eb5-36f7-4cad-99e9-f8cf2a233a40",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-3d7906ad-9ff1-459c-a43c-2ff62995fc8a",
+          "title": "203 - Blood Angels, 30k Legion Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-5dbf754a-5f37-4d62-8122-87cd9474cff5",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-da5a9f5c-31b9-4856-89cd-0f1f9283cdc6",
+          "title": "204 - Blood Angels, 40k Chapter Era ",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-b1288ee8-27ad-461a-ab95-af31a1a13189",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "luetin09-d18rfiparne",
+          "title": "40K PRIMARCHS - SANGUINIUS - THE RISE AND FALL OF AN ANGEL | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-dee94531-4850-43c3-9240-2c0d01559ef5",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "lorehammer-14c1c550-7abb-4491-b154-d100bca97b58",
+          "title": "Bonus 50 - Sanguinala Mass",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-f6cbd0c0-653f-46e2-9b3e-31d3fdbe08c0",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "the-40k-lorecast-6fda0240-e317-11ef-b623-4308392253d8",
+          "title": "Episode 74 - Blood Angels pt1 - The origins",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-5b9fe659-6d84-4a6b-b897-21d921f552f6",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-92821c50-e728-11ef-8213-af33b664c72d",
+          "title": "Episode 75 - Blood Angels pt2 - After the Death of Sanguinius",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-d0a93a49-37d1-49b6-bc54-5e0693b03640",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18370513",
+          "title": "FLESH TEARERS: They're good guys! Sort of | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-9fbdbc28-23f3-4201-b8ec-c67d7bdec839",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18583979",
+          "title": "SIEGE OF TERRA: THE END AND THE DEATH | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-d7632f4c-e8a8-4db6-af05-76a2e4a7e811",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

@@ -1,0 +1,565 @@
+{
+  "type": "faction",
+  "id": "iron_hands",
+  "name": "Iron Hands",
+  "blurb": {
+    "text": "A loyalist Space Marine Chapter descended from Ferrus Manus that replaces flesh with bionics, rejecting what it sees as the weakness of the body.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Iron_Hands"
+  },
+  "facts": [
+    {
+      "label": "Alignment",
+      "value": "Imperium"
+    },
+    {
+      "label": "Parent faction",
+      "value": {
+        "type": "faction",
+        "id": "adeptus_astartes",
+        "name": "Adeptus Astartes"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "iron-hands",
+          "title": "Iron Hands",
+          "kind": "book",
+          "releaseYear": 2004,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/iron-hands",
+          "showTitle": null
+        },
+        {
+          "slug": "collected-visions",
+          "title": "Collected Visions",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/collected-visions",
+          "showTitle": null
+        },
+        {
+          "slug": "fulgrim",
+          "title": "Fulgrim",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/fulgrim",
+          "showTitle": null
+        },
+        {
+          "slug": "age-of-darkness",
+          "title": "Age of Darkness",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/age-of-darkness",
+          "showTitle": null
+        },
+        {
+          "slug": "little-horus",
+          "title": "Little Horus",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/little-horus",
+          "showTitle": null
+        },
+        {
+          "slug": "promethean-sun",
+          "title": "Promethean Sun",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/promethean-sun",
+          "showTitle": null
+        },
+        {
+          "slug": "feat-of-iron",
+          "title": "Feat of Iron",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/feat-of-iron",
+          "showTitle": null
+        },
+        {
+          "slug": "kryptos",
+          "title": "Kryptos",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/kryptos",
+          "showTitle": null
+        },
+        {
+          "slug": "the-primarchs",
+          "title": "The Primarchs",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-primarchs",
+          "showTitle": null
+        },
+        {
+          "slug": "veritas-ferrum",
+          "title": "Veritas Ferrum",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/veritas-ferrum",
+          "showTitle": null
+        },
+        {
+          "slug": "wrath-of-iron",
+          "title": "Wrath of Iron",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/wrath-of-iron",
+          "showTitle": null
+        },
+        {
+          "slug": "angel-exterminatus",
+          "title": "Angel Exterminatus",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/angel-exterminatus",
+          "showTitle": null
+        },
+        {
+          "slug": "riven",
+          "title": "Riven",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/riven",
+          "showTitle": null
+        },
+        {
+          "slug": "vulkan-lives",
+          "title": "Vulkan Lives",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/vulkan-lives",
+          "showTitle": null
+        },
+        {
+          "slug": "death-and-defiance",
+          "title": "Death and Defiance",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/death-and-defiance",
+          "showTitle": null
+        },
+        {
+          "slug": "echoes-of-ruin",
+          "title": "Echoes of Ruin",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/echoes-of-ruin",
+          "showTitle": null
+        },
+        {
+          "slug": "the-damnation-of-pythos",
+          "title": "The Damnation of Pythos",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-damnation-of-pythos",
+          "showTitle": null
+        },
+        {
+          "slug": "the-seventh-serpent",
+          "title": "The Seventh Serpent",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-seventh-serpent",
+          "showTitle": null
+        },
+        {
+          "slug": "imperfect",
+          "title": "Imperfect",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/imperfect",
+          "showTitle": null
+        },
+        {
+          "slug": "legacies-of-betrayal",
+          "title": "Legacies of Betrayal",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/legacies-of-betrayal",
+          "showTitle": null
+        },
+        {
+          "slug": "meduson",
+          "title": "Meduson",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/meduson",
+          "showTitle": null
+        },
+        {
+          "slug": "the-phoenician",
+          "title": "The Phoenician",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-phoenician",
+          "showTitle": null
+        },
+        {
+          "slug": "grey-talon",
+          "title": "Grey Talon",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/grey-talon",
+          "showTitle": null
+        },
+        {
+          "slug": "meduson-wings",
+          "title": "Meduson Wings",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/meduson-wings",
+          "showTitle": null
+        },
+        {
+          "slug": "the-either",
+          "title": "The Either",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-either",
+          "showTitle": null
+        },
+        {
+          "slug": "the-last-phoenix",
+          "title": "The Last Phoenix",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-last-phoenix",
+          "showTitle": null
+        },
+        {
+          "slug": "a-lesson-in-iron",
+          "title": "A Lesson in Iron",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/a-lesson-in-iron",
+          "showTitle": null
+        },
+        {
+          "slug": "immortal-duty",
+          "title": "Immortal Duty",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/immortal-duty",
+          "showTitle": null
+        },
+        {
+          "slug": "old-earth",
+          "title": "Old Earth",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/old-earth",
+          "showTitle": null
+        },
+        {
+          "slug": "shattered-legions",
+          "title": "Shattered Legions",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/shattered-legions",
+          "showTitle": null
+        },
+        {
+          "slug": "the-eye-of-medusa",
+          "title": "The Eye of Medusa",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-eye-of-medusa",
+          "showTitle": null
+        },
+        {
+          "slug": "ferrus-manus-the-gorgon-of-medusa",
+          "title": "Ferrus Manus: The Gorgon of Medusa",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/ferrus-manus-the-gorgon-of-medusa",
+          "showTitle": null
+        },
+        {
+          "slug": "massacre",
+          "title": "Massacre",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/massacre",
+          "showTitle": null
+        },
+        {
+          "slug": "the-voice-of-mars",
+          "title": "The Voice of Mars",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-voice-of-mars",
+          "showTitle": null
+        },
+        {
+          "slug": "visions-of-heresy-2018-ed",
+          "title": "Visions of Heresy (2018 ed.)",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/visions-of-heresy-2018-ed",
+          "showTitle": null
+        },
+        {
+          "slug": "mercy-of-the-dragon",
+          "title": "Mercy of the Dragon",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/mercy-of-the-dragon",
+          "showTitle": null
+        },
+        {
+          "slug": "scions-of-the-emperor",
+          "title": "Scions of the Emperor",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/scions-of-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "the-sons-of-selenar",
+          "title": "The Sons of Selenar",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-sons-of-selenar",
+          "showTitle": null
+        },
+        {
+          "slug": "dropsite-massacre",
+          "title": "Dropsite Massacre",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/dropsite-massacre",
+          "showTitle": null
+        },
+        {
+          "slug": "the-shattered-and-the-soulless",
+          "title": "The Shattered and the Soulless",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-shattered-and-the-soulless",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-1abf8c88-a1f7-5de5-a320-25e9337e1498",
+          "title": "Lorehammer Lockdown: Nathan and James",
+          "kind": "podcast_episode",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-9f635168-3665-471f-a2c0-d0993228eebc",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "luetin09-azmhqme4xe8",
+          "title": "40K BEGINNERS - THE ASTARTES CHAPTERS [Part 1] | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-478c4e8a-6943-4378-a5fb-b62c6ebf022b",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-12909815",
+          "title": "FERRUS MANUS: I SHALL BE THE HAMMER OF THE EMPEROR, AND I SHALL NEVER TIRE | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-201c62ec-28d6-481d-a400-b5152528fcce",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-12952549",
+          "title": "IRON HANDS: THE FLESH IS WEAK! | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-12de8c49-ce27-4681-8f48-7dc083eafd84",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-23d1c755-357b-4ef2-b5d9-2d1b286314d5",
+          "title": "211 - Ferrus Manus, Origins and Great Crusade ",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-e020203a-d237-4f42-b948-188380902973",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-48a567c2-72ce-4d19-b391-2b035448108e",
+          "title": "212 - Ferrus Manus, Horus Heresy",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-fa2147e5-bac3-4e35-aed1-906c8ee23c69",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-a1a110e5-9f57-4749-8507-5b4cdf872781",
+          "title": "213 - Iron Hands, 30k Legion Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-fa78b18d-00a6-4a1b-88e5-aad1e90a2099",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-d667a791-402b-4726-9130-f4b975808930",
+          "title": "214 - Iron Hands, 40k Chapter Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-5b861189-b70b-4cf5-9716-9d3a9598ee70",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Key characters",
+      "items": [
+        {
+          "type": "character",
+          "id": "castrmen_orth",
+          "name": "Castrmen Orth"
+        },
+        {
+          "type": "character",
+          "id": "crius",
+          "name": "Crius"
+        },
+        {
+          "type": "character",
+          "id": "ferrus_manus",
+          "name": "Ferrus Manus"
+        },
+        {
+          "type": "character",
+          "id": "galba",
+          "name": "Galba"
+        },
+        {
+          "type": "character",
+          "id": "kardan_stronos",
+          "name": "Kardan Stronos"
+        },
+        {
+          "type": "character",
+          "id": "sabik_wayland",
+          "name": "Sabik Wayland"
+        },
+        {
+          "type": "character",
+          "id": "shadrak_meduson",
+          "name": "Shadrak Meduson"
+        },
+        {
+          "type": "character",
+          "id": "ulrach_branthan",
+          "name": "Ulrach Branthan"
+        }
+      ]
+    }
+  ]
+}

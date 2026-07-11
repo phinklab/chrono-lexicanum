@@ -1,0 +1,406 @@
+{
+  "type": "person",
+  "id": "chris_wraight",
+  "name": "Chris Wraight",
+  "oneLine": "British science-fiction and fantasy author. Black Library novelist; Vaults of Terra trilogy, Watchers of the Throne, several Space Wolves and White Scars novels.",
+  "facts": [],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "battle-of-the-fang",
+          "title": "Battle of the Fang",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/battle-of-the-fang",
+          "showTitle": null
+        },
+        {
+          "slug": "rebirth",
+          "title": "Rebirth",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/rebirth",
+          "showTitle": null
+        },
+        {
+          "slug": "brotherhood-of-the-storm",
+          "title": "Brotherhood of the Storm",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/brotherhood-of-the-storm",
+          "showTitle": null
+        },
+        {
+          "slug": "wrath-of-iron",
+          "title": "Wrath of Iron",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/wrath-of-iron",
+          "showTitle": null
+        },
+        {
+          "slug": "bjorn-lone-wolf",
+          "title": "Bjorn: Lone Wolf",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/bjorn-lone-wolf",
+          "showTitle": null
+        },
+        {
+          "slug": "blood-of-asaheim",
+          "title": "Blood of Asaheim",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/blood-of-asaheim",
+          "showTitle": null
+        },
+        {
+          "slug": "the-sigillite",
+          "title": "The Sigillite",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-sigillite",
+          "showTitle": null
+        },
+        {
+          "slug": "brotherhood-of-the-moon",
+          "title": "Brotherhood of the Moon",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/brotherhood-of-the-moon",
+          "showTitle": null
+        },
+        {
+          "slug": "daemonology",
+          "title": "Daemonology",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/daemonology",
+          "showTitle": null
+        },
+        {
+          "slug": "scars",
+          "title": "Scars",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/scars",
+          "showTitle": null
+        },
+        {
+          "slug": "stormcaller",
+          "title": "Stormcaller",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/stormcaller",
+          "showTitle": null
+        },
+        {
+          "slug": "wolfs-claw",
+          "title": "Wolf's Claw",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/wolfs-claw",
+          "showTitle": null
+        },
+        {
+          "slug": "the-hunt-of-magnus",
+          "title": "The Hunt for Magnus",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-hunt-of-magnus",
+          "showTitle": null
+        },
+        {
+          "slug": "wolf-king",
+          "title": "Wolf King",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/wolf-king",
+          "showTitle": null
+        },
+        {
+          "slug": "blackshield",
+          "title": "Blackshield",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/blackshield",
+          "showTitle": null
+        },
+        {
+          "slug": "grey-talon",
+          "title": "Grey Talon",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/grey-talon",
+          "showTitle": null
+        },
+        {
+          "slug": "leman-russ-the-great-wolf",
+          "title": "Leman Russ: The Great Wolf",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/leman-russ-the-great-wolf",
+          "showTitle": null
+        },
+        {
+          "slug": "the-last-son-of-prospero",
+          "title": "The Last Son of Prospero",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-last-son-of-prospero",
+          "showTitle": null
+        },
+        {
+          "slug": "the-path-of-heaven",
+          "title": "The Path of Heaven",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-path-of-heaven",
+          "showTitle": null
+        },
+        {
+          "slug": "the-soul-severed",
+          "title": "The Soul, Severed",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-soul-severed",
+          "showTitle": null
+        },
+        {
+          "slug": "child-of-chaos",
+          "title": "Child of Chaos",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/child-of-chaos",
+          "showTitle": null
+        },
+        {
+          "slug": "magisterium",
+          "title": "Magisterium",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/magisterium",
+          "showTitle": null
+        },
+        {
+          "slug": "restorer",
+          "title": "Restorer",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/restorer",
+          "showTitle": null
+        },
+        {
+          "slug": "the-carrion-throne",
+          "title": "The Carrion Throne",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-carrion-throne",
+          "showTitle": null
+        },
+        {
+          "slug": "the-emperors-legion",
+          "title": "The Emperor's Legion",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-emperors-legion",
+          "showTitle": null
+        },
+        {
+          "slug": "jaghatai-khan-warhawk-of-chogoris",
+          "title": "Jaghatai Khan: Warhawk of Chogoris",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/jaghatai-khan-warhawk-of-chogoris",
+          "showTitle": null
+        },
+        {
+          "slug": "the-lords-of-silence",
+          "title": "The Lords of Silence",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-lords-of-silence",
+          "showTitle": null
+        },
+        {
+          "slug": "two-metaphysical-blades",
+          "title": "Two Metaphysical Blades",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/two-metaphysical-blades",
+          "showTitle": null
+        },
+        {
+          "slug": "the-hollow-mountain",
+          "title": "The Hollow Mountain",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-hollow-mountain",
+          "showTitle": null
+        },
+        {
+          "slug": "valdor-birth-of-the-imperium",
+          "title": "Valdor: Birth of the Imperium",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/valdor-birth-of-the-imperium",
+          "showTitle": null
+        },
+        {
+          "slug": "bloodlines",
+          "title": "Bloodlines",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/bloodlines",
+          "showTitle": null
+        },
+        {
+          "slug": "the-helwinter-gate",
+          "title": "The Helwinter Gate",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-helwinter-gate",
+          "showTitle": null
+        },
+        {
+          "slug": "the-regents-shadow",
+          "title": "The Regent's Shadow",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-regents-shadow",
+          "showTitle": null
+        },
+        {
+          "slug": "warhawk",
+          "title": "Warhawk",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/warhawk",
+          "showTitle": null
+        },
+        {
+          "slug": "sanguinius-the-great-angel",
+          "title": "Sanguinius: The Great Angel",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/sanguinius-the-great-angel",
+          "showTitle": null
+        },
+        {
+          "slug": "the-dark-city",
+          "title": "The Dark City",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-dark-city",
+          "showTitle": null
+        },
+        {
+          "slug": "sea-of-souls",
+          "title": "Sea of Souls",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/sea-of-souls",
+          "showTitle": null
+        },
+        {
+          "slug": "legends-of-the-wolf-the-omnibus",
+          "title": "Legends of the Wolf: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/legends-of-the-wolf-the-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "vaults-of-terra-the-omnibus",
+          "title": "Vaults of Terra: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/vaults-of-terra-the-omnibus",
+          "showTitle": null
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

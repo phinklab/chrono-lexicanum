@@ -1,0 +1,225 @@
+{
+  "type": "location",
+  "id": "nocturne",
+  "name": "Nocturne",
+  "blurb": {
+    "text": "A volcanic death world wracked by seismic upheaval, the homeworld of the Salamanders Space Marine Chapter.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Nocturne"
+  },
+  "facts": [
+    {
+      "label": "Sector",
+      "value": "Segmentum Tempestus"
+    }
+  ],
+  "tags": [
+    "salamanders"
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "salamander",
+          "title": "Salamander",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/salamander",
+          "showTitle": null
+        },
+        {
+          "slug": "firedrake",
+          "title": "Firedrake",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/firedrake",
+          "showTitle": null
+        },
+        {
+          "slug": "nocturne",
+          "title": "Nocturne",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/nocturne",
+          "showTitle": null
+        },
+        {
+          "slug": "tome-of-fire",
+          "title": "Tome of Fire",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/tome-of-fire",
+          "showTitle": null
+        },
+        {
+          "slug": "salamanders-rebirth",
+          "title": "Salamanders: Rebirth",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/salamanders-rebirth",
+          "showTitle": null
+        },
+        {
+          "slug": "salamanders-the-omnibus",
+          "title": "Salamanders: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/salamanders-the-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "vulkan-lives",
+          "title": "Vulkan Lives",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/vulkan-lives",
+          "showTitle": null
+        },
+        {
+          "slug": "deathfire",
+          "title": "Deathfire",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/deathfire",
+          "showTitle": null
+        },
+        {
+          "slug": "sons-of-the-forge",
+          "title": "Sons of the Forge",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/sons-of-the-forge",
+          "showTitle": null
+        },
+        {
+          "slug": "old-earth",
+          "title": "Old Earth",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/old-earth",
+          "showTitle": null
+        },
+        {
+          "slug": "born-of-flame",
+          "title": "Born of Flame",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/born-of-flame",
+          "showTitle": null
+        },
+        {
+          "slug": "vulkan-lord-of-drakes",
+          "title": "Vulkan: Lord of Drakes",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/vulkan-lord-of-drakes",
+          "showTitle": null
+        },
+        {
+          "slug": "mercy-of-the-dragon",
+          "title": "Mercy of the Dragon",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/mercy-of-the-dragon",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "the-40k-lorecast-d38acdd7-8571-4f9f-8480-3e6de6e9ab51",
+          "title": "Episode 116 - The Salamanders, Vulkan takes one to the dome, and then another, and then some more.... fine Vulkan just dies a lot",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-381c36f6-024c-4366-8e95-546bb210782c",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18016027",
+          "title": "War Of The Beast: And They Were Roommates | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-847e46b9-4e90-4449-b0a5-5c58acc26569",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Other worlds in sector",
+      "items": [
+        {
+          "type": "location",
+          "id": "baal",
+          "name": "Baal"
+        },
+        {
+          "type": "location",
+          "id": "baal_secundus",
+          "name": "Baal Secundus"
+        },
+        {
+          "type": "location",
+          "id": "ceocan",
+          "name": "Ceocan"
+        },
+        {
+          "type": "location",
+          "id": "cretacia",
+          "name": "Cretacia"
+        },
+        {
+          "type": "location",
+          "id": "geratomro",
+          "name": "Geratomro"
+        },
+        {
+          "type": "location",
+          "id": "medusa",
+          "name": "Medusa"
+        },
+        {
+          "type": "location",
+          "id": "thennos",
+          "name": "Thennos"
+        }
+      ]
+    }
+  ]
+}

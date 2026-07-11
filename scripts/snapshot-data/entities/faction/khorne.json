@@ -1,0 +1,300 @@
+{
+  "type": "faction",
+  "id": "khorne",
+  "name": "Khorne",
+  "blurb": {
+    "text": "Khorne is the Chaos God of war, slaughter, and martial dominance, drawing power from every act of killing regardless of cause or allegiance. His servants reject sorcery utterly, seeking only to spill blood in his name — \"Blood for the Blood God\" is the creed of his numberless worshippers.",
+    "confidence": 0.97,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Khorne"
+  },
+  "facts": [
+    {
+      "label": "Alignment",
+      "value": "Chaos"
+    },
+    {
+      "label": "Parent faction",
+      "value": {
+        "type": "faction",
+        "id": "chaos",
+        "name": "Chaos"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "eye-of-terror",
+          "title": "Eye of Terror",
+          "kind": "book",
+          "releaseYear": 1999,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/eye-of-terror",
+          "showTitle": null
+        },
+        {
+          "slug": "daemon-world",
+          "title": "Daemon World",
+          "kind": "book",
+          "releaseYear": 2003,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/daemon-world",
+          "showTitle": null
+        },
+        {
+          "slug": "hammer-of-daemons",
+          "title": "Hammer of Daemons",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/hammer-of-daemons",
+          "showTitle": null
+        },
+        {
+          "slug": "the-grey-knights-omnibus",
+          "title": "The Grey Knights Omnibus",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-grey-knights-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-chapters-due",
+          "title": "The Chapter's Due",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-chapters-due",
+          "showTitle": null
+        },
+        {
+          "slug": "ultramarines-the-second-omnibus",
+          "title": "Ultramarines: The Second Omnibus",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/ultramarines-the-second-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "lucius-the-faultless-blade",
+          "title": "Lucius: The Faultless Blade",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/lucius-the-faultless-blade",
+          "showTitle": null
+        },
+        {
+          "slug": "shroud-of-night",
+          "title": "Shroud of Night",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/shroud-of-night",
+          "showTitle": null
+        },
+        {
+          "slug": "the-uriel-ventris-chronicles-vol-2-omnibus",
+          "title": "The Uriel Ventris Chronicles Vol. 2 Omnibus",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-uriel-ventris-chronicles-vol-2-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "angron-the-red-angel",
+          "title": "Angron: The Red Angel",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/angron-the-red-angel",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "luetin09-wxzmoamtwpw",
+          "title": "40K DARK ORIGINS [1] Chaos Gods, Time & The Warp | WARHAMMER 40,000 History/Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-239f424a-ea07-4a52-91bb-845e1dfb11ac",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-8334169",
+          "title": "KHORNE: SLAY WITHOUT PITY; TRIUMPH WITHOUT REMORSE | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-fa13b2c3-0ca5-4709-b5d7-ea85e31435b8",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-16220273",
+          "title": "CRIMSON SLAUGHTER: I DON'T WANT TO KILL! I DON'T WANT TO KILL! | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-80e54673-0b09-4502-883f-69db6f07290e",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-15010590",
+          "title": "Episode 34 - Deep dive into the Gods of Chaos pt 1 - Khorne & Tzeentch",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-c3afd3f7-e2ba-48ca-80c4-c532a837e947",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "lorehammer-2c8c46b8-ca0a-11ef-9632-3388ff8492b7",
+          "title": "154 - Gods of Chaos and The Great Game",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-ea6289ad-49bf-4eb3-97cd-815e3ffb6858",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2cbc3b2a-ca0a-11ef-9632-473301cd2734",
+          "title": "155 - Tzeentch, The Lord of Change",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-c53dc097-6641-49ae-810e-1157a0b87cf2",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2d1a41d4-ca0a-11ef-9632-ffd252d119e7",
+          "title": "157 - Khorne, The Blood God",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-3357e13a-017d-4a9a-baf2-5f669f41834d",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2ef79efc-ca0a-11ef-9632-df0c90f810af",
+          "title": "167 - Blood Legions of Khorne",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-418b882a-9c7b-4cf8-8233-13c05e0fc552",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-30b1952c-ca0a-11ef-9632-8b5fd2e091fa",
+          "title": "176 - Khorne's Cult of Rage",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-c77cc6a4-45e2-4035-b413-42a343c813c2",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "the-40k-lorecast-e54a0429-e984-45f9-9ff5-2a384c59f297",
+          "title": "Episode 97 - World Eaters pt 1",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-b7ba9acf-6ea9-47f1-b254-034fa7822d92",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-03d41228-68f5-43c3-b393-915c0bc5539a",
+          "title": "Episode 98 - World Eaters pt 2",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-df7e71ee-c28e-4caf-bbd4-3b51b5d15456",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-7ae53afa-408b-4452-ba08-451bc353b1a8",
+          "title": "Episode 99 - World Eaters pt 3",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-1959fa16-ad69-4f6d-afcf-21341c2d266b",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18257363",
+          "title": "You've been LIED TO about KHORNE | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-50735009-ff7a-49d2-b619-bfa4e41f71c2",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-ca1a53a7-b25e-4a5d-889b-bab3f68e2c9e",
+          "title": "Episode 146 - Word Bearers pt 3 - Heresy is a go, but Erebus and Lorgar have some different ideas of next steps",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-65243250-5ee6-4f90-b569-edfb9ed2cb44",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "lorehammer-cb6e958a-6d06-4d0c-8d4b-9d7039eb90fa",
+          "title": "Mark's Manifesto 5 - Why Choose Chaos?",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-bd8c452d-be70-4c2a-98a0-776c4d0ba435",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Key characters",
+      "items": [
+        {
+          "type": "character",
+          "id": "duke_venalitor",
+          "name": "Duke Venalitor"
+        }
+      ]
+    }
+  ]
+}

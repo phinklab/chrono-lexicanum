@@ -1,0 +1,285 @@
+{
+  "type": "character",
+  "id": "perturabo",
+  "name": "Perturabo",
+  "blurb": {
+    "text": "Primarch of the Iron Warriors, a brilliant and bitter siege-master who turned traitor and became a daemon primarch of Chaos.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Perturabo"
+  },
+  "facts": [
+    {
+      "label": "Allegiance",
+      "value": {
+        "type": "faction",
+        "id": "iron_warriors",
+        "name": "Iron Warriors"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "angel-exterminatus",
+          "title": "Angel Exterminatus",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/angel-exterminatus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-crimson-fist",
+          "title": "The Crimson Fist",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-crimson-fist",
+          "showTitle": null
+        },
+        {
+          "slug": "black-oculus",
+          "title": "Black Oculus",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/black-oculus",
+          "showTitle": null
+        },
+        {
+          "slug": "ironfire",
+          "title": "Ironfire",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ironfire",
+          "showTitle": null
+        },
+        {
+          "slug": "tallarn-ironclad",
+          "title": "Tallarn: Ironclad",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/tallarn-ironclad",
+          "showTitle": null
+        },
+        {
+          "slug": "the-last-phoenix",
+          "title": "The Last Phoenix",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-last-phoenix",
+          "showTitle": null
+        },
+        {
+          "slug": "magnus-the-red-master-of-prospero",
+          "title": "Magnus the Red: Master of Prospero",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/magnus-the-red-master-of-prospero",
+          "showTitle": null
+        },
+        {
+          "slug": "perturabo-stone-and-iron",
+          "title": "Perturabo: Stone and Iron",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/perturabo-stone-and-iron",
+          "showTitle": null
+        },
+        {
+          "slug": "perturabo-the-hammer-of-olympia",
+          "title": "Perturabo: The Hammer of Olympia",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/perturabo-the-hammer-of-olympia",
+          "showTitle": null
+        },
+        {
+          "slug": "tallarn",
+          "title": "Tallarn",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/tallarn",
+          "showTitle": null
+        },
+        {
+          "slug": "slaves-to-darkness",
+          "title": "Slaves to Darkness",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/slaves-to-darkness",
+          "showTitle": null
+        },
+        {
+          "slug": "the-lords-of-terra",
+          "title": "The Lords of Terra",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-lords-of-terra",
+          "showTitle": null
+        },
+        {
+          "slug": "ember-of-extinction",
+          "title": "Ember of Extinction",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/ember-of-extinction",
+          "showTitle": null
+        },
+        {
+          "slug": "saturnine",
+          "title": "Saturnine",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/saturnine",
+          "showTitle": null
+        },
+        {
+          "slug": "the-first-wall",
+          "title": "The First Wall",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-first-wall",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "luetin09-y0g-i-oqvh4",
+          "title": "40K - THE TITANIC CATACLYSM OF IRON | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-bcefe7cd-701c-4e9a-8213-391188c51b7c",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-9321787",
+          "title": "PERTURABO: THE LORD OF IRON | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-bbcc6925-4bca-4dcb-94f3-125b6e17ff6d",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-28eb0d2e-aa8d-11ef-b226-5f61143a557b",
+          "title": "Episode 63 - \"Where are they now\" Primarch edition - the Traitors.",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-030896d9-45a1-44fb-bef8-7e8f207be189",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "lorehammer-2bc9c7be-ca0a-11ef-9632-27e6595c6a37",
+          "title": "150 - Perturabo, Origins and Great Crusade",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-89fc90e8-c405-4c5e-86bb-d37450d01d8b",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2bf93670-ca0a-11ef-9632-8f27d7525d29",
+          "title": "151 - Perturabo, Horus Heresy and Great Scouring",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-f8786419-e03c-4450-b860-2215546cf3d8",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2c2b2c84-ca0a-11ef-9632-bb8cc34b6daa",
+          "title": "152 - Iron Warriors, 30k Legion Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-e9977d50-912a-474b-b6a4-5c301de29790",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18177375",
+          "title": "Entertainment in the 41st Millennium: Mandatory Fun | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-2394b30b-74a7-473d-9f23-b0284470b190",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18624352",
+          "title": "TALLARN DESERT RAIDERS | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-3c089a3c-8320-4f19-b004-d56e3771a172",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-19134411",
+          "title": "What Perturabo Has Been Doing for 10,000 Years | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-0ba0f329-7dc0-4da7-8d76-207c63599f97",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-19170717",
+          "title": "Why the Iron Warriors are Purging Cadia... Again | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-dea46d52-9716-4f74-ba7e-e18cf9193a6b",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

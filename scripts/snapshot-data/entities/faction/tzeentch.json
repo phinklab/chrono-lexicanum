@@ -1,0 +1,285 @@
+{
+  "type": "faction",
+  "id": "tzeentch",
+  "name": "Tzeentch",
+  "blurb": {
+    "text": "Tzeentch is the Chaos God of change, scheming, and sorcery, weaving plans within plans across centuries of galactic history. He embodies the hope and ambition of mortals twisted beyond reason, and his followers pursue arcane power in service of a will that may have no final goal at all.",
+    "confidence": 0.97,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Tzeentch"
+  },
+  "facts": [
+    {
+      "label": "Alignment",
+      "value": "Chaos"
+    },
+    {
+      "label": "Parent faction",
+      "value": {
+        "type": "faction",
+        "id": "chaos",
+        "name": "Chaos"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "chaos-child",
+          "title": "Chaos Child",
+          "kind": "book",
+          "releaseYear": 1995,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/chaos-child",
+          "showTitle": null
+        },
+        {
+          "slug": "grey-hunter",
+          "title": "Grey Hunter",
+          "kind": "book",
+          "releaseYear": 2002,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/grey-hunter",
+          "showTitle": null
+        },
+        {
+          "slug": "daemon-world",
+          "title": "Daemon World",
+          "kind": "book",
+          "releaseYear": 2003,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/daemon-world",
+          "showTitle": null
+        },
+        {
+          "slug": "grey-knights",
+          "title": "Grey Knights",
+          "kind": "book",
+          "releaseYear": 2004,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/grey-knights",
+          "showTitle": null
+        },
+        {
+          "slug": "the-space-wolf-omnibus",
+          "title": "The Space Wolf Omnibus",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-space-wolf-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "wolfs-honour",
+          "title": "Wolf's Honour",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/wolfs-honour",
+          "showTitle": null
+        },
+        {
+          "slug": "space-wolf-the-second-omnibus",
+          "title": "Space Wolf: The Second Omnibus",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/space-wolf-the-second-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-grey-knights-omnibus",
+          "title": "The Grey Knights Omnibus",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-grey-knights-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-inquisition-war-omnibus",
+          "title": "The Inquisition War Omnibus",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-inquisition-war-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "architect-of-fate",
+          "title": "Architect of Fate",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/architect-of-fate",
+          "showTitle": null
+        },
+        {
+          "slug": "fateweaver",
+          "title": "Fateweaver",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/fateweaver",
+          "showTitle": null
+        },
+        {
+          "slug": "children-of-sicarus",
+          "title": "Children of Sicarus",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/children-of-sicarus",
+          "showTitle": null
+        },
+        {
+          "slug": "curse-of-the-wulfen",
+          "title": "Curse of the Wulfen",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/curse-of-the-wulfen",
+          "showTitle": null
+        },
+        {
+          "slug": "shroud-of-night",
+          "title": "Shroud of Night",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/shroud-of-night",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-10798687",
+          "title": "Tzeentch episode... OR IS IT? | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-e559d489-2865-4abd-bdc1-c26f2bc997f5",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-15010590",
+          "title": "Episode 34 - Deep dive into the Gods of Chaos pt 1 - Khorne & Tzeentch",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-c3afd3f7-e2ba-48ca-80c4-c532a837e947",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "lorehammer-2c8c46b8-ca0a-11ef-9632-3388ff8492b7",
+          "title": "154 - Gods of Chaos and The Great Game",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-ea6289ad-49bf-4eb3-97cd-815e3ffb6858",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2cbc3b2a-ca0a-11ef-9632-473301cd2734",
+          "title": "155 - Tzeentch, The Lord of Change",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-c53dc097-6641-49ae-810e-1157a0b87cf2",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2d1a41d4-ca0a-11ef-9632-ffd252d119e7",
+          "title": "157 - Khorne, The Blood God",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-3357e13a-017d-4a9a-baf2-5f669f41834d",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2e9bb3b2-ca0a-11ef-9632-2f6a0ec1a64d",
+          "title": "165 - Scintillating Legions of Tzeentch",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-6d8bf141-21c4-4083-aa21-c401dd686e27",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-85ceba78-64b6-4f01-b6b8-a30253c90a08",
+          "title": "165 - Tzeentch's Scintillating Legions",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-7fd796cb-3018-4e2f-ba49-de25d32f538d",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-305620ac-ca0a-11ef-9632-4b950679bced",
+          "title": "174 - Tzeentch's Cult of Change",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-ecb6b9e6-3f79-43f9-bae3-7ccbf7a29cd8",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-17240479",
+          "title": "You’ve been LIED TO about TZEENTCH | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-998027bb-7e2f-40bc-8baa-6d73aed7a417",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Key characters",
+      "items": [
+        {
+          "type": "character",
+          "id": "ghargatuloth",
+          "name": "Ghargatuloth"
+        },
+        {
+          "type": "character",
+          "id": "kairos_fateweaver",
+          "name": "Kairos Fateweaver"
+        }
+      ]
+    }
+  ]
+}

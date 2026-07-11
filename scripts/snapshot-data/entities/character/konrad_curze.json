@@ -1,0 +1,325 @@
+{
+  "type": "character",
+  "id": "konrad_curze",
+  "name": "Konrad Curze",
+  "blurb": {
+    "text": "Primarch of the Night Lords, a tormented figure plagued by violent visions who ruled through terror and was eventually assassinated at his own invitation.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Konrad_Curze"
+  },
+  "facts": [
+    {
+      "label": "Allegiance",
+      "value": {
+        "type": "faction",
+        "id": "night_lords",
+        "name": "Night Lords"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "the-dark-king",
+          "title": "The Dark King",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-dark-king",
+          "showTitle": null
+        },
+        {
+          "slug": "age-of-darkness",
+          "title": "Age of Darkness",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/age-of-darkness",
+          "showTitle": null
+        },
+        {
+          "slug": "savage-weapons",
+          "title": "Savage Weapons",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/savage-weapons",
+          "showTitle": null
+        },
+        {
+          "slug": "horus-heresy-the-scripts-volume-i",
+          "title": "Horus Heresy: The Scripts: Volume I",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/horus-heresy-the-scripts-volume-i",
+          "showTitle": null
+        },
+        {
+          "slug": "shadows-of-treachery",
+          "title": "Shadows of Treachery",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/shadows-of-treachery",
+          "showTitle": null
+        },
+        {
+          "slug": "the-unremembered-empire",
+          "title": "The Unremembered Empire",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-unremembered-empire",
+          "showTitle": null
+        },
+        {
+          "slug": "vulkan-lives",
+          "title": "Vulkan Lives",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/vulkan-lives",
+          "showTitle": null
+        },
+        {
+          "slug": "prince-of-crows",
+          "title": "Prince of Crows",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/prince-of-crows",
+          "showTitle": null
+        },
+        {
+          "slug": "angels-of-caliban",
+          "title": "Angels of Caliban",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/angels-of-caliban",
+          "showTitle": null
+        },
+        {
+          "slug": "pharos",
+          "title": "Pharos",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/pharos",
+          "showTitle": null
+        },
+        {
+          "slug": "konrad-curze-a-lesson-in-darkness",
+          "title": "Konrad Curze: A Lesson in Darkness",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/konrad-curze-a-lesson-in-darkness",
+          "showTitle": null
+        },
+        {
+          "slug": "ruinstorm",
+          "title": "Ruinstorm",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ruinstorm",
+          "showTitle": null
+        },
+        {
+          "slug": "massacre",
+          "title": "Massacre",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/massacre",
+          "showTitle": null
+        },
+        {
+          "slug": "sons-of-the-emperor",
+          "title": "Sons of the Emperor",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/sons-of-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "the-lords-of-terra",
+          "title": "The Lords of Terra",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-lords-of-terra",
+          "showTitle": null
+        },
+        {
+          "slug": "konrad-curze-the-night-haunter",
+          "title": "Konrad Curze: The Night Haunter",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/konrad-curze-the-night-haunter",
+          "showTitle": null
+        },
+        {
+          "slug": "scions-of-the-emperor",
+          "title": "Scions of the Emperor",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/scions-of-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "the-abyssal-edge",
+          "title": "The Abyssal Edge",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-abyssal-edge",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-8825569",
+          "title": "NIGHT LORDS: AVE DOMINUS NOX | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-c6a68036-28ae-467c-a092-5450836caa1b",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-8114567",
+          "title": "We have come for you! Konrad Curze & The Night Lords | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-e15be644-86a0-4ada-ac92-3b59f825cb5a",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-28eb0d2e-aa8d-11ef-b226-5f61143a557b",
+          "title": "Episode 63 - \"Where are they now\" Primarch edition - the Traitors.",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-030896d9-45a1-44fb-bef8-7e8f207be189",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-15355759",
+          "title": "Sevatar: We were murderers first, last and always | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-7292fd8d-d94f-44db-8fc0-6777f50f87ce",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-337cfd5a-ca0a-11ef-9632-2781084eab81",
+          "title": "190 - Konrad Curze, Origins and Great Crusade",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-fd1ff281-7177-49c0-bddf-188f09c1f405",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-33aff6ba-ca0a-11ef-9632-13b711ca155c",
+          "title": "191 - Konrad Curze, Horus Heresy and Great Scouring",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-d02aaf71-0373-4d67-887c-2f4b0c75a80e",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-33e33eda-ca0a-11ef-9632-77518a9317a1",
+          "title": "192 - Night Lords, 30k Legion Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-fc9f6c46-3910-49ba-aed4-ea7367adca3c",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "the-40k-lorecast-d38acdd7-8571-4f9f-8480-3e6de6e9ab51",
+          "title": "Episode 116 - The Salamanders, Vulkan takes one to the dome, and then another, and then some more.... fine Vulkan just dies a lot",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-381c36f6-024c-4366-8e95-546bb210782c",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-f90ddaef-7cc7-4742-aad9-514c0bc55239",
+          "title": "Episode 136 - The Night Lords pt1 - The creation of the 8th legion and Konrad's arrival and rise on Nostramo",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-a3250f07-24f0-4920-8772-dad88ec60c72",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-931e2790-9750-45f9-9eec-bf2a9d65e537",
+          "title": "Episode 137 - The Night Lords pt2 - Konrad joins the Heresy and does both a good and terrible job at the same time",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-6ab730c5-2d93-4b9e-93b6-f562e74e1519",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-e07c9bb6-1c13-419c-b803-c6d38f6dfa03",
+          "title": "Episode 138 - The Night Lords pt3 - Konrad seriously annoys the Lion, and eventually meets his doom",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-3c992e95-93f2-47d1-bc90-35832bb8289e",
+          "showTitle": "The 40k Lorecast"
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

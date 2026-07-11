@@ -1,0 +1,795 @@
+{
+  "type": "faction",
+  "id": "world_eaters",
+  "name": "World Eaters",
+  "blurb": {
+    "text": "A traitor Space Marine Legion descended from Angron, reduced to frenzied butchery by neural implants and their devotion to the Blood God Khorne.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/World_Eaters"
+  },
+  "facts": [
+    {
+      "label": "Alignment",
+      "value": "Chaos"
+    },
+    {
+      "label": "Parent faction",
+      "value": {
+        "type": "faction",
+        "id": "heretic_astartes",
+        "name": "Heretic Astartes"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "galaxy-in-flames",
+          "title": "Galaxy in Flames",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/galaxy-in-flames",
+          "showTitle": null
+        },
+        {
+          "slug": "collected-visions",
+          "title": "Collected Visions",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/collected-visions",
+          "showTitle": null
+        },
+        {
+          "slug": "battle-for-the-abyss",
+          "title": "Battle for the Abyss",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/battle-for-the-abyss",
+          "showTitle": null
+        },
+        {
+          "slug": "after-deshea",
+          "title": "After Desh'ea",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/after-deshea",
+          "showTitle": null
+        },
+        {
+          "slug": "tales-of-heresy",
+          "title": "Tales of Heresy",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/tales-of-heresy",
+          "showTitle": null
+        },
+        {
+          "slug": "ravens-flight",
+          "title": "Raven's Flight",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/ravens-flight",
+          "showTitle": null
+        },
+        {
+          "slug": "rebirth",
+          "title": "Rebirth",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/rebirth",
+          "showTitle": null
+        },
+        {
+          "slug": "the-outcast-dead",
+          "title": "The Outcast Dead",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-outcast-dead",
+          "showTitle": null
+        },
+        {
+          "slug": "butchers-nails",
+          "title": "Butcher's Nails",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/butchers-nails",
+          "showTitle": null
+        },
+        {
+          "slug": "garro-sword-of-truth",
+          "title": "Garro: Sword of Truth",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/garro-sword-of-truth",
+          "showTitle": null
+        },
+        {
+          "slug": "horus-heresy-the-scripts-volume-i",
+          "title": "Horus Heresy: The Scripts: Volume I",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/horus-heresy-the-scripts-volume-i",
+          "showTitle": null
+        },
+        {
+          "slug": "legion-of-the-damned",
+          "title": "Legion of the Damned",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/legion-of-the-damned",
+          "showTitle": null
+        },
+        {
+          "slug": "the-primarchs",
+          "title": "The Primarchs",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-primarchs",
+          "showTitle": null
+        },
+        {
+          "slug": "angron",
+          "title": "Angron",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/angron",
+          "showTitle": null
+        },
+        {
+          "slug": "betrayer",
+          "title": "Betrayer",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/betrayer",
+          "showTitle": null
+        },
+        {
+          "slug": "kharn-the-eightfold-path",
+          "title": "Kharn: The Eightfold Path",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/kharn-the-eightfold-path",
+          "showTitle": null
+        },
+        {
+          "slug": "lord-of-the-red-sands",
+          "title": "Lord of the Red Sands",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/lord-of-the-red-sands",
+          "showTitle": null
+        },
+        {
+          "slug": "the-imperial-truth",
+          "title": "The Imperial Truth",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-imperial-truth",
+          "showTitle": null
+        },
+        {
+          "slug": "death-and-defiance",
+          "title": "Death and Defiance",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/death-and-defiance",
+          "showTitle": null
+        },
+        {
+          "slug": "echoes-of-ruin",
+          "title": "Echoes of Ruin",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/echoes-of-ruin",
+          "showTitle": null
+        },
+        {
+          "slug": "heart-of-the-conqueror",
+          "title": "Heart of the Conqueror",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/heart-of-the-conqueror",
+          "showTitle": null
+        },
+        {
+          "slug": "kharn-eater-of-worlds",
+          "title": "Khârn: Eater of Worlds",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/kharn-eater-of-worlds",
+          "showTitle": null
+        },
+        {
+          "slug": "templar",
+          "title": "Templar",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/templar",
+          "showTitle": null
+        },
+        {
+          "slug": "the-talon-of-horus",
+          "title": "The Talon of Horus",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-talon-of-horus",
+          "showTitle": null
+        },
+        {
+          "slug": "vengeful-spirit",
+          "title": "Vengeful Spirit",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/vengeful-spirit",
+          "showTitle": null
+        },
+        {
+          "slug": "legacies-of-betrayal",
+          "title": "Legacies of Betrayal",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/legacies-of-betrayal",
+          "showTitle": null
+        },
+        {
+          "slug": "virtues-of-the-sons",
+          "title": "Virtues of the Sons",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/virtues-of-the-sons",
+          "showTitle": null
+        },
+        {
+          "slug": "crusades-end",
+          "title": "Crusade's End",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/crusades-end",
+          "showTitle": null
+        },
+        {
+          "slug": "inheritor",
+          "title": "Inheritor",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/inheritor",
+          "showTitle": null
+        },
+        {
+          "slug": "the-red-path",
+          "title": "The Red Path",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-red-path",
+          "showTitle": null
+        },
+        {
+          "slug": "virtues-of-the-sons-sins-of-the-father",
+          "title": "Virtues of the Sons/Sins of the Father",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/virtues-of-the-sons-sins-of-the-father",
+          "showTitle": null
+        },
+        {
+          "slug": "war-without-end",
+          "title": "War Without End",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/war-without-end",
+          "showTitle": null
+        },
+        {
+          "slug": "lucius-the-faultless-blade",
+          "title": "Lucius: The Faultless Blade",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/lucius-the-faultless-blade",
+          "showTitle": null
+        },
+        {
+          "slug": "shattered-legions",
+          "title": "Shattered Legions",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/shattered-legions",
+          "showTitle": null
+        },
+        {
+          "slug": "shroud-of-night",
+          "title": "Shroud of Night",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/shroud-of-night",
+          "showTitle": null
+        },
+        {
+          "slug": "the-laurel-of-defiance",
+          "title": "The Laurel of Defiance",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-laurel-of-defiance",
+          "showTitle": null
+        },
+        {
+          "slug": "a-rose-watered-with-blood",
+          "title": "A Rose Watered with Blood",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/a-rose-watered-with-blood",
+          "showTitle": null
+        },
+        {
+          "slug": "blackshields-the-red-fief",
+          "title": "Blackshields: The Red Fief",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/blackshields-the-red-fief",
+          "showTitle": null
+        },
+        {
+          "slug": "slaves-to-darkness",
+          "title": "Slaves to Darkness",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/slaves-to-darkness",
+          "showTitle": null
+        },
+        {
+          "slug": "sons-of-the-emperor",
+          "title": "Sons of the Emperor",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/sons-of-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "the-atonement-of-fire",
+          "title": "The Atonement of Fire",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-atonement-of-fire",
+          "showTitle": null
+        },
+        {
+          "slug": "visions-of-heresy-2018-ed",
+          "title": "Visions of Heresy (2018 ed.)",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/visions-of-heresy-2018-ed",
+          "showTitle": null
+        },
+        {
+          "slug": "angron-slave-of-nuceria",
+          "title": "Angron: Slave of Nuceria",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/angron-slave-of-nuceria",
+          "showTitle": null
+        },
+        {
+          "slug": "the-lost-and-the-damned",
+          "title": "The Lost and the Damned",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-lost-and-the-damned",
+          "showTitle": null
+        },
+        {
+          "slug": "eater-of-dreams",
+          "title": "Eater of Dreams",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/eater-of-dreams",
+          "showTitle": null
+        },
+        {
+          "slug": "echoes-of-eternity",
+          "title": "Echoes of Eternity",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/echoes-of-eternity",
+          "showTitle": null
+        },
+        {
+          "slug": "sigismund-the-eternal-crusader",
+          "title": "Sigismund: The Eternal Crusader",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/sigismund-the-eternal-crusader",
+          "showTitle": null
+        },
+        {
+          "slug": "angron-the-red-angel",
+          "title": "Angron: The Red Angel",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/angron-the-red-angel",
+          "showTitle": null
+        },
+        {
+          "slug": "the-end-and-the-death-vol-1",
+          "title": "The End and The Death Vol. 1",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-end-and-the-death-vol-1",
+          "showTitle": null
+        },
+        {
+          "slug": "dropsite-massacre",
+          "title": "Dropsite Massacre",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/dropsite-massacre",
+          "showTitle": null
+        },
+        {
+          "slug": "siege-of-vraks",
+          "title": "Siege of Vraks",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/siege-of-vraks",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "lorehammer-d7765ebd-c86b-4fe6-8ffe-dd6cfa2eb711",
+          "title": "Listener Lore 8",
+          "kind": "podcast_episode",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-4c904b1e-d30d-4f25-8972-e6ea68008ee9",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-8719695",
+          "title": "ANGRON OF THE WORLD EATERS: I AM ALWAYS ANGRY | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-f9354bbd-0422-467d-9937-9ffad1328cf8",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-8750901",
+          "title": "WORLD EATERS: MAD FOR 10000 YEARS AND STILL GOING | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-9277c554-c159-454f-9264-bc47147bda3d",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "luetin09-auexeu0-z7u",
+          "title": "40K  - ANGRON & THE BUTCHERS NAILS | Warhammer 40,000 History / Loregear",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-1d2f129f-6f62-4183-ae94-77a61eaeb738",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-11338501",
+          "title": "BETRAYER | Warhammer 40k Book club & review",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-6e7f1061-ac25-4109-ab60-ff39037e3803",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-12304627",
+          "title": "ARKS OF OMEN & ANGRON REBORN | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-f600a235-2e59-4caf-b7bb-1fc9700a1ec8",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-12541054",
+          "title": "WORLD EATERS: BACK WITH A VENGEANCE | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-ed5a587b-7cab-4b0a-bd53-827dad3b2a10",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-2d1a41d4-ca0a-11ef-9632-ffd252d119e7",
+          "title": "157 - Khorne, The Blood God",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-3357e13a-017d-4a9a-baf2-5f669f41834d",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-30b1952c-ca0a-11ef-9632-8b5fd2e091fa",
+          "title": "176 - Khorne's Cult of Rage",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-c77cc6a4-45e2-4035-b413-42a343c813c2",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "luetin09-tyg9juqicfo",
+          "title": "40K BEGINNERS - TRAITOR ASTARTES [Part 3] | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-0a06c906-23cf-4ab0-9a17-a963cccbe833",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "the-40k-lorecast-e54a0429-e984-45f9-9ff5-2a384c59f297",
+          "title": "Episode 97 - World Eaters pt 1",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-b7ba9acf-6ea9-47f1-b254-034fa7822d92",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-03d41228-68f5-43c3-b393-915c0bc5539a",
+          "title": "Episode 98 - World Eaters pt 2",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-df7e71ee-c28e-4caf-bbd4-3b51b5d15456",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-7ae53afa-408b-4452-ba08-451bc353b1a8",
+          "title": "Episode 99 - World Eaters pt 3",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-1959fa16-ad69-4f6d-afcf-21341c2d266b",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-17741685",
+          "title": "KHÂRN - Nailed It: Angron Parenting Method | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-b271571c-02af-4bae-b10b-f8d3012e3b81",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-3d6ec396-fa9a-4421-857a-3eb07aed08a6",
+          "title": "219 - Angron, Origins and Great Crusade",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-e5e4ac45-8475-4277-9c48-e93a41489290",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-824b87de-07cf-46e1-8e2e-4af6c5d2e5cb",
+          "title": "220 - Angron, Horus Heresy and Great Scouring",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-3d5d5e7e-92f2-40e9-86aa-5199b4bd23ce",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-e9b8b91b-18f4-48d1-bed8-7abf26b3dd13",
+          "title": "221 - World Eaters, 30k Legion Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-251daca0-fbf2-4fcb-9407-e8a2abd9b2a2",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-d8113db6-1fe3-4256-bb0d-35e3245f4e86",
+          "title": "222 - World Eaters, 40k Warband Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-bce0c6a4-76ec-4296-88ae-34ecae37e13f",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-353065b7-324b-4fc1-940f-bbac7d3ee5a9",
+          "title": "Bonus 51 - The Knights of Slaughter",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-e02a77cb-06a8-478e-a5e0-83e6b56a0915",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-c19183a1-32ad-4548-a5bc-3d49309ae5ed",
+          "title": "By Blade and Bolter Pt. 1 - KoS: History, Geneseed and Appearance",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-20f30f7b-e62b-4d81-90fa-dab022ab611c",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18583979",
+          "title": "SIEGE OF TERRA: THE END AND THE DEATH | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-d7632f4c-e8a8-4db6-af05-76a2e4a7e811",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Key characters",
+      "items": [
+        {
+          "type": "character",
+          "id": "angron",
+          "name": "Angron"
+        },
+        {
+          "type": "character",
+          "id": "dreagher",
+          "name": "Dreagher"
+        },
+        {
+          "type": "character",
+          "id": "kharn_the_betrayer",
+          "name": "Khârn the Betrayer"
+        },
+        {
+          "type": "character",
+          "id": "lotara_sarrin",
+          "name": "Lotara Sarrin"
+        },
+        {
+          "type": "character",
+          "id": "skraal",
+          "name": "Skraal"
+        },
+        {
+          "type": "character",
+          "id": "tagore",
+          "name": "Tagore"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "type": "character",
+  "id": "ragnar_blackmane",
+  "name": "Ragnar Blackmane",
+  "blurb": {
+    "text": "A Wolf Lord of the Space Wolves, raised from a Fenrisian youth to one of the Chapter's most celebrated heroes; protagonist of the Space Wolf novels.",
+    "confidence": 0.9,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ragnar_Blackmane"
+  },
+  "facts": [
+    {
+      "label": "Allegiance",
+      "value": {
+        "type": "faction",
+        "id": "space_wolves",
+        "name": "Space Wolves"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "space-wolf",
+          "title": "Space Wolf",
+          "kind": "book",
+          "releaseYear": 1999,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/space-wolf",
+          "showTitle": null
+        },
+        {
+          "slug": "ragnars-claw",
+          "title": "Ragnar's Claw",
+          "kind": "book",
+          "releaseYear": 2000,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/ragnars-claw",
+          "showTitle": null
+        },
+        {
+          "slug": "grey-hunter",
+          "title": "Grey Hunter",
+          "kind": "book",
+          "releaseYear": 2002,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/grey-hunter",
+          "showTitle": null
+        },
+        {
+          "slug": "wolfblade",
+          "title": "Wolfblade",
+          "kind": "book",
+          "releaseYear": 2003,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/wolfblade",
+          "showTitle": null
+        },
+        {
+          "slug": "sons-of-fenris",
+          "title": "Sons of Fenris",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/sons-of-fenris",
+          "showTitle": null
+        },
+        {
+          "slug": "the-space-wolf-omnibus",
+          "title": "The Space Wolf Omnibus",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-space-wolf-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "wolfs-honour",
+          "title": "Wolf's Honour",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/wolfs-honour",
+          "showTitle": null
+        },
+        {
+          "slug": "space-wolf-the-second-omnibus",
+          "title": "Space Wolf: The Second Omnibus",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/space-wolf-the-second-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "ragnar-blackmane",
+          "title": "Ragnar Blackmane",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/ragnar-blackmane",
+          "showTitle": null
+        },
+        {
+          "slug": "sanctus-reach",
+          "title": "Sanctus Reach",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/sanctus-reach",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "the-40k-lorecast-b3e113b0-c0a4-11ef-aec1-5fa50454b8dc",
+          "title": "Episode 68 - Space Wolves Pt 2  - Our favorite characters",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-39cedcb2-04a5-4851-af17-00ea98631d1d",
+          "showTitle": "The 40k Lorecast"
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

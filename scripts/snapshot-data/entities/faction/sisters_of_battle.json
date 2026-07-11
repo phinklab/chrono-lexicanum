@@ -1,0 +1,695 @@
+{
+  "type": "faction",
+  "id": "sisters_of_battle",
+  "name": "Adepta Sororitas",
+  "blurb": {
+    "text": "The Adepta Sororitas, or Sisters of Battle: the militant arm of the Ecclesiarchy, an all-female order of zealous warriors devoted to the Imperial Creed.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Adepta_Sororitas"
+  },
+  "facts": [
+    {
+      "label": "Alignment",
+      "value": "Imperium"
+    },
+    {
+      "label": "Parent faction",
+      "value": {
+        "type": "faction",
+        "id": "imperium",
+        "name": "Imperium of Man"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "ascension-dawn-of-war",
+          "title": "Ascension",
+          "kind": "book",
+          "releaseYear": 2005,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ascension-dawn-of-war",
+          "showTitle": null
+        },
+        {
+          "slug": "faith-and-fire",
+          "title": "Faith and Fire",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/faith-and-fire",
+          "showTitle": null
+        },
+        {
+          "slug": "blood-ravens-the-dawn-of-war-omnibus",
+          "title": "Blood Ravens: The Dawn of War Omnibus",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/blood-ravens-the-dawn-of-war-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "redemption-corps",
+          "title": "Redemption Corps",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/redemption-corps",
+          "showTitle": null
+        },
+        {
+          "slug": "sabbat-worlds",
+          "title": "Sabbat Worlds",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/sabbat-worlds",
+          "showTitle": null
+        },
+        {
+          "slug": "hammer-and-anvil",
+          "title": "Hammer and Anvil",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/hammer-and-anvil",
+          "showTitle": null
+        },
+        {
+          "slug": "phalanx",
+          "title": "Phalanx",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/phalanx",
+          "showTitle": null
+        },
+        {
+          "slug": "blood-of-asaheim",
+          "title": "Blood of Asaheim",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/blood-of-asaheim",
+          "showTitle": null
+        },
+        {
+          "slug": "salamanders-rebirth",
+          "title": "Salamanders: Rebirth",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/salamanders-rebirth",
+          "showTitle": null
+        },
+        {
+          "slug": "soul-drinkers-annihilation-second-omnibus",
+          "title": "Soul Drinkers: Annihilation Second Omnibus",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/soul-drinkers-annihilation-second-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-death-of-antagonis",
+          "title": "The Death of Antagonis",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-death-of-antagonis",
+          "showTitle": null
+        },
+        {
+          "slug": "imperial-creed",
+          "title": "Imperial Creed",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/imperial-creed",
+          "showTitle": null
+        },
+        {
+          "slug": "shield-of-baal-tempestus",
+          "title": "Shield of Baal: Tempestus",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/shield-of-baal-tempestus",
+          "showTitle": null
+        },
+        {
+          "slug": "at-gaius-point",
+          "title": "At Gaius Point",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/at-gaius-point",
+          "showTitle": null
+        },
+        {
+          "slug": "cult-of-the-warmason",
+          "title": "Cult of the Warmason",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/cult-of-the-warmason",
+          "showTitle": null
+        },
+        {
+          "slug": "shield-of-baal",
+          "title": "Shield of Baal",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/shield-of-baal",
+          "showTitle": null
+        },
+        {
+          "slug": "shroud-of-night",
+          "title": "Shroud of Night",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/shroud-of-night",
+          "showTitle": null
+        },
+        {
+          "slug": "sisters-of-battle-the-omnibus",
+          "title": "Sisters of Battle: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/sisters-of-battle-the-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "our-martyred-lady",
+          "title": "Our Martyred Lady",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/our-martyred-lady",
+          "showTitle": null
+        },
+        {
+          "slug": "the-bloodied-rose",
+          "title": "The Bloodied Rose",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-bloodied-rose",
+          "showTitle": null
+        },
+        {
+          "slug": "yarrick-the-omnibus",
+          "title": "Yarrick: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/yarrick-the-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "celestine",
+          "title": "Celestine",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/celestine",
+          "showTitle": null
+        },
+        {
+          "slug": "requiem-infernal",
+          "title": "Requiem Infernal",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/requiem-infernal",
+          "showTitle": null
+        },
+        {
+          "slug": "wreck-and-ruin",
+          "title": "Wreck and Ruin",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/wreck-and-ruin",
+          "showTitle": null
+        },
+        {
+          "slug": "ephrael-stern-the-heretic-saint",
+          "title": "Ephrael Stern: The Heretic Saint",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/ephrael-stern-the-heretic-saint",
+          "showTitle": null
+        },
+        {
+          "slug": "mark-of-faith",
+          "title": "Mark of Faith",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/mark-of-faith",
+          "showTitle": null
+        },
+        {
+          "slug": "the-rose-in-the-anger",
+          "title": "The Rose in Anger",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-rose-in-the-anger",
+          "showTitle": null
+        },
+        {
+          "slug": "the-gates-of-bones",
+          "title": "The Gates of Bones",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-gates-of-bones",
+          "showTitle": null
+        },
+        {
+          "slug": "the-rose-at-war",
+          "title": "The Rose at War",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-rose-at-war",
+          "showTitle": null
+        },
+        {
+          "slug": "the-triumph-of-saint-katherine",
+          "title": "The Triumph of Saint Katherine",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-triumph-of-saint-katherine",
+          "showTitle": null
+        },
+        {
+          "slug": "pilgrims-of-fire",
+          "title": "Pilgrims of Fire",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/pilgrims-of-fire",
+          "showTitle": null
+        },
+        {
+          "slug": "sea-of-souls",
+          "title": "Sea of Souls",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/sea-of-souls",
+          "showTitle": null
+        },
+        {
+          "slug": "the-rose-in-darkness",
+          "title": "The Rose in Darkness",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-rose-in-darkness",
+          "showTitle": null
+        },
+        {
+          "slug": "fall-of-cadia",
+          "title": "Fall of Cadia",
+          "kind": "book",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/fall-of-cadia",
+          "showTitle": null
+        },
+        {
+          "slug": "blood-of-the-imperium",
+          "title": "Blood of the Imperium",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/blood-of-the-imperium",
+          "showTitle": null
+        },
+        {
+          "slug": "legends-of-the-wolf-the-omnibus",
+          "title": "Legends of the Wolf: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/legends-of-the-wolf-the-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "morvenn-vahl-spear-of-faith",
+          "title": "Morvenn Vahl: Spear of Faith",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/morvenn-vahl-spear-of-faith",
+          "showTitle": null
+        },
+        {
+          "slug": "saints-of-the-imperium",
+          "title": "Saints of the Imperium",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/saints-of-the-imperium",
+          "showTitle": null
+        },
+        {
+          "slug": "the-dark-coil-ascension",
+          "title": "The Dark Coil: Ascension",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-dark-coil-ascension",
+          "showTitle": null
+        },
+        {
+          "slug": "yarrick-imperial-creed",
+          "title": "Yarrick: Imperial Creed",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/yarrick-imperial-creed",
+          "showTitle": null
+        },
+        {
+          "slug": "aestred-thurga-pyre-of-faith",
+          "title": "Aestred Thurga: Pyre of Faith",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/aestred-thurga-pyre-of-faith",
+          "showTitle": null
+        },
+        {
+          "slug": "apostle",
+          "title": "Apostle",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/apostle",
+          "showTitle": null
+        },
+        {
+          "slug": "armageddon-season-of-fire",
+          "title": "Armageddon: Season of Fire",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/armageddon-season-of-fire",
+          "showTitle": null
+        },
+        {
+          "slug": "paragon-of-faith-and-other-stories",
+          "title": "Paragon of Faith and Other Stories",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/paragon-of-faith-and-other-stories",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-34-ordo-hereticus-and-the-adepta-sororitas-dcd3776bbbfd6ca4539a7e98ffae3292",
+          "title": "34 - Ordo Hereticus and the Adepta Sororitas",
+          "kind": "podcast_episode",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-b64ed262-230d-4fc4-a86e-88de695a8362",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-cdb6ebe7-cd49-5325-bba5-7553769a5c8c",
+          "title": "Listener Lore 11",
+          "kind": "podcast_episode",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-cc792d64-dba5-4760-9da2-39611790f632",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "luetin09-dhqj33scfqw",
+          "title": "40K's MOST INSANE & POWERFUL WEAPONS [Part FOUR] | WARHAMMER 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-3eca9f2b-b7af-4692-ab7e-998428bbebc5",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-ri6dqb5gcau",
+          "title": "40K's MOST INSANE & POWERFUL WEAPONS [Part THREE] | WARHAMMER 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/luetin09#ep-c38b056b-1d63-4575-b433-c817669bcbab",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-7649674",
+          "title": "Origins of The Sisters of Battle, or Why The Age of Apostasy sucked so much?",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-cdcdc415-9155-43af-9632-5a2ce5c7a264",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-8789851",
+          "title": "SISTERS OF BATTLE: MATRIARCHS & MARTYRS | Warhammer 40k lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-81b2e680-f74c-4202-82c6-06e948def858",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-11272055",
+          "title": "SAINT CELESTINE: PURE AS RIGHTEOUS DESTRUCTION | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-e375a398-7c18-497b-8875-52a238b84864",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "luetin09-bopnqhaid-c",
+          "title": "40K - SORORITAS, The Sisters of Battle | Warhammer 40,000 Lore / History",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-6aeabb63-bbb1-406e-9eb1-1772aa7c1fdc",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-14578204",
+          "title": "Episode 23 - Rise of the imperial cults and creation of the Ecclesiarchy",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-8c750b51-03e1-408d-bc18-2c2311416d81",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-15975823",
+          "title": "Episode 58 - Adepta Sororitas pt 1- Rise of the Ecclesiarchy and creation of the Adepta Sororitas",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-94a21104-11e8-4550-960d-d2a541497649",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-16035115",
+          "title": "Episode 59 - Adepta Sororitas pt 2 - The Creation of the orders and formation of the Sisters of Battle",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-352e76e4-bffc-42f1-a041-7f0ecb5df0ef",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-15315670",
+          "title": "SISTERS OF BATTLE VEHICLES: FROM WARSUITS TO PIPE ORGAN TANKS | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-b5b74a4f-a9cb-4182-b468-e71398d3d283",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "luetin09-5rxiisoaxw",
+          "title": "AGE OF APOSTASY NOW - 40K LORE MUST MOVE ON | WARHAMMER 40,000 Lore/Speculation",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-2e75f3f0-a49c-419c-a73f-a32cc116516f",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "the-40k-lorecast-7c2e70ef-bc80-4e7a-abc2-28bb13866efa",
+          "title": "Episode 103 - The Pariah Nexus pt2",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-0c8ee6e2-4046-4b70-901a-0d3a7d82e9fa",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-17514410",
+          "title": "POWER ARMOR: NOT JUST FOR SPACE MARINES | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-b75f24e4-3f0b-46a4-8c9d-009c97b1aee7",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18868172",
+          "title": "Guilliman Finally Crashes Out (Plague Wars) | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-4efdf688-ff24-4d1f-bb60-c2e9fbf27d0e",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Sub-factions",
+      "items": [
+        {
+          "type": "faction",
+          "id": "order_of_our_martyred_lady",
+          "name": "Order of Our Martyred Lady"
+        },
+        {
+          "type": "faction",
+          "id": "order_of_the_last_candle",
+          "name": "Order of the Last Candle"
+        },
+        {
+          "type": "faction",
+          "id": "order_pronatus",
+          "name": "Order Pronatus"
+        }
+      ]
+    },
+    {
+      "label": "Key characters",
+      "items": [
+        {
+          "type": "character",
+          "id": "ephrael_stern",
+          "name": "Ephrael Stern"
+        },
+        {
+          "type": "character",
+          "id": "morvenn_vahl",
+          "name": "Morvenn Vahl"
+        },
+        {
+          "type": "character",
+          "id": "saint_celestine",
+          "name": "Saint Celestine"
+        },
+        {
+          "type": "character",
+          "id": "sister_miriya",
+          "name": "Sister Miriya"
+        },
+        {
+          "type": "character",
+          "id": "sister_superior_augusta",
+          "name": "Sister Superior Augusta"
+        },
+        {
+          "type": "character",
+          "id": "sister_verity",
+          "name": "Sister Verity"
+        }
+      ]
+    }
+  ]
+}

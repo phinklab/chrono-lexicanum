@@ -1,0 +1,255 @@
+{
+  "type": "character",
+  "id": "vulkan",
+  "name": "Vulkan",
+  "blurb": {
+    "text": "Primarch of the Salamanders, a renowned smith and Perpetual known for his compassion and his devotion to protecting humanity.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Vulkan"
+  },
+  "facts": [
+    {
+      "label": "Allegiance",
+      "value": {
+        "type": "faction",
+        "id": "salamanders",
+        "name": "Salamanders"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "promethean-sun",
+          "title": "Promethean Sun",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/promethean-sun",
+          "showTitle": null
+        },
+        {
+          "slug": "the-unremembered-empire",
+          "title": "The Unremembered Empire",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-unremembered-empire",
+          "showTitle": null
+        },
+        {
+          "slug": "vulkan-lives",
+          "title": "Vulkan Lives",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/vulkan-lives",
+          "showTitle": null
+        },
+        {
+          "slug": "seditions-gate",
+          "title": "Sedition's Gate",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/seditions-gate",
+          "showTitle": null
+        },
+        {
+          "slug": "artefacts",
+          "title": "Artefacts",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/artefacts",
+          "showTitle": null
+        },
+        {
+          "slug": "deathfire",
+          "title": "Deathfire",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/deathfire",
+          "showTitle": null
+        },
+        {
+          "slug": "sons-of-the-forge",
+          "title": "Sons of the Forge",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/sons-of-the-forge",
+          "showTitle": null
+        },
+        {
+          "slug": "the-beast-must-die",
+          "title": "The Beast Must Die",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-beast-must-die",
+          "showTitle": null
+        },
+        {
+          "slug": "the-hunt-for-vulkan",
+          "title": "The Hunt for Vulkan",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-hunt-for-vulkan",
+          "showTitle": null
+        },
+        {
+          "slug": "old-earth",
+          "title": "Old Earth",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/old-earth",
+          "showTitle": null
+        },
+        {
+          "slug": "born-of-flame",
+          "title": "Born of Flame",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/born-of-flame",
+          "showTitle": null
+        },
+        {
+          "slug": "sons-of-the-emperor",
+          "title": "Sons of the Emperor",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/sons-of-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "vulkan-lord-of-drakes",
+          "title": "Vulkan: Lord of Drakes",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/vulkan-lord-of-drakes",
+          "showTitle": null
+        },
+        {
+          "slug": "mercy-of-the-dragon",
+          "title": "Mercy of the Dragon",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/mercy-of-the-dragon",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-9774224",
+          "title": "VULKAN (LIVES): THE HAMMER OF SALVATION | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-5a982d63-5d2f-44d6-a87e-476fd6673d06",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-13830301",
+          "title": "Episode 5 - The imperium is Fragmented while Chaos corrupts",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-83433549-be30-401a-89c6-e258780a61e8",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-1d991538-b3ca-11ef-9e65-93440c7d0434",
+          "title": "Episode 64 - \"Where are they now\" Primarch edition - the Loyalists",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-6b30f93f-e381-4b17-8cae-444d559d53f2",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-ae7a725b-179b-4209-b8b7-172210d97898",
+          "title": "Episode 115 - The Salamanders, rise of the 18th legion and Vulkan",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-75468a4b-3341-4575-a87b-98658bf1fb1b",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-d38acdd7-8571-4f9f-8480-3e6de6e9ab51",
+          "title": "Episode 116 - The Salamanders, Vulkan takes one to the dome, and then another, and then some more.... fine Vulkan just dies a lot",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-381c36f6-024c-4366-8e95-546bb210782c",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-03a85d69-776a-4c13-a707-d2c82e941fbb",
+          "title": "Episode 117 - Salamanders - Key characters and successor chapters.",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-78b9b182-9eb1-4fc8-a9e2-88a27702d6f9",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18016027",
+          "title": "War Of The Beast: And They Were Roommates | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-847e46b9-4e90-4449-b0a5-5c58acc26569",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18047691",
+          "title": "War Of The Beast: Waaagh Of The Worlds!",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-5e3e74f6-b8fb-468c-9f51-e3f8e31360ff",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

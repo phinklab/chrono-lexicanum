@@ -1,0 +1,205 @@
+{
+  "type": "character",
+  "id": "ciaphas_cain",
+  "name": "Ciaphas Cain",
+  "blurb": {
+    "text": "A celebrated Commissar of the Astra Militarum and self-styled Hero of the Imperium, whose comedic memoirs recount a heroic reputation he insists is undeserved.",
+    "confidence": 0.9,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ciaphas_Cain"
+  },
+  "facts": [
+    {
+      "label": "Allegiance",
+      "value": {
+        "type": "faction",
+        "id": "commissariat",
+        "name": "Commissariat"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "for-the-emperor",
+          "title": "For the Emperor",
+          "kind": "book",
+          "releaseYear": 2003,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/for-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "caves-of-ice",
+          "title": "Caves of Ice",
+          "kind": "book",
+          "releaseYear": 2004,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/caves-of-ice",
+          "showTitle": null
+        },
+        {
+          "slug": "the-traitors-hand",
+          "title": "The Traitor's Hand",
+          "kind": "book",
+          "releaseYear": 2005,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-traitors-hand",
+          "showTitle": null
+        },
+        {
+          "slug": "death-or-glory",
+          "title": "Death or Glory",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/death-or-glory",
+          "showTitle": null
+        },
+        {
+          "slug": "duty-calls",
+          "title": "Duty Calls",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/duty-calls",
+          "showTitle": null
+        },
+        {
+          "slug": "cains-last-stand",
+          "title": "Cain's Last Stand",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/cains-last-stand",
+          "showTitle": null
+        },
+        {
+          "slug": "the-emperors-finest",
+          "title": "The Emperor's Finest",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-emperors-finest",
+          "showTitle": null
+        },
+        {
+          "slug": "old-soldiers-never-die",
+          "title": "Old Soldiers Never Die",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/old-soldiers-never-die",
+          "showTitle": null
+        },
+        {
+          "slug": "the-last-ditch",
+          "title": "The Last Ditch",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-last-ditch",
+          "showTitle": null
+        },
+        {
+          "slug": "the-greater-good",
+          "title": "The Greater Good",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-greater-good",
+          "showTitle": null
+        },
+        {
+          "slug": "choose-your-enemies",
+          "title": "Choose Your Enemies",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/choose-your-enemies",
+          "showTitle": null
+        },
+        {
+          "slug": "vainglorious",
+          "title": "Vainglorious",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/vainglorious",
+          "showTitle": null
+        },
+        {
+          "slug": "ciaphas-cain-the-anthology",
+          "title": "Ciaphas Cain: The Anthology",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/ciaphas-cain-the-anthology",
+          "showTitle": null
+        },
+        {
+          "slug": "legends-of-the-waaagh",
+          "title": "Legends of the Waaagh!",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/legends-of-the-waaagh",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-9748293",
+          "title": "CIAPHAS CAIN: FOR THE EMPEROR | Warhammer 40k Book Review and Discussion",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-e753228d-2d5d-4881-807c-e0abd7ee2679",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18177375",
+          "title": "Entertainment in the 41st Millennium: Mandatory Fun | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-2394b30b-74a7-473d-9f23-b0284470b190",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-19324978",
+          "title": "CIAPHAS CAIN - HERO OF THE IMPERIUM | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-0bfa3e8b-32c9-4700-bdc7-a9b4640084f6",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

@@ -1,0 +1,406 @@
+{
+  "type": "person",
+  "id": "guy_haley",
+  "name": "Guy Haley",
+  "oneLine": "British science-fiction and fantasy author. Black Library novelist; Dark Imperium, Belisarius Cawl: The Great Work, Avenging Son, and several Horus Heresy / Siege of Terra entries.",
+  "facts": [],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "strike-and-fade",
+          "title": "Strike and Fade",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/strike-and-fade",
+          "showTitle": null
+        },
+        {
+          "slug": "baneblade",
+          "title": "Baneblade",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/baneblade",
+          "showTitle": null
+        },
+        {
+          "slug": "death-of-integrity",
+          "title": "Death of Integrity",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/death-of-integrity",
+          "showTitle": null
+        },
+        {
+          "slug": "broken-sword",
+          "title": "Broken Sword",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/broken-sword",
+          "showTitle": null
+        },
+        {
+          "slug": "hunters-moon",
+          "title": "Hunter's Moon",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/hunters-moon",
+          "showTitle": null
+        },
+        {
+          "slug": "sanctus-reach-evil-sun-rising",
+          "title": "Sanctus Reach: Evil Sun Rising",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/sanctus-reach-evil-sun-rising",
+          "showTitle": null
+        },
+        {
+          "slug": "the-eternal-crusader",
+          "title": "The Eternal Crusader",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-eternal-crusader",
+          "showTitle": null
+        },
+        {
+          "slug": "the-final-compliance-of-sixty-three-fourteen",
+          "title": "The Final Compliance of Sixty-Three Fourteen",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-final-compliance-of-sixty-three-fourteen",
+          "showTitle": null
+        },
+        {
+          "slug": "the-last-days-of-ector",
+          "title": "The Last Days of Ector",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-last-days-of-ector",
+          "showTitle": null
+        },
+        {
+          "slug": "valedor",
+          "title": "Valedor",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/valedor",
+          "showTitle": null
+        },
+        {
+          "slug": "a-safe-and-shadowed-place",
+          "title": "A Safe and Shadowed Place",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/a-safe-and-shadowed-place",
+          "showTitle": null
+        },
+        {
+          "slug": "twisted",
+          "title": "Twisted",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/twisted",
+          "showTitle": null
+        },
+        {
+          "slug": "pharos",
+          "title": "Pharos",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/pharos",
+          "showTitle": null
+        },
+        {
+          "slug": "shadowsword",
+          "title": "Shadowsword",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/shadowsword",
+          "showTitle": null
+        },
+        {
+          "slug": "the-beheading",
+          "title": "The Beheading",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-beheading",
+          "showTitle": null
+        },
+        {
+          "slug": "the-painted-count",
+          "title": "The Painted Count",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-painted-count",
+          "showTitle": null
+        },
+        {
+          "slug": "throneworld",
+          "title": "Throneworld",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/throneworld",
+          "showTitle": null
+        },
+        {
+          "slug": "dante",
+          "title": "Dante",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/dante",
+          "showTitle": null
+        },
+        {
+          "slug": "dark-imperium",
+          "title": "Dark Imperium",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/dark-imperium",
+          "showTitle": null
+        },
+        {
+          "slug": "duty-waits",
+          "title": "Duty Waits",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/duty-waits",
+          "showTitle": null
+        },
+        {
+          "slug": "grandfathers-gift",
+          "title": "Grandfather's Gift",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/grandfathers-gift",
+          "showTitle": null
+        },
+        {
+          "slug": "perturabo-the-hammer-of-olympia",
+          "title": "Perturabo: The Hammer of Olympia",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/perturabo-the-hammer-of-olympia",
+          "showTitle": null
+        },
+        {
+          "slug": "the-devastation-of-baal",
+          "title": "The Devastation of Baal",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-devastation-of-baal",
+          "showTitle": null
+        },
+        {
+          "slug": "the-laurel-of-defiance",
+          "title": "The Laurel of Defiance",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-laurel-of-defiance",
+          "showTitle": null
+        },
+        {
+          "slug": "corax-lord-of-shadows",
+          "title": "Corax: Lord of Shadows",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/corax-lord-of-shadows",
+          "showTitle": null
+        },
+        {
+          "slug": "plague-war",
+          "title": "Plague War",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/plague-war",
+          "showTitle": null
+        },
+        {
+          "slug": "titandeath",
+          "title": "Titandeath",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/titandeath",
+          "showTitle": null
+        },
+        {
+          "slug": "wolfsbane",
+          "title": "Wolfsbane",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/wolfsbane",
+          "showTitle": null
+        },
+        {
+          "slug": "belisarius-cawl-the-great-work",
+          "title": "Belisarius Cawl: The Great Work",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/belisarius-cawl-the-great-work",
+          "showTitle": null
+        },
+        {
+          "slug": "konrad-curze-the-night-haunter",
+          "title": "Konrad Curze: The Night Haunter",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/konrad-curze-the-night-haunter",
+          "showTitle": null
+        },
+        {
+          "slug": "the-lost-and-the-damned",
+          "title": "The Lost and the Damned",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-lost-and-the-damned",
+          "showTitle": null
+        },
+        {
+          "slug": "astorath-angel-of-mercy",
+          "title": "Astorath: Angel of Mercy",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/astorath-angel-of-mercy",
+          "showTitle": null
+        },
+        {
+          "slug": "avenging-son",
+          "title": "Avenging Son",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/avenging-son",
+          "showTitle": null
+        },
+        {
+          "slug": "darkness-in-the-blood",
+          "title": "Darkness in the Blood",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/darkness-in-the-blood",
+          "showTitle": null
+        },
+        {
+          "slug": "flesh-and-steel",
+          "title": "Flesh and Steel",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/flesh-and-steel",
+          "showTitle": null
+        },
+        {
+          "slug": "godblight",
+          "title": "Godblight",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/godblight",
+          "showTitle": null
+        },
+        {
+          "slug": "throne-of-light",
+          "title": "Throne of Light",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/throne-of-light",
+          "showTitle": null
+        },
+        {
+          "slug": "genefather",
+          "title": "Genefather",
+          "kind": "book",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/genefather",
+          "showTitle": null
+        },
+        {
+          "slug": "the-silent-king",
+          "title": "The Silent King",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-silent-king",
+          "showTitle": null
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

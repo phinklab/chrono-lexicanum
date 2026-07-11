@@ -1,0 +1,331 @@
+{
+  "type": "person",
+  "id": "aaron_dembski_bowden",
+  "name": "Aaron Dembski-Bowden",
+  "oneLine": "British science-fiction author. Black Library mainstay; The First Heretic, Master of Mankind, Soul Hunter, Helsreach, The Talon of Horus, and the Black Legion duology are anchors of his bibliography.",
+  "facts": [
+    {
+      "label": "Born",
+      "value": "1983"
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "cadian-blood",
+          "title": "Cadian Blood",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/cadian-blood",
+          "showTitle": null
+        },
+        {
+          "slug": "helsreach",
+          "title": "Helsreach",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/helsreach",
+          "showTitle": null
+        },
+        {
+          "slug": "soul-hunter",
+          "title": "Soul Hunter",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/soul-hunter",
+          "showTitle": null
+        },
+        {
+          "slug": "the-first-heretic",
+          "title": "The First Heretic",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-first-heretic",
+          "showTitle": null
+        },
+        {
+          "slug": "aurelian",
+          "title": "Aurelian",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/aurelian",
+          "showTitle": null
+        },
+        {
+          "slug": "blood-reaver",
+          "title": "Blood Reaver",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/blood-reaver",
+          "showTitle": null
+        },
+        {
+          "slug": "savage-weapons",
+          "title": "Savage Weapons",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/savage-weapons",
+          "showTitle": null
+        },
+        {
+          "slug": "butchers-nails",
+          "title": "Butcher's Nails",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/butchers-nails",
+          "showTitle": null
+        },
+        {
+          "slug": "the-emperors-gift",
+          "title": "The Emperor's Gift",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-emperors-gift",
+          "showTitle": null
+        },
+        {
+          "slug": "void-stalker",
+          "title": "Void Stalker",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/void-stalker",
+          "showTitle": null
+        },
+        {
+          "slug": "betrayer",
+          "title": "Betrayer",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/betrayer",
+          "showTitle": null
+        },
+        {
+          "slug": "blood-and-fire",
+          "title": "Blood and Fire",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/blood-and-fire",
+          "showTitle": null
+        },
+        {
+          "slug": "lord-of-the-red-sands",
+          "title": "Lord of the Red Sands",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/lord-of-the-red-sands",
+          "showTitle": null
+        },
+        {
+          "slug": "heart-of-the-conqueror",
+          "title": "Heart of the Conqueror",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/heart-of-the-conqueror",
+          "showTitle": null
+        },
+        {
+          "slug": "night-lords-the-omnibus",
+          "title": "Night Lords: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/night-lords-the-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "prince-of-crows",
+          "title": "Prince of Crows",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/prince-of-crows",
+          "showTitle": null
+        },
+        {
+          "slug": "the-long-night",
+          "title": "The Long Night",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-long-night",
+          "showTitle": null
+        },
+        {
+          "slug": "the-talon-of-horus",
+          "title": "The Talon of Horus",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-talon-of-horus",
+          "showTitle": null
+        },
+        {
+          "slug": "howl-of-the-hearthworld",
+          "title": "Howl of the Hearthworld",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/howl-of-the-hearthworld",
+          "showTitle": null
+        },
+        {
+          "slug": "ragnar-blackmane",
+          "title": "Ragnar Blackmane",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ragnar-blackmane",
+          "showTitle": null
+        },
+        {
+          "slug": "shadow-knight",
+          "title": "Shadow Knight",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/shadow-knight",
+          "showTitle": null
+        },
+        {
+          "slug": "at-gaius-point",
+          "title": "At Gaius Point",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/at-gaius-point",
+          "showTitle": null
+        },
+        {
+          "slug": "into-exhile",
+          "title": "Into Exhile",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/into-exhile",
+          "showTitle": null
+        },
+        {
+          "slug": "black-legion",
+          "title": "Black Legion",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/black-legion",
+          "showTitle": null
+        },
+        {
+          "slug": "the-master-of-mankind",
+          "title": "The Master of Mankind",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-master-of-mankind",
+          "showTitle": null
+        },
+        {
+          "slug": "a-rose-watered-with-blood",
+          "title": "A Rose Watered with Blood",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/a-rose-watered-with-blood",
+          "showTitle": null
+        },
+        {
+          "slug": "massacre",
+          "title": "Massacre",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/massacre",
+          "showTitle": null
+        },
+        {
+          "slug": "spear-of-the-emperor",
+          "title": "Spear of the Emperor",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/spear-of-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "bringer-of-sorrow",
+          "title": "Bringer of Sorrow",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/bringer-of-sorrow",
+          "showTitle": null
+        },
+        {
+          "slug": "the-abyssal-edge",
+          "title": "The Abyssal Edge",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-abyssal-edge",
+          "showTitle": null
+        },
+        {
+          "slug": "echoes-of-eternity",
+          "title": "Echoes of Eternity",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/echoes-of-eternity",
+          "showTitle": null
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

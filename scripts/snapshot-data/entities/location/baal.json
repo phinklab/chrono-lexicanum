@@ -1,0 +1,205 @@
+{
+  "type": "location",
+  "id": "baal",
+  "name": "Baal",
+  "blurb": {
+    "text": "The irradiated desert homeworld of the Blood Angels, orbited by the moons Baal Primus and Baal Secundus from which the Chapter draws its recruits.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Baal"
+  },
+  "facts": [
+    {
+      "label": "Sector",
+      "value": "Segmentum Tempestus"
+    }
+  ],
+  "tags": [
+    "blood_angels"
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "deus-encarmine",
+          "title": "Deus Encarmine",
+          "kind": "book",
+          "releaseYear": 2004,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/deus-encarmine",
+          "showTitle": null
+        },
+        {
+          "slug": "deus-sanguinius",
+          "title": "Deus Sanguinius",
+          "kind": "book",
+          "releaseYear": 2005,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/deus-sanguinius",
+          "showTitle": null
+        },
+        {
+          "slug": "red-fury",
+          "title": "Red Fury",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/red-fury",
+          "showTitle": null
+        },
+        {
+          "slug": "lost-sons",
+          "title": "Lost Sons",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/lost-sons",
+          "showTitle": null
+        },
+        {
+          "slug": "shield-of-baal",
+          "title": "Shield of Baal",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/shield-of-baal",
+          "showTitle": null
+        },
+        {
+          "slug": "the-devastation-of-baal",
+          "title": "The Devastation of Baal",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-devastation-of-baal",
+          "showTitle": null
+        },
+        {
+          "slug": "astorath-angel-of-mercy",
+          "title": "Astorath: Angel of Mercy",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/astorath-angel-of-mercy",
+          "showTitle": null
+        },
+        {
+          "slug": "darkness-in-the-blood",
+          "title": "Darkness in the Blood",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/darkness-in-the-blood",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-13081818",
+          "title": "LEVIATHAN: AND I LOOKED UPON THE GREAT HIVE BEAST, AND KNEW THAT HOPE WAS LOST | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-d9d5937d-70f0-4766-a1c7-47e845493b06",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-15220038",
+          "title": "Episode 39 - Tyranids pt 3 - Imperial history of the Tyranid invasions.",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-d5bf7a98-007c-41ff-97f0-4753f833b50c",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "lorehammer-d2fd0cb4-2e17-425f-99de-5b5d29875738",
+          "title": "207 - The Ultima Segmentum",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-7a47675c-535a-4f75-8902-ac6fcb689dd5",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "luetin09-d18rfiparne",
+          "title": "40K PRIMARCHS - SANGUINIUS - THE RISE AND FALL OF AN ANGEL | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-dee94531-4850-43c3-9240-2c0d01559ef5",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "the-40k-lorecast-92821c50-e728-11ef-8213-af33b664c72d",
+          "title": "Episode 75 - Blood Angels pt2 - After the Death of Sanguinius",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-d0a93a49-37d1-49b6-bc54-5e0693b03640",
+          "showTitle": "The 40k Lorecast"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Other worlds in sector",
+      "items": [
+        {
+          "type": "location",
+          "id": "baal_secundus",
+          "name": "Baal Secundus"
+        },
+        {
+          "type": "location",
+          "id": "ceocan",
+          "name": "Ceocan"
+        },
+        {
+          "type": "location",
+          "id": "cretacia",
+          "name": "Cretacia"
+        },
+        {
+          "type": "location",
+          "id": "geratomro",
+          "name": "Geratomro"
+        },
+        {
+          "type": "location",
+          "id": "medusa",
+          "name": "Medusa"
+        },
+        {
+          "type": "location",
+          "id": "nocturne",
+          "name": "Nocturne"
+        },
+        {
+          "type": "location",
+          "id": "thennos",
+          "name": "Thennos"
+        }
+      ]
+    }
+  ]
+}

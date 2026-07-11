@@ -1,0 +1,374 @@
+{
+  "type": "faction",
+  "id": "tanith_first",
+  "name": "Tanith First-and-Only",
+  "blurb": {
+    "text": "The Tanith First-and-Only, nicknamed Gaunt's Ghosts: an Astra Militarum light-infantry regiment of scouts and stealth troops, the sole survivors of the lost world of Tanith.",
+    "confidence": 0.9,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Tanith_First_and_Only"
+  },
+  "facts": [
+    {
+      "label": "Alignment",
+      "value": "Imperium"
+    },
+    {
+      "label": "Parent faction",
+      "value": {
+        "type": "faction",
+        "id": "astra_militarum",
+        "name": "Astra Militarum"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "first-and-only",
+          "title": "First and Only",
+          "kind": "book",
+          "releaseYear": 1999,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/first-and-only",
+          "showTitle": null
+        },
+        {
+          "slug": "ghostmaker",
+          "title": "Ghostmaker",
+          "kind": "book",
+          "releaseYear": 2000,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/ghostmaker",
+          "showTitle": null
+        },
+        {
+          "slug": "necropolis",
+          "title": "Necropolis",
+          "kind": "book",
+          "releaseYear": 2000,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/necropolis",
+          "showTitle": null
+        },
+        {
+          "slug": "honour-guard",
+          "title": "Honour Guard",
+          "kind": "book",
+          "releaseYear": 2001,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/honour-guard",
+          "showTitle": null
+        },
+        {
+          "slug": "straight-silver",
+          "title": "Straight Silver",
+          "kind": "book",
+          "releaseYear": 2002,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/straight-silver",
+          "showTitle": null
+        },
+        {
+          "slug": "the-guns-of-tanith",
+          "title": "The Guns of Tanith",
+          "kind": "book",
+          "releaseYear": 2002,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-guns-of-tanith",
+          "showTitle": null
+        },
+        {
+          "slug": "gaunts-ghosts-the-founding-omnibus-1-3",
+          "title": "Gaunt's Ghosts: The Founding Omnibus, 1-3",
+          "kind": "book",
+          "releaseYear": 2003,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/gaunts-ghosts-the-founding-omnibus-1-3",
+          "showTitle": null
+        },
+        {
+          "slug": "sabbat-martyr",
+          "title": "Sabbat Martyr",
+          "kind": "book",
+          "releaseYear": 2003,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/sabbat-martyr",
+          "showTitle": null
+        },
+        {
+          "slug": "double-eagle",
+          "title": "Double Eagle",
+          "kind": "book",
+          "releaseYear": 2004,
+          "coverUrl": null,
+          "role": "background",
+          "href": "/buch/double-eagle",
+          "showTitle": null
+        },
+        {
+          "slug": "traitor-general",
+          "title": "Traitor General",
+          "kind": "book",
+          "releaseYear": 2004,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/traitor-general",
+          "showTitle": null
+        },
+        {
+          "slug": "his-last-command",
+          "title": "His Last Command",
+          "kind": "book",
+          "releaseYear": 2005,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/his-last-command",
+          "showTitle": null
+        },
+        {
+          "slug": "the-armour-of-contempt",
+          "title": "The Armour of Contempt",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-armour-of-contempt",
+          "showTitle": null
+        },
+        {
+          "slug": "gaunts-ghosts-the-saint-omnibus-4-7",
+          "title": "Gaunt's Ghosts: The Saint Omnibus, 4-7",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/gaunts-ghosts-the-saint-omnibus-4-7",
+          "showTitle": null
+        },
+        {
+          "slug": "only-in-death",
+          "title": "Only in Death",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/only-in-death",
+          "showTitle": null
+        },
+        {
+          "slug": "blood-pact",
+          "title": "Blood Pact",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/blood-pact",
+          "showTitle": null
+        },
+        {
+          "slug": "gaunts-ghosts-the-lost-omnibus-8-11",
+          "title": "Gaunt's Ghosts: The Lost Omnibus, 8-11",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/gaunts-ghosts-the-lost-omnibus-8-11",
+          "showTitle": null
+        },
+        {
+          "slug": "sabbat-worlds",
+          "title": "Sabbat Worlds",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/sabbat-worlds",
+          "showTitle": null
+        },
+        {
+          "slug": "salvations-reach",
+          "title": "Salvation's Reach",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/salvations-reach",
+          "showTitle": null
+        },
+        {
+          "slug": "sabbat-crusade",
+          "title": "Sabbat Crusade",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/sabbat-crusade",
+          "showTitle": null
+        },
+        {
+          "slug": "the-warmaster",
+          "title": "The Warmaster",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-warmaster",
+          "showTitle": null
+        },
+        {
+          "slug": "gaunts-ghosts-the-victory-omnibus-part-one-12-13",
+          "title": "Gaunt's Ghosts: The Victory Omnibus Part One, 12-13",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/gaunts-ghosts-the-victory-omnibus-part-one-12-13",
+          "showTitle": null
+        },
+        {
+          "slug": "the-anarch",
+          "title": "The Anarch",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-anarch",
+          "showTitle": null
+        },
+        {
+          "slug": "sabbat-war",
+          "title": "Sabbat War",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/sabbat-war",
+          "showTitle": null
+        },
+        {
+          "slug": "the-vincula-insurgency",
+          "title": "The Vincula Insurgency",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-vincula-insurgency",
+          "showTitle": null
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Sub-factions",
+      "items": [
+        {
+          "type": "faction",
+          "id": "belladon",
+          "name": "Belladon"
+        },
+        {
+          "type": "faction",
+          "id": "verghastite_ghosts",
+          "name": "Verghastite Ghosts"
+        }
+      ]
+    },
+    {
+      "label": "Key characters",
+      "items": [
+        {
+          "type": "character",
+          "id": "ana_curth",
+          "name": "Ana Curth"
+        },
+        {
+          "type": "character",
+          "id": "beltayn",
+          "name": "Beltayn"
+        },
+        {
+          "type": "character",
+          "id": "bonin",
+          "name": "Bonin"
+        },
+        {
+          "type": "character",
+          "id": "bragg",
+          "name": "Bragg"
+        },
+        {
+          "type": "character",
+          "id": "brin_milo",
+          "name": "Brin Milo"
+        },
+        {
+          "type": "character",
+          "id": "brostin",
+          "name": "Brostin"
+        },
+        {
+          "type": "character",
+          "id": "caffran",
+          "name": "Caffran"
+        },
+        {
+          "type": "character",
+          "id": "colm_corbec",
+          "name": "Colm Corbec"
+        },
+        {
+          "type": "character",
+          "id": "elim_rawne",
+          "name": "Elim Rawne"
+        },
+        {
+          "type": "character",
+          "id": "hlaine_larkin",
+          "name": "Hlaine Larkin"
+        },
+        {
+          "type": "character",
+          "id": "lijah_cuu",
+          "name": "Lijah Cuu"
+        },
+        {
+          "type": "character",
+          "id": "mkvenner",
+          "name": "Mkvenner"
+        },
+        {
+          "type": "character",
+          "id": "murtan_feygor",
+          "name": "Murtan Feygor"
+        },
+        {
+          "type": "character",
+          "id": "oan_mkoll",
+          "name": "Oan Mkoll"
+        },
+        {
+          "type": "character",
+          "id": "tolin_dorden",
+          "name": "Tolin Dorden"
+        },
+        {
+          "type": "character",
+          "id": "varl",
+          "name": "Varl"
+        }
+      ]
+    }
+  ]
+}

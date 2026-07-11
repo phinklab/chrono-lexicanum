@@ -1,0 +1,521 @@
+{
+  "type": "person",
+  "id": "dan_abnett",
+  "name": "Dan Abnett",
+  "oneLine": "British novelist and comics writer. Long-running Black Library author; Eisenhorn, Ravenor, Gaunt's Ghosts, and Horus Rising are among his Warhammer 40,000 anchors.",
+  "facts": [
+    {
+      "label": "Born",
+      "value": "1965"
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "first-and-only",
+          "title": "First and Only",
+          "kind": "book",
+          "releaseYear": 1999,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/first-and-only",
+          "showTitle": null
+        },
+        {
+          "slug": "ghostmaker",
+          "title": "Ghostmaker",
+          "kind": "book",
+          "releaseYear": 2000,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ghostmaker",
+          "showTitle": null
+        },
+        {
+          "slug": "necropolis",
+          "title": "Necropolis",
+          "kind": "book",
+          "releaseYear": 2000,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/necropolis",
+          "showTitle": null
+        },
+        {
+          "slug": "honour-guard",
+          "title": "Honour Guard",
+          "kind": "book",
+          "releaseYear": 2001,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/honour-guard",
+          "showTitle": null
+        },
+        {
+          "slug": "malleus",
+          "title": "Malleus",
+          "kind": "book",
+          "releaseYear": 2001,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/malleus",
+          "showTitle": null
+        },
+        {
+          "slug": "xenos",
+          "title": "Xenos",
+          "kind": "book",
+          "releaseYear": 2001,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/xenos",
+          "showTitle": null
+        },
+        {
+          "slug": "hereticus",
+          "title": "Hereticus",
+          "kind": "book",
+          "releaseYear": 2002,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/hereticus",
+          "showTitle": null
+        },
+        {
+          "slug": "straight-silver",
+          "title": "Straight Silver",
+          "kind": "book",
+          "releaseYear": 2002,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/straight-silver",
+          "showTitle": null
+        },
+        {
+          "slug": "the-guns-of-tanith",
+          "title": "The Guns of Tanith",
+          "kind": "book",
+          "releaseYear": 2002,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-guns-of-tanith",
+          "showTitle": null
+        },
+        {
+          "slug": "gaunts-ghosts-the-founding-omnibus-1-3",
+          "title": "Gaunt's Ghosts: The Founding Omnibus, 1-3",
+          "kind": "book",
+          "releaseYear": 2003,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/gaunts-ghosts-the-founding-omnibus-1-3",
+          "showTitle": null
+        },
+        {
+          "slug": "sabbat-martyr",
+          "title": "Sabbat Martyr",
+          "kind": "book",
+          "releaseYear": 2003,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/sabbat-martyr",
+          "showTitle": null
+        },
+        {
+          "slug": "double-eagle",
+          "title": "Double Eagle",
+          "kind": "book",
+          "releaseYear": 2004,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/double-eagle",
+          "showTitle": null
+        },
+        {
+          "slug": "ravenor",
+          "title": "Ravenor",
+          "kind": "book",
+          "releaseYear": 2004,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ravenor",
+          "showTitle": null
+        },
+        {
+          "slug": "traitor-general",
+          "title": "Traitor General",
+          "kind": "book",
+          "releaseYear": 2004,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/traitor-general",
+          "showTitle": null
+        },
+        {
+          "slug": "eisenhorn-omnibus",
+          "title": "Eisenhorn Omnibus",
+          "kind": "book",
+          "releaseYear": 2005,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/eisenhorn-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "his-last-command",
+          "title": "His Last Command",
+          "kind": "book",
+          "releaseYear": 2005,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/his-last-command",
+          "showTitle": null
+        },
+        {
+          "slug": "ravenor-returned",
+          "title": "Ravenor Returned",
+          "kind": "book",
+          "releaseYear": 2005,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ravenor-returned",
+          "showTitle": null
+        },
+        {
+          "slug": "horus-rising",
+          "title": "Horus Rising",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/horus-rising",
+          "showTitle": null
+        },
+        {
+          "slug": "the-armour-of-contempt",
+          "title": "The Armour of Contempt",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-armour-of-contempt",
+          "showTitle": null
+        },
+        {
+          "slug": "brothers-of-the-snake",
+          "title": "Brothers of the Snake",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/brothers-of-the-snake",
+          "showTitle": null
+        },
+        {
+          "slug": "gaunts-ghosts-the-saint-omnibus-4-7",
+          "title": "Gaunt's Ghosts: The Saint Omnibus, 4-7",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/gaunts-ghosts-the-saint-omnibus-4-7",
+          "showTitle": null
+        },
+        {
+          "slug": "ravenor-rogue",
+          "title": "Ravenor Rogue",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ravenor-rogue",
+          "showTitle": null
+        },
+        {
+          "slug": "the-lightning-tower",
+          "title": "The Lightning Tower",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-lightning-tower",
+          "showTitle": null
+        },
+        {
+          "slug": "legion",
+          "title": "Legion",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/legion",
+          "showTitle": null
+        },
+        {
+          "slug": "only-in-death",
+          "title": "Only in Death",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/only-in-death",
+          "showTitle": null
+        },
+        {
+          "slug": "titanicus",
+          "title": "Titanicus",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/titanicus",
+          "showTitle": null
+        },
+        {
+          "slug": "blood-games",
+          "title": "Blood Games",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/blood-games",
+          "showTitle": null
+        },
+        {
+          "slug": "blood-pact",
+          "title": "Blood Pact",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/blood-pact",
+          "showTitle": null
+        },
+        {
+          "slug": "gaunts-ghosts-the-lost-omnibus-8-11",
+          "title": "Gaunt's Ghosts: The Lost Omnibus, 8-11",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/gaunts-ghosts-the-lost-omnibus-8-11",
+          "showTitle": null
+        },
+        {
+          "slug": "ravenor-the-omnibus",
+          "title": "Ravenor: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ravenor-the-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "prospero-burns",
+          "title": "Prospero Burns",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/prospero-burns",
+          "showTitle": null
+        },
+        {
+          "slug": "little-horus",
+          "title": "Little Horus",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/little-horus",
+          "showTitle": null
+        },
+        {
+          "slug": "salvations-reach",
+          "title": "Salvation's Reach",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/salvations-reach",
+          "showTitle": null
+        },
+        {
+          "slug": "know-no-fear",
+          "title": "Know No Fear",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/know-no-fear",
+          "showTitle": null
+        },
+        {
+          "slug": "pariah",
+          "title": "Pariah",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/pariah",
+          "showTitle": null
+        },
+        {
+          "slug": "the-unremembered-empire",
+          "title": "The Unremembered Empire",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-unremembered-empire",
+          "showTitle": null
+        },
+        {
+          "slug": "i-am-slaughter",
+          "title": "I Am Slaughter",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/i-am-slaughter",
+          "showTitle": null
+        },
+        {
+          "slug": "perpetual",
+          "title": "Perpetual",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/perpetual",
+          "showTitle": null
+        },
+        {
+          "slug": "the-warmaster",
+          "title": "The Warmaster",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-warmaster",
+          "showTitle": null
+        },
+        {
+          "slug": "gaunts-ghosts-the-victory-omnibus-part-one-12-13",
+          "title": "Gaunt's Ghosts: The Victory Omnibus Part One, 12-13",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/gaunts-ghosts-the-victory-omnibus-part-one-12-13",
+          "showTitle": null
+        },
+        {
+          "slug": "the-magos",
+          "title": "The Magos",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-magos",
+          "showTitle": null
+        },
+        {
+          "slug": "the-anarch",
+          "title": "The Anarch",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-anarch",
+          "showTitle": null
+        },
+        {
+          "slug": "saturnine",
+          "title": "Saturnine",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/saturnine",
+          "showTitle": null
+        },
+        {
+          "slug": "penitent",
+          "title": "Penitent",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/penitent",
+          "showTitle": null
+        },
+        {
+          "slug": "the-vincula-insurgency",
+          "title": "The Vincula Insurgency",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-vincula-insurgency",
+          "showTitle": null
+        },
+        {
+          "slug": "the-end-and-the-death-vol-1",
+          "title": "The End and The Death Vol. 1",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-end-and-the-death-vol-1",
+          "showTitle": null
+        },
+        {
+          "slug": "the-end-and-the-death-vol-2",
+          "title": "The End and The Death Vol. 2",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-end-and-the-death-vol-2",
+          "showTitle": null
+        },
+        {
+          "slug": "the-end-and-the-death-vol-3",
+          "title": "The End and The Death Vol. 3",
+          "kind": "book",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-end-and-the-death-vol-3",
+          "showTitle": null
+        },
+        {
+          "slug": "era-of-ruin",
+          "title": "Era Of Ruin",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/era-of-ruin",
+          "showTitle": null
+        },
+        {
+          "slug": "hive",
+          "title": "Hive",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/hive",
+          "showTitle": null
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

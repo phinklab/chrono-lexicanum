@@ -1,0 +1,584 @@
+{
+  "type": "location",
+  "id": "macragge",
+  "name": "Macragge",
+  "blurb": {
+    "text": "The capital of the realm of Ultramar and homeworld of the Ultramarines, a fortified civilised world ruled from the fortress-monastery of the Chapter.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Macragge"
+  },
+  "facts": [
+    {
+      "label": "Sector",
+      "value": "Segmentum Ultima"
+    },
+    {
+      "label": "Designation",
+      "value": "Sector capital"
+    }
+  ],
+  "tags": [
+    "ultramarines"
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "dead-sky-black-sun",
+          "title": "Dead Sky, Black Sun",
+          "kind": "book",
+          "releaseYear": 2004,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/buch/dead-sky-black-sun",
+          "showTitle": null
+        },
+        {
+          "slug": "the-ultramarines-omnibus",
+          "title": "The Ultramarines Omnibus",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/buch/the-ultramarines-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "battle-for-the-abyss",
+          "title": "Battle for the Abyss",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/battle-for-the-abyss",
+          "showTitle": null
+        },
+        {
+          "slug": "the-killing-ground",
+          "title": "The Killing Ground",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/buch/the-killing-ground",
+          "showTitle": null
+        },
+        {
+          "slug": "courage-and-honour",
+          "title": "Courage and Honour",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/buch/courage-and-honour",
+          "showTitle": null
+        },
+        {
+          "slug": "the-chapters-due",
+          "title": "The Chapter's Due",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-chapters-due",
+          "showTitle": null
+        },
+        {
+          "slug": "iron-warriors-the-omnibus",
+          "title": "Iron Warriors: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/buch/iron-warriors-the-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "ultramarines-the-second-omnibus",
+          "title": "Ultramarines: The Second Omnibus",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ultramarines-the-second-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-unremembered-empire",
+          "title": "The Unremembered Empire",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-unremembered-empire",
+          "showTitle": null
+        },
+        {
+          "slug": "vulkan-lives",
+          "title": "Vulkan Lives",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/vulkan-lives",
+          "showTitle": null
+        },
+        {
+          "slug": "death-and-defiance",
+          "title": "Death and Defiance",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/death-and-defiance",
+          "showTitle": null
+        },
+        {
+          "slug": "strategem",
+          "title": "Strategem",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/strategem",
+          "showTitle": null
+        },
+        {
+          "slug": "the-herald-of-sanguinius",
+          "title": "The Herald of Sanguinius",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-herald-of-sanguinius",
+          "showTitle": null
+        },
+        {
+          "slug": "deathfire",
+          "title": "Deathfire",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/deathfire",
+          "showTitle": null
+        },
+        {
+          "slug": "angels-of-caliban",
+          "title": "Angels of Caliban",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/angels-of-caliban",
+          "showTitle": null
+        },
+        {
+          "slug": "echoes-of-imperium",
+          "title": "Echoes of Imperium",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/echoes-of-imperium",
+          "showTitle": null
+        },
+        {
+          "slug": "pharos",
+          "title": "Pharos",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/pharos",
+          "showTitle": null
+        },
+        {
+          "slug": "red-marked",
+          "title": "Red-Marked",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/red-marked",
+          "showTitle": null
+        },
+        {
+          "slug": "ultramarines-legends",
+          "title": "Ultramarines (Legends)",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ultramarines-legends",
+          "showTitle": null
+        },
+        {
+          "slug": "calgars-fury",
+          "title": "Calgar's Fury",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/buch/calgars-fury",
+          "showTitle": null
+        },
+        {
+          "slug": "dark-imperium",
+          "title": "Dark Imperium",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/dark-imperium",
+          "showTitle": null
+        },
+        {
+          "slug": "old-earth",
+          "title": "Old Earth",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/old-earth",
+          "showTitle": null
+        },
+        {
+          "slug": "ruinstorm",
+          "title": "Ruinstorm",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/ruinstorm",
+          "showTitle": null
+        },
+        {
+          "slug": "the-laurel-of-defiance",
+          "title": "The Laurel of Defiance",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-laurel-of-defiance",
+          "showTitle": null
+        },
+        {
+          "slug": "illyrium",
+          "title": "Illyrium",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/illyrium",
+          "showTitle": null
+        },
+        {
+          "slug": "iron-warriors-the-complete-honsou-omnibus",
+          "title": "Iron Warriors: The Complete Honsou Omnibus",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/buch/iron-warriors-the-complete-honsou-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "scions-of-the-emperor",
+          "title": "Scions of the Emperor",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/scions-of-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "the-uriel-ventris-chronicles-vol-1-omnibus",
+          "title": "The Uriel Ventris Chronicles Vol. 1 Omnibus",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-uriel-ventris-chronicles-vol-1-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-uriel-ventris-chronicles-vol-2-omnibus",
+          "title": "The Uriel Ventris Chronicles Vol. 2 Omnibus",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-uriel-ventris-chronicles-vol-2-omnibus",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "luetin09-zp-kcmwe340",
+          "title": "IMPERIUM - TYRANIDS FIRST CONTACT & The Battle of Macragge | WARHAMMER 40,000 Lore / History",
+          "kind": "podcast_episode",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-eac1d32d-293d-4602-b2d8-cecd0cc88700",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-9685136",
+          "title": "BATTLE FOR MACRAGGE: DEATH IS HERE! | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-9732c9e7-2e89-4f75-b159-bb212a2bcb6a",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-15220038",
+          "title": "Episode 39 - Tyranids pt 3 - Imperial history of the Tyranid invasions.",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-d5bf7a98-007c-41ff-97f0-4753f833b50c",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-16944140",
+          "title": "THE WEIRDEST OFFICIAL LORE OF THE OLD 40k | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-08db56d3-a486-42b6-8be3-a31677d1463e",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-749eff83-e84d-4d7f-871a-6bd159635545",
+          "title": "228 - Roboute Guilliman, Origins and Great Crusade",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-34d5018a-4be9-430f-84de-5c9bbde71451",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Other worlds in sector",
+      "items": [
+        {
+          "type": "location",
+          "id": "arthas_moloch",
+          "name": "Arthas Moloch"
+        },
+        {
+          "type": "location",
+          "id": "calth",
+          "name": "Calth"
+        },
+        {
+          "type": "location",
+          "id": "cao_quo",
+          "name": "Cao Quo"
+        },
+        {
+          "type": "location",
+          "id": "cybele",
+          "name": "Cybele"
+        },
+        {
+          "type": "location",
+          "id": "damnos",
+          "name": "Damnos"
+        },
+        {
+          "type": "location",
+          "id": "damocles_gulf",
+          "name": "Damocles Gulf"
+        },
+        {
+          "type": "location",
+          "id": "doahht",
+          "name": "Doahht"
+        },
+        {
+          "type": "location",
+          "id": "drechia",
+          "name": "Drechia"
+        },
+        {
+          "type": "location",
+          "id": "ghaslakh",
+          "name": "Ghaslakh"
+        },
+        {
+          "type": "location",
+          "id": "gravalax",
+          "name": "Gravalax"
+        },
+        {
+          "type": "location",
+          "id": "heletine",
+          "name": "Heletine"
+        },
+        {
+          "type": "location",
+          "id": "iax",
+          "name": "Iax"
+        },
+        {
+          "type": "location",
+          "id": "iesta_veracrux",
+          "name": "Iesta Veracrux"
+        },
+        {
+          "type": "location",
+          "id": "illyrium",
+          "name": "Illyrium"
+        },
+        {
+          "type": "location",
+          "id": "ithraca",
+          "name": "Ithraca"
+        },
+        {
+          "type": "location",
+          "id": "kronus",
+          "name": "Kronus"
+        },
+        {
+          "type": "location",
+          "id": "lysios",
+          "name": "Lysios"
+        },
+        {
+          "type": "location",
+          "id": "miral",
+          "name": "Miral"
+        },
+        {
+          "type": "location",
+          "id": "numinus",
+          "name": "Numinus"
+        },
+        {
+          "type": "location",
+          "id": "octarius",
+          "name": "Octarius"
+        },
+        {
+          "type": "location",
+          "id": "oran",
+          "name": "Oran"
+        },
+        {
+          "type": "location",
+          "id": "parmenio",
+          "name": "Parmenio"
+        },
+        {
+          "type": "location",
+          "id": "pavonis",
+          "name": "Pavonis"
+        },
+        {
+          "type": "location",
+          "id": "percepton_primus",
+          "name": "Percepton Primus"
+        },
+        {
+          "type": "location",
+          "id": "periremunda",
+          "name": "Periremunda"
+        },
+        {
+          "type": "location",
+          "id": "pontus_avernes",
+          "name": "Pontus Avernes"
+        },
+        {
+          "type": "location",
+          "id": "quadravidia",
+          "name": "Quadravidia"
+        },
+        {
+          "type": "location",
+          "id": "quintus",
+          "name": "Quintus"
+        },
+        {
+          "type": "location",
+          "id": "saltire_vex",
+          "name": "Saltire Vex"
+        },
+        {
+          "type": "location",
+          "id": "aurelia",
+          "name": "Subsector Aurelia"
+        },
+        {
+          "type": "location",
+          "id": "tau_empire",
+          "name": "T'au Empire"
+        },
+        {
+          "type": "location",
+          "id": "tarsis_ultra",
+          "name": "Tarsis Ultra"
+        },
+        {
+          "type": "location",
+          "id": "ultramar",
+          "name": "Ultramar"
+        },
+        {
+          "type": "location",
+          "id": "velua",
+          "name": "Velua"
+        },
+        {
+          "type": "location",
+          "id": "vigilus",
+          "name": "Vigilus"
+        },
+        {
+          "type": "location",
+          "id": "vior_los",
+          "name": "Vior'los"
+        },
+        {
+          "type": "location",
+          "id": "virger_mos_ii",
+          "name": "Virger-Mos II"
+        },
+        {
+          "type": "location",
+          "id": "viridia",
+          "name": "Viridia"
+        },
+        {
+          "type": "location",
+          "id": "zalathras",
+          "name": "Zalathras"
+        },
+        {
+          "type": "location",
+          "id": "zalidar",
+          "name": "Zalidar"
+        }
+      ]
+    }
+  ]
+}

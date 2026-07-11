@@ -1,0 +1,319 @@
+{
+  "type": "faction",
+  "id": "slaanesh",
+  "name": "Slaanesh",
+  "blurb": {
+    "text": "Slaanesh is the Chaos God of excess, sensation, and obsession, born from the millennia-long moral collapse of the Aeldari civilisation. Worshippers pursue every pleasure and sensation to its most extreme conclusion, serving a deity of terrifying beauty and absolute depravity.",
+    "confidence": 0.97,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Slaanesh"
+  },
+  "facts": [
+    {
+      "label": "Alignment",
+      "value": "Chaos"
+    },
+    {
+      "label": "Parent faction",
+      "value": {
+        "type": "faction",
+        "id": "chaos",
+        "name": "Chaos"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "farseer",
+          "title": "Farseer",
+          "kind": "book",
+          "releaseYear": 2002,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/farseer",
+          "showTitle": null
+        },
+        {
+          "slug": "daemon-world",
+          "title": "Daemon World",
+          "kind": "book",
+          "releaseYear": 2003,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/daemon-world",
+          "showTitle": null
+        },
+        {
+          "slug": "the-traitors-hand",
+          "title": "The Traitor's Hand",
+          "kind": "book",
+          "releaseYear": 2005,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-traitors-hand",
+          "showTitle": null
+        },
+        {
+          "slug": "wrath-of-iron",
+          "title": "Wrath of Iron",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/wrath-of-iron",
+          "showTitle": null
+        },
+        {
+          "slug": "lucius-the-faultless-blade",
+          "title": "Lucius: The Faultless Blade",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/lucius-the-faultless-blade",
+          "showTitle": null
+        },
+        {
+          "slug": "shroud-of-night",
+          "title": "Shroud of Night",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/shroud-of-night",
+          "showTitle": null
+        },
+        {
+          "slug": "genefather",
+          "title": "Genefather",
+          "kind": "book",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/genefather",
+          "showTitle": null
+        },
+        {
+          "slug": "fulgrim-the-perfect-son",
+          "title": "Fulgrim: The Perfect Son",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/fulgrim-the-perfect-son",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-6952793",
+          "title": "Horny Space Elves & the Birth of Slaanesh | Origins of Warhammer 40k",
+          "kind": "podcast_episode",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-fda488c1-8ee6-4ff5-9e70-74baeb4c5775",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-9a84a78d-71e0-43fd-b0bb-21b4af86b347",
+          "title": "Listener Lore 20",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-f00671e4-d2a9-4fb4-a6da-94655d23db62",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "luetin09-zzb5hz36ess",
+          "title": "40K - WHAT IS SLAANESH? WILL THE AELDARI DESTROY THE GALAXY? | Warhammer 40,000 Lore/Discussion",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-b488aee1-006c-4517-ac76-8b3c671c0a7b",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-10042642",
+          "title": "THE REALM OF SLAANESH | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-7938b898-85d5-4a91-9f23-c5b2cb449095",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-13917624",
+          "title": "Episode 7 - Chaos Always Corrupts,",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-b8cf9dc6-9526-4c4f-b9e9-d6f67f522f9c",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-14729311",
+          "title": "ELDAR OF THE LIVING DEAD: WRAITHBONE & SOULSTONES | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-27d4b3fe-ecfc-4172-87d1-0cda97ebb494",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-15033964",
+          "title": "Episode 35 - Deep dive into the Gods of Chaos Pt 2 - Nurgle and Slaanesh",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-c5a00938-861b-4e1b-9a06-1ead0bb5243c",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "luetin09-nzyxxdh6c8k",
+          "title": "THE END OF SLAANESH IN 40K? | Warhammer 40,000 Lore/Discussion",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-897aaab9-26d7-47ec-aece-f7b4b178c917",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-15115950",
+          "title": "YNNARI: IT'S SIMPLE, WE KILL SLAANESH | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-f6dcc038-5699-492c-8f78-949054da2318",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-2a253218-ca0a-11ef-9632-1f6535bc16c7",
+          "title": "141 - Fulgrim, Horus Heresy and Great Scouring",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-72241f0e-3f43-4871-90a0-5c80118e5acd",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2c8c46b8-ca0a-11ef-9632-3388ff8492b7",
+          "title": "154 - Gods of Chaos and The Great Game",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-ea6289ad-49bf-4eb3-97cd-815e3ffb6858",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2cbc3b2a-ca0a-11ef-9632-473301cd2734",
+          "title": "155 - Tzeentch, The Lord of Change",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-c53dc097-6641-49ae-810e-1157a0b87cf2",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2d1a41d4-ca0a-11ef-9632-ffd252d119e7",
+          "title": "157 - Khorne, The Blood God",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-3357e13a-017d-4a9a-baf2-5f669f41834d",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2d49ad3e-ca0a-11ef-9632-77643d932ef4",
+          "title": "158 - Slaanesh, The Prince of Pleasure",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-abc47c86-69d7-463e-8184-ea0032f713ef",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2f26a2d8-ca0a-11ef-9632-c31c8e7f43a2",
+          "title": "168 - Legions of Excess of Slaanesh",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-e5dbbefd-2148-433f-b7cf-ba8448b67b46",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-30de2bd2-ca0a-11ef-9632-eb6e5d1fc824",
+          "title": "177 - Slaanesh's Cult of Excess",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-ad9bc535-7c62-41c6-83b3-7f40078dcc12",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "the-40k-lorecast-9c116162-0637-11f0-89f3-37ce43aee1f6",
+          "title": "Episode 79 - Ynnari pt 2 - Yvraine grows her forces and Slaanesh realizes the threat that is Ynnead.",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-b27cea8f-a7ba-4895-913b-8f18027bbbb8",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-9dce241e-a112-409a-bf5a-a8d320769aee",
+          "title": "Episode 85 - Emperor's Children pt 1 - The Rise and Fall of the 3rd Legion",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-97fe7e1e-94ab-4754-9724-e957da203d08",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-16483229",
+          "title": "FULGRIM: THE SNAKE IS BACK! | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-542d8165-0717-41e3-92ae-6a1cd2ec5ecd",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-cb6e958a-6d06-4d0c-8d4b-9d7039eb90fa",
+          "title": "Mark's Manifesto 5 - Why Choose Chaos?",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-bd8c452d-be70-4c2a-98a0-776c4d0ba435",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

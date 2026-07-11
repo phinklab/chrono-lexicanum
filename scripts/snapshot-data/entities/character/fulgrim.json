@@ -1,0 +1,385 @@
+{
+  "type": "character",
+  "id": "fulgrim",
+  "name": "Fulgrim",
+  "blurb": {
+    "text": "Primarch of the Emperor's Children, whose quest for perfection led him to fall to the Chaos God Slaanesh and become a daemon primarch.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Fulgrim"
+  },
+  "facts": [
+    {
+      "label": "Allegiance",
+      "value": {
+        "type": "faction",
+        "id": "emperors_children",
+        "name": "Emperor's Children"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "galaxy-in-flames",
+          "title": "Galaxy in Flames",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/galaxy-in-flames",
+          "showTitle": null
+        },
+        {
+          "slug": "fulgrim",
+          "title": "Fulgrim",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/fulgrim",
+          "showTitle": null
+        },
+        {
+          "slug": "aurelian",
+          "title": "Aurelian",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/aurelian",
+          "showTitle": null
+        },
+        {
+          "slug": "the-primarchs",
+          "title": "The Primarchs",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-primarchs",
+          "showTitle": null
+        },
+        {
+          "slug": "the-reflection-crackd",
+          "title": "The Reflection Crack'd",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-reflection-crackd",
+          "showTitle": null
+        },
+        {
+          "slug": "angel-exterminatus",
+          "title": "Angel Exterminatus",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/angel-exterminatus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-imperial-truth",
+          "title": "The Imperial Truth",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-imperial-truth",
+          "showTitle": null
+        },
+        {
+          "slug": "death-and-defiance",
+          "title": "Death and Defiance",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/death-and-defiance",
+          "showTitle": null
+        },
+        {
+          "slug": "imperfect",
+          "title": "Imperfect",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/imperfect",
+          "showTitle": null
+        },
+        {
+          "slug": "legacies-of-betrayal",
+          "title": "Legacies of Betrayal",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/legacies-of-betrayal",
+          "showTitle": null
+        },
+        {
+          "slug": "the-phoenician",
+          "title": "The Phoenician",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-phoenician",
+          "showTitle": null
+        },
+        {
+          "slug": "the-last-phoenix",
+          "title": "The Last Phoenix",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-last-phoenix",
+          "showTitle": null
+        },
+        {
+          "slug": "the-soul-severed",
+          "title": "The Soul, Severed",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/buch/the-soul-severed",
+          "showTitle": null
+        },
+        {
+          "slug": "war-without-end",
+          "title": "War Without End",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/war-without-end",
+          "showTitle": null
+        },
+        {
+          "slug": "fulgrim-the-palatine-phoenix",
+          "title": "Fulgrim: The Palatine Phoenix",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/fulgrim-the-palatine-phoenix",
+          "showTitle": null
+        },
+        {
+          "slug": "ferrus-manus-the-gorgon-of-medusa",
+          "title": "Ferrus Manus: The Gorgon of Medusa",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ferrus-manus-the-gorgon-of-medusa",
+          "showTitle": null
+        },
+        {
+          "slug": "slaves-to-darkness",
+          "title": "Slaves to Darkness",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/slaves-to-darkness",
+          "showTitle": null
+        },
+        {
+          "slug": "amor-fati",
+          "title": "Amor Fati",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/buch/amor-fati",
+          "showTitle": null
+        },
+        {
+          "slug": "fulgrim-the-perfect-son",
+          "title": "Fulgrim: The Perfect Son",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/fulgrim-the-perfect-son",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-11941493",
+          "title": "FULGRIM: PRIDE BEFORE THE FALL | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-57ae917d-7edb-4898-84c6-eb495df99a5a",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-13917624",
+          "title": "Episode 7 - Chaos Always Corrupts,",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-b8cf9dc6-9526-4c4f-b9e9-d6f67f522f9c",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-14005092",
+          "title": "Episode 9 - The Heresy Concludes",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-ac8658b9-155b-493f-af4d-b8f4ab8d3787",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-12021678",
+          "title": "RYLANOR: THE ANCIENT OF RITES | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-00acce05-4e74-464e-89bd-003c32e06702",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-29f84fbe-ca0a-11ef-9632-3346ed213b66",
+          "title": "140 - Fulgrim, Origins and Great Crusade",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-b9fdf052-7741-4fcf-8f40-6c036604df36",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2a253218-ca0a-11ef-9632-1f6535bc16c7",
+          "title": "141 - Fulgrim, Horus Heresy and Great Scouring",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-72241f0e-3f43-4871-90a0-5c80118e5acd",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2a507626-ca0a-11ef-9632-479abdebea38",
+          "title": "142 - Emperors Children, 30k Legion Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-1c8f14cc-b197-432f-91ae-4694d9677d5f",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-d56e6d37-9464-4216-881f-4fe2e51293cf",
+          "title": "143 - Emperors Children, 40k Warband Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-079b6564-85e9-4ef4-863a-1fc8d2dafca5",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2a7eaba4-ca0a-11ef-9632-3f987e3e2cff",
+          "title": "143 - The Emperors Children, 40k Warband Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-f0e28a10-2dbc-45ef-8cd0-e57762eebd7c",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-48a567c2-72ce-4d19-b391-2b035448108e",
+          "title": "212 - Ferrus Manus, Horus Heresy",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-fa2147e5-bac3-4e35-aed1-906c8ee23c69",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-a1a110e5-9f57-4749-8507-5b4cdf872781",
+          "title": "213 - Iron Hands, 30k Legion Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-fa78b18d-00a6-4a1b-88e5-aad1e90a2099",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "luetin09-tyg9juqicfo",
+          "title": "40K BEGINNERS - TRAITOR ASTARTES [Part 3] | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-0a06c906-23cf-4ab0-9a17-a963cccbe833",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "the-40k-lorecast-faa90e90-607e-4efb-8baa-552d1db6c7df",
+          "title": "Episode 105 - The Ultramarines, from the start of the Heresy to the fall of Guilliman",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-6ec8daee-1630-4798-a8d4-73719d4ab685",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-9dce241e-a112-409a-bf5a-a8d320769aee",
+          "title": "Episode 85 - Emperor's Children pt 1 - The Rise and Fall of the 3rd Legion",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-97fe7e1e-94ab-4754-9724-e957da203d08",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-035bafc7-afb1-4064-9212-7a423f20095b",
+          "title": "Episode 86 - Emperor's Children pt 2 - the Horus Heresy to Modern Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-e26aacc2-c3f3-463f-95c3-7a54eb1e5fea",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-16483229",
+          "title": "FULGRIM: THE SNAKE IS BACK! | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-542d8165-0717-41e3-92ae-6a1cd2ec5ecd",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

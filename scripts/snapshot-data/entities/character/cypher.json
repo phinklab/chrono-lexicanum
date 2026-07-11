@@ -1,0 +1,105 @@
+{
+  "type": "character",
+  "id": "cypher",
+  "name": "Cypher",
+  "blurb": {
+    "text": "An enigmatic member of the Fallen Dark Angels, the Lord of the Fallen, who roams the Imperium toward Terra for purposes unknown.",
+    "confidence": 0.9,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Cypher"
+  },
+  "facts": [
+    {
+      "label": "Allegiance",
+      "value": {
+        "type": "faction",
+        "id": "fallen_angels",
+        "name": "Fallen Angels"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "cypher-guardian-of-order",
+          "title": "Cypher: Guardian of Order",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/cypher-guardian-of-order",
+          "showTitle": null
+        },
+        {
+          "slug": "echoes-of-ruin",
+          "title": "Echoes of Ruin",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/echoes-of-ruin",
+          "showTitle": null
+        },
+        {
+          "slug": "the-unforgiven",
+          "title": "The Unforgiven",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-unforgiven",
+          "showTitle": null
+        },
+        {
+          "slug": "legacy-of-caliban-the-omnibus",
+          "title": "Legacy of Caliban: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/legacy-of-caliban-the-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "lord-of-the-fallen",
+          "title": "Lord of the Fallen",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/lord-of-the-fallen",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "the-40k-lorecast-2d4d1595-153f-4ded-a1f5-5807224fc84d",
+          "title": "Episode 100 - Cypher",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-002d595e-21ea-4c6a-af17-4afd22cca4de",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-19463596",
+          "title": "Cypher: The Fallen Angel Who Walked to the Golden Throne | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-b335a2e2-d36e-446d-a3ef-7ffca3bbde4c",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

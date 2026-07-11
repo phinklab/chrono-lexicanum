@@ -1,0 +1,925 @@
+{
+  "type": "faction",
+  "id": "space_wolves",
+  "name": "Space Wolves",
+  "blurb": {
+    "text": "A loyalist Space Marine Chapter from the ice world of Fenris, descended from Leman Russ and known for wolf-themed savagery and disregard for the Codex Astartes.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Space_Wolves"
+  },
+  "facts": [
+    {
+      "label": "Alignment",
+      "value": "Imperium"
+    },
+    {
+      "label": "Parent faction",
+      "value": {
+        "type": "faction",
+        "id": "adeptus_astartes",
+        "name": "Adeptus Astartes"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "space-wolf",
+          "title": "Space Wolf",
+          "kind": "book",
+          "releaseYear": 1999,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/space-wolf",
+          "showTitle": null
+        },
+        {
+          "slug": "ragnars-claw",
+          "title": "Ragnar's Claw",
+          "kind": "book",
+          "releaseYear": 2000,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/ragnars-claw",
+          "showTitle": null
+        },
+        {
+          "slug": "grey-hunter",
+          "title": "Grey Hunter",
+          "kind": "book",
+          "releaseYear": 2002,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/grey-hunter",
+          "showTitle": null
+        },
+        {
+          "slug": "wolfblade",
+          "title": "Wolfblade",
+          "kind": "book",
+          "releaseYear": 2003,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/wolfblade",
+          "showTitle": null
+        },
+        {
+          "slug": "collected-visions",
+          "title": "Collected Visions",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/collected-visions",
+          "showTitle": null
+        },
+        {
+          "slug": "sons-of-fenris",
+          "title": "Sons of Fenris",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/sons-of-fenris",
+          "showTitle": null
+        },
+        {
+          "slug": "battle-for-the-abyss",
+          "title": "Battle for the Abyss",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/battle-for-the-abyss",
+          "showTitle": null
+        },
+        {
+          "slug": "the-space-wolf-omnibus",
+          "title": "The Space Wolf Omnibus",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-space-wolf-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "wolfs-honour",
+          "title": "Wolf's Honour",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/wolfs-honour",
+          "showTitle": null
+        },
+        {
+          "slug": "space-wolf-the-second-omnibus",
+          "title": "Space Wolf: The Second Omnibus",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/space-wolf-the-second-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "tales-of-heresy",
+          "title": "Tales of Heresy",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/tales-of-heresy",
+          "showTitle": null
+        },
+        {
+          "slug": "wolf-at-the-door",
+          "title": "Wolf at the Door",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/wolf-at-the-door",
+          "showTitle": null
+        },
+        {
+          "slug": "a-thousand-sons",
+          "title": "A Thousand Sons",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/a-thousand-sons",
+          "showTitle": null
+        },
+        {
+          "slug": "prospero-burns",
+          "title": "Prospero Burns",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/prospero-burns",
+          "showTitle": null
+        },
+        {
+          "slug": "battle-of-the-fang",
+          "title": "Battle of the Fang",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/battle-of-the-fang",
+          "showTitle": null
+        },
+        {
+          "slug": "the-emperors-gift",
+          "title": "The Emperor's Gift",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-emperors-gift",
+          "showTitle": null
+        },
+        {
+          "slug": "bjorn-lone-wolf",
+          "title": "Bjorn: Lone Wolf",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/bjorn-lone-wolf",
+          "showTitle": null
+        },
+        {
+          "slug": "blood-of-asaheim",
+          "title": "Blood of Asaheim",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/blood-of-asaheim",
+          "showTitle": null
+        },
+        {
+          "slug": "arjac-rockfist-anvil-of-fenris",
+          "title": "Arjac Rockfist: Anvil of Fenris",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/arjac-rockfist-anvil-of-fenris",
+          "showTitle": null
+        },
+        {
+          "slug": "death-and-defiance",
+          "title": "Death and Defiance",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/death-and-defiance",
+          "showTitle": null
+        },
+        {
+          "slug": "echoes-of-ruin",
+          "title": "Echoes of Ruin",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/echoes-of-ruin",
+          "showTitle": null
+        },
+        {
+          "slug": "hunters-moon",
+          "title": "Hunter's Moon",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/hunters-moon",
+          "showTitle": null
+        },
+        {
+          "slug": "sanctus-reach-blood-on-the-mountain",
+          "title": "Sanctus Reach: Blood on the Mountain",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/sanctus-reach-blood-on-the-mountain",
+          "showTitle": null
+        },
+        {
+          "slug": "scars",
+          "title": "Scars",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/scars",
+          "showTitle": null
+        },
+        {
+          "slug": "stormcaller",
+          "title": "Stormcaller",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/stormcaller",
+          "showTitle": null
+        },
+        {
+          "slug": "the-watcher",
+          "title": "The Watcher",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-watcher",
+          "showTitle": null
+        },
+        {
+          "slug": "wolfs-claw",
+          "title": "Wolf's Claw",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/wolfs-claw",
+          "showTitle": null
+        },
+        {
+          "slug": "howl-of-the-hearthworld",
+          "title": "Howl of the Hearthworld",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/howl-of-the-hearthworld",
+          "showTitle": null
+        },
+        {
+          "slug": "ragnar-blackmane",
+          "title": "Ragnar Blackmane",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/ragnar-blackmane",
+          "showTitle": null
+        },
+        {
+          "slug": "raptor",
+          "title": "Raptor",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/raptor",
+          "showTitle": null
+        },
+        {
+          "slug": "sanctus-reach",
+          "title": "Sanctus Reach",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/sanctus-reach",
+          "showTitle": null
+        },
+        {
+          "slug": "the-hunt-of-magnus",
+          "title": "The Hunt for Magnus",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-hunt-of-magnus",
+          "showTitle": null
+        },
+        {
+          "slug": "wolf-king",
+          "title": "Wolf King",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/wolf-king",
+          "showTitle": null
+        },
+        {
+          "slug": "crusades-end",
+          "title": "Crusade's End",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/crusades-end",
+          "showTitle": null
+        },
+        {
+          "slug": "leman-russ-the-great-wolf",
+          "title": "Leman Russ: The Great Wolf",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/leman-russ-the-great-wolf",
+          "showTitle": null
+        },
+        {
+          "slug": "space-wolves-scent-of-a-traitor",
+          "title": "Space Wolves: Scent of a Traitor",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/space-wolves-scent-of-a-traitor",
+          "showTitle": null
+        },
+        {
+          "slug": "space-wolves-the-darkness-of-angels",
+          "title": "Space Wolves: The Darkness of Angels",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/space-wolves-the-darkness-of-angels",
+          "showTitle": null
+        },
+        {
+          "slug": "space-wolves-wrath-of-the-wolf",
+          "title": "Space Wolves: Wrath of the Wolf",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/space-wolves-wrath-of-the-wolf",
+          "showTitle": null
+        },
+        {
+          "slug": "the-razing-of-prospero",
+          "title": "The Razing of Prospero",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-razing-of-prospero",
+          "showTitle": null
+        },
+        {
+          "slug": "the-thirteenth-wolf",
+          "title": "The Thirteenth Wolf",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-thirteenth-wolf",
+          "showTitle": null
+        },
+        {
+          "slug": "twelve-wolves",
+          "title": "Twelve Wolves",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/twelve-wolves",
+          "showTitle": null
+        },
+        {
+          "slug": "tyrant-of-the-hollow-worlds",
+          "title": "Tyrant of the Hollow Worlds",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/tyrant-of-the-hollow-worlds",
+          "showTitle": null
+        },
+        {
+          "slug": "war-without-end",
+          "title": "War Without End",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/war-without-end",
+          "showTitle": null
+        },
+        {
+          "slug": "curse-of-the-wulfen",
+          "title": "Curse of the Wulfen",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/curse-of-the-wulfen",
+          "showTitle": null
+        },
+        {
+          "slug": "space-wolves-legends",
+          "title": "Space Wolves (Legends)",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/space-wolves-legends",
+          "showTitle": null
+        },
+        {
+          "slug": "lukas-the-trickster",
+          "title": "Lukas the Trickster",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/lukas-the-trickster",
+          "showTitle": null
+        },
+        {
+          "slug": "the-ashes-of-prospero",
+          "title": "The Ashes of Prospero",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-ashes-of-prospero",
+          "showTitle": null
+        },
+        {
+          "slug": "the-burden-of-loyalty",
+          "title": "The Burden of Loyalty",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-burden-of-loyalty",
+          "showTitle": null
+        },
+        {
+          "slug": "two-metaphysical-blades",
+          "title": "Two Metaphysical Blades",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/two-metaphysical-blades",
+          "showTitle": null
+        },
+        {
+          "slug": "visions-of-heresy-2018-ed",
+          "title": "Visions of Heresy (2018 ed.)",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/visions-of-heresy-2018-ed",
+          "showTitle": null
+        },
+        {
+          "slug": "wolfsbane",
+          "title": "Wolfsbane",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/wolfsbane",
+          "showTitle": null
+        },
+        {
+          "slug": "the-helwinter-gate",
+          "title": "The Helwinter Gate",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-helwinter-gate",
+          "showTitle": null
+        },
+        {
+          "slug": "bloodhowl",
+          "title": "Bloodhowl",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/bloodhowl",
+          "showTitle": null
+        },
+        {
+          "slug": "the-wolftime",
+          "title": "The Wolftime",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-wolftime",
+          "showTitle": null
+        },
+        {
+          "slug": "blood-of-the-imperium",
+          "title": "Blood of the Imperium",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/blood-of-the-imperium",
+          "showTitle": null
+        },
+        {
+          "slug": "krakenblood",
+          "title": "Krakenblood",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/krakenblood",
+          "showTitle": null
+        },
+        {
+          "slug": "legends-of-the-wolf-the-omnibus",
+          "title": "Legends of the Wolf: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/legends-of-the-wolf-the-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "carnage-unending",
+          "title": "Carnage Unending",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/carnage-unending",
+          "showTitle": null
+        },
+        {
+          "slug": "world-ablaze",
+          "title": "World Ablaze",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/world-ablaze",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "lorehammer-f6ab5211-173a-4072-a764-144505d065ac",
+          "title": "98 - Space Wolves",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-bc14ce11-06fa-4917-9fd5-5eb672fb6c28",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "luetin09-cxeliwe0vh8",
+          "title": "40K BEGINNERS - THE ASTARTES CHAPTERS [Part 2] | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-0d40fef7-3410-4cd4-a774-9f28b393892a",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-13874466",
+          "title": "Episode 6 - Horus strikes at the Loyalist forces and the Loyalists begin to strike back at Horus",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-ee6affb4-31cd-421b-a5ab-8126d7a76828",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-14834209",
+          "title": "Episode 29 - Ahriman Pt 2",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-9a17a6fc-707e-46ff-9d78-a787b9cf0c33",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-9517f660-c0a4-11ef-bcd4-136a7e965efe",
+          "title": "Episode 67 - Space Wolves Pt 1  - What they are, where they come from and (of course) Leman Russ",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-4596bcf9-93d8-4ab5-a3fa-14382975f17e",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-14326042",
+          "title": "LEMAN RUSS: THE WOLF-KING | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-10b85f34-1af5-43e3-a500-4835444440e0",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-14457522",
+          "title": "MONTHS OF SHAME: DON'T MESS WITH WOLVES | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-9336f41b-e1d7-4862-9555-50d32e6710c9",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-14367499",
+          "title": "SPACE WOLVES: THE BEASTS THAT STALK THE STARS | Warhammer 40k",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-c65ed1c6-4dab-4e94-8899-37d84a6f5490",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-2f882756-ca0a-11ef-9632-837d17961129",
+          "title": "170 - Leman Russ, Origins and Great Crusade",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-e9cde0c2-5ab7-43bb-b577-7168fd0f37a7",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2fc65256-ca0a-11ef-9632-1385d88493da",
+          "title": "171 - Leman Russ, Horus Heresy and Great Scouring",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-7a5efb97-4e2b-43d6-9898-9f64bf2db793",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2ff58e7c-ca0a-11ef-9632-7bf6000fed57",
+          "title": "172 - Space Wolves, 30k Legion Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-a1f30053-2ea2-46e0-94f2-5a7c23297d10",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-3025054e-ca0a-11ef-9632-07c8dd302ba4",
+          "title": "173 - Space Wolves, 40k Chapter Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-8feef740-39f6-4a90-81cf-3fc86d3d1526",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18411290",
+          "title": "BJORN | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-cab62bbd-7160-43e3-8285-f737812029fb",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-b3e113b0-c0a4-11ef-aec1-5fa50454b8dc",
+          "title": "Episode 68 - Space Wolves Pt 2  - Our favorite characters",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-39cedcb2-04a5-4851-af17-00ea98631d1d",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-17810708",
+          "title": "LOGAN GRIMNAR | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-d135695e-cad6-4649-af2e-a95469bf4601",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-de0c18e9-2f95-490d-975d-f36c795c5853",
+          "title": "Episode 120 - 1st (ish) War of Armageddon - The Battle for Armageddon",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-260dbb13-7dbb-4ce1-977a-573412d82dd4",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-4154cebf-dfd8-4de7-a890-205b169ffb67",
+          "title": "Episode 121 - The Months of Shame",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-af4a0f0f-477f-4a94-ab4e-d31e9bdf66c0",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-0737273c-228e-4f3f-8d55-2a3356b268ca",
+          "title": "Episode 123 - The Alpha Legion pt2, Alph legion take their place amoungst the legions (and irritate all of them in the process)",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-f0ade1f6-272b-4182-ace0-f761fdbbcd82",
+          "showTitle": "The 40k Lorecast"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Sub-factions",
+      "items": [
+        {
+          "type": "faction",
+          "id": "wulfen",
+          "name": "Wulfen"
+        }
+      ]
+    },
+    {
+      "label": "Key characters",
+      "items": [
+        {
+          "type": "character",
+          "id": "berek_thunderfist",
+          "name": "Berek Thunderfist"
+        },
+        {
+          "type": "character",
+          "id": "bjorn",
+          "name": "Bjorn"
+        },
+        {
+          "type": "character",
+          "id": "brynngar",
+          "name": "Brynngar"
+        },
+        {
+          "type": "character",
+          "id": "bulveye",
+          "name": "Bulveye"
+        },
+        {
+          "type": "character",
+          "id": "gunnlaugur",
+          "name": "Gunnlaugur"
+        },
+        {
+          "type": "character",
+          "id": "harek_ironhelm",
+          "name": "Harek Ironhelm"
+        },
+        {
+          "type": "character",
+          "id": "ingvar",
+          "name": "Ingvar"
+        },
+        {
+          "type": "character",
+          "id": "ivar_krakenblood",
+          "name": "Ivar Krakenblood"
+        },
+        {
+          "type": "character",
+          "id": "kjel",
+          "name": "Kjel"
+        },
+        {
+          "type": "character",
+          "id": "krom_dragongaze",
+          "name": "Krom Dragongaze"
+        },
+        {
+          "type": "character",
+          "id": "leman_russ",
+          "name": "Leman Russ"
+        },
+        {
+          "type": "character",
+          "id": "logan_grimnar",
+          "name": "Logan Grimnar"
+        },
+        {
+          "type": "character",
+          "id": "lukas_the_strifeson",
+          "name": "Lukas the Strifeson"
+        },
+        {
+          "type": "character",
+          "id": "njal_stormcaller",
+          "name": "Njal Stormcaller"
+        },
+        {
+          "type": "character",
+          "id": "ragnar_blackmane",
+          "name": "Ragnar Blackmane"
+        },
+        {
+          "type": "character",
+          "id": "ranek",
+          "name": "Ranek"
+        },
+        {
+          "type": "character",
+          "id": "strybjorn_grimskull",
+          "name": "Strybjorn Grimskull"
+        },
+        {
+          "type": "character",
+          "id": "sven_brujothirson",
+          "name": "Sven Brujothirson"
+        },
+        {
+          "type": "character",
+          "id": "torin",
+          "name": "Torin"
+        },
+        {
+          "type": "character",
+          "id": "ulrik_the_slayer",
+          "name": "Ulrik the Slayer"
+        }
+      ]
+    }
+  ]
+}

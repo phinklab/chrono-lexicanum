@@ -1,0 +1,450 @@
+{
+  "type": "location",
+  "id": "fenris",
+  "name": "Fenris",
+  "blurb": {
+    "text": "A lethal ice world of the Imperium, homeworld of the Space Wolves, whose brutal seasons forge the warriors recruited into the Chapter.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Fenris"
+  },
+  "facts": [
+    {
+      "label": "Sector",
+      "value": "Segmentum Obscurus"
+    }
+  ],
+  "tags": [
+    "space_wolves"
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "space-wolf",
+          "title": "Space Wolf",
+          "kind": "book",
+          "releaseYear": 1999,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/space-wolf",
+          "showTitle": null
+        },
+        {
+          "slug": "ragnars-claw",
+          "title": "Ragnar's Claw",
+          "kind": "book",
+          "releaseYear": 2000,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ragnars-claw",
+          "showTitle": null
+        },
+        {
+          "slug": "grey-hunter",
+          "title": "Grey Hunter",
+          "kind": "book",
+          "releaseYear": 2002,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/grey-hunter",
+          "showTitle": null
+        },
+        {
+          "slug": "wolfblade",
+          "title": "Wolfblade",
+          "kind": "book",
+          "releaseYear": 2003,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/wolfblade",
+          "showTitle": null
+        },
+        {
+          "slug": "sons-of-fenris",
+          "title": "Sons of Fenris",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/sons-of-fenris",
+          "showTitle": null
+        },
+        {
+          "slug": "the-space-wolf-omnibus",
+          "title": "The Space Wolf Omnibus",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-space-wolf-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "wolfs-honour",
+          "title": "Wolf's Honour",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/wolfs-honour",
+          "showTitle": null
+        },
+        {
+          "slug": "space-wolf-the-second-omnibus",
+          "title": "Space Wolf: The Second Omnibus",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/space-wolf-the-second-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "prospero-burns",
+          "title": "Prospero Burns",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/prospero-burns",
+          "showTitle": null
+        },
+        {
+          "slug": "battle-of-the-fang",
+          "title": "Battle of the Fang",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/battle-of-the-fang",
+          "showTitle": null
+        },
+        {
+          "slug": "the-emperors-gift",
+          "title": "The Emperor's Gift",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/buch/the-emperors-gift",
+          "showTitle": null
+        },
+        {
+          "slug": "blood-of-asaheim",
+          "title": "Blood of Asaheim",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/buch/blood-of-asaheim",
+          "showTitle": null
+        },
+        {
+          "slug": "arjac-rockfist-anvil-of-fenris",
+          "title": "Arjac Rockfist: Anvil of Fenris",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/arjac-rockfist-anvil-of-fenris",
+          "showTitle": null
+        },
+        {
+          "slug": "the-razing-of-prospero",
+          "title": "The Razing of Prospero",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-razing-of-prospero",
+          "showTitle": null
+        },
+        {
+          "slug": "twelve-wolves",
+          "title": "Twelve Wolves",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/twelve-wolves",
+          "showTitle": null
+        },
+        {
+          "slug": "curse-of-the-wulfen",
+          "title": "Curse of the Wulfen",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/curse-of-the-wulfen",
+          "showTitle": null
+        },
+        {
+          "slug": "lukas-the-trickster",
+          "title": "Lukas the Trickster",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/lukas-the-trickster",
+          "showTitle": null
+        },
+        {
+          "slug": "wolfsbane",
+          "title": "Wolfsbane",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/wolfsbane",
+          "showTitle": null
+        },
+        {
+          "slug": "blood-of-the-emperor",
+          "title": "Blood of the Emperor",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/blood-of-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "the-wolftime",
+          "title": "The Wolftime",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-wolftime",
+          "showTitle": null
+        },
+        {
+          "slug": "krakenblood",
+          "title": "Krakenblood",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/krakenblood",
+          "showTitle": null
+        },
+        {
+          "slug": "legends-of-the-wolf-the-omnibus",
+          "title": "Legends of the Wolf: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/legends-of-the-wolf-the-omnibus",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "the-40k-lorecast-9517f660-c0a4-11ef-bcd4-136a7e965efe",
+          "title": "Episode 67 - Space Wolves Pt 1  - What they are, where they come from and (of course) Leman Russ",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-4596bcf9-93d8-4ab5-a3fa-14382975f17e",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-14367499",
+          "title": "SPACE WOLVES: THE BEASTS THAT STALK THE STARS | Warhammer 40k",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-c65ed1c6-4dab-4e94-8899-37d84a6f5490",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-2f882756-ca0a-11ef-9632-837d17961129",
+          "title": "170 - Leman Russ, Origins and Great Crusade",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-e9cde0c2-5ab7-43bb-b577-7168fd0f37a7",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-3025054e-ca0a-11ef-9632-07c8dd302ba4",
+          "title": "173 - Space Wolves, 40k Chapter Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-8feef740-39f6-4a90-81cf-3fc86d3d1526",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "the-40k-lorecast-4154cebf-dfd8-4de7-a890-205b169ffb67",
+          "title": "Episode 121 - The Months of Shame",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-af4a0f0f-477f-4a94-ab4e-d31e9bdf66c0",
+          "showTitle": "The 40k Lorecast"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Other worlds in sector",
+      "items": [
+        {
+          "type": "location",
+          "id": "armageddon",
+          "name": "Armageddon"
+        },
+        {
+          "type": "location",
+          "id": "asaheim",
+          "name": "Asaheim"
+        },
+        {
+          "type": "location",
+          "id": "cadia",
+          "name": "Cadia"
+        },
+        {
+          "type": "location",
+          "id": "caliban",
+          "name": "Caliban"
+        },
+        {
+          "type": "location",
+          "id": "certus_minor",
+          "name": "Certus-Minor"
+        },
+        {
+          "type": "location",
+          "id": "crannog_mons",
+          "name": "Crannog Mons"
+        },
+        {
+          "type": "location",
+          "id": "davin",
+          "name": "Davin"
+        },
+        {
+          "type": "location",
+          "id": "eye_of_terror",
+          "name": "Eye of Terror"
+        },
+        {
+          "type": "location",
+          "id": "fabris_calivant",
+          "name": "Fabris Calivant"
+        },
+        {
+          "type": "location",
+          "id": "gildar_secundus",
+          "name": "Gildar Secundus"
+        },
+        {
+          "type": "location",
+          "id": "herodian_iv",
+          "name": "Herodian IV"
+        },
+        {
+          "type": "location",
+          "id": "honoria",
+          "name": "Honoria"
+        },
+        {
+          "type": "location",
+          "id": "istvaan_iii",
+          "name": "Istvaan III"
+        },
+        {
+          "type": "location",
+          "id": "istvaan_system",
+          "name": "Istvaan System"
+        },
+        {
+          "type": "location",
+          "id": "istvaan_v",
+          "name": "Istvaan V"
+        },
+        {
+          "type": "location",
+          "id": "kadillus_harbour",
+          "name": "Kadillus Harbour"
+        },
+        {
+          "type": "location",
+          "id": "lastrati",
+          "name": "Lastrati"
+        },
+        {
+          "type": "location",
+          "id": "malouri",
+          "name": "Malouri"
+        },
+        {
+          "type": "location",
+          "id": "medrengard",
+          "name": "Medrengard"
+        },
+        {
+          "type": "location",
+          "id": "northwilds",
+          "name": "Northwilds"
+        },
+        {
+          "type": "location",
+          "id": "nostramo",
+          "name": "Nostramo"
+        },
+        {
+          "type": "location",
+          "id": "piety_v",
+          "name": "Piety V"
+        },
+        {
+          "type": "location",
+          "id": "prospero",
+          "name": "Prospero"
+        },
+        {
+          "type": "location",
+          "id": "fang",
+          "name": "The Fang"
+        },
+        {
+          "type": "location",
+          "id": "tizca",
+          "name": "Tizca"
+        },
+        {
+          "type": "location",
+          "id": "urgall_depression",
+          "name": "Urgall Depression"
+        },
+        {
+          "type": "location",
+          "id": "void",
+          "name": "Warp Corridor"
+        },
+        {
+          "type": "location",
+          "id": "zaramund",
+          "name": "Zaramund"
+        }
+      ]
+    }
+  ]
+}

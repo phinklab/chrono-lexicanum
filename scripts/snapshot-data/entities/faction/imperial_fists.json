@@ -1,0 +1,1020 @@
+{
+  "type": "faction",
+  "id": "imperial_fists",
+  "name": "Imperial Fists",
+  "blurb": {
+    "text": "A loyalist Space Marine Chapter descended from Rogal Dorn, renowned as siege specialists and defenders who held the walls of the Imperial Palace during the Horus Heresy.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Imperial_Fists"
+  },
+  "facts": [
+    {
+      "label": "Alignment",
+      "value": "Imperium"
+    },
+    {
+      "label": "Parent faction",
+      "value": {
+        "type": "faction",
+        "id": "adeptus_astartes",
+        "name": "Adeptus Astartes"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "space-marine",
+          "title": "Space Marine",
+          "kind": "book",
+          "releaseYear": 1993,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/space-marine",
+          "showTitle": null
+        },
+        {
+          "slug": "storm-of-iron",
+          "title": "Storm of Iron",
+          "kind": "book",
+          "releaseYear": 2002,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/storm-of-iron",
+          "showTitle": null
+        },
+        {
+          "slug": "collected-visions",
+          "title": "Collected Visions",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/collected-visions",
+          "showTitle": null
+        },
+        {
+          "slug": "the-dark-king",
+          "title": "The Dark King",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-dark-king",
+          "showTitle": null
+        },
+        {
+          "slug": "the-lightning-tower",
+          "title": "The Lightning Tower",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-lightning-tower",
+          "showTitle": null
+        },
+        {
+          "slug": "hellforged",
+          "title": "Hellforged",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/hellforged",
+          "showTitle": null
+        },
+        {
+          "slug": "sons-of-dorn",
+          "title": "Sons of Dorn",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/sons-of-dorn",
+          "showTitle": null
+        },
+        {
+          "slug": "the-last-remembrancer",
+          "title": "The Last Remembrancer",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-last-remembrancer",
+          "showTitle": null
+        },
+        {
+          "slug": "architect-of-fate",
+          "title": "Architect of Fate",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/architect-of-fate",
+          "showTitle": null
+        },
+        {
+          "slug": "burden-of-duty",
+          "title": "Burden of Duty",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/burden-of-duty",
+          "showTitle": null
+        },
+        {
+          "slug": "distant-echoes-of-old-night",
+          "title": "Distant Echoes of Old Night",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/distant-echoes-of-old-night",
+          "showTitle": null
+        },
+        {
+          "slug": "endeavour-of-will",
+          "title": "Endeavour of Will",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/endeavour-of-will",
+          "showTitle": null
+        },
+        {
+          "slug": "horus-heresy-the-scripts-volume-i",
+          "title": "Horus Heresy: The Scripts: Volume I",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/horus-heresy-the-scripts-volume-i",
+          "showTitle": null
+        },
+        {
+          "slug": "iron-warriors-the-omnibus",
+          "title": "Iron Warriors: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/iron-warriors-the-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "phalanx",
+          "title": "Phalanx",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/phalanx",
+          "showTitle": null
+        },
+        {
+          "slug": "shadows-of-treachery",
+          "title": "Shadows of Treachery",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/shadows-of-treachery",
+          "showTitle": null
+        },
+        {
+          "slug": "malodrax",
+          "title": "Malodrax",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/malodrax",
+          "showTitle": null
+        },
+        {
+          "slug": "riven",
+          "title": "Riven",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/riven",
+          "showTitle": null
+        },
+        {
+          "slug": "seventh-retribution",
+          "title": "Seventh Retribution",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/seventh-retribution",
+          "showTitle": null
+        },
+        {
+          "slug": "soul-drinkers-annihilation-second-omnibus",
+          "title": "Soul Drinkers: Annihilation Second Omnibus",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/soul-drinkers-annihilation-second-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-gates-of-terra",
+          "title": "The Gates of Terra",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-gates-of-terra",
+          "showTitle": null
+        },
+        {
+          "slug": "death-and-defiance",
+          "title": "Death and Defiance",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/death-and-defiance",
+          "showTitle": null
+        },
+        {
+          "slug": "templar",
+          "title": "Templar",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/templar",
+          "showTitle": null
+        },
+        {
+          "slug": "the-crimson-fist",
+          "title": "The Crimson Fist",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-crimson-fist",
+          "showTitle": null
+        },
+        {
+          "slug": "vorax",
+          "title": "Vorax",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/vorax",
+          "showTitle": null
+        },
+        {
+          "slug": "hands-of-the-emperor",
+          "title": "Hands of the Emperor",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/hands-of-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "howl-of-the-hearthworld",
+          "title": "Howl of the Hearthworld",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/howl-of-the-hearthworld",
+          "showTitle": null
+        },
+        {
+          "slug": "i-am-slaughter",
+          "title": "I Am Slaughter",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/i-am-slaughter",
+          "showTitle": null
+        },
+        {
+          "slug": "the-eagles-talon",
+          "title": "The Eagle's Talon",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-eagles-talon",
+          "showTitle": null
+        },
+        {
+          "slug": "into-exhile",
+          "title": "Into Exhile",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/into-exhile",
+          "showTitle": null
+        },
+        {
+          "slug": "shadow-of-ullanor",
+          "title": "Shadow of Ullanor",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/shadow-of-ullanor",
+          "showTitle": null
+        },
+        {
+          "slug": "tallarn-siren",
+          "title": "Tallarn: Siren",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/tallarn-siren",
+          "showTitle": null
+        },
+        {
+          "slug": "the-beast-must-die",
+          "title": "The Beast Must Die",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-beast-must-die",
+          "showTitle": null
+        },
+        {
+          "slug": "the-beheading",
+          "title": "The Beheading",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-beheading",
+          "showTitle": null
+        },
+        {
+          "slug": "the-grey-raven",
+          "title": "The Grey Raven",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-grey-raven",
+          "showTitle": null
+        },
+        {
+          "slug": "the-last-phoenix",
+          "title": "The Last Phoenix",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-last-phoenix",
+          "showTitle": null
+        },
+        {
+          "slug": "the-last-son-of-dorn",
+          "title": "The Last Son of Dorn",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-last-son-of-dorn",
+          "showTitle": null
+        },
+        {
+          "slug": "blackshields-the-false-war",
+          "title": "Blackshields: The False War",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/blackshields-the-false-war",
+          "showTitle": null
+        },
+        {
+          "slug": "champion-of-oaths",
+          "title": "Champion of Oaths",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/champion-of-oaths",
+          "showTitle": null
+        },
+        {
+          "slug": "duty-waits",
+          "title": "Duty Waits",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/duty-waits",
+          "showTitle": null
+        },
+        {
+          "slug": "garro-burden-of-duty",
+          "title": "Garro: Burden of Duty",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/garro-burden-of-duty",
+          "showTitle": null
+        },
+        {
+          "slug": "magisterium",
+          "title": "Magisterium",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/magisterium",
+          "showTitle": null
+        },
+        {
+          "slug": "now-peals-midnight",
+          "title": "Now Peals Midnight",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/now-peals-midnight",
+          "showTitle": null
+        },
+        {
+          "slug": "perturabo-stone-and-iron",
+          "title": "Perturabo: Stone and Iron",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/perturabo-stone-and-iron",
+          "showTitle": null
+        },
+        {
+          "slug": "praetorian-of-dorn",
+          "title": "Praetorian of Dorn",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/praetorian-of-dorn",
+          "showTitle": null
+        },
+        {
+          "slug": "shroud-of-night",
+          "title": "Shroud of Night",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/shroud-of-night",
+          "showTitle": null
+        },
+        {
+          "slug": "legacy-of-dorn",
+          "title": "Legacy of Dorn",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "background",
+          "href": "/buch/legacy-of-dorn",
+          "showTitle": null
+        },
+        {
+          "slug": "the-lords-of-terra",
+          "title": "The Lords of Terra",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-lords-of-terra",
+          "showTitle": null
+        },
+        {
+          "slug": "visions-of-heresy-2018-ed",
+          "title": "Visions of Heresy (2018 ed.)",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/visions-of-heresy-2018-ed",
+          "showTitle": null
+        },
+        {
+          "slug": "apocalypse",
+          "title": "Apocalypse",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/apocalypse",
+          "showTitle": null
+        },
+        {
+          "slug": "iron-warriors-the-complete-honsou-omnibus",
+          "title": "Iron Warriors: The Complete Honsou Omnibus",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/iron-warriors-the-complete-honsou-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "scions-of-the-emperor",
+          "title": "Scions of the Emperor",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/scions-of-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "the-lost-and-the-damned",
+          "title": "The Lost and the Damned",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-lost-and-the-damned",
+          "showTitle": null
+        },
+        {
+          "slug": "the-solar-war",
+          "title": "The Solar War",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-solar-war",
+          "showTitle": null
+        },
+        {
+          "slug": "ember-of-extinction",
+          "title": "Ember of Extinction",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/ember-of-extinction",
+          "showTitle": null
+        },
+        {
+          "slug": "fist-of-the-imperium",
+          "title": "Fist of the Imperium",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/fist-of-the-imperium",
+          "showTitle": null
+        },
+        {
+          "slug": "saturnine",
+          "title": "Saturnine",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/saturnine",
+          "showTitle": null
+        },
+        {
+          "slug": "the-first-wall",
+          "title": "The First Wall",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-first-wall",
+          "showTitle": null
+        },
+        {
+          "slug": "the-regents-shadow",
+          "title": "The Regent's Shadow",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-regents-shadow",
+          "showTitle": null
+        },
+        {
+          "slug": "the-will-of-the-legion",
+          "title": "The Will of the Legion",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-will-of-the-legion",
+          "showTitle": null
+        },
+        {
+          "slug": "blood-of-the-emperor",
+          "title": "Blood of the Emperor",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/blood-of-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "fury-of-magnus",
+          "title": "Fury of Magnus",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/fury-of-magnus",
+          "showTitle": null
+        },
+        {
+          "slug": "mortis",
+          "title": "Mortis",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/mortis",
+          "showTitle": null
+        },
+        {
+          "slug": "warhawk",
+          "title": "Warhawk",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/warhawk",
+          "showTitle": null
+        },
+        {
+          "slug": "rogal-dorn-the-emperors-crusader",
+          "title": "Rogal Dorn: The Emperor's Crusader",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/rogal-dorn-the-emperors-crusader",
+          "showTitle": null
+        },
+        {
+          "slug": "sigismund-the-eternal-crusader",
+          "title": "Sigismund: The Eternal Crusader",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/sigismund-the-eternal-crusader",
+          "showTitle": null
+        },
+        {
+          "slug": "garro-knight-of-grey",
+          "title": "Garro: Knight of Grey",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/garro-knight-of-grey",
+          "showTitle": null
+        },
+        {
+          "slug": "the-end-and-the-death-vol-1",
+          "title": "The End and The Death Vol. 1",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-end-and-the-death-vol-1",
+          "showTitle": null
+        },
+        {
+          "slug": "the-end-and-the-death-vol-2",
+          "title": "The End and The Death Vol. 2",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-end-and-the-death-vol-2",
+          "showTitle": null
+        },
+        {
+          "slug": "the-end-and-the-death-vol-3",
+          "title": "The End and The Death Vol. 3",
+          "kind": "book",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-end-and-the-death-vol-3",
+          "showTitle": null
+        },
+        {
+          "slug": "era-of-ruin",
+          "title": "Era Of Ruin",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/era-of-ruin",
+          "showTitle": null
+        },
+        {
+          "slug": "flames-of-betrayal",
+          "title": "Flames of Betrayal",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/flames-of-betrayal",
+          "showTitle": null
+        },
+        {
+          "slug": "legends-of-the-waaagh",
+          "title": "Legends of the Waaagh!",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/legends-of-the-waaagh",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "luetin09-uicxxwo7kne",
+          "title": "40K LEGENDS - BATTLE-CAPTAIN NATHANIEL GARRO | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/luetin09#ep-c562cdf9-4a2b-4904-b522-98ac2da5bd62",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-10474378",
+          "title": "IMPERIAL FISTS: NO RETREAT, NO SURRENDER | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-fb0f94c1-af74-4c85-ada8-ba174cd3db76",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-10430475",
+          "title": "ROGAL DORN: DISCIPLINE. DUTY. WILL. | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-c2ffed99-847d-4b47-afa8-6e57fe33b88b",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "luetin09-cxeliwe0vh8",
+          "title": "40K BEGINNERS - THE ASTARTES CHAPTERS [Part 2] | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-0d40fef7-3410-4cd4-a774-9f28b393892a",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-7pc2yvnvqzg",
+          "title": "40K - DORN MUST STAY DEAD - Returning Primarchs | Warhammer 40,000 Lore/Speculation",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/luetin09#ep-f70dc475-fb8d-490a-af70-8dd2040275eb",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-15855157",
+          "title": "SOUL DRINKERS: LOYALIST TRAITORS OF THE EMPEROR, ARCHITECT OF FATE | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-867c09e4-2f03-4e3c-95ef-6f1fb320561a",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-14863794",
+          "title": "THE EMPEROR IS DEAD, I CALL DIBS ON HIS STUFF | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-152e44ea-1ad4-4320-9aaa-a2e38bf42147",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-14502039",
+          "title": "VASHTORR RETURNS IN CAWL vs. NECRONS DOOMSDAY WEAPON EXTRAVAGANZA | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-1d3e0027-8331-488f-94f6-65416617efa3",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-316cf70e-ca0a-11ef-9632-5ba772441a91",
+          "title": "180 - Rogal Dorn, Origins and Great Crusade",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-b0f45f8c-c4fb-4053-94c8-60b2496e722b",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-319d8360-ca0a-11ef-9632-e37b8772a56b",
+          "title": "181 - Rogal Dorn, Horus Heresy and Great Scouring",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-925ed9cb-a9c0-422c-b131-dfae96193ba3",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-31cee41e-ca0a-11ef-9632-63bc7a7ccd05",
+          "title": "182 - Imperial Fists, 30k Legion Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-711c12c7-b392-42d9-995b-51856ffc72cf",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-32007bd2-ca0a-11ef-9632-a30607dffb20",
+          "title": "183 - Imperial Fists, 40k Chapter Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-876613ba-0f3d-4724-ad55-22f8b5936242",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "the-40k-lorecast-e11ce123-7b7f-407c-ba44-461dbce028e5",
+          "title": "Episode 87 - The Imperial Fists pt 1 - The Rise of the 7th legion.",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-e1ed3bee-e10e-4933-9f64-d615b85313bb",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-a8a58992-e548-471d-9759-2e3263e69efb",
+          "title": "Episode 88 - Imperial Fists pt 2 - post Heresy Fists, Crimson fists, and Sigismund",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-b6747c0d-6ae5-4a7e-bac7-7fe2c51969ac",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "luetin09-maj9xhyykxi",
+          "title": "ROGAL DORN - DEAD OR ALIVE? - Returning Primarchs | Warhammer 40,000 Lore/Speculation",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-5c6bf942-2359-497b-8820-6c968527d416",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-17976317",
+          "title": "WAR OF THE BEAST: Rocks fall, Imperial Fists Die | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-2778f576-995f-49a2-8e25-890a23cb7fbd",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18096196",
+          "title": "War of the Beast: The Civil Waagh | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-bb65a737-6a33-4492-98fd-1a444052345d",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18662603",
+          "title": "Necromunda: THE Ultimate 40k Hellworld | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-696cea0c-1038-41a8-9eb1-404dc2f8588a",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-19170717",
+          "title": "Why the Iron Warriors are Purging Cadia... Again | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-dea46d52-9716-4f74-ba7e-e18cf9193a6b",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Sub-factions",
+      "items": [
+        {
+          "type": "faction",
+          "id": "astral_knights",
+          "name": "Astral Knights"
+        },
+        {
+          "type": "faction",
+          "id": "crimson_fists",
+          "name": "Crimson Fists"
+        },
+        {
+          "type": "faction",
+          "id": "excoriators",
+          "name": "Excoriators"
+        }
+      ]
+    },
+    {
+      "label": "Key characters",
+      "items": [
+        {
+          "type": "character",
+          "id": "alexis_polux",
+          "name": "Alexis Polux"
+        },
+        {
+          "type": "character",
+          "id": "archamus",
+          "name": "Archamus"
+        },
+        {
+          "type": "character",
+          "id": "darnath_lysander",
+          "name": "Darnath Lysander"
+        },
+        {
+          "type": "character",
+          "id": "koorland",
+          "name": "Koorland"
+        },
+        {
+          "type": "character",
+          "id": "maximus_thane",
+          "name": "Maximus Thane"
+        },
+        {
+          "type": "character",
+          "id": "rogal_dorn",
+          "name": "Rogal Dorn"
+        },
+        {
+          "type": "character",
+          "id": "sigismund",
+          "name": "Sigismund"
+        }
+      ]
+    }
+  ]
+}

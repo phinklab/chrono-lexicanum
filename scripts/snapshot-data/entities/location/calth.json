@@ -1,0 +1,521 @@
+{
+  "type": "location",
+  "id": "calth",
+  "name": "Calth",
+  "blurb": {
+    "text": "A world of Ultramar devastated during the Battle of Calth, where the Word Bearers betrayed the Ultramarines and drove the survivors into the planet's underworld.",
+    "confidence": 0.9,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Calth"
+  },
+  "facts": [
+    {
+      "label": "Sector",
+      "value": "Segmentum Ultima"
+    }
+  ],
+  "tags": [
+    "ultramarines",
+    "word_bearers"
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "the-chapters-due",
+          "title": "The Chapter's Due",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-chapters-due",
+          "showTitle": null
+        },
+        {
+          "slug": "rules-of-engagement",
+          "title": "Rules of Engagement",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/rules-of-engagement",
+          "showTitle": null
+        },
+        {
+          "slug": "the-outcast-dead",
+          "title": "The Outcast Dead",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-outcast-dead",
+          "showTitle": null
+        },
+        {
+          "slug": "garro-sword-of-truth",
+          "title": "Garro: Sword of Truth",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/garro-sword-of-truth",
+          "showTitle": null
+        },
+        {
+          "slug": "iron-warriors-the-omnibus",
+          "title": "Iron Warriors: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/buch/iron-warriors-the-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "know-no-fear",
+          "title": "Know No Fear",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/know-no-fear",
+          "showTitle": null
+        },
+        {
+          "slug": "ultramarines-the-second-omnibus",
+          "title": "Ultramarines: The Second Omnibus",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/ultramarines-the-second-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "betrayer",
+          "title": "Betrayer",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/betrayer",
+          "showTitle": null
+        },
+        {
+          "slug": "censure",
+          "title": "Censure",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/censure",
+          "showTitle": null
+        },
+        {
+          "slug": "honour-to-the-dead",
+          "title": "Honour to the Dead",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/honour-to-the-dead",
+          "showTitle": null
+        },
+        {
+          "slug": "horus-heresy-the-scripts-volume-ii",
+          "title": "Horus Heresy: The Scripts: Volume II",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/horus-heresy-the-scripts-volume-ii",
+          "showTitle": null
+        },
+        {
+          "slug": "betrayal-at-calth",
+          "title": "Betrayal at Calth",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/betrayal-at-calth",
+          "showTitle": null
+        },
+        {
+          "slug": "legacies-of-betrayal",
+          "title": "Legacies of Betrayal",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/legacies-of-betrayal",
+          "showTitle": null
+        },
+        {
+          "slug": "the-honoured",
+          "title": "The Honoured",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-honoured",
+          "showTitle": null
+        },
+        {
+          "slug": "the-unburdened",
+          "title": "The Unburdened",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-unburdened",
+          "showTitle": null
+        },
+        {
+          "slug": "perpetual",
+          "title": "Perpetual",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/perpetual",
+          "showTitle": null
+        },
+        {
+          "slug": "war-without-end",
+          "title": "War Without End",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/war-without-end",
+          "showTitle": null
+        },
+        {
+          "slug": "echoes-of-revelation",
+          "title": "Echoes of Revelation",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/echoes-of-revelation",
+          "showTitle": null
+        },
+        {
+          "slug": "eye-of-terra",
+          "title": "Eye of Terra",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/eye-of-terra",
+          "showTitle": null
+        },
+        {
+          "slug": "garro-oath-of-moment",
+          "title": "Garro: Oath of Moment",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/garro-oath-of-moment",
+          "showTitle": null
+        },
+        {
+          "slug": "mark-of-calth",
+          "title": "Mark of Calth",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/mark-of-calth",
+          "showTitle": null
+        },
+        {
+          "slug": "hubris-of-monarchia",
+          "title": "Hubris of Monarchia",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/hubris-of-monarchia",
+          "showTitle": null
+        },
+        {
+          "slug": "iron-warriors-the-complete-honsou-omnibus",
+          "title": "Iron Warriors: The Complete Honsou Omnibus",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/buch/iron-warriors-the-complete-honsou-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-uriel-ventris-chronicles-vol-2-omnibus",
+          "title": "The Uriel Ventris Chronicles Vol. 2 Omnibus",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-uriel-ventris-chronicles-vol-2-omnibus",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "the-40k-lorecast-faa90e90-607e-4efb-8baa-552d1db6c7df",
+          "title": "Episode 105 - The Ultramarines, from the start of the Heresy to the fall of Guilliman",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-6ec8daee-1630-4798-a8d4-73719d4ab685",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "lorehammer-42b9ee95-a915-44df-aee1-9a5ae91ded02",
+          "title": "230 - Ultramarines, 30k Legion Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-a549aa68-9d4c-432a-973a-8cd49dab96ea",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "the-40k-lorecast-ca1a53a7-b25e-4a5d-889b-bab3f68e2c9e",
+          "title": "Episode 146 - Word Bearers pt 3 - Heresy is a go, but Erebus and Lorgar have some different ideas of next steps",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-65243250-5ee6-4f90-b569-edfb9ed2cb44",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-19361091",
+          "title": "URIEL VENTRIS: Least Depressed Named Ultramarine | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-9000aa5b-c13c-4157-8dce-05fe7ed1d4b6",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Other worlds in sector",
+      "items": [
+        {
+          "type": "location",
+          "id": "arthas_moloch",
+          "name": "Arthas Moloch"
+        },
+        {
+          "type": "location",
+          "id": "cao_quo",
+          "name": "Cao Quo"
+        },
+        {
+          "type": "location",
+          "id": "cybele",
+          "name": "Cybele"
+        },
+        {
+          "type": "location",
+          "id": "damnos",
+          "name": "Damnos"
+        },
+        {
+          "type": "location",
+          "id": "damocles_gulf",
+          "name": "Damocles Gulf"
+        },
+        {
+          "type": "location",
+          "id": "doahht",
+          "name": "Doahht"
+        },
+        {
+          "type": "location",
+          "id": "drechia",
+          "name": "Drechia"
+        },
+        {
+          "type": "location",
+          "id": "ghaslakh",
+          "name": "Ghaslakh"
+        },
+        {
+          "type": "location",
+          "id": "gravalax",
+          "name": "Gravalax"
+        },
+        {
+          "type": "location",
+          "id": "heletine",
+          "name": "Heletine"
+        },
+        {
+          "type": "location",
+          "id": "iax",
+          "name": "Iax"
+        },
+        {
+          "type": "location",
+          "id": "iesta_veracrux",
+          "name": "Iesta Veracrux"
+        },
+        {
+          "type": "location",
+          "id": "illyrium",
+          "name": "Illyrium"
+        },
+        {
+          "type": "location",
+          "id": "ithraca",
+          "name": "Ithraca"
+        },
+        {
+          "type": "location",
+          "id": "kronus",
+          "name": "Kronus"
+        },
+        {
+          "type": "location",
+          "id": "lysios",
+          "name": "Lysios"
+        },
+        {
+          "type": "location",
+          "id": "macragge",
+          "name": "Macragge"
+        },
+        {
+          "type": "location",
+          "id": "miral",
+          "name": "Miral"
+        },
+        {
+          "type": "location",
+          "id": "numinus",
+          "name": "Numinus"
+        },
+        {
+          "type": "location",
+          "id": "octarius",
+          "name": "Octarius"
+        },
+        {
+          "type": "location",
+          "id": "oran",
+          "name": "Oran"
+        },
+        {
+          "type": "location",
+          "id": "parmenio",
+          "name": "Parmenio"
+        },
+        {
+          "type": "location",
+          "id": "pavonis",
+          "name": "Pavonis"
+        },
+        {
+          "type": "location",
+          "id": "percepton_primus",
+          "name": "Percepton Primus"
+        },
+        {
+          "type": "location",
+          "id": "periremunda",
+          "name": "Periremunda"
+        },
+        {
+          "type": "location",
+          "id": "pontus_avernes",
+          "name": "Pontus Avernes"
+        },
+        {
+          "type": "location",
+          "id": "quadravidia",
+          "name": "Quadravidia"
+        },
+        {
+          "type": "location",
+          "id": "quintus",
+          "name": "Quintus"
+        },
+        {
+          "type": "location",
+          "id": "saltire_vex",
+          "name": "Saltire Vex"
+        },
+        {
+          "type": "location",
+          "id": "aurelia",
+          "name": "Subsector Aurelia"
+        },
+        {
+          "type": "location",
+          "id": "tau_empire",
+          "name": "T'au Empire"
+        },
+        {
+          "type": "location",
+          "id": "tarsis_ultra",
+          "name": "Tarsis Ultra"
+        },
+        {
+          "type": "location",
+          "id": "ultramar",
+          "name": "Ultramar"
+        },
+        {
+          "type": "location",
+          "id": "velua",
+          "name": "Velua"
+        },
+        {
+          "type": "location",
+          "id": "vigilus",
+          "name": "Vigilus"
+        },
+        {
+          "type": "location",
+          "id": "vior_los",
+          "name": "Vior'los"
+        },
+        {
+          "type": "location",
+          "id": "virger_mos_ii",
+          "name": "Virger-Mos II"
+        },
+        {
+          "type": "location",
+          "id": "viridia",
+          "name": "Viridia"
+        },
+        {
+          "type": "location",
+          "id": "zalathras",
+          "name": "Zalathras"
+        },
+        {
+          "type": "location",
+          "id": "zalidar",
+          "name": "Zalidar"
+        }
+      ]
+    }
+  ]
+}

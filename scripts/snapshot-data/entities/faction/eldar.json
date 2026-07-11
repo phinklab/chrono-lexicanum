@@ -1,0 +1,1152 @@
+{
+  "type": "faction",
+  "id": "eldar",
+  "name": "Aeldari",
+  "blurb": {
+    "text": "The Aeldari: an ancient, long-lived xenos race of great psychic and technological sophistication, scattered across the galaxy after the fall of their empire.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Aeldari"
+  },
+  "facts": [
+    {
+      "label": "Alignment",
+      "value": "Xenos"
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "harlequin",
+          "title": "Harlequin",
+          "kind": "book",
+          "releaseYear": 1994,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/harlequin",
+          "showTitle": null
+        },
+        {
+          "slug": "chaos-child",
+          "title": "Chaos Child",
+          "kind": "book",
+          "releaseYear": 1995,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/chaos-child",
+          "showTitle": null
+        },
+        {
+          "slug": "ghostmaker",
+          "title": "Ghostmaker",
+          "kind": "book",
+          "releaseYear": 2000,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ghostmaker",
+          "showTitle": null
+        },
+        {
+          "slug": "farseer",
+          "title": "Farseer",
+          "kind": "book",
+          "releaseYear": 2002,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/farseer",
+          "showTitle": null
+        },
+        {
+          "slug": "nightbringer",
+          "title": "Nightbringer",
+          "kind": "book",
+          "releaseYear": 2002,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/nightbringer",
+          "showTitle": null
+        },
+        {
+          "slug": "gaunts-ghosts-the-founding-omnibus-1-3",
+          "title": "Gaunt's Ghosts: The Founding Omnibus, 1-3",
+          "kind": "book",
+          "releaseYear": 2003,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/gaunts-ghosts-the-founding-omnibus-1-3",
+          "showTitle": null
+        },
+        {
+          "slug": "dawn-of-war",
+          "title": "Dawn of War",
+          "kind": "book",
+          "releaseYear": 2004,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/dawn-of-war",
+          "showTitle": null
+        },
+        {
+          "slug": "ascension-dawn-of-war",
+          "title": "Ascension",
+          "kind": "book",
+          "releaseYear": 2005,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/ascension-dawn-of-war",
+          "showTitle": null
+        },
+        {
+          "slug": "tempest",
+          "title": "Tempest",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/tempest",
+          "showTitle": null
+        },
+        {
+          "slug": "the-ultramarines-omnibus",
+          "title": "The Ultramarines Omnibus",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-ultramarines-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "warrior-coven",
+          "title": "Warrior Coven",
+          "kind": "book",
+          "releaseYear": 2006,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/warrior-coven",
+          "showTitle": null
+        },
+        {
+          "slug": "eldar-prophecy",
+          "title": "Eldar Prophecy",
+          "kind": "book",
+          "releaseYear": 2007,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/eldar-prophecy",
+          "showTitle": null
+        },
+        {
+          "slug": "blood-ravens-the-dawn-of-war-omnibus",
+          "title": "Blood Ravens: The Dawn of War Omnibus",
+          "kind": "book",
+          "releaseYear": 2008,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/blood-ravens-the-dawn-of-war-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-inquisition-war-omnibus",
+          "title": "The Inquisition War Omnibus",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-inquisition-war-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "path-of-the-warrior",
+          "title": "Path of the Warrior",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/path-of-the-warrior",
+          "showTitle": null
+        },
+        {
+          "slug": "atlas-infernal",
+          "title": "Atlas Infernal",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/atlas-infernal",
+          "showTitle": null
+        },
+        {
+          "slug": "path-of-the-seer",
+          "title": "Path of the Seer",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/path-of-the-seer",
+          "showTitle": null
+        },
+        {
+          "slug": "promethean-sun",
+          "title": "Promethean Sun",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/promethean-sun",
+          "showTitle": null
+        },
+        {
+          "slug": "feat-of-iron",
+          "title": "Feat of Iron",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/feat-of-iron",
+          "showTitle": null
+        },
+        {
+          "slug": "path-of-the-outcast",
+          "title": "Path of the Outcast",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/path-of-the-outcast",
+          "showTitle": null
+        },
+        {
+          "slug": "the-primarchs",
+          "title": "The Primarchs",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-primarchs",
+          "showTitle": null
+        },
+        {
+          "slug": "void-stalker",
+          "title": "Void Stalker",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/void-stalker",
+          "showTitle": null
+        },
+        {
+          "slug": "angel-exterminatus",
+          "title": "Angel Exterminatus",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/angel-exterminatus",
+          "showTitle": null
+        },
+        {
+          "slug": "stormseer",
+          "title": "Stormseer",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/stormseer",
+          "showTitle": null
+        },
+        {
+          "slug": "traitors-gorge",
+          "title": "Traitor's Gorge",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/traitors-gorge",
+          "showTitle": null
+        },
+        {
+          "slug": "night-lords-the-omnibus",
+          "title": "Night Lords: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/night-lords-the-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "overfiend",
+          "title": "Overfiend",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/overfiend",
+          "showTitle": null
+        },
+        {
+          "slug": "path-of-the-eldar-omnibus",
+          "title": "Path of the Eldar Omnibus",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/path-of-the-eldar-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "shadow-captain",
+          "title": "Shadow Captain",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/shadow-captain",
+          "showTitle": null
+        },
+        {
+          "slug": "valedor",
+          "title": "Valedor",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/valedor",
+          "showTitle": null
+        },
+        {
+          "slug": "asurmen-hand-of-asuryan",
+          "title": "Asurmen: Hand of Asuryan",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/asurmen-hand-of-asuryan",
+          "showTitle": null
+        },
+        {
+          "slug": "azrael",
+          "title": "Azrael",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/azrael",
+          "showTitle": null
+        },
+        {
+          "slug": "throneworld",
+          "title": "Throneworld",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/throneworld",
+          "showTitle": null
+        },
+        {
+          "slug": "clonelord",
+          "title": "Clonelord",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/clonelord",
+          "showTitle": null
+        },
+        {
+          "slug": "dawn-of-war-iii",
+          "title": "Dawn of War III",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/dawn-of-war-iii",
+          "showTitle": null
+        },
+        {
+          "slug": "jain-zar-the-storm-of-silence",
+          "title": "Jain Zar: The Storm of Silence",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/jain-zar-the-storm-of-silence",
+          "showTitle": null
+        },
+        {
+          "slug": "old-earth",
+          "title": "Old Earth",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/old-earth",
+          "showTitle": null
+        },
+        {
+          "slug": "shield-of-baal",
+          "title": "Shield of Baal",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/shield-of-baal",
+          "showTitle": null
+        },
+        {
+          "slug": "the-last-hunt",
+          "title": "The Last Hunt",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-last-hunt",
+          "showTitle": null
+        },
+        {
+          "slug": "choose-your-enemies",
+          "title": "Choose Your Enemies",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/choose-your-enemies",
+          "showTitle": null
+        },
+        {
+          "slug": "ghost-warrior",
+          "title": "Ghost Warrior",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/ghost-warrior",
+          "showTitle": null
+        },
+        {
+          "slug": "the-voice-of-mars",
+          "title": "The Voice of Mars",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/the-voice-of-mars",
+          "showTitle": null
+        },
+        {
+          "slug": "wild-rider",
+          "title": "Wild Rider",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/wild-rider",
+          "showTitle": null
+        },
+        {
+          "slug": "ishas-lament",
+          "title": "Isha's Lament",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ishas-lament",
+          "showTitle": null
+        },
+        {
+          "slug": "the-uriel-ventris-chronicles-vol-1-omnibus",
+          "title": "The Uriel Ventris Chronicles Vol. 1 Omnibus",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-uriel-ventris-chronicles-vol-1-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "ephrael-stern-the-heretic-saint",
+          "title": "Ephrael Stern: The Heretic Saint",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/ephrael-stern-the-heretic-saint",
+          "showTitle": null
+        },
+        {
+          "slug": "the-wraithbone-phoenix",
+          "title": "The Wraithbone Phoenix",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-wraithbone-phoenix",
+          "showTitle": null
+        },
+        {
+          "slug": "voidscarred",
+          "title": "Voidscarred",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/voidscarred",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "luetin09-gueka-nhzpy",
+          "title": "DARK BEGINNINGS Necrons, Old Ones & Eldar | WARHAMMER 40,000 Lore / History",
+          "kind": "podcast_episode",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-7a8245e1-7884-40f6-9f1d-15627ebf8e7d",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-ya660ug4i9o",
+          "title": "ELDAR - Rise and Fall of an Empire | WARHAMMER 40,000 Lore / History",
+          "kind": "podcast_episode",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-e2b41290-4771-48ca-90ef-550432b201fd",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-kypje1sn-ts",
+          "title": "THE EMPEROR OF MAN [1] The Rise of Humanity | WARHAMMER 40,000 Lore / History",
+          "kind": "podcast_episode",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/luetin09#ep-0e1e17ac-eb5c-4153-9599-b2875805177c",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "lorehammer-http-lorehammer-podbean-com-e-04-the-rise-and-fall-of-the-eldar",
+          "title": "04 - The Rise and Fall of the Eldar",
+          "kind": "podcast_episode",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-1a9fb544-a386-4ec5-8728-5a0eefed39a1",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-10-eldar-the-exiled-ones-24b00f90dd1700f333f1ee8f1a4eedd1",
+          "title": "10 - Eldar: The Exiled Ones",
+          "kind": "podcast_episode",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-5df22271-bc5e-4fd8-9262-32c1016a04b2",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-25-harlequins-24b00f90dd1700f333f1ee8f1a4eedd1",
+          "title": "25 - Harlequins",
+          "kind": "podcast_episode",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-80df0fa7-e96f-463a-ab7b-9fe34c96e331",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-35-the-path-of-the-eldar-35c029f01f1f6f8701389a5bcc78d561",
+          "title": "35 - The Path of the Eldar",
+          "kind": "podcast_episode",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-62cf060a-08f5-49bf-90da-2026e3bd5bbd",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "luetin09-hp-23z-hmr4",
+          "title": "40K DARK ORIGINS [2] War in Heaven & Aeldari Mythology | WARHAMMER 40,000 history/lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-7a71d5e8-b77d-446f-b1de-eed0b462956a",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-46-aeldari-path-of-the-warrior-part-1-57a54a2db224c327b9e1af0b5a7bbddf",
+          "title": "46 - Aeldari: Path of the Warrior, Part 1",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-48f32dc1-53f0-4542-8935-1c728c90d233",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-47-aeldari-path-of-the-warrior-part-2-ec6caf8a462969f0a3959cff138b663f",
+          "title": "47 - Aeldari: Path of the Warrior, Part 2",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-a6250d51-8da4-44e0-b08b-9f639dcdafe9",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-d85b00ab-5802-4c28-a3f4-543d4efbcb1c",
+          "title": "58 - Path of the Seer",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-4fbbc68b-d13e-4a21-ba07-18c4068ba978",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "luetin09-m6m9-ofekpk",
+          "title": "WTF IS WARHAMMER 40K? - EXPLAINED - FULL BEGINNER'S GUIDE + EVERY MAJOR FACTION | Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-d25f61f7-baec-4ea6-88d6-571d3342910e",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-65eg5-sl3xw",
+          "title": "40K - THE DRUKHARI / DARK ELDAR - RACE OVERVIEW | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/luetin09#ep-5f7e2461-5a58-4081-827a-ff04969245a4",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-f2g1f3l-r9m",
+          "title": "40K's MOST INSANE & POWERFUL WEAPONS [Part One]  | WARHAMMER 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/luetin09#ep-59465fd4-baef-4005-bd05-ee25d9532790",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-a8d4bc22-a202-508e-9e05-f81eee1afefd",
+          "title": "70 - The Aeldari Path of the Dead",
+          "kind": "podcast_episode",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-682d0617-9dbd-4469-9f4c-05d56e33df4f",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-a82ff277-9d44-4095-b207-c13c76de262d",
+          "title": "82 - Eldar Exodites and Outcasts",
+          "kind": "podcast_episode",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-35555d4e-4637-4949-b730-93d28a28ad45",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-6952793",
+          "title": "Horny Space Elves & the Birth of Slaanesh | Origins of Warhammer 40k",
+          "kind": "podcast_episode",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-fda488c1-8ee6-4ff5-9e70-74baeb4c5775",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-eedde4fd-fe23-41c8-8e7a-d76f90e05189",
+          "title": "83 - Phoenix Lords",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-512aa033-ab76-4c54-b7e8-7af7fb762964",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-17bccf6c-4564-483b-9acf-19703b8994d0",
+          "title": "94 - Ynnari",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-e417928e-3bb7-4606-aab2-88310c3484d7",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-9049279",
+          "title": "CRAFTWORLD ELDAR: MAY THE WINDS OF FATE GUIDE MY SWORD | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-e4850c76-8daa-4791-b88a-f1642018cac3",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "luetin09-rgeoysesfqo",
+          "title": "40K - PLANETS - XENOS | Daemons, Necron, Ynnari | WARHAMMER 40,000 Lore / History",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-c48f3041-1505-40d6-9194-1d4262b5dfa4",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-zzb5hz36ess",
+          "title": "40K - WHAT IS SLAANESH? WILL THE AELDARI DESTROY THE GALAXY? | Warhammer 40,000 Lore/Discussion",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-b488aee1-006c-4517-ac76-8b3c671c0a7b",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-11153749",
+          "title": "MAJOR CRAFTWORLDS: WE STEER EVER TOWARDS THE LIGHT | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-1db5f338-065c-408f-8714-4ad6d5a06b47",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-12116429",
+          "title": "ASPECT WARRIORS: BE NOT AFRAID. IN THE END, EVERYTHING BURNS | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-ff7e47c3-43e9-49f8-8df5-f5475b8fcb07",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-12069236",
+          "title": "CRAFTWORLD VEHICLES: GOTTA GO FAST | Warhammer 40k Lore feat Kirioth",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-55bbe0bb-b64b-4df5-ab06-4ba68f1d01da",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-14031894",
+          "title": "Episode 10 - The Old Ones.... and some necrons, and C'tan, also a little Eldar and Orks.",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-e55f87c4-9df9-446d-b3c2-79c953eaf02c",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-14197112",
+          "title": "Episode 14 - The rise and very brutal fall of the Aeldari Empire.",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-524b4f35-a73b-42c1-84ed-127326ea46de",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-13672267",
+          "title": "NECRONS: FROM RIP-OFF TERMINATORS TO SPACE EGYPTIANS  | Warhammer 40k Lore feat Zee",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-0a464037-2cd2-46a1-90c0-29d3a0488e90",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-12258916",
+          "title": "PHOENIX LORDS: I AM YOUR EVILS RETURNED TO YOU | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-a9106dc9-5afc-4d0c-9bb3-f2301009d0b2",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-12021678",
+          "title": "RYLANOR: THE ANCIENT OF RITES | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-00acce05-4e74-464e-89bd-003c32e06702",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "luetin09-v-duls7pjjy",
+          "title": "WHAT IF CHAOS RULED THE 40K GALAXY? | WARHAMMER 40,000 LORE / SPECULATION",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/luetin09#ep-f99cbcc1-1c8f-4ae4-8854-feee8d997af9",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "luetin09-o1rl3efnrio",
+          "title": "WHAT IF TYRANIDS RULED THE 40K GALAXY? | WARHAMMER 40,000 LORE / SPECULATION",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/luetin09#ep-5f2cd0e2-202a-404e-ae9a-5958f1b44392",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "lorehammer-3eeea9c5-5e95-46b1-87e9-e02ee157a29b",
+          "title": "105 - The Webway",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-01345d39-97a8-4eb5-b4c9-eac6ae65f041",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-https-api-spreaker-com-episode-63256237",
+          "title": "128 - Path of the Outcast",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-fd6dc69c-7607-4cd0-8640-89c89ad922ca",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-14729311",
+          "title": "ELDAR OF THE LIVING DEAD: WRAITHBONE & SOULSTONES | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-27d4b3fe-ecfc-4172-87d1-0cda97ebb494",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-15220038",
+          "title": "Episode 39 - Tyranids pt 3 - Imperial history of the Tyranid invasions.",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-d5bf7a98-007c-41ff-97f0-4753f833b50c",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-15442331",
+          "title": "Episode 44 - Eldar pt 1 - the Eldar Pantheon, Craftworlds, and Webway",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-68cf1ba0-a74f-483f-a4d1-fcc066cdef16",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-15487182",
+          "title": "Episode 45 - Eldar pt 2 - What is an Eldar, their Craftworlds. and their Psychics",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-343ecabc-48a5-48e5-9827-90af06803256",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-15507450",
+          "title": "Episode 46 - Eldar pt 3 - The Aspect Warriors and Phoenix Lords",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-fff38d2f-ed4b-4268-bfaa-2eef77e8b10a",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-15507481",
+          "title": "Episode 47 - Eldar pt 4 - Eldar Weapons, Vehicles, Wraithhosts, and a little bit of Ynnari",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-53ceda81-08cb-4d45-8cda-0e87852d6972",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-14284923",
+          "title": "NECRONTYR FACE REVEAL? 10ED NECRON CODEX BOMBSHELL | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-d69251b1-e32c-4f73-a4d1-dacc06945ad0",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-14546283",
+          "title": "PSYKERS: DO YOU HEAR THE VOICES TOO?!! | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-72c81b8d-f04b-4639-a248-fe37f32812ec",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-15115950",
+          "title": "YNNARI: IT'S SIMPLE, WE KILL SLAANESH | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-f6dcc038-5699-492c-8f78-949054da2318",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-99ae9328-d4d1-11ef-b641-b70ba9e3c52e",
+          "title": "139 - Eldar Mythology",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-947e0fa1-f864-47ea-9fdd-7059a355e96c",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2b9bc044-ca0a-11ef-9632-af2c56608214",
+          "title": "149 - Teleportation Variation",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-e2ace328-dc07-4aa6-82d8-4ddd8aed7306",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2d49ad3e-ca0a-11ef-9632-77643d932ef4",
+          "title": "158 - Slaanesh, The Prince of Pleasure",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-abc47c86-69d7-463e-8184-ea0032f713ef",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-334d9b14-ca0a-11ef-9632-ef2242f3b61b",
+          "title": "189 - Loxatl, Medusae and Megarachnid",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-07b04280-c07f-46d7-be50-8f700ba3b37a",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-16604508",
+          "title": "AELDARI CORSAIRS: A PIRATE'S LIFE FOR ME! | Warhammer 40k lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-87cf24b3-4b3e-4529-bab3-f569d062dc53",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-7d048f94-c0da-11ef-b345-3b6dd5fd0a7d",
+          "title": "Episode 69 - GW Rules Oopsies - When lore and tabletop rules dont mix",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-87451b5c-1c0d-4e1c-867e-aaf61f2b0a25",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-4140d55a-eeaf-11ef-b6b9-ab487cdf84d5",
+          "title": "Episode 76 - The Harlequins pt 1 - Where they come from, who & what they are.",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-e7eb03b3-f665-4866-9419-806ad3ec7cf1",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-251a13b0-00ba-11f0-8180-2f321c2c5dd8",
+          "title": "Episode 78 - The Ynnari pt 1 - Ynnead, Yvraine, and the battle of Biel Tan",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-4c3157b1-89d3-49b1-b3df-6b3ee3d2d0c0",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-9c116162-0637-11f0-89f3-37ce43aee1f6",
+          "title": "Episode 79 - Ynnari pt 2 - Yvraine grows her forces and Slaanesh realizes the threat that is Ynnead.",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-b27cea8f-a7ba-4895-913b-8f18027bbbb8",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "luetin09-z9a1twhuyrc",
+          "title": "WHAT IF TAU RULED THE 40K GALAXY？| WARHAMMER 40000 LORE/SPECULATION",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/luetin09#ep-2f8773b1-1442-4c49-8dd5-7135330cab49",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "the-40k-lorecast-4e63bd23-2fbf-4d41-8e57-9d0ed6f4249c",
+          "title": "Episode 126 - The Blood Ravens pt 2 - the events of Dawn of war 2 and 3.",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-023a4842-b5ba-4079-ab41-8c6f96168431",
+          "showTitle": "The 40k Lorecast"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Sub-factions",
+      "items": [
+        {
+          "type": "faction",
+          "id": "aeldari_corsairs",
+          "name": "Aeldari Corsairs"
+        },
+        {
+          "type": "faction",
+          "id": "drukhari",
+          "name": "Drukhari"
+        },
+        {
+          "type": "faction",
+          "id": "harlequins",
+          "name": "Harlequins"
+        },
+        {
+          "type": "faction",
+          "id": "starsplinters",
+          "name": "Starsplinters"
+        },
+        {
+          "type": "faction",
+          "id": "ynnari",
+          "name": "Ynnari"
+        }
+      ]
+    },
+    {
+      "label": "Key characters",
+      "items": [
+        {
+          "type": "character",
+          "id": "aradryan",
+          "name": "Aradryan"
+        },
+        {
+          "type": "character",
+          "id": "asdrubael_vect",
+          "name": "Asdrubael Vect"
+        },
+        {
+          "type": "character",
+          "id": "asurmen",
+          "name": "Asurmen"
+        },
+        {
+          "type": "character",
+          "id": "bellathonis",
+          "name": "Bellathonis"
+        },
+        {
+          "type": "character",
+          "id": "duke_sliscus",
+          "name": "Duke Sliscus"
+        },
+        {
+          "type": "character",
+          "id": "eldrad_ulthran",
+          "name": "Eldrad Ulthran"
+        },
+        {
+          "type": "character",
+          "id": "jain_zar",
+          "name": "Jain Zar"
+        },
+        {
+          "type": "character",
+          "id": "korlandril",
+          "name": "Korlandril"
+        },
+        {
+          "type": "character",
+          "id": "macha",
+          "name": "Macha"
+        },
+        {
+          "type": "character",
+          "id": "morr",
+          "name": "Morr"
+        },
+        {
+          "type": "character",
+          "id": "nyos_yllithian",
+          "name": "Nyos Yllithian"
+        },
+        {
+          "type": "character",
+          "id": "thirianna",
+          "name": "Thirianna"
+        },
+        {
+          "type": "character",
+          "id": "yriel",
+          "name": "Yriel"
+        }
+      ]
+    }
+  ]
+}

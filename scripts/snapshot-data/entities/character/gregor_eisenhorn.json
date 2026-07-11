@@ -1,0 +1,135 @@
+{
+  "type": "character",
+  "id": "gregor_eisenhorn",
+  "name": "Gregor Eisenhorn",
+  "blurb": {
+    "text": "An Inquisitor of the Ordo Xenos and protagonist of the Eisenhorn novels, whose career charts a gradual slide from puritan orthodoxy toward radicalism.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Gregor_Eisenhorn"
+  },
+  "facts": [
+    {
+      "label": "Allegiance",
+      "value": {
+        "type": "faction",
+        "id": "inquisition",
+        "name": "Inquisition"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "malleus",
+          "title": "Malleus",
+          "kind": "book",
+          "releaseYear": 2001,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/malleus",
+          "showTitle": null
+        },
+        {
+          "slug": "xenos",
+          "title": "Xenos",
+          "kind": "book",
+          "releaseYear": 2001,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/xenos",
+          "showTitle": null
+        },
+        {
+          "slug": "hereticus",
+          "title": "Hereticus",
+          "kind": "book",
+          "releaseYear": 2002,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/hereticus",
+          "showTitle": null
+        },
+        {
+          "slug": "eisenhorn-omnibus",
+          "title": "Eisenhorn Omnibus",
+          "kind": "book",
+          "releaseYear": 2005,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/eisenhorn-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "ravenor-the-omnibus",
+          "title": "Ravenor: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2009,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/buch/ravenor-the-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "pariah",
+          "title": "Pariah",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/pariah",
+          "showTitle": null
+        },
+        {
+          "slug": "the-magos",
+          "title": "The Magos",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-magos",
+          "showTitle": null
+        },
+        {
+          "slug": "penitent",
+          "title": "Penitent",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/penitent",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "luetin09-f23pzwn3igs",
+          "title": "40K LEGENDS - WHO IS GREGOR EISENHORN? | Warhammer 40,000 Lore/History",
+          "kind": "podcast_episode",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-3d094c9e-5740-43e5-b49b-0b2222ece798",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-13998222",
+          "title": "Eisenhorn: Xenos Review & Discussion | Warhammer 40k Book Club",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-dd3e68e4-d522-439f-8ea5-f97330fa92bb",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

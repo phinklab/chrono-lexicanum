@@ -1,0 +1,325 @@
+{
+  "type": "faction",
+  "id": "black_templars",
+  "name": "Black Templars",
+  "blurb": {
+    "text": "A loyalist Space Marine Chapter and successor of the Imperial Fists, a zealous crusading brotherhood that wages perpetual war against the enemies of the Emperor.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Black_Templars"
+  },
+  "facts": [
+    {
+      "label": "Alignment",
+      "value": "Imperium"
+    },
+    {
+      "label": "Parent faction",
+      "value": {
+        "type": "faction",
+        "id": "adeptus_astartes",
+        "name": "Adeptus Astartes"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "crusade-for-armageddon",
+          "title": "Crusade for Armageddon",
+          "kind": "book",
+          "releaseYear": 2003,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/crusade-for-armageddon",
+          "showTitle": null
+        },
+        {
+          "slug": "conquest-of-armageddon",
+          "title": "Conquest of Armageddon",
+          "kind": "book",
+          "releaseYear": 2005,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/conquest-of-armageddon",
+          "showTitle": null
+        },
+        {
+          "slug": "helsreach",
+          "title": "Helsreach",
+          "kind": "book",
+          "releaseYear": 2010,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/helsreach",
+          "showTitle": null
+        },
+        {
+          "slug": "the-armageddon-omnibus",
+          "title": "The Armageddon Omnibus",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-armageddon-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "priests-of-mars",
+          "title": "Priests of Mars",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/priests-of-mars",
+          "showTitle": null
+        },
+        {
+          "slug": "blood-and-fire",
+          "title": "Blood and Fire",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/blood-and-fire",
+          "showTitle": null
+        },
+        {
+          "slug": "lords-of-mars",
+          "title": "Lords of Mars",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/lords-of-mars",
+          "showTitle": null
+        },
+        {
+          "slug": "gods-of-mars",
+          "title": "Gods of Mars",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/gods-of-mars",
+          "showTitle": null
+        },
+        {
+          "slug": "the-eternal-crusader",
+          "title": "The Eternal Crusader",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-eternal-crusader",
+          "showTitle": null
+        },
+        {
+          "slug": "crusaders-of-dorn",
+          "title": "Crusaders of Dorn",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/crusaders-of-dorn",
+          "showTitle": null
+        },
+        {
+          "slug": "the-relic",
+          "title": "The Relic",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/the-relic",
+          "showTitle": null
+        },
+        {
+          "slug": "forges-of-mars-omnibus",
+          "title": "Forges of Mars Omnibus",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/forges-of-mars-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "helbrecht-knight-of-the-throne",
+          "title": "Helbrecht: Knight of the Throne",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/helbrecht-knight-of-the-throne",
+          "showTitle": null
+        },
+        {
+          "slug": "the-martyrs-tomb",
+          "title": "The Martyr's Tomb",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-martyrs-tomb",
+          "showTitle": null
+        },
+        {
+          "slug": "broken-crusade",
+          "title": "Broken Crusade",
+          "kind": "book",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/broken-crusade",
+          "showTitle": null
+        },
+        {
+          "slug": "fulgrim-the-perfect-son",
+          "title": "Fulgrim: The Perfect Son",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/fulgrim-the-perfect-son",
+          "showTitle": null
+        },
+        {
+          "slug": "carnage-unending",
+          "title": "Carnage Unending",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/carnage-unending",
+          "showTitle": null
+        },
+        {
+          "slug": "ghazghkull-thraka-warlord-of-warlords",
+          "title": "Ghazghkull Thraka: Warlord of Warlords",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "antagonist",
+          "href": "/buch/ghazghkull-thraka-warlord-of-warlords",
+          "showTitle": null
+        },
+        {
+          "slug": "legends-of-the-waaagh",
+          "title": "Legends of the Waaagh!",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/legends-of-the-waaagh",
+          "showTitle": null
+        },
+        {
+          "slug": "world-ablaze",
+          "title": "World Ablaze",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/world-ablaze",
+          "showTitle": null
+        },
+        {
+          "slug": "war-for-armageddon-omnibus",
+          "title": "War for Armageddon Omnibus",
+          "kind": "book",
+          "releaseYear": null,
+          "coverUrl": null,
+          "role": "primary",
+          "href": "/buch/war-for-armageddon-omnibus",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "lorehammer-64081848-1a20-49f4-a021-9aa32ca72b3e",
+          "title": "80 - The Black Templars",
+          "kind": "podcast_episode",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-81e46ae2-5181-4e2f-be33-aea9010e20d9",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-11318240",
+          "title": "BLACK TEMPLARS: AN UNBIASED OVERVIEW feat. Valrak | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-a5839ddd-6c22-45ef-8571-78c1702a4b10",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-a8a58992-e548-471d-9759-2e3263e69efb",
+          "title": "Episode 88 - Imperial Fists pt 2 - post Heresy Fists, Crimson fists, and Sigismund",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-b6747c0d-6ae5-4a7e-bac7-7fe2c51969ac",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-272f90bf-f667-40aa-a086-5057ad6ca982",
+          "title": "Episode 89 - The Black Templar",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-76c14978-4a8d-413c-a5a4-2272c1b01659",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-19248030",
+          "title": "Warlord of Warlords: Black Templars Vs Ghazghkull | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-1cfaffcf-4b8a-4722-89f4-2ee5282246dc",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": [
+    {
+      "label": "Key characters",
+      "items": [
+        {
+          "type": "character",
+          "id": "grimaldus",
+          "name": "Grimaldus"
+        },
+        {
+          "type": "character",
+          "id": "helbrecht",
+          "name": "Helbrecht"
+        },
+        {
+          "type": "character",
+          "id": "marshal_brant",
+          "name": "Marshal Brant"
+        },
+        {
+          "type": "character",
+          "id": "tanna",
+          "name": "Tanna"
+        }
+      ]
+    }
+  ]
+}

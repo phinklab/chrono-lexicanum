@@ -1,0 +1,735 @@
+{
+  "type": "character",
+  "id": "roboute_guilliman",
+  "name": "Roboute Guilliman",
+  "blurb": {
+    "text": "Primarch of the Ultramarines and author of the Codex Astartes; resurrected in the 41st Millennium, he now leads the Imperium as Lord Commander after ten thousand years.",
+    "confidence": 0.95,
+    "sourceUrl": "https://wh40k.lexicanum.com/wiki/Roboute_Guilliman"
+  },
+  "facts": [
+    {
+      "label": "Allegiance",
+      "value": {
+        "type": "faction",
+        "id": "ultramarines",
+        "name": "Ultramarines"
+      }
+    }
+  ],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "age-of-darkness",
+          "title": "Age of Darkness",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/age-of-darkness",
+          "showTitle": null
+        },
+        {
+          "slug": "rules-of-engagement",
+          "title": "Rules of Engagement",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/rules-of-engagement",
+          "showTitle": null
+        },
+        {
+          "slug": "know-no-fear",
+          "title": "Know No Fear",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/know-no-fear",
+          "showTitle": null
+        },
+        {
+          "slug": "betrayer",
+          "title": "Betrayer",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/betrayer",
+          "showTitle": null
+        },
+        {
+          "slug": "the-unremembered-empire",
+          "title": "The Unremembered Empire",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-unremembered-empire",
+          "showTitle": null
+        },
+        {
+          "slug": "strategem",
+          "title": "Strategem",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/strategem",
+          "showTitle": null
+        },
+        {
+          "slug": "the-herald-of-sanguinius",
+          "title": "The Herald of Sanguinius",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-herald-of-sanguinius",
+          "showTitle": null
+        },
+        {
+          "slug": "deathfire",
+          "title": "Deathfire",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/deathfire",
+          "showTitle": null
+        },
+        {
+          "slug": "angels-of-caliban",
+          "title": "Angels of Caliban",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/angels-of-caliban",
+          "showTitle": null
+        },
+        {
+          "slug": "pharos",
+          "title": "Pharos",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/pharos",
+          "showTitle": null
+        },
+        {
+          "slug": "roboute-guilliman-lord-of-ultramar",
+          "title": "Roboute Guilliman: Lord of Ultramar",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/roboute-guilliman-lord-of-ultramar",
+          "showTitle": null
+        },
+        {
+          "slug": "dark-imperium",
+          "title": "Dark Imperium",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/dark-imperium",
+          "showTitle": null
+        },
+        {
+          "slug": "eye-of-terra",
+          "title": "Eye of Terra",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/eye-of-terra",
+          "showTitle": null
+        },
+        {
+          "slug": "ruinstorm",
+          "title": "Ruinstorm",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/ruinstorm",
+          "showTitle": null
+        },
+        {
+          "slug": "the-devastation-of-baal",
+          "title": "The Devastation of Baal",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-devastation-of-baal",
+          "showTitle": null
+        },
+        {
+          "slug": "the-emperors-legion",
+          "title": "The Emperor's Legion",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-emperors-legion",
+          "showTitle": null
+        },
+        {
+          "slug": "the-laurel-of-defiance",
+          "title": "The Laurel of Defiance",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-laurel-of-defiance",
+          "showTitle": null
+        },
+        {
+          "slug": "ferrus-manus-the-gorgon-of-medusa",
+          "title": "Ferrus Manus: The Gorgon of Medusa",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ferrus-manus-the-gorgon-of-medusa",
+          "showTitle": null
+        },
+        {
+          "slug": "of-honour-and-iron",
+          "title": "Of Honour and Iron",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/of-honour-and-iron",
+          "showTitle": null
+        },
+        {
+          "slug": "plague-war",
+          "title": "Plague War",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/plague-war",
+          "showTitle": null
+        },
+        {
+          "slug": "spear-of-ultramar",
+          "title": "Spear of Ultramar",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/spear-of-ultramar",
+          "showTitle": null
+        },
+        {
+          "slug": "the-atonement-of-fire",
+          "title": "The Atonement of Fire",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-atonement-of-fire",
+          "showTitle": null
+        },
+        {
+          "slug": "apocalypse",
+          "title": "Apocalypse",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/apocalypse",
+          "showTitle": null
+        },
+        {
+          "slug": "illyrium",
+          "title": "Illyrium",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/illyrium",
+          "showTitle": null
+        },
+        {
+          "slug": "scions-of-the-emperor",
+          "title": "Scions of the Emperor",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/scions-of-the-emperor",
+          "showTitle": null
+        },
+        {
+          "slug": "avenging-son",
+          "title": "Avenging Son",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/avenging-son",
+          "showTitle": null
+        },
+        {
+          "slug": "godblight",
+          "title": "Godblight",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/godblight",
+          "showTitle": null
+        },
+        {
+          "slug": "indomitus",
+          "title": "Indomitus",
+          "kind": "book",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/buch/indomitus",
+          "showTitle": null
+        },
+        {
+          "slug": "the-gates-of-bones",
+          "title": "The Gates of Bones",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-gates-of-bones",
+          "showTitle": null
+        },
+        {
+          "slug": "the-swords-of-calth",
+          "title": "The Swords of Calth",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/buch/the-swords-of-calth",
+          "showTitle": null
+        },
+        {
+          "slug": "the-wolftime",
+          "title": "The Wolftime",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-wolftime",
+          "showTitle": null
+        },
+        {
+          "slug": "helbrecht-knight-of-the-throne",
+          "title": "Helbrecht: Knight of the Throne",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/buch/helbrecht-knight-of-the-throne",
+          "showTitle": null
+        },
+        {
+          "slug": "throne-of-light",
+          "title": "Throne of Light",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/throne-of-light",
+          "showTitle": null
+        },
+        {
+          "slug": "the-lion-sons-of-the-forest",
+          "title": "The Lion: Sons of the Forest",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/buch/the-lion-sons-of-the-forest",
+          "showTitle": null
+        },
+        {
+          "slug": "creed-ashes-of-cadia",
+          "title": "Creed: Ashes of Cadia",
+          "kind": "book",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/buch/creed-ashes-of-cadia",
+          "showTitle": null
+        },
+        {
+          "slug": "the-end-and-the-death-vol-3",
+          "title": "The End and The Death Vol. 3",
+          "kind": "book",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-end-and-the-death-vol-3",
+          "showTitle": null
+        },
+        {
+          "slug": "era-of-ruin",
+          "title": "Era Of Ruin",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/era-of-ruin",
+          "showTitle": null
+        },
+        {
+          "slug": "the-silent-king",
+          "title": "The Silent King",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "pov",
+          "href": "/buch/the-silent-king",
+          "showTitle": null
+        },
+        {
+          "slug": "flames-of-betrayal",
+          "title": "Flames of Betrayal",
+          "kind": "book",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/flames-of-betrayal",
+          "showTitle": null
+        }
+      ]
+    },
+    {
+      "kind": "podcast_episode",
+      "label": "Podcast episodes",
+      "works": [
+        {
+          "slug": "lorehammer-lorehammer-podbean-com-27a61661-1979-5aed-9429-950e963b04f8",
+          "title": "68 - Primaris Marines",
+          "kind": "podcast_episode",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-3538c473-16ad-42fa-ba45-75825a665b66",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-2d6e5d5e-87e0-42cf-80a0-a5110a7e45a5",
+          "title": "Bonus 15 - Return of the Primarchs",
+          "kind": "podcast_episode",
+          "releaseYear": 2020,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-d3fc3e83-9140-4baa-b85f-7b55f47251a0",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-8631021",
+          "title": "RESURRECTION OF ROBOUTE GUILLIMAN | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-abc94423-6181-4342-afc5-0a68f6101ec2",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-8592191",
+          "title": "ROBOUTE GUILLIMAN AND THE ULTRAMARINES (But mostly Guilliman) | Warhammer 40k lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-6da8bc7b-6aed-4fb3-8768-12f4b1df1439",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-13081818",
+          "title": "LEVIATHAN: AND I LOOKED UPON THE GREAT HIVE BEAST, AND KNEW THAT HOPE WAS LOST | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-d9d5937d-70f0-4766-a1c7-47e845493b06",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-12865491",
+          "title": "THE HIGH LORDS OF TERRA: TYRANNY IS ALWAYS BETTER ORGANIZED THAN FREEDOM | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-437db796-66e2-4032-a500-2c6f4ecd6f7b",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-https-api-spreaker-com-episode-63394251",
+          "title": "132 - Lion El'Jonson, Horus Heresy and Great Scouring",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/lorehammer#ep-96ed2286-2d5c-44b5-938b-3e125750211e",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "luetin09-wrpfm6-x83o",
+          "title": "CAWL'S NEXUS PLAN COULD CHANGE EVERYTHING | Warhammer 40,000 Lore/Speculation",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-002a887d-c521-4d96-bf34-7ed07d95a040",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-14212200",
+          "title": "Episode 15 - The Scouring.... well really just the start of the Imperium going to hell in a handbasket trying to kill everyone and everything associated with Chaos",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-6158c722-0c31-4328-9f35-54974f82ecbe",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-buzzsprout-15636775",
+          "title": "Episode 49 - The Talons of the Emperor pt 2 - The Sisters of Silence",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-91b254c1-b512-4f69-ac33-a2e276b9cdd0",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-1d991538-b3ca-11ef-9e65-93440c7d0434",
+          "title": "Episode 64 - \"Where are they now\" Primarch edition - the Loyalists",
+          "kind": "podcast_episode",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-6b30f93f-e381-4b17-8cae-444d559d53f2",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "luetin09-5rxiisoaxw",
+          "title": "AGE OF APOSTASY NOW - 40K LORE MUST MOVE ON | WARHAMMER 40,000 Lore/Speculation",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/luetin09#ep-2e75f3f0-a49c-419c-a73f-a32cc116516f",
+          "showTitle": "Luetin09"
+        },
+        {
+          "slug": "the-40k-lorecast-5f355046-8997-4223-a475-8687a4bc5bd3",
+          "title": "Episode 102 - The Pariah Nexus pt 1",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-6f1e9692-1ff8-4717-abcb-ed1940ff3f32",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-7ff11733-e09e-47fd-8ee2-b807e3cf7bf3",
+          "title": "Episode 104 - The Ultramarines pt 1",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-7ea11f49-0905-470c-bac4-6a4521be1a3b",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-faa90e90-607e-4efb-8baa-552d1db6c7df",
+          "title": "Episode 105 - The Ultramarines, from the start of the Heresy to the fall of Guilliman",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-6ec8daee-1630-4798-a8d4-73719d4ab685",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-92821c50-e728-11ef-8213-af33b664c72d",
+          "title": "Episode 75 - Blood Angels pt2 - After the Death of Sanguinius",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-d0a93a49-37d1-49b6-bc54-5e0693b03640",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-d8584d66-0637-11f0-9e9a-d3ec9457bcb1",
+          "title": "Episode 80 - Ynnari pt3 - Cawl and Guilliman save the Imperium",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-0c36d1f2-8eb6-435e-ae4c-520cfbaf956a",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-b9c8e641-a3c1-47ed-ac78-45a216039dbd",
+          "title": "Episode 92 - The War of The Beast pt1. A new threat arises.",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-c33b6db8-5078-4b89-af27-f5f3543763cc",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-16944140",
+          "title": "THE WEIRDEST OFFICIAL LORE OF THE OLD 40k | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-08db56d3-a486-42b6-8be3-a31677d1463e",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-749eff83-e84d-4d7f-871a-6bd159635545",
+          "title": "228 - Roboute Guilliman, Origins and Great Crusade",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-34d5018a-4be9-430f-84de-5c9bbde71451",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-d7663870-9b71-4ed8-b6e1-6f05a8eff437",
+          "title": "229 - Roboute Guilliman, Horus Heresy and Great Scouring",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-d00a56e1-72c2-42d5-b271-443ca2cfdcc3",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-42b9ee95-a915-44df-aee1-9a5ae91ded02",
+          "title": "230 - Ultramarines, 30k Legion Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-a549aa68-9d4c-432a-973a-8cd49dab96ea",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "lorehammer-5246382a-c1ec-4d2b-8ba2-b988284ae9c3",
+          "title": "231 - Ultramarines, 40k Chapter Era",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-2df0830f-7e78-4063-8080-459ae6a650b4",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18906948",
+          "title": "​Are You Winning, Guilliman? (Dark Imperium: Godblight) | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-1f57677d-9767-45de-b1eb-eeae5088b2a7",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18788615",
+          "title": "Captain Titus Returns to Kick Some Necron Ass | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-68427d2e-f27c-44ef-a1c3-401f94a37c5b",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "the-40k-lorecast-4e63bd23-2fbf-4d41-8e57-9d0ed6f4249c",
+          "title": "Episode 126 - The Blood Ravens pt 2 - the events of Dawn of war 2 and 3.",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-023a4842-b5ba-4079-ab41-8c6f96168431",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "the-40k-lorecast-e07c9bb6-1c13-419c-b803-c6d38f6dfa03",
+          "title": "Episode 138 - The Night Lords pt3 - Konrad seriously annoys the Lion, and eventually meets his doom",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/the-40k-lorecast#ep-3c992e95-93f2-47d1-bc90-35832bb8289e",
+          "showTitle": "The 40k Lorecast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18868172",
+          "title": "Guilliman Finally Crashes Out (Plague Wars) | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-4efdf688-ff24-4d1f-bb60-c2e9fbf27d0e",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "lorehammer-29433df5-aa6a-486c-87bf-a074f30c43cb",
+          "title": "Mark's Manifesto 2 - Is 40K a Setting or a Story?",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/lorehammer#ep-a7424db1-8c66-40d3-80e4-8b8ea4307356",
+          "showTitle": "Lorehammer - A Warhammer 40k Podcast"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-18827868",
+          "title": "The Plague Wars Have Begun | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "subject",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-5b4e80f8-b8ab-4b54-82bd-2eb935445fb5",
+          "showTitle": "Adeptus Ridiculous"
+        },
+        {
+          "slug": "adeptus-ridiculous-buzzsprout-19361091",
+          "title": "URIEL VENTRIS: Least Depressed Named Ultramarine | Warhammer 40k Lore",
+          "kind": "podcast_episode",
+          "releaseYear": 2026,
+          "coverUrl": null,
+          "role": "mentioned",
+          "href": "/archive/podcasts/adeptus-ridiculous#ep-9000aa5b-c13c-4157-8dce-05fe7ed1d4b6",
+          "showTitle": "Adeptus Ridiculous"
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}

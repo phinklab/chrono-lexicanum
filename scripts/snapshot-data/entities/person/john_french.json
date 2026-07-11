@@ -1,0 +1,395 @@
+{
+  "type": "person",
+  "id": "john_french",
+  "name": "John French",
+  "facts": [],
+  "worksByKind": [
+    {
+      "kind": "book",
+      "label": "Books",
+      "works": [
+        {
+          "slug": "the-last-remembrancer",
+          "title": "The Last Remembrancer",
+          "kind": "book",
+          "releaseYear": 2011,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-last-remembrancer",
+          "showTitle": null
+        },
+        {
+          "slug": "ahriman-exile",
+          "title": "Ahriman: Exile",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ahriman-exile",
+          "showTitle": null
+        },
+        {
+          "slug": "fateweaver",
+          "title": "Fateweaver",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/fateweaver",
+          "showTitle": null
+        },
+        {
+          "slug": "grey-angel",
+          "title": "Grey Angel",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/grey-angel",
+          "showTitle": null
+        },
+        {
+          "slug": "warmaster",
+          "title": "Warmaster",
+          "kind": "book",
+          "releaseYear": 2012,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/warmaster",
+          "showTitle": null
+        },
+        {
+          "slug": "riven",
+          "title": "Riven",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/riven",
+          "showTitle": null
+        },
+        {
+          "slug": "serpent",
+          "title": "Serpent",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/serpent",
+          "showTitle": null
+        },
+        {
+          "slug": "tallarn-executioner",
+          "title": "Tallarn: Executioner",
+          "kind": "book",
+          "releaseYear": 2013,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/tallarn-executioner",
+          "showTitle": null
+        },
+        {
+          "slug": "ahriman-sorcerer",
+          "title": "Ahriman: Sorcerer",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ahriman-sorcerer",
+          "showTitle": null
+        },
+        {
+          "slug": "child-of-night",
+          "title": "Child of Night",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/child-of-night",
+          "showTitle": null
+        },
+        {
+          "slug": "templar",
+          "title": "Templar",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/templar",
+          "showTitle": null
+        },
+        {
+          "slug": "the-crimson-fist",
+          "title": "The Crimson Fist",
+          "kind": "book",
+          "releaseYear": 2014,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-crimson-fist",
+          "showTitle": null
+        },
+        {
+          "slug": "ahriman-exodus",
+          "title": "Ahriman: Exodus",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ahriman-exodus",
+          "showTitle": null
+        },
+        {
+          "slug": "ahriman-unchanged",
+          "title": "Ahriman: Unchanged",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ahriman-unchanged",
+          "showTitle": null
+        },
+        {
+          "slug": "black-oculus",
+          "title": "Black Oculus",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/black-oculus",
+          "showTitle": null
+        },
+        {
+          "slug": "tallarn-ironclad",
+          "title": "Tallarn: Ironclad",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/tallarn-ironclad",
+          "showTitle": null
+        },
+        {
+          "slug": "tallarn-witness",
+          "title": "Tallarn: Witness",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/tallarn-witness",
+          "showTitle": null
+        },
+        {
+          "slug": "the-eagles-talon",
+          "title": "The Eagle's Talon",
+          "kind": "book",
+          "releaseYear": 2015,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-eagles-talon",
+          "showTitle": null
+        },
+        {
+          "slug": "tallarn-siren",
+          "title": "Tallarn: Siren",
+          "kind": "book",
+          "releaseYear": 2016,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/tallarn-siren",
+          "showTitle": null
+        },
+        {
+          "slug": "ahriman-the-omnibus",
+          "title": "Ahriman: The Omnibus",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ahriman-the-omnibus",
+          "showTitle": null
+        },
+        {
+          "slug": "champion-of-oaths",
+          "title": "Champion of Oaths",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/champion-of-oaths",
+          "showTitle": null
+        },
+        {
+          "slug": "dark-compliance",
+          "title": "Dark Compliance",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/dark-compliance",
+          "showTitle": null
+        },
+        {
+          "slug": "now-peals-midnight",
+          "title": "Now Peals Midnight",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/now-peals-midnight",
+          "showTitle": null
+        },
+        {
+          "slug": "ordo-sinister",
+          "title": "Ordo Sinister",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ordo-sinister",
+          "showTitle": null
+        },
+        {
+          "slug": "praetorian-of-dorn",
+          "title": "Praetorian of Dorn",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/praetorian-of-dorn",
+          "showTitle": null
+        },
+        {
+          "slug": "resurrection",
+          "title": "Resurrection",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/resurrection",
+          "showTitle": null
+        },
+        {
+          "slug": "tallarn",
+          "title": "Tallarn",
+          "kind": "book",
+          "releaseYear": 2017,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/tallarn",
+          "showTitle": null
+        },
+        {
+          "slug": "incarnation",
+          "title": "Incarnation",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/incarnation",
+          "showTitle": null
+        },
+        {
+          "slug": "slaves-to-darkness",
+          "title": "Slaves to Darkness",
+          "kind": "book",
+          "releaseYear": 2018,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/slaves-to-darkness",
+          "showTitle": null
+        },
+        {
+          "slug": "divination",
+          "title": "Divination",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/divination",
+          "showTitle": null
+        },
+        {
+          "slug": "the-passing-of-angels",
+          "title": "The Passing of Angels",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-passing-of-angels",
+          "showTitle": null
+        },
+        {
+          "slug": "the-solar-war",
+          "title": "The Solar War",
+          "kind": "book",
+          "releaseYear": 2019,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/the-solar-war",
+          "showTitle": null
+        },
+        {
+          "slug": "mortis",
+          "title": "Mortis",
+          "kind": "book",
+          "releaseYear": 2021,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/mortis",
+          "showTitle": null
+        },
+        {
+          "slug": "ahriman-eternal",
+          "title": "Ahriman: Eternal",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ahriman-eternal",
+          "showTitle": null
+        },
+        {
+          "slug": "sigismund-the-eternal-crusader",
+          "title": "Sigismund: The Eternal Crusader",
+          "kind": "book",
+          "releaseYear": 2022,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/sigismund-the-eternal-crusader",
+          "showTitle": null
+        },
+        {
+          "slug": "lord-of-the-fallen",
+          "title": "Lord of the Fallen",
+          "kind": "book",
+          "releaseYear": 2023,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/lord-of-the-fallen",
+          "showTitle": null
+        },
+        {
+          "slug": "ahriman-undying",
+          "title": "Ahriman: Undying",
+          "kind": "book",
+          "releaseYear": 2024,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/ahriman-undying",
+          "showTitle": null
+        },
+        {
+          "slug": "dropsite-massacre",
+          "title": "Dropsite Massacre",
+          "kind": "book",
+          "releaseYear": 2025,
+          "coverUrl": null,
+          "role": null,
+          "href": "/buch/dropsite-massacre",
+          "showTitle": null
+        }
+      ]
+    }
+  ],
+  "crossLinks": []
+}
