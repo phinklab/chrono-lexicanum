@@ -168,7 +168,13 @@ What it does, in order:
    full `db:sync` needed;
 2. validates facets / roles / synopses / ratings (halts before any mutation);
 3. replaces details + junctions + links for the targeted work(s) **only**;
-4. writes `book_details.primary_era_id = "time_ending"` on **insert and update**;
+4. writes `book_details.primary_era_id` **bucketed mechanically** from
+   `scripts/seed-data/book-dates.json` × `eras.json` (`scripts/era-bucket.ts`,
+   Launch S1a): the book-dates `startY` picks the era; **no setting date ⇒
+   `NULL`**, never guessed — on **insert and update**. If the new book has a
+   known setting date, add its `book-dates.json` row in the same PR; the
+   curation overlay (`apply:curation-overlay`, last `db:sync` tail) still wins
+   on this field for books it hand-fixes;
 5. appends any auto-created authors/editors to `scripts/seed-data/persons.json`
    once at run end (commit that follow-up change).
 

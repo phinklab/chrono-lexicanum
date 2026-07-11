@@ -31,6 +31,7 @@ import {
   type LoadedBookFile,
 } from "./book-file";
 import { seriesAnchorFor } from "./legacy-corpus-projection";
+import { loadEraContext } from "./era-bucket";
 import {
   assertDisposableTarget,
   isClean,
@@ -119,6 +120,7 @@ async function main(): Promise<void> {
   const { computeBookRows, loadSkipContext, loadLocationSkipContext } = await import("./book-apply-shared");
   const skipCtx = await loadSkipContext();
   const locCtx = await loadLocationSkipContext();
+  const eraCtx = loadEraContext();
 
   // ---- validation modes: findCorpusCollisions -----------------------------
   await check("additive mode flags a folder book mirroring a roster id/slug (cross-source)", () => {
@@ -156,13 +158,14 @@ async function main(): Promise<void> {
   // ---- converter roundtrip equivalence ------------------------------------
   const roundtrip = (r: RosterBook, o: OverrideBook, ext?: LegacyBookSource): void => {
     const file = bookFileFor(r, o, ext);
-    const legacy = computeBookRows(o, r, seriesAnchorFor(r.externalBookId), skipCtx, locCtx);
+    const legacy = computeBookRows(o, r, seriesAnchorFor(r.externalBookId), skipCtx, locCtx, eraCtx);
     const perBook = computeBookRows(
       projectToOverrideBook(file),
       projectToRosterBook(file),
       seriesAnchorOf(file),
       skipCtx,
       locCtx,
+      eraCtx,
     );
     assert.equal(stable(perBook), stable(legacy), `computeBookRows must match for ${r.externalBookId}`);
   };
@@ -194,7 +197,7 @@ async function main(): Promise<void> {
     const o = overrideBook("W40K-0259", "the-rose-in-the-anger");
     const file = bookFileFor(r, o);
     assert.equal(file.slug, "the-rose-in-the-anger", "file slug = override slug");
-    const perBook = computeBookRows(projectToOverrideBook(file), projectToRosterBook(file), null, skipCtx, locCtx);
+    const perBook = computeBookRows(projectToOverrideBook(file), projectToRosterBook(file), null, skipCtx, locCtx, eraCtx);
     assert.equal(perBook.works.slug, "the-rose-in-the-anger");
     roundtrip(r, o);
   });

@@ -25,7 +25,8 @@
  *   - `works.confidence`      ← const "1.00"
  *   - `bookDetails.format`    ← roster (or override `data_conflict.suggestion`)
  *   - `bookDetails.notes`     ← surfaceForms + optional authorship JSON blocks
- *   - `bookDetails.primaryEraId` ← const "time_ending" (M41 — Platzhalter)
+ *   - `bookDetails.primaryEraId` ← mechanisch gebucketet aus book-dates.json ×
+ *     eras.json (`./era-bucket`, Launch S1a); keine Setting-Date ⇒ NULL
  *   - `bookDetails.seriesId`/`seriesIndex` ← caller-supplied `series` arg
  *   - `work_persons.*`        ← roster.authors[]/roster.editors[] (slugified)
  */
@@ -74,6 +75,7 @@ import {
   ratingBookDetailsPatch,
   type OverrideRating,
 } from "./apply-override-rating";
+import { primaryEraIdFor, type EraContext } from "./era-bucket";
 import type { RosterBook, RosterCollection, RosterFile } from "./seed-data/types";
 
 export type { RosterBook, RosterCollection, RosterFile } from "./seed-data/types";
@@ -86,17 +88,6 @@ const FACTION_POLICY_PATH = resolve(SEED_DIR, "faction-policy.json");
 const LOCATION_POLICY_PATH = resolve(SEED_DIR, "location-policy.json");
 const LOCATIONS_PATH = resolve(SEED_DIR, "locations.json");
 const LOCATION_ALIASES_PATH = resolve(SEED_DIR, "location-aliases.json");
-
-// ⚠ Platzhalter, KEINE Kuration (Befund Brief 137): dieser konstante Stempel
-// landet bei JEDEM Upsert in `book_details.primary_era_id` — Insert wie Update.
-// Praktisch der ganze SSOT-Korpus trägt deshalb 'time_ending'; das Feld ist als
-// Era-Anker editorial wertlos, und jede künftige per-Buch-Kuration würde von der
-// nächsten Welle / dem nächsten Refresh wieder überstempelt. Bevor ein Consumer
-// primary_era_id ernsthaft nutzt: echten Wert ableiten (naheliegend: aus den
-// Setting-Dates `works.startY/setting*` aus Brief 137 bucketen) und dieses
-// Überschreiben hier entfernen. Brief 170 hält den Platzhalter bewusst bei, damit
-// der per-Buch-Pfad legacy-äquivalent bleibt (Acceptance: primary_era_id = "time_ending").
-export const M41_ERA_ID = "time_ending";
 
 // Public-Synopsis-Forward-Guard (Brief 080): banned-pattern list loaded once
 // at module init. The real apply throws hard on any hit (gate semantics); the
@@ -617,7 +608,8 @@ export interface ComputedBookRows {
   bookDetails: {
     format: string | null;
     notes: string;
-    primaryEraId: string;
+    /** Bucketed from book-dates.json × eras.json; NULL without a setting date. */
+    primaryEraId: string | null;
     seriesId: string | null;
     seriesIndex: number | null;
     rating?: string | null;
@@ -642,6 +634,7 @@ export function computeBookRows(
   series: SeriesAnchor | null,
   skipCtx: SkipContext,
   locationSkipCtx: LocationSkipContext,
+  eraCtx: EraContext,
 ): ComputedBookRows {
   const { format, formatOverride } = pickFinalFormat(roster, override);
 
@@ -709,7 +702,11 @@ export function computeBookRows(
     bookDetails: {
       format,
       notes,
-      primaryEraId: M41_ERA_ID,
+      // Era anchor derived per slug (works.slug == file slug, enforced by
+      // `apply:book --verify`); the curation overlay re-asserts hand fixes as
+      // the last db:sync tail, so a targeted apply may interim-NULL an
+      // overlay-fixed book until that tail runs — same window as before.
+      primaryEraId: primaryEraIdFor(eraCtx, override.slug),
       seriesId: series?.id ?? null,
       seriesIndex: series?.index ?? null,
       ...ratingPatch,
@@ -731,8 +728,9 @@ export function computeBookRows(
 
 /**
  * Materialize exactly one book into Postgres. UPSERT `works` (idempotent on
- * `external_book_id`), UPSERT `book_details` (primary_era_id = "time_ending"),
- * delete-then-insert junctions scoped to THIS work only. Touches no other work.
+ * `external_book_id`), UPSERT `book_details` (primary_era_id bucketed from the
+ * setting dates, NULL without one — insert AND update), delete-then-insert
+ * junctions scoped to THIS work only. Touches no other work.
  *
  * The corpus-owned column values come from the pure `computeBookRows` above
  * (Brief 171) — this writer only adds the DB plumbing (upsert/delete-insert).
@@ -745,9 +743,10 @@ export async function applyBook(
   series: SeriesAnchor | null,
   skipCtx: SkipContext,
   locationSkipCtx: LocationSkipContext,
+  eraCtx: EraContext,
 ): Promise<BookApplyResult> {
   return await db.transaction(async (tx) => {
-    const rows = computeBookRows(override, roster, series, skipCtx, locationSkipCtx);
+    const rows = computeBookRows(override, roster, series, skipCtx, locationSkipCtx, eraCtx);
     const { format } = rows.bookDetails;
     const notes = rows.bookDetails.notes;
     const ratingSummary = rows.ratingSummary;
