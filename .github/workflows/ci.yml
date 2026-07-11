@@ -28,6 +28,15 @@ jobs:
 
       - run: npm ci
 
+      # Clean-install integrity gate (Launch S1b): after a fresh `npm ci`,
+      # every DECLARED dependency must resolve to a version satisfying
+      # package.json — the drift class that had a stale local next@16.2.9
+      # running against a lockfile pinning 16.2.10. Deliberately not
+      # `npm ls --all`: the deep tree carries platform-conditional optional
+      # artifacts (npm materializes @img/sharp-wasm32 against next's nested
+      # sharp on some hosts) that flag "invalid" without any real drift.
+      - run: npm ls
+
       - run: npm run lint
 
       - run: npm run typecheck
@@ -42,10 +51,25 @@ jobs:
 
       - run: npm run brain:lint -- --no-write
 
-  # Dependency vulnerability report — non-blocking on purpose (continue-on-error),
-  # a visible surface for `npm audit` findings without gating merges. Ongoing
-  # remediation flows through Dependabot (.github/dependabot.yml); most current
-  # findings are transitive dev/build-time deps whose fixes need major bumps.
+      # DB-free production build (Launch S1b, plan § Session 1b Punkt 3). The
+      # build must succeed WITHOUT a reachable database: prerender reads the
+      # committed snapshot (scripts/snapshot-data/), never Postgres. The
+      # DATABASE_URL below is syntactically valid but points at a port nothing
+      # listens on — module imports succeed, while any leaked build-time query
+      # fails immediately instead of hanging. Folded into this required job
+      # (same pattern as `npm test`, Brief 180) so it gates PRs without a
+      # branch-protection change.
+      - run: npm run build
+        env:
+          DATABASE_URL: postgres://ci-build-must-not-touch-db:x@127.0.0.1:9/none
+          NEXT_TELEMETRY_DISABLED: '1'
+
+  # Audit policy (Launch S1b): production dependencies are held to a blocking
+  # standard — a high/critical advisory in anything that ships to the runtime
+  # (next, react, react-dom, drizzle-orm, postgres) fails CI. The full audit
+  # (including dev/build-time deps) stays a non-blocking visible report; its
+  # remediation flows through Dependabot (.github/dependabot.yml), since most
+  # findings there are transitive dev deps whose fixes need major bumps.
   audit:
     runs-on: ubuntu-latest
     steps:
@@ -55,6 +79,8 @@ jobs:
         with:
           node-version: '22'
           cache: npm
+
+      - run: npm audit --omit=dev --audit-level=high
 
       - run: npm audit
         continue-on-error: true
