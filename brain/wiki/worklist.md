@@ -2,9 +2,11 @@
 title: Worklist — konsolidierte offene Arbeit
 type: overview
 created: 2026-07-01
-updated: 2026-07-10
+updated: 2026-07-11
 sources:
   - ../../sessions/README.md
+  - ../../sessions/2026-07-11-194-impl-launch-s0.md
+  - ../../docs/launch-master-plan.md
   - ../../sessions/2026-07-10-193-impl-brain-launch-rollup.md
   - ../../sessions/2026-07-06-178b-impl-map-polish.md
   - ../../sessions/2026-07-08-185-impl-website-review-mobile.md
@@ -27,11 +29,11 @@ confidence: high
 
 ## A. Launch sequence
 
-The maintainer-local launch plan is the active execution programme. Its detailed specs and prompts intentionally remain untracked; this page records only durable order and gates.
+The launch plan is the active execution programme and is canonical in-repo since Session 194: [`docs/launch-master-plan.md`](../../docs/launch-master-plan.md) (spec, decisions, URL-matrix Appendix A) + [`docs/launch-session-prompts.md`](../../docs/launch-session-prompts.md) (kickoff prompts). This page records only durable order and gates.
 
-1. **S0 — decisions + plan preflight (next).**
-   - Decide final URL matrix, canonical production host/domain, Era policy and optional error-only tracker.
-   - Correct four release-order issues before S1a: no production apply from unmerged Era code; revalidation after snapshot deploy (or explicitly suppressible); wire the runtime credential into the actual DB client; split the final snapshot deploy from the coordination evidence report.
+1. **S0 — decisions closed (Session 194, 2026-07-11).**
+   - Decided: URL matrix = full EN migration incl. `/buch → /book` (`/person` stays; details in plan Appendix A); canonical host `https://www.chrono-lexicanum.com` (already wired, apex 308s to www); Era default (stamp removal + mechanical bucketing + `NULL`, S1a); error-only tracker yes (S5).
+   - **Still open before S1a (OQ 19):** correct four release-order issues — no production apply from unmerged Era code; revalidation after snapshot deploy (or explicitly suppressible); wire the runtime credential into the actual DB client; split the final snapshot deploy from the coordination evidence report.
    - Brief 181 is implemented via Session 185. Brief 182 is superseded by the launch programme, not implemented.
 2. **Build stability.** Versioned public build projections + manifest; DB-free build consumers and required build gate; loader error semantics/caches; least-privilege runtime/migration credentials; CSP/login/health/audio hardening.
 3. **Launch contract.** Canonical routes and book ISR; book projection added to the snapshot; SEO/robots/sitemap/OG/observability plus launch/rollback runbook.
@@ -44,7 +46,6 @@ The maintainer-local launch plan is the active execution programme. Its detailed
 - **Migration `0015`:** no durable evidence that the index migration reached production. Verify before launch.
 - **Production drift:** optional but recommended `npm run db:drift` read-only check after the release workflow is settled.
 - **Session 192 physical-device verdict:** confirm the Canvas route-motion path on Philipps Pixel/Chrome preview. Session 191's SVG motion-plane result is superseded.
-- **Local plan safety:** the two launch working files are deliberately untracked. Preserve them locally, but do not cite them as committed Brain sources and do not let a cleanup remove them mid-campaign.
 
 ## C. Product follow-ups outside or after the gate
 
