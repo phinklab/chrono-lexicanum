@@ -12,6 +12,8 @@ main.ask {
 /* Masthead */
 .ask-console__mast {
   position: relative;
+  /* S8: clip survey-point overflow on the x-axis (see 31-catalogue.css). */
+  overflow-x: clip;
   min-height: 92vh;
   display: flex;
   flex-direction: column;

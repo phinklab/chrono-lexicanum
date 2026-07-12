@@ -65,6 +65,10 @@ export default function MediaPlayer() {
   const sourceRef = useRef<MediaElementAudioSourceNode | null>(null);
   const barsPathRef = useRef<SVGPathElement | null>(null);
   const rootRef = useRef<HTMLDivElement | null>(null);
+  // Popover triggers — Escape inside the player closes the open popover and
+  // hands focus back here (disclosure pattern, see onKeyDown on the root).
+  const volBtnRef = useRef<HTMLButtonElement | null>(null);
+  const discloseBtnRef = useRef<HTMLButtonElement | null>(null);
   const amplitudeRef = useRef(IDLE_BREATHE_BASE);
   const barAmpsRef = useRef<Float32Array>(new Float32Array(N_BARS));
   const isPlayingRef = useRef(false);
@@ -322,6 +326,21 @@ export default function MediaPlayer() {
       className={cls}
       role="region"
       aria-label="Atmosphere"
+      onKeyDown={(e) => {
+        // Disclosure semantics (S8): the volume/playlist popovers are not
+        // modal dialogs — Escape while focus is inside closes the open one
+        // and returns focus to its trigger.
+        if (e.key !== "Escape") return;
+        if (isVolOpen) {
+          setIsVolOpen(false);
+          volBtnRef.current?.focus();
+          e.stopPropagation();
+        } else if (isOpen) {
+          setIsOpen(false);
+          discloseBtnRef.current?.focus();
+          e.stopPropagation();
+        }
+      }}
     >
       <audio
         ref={audioRef}
@@ -386,6 +405,7 @@ export default function MediaPlayer() {
           </button>
           <div className="media-player__vol-wrap">
             <button
+              ref={volBtnRef}
               type="button"
               className={`media-player__vol${isVolOpen ? " is-open" : ""}`}
               onClick={(e) => {
@@ -427,10 +447,11 @@ export default function MediaPlayer() {
                 />
               </svg>
             </button>
+            {/* Disclosure popover, not a dialog: a single labelled slider
+                behind an aria-expanded trigger. role="dialog" would promise
+                modal focus handling this popover deliberately doesn't have. */}
             <div
               className={`media-player__vol-popover${isVolOpen ? " is-open" : ""}`}
-              role="dialog"
-              aria-label="Volume"
               aria-hidden={!isVolOpen}
             >
               <input
@@ -453,6 +474,7 @@ export default function MediaPlayer() {
             )}
           </div>
           <button
+            ref={discloseBtnRef}
             type="button"
             className="media-player__disclose"
             onClick={(e) => {
@@ -474,9 +496,11 @@ export default function MediaPlayer() {
 
       <div className="media-player__panel-wrap" aria-hidden={!isOpen}>
         <div className="media-player__panel-wrap-inner">
+          {/* Disclosure panel, not a dialog (same rationale as the volume
+              popover): trigger carries aria-expanded, Escape closes. */}
           <div
             className="media-player__panel"
-            role="dialog"
+            role="group"
             aria-label="Playlist"
           >
             <div className="media-player__panel-head">

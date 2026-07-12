@@ -189,6 +189,7 @@ export function SeekPanel({
           ref={inputRef}
           type="text"
           placeholder="Seek a world…"
+          aria-label="Seek a world"
           spellCheck={false}
           value={query}
           onChange={(e) => {

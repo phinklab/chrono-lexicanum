@@ -51,7 +51,7 @@ export default async function FactionPage({
   if (!view) notFound();
 
   return (
-    <main className="entity">
+    <main id="main" tabIndex={-1} className="entity">
       <SiteBackground variant="vista" position="50% 28%" />
       <div className="entity__decor" aria-hidden>
         <CornerAuspex size={140} label="FRACTIO · 1011" />

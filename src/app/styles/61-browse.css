@@ -428,3 +428,24 @@
     padding: 10px 6px;
   }
 }
+
+/* S8 touch targets: >=44px controls on coarse pointers only (plan S8 P6) —
+   desktop metrics stay untouched. */
+@media (pointer: coarse) {
+  .browse-search__clear {
+    padding: 12px 14px;
+  }
+  .browse-pill {
+    min-height: 44px;
+    padding: 10px 10px;
+  }
+  .browse-facet-chip {
+    min-height: 44px;
+    align-items: center;
+    padding: 5px 14px;
+  }
+  .browse-clear {
+    min-height: 44px;
+    padding: 0 8px;
+  }
+}

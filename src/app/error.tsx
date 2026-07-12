@@ -34,7 +34,7 @@ export default function RootError({
   }, [error]);
 
   return (
-    <main className="syspage" role="alert">
+    <main id="main" tabIndex={-1} className="syspage" role="alert">
       <p className="syspage__eyebrow">{"COGITATOR FAVLT · LINK SEVERED"}</p>
       <h1 className="syspage__heading">TRANSMISSION INTERRUPTED</h1>
       <div className="syspage__rule" aria-hidden />

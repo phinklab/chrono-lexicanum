@@ -185,7 +185,7 @@ main.login {
   font-family: var(--font-mono);
   font-size: var(--fs-label);
   letter-spacing: var(--track-22);
-  color: var(--cl-blood);
+  color: var(--cl-blood-text);
 }
 
 .login-btn {

@@ -330,7 +330,7 @@ export default async function BookAuditPage({ params }: { params: Promise<Params
   ];
 
   return (
-    <main className="audit-shell">
+    <main id="main" tabIndex={-1} className="audit-shell">
       <header className="audit-header">
         <div>
           <p className="audit-kicker">{"Cogitator-Audit · provenance"}</p>

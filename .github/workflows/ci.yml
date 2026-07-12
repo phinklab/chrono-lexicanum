@@ -69,6 +69,30 @@ jobs:
           # real host lives in the Vercel env.
           SITE_URL: https://example.invalid
 
+      # Mini smoke set, DB-free tranche (Launch S8, plan § Session 8 Punkt 8).
+      # Folded into this required job (the npm test / npm run build pattern
+      # above) so the set is REQUIRED without a branch-protection change.
+      # `test:smoke` = projects `static` + `degraded` against the production
+      # build just produced: the DB-free core routes (hub, map, podcasts,
+      # hot-subset book detail, ask) serve their real content (landmark
+      # asserts × 320/1280, axe, overflow) plus the menu-focus and map-seek
+      # interaction smokes; /timeline + /archive degrade to the themed S2
+      # error surface (never a 404) and the ISR book long tail never lies
+      # (no 404, no empty page). The live main run (`test:smoke:live`:
+      # timeline/archive content, timeline-vs-volume-slider smoke, cold-book
+      # canary) is the documented mandatory local pre-merge run — S8
+      # decision, see the session report; it moves into CI once a read-only
+      # SMOKE_DATABASE_URL secret (S3a runtime role) is provisioned.
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
+      - run: npx playwright install --with-deps chromium
+
+      - run: npm run test:smoke
+
   # Audit policy (Launch S1b): production dependencies are held to a blocking
   # standard — a high/critical advisory in anything that ships to the runtime
   # (next, react, react-dom, drizzle-orm, postgres) fails CI. The full audit

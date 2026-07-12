@@ -94,7 +94,7 @@ export default async function TimelinePage({ searchParams }: TimelinePageProps) 
   const eras = await loadChronicleTimeline();
   if (eras.length === 0) {
     return (
-      <main className={`chron-shell ${cormorantUnicase.variable}`}>
+      <main id="main" tabIndex={-1} className={`chron-shell ${cormorantUnicase.variable}`}>
         <div className="chron-empty">
           <div className="ce-kicker">CHRONICA · TEMPORIS</div>
           <p className="ce-text">
@@ -111,7 +111,7 @@ export default async function TimelinePage({ searchParams }: TimelinePageProps) 
   const initialView: ChronicleViewMode = viewRaw === "index" ? "index" : "cine";
 
   return (
-    <main className={`chron-shell ${cormorantUnicase.variable}`}>
+    <main id="main" tabIndex={-1} className={`chron-shell ${cormorantUnicase.variable}`}>
       <ChronicleStage
         eras={eras}
         initialEraId={initialEraId}

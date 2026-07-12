@@ -38,7 +38,7 @@ export default async function IngestPage() {
   const errCount = entries.length - okCount;
 
   return (
-    <main className="ingest-shell">
+    <main id="main" tabIndex={-1} className="ingest-shell">
       <header className="ingest-header">
         <p className="ingest-eyebrow">
           <span aria-hidden>{"Ingestion console"}</span>

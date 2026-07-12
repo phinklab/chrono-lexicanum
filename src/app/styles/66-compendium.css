@@ -6,6 +6,8 @@
 /* Masthead */
 .cmp-hero {
   position: relative;
+  /* S8: clip survey-point overflow on the x-axis (see 31-catalogue.css). */
+  overflow-x: clip;
   min-height: 92vh;
   display: flex;
   flex-direction: column;
@@ -380,5 +382,12 @@
   .cmp-row__kicker,
   .cmp-row__meta {
     display: none;
+  }
+}
+
+/* S8 touch targets (coarse pointer only). */
+@media (pointer: coarse) {
+  .cmp-nav__tab {
+    padding: 12px 9px;
   }
 }

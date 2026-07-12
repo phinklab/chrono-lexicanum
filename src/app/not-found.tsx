@@ -9,7 +9,7 @@ import Link from "next/link";
 
 export default function RootNotFound() {
   return (
-    <main className="syspage">
+    <main id="main" tabIndex={-1} className="syspage">
       <p className="syspage__eyebrow">{"COGNITIO LINK · NVLL RECORD"}</p>
       <h1 className="syspage__heading">ARCHIVE FRAGMENT LOST</h1>
       <div className="syspage__rule" aria-hidden />

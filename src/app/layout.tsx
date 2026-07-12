@@ -101,6 +101,12 @@ export default function RootLayout({
       className={`${cormorantSC.variable} ${cardo.variable} ${fragmentMono.variable}`}
     >
       <body suppressHydrationWarning>
+        {/* Skip link: first tabbable element on every route. Visually parked
+            off-screen until keyboard-focused (10-base.css); targets the
+            per-route <main id="main" tabIndex={-1}>. */}
+        <a className="skip-link" href="#main">
+          Skip to content
+        </a>
         {/* Primary navigation: the left-edge SiteNav rail on hover-capable wide
             screens; the SiteMenu burger overlay takes over on touch / narrow
             viewports. The CSS breakpoint in 46-site-nav.css owns the hand-off,

@@ -12,6 +12,8 @@ main.hub {
 /* Act 1: Splash */
 .hub-act--splash {
   position: relative;
+  /* S8: clip survey-point overflow on the x-axis (see 31-catalogue.css). */
+  overflow-x: clip;
   min-height: 96vh;
   display: flex;
   flex-direction: column;
@@ -83,6 +85,14 @@ main.hub {
 }
 .hub-search .browse-search {
   width: min(520px, 74vw);
+}
+/* Mirror 61-browse.css's ≤720px full-width override at hub specificity:
+   the (0,2,0) rule above otherwise beats the (0,1,0) mobile rule regardless
+   of the media query and pins the field to 74vw (236.8px at 320px). */
+@media (max-width: 720px) {
+  .hub-search .browse-search {
+    width: 100%;
+  }
 }
 .hub-holdings {
   margin-top: 30px;

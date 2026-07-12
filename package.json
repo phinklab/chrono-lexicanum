@@ -11,6 +11,8 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "tsx scripts/run-tests.ts",
+    "test:smoke": "playwright test --project=static --project=degraded",
+    "test:smoke:live": "playwright test --project=live",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "tsx --env-file=.env.local scripts/migrate.ts",
     "db:studio": "drizzle-kit studio",
@@ -110,6 +112,8 @@
   },
   "devDependencies": {
     "@anthropic-ai/sdk": "^0.110.0",
+    "@axe-core/playwright": "^4.12.1",
+    "@playwright/test": "^1.61.1",
     "@tailwindcss/postcss": "^4.3.2",
     "@types/node": "^22.19.17",
     "@types/react": "^19.2.17",

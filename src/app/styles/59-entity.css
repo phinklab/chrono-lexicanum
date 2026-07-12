@@ -484,7 +484,7 @@ main.entity::before {
   padding: 6px 11px;
   color: var(--cl-bone);
   background: transparent;
-  border: 1px solid var(--cl-faint);
+  border: 1px solid var(--cl-faint-deco);
   text-decoration: none;
 }
 
@@ -500,7 +500,7 @@ main.entity::before {
 
 .entity-view__chip--mute {
   color: var(--cl-dim);
-  border-color: color-mix(in oklch, var(--cl-faint) 60%, transparent);
+  border-color: color-mix(in oklch, var(--cl-faint-deco) 60%, transparent);
 }
 
 .entity-view__chip-role {
@@ -555,12 +555,9 @@ main.entity::before {
   }
 }
 
-/* Page-scoped gold focus ring on the canonical full pages; the popup carries
-   its own override in 64-detail-modal.css. */
-main.entity :focus-visible {
-  outline: 1px solid var(--cl-gold);
-  box-shadow: none;
-}
+/* No page-scoped focus ring anymore: 10-base.css owns :focus-visible site-wide
+   (S8) — the scoped copy outranked local suppressions and boxed text fields on
+   plain clicks (same removal as main.podcasts in 62-podcasts.css). */
 
 /* No reduced-motion block needed: every hover here answers in colour, and
    the global cascade in 10-base.css collapses the transitions. */

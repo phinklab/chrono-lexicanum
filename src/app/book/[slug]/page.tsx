@@ -92,7 +92,7 @@ export default async function BookPage({
     .filter((p) => p.role === "author")
     .map((p) => ({ "@type": "Person", name: p.name }));
   return (
-    <main className="book-detail">
+    <main id="main" tabIndex={-1} className="book-detail">
       <JsonLd
         data={{
           "@context": "https://schema.org",

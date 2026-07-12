@@ -4,7 +4,7 @@ import "@/app/styles/30-ingest.css";
 
 export default function IngestRunNotFound() {
   return (
-    <main className="ingest-detail-shell">
+    <main id="main" tabIndex={-1} className="ingest-detail-shell">
       <Link href="/ingest" className="ingest-back-link">
         <span aria-hidden>←</span>
         <span>All runs</span>

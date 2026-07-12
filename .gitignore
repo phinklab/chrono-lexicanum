@@ -162,3 +162,7 @@ yarn-error.log*
 # (`npm run preview:console`); it is never deployed and never committed. The
 # committed source of truth is template.html + build.mjs + serve.mjs.
 /scripts/preview-console/console.html
+
+# Playwright (S8 mini smoke set)
+/test-results/
+/playwright-report/

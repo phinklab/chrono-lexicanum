@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <main className="legal" lang="de">
+    <main id="main" tabIndex={-1} className="legal" lang="de">
       <header className="legal__head">
         <p className="legal__eyebrow">Chrono · Lexicanum — Rechtliches</p>
         <h1 className="legal__title">Datenschutzerklärung</h1>

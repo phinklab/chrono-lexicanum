@@ -100,7 +100,7 @@ export default async function PodcastShowPage({
   ];
 
   return (
-    <main className="podcasts podcasts--show">
+    <main id="main" tabIndex={-1} className="podcasts podcasts--show">
       {/* schema.org PodcastSeries — series-level only; episodes are page
           fragments, never their own URLs (URL matrix A.1). */}
       <JsonLd

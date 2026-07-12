@@ -39,7 +39,7 @@ export default function CompendiumLayout({
   children: ReactNode;
 }) {
   return (
-    <main className="compendium route-snap">
+    <main id="main" tabIndex={-1} className="compendium route-snap">
       <SiteBackground variant="main" position="right bottom" />
       <ScrollScrim
         className="site-scrim"

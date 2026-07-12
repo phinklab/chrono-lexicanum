@@ -15,7 +15,9 @@
 .site-burger,
 .site-menu {
   --sm-steel: #7d8799;
-  --sm-steel-dim: #566070;
+  /* S8 contrast: was #566070 (2.9-3.2:1) - both usages are text (menu
+     numerals + micro label); #78848f reads >=4.5:1 on the menu ground. */
+  --sm-steel-dim: #78848f;
   --sm-gold-line: rgba(164, 140, 82, 0.22);
   --sm-mono: var(--font-mono);
   --sm-serif: var(--font-body);

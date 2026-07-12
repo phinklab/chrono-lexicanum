@@ -12,6 +12,10 @@ main.catalogue {
 /* Masthead */
 .catalogue-hero {
   position: relative;
+  /* S8: the survey-point labels (FloatingCoord) anchor at %-offsets and can
+     poke past the right edge on narrow phones - clip only the x-axis so the
+     decor stops widening the scrollable page (zero visual change). */
+  overflow-x: clip;
   min-height: 92vh;
   display: flex;
   flex-direction: column;
@@ -103,14 +107,16 @@ main.catalogue {
   color: var(--cl-faint);
   transition: color 0.3s;
 }
-.arch-door__kicker::before {
-  content: "";
+/* The kicker dot is a real element (ArchiveModeToggle) so the active door can
+   hang the Sternwarte rings off it — an SVG cannot anchor to a ::before. */
+.arch-door__dot {
+  position: relative;
   display: inline-block;
   width: 4px;
   height: 4px;
   margin-right: 10px;
   vertical-align: 2px;
-  background: var(--cl-faint);
+  background: var(--cl-faint-deco);
   border-radius: 50%;
   transition: background 0.3s, transform 0.4s var(--ease);
 }
@@ -140,9 +146,35 @@ main.catalogue {
 .arch-door.is-active .arch-door__kicker {
   color: var(--cl-gold);
 }
-.arch-door.is-active .arch-door__kicker::before {
+.arch-door.is-active .arch-door__dot {
   background: var(--cl-gold);
   transform: scale(1.6);
+}
+/* The register you are inside carries the Sternwarte HUD: the observatory
+   rings + riding planets from the .lx-btn hover bloom, held as a steady
+   state around the origin dot. Sized 55px so the dot's scale(1.6) lands the
+   rings at the button's 88px; the fr1/fr2 turn is the shared recipe
+   (42-lex-primitives.css). Hairlines at 0.45 — they may graze the kicker
+   text exactly as they graze the lx-btn label. */
+.arch-door__rings {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 55px;
+  height: 55px;
+  margin: -27.5px 0 0 -27.5px;
+  color: var(--cl-gold);
+  opacity: 0.45;
+}
+.arch-door__rings g {
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+}
+.arch-door__rings .fr1 {
+  animation: fxTurn 26s linear infinite;
+}
+.arch-door__rings .fr2 {
+  animation: fxTurn 17s linear infinite reverse;
 }
 .arch-door.is-active .arch-door__title {
   color: var(--cl-bone);
@@ -347,5 +379,13 @@ main.catalogue {
   }
   .catalogue-hero__heading {
     font-size: clamp(48px, 14vw, 84px);
+  }
+}
+
+/* S8 touch targets: lift the pager past the earlier 40px coarse bump. */
+@media (pointer: coarse) {
+  .catalogue-pager__leaf,
+  .catalogue-pager__step {
+    padding: 13px 10px;
   }
 }
