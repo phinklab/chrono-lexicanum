@@ -14,6 +14,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
+import { captureException } from "@sentry/browser";
 
 export default function RootError({
   error,
@@ -26,6 +27,10 @@ export default function RootError({
     // Server-side detail is already in the Vercel function logs; this keeps a
     // client-side trace for local dev without leaking anything new.
     console.error(error);
+    // React-render errors don't hit the SDK's global handlers — report them
+    // explicitly. No-op while the DSN is unset (init never ran); server-side
+    // originals arrive separately via onRequestError, correlated by digest.
+    captureException(error);
   }, [error]);
 
   return (

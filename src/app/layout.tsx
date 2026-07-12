@@ -6,6 +6,9 @@ import {
   Cormorant_Unicase,
   Fragment_Mono,
 } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { siteIndexable, siteOrigin } from "@/lib/site-url";
 import SiteMenu from "@/components/chrome/SiteMenu";
 import SiteNav from "@/components/chrome/SiteNav";
 import SiteBrand from "@/components/chrome/SiteBrand";
@@ -59,6 +62,12 @@ const fragmentMono = Fragment_Mono({
   display: "swap",
 });
 
+// Child routes set their own `title` (plain string — the template appends the
+// site suffix exactly once; never hand-append "— Chrono Lexicanum" in a route,
+// that doubles the brand), their own canonical (`alternates.canonical`) and
+// their own `openGraph`. NOTE metadata merging is shallow per key: a route
+// that redefines `openGraph` replaces this whole object — use `routeOg()`
+// from `@/lib/seo` so type/siteName/default image survive.
 export const metadata: Metadata = {
   title: {
     default: "Chrono Lexicanum — The 41st Millennium Novel Archive",
@@ -66,15 +75,21 @@ export const metadata: Metadata = {
   },
   description:
     "An interactive timeline, galaxy map, and recommendation engine for Warhammer 40,000 novels. Find your next book by era, faction, location or mood.",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  metadataBase: new URL(siteOrigin()),
   openGraph: {
     title: "Chrono Lexicanum",
     description:
       "Explore Warhammer 40k novels by era, faction, place and tone. A fan-made archive.",
     type: "website",
     siteName: "Chrono Lexicanum",
+    images: ["/img/og-default.jpg"],
   },
-  robots: { index: false, follow: false },
+  // noindex until the launch lever flips (PREVIEW_GATE=off) — baked at build
+  // time, so going public requires a FRESH deploy (launch runbook). Admin/auth
+  // surfaces (/login, /ingest, /book/*/audit) override back to noindex.
+  robots: siteIndexable()
+    ? { index: true, follow: true }
+    : { index: false, follow: false },
 };
 
 // viewportFit: "cover" lets fixed chrome extend into notch/home-bar regions;
@@ -137,6 +152,14 @@ export default function RootLayout({
             the legal-reachability guarantee for footerless desktop surfaces.
             Hidden on /login and ≤760px via 71-legal.css. */}
         <SiteLegal />
+        {/* E6 observability: cookieless Web Analytics + Speed Insights. In
+            production both load same-origin (v2 "resilient intake" unique
+            paths under our own host) — covered by the S3b CSP ('self'); dev
+            loads the debug script from va.vercel-scripts.com (dev-gated in
+            the CSP). Data collection additionally requires the two toggles in
+            the Vercel dashboard (launch runbook). */}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

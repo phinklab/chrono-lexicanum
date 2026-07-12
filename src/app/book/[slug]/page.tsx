@@ -18,6 +18,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import SiteBackground from "@/components/chrome/SiteBackground";
 import BookDetailView from "@/components/book/BookDetailView";
+import JsonLd from "@/components/seo/JsonLd";
+import { routeOg } from "@/lib/seo";
+import { siteOrigin } from "@/lib/site-url";
 import { listHotBookSlugs, loadBook } from "@/lib/book/loadBook";
 
 type Params = { slug: string };
@@ -62,12 +65,15 @@ export async function generateMetadata({
   return {
     title: book.title,
     description,
-    openGraph: {
+    // `?store=` is client-island state — canonical stays the bare book URL
+    // (URL matrix A.3).
+    alternates: { canonical: `/book/${book.slug}` },
+    openGraph: routeOg({
       title: book.title,
       description,
       type: "book",
       ...(book.coverUrl ? { images: [{ url: book.coverUrl }] } : {}),
-    },
+    }),
   };
 }
 
@@ -80,8 +86,40 @@ export default async function BookPage({
   const book = await loadBook(slug);
   if (!book) notFound();
 
+  // schema.org Book — only fields the catalogue actually holds, nothing
+  // fabricated. Authors only (narrators are audiobook metadata, not `author`).
+  const authors = book.persons
+    .filter((p) => p.role === "author")
+    .map((p) => ({ "@type": "Person", name: p.name }));
   return (
     <main className="book-detail">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Book",
+          name: book.title,
+          url: `${siteOrigin()}/book/${book.slug}`,
+          inLanguage: "en",
+          ...(authors.length > 0 ? { author: authors } : {}),
+          ...(book.synopsis ? { description: book.synopsis } : {}),
+          ...(book.coverUrl ? { image: book.coverUrl } : {}),
+          ...(book.isbn13 ?? book.isbn10
+            ? { isbn: book.isbn13 ?? book.isbn10 }
+            : {}),
+          ...(book.releaseYear ? { datePublished: String(book.releaseYear) } : {}),
+          ...(book.seriesName
+            ? {
+                isPartOf: {
+                  "@type": "BookSeries",
+                  name: book.seriesName,
+                },
+                ...(book.seriesIndex != null
+                  ? { position: book.seriesIndex }
+                  : {}),
+              }
+            : {}),
+        }}
+      />
       <SiteBackground variant="vista" position="50% 22%" />
       <BookDetailView book={book} />
     </main>

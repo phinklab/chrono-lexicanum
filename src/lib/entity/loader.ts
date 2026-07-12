@@ -18,8 +18,10 @@
  *     loadBook pattern) so repeat reads serve from the persistent Data Cache.
  *     Wrapped in React `cache()` so a route's
  *     `generateMetadata` + default export dedupe to a single read per request.
- *   - `listEntityIds(type)` (all ids, currently unconsumed — reserved for the
- *     S5 sitemap) always takes the live path.
+ *   - `listEntityIds(type)` (all ids) feeds the S5 sitemap: at build time the
+ *     full id sets come from the committed compendium row artifacts (the same
+ *     base tables the live queries enumerate); at request time it takes the
+ *     live path.
  *
  * This module must never statically import `@/db` — every prerendered entity
  * page pulls it in, and the DB-free CI build depends on the chain staying
@@ -36,10 +38,34 @@ import {
 import type { EntityType, EntityView } from "./types";
 
 /**
- * All ids for one reference table (reserved for the S5 sitemap). Request-time
- * only — the build path never enumerates full tables.
+ * Snapshot artifact per entity type. Each compendium row artifact enumerates
+ * its FULL reference table (getCharaktereRows/getWeltenRows/getPersonenRows/
+ * loadFactionGuide carry no WHERE — visibility filters like `hasContent` or
+ * the world-mention threshold live in the item builders ABOVE the source
+ * reads), so deriving ids from them matches `listEntityIdsLive` exactly.
+ */
+const ENTITY_ID_ARTIFACT: Record<
+  EntityType,
+  Parameters<typeof readSnapshotArtifact>[0]
+> = {
+  character: "charaktereRows",
+  faction: "factionGuide",
+  location: "weltenRows",
+  person: "personenRows",
+};
+
+/**
+ * All ids for one reference table — the sitemap source (S5). Build time reads
+ * the committed snapshot (the sitemap is baked per deploy, E4: every content
+ * release IS a deploy); request time takes the live path.
  */
 export async function listEntityIds(type: EntityType): Promise<string[]> {
+  if (isBuildPhase()) {
+    const rows = readSnapshotArtifact<Array<{ id: string }>>(
+      ENTITY_ID_ARTIFACT[type],
+    );
+    return rows.map((r) => r.id);
+  }
   const { listEntityIdsLive } = await import("./loader-live");
   return listEntityIdsLive(type);
 }

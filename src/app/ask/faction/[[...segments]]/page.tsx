@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { routeOg } from "@/lib/seo";
 import SiteBackground from "@/components/chrome/SiteBackground";
 import ScrollScrim from "@/components/chrome/ScrollScrim";
 import RouteScrollCue from "@/components/chrome/RouteScrollCue";
@@ -17,14 +18,30 @@ import {
   type FactionStarterNode,
 } from "@/lib/ask/faction-starters";
 
-export const metadata: Metadata = {
-  title: "One Faction, One Book - Chrono Lexicanum",
-  description:
-    "Pick a Warhammer 40,000 faction and the archive names a single, curated novel to start with.",
-};
+const ASK_FACTION_DESCRIPTION =
+  "Pick a Warhammer 40,000 faction and the archive names a single, curated novel to start with.";
 
 interface AskFactionPageProps {
   params: Promise<{ segments?: string[] }>;
+}
+
+// Every drilldown node is its own static document (and sitemap entry — the
+// curated "where to start with X" long tail, URL matrix A.3), so the
+// canonical carries the segments.
+export async function generateMetadata({
+  params,
+}: AskFactionPageProps): Promise<Metadata> {
+  const { segments } = await params;
+  const path = ["/ask/faction", ...(segments ?? [])].join("/");
+  return {
+    title: "One Faction, One Book",
+    description: ASK_FACTION_DESCRIPTION,
+    alternates: { canonical: path },
+    openGraph: routeOg({
+      title: "One Faction, One Book",
+      description: ASK_FACTION_DESCRIPTION,
+    }),
+  };
 }
 
 /** Same vox voice as /ask, tilted to the faction tool. */

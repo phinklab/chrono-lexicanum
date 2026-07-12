@@ -26,7 +26,7 @@ import {
 import { classifyDrift, type DriftClass } from "@/lib/aliases";
 
 export const metadata: Metadata = {
-  title: "Book Audit — Chrono Lexicanum",
+  title: "Book Audit",
   robots: { index: false, follow: false },
 };
 

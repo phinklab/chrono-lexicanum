@@ -63,6 +63,11 @@ jobs:
         env:
           DATABASE_URL: postgres://ci-build-must-not-touch-db:x@127.0.0.1:9/none
           NEXT_TELEMETRY_DISABLED: '1'
+          # A production build without SITE_URL fails by design (Launch S5,
+          # src/lib/site-url.ts) — canonicals/sitemap must never bake a
+          # localhost origin. CI uses the reserved-invalid dummy host; the
+          # real host lives in the Vercel env.
+          SITE_URL: https://example.invalid
 
   # Audit policy (Launch S1b): production dependencies are held to a blocking
   # standard — a high/critical advisory in anything that ships to the runtime

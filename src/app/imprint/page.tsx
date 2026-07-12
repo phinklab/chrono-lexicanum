@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   title: "Impressum",
   description:
     "Impressum von Chrono · Lexicanum — Anbieterkennzeichnung nach § 5 DDG und urheber- und markenrechtliche Hinweise (Games Workshop).",
+  alternates: { canonical: "/imprint" },
 };
 
 export default function ImprintPage() {

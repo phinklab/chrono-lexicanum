@@ -12,6 +12,7 @@ import CompendiumFocusOpener from "@/components/compendium/CompendiumFocusOpener
 import ArchiveModeToggle from "@/components/archive/ArchiveModeToggle";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";
 import WerkeFilters from "./WerkeFilters";
+import { routeOg } from "@/lib/seo";
 import { bookSlugById, type BrowseBook } from "./loader";
 import { loadUnifiedSearchIndex } from "@/lib/search-index";
 import {
@@ -21,10 +22,17 @@ import {
   parseWorksParams,
 } from "./filters";
 
+const ARCHIVE_DESCRIPTION =
+  "Search the Chrono Lexicanum archive — books, podcasts, factions, characters and worlds.";
+
+// Canonical is the bare /archive for EVERY filter arrival (q, faction,
+// format, facet, sort, focus): the filters are views of one document, not
+// documents of their own (URL matrix A.3).
 export const metadata: Metadata = {
-  title: "Archive — Chrono Lexicanum",
-  description:
-    "Search the Chrono Lexicanum archive — books, podcasts, factions, characters and worlds.",
+  title: "Archive",
+  description: ARCHIVE_DESCRIPTION,
+  alternates: { canonical: "/archive" },
+  openGraph: routeOg({ title: "Archive", description: ARCHIVE_DESCRIPTION }),
 };
 
 interface WerkePageProps {

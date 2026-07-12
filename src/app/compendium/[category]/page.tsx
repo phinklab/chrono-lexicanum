@@ -16,6 +16,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { routeOg } from "@/lib/seo";
 import {
   COMPENDIUM_CATEGORIES,
   findCategory,
@@ -35,6 +36,8 @@ import CompendiumNav from "@/components/compendium/CompendiumNav";
 type Params = { category: string };
 type Search = Record<string, string | string[] | undefined>;
 
+// `q`/`alignment`/`sort` are views of the one directory — canonical stays the
+// bare category path (URL matrix A.3).
 export async function generateMetadata({
   params,
 }: {
@@ -42,10 +45,13 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { category } = await params;
   const c = findCategory(category);
-  if (!c) return { title: "Compendium — Chrono Lexicanum" };
+  if (!c) return { title: "Compendium" };
+  const title = `${c.label} — Compendium`;
   return {
-    title: `${c.label} — Compendium — Chrono Lexicanum`,
+    title,
     description: c.blurb,
+    alternates: { canonical: `/compendium/${c.slug}` },
+    openGraph: routeOg({ title, description: c.blurb }),
   };
 }
 
