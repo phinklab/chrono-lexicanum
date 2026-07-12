@@ -29,7 +29,7 @@
           "releaseYear": 2011,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/promethean-sun",
+          "href": "/book/promethean-sun",
           "showTitle": null
         },
         {
@@ -39,7 +39,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-unremembered-empire",
+          "href": "/book/the-unremembered-empire",
           "showTitle": null
         },
         {
@@ -49,7 +49,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/vulkan-lives",
+          "href": "/book/vulkan-lives",
           "showTitle": null
         },
         {
@@ -59,7 +59,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/seditions-gate",
+          "href": "/book/seditions-gate",
           "showTitle": null
         },
         {
@@ -69,7 +69,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/artefacts",
+          "href": "/book/artefacts",
           "showTitle": null
         },
         {
@@ -79,7 +79,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/deathfire",
+          "href": "/book/deathfire",
           "showTitle": null
         },
         {
@@ -89,7 +89,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/sons-of-the-forge",
+          "href": "/book/sons-of-the-forge",
           "showTitle": null
         },
         {
@@ -99,7 +99,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-beast-must-die",
+          "href": "/book/the-beast-must-die",
           "showTitle": null
         },
         {
@@ -109,7 +109,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-hunt-for-vulkan",
+          "href": "/book/the-hunt-for-vulkan",
           "showTitle": null
         },
         {
@@ -119,7 +119,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/old-earth",
+          "href": "/book/old-earth",
           "showTitle": null
         },
         {
@@ -129,7 +129,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/born-of-flame",
+          "href": "/book/born-of-flame",
           "showTitle": null
         },
         {
@@ -139,7 +139,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/sons-of-the-emperor",
+          "href": "/book/sons-of-the-emperor",
           "showTitle": null
         },
         {
@@ -149,7 +149,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/vulkan-lord-of-drakes",
+          "href": "/book/vulkan-lord-of-drakes",
           "showTitle": null
         },
         {
@@ -159,7 +159,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/mercy-of-the-dragon",
+          "href": "/book/mercy-of-the-dragon",
           "showTitle": null
         }
       ]

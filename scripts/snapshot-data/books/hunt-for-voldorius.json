@@ -1,0 +1,122 @@
+{
+  "id": "c3596111-71b4-4cf2-958c-887ab7b583cc",
+  "slug": "hunt-for-voldorius",
+  "title": "Hunt for Voldorius",
+  "synopsis": "For more than a decade, Kor'sarro Khan of the White Scars has pursued a single quarry across the stars: Kernax Voldorius, a daemon prince and warleader of the treacherous Alpha Legion. The hunt finally runs its prey to ground on Quintus, a world wholly corrupted and given over to the renegades' cause. To bring down so monstrous a foe, the swift riders of the White Scars must forge an unlikely alliance with the shadow-warriors of the Raven Guard and their captain, Kayvaan Shrike. Together they face an entire planet in arms, knowing that a hunt this long can end only in the daemon's death or their own. A relentless story of vengeance, honour and the price of an unbreakable oath.",
+  "coverUrl": null,
+  "releaseYear": 2010,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "andy_hoare",
+      "name": "Andy Hoare",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "alpha_legion",
+      "name": "Alpha Legion",
+      "role": "antagonist"
+    },
+    {
+      "id": "raven_guard",
+      "name": "Raven Guard",
+      "role": "supporting"
+    },
+    {
+      "id": "white_scars",
+      "name": "White Scars",
+      "role": "primary"
+    }
+  ],
+  "locations": [
+    {
+      "id": "quintus",
+      "name": "Quintus",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "korsarro_khan",
+      "name": "Kor'sarro Khan",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Journey",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Planetary",
+      "category": "scope"
+    },
+    {
+      "name": "Brotherhood",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Sacrifice",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

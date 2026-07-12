@@ -1,0 +1,136 @@
+{
+  "id": "991164ae-491b-4163-b931-930d71e9c994",
+  "slug": "apocalypse",
+  "title": "Apocalypse",
+  "synopsis": "With the Great Rift torn across the galaxy, Lieutenant Heyd Calder is sent by Roboute Guilliman to hold the cardinal world of Almace against an oncoming Word Bearers crusade. He arrives commanding Primaris brothers drawn from Imperial Fists, White Scars and Raven Guard, and finds the Cardinal-Governor as guarded as any besieger. As traitor fleets close in and the system burns, Calder pieces together what the Ecclesiarchy on Almace is hiding — and why this minor seat suddenly matters to the Heretic Astartes. To save the world, he must convince the priesthood to fight beside him before the cathedral cities are lost altogether.",
+  "coverUrl": null,
+  "releaseYear": 2019,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "josh_reynolds",
+      "name": "Josh Reynolds",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "ecclesiarchy",
+      "name": "Ecclesiarchy",
+      "role": "supporting"
+    },
+    {
+      "id": "imperial_fists",
+      "name": "Imperial Fists",
+      "role": "primary"
+    },
+    {
+      "id": "raven_guard",
+      "name": "Raven Guard",
+      "role": "supporting"
+    },
+    {
+      "id": "white_scars",
+      "name": "White Scars",
+      "role": "supporting"
+    },
+    {
+      "id": "word_bearers",
+      "name": "Word Bearers",
+      "role": "antagonist"
+    }
+  ],
+  "locations": [
+    {
+      "id": "almace",
+      "name": "Almace",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "roboute_guilliman",
+      "name": "Roboute Guilliman",
+      "role": "appears"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Mid Series",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Political Thriller",
+      "category": "plot_type"
+    },
+    {
+      "name": "Siege",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Sector",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Faith",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

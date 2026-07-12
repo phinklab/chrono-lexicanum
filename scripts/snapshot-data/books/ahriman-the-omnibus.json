@@ -1,0 +1,150 @@
+{
+  "id": "218de99a-c38a-4074-b47f-ff2759937502",
+  "slug": "ahriman-the-omnibus",
+  "title": "Ahriman: The Omnibus",
+  "synopsis": "The complete saga of the Thousand Sons' greatest sorcerer, gathered into a single volume. Ahzek Ahriman, protege of the primarch Magnus the Red, was undone by his own hubris: the Rubric he cast to save his Legion instead reduced his brothers to animate dust within their armour. Spurned and exiled, he refuses to abandon them. Across Exile, Sorcerer and Unchanged - plus eight accompanying short stories - Ahriman braves the horrors of the Eye of Terror and the wider galaxy in search of the knowledge to reverse his catastrophe, gathering followers, betraying allies, and edging ever closer to a confrontation with his own past. A doorstop-sized journey through obsession, sorcery and the faint hope of undoing an eternal curse.",
+  "coverUrl": null,
+  "releaseYear": 2017,
+  "format": "omnibus",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "john_french",
+      "name": "John French",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "inquisition",
+      "name": "Inquisition",
+      "role": "supporting"
+    },
+    {
+      "id": "thousand_sons",
+      "name": "Thousand Sons",
+      "role": "primary"
+    }
+  ],
+  "locations": [
+    {
+      "id": "eye_of_terror",
+      "name": "Eye of Terror",
+      "role": "secondary"
+    },
+    {
+      "id": "planet_of_the_sorcerers",
+      "name": "Planet of the Sorcerers",
+      "role": "secondary"
+    },
+    {
+      "id": "prospero",
+      "name": "Prospero",
+      "role": "secondary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "ahzek_ahriman",
+      "name": "Ahzek Ahriman",
+      "role": "pov"
+    },
+    {
+      "id": "astraeos",
+      "name": "Astraeos",
+      "role": "appears"
+    },
+    {
+      "id": "ctesias",
+      "name": "Ctesias",
+      "role": "appears"
+    },
+    {
+      "id": "magnus_the_red",
+      "name": "Magnus the Red",
+      "role": "appears"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Series Start",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Doorstopper",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "Journey",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Chaos",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Galactic",
+      "category": "scope"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Redemption",
+      "category": "theme"
+    },
+    {
+      "name": "Sacrifice",
+      "category": "theme"
+    },
+    {
+      "name": "Cosmic Horror",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Philosophical",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

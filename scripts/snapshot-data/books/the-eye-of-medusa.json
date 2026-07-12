@@ -1,0 +1,138 @@
+{
+  "id": "0e6c608b-6615-44f5-8adf-3bd5ea36a7d5",
+  "slug": "the-eye-of-medusa",
+  "title": "The Eye of Medusa",
+  "synopsis": "The forge world of Thennos lies under the gunmetal aegis of Medusa, homeworld of the Iron Hands, by treaty as old as the Imperium. When Thennos's population turns traitor, the treaty becomes a death warrant. The Iron Hands fall on the world with the cold, calculating brutality that has long since replaced their compassion. Brother-sergeant Kardan Stronos, newly inducted into Clan Garrsak, leads his squad into the smoke of the burning forges expecting to find the heresy his masters described to him. What he finds instead is silence: secrets the planet refuses to give up, atrocities his Clan father insists are necessary, and an answer no Iron Hand is meant to look at. Beneath the soot and the welded plate, something dark is waiting in Thennos — something that does not respect the purity of cold logic or the holy machine, and that offers Stronos a question his Chapter has spent ten thousand years training him not to ask.",
+  "coverUrl": null,
+  "releaseYear": 2017,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "david_guymer",
+      "name": "David Guymer",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "iron_hands",
+      "name": "Iron Hands",
+      "role": "primary"
+    },
+    {
+      "id": "mechanicus",
+      "name": "Adeptus Mechanicus",
+      "role": "primary"
+    }
+  ],
+  "locations": [
+    {
+      "id": "medusa",
+      "name": "Medusa",
+      "role": "primary"
+    },
+    {
+      "id": "thennos",
+      "name": "Thennos",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "kardan_stronos",
+      "name": "Kardan Stronos",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Series Start",
+      "category": "entry_point"
+    },
+    {
+      "name": "Audiobook",
+      "category": "format"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "Mystery",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Planetary",
+      "category": "scope"
+    },
+    {
+      "name": "Brotherhood",
+      "category": "theme"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "War",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Philosophical",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

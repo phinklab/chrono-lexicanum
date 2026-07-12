@@ -1,0 +1,178 @@
+{
+  "id": "1e55ebd2-fbca-402c-8c2b-e5a18a9e482d",
+  "slug": "the-grey-knights-omnibus",
+  "title": "The Grey Knights Omnibus",
+  "synopsis": "This omnibus collects the complete trilogy following Justicar Alaric of the Grey Knights, the Imperium's hidden brotherhood of daemon-hunters. In Grey Knights, Alaric races to stop the prophesied return of the daemon prince Ghargatuloth. In Dark Adeptus, he descends onto the corrupted forge world of Chaeroneia, where machines run riot and tech-priests have been twisted by the warp. In Hammer of Daemons, captured and cast onto the daemon world of Drakaasi, he fights in the arenas of the Blood God in search of a weapon that can win his freedom. Three linked tales of one warrior tested to the very limits of his faith and endurance.",
+  "coverUrl": null,
+  "releaseYear": 2009,
+  "format": "omnibus",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "ben_counter",
+      "name": "Ben Counter",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "dark_mechanicum",
+      "name": "Dark Mechanicum",
+      "role": "antagonist"
+    },
+    {
+      "id": "grey_knights",
+      "name": "Grey Knights",
+      "role": "primary"
+    },
+    {
+      "id": "khorne",
+      "name": "Khorne",
+      "role": "antagonist"
+    },
+    {
+      "id": "mechanicus",
+      "name": "Adeptus Mechanicus",
+      "role": "supporting"
+    },
+    {
+      "id": "ordo_malleus",
+      "name": "Ordo Malleus",
+      "role": "supporting"
+    },
+    {
+      "id": "tzeentch",
+      "name": "Tzeentch",
+      "role": "antagonist"
+    }
+  ],
+  "locations": [
+    {
+      "id": "chaeroneia",
+      "name": "Chaeroneia",
+      "role": "primary"
+    },
+    {
+      "id": "drakaasi",
+      "name": "Drakaasi",
+      "role": "primary"
+    },
+    {
+      "id": "eye_of_terror",
+      "name": "Eye of Terror",
+      "role": "secondary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "alaric",
+      "name": "Alaric",
+      "role": "pov"
+    },
+    {
+      "id": "duke_venalitor",
+      "name": "Duke Venalitor",
+      "role": "appears"
+    },
+    {
+      "id": "ghargatuloth",
+      "name": "Ghargatuloth",
+      "role": "appears"
+    },
+    {
+      "id": "nyxos",
+      "name": "Nyxos",
+      "role": "appears"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Series Start",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Doorstopper",
+      "category": "length_tier"
+    },
+    {
+      "name": "Journey",
+      "category": "plot_type"
+    },
+    {
+      "name": "Last Stand",
+      "category": "plot_type"
+    },
+    {
+      "name": "Mystery",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Planetary",
+      "category": "scope"
+    },
+    {
+      "name": "Sector",
+      "category": "scope"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Faith",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Sacrifice",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Cosmic Horror",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

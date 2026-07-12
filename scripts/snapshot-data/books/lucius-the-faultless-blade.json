@@ -1,0 +1,163 @@
+{
+  "id": "afe8d0dd-96fc-416e-bf0e-f156ffaacd97",
+  "slug": "lucius-the-faultless-blade",
+  "title": "Lucius: The Faultless Blade",
+  "synopsis": "Series-start Lucius novel. Lucius the Eternal — Soulthief, Champion of Slaanesh, doomed to reincarnate in any opponent who kills him without exulting — finds his Emperor's Children warband exhausted after ten millennia of pursuit of new sensation, his retainers turning on each other and his own body breaking down. He reaches out to an estranged brother of the legion, and three pressures converge: a feud with a Khornate World Eaters champion; the cabal of Emperor's Children loyal to Fabius Bile, the legion's flesh-artist primogenitor; and a Dark Eldar Kabal tracking him into the Webway. Servitor-POV intervals let the reader see Lucius from outside his own narcissism. Decay, addiction, and the impossibility of mortal escape for someone who cannot die.",
+  "coverUrl": null,
+  "releaseYear": 2017,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "ian_st_martin",
+      "name": "Ian St. Martin",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "drukhari",
+      "name": "Drukhari",
+      "role": "antagonist"
+    },
+    {
+      "id": "emperors_children",
+      "name": "Emperor's Children",
+      "role": "primary"
+    },
+    {
+      "id": "fabius_bile_coterie",
+      "name": "Fabius Bile's Coterie",
+      "role": "antagonist"
+    },
+    {
+      "id": "heretic_astartes",
+      "name": "Heretic Astartes",
+      "role": "primary"
+    },
+    {
+      "id": "khorne",
+      "name": "Khorne",
+      "role": "antagonist"
+    },
+    {
+      "id": "slaanesh",
+      "name": "Slaanesh",
+      "role": "primary"
+    },
+    {
+      "id": "world_eaters",
+      "name": "World Eaters",
+      "role": "antagonist"
+    }
+  ],
+  "locations": [
+    {
+      "id": "webway",
+      "name": "Webway",
+      "role": "secondary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "fabius_bile",
+      "name": "Fabius Bile",
+      "role": "appears"
+    },
+    {
+      "id": "lucius_the_eternal",
+      "name": "Lucius the Eternal",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Series Start",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "Journey",
+      "category": "plot_type"
+    },
+    {
+      "name": "Political Thriller",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Chaos",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Galactic",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Sacrifice",
+      "category": "theme"
+    },
+    {
+      "name": "Cosmic Horror",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Philosophical",
+      "category": "tone"
+    },
+    {
+      "name": "Somber",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

@@ -1,0 +1,142 @@
+{
+  "id": "64176c00-f2f3-43d7-bb8d-88ed524f2143",
+  "slug": "double-eagle",
+  "title": "Double Eagle",
+  "synopsis": "Sabbat Worlds Crusade companion novel to Gaunt's Ghosts, taking the Crusade to the skies above Enothis. The elite Phantine XX fighter wing — including Commander Bree Jagdea — arrives on the desert-coast war-front in a desperate hour, with Chaos air forces driving Imperial cover off the planet and threatening to wipe out the remaining human population. Dual POV across the dogfighting line: Phantine pilots flying Thunderbolt and Marauder aircraft on one side, the infamous Chaos ace Khrel Kas Obarkon and his Hell-Talon squadrons hunting the skies on the other. Cast across both sides is large (squadron-mate ensembles, ground crew, and PDF aviator allies). A 'Battle of Britain in space' register — sustained aerial combat, attrition, pilot psychology, and the strategic stakes of holding the air corridor that the Crusade's ground forces depend on. Carries the same Sabbat-Worlds geopolitics as the Gaunt's Ghosts arc but anchors on the Imperial Navy / Phantine-aviation axis rather than the Tanith First-and-Only.",
+  "coverUrl": null,
+  "releaseYear": 2004,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": "time_ending",
+  "eraName": "Time of Ending",
+  "persons": [
+    {
+      "id": "dan_abnett",
+      "name": "Dan Abnett",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "astra_militarum",
+      "name": "Astra Militarum",
+      "role": "supporting"
+    },
+    {
+      "id": "blood_pact",
+      "name": "Blood Pact",
+      "role": "supporting"
+    },
+    {
+      "id": "imperial_navy",
+      "name": "Imperial Navy",
+      "role": "primary"
+    },
+    {
+      "id": "phantine_air_corps",
+      "name": "Phantine Air Corps",
+      "role": "primary"
+    },
+    {
+      "id": "tanith_first",
+      "name": "Tanith First-and-Only",
+      "role": "background"
+    }
+  ],
+  "locations": [
+    {
+      "id": "enothis",
+      "name": "Enothis",
+      "role": "primary"
+    },
+    {
+      "id": "phantine",
+      "name": "Phantine",
+      "role": "mentioned"
+    },
+    {
+      "id": "sabbat",
+      "name": "Sabbat Worlds",
+      "role": "secondary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "bree_jagdea",
+      "name": "Bree Jagdea",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Dual",
+      "category": "pov_side"
+    },
+    {
+      "name": "Guardsman",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Mixed",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Planetary",
+      "category": "scope"
+    },
+    {
+      "name": "Brotherhood",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Sacrifice",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Somber",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

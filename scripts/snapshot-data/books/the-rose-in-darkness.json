@@ -1,0 +1,115 @@
+{
+  "id": "23a2225c-8af0-4901-a749-71a0ec47c381",
+  "slug": "the-rose-in-darkness",
+  "title": "The Rose in Darkness",
+  "synopsis": "Sister Superior Augusta of the Order of the Bloody Rose is sent to the shrine world of Opal to recover the skull of Saint Veres during its holiest festival — only to uncover a genestealer cult beneath the surface and a hive fleet bearing down on the planet.",
+  "coverUrl": null,
+  "releaseYear": 2023,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "danie_ware",
+      "name": "Danie Ware",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "genestealer_cults",
+      "name": "Genestealer Cults",
+      "role": "antagonist"
+    },
+    {
+      "id": "sisters_of_battle",
+      "name": "Adepta Sororitas",
+      "role": "primary"
+    },
+    {
+      "id": "tyranids",
+      "name": "Tyranids",
+      "role": "antagonist"
+    }
+  ],
+  "locations": [
+    {
+      "id": "opal",
+      "name": "Opal",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "saint_veres",
+      "name": "Saint Veres",
+      "role": "mentioned"
+    },
+    {
+      "id": "sister_superior_augusta",
+      "name": "Sister Superior Augusta",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Series Start",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Mystery",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Sister of Battle",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Female",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Planetary",
+      "category": "scope"
+    },
+    {
+      "name": "Faith",
+      "category": "theme"
+    },
+    {
+      "name": "War",
+      "category": "theme"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

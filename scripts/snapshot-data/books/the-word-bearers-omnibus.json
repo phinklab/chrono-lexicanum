@@ -1,0 +1,166 @@
+{
+  "id": "91da36d8-129d-4173-8aed-f8e24ad9b8fc",
+  "slug": "the-word-bearers-omnibus",
+  "title": "The Word Bearers Omnibus",
+  "synopsis": "This collected edition gathers the complete Word Bearers trilogy, Dark Apostle, Dark Disciple, and Dark Creed, plus the short story Torment, charting the relentless ascent of Marduk from ambitious First Acolyte to Dark Apostle of the traitor Legion. From the enslaved world of Tanakreg and its blasphemous tower, through warzones shared with tyranids and dark eldar raiders, to the climactic assault on the Boros Gate and its White Consuls defenders, Marduk schemes, betrays, and butchers his way toward power. Throughout, he wields a fragment of ancient necron technology that draws the attention of enemies on every side. A grim chronicle of faith, ambition, and treachery told entirely from behind the eyes of the damned.",
+  "coverUrl": null,
+  "releaseYear": 2012,
+  "format": "omnibus",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "anthony_reynolds",
+      "name": "Anthony Reynolds",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "astra_militarum",
+      "name": "Astra Militarum",
+      "role": "supporting"
+    },
+    {
+      "id": "drukhari",
+      "name": "Drukhari",
+      "role": "supporting"
+    },
+    {
+      "id": "mechanicus",
+      "name": "Adeptus Mechanicus",
+      "role": "supporting"
+    },
+    {
+      "id": "necrons",
+      "name": "Necrons",
+      "role": "antagonist"
+    },
+    {
+      "id": "tyranids",
+      "name": "Tyranids",
+      "role": "supporting"
+    },
+    {
+      "id": "white_consuls",
+      "name": "White Consuls",
+      "role": "antagonist"
+    },
+    {
+      "id": "word_bearers",
+      "name": "Word Bearers",
+      "role": "primary"
+    }
+  ],
+  "locations": [
+    {
+      "id": "boros_gate",
+      "name": "Boros Gate",
+      "role": "secondary"
+    },
+    {
+      "id": "tanakreg",
+      "name": "Tanakreg",
+      "role": "secondary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "burias",
+      "name": "Burias",
+      "role": "appears"
+    },
+    {
+      "id": "jarulek",
+      "name": "Jarulek",
+      "role": "appears"
+    },
+    {
+      "id": "kol_badar",
+      "name": "Kol Badar",
+      "role": "appears"
+    },
+    {
+      "id": "marduk",
+      "name": "Marduk",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Series Start",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Doorstopper",
+      "category": "length_tier"
+    },
+    {
+      "name": "Siege",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Chaos",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Sector",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Faith",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "War",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Cosmic Horror",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

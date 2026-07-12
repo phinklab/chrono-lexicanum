@@ -28,7 +28,7 @@
           "releaseYear": 2004,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/deus-encarmine",
+          "href": "/book/deus-encarmine",
           "showTitle": null
         },
         {
@@ -38,7 +38,7 @@
           "releaseYear": 2005,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/deus-sanguinius",
+          "href": "/book/deus-sanguinius",
           "showTitle": null
         },
         {
@@ -48,7 +48,7 @@
           "releaseYear": 2008,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/red-fury",
+          "href": "/book/red-fury",
           "showTitle": null
         },
         {
@@ -58,7 +58,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/lost-sons",
+          "href": "/book/lost-sons",
           "showTitle": null
         },
         {
@@ -68,7 +68,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/shield-of-baal",
+          "href": "/book/shield-of-baal",
           "showTitle": null
         },
         {
@@ -78,7 +78,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-devastation-of-baal",
+          "href": "/book/the-devastation-of-baal",
           "showTitle": null
         },
         {
@@ -88,7 +88,7 @@
           "releaseYear": 2020,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/astorath-angel-of-mercy",
+          "href": "/book/astorath-angel-of-mercy",
           "showTitle": null
         },
         {
@@ -98,7 +98,7 @@
           "releaseYear": 2020,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/darkness-in-the-blood",
+          "href": "/book/darkness-in-the-blood",
           "showTitle": null
         }
       ]

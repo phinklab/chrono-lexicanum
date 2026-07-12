@@ -29,7 +29,7 @@
           "releaseYear": 2007,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/descent-of-angels",
+          "href": "/book/descent-of-angels",
           "showTitle": null
         },
         {
@@ -39,7 +39,7 @@
           "releaseYear": 2009,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/fallen-angels",
+          "href": "/book/fallen-angels",
           "showTitle": null
         },
         {
@@ -49,7 +49,7 @@
           "releaseYear": 2011,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/age-of-darkness",
+          "href": "/book/age-of-darkness",
           "showTitle": null
         },
         {
@@ -59,7 +59,7 @@
           "releaseYear": 2011,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/savage-weapons",
+          "href": "/book/savage-weapons",
           "showTitle": null
         },
         {
@@ -69,7 +69,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/the-lion",
+          "href": "/book/the-lion",
           "showTitle": null
         },
         {
@@ -79,7 +79,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-primarchs",
+          "href": "/book/the-primarchs",
           "showTitle": null
         },
         {
@@ -89,7 +89,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-imperial-truth",
+          "href": "/book/the-imperial-truth",
           "showTitle": null
         },
         {
@@ -99,7 +99,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-unremembered-empire",
+          "href": "/book/the-unremembered-empire",
           "showTitle": null
         },
         {
@@ -109,7 +109,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/prince-of-crows",
+          "href": "/book/prince-of-crows",
           "showTitle": null
         },
         {
@@ -119,7 +119,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/angels-of-caliban",
+          "href": "/book/angels-of-caliban",
           "showTitle": null
         },
         {
@@ -129,7 +129,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/leman-russ-the-great-wolf",
+          "href": "/book/leman-russ-the-great-wolf",
           "showTitle": null
         },
         {
@@ -139,7 +139,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/ruinstorm",
+          "href": "/book/ruinstorm",
           "showTitle": null
         },
         {
@@ -149,7 +149,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/dreadwing",
+          "href": "/book/dreadwing",
           "showTitle": null
         },
         {
@@ -159,7 +159,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/scions-of-the-emperor",
+          "href": "/book/scions-of-the-emperor",
           "showTitle": null
         },
         {
@@ -169,7 +169,7 @@
           "releaseYear": 2020,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/lion-eljonson-lord-of-the-first",
+          "href": "/book/lion-eljonson-lord-of-the-first",
           "showTitle": null
         },
         {
@@ -179,7 +179,7 @@
           "releaseYear": 2021,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/alpharius-head-of-the-hydra",
+          "href": "/book/alpharius-head-of-the-hydra",
           "showTitle": null
         },
         {
@@ -189,7 +189,7 @@
           "releaseYear": 2021,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/luther-first-of-the-fallen",
+          "href": "/book/luther-first-of-the-fallen",
           "showTitle": null
         },
         {
@@ -199,7 +199,7 @@
           "releaseYear": 2023,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/the-lion-sons-of-the-forest",
+          "href": "/book/the-lion-sons-of-the-forest",
           "showTitle": null
         }
       ]

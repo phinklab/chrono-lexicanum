@@ -1,0 +1,149 @@
+{
+  "id": "db108158-160a-4d1d-9285-bcef0488eaba",
+  "slug": "priests-of-mars",
+  "title": "Priests of Mars",
+  "synopsis": "The Martian priesthood's thirst for lost knowledge is insatiable. When Archmagos Lexell Kotov learns of an ancient expedition that vanished beyond the galactic rim in search of the source of life itself, he assembles a vast Explorator fleet to follow in its footsteps. Its flagship is the Speranza, a colossal Ark Mechanicus from the Dark Age of Technology. Joined by the rogue trader Roboute Surcouf, a detachment of Cadian Guard, a band of Black Templars, and a Legion of Titans, Kotov's crusade sets out across the perilous Halo Scar. But there are wonders and horrors at the edge of known space — and the strange machine-intelligence Galatea aboard the Speranza has agendas of its own. A grand, cerebral journey into the unknown.",
+  "coverUrl": null,
+  "releaseYear": 2012,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "graham_mcneill",
+      "name": "Graham McNeill",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "astra_militarum",
+      "name": "Astra Militarum",
+      "role": "supporting"
+    },
+    {
+      "id": "black_templars",
+      "name": "Black Templars",
+      "role": "supporting"
+    },
+    {
+      "id": "mechanicus",
+      "name": "Adeptus Mechanicus",
+      "role": "primary"
+    }
+  ],
+  "locations": [
+    {
+      "id": "mars",
+      "name": "Mars",
+      "role": "secondary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "galatea",
+      "name": "Galatea",
+      "role": "appears"
+    },
+    {
+      "id": "lexell_kotov",
+      "name": "Lexell Kotov",
+      "role": "pov"
+    },
+    {
+      "id": "linya_tychon",
+      "name": "Linya Tychon",
+      "role": "appears"
+    },
+    {
+      "id": "roboute_surcouf",
+      "name": "Roboute Surcouf",
+      "role": "pov"
+    },
+    {
+      "id": "tanna",
+      "name": "Tanna",
+      "role": "appears"
+    },
+    {
+      "id": "tarkis_blaylock",
+      "name": "Tarkis Blaylock",
+      "role": "appears"
+    },
+    {
+      "id": "ven_anders",
+      "name": "Ven Anders",
+      "role": "appears"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Series Start",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Doorstopper",
+      "category": "length_tier"
+    },
+    {
+      "name": "Journey",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Tech-Priest",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Mixed",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Galactic",
+      "category": "scope"
+    },
+    {
+      "name": "Faith",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Philosophical",
+      "category": "tone"
+    },
+    {
+      "name": "Somber",
+      "category": "tone"
+    }
+  ],
+  "containedIn": [
+    {
+      "collectionSlug": "forges-of-mars-omnibus",
+      "collectionTitle": "Forges of Mars Omnibus"
+    }
+  ]
+}

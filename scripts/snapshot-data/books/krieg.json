@@ -1,0 +1,148 @@
+{
+  "id": "14f061b4-b2cc-4ac7-b31b-f314ea2aff4f",
+  "slug": "krieg",
+  "title": "Krieg",
+  "synopsis": "At Hive Arathron, on the edge of the Octarius War, the Death Korps of Krieg grind forward through siege lines that make even other Imperial forces question their sanity. The present-day assault is braided with the older story of Krieg itself: a planet that rebelled, one loyal commander who chose nuclear ruin over treason, and the army born from the ashes. As Inquisitorial observers search for proof of loyalty or monstrosity, the siege begins to echo the origin myth. The two timelines make the same accusation in different uniforms. A bleak war novel about obedience, sacrifice, and whether a culture built from punishment can do anything except repeat it.",
+  "coverUrl": null,
+  "releaseYear": 2022,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": "the_waning",
+  "eraName": "The Waning",
+  "persons": [
+    {
+      "id": "steve_lyons",
+      "name": "Steve Lyons",
+      "role": "author",
+      "displayOrder": 0
+    },
+    {
+      "id": "timothy_watson",
+      "name": "Timothy Watson",
+      "role": "narrator",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "astra_militarum",
+      "name": "Astra Militarum",
+      "role": "primary"
+    },
+    {
+      "id": "death_korps_of_krieg",
+      "name": "Death Korps of Krieg",
+      "role": "primary"
+    },
+    {
+      "id": "inquisition",
+      "name": "Inquisition",
+      "role": "supporting"
+    },
+    {
+      "id": "orks",
+      "name": "Orks",
+      "role": "antagonist"
+    },
+    {
+      "id": "tyranids",
+      "name": "Tyranids",
+      "role": "antagonist"
+    }
+  ],
+  "locations": [
+    {
+      "id": "octarius",
+      "name": "Octarius",
+      "role": "primary"
+    }
+  ],
+  "characters": [],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "Siege",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Guardsman",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Sector",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Faith",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Sacrifice",
+      "category": "theme"
+    },
+    {
+      "name": "War",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Cosmic Horror",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Somber",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

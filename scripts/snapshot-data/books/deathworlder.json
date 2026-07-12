@@ -1,0 +1,105 @@
+{
+  "id": "e83d3cd3-c2a6-485e-97b0-4cb6594d3ad1",
+  "slug": "deathworlder",
+  "title": "Deathworlder",
+  "synopsis": "On the dying world of Lazulai, all but lost to the tyranids, Major Wulf Khan of the Catachan 903rd 'Night Shrikes' is handed one last mission: lead a squad through the apocalypse to recover a piece of archeotech that could doom or deliver the entire Lazulai System.",
+  "coverUrl": null,
+  "releaseYear": 2024,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "victoria_hayward",
+      "name": "Victoria Hayward",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "astra_militarum",
+      "name": "Astra Militarum",
+      "role": "primary"
+    },
+    {
+      "id": "tyranids",
+      "name": "Tyranids",
+      "role": "antagonist"
+    }
+  ],
+  "locations": [
+    {
+      "id": "lazulai",
+      "name": "Lazulai",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "wulf_khan",
+      "name": "Wulf Khan",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Last Stand",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Guardsman",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Planetary",
+      "category": "scope"
+    },
+    {
+      "name": "Sacrifice",
+      "category": "theme"
+    },
+    {
+      "name": "War",
+      "category": "theme"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

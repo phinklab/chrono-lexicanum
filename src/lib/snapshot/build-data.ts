@@ -25,6 +25,7 @@ import path from "node:path";
 import {
   DATA_ARTIFACTS,
   SNAPSHOT_DIR,
+  bookArtifactPath,
   entityArtifactPath,
 } from "../../../scripts/snapshot-shared";
 import type { EntityType } from "@/lib/entity/types";
@@ -66,4 +67,14 @@ export function readSnapshotArtifact<T>(name: keyof typeof DATA_ARTIFACTS): T {
  */
 export function readSnapshotEntity<T>(type: EntityType, id: string): T {
   return readSnapshotFile<T>(entityArtifactPath(type, id));
+}
+
+/**
+ * One hot book's prerender payload (Launch S4b). Only ever called at build
+ * time with slugs from the snapshot's own hot-slug list
+ * (`generateStaticParams`), so a missing file means an inconsistent snapshot —
+ * throw, don't degrade.
+ */
+export function readSnapshotBook<T>(slug: string): T {
+  return readSnapshotFile<T>(bookArtifactPath(slug));
 }

@@ -29,7 +29,7 @@
           "releaseYear": 2009,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/tales-of-heresy",
+          "href": "/book/tales-of-heresy",
           "showTitle": null
         },
         {
@@ -39,7 +39,7 @@
           "releaseYear": 2010,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/a-thousand-sons",
+          "href": "/book/a-thousand-sons",
           "showTitle": null
         },
         {
@@ -49,7 +49,7 @@
           "releaseYear": 2010,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/prospero-burns",
+          "href": "/book/prospero-burns",
           "showTitle": null
         },
         {
@@ -59,7 +59,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/bjorn-lone-wolf",
+          "href": "/book/bjorn-lone-wolf",
           "showTitle": null
         },
         {
@@ -69,7 +69,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": "mentioned",
-          "href": "/buch/hunters-moon",
+          "href": "/book/hunters-moon",
           "showTitle": null
         },
         {
@@ -79,7 +79,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/wolf-king",
+          "href": "/book/wolf-king",
           "showTitle": null
         },
         {
@@ -89,7 +89,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/crusades-end",
+          "href": "/book/crusades-end",
           "showTitle": null
         },
         {
@@ -99,7 +99,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/leman-russ-the-great-wolf",
+          "href": "/book/leman-russ-the-great-wolf",
           "showTitle": null
         },
         {
@@ -109,7 +109,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/the-razing-of-prospero",
+          "href": "/book/the-razing-of-prospero",
           "showTitle": null
         },
         {
@@ -119,7 +119,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/the-burden-of-loyalty",
+          "href": "/book/the-burden-of-loyalty",
           "showTitle": null
         },
         {
@@ -129,7 +129,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/two-metaphysical-blades",
+          "href": "/book/two-metaphysical-blades",
           "showTitle": null
         },
         {
@@ -139,7 +139,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/wolfsbane",
+          "href": "/book/wolfsbane",
           "showTitle": null
         },
         {
@@ -149,7 +149,7 @@
           "releaseYear": 2021,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/blood-of-the-emperor",
+          "href": "/book/blood-of-the-emperor",
           "showTitle": null
         },
         {
@@ -159,7 +159,7 @@
           "releaseYear": 2021,
           "coverUrl": null,
           "role": "mentioned",
-          "href": "/buch/bloodhowl",
+          "href": "/book/bloodhowl",
           "showTitle": null
         }
       ]

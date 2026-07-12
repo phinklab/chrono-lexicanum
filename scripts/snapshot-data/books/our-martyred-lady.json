@@ -1,0 +1,119 @@
+{
+  "id": "bde76102-c129-4f18-a045-b9342d017ec0",
+  "slug": "our-martyred-lady",
+  "title": "Our Martyred Lady",
+  "synopsis": "Amid a schism in the Ecclesiarchy that threatens a second Reign of Blood, the Living Saint Celestine and Inquisitor Greyfax hunt across the Imperium's shrine worlds to root out the heresy behind it.",
+  "coverUrl": null,
+  "releaseYear": 2018,
+  "format": "audio_drama",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "gav_thorpe",
+      "name": "Gav Thorpe",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "ecclesiarchy",
+      "name": "Ecclesiarchy",
+      "role": "primary"
+    },
+    {
+      "id": "inquisition",
+      "name": "Inquisition",
+      "role": "supporting"
+    },
+    {
+      "id": "sisters_of_battle",
+      "name": "Adepta Sororitas",
+      "role": "primary"
+    }
+  ],
+  "locations": [
+    {
+      "id": "terra",
+      "name": "Terra",
+      "role": "mentioned"
+    }
+  ],
+  "characters": [
+    {
+      "id": "katarinya_greyfax",
+      "name": "Katarinya Greyfax",
+      "role": "appears"
+    },
+    {
+      "id": "saint_celestine",
+      "name": "Saint Celestine",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Audio Drama",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Court Intrigue",
+      "category": "plot_type"
+    },
+    {
+      "name": "Mystery",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Inquisitor",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Sister of Battle",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Female",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Galactic",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Faith",
+      "category": "theme"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

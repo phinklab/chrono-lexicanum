@@ -18,7 +18,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import SiteBackground from "@/components/chrome/SiteBackground";
 import BookDetailView from "@/components/book/BookDetailView";
-import { loadBook } from "@/lib/book/loadBook";
+import { listHotBookSlugs, loadBook } from "@/lib/book/loadBook";
 
 type Params = { slug: string };
 
@@ -29,13 +29,13 @@ export const dynamicParams = true;
 // ISR backstop only — real freshness is the tag purge (see header).
 export const revalidate = 86400;
 
-// Build-prerender NOTHING yet: the committed snapshot has no book projection
-// until S4b extends the exporter (launch-master-plan § S4/S4b), and the
-// DB-free build must not fan ~900 `loadBook` reads into Postgres. S4b feeds a
-// snapshot-backed hot subset here (the entity `listHotEntityIds` pattern);
-// until then every book renders on demand and self-caches.
-export function generateStaticParams(): Params[] {
-  return [];
+// Build-prerender the curated hot subset from the committed snapshot (S4b,
+// the entity `listHotEntityIds` pattern) — zero DB reads on the build path;
+// `loadBook` serves those slugs from `books/<slug>.json`. The ~900-book long
+// tail renders on demand and self-caches.
+export async function generateStaticParams(): Promise<Params[]> {
+  const slugs = await listHotBookSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 // Per-book OG/social metadata (share-card-relevant for launch).

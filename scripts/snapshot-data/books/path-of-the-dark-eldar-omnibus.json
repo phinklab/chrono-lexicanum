@@ -1,0 +1,140 @@
+{
+  "id": "bb634f95-f507-4ac2-9392-09e74eaf7fc8",
+  "slug": "path-of-the-dark-eldar-omnibus",
+  "title": "Path of the Dark Eldar Omnibus",
+  "synopsis": "The complete Path of the Dark Eldar trilogy, plus three connected short stories, gathered in one volume. In the hidden city of Commorragh, the archon Nyos Yllithian and the haemonculus Bellathonis scheme to unseat the eternal tyrant Asdrubael Vect — but their plotting helps unleash the Dysjunction, a cataclysm that floods the dark city with horrors and sets kabal against kabal. Across Path of the Renegade, Path of the Incubus and Path of the Archon, alongside the incubus Morr's fight to clear his name, the omnibus charts a war of poison, betrayal and survival in the cruellest city of the Eldar.",
+  "coverUrl": null,
+  "releaseYear": 2015,
+  "format": "omnibus",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "andy_chambers",
+      "name": "Andy Chambers",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "daemons",
+      "name": "Daemons",
+      "role": "antagonist"
+    },
+    {
+      "id": "drukhari",
+      "name": "Drukhari",
+      "role": "primary"
+    }
+  ],
+  "locations": [
+    {
+      "id": "commorragh",
+      "name": "Commorragh",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "asdrubael_vect",
+      "name": "Asdrubael Vect",
+      "role": "appears"
+    },
+    {
+      "id": "bellathonis",
+      "name": "Bellathonis",
+      "role": "appears"
+    },
+    {
+      "id": "morr",
+      "name": "Morr",
+      "role": "pov"
+    },
+    {
+      "id": "nyos_yllithian",
+      "name": "Nyos Yllithian",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Series Start",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Doorstopper",
+      "category": "length_tier"
+    },
+    {
+      "name": "Court Intrigue",
+      "category": "plot_type"
+    },
+    {
+      "name": "Political Thriller",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Xenos",
+      "category": "pov_side"
+    },
+    {
+      "name": "Xenos",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Sector",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Redemption",
+      "category": "theme"
+    },
+    {
+      "name": "Cosmic Horror",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Somber",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

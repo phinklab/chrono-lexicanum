@@ -143,8 +143,8 @@ Deploy würde einen Stand revalidieren, den es noch gar nicht gibt):
 
 2. **Live-Smoke** (Browser, kalter Blick): Home lädt mit Suchvorschlägen ·
    `/archive/podcasts` zeigt die Shows · 2–3 Hot-Entities (z. B.
-   `/charakter/roboute_guilliman`, `/fraktion/thousand_sons`) · ein im Release
-   geändertes Buch über `/buch/<slug>`. Sichtbar alter Stand nach Revalidation
+   `/character/roboute_guilliman`, `/faction/thousand_sons`) · ein im Release
+   geändertes Buch über `/book/<slug>`. Sichtbar alter Stand nach Revalidation
    ⇒ nicht raten: das ist seit S2 ein **echtes Problem** — die Invalidierung
    ist `revalidateTag(tag, { expire: 0 })` (sofortige Expiration, NICHT
    stale-while-revalidate), schon der erste Request muss den neuen Stand

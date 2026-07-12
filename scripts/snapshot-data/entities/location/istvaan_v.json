@@ -30,7 +30,7 @@
           "releaseYear": 2007,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/collected-visions",
+          "href": "/book/collected-visions",
           "showTitle": null
         },
         {
@@ -40,7 +40,7 @@
           "releaseYear": 2007,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/fulgrim",
+          "href": "/book/fulgrim",
           "showTitle": null
         },
         {
@@ -50,7 +50,7 @@
           "releaseYear": 2010,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/ravens-flight",
+          "href": "/book/ravens-flight",
           "showTitle": null
         },
         {
@@ -60,7 +60,7 @@
           "releaseYear": 2010,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-first-heretic",
+          "href": "/book/the-first-heretic",
           "showTitle": null
         },
         {
@@ -70,7 +70,7 @@
           "releaseYear": 2011,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/age-of-darkness",
+          "href": "/book/age-of-darkness",
           "showTitle": null
         },
         {
@@ -80,7 +80,7 @@
           "releaseYear": 2011,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/aurelian",
+          "href": "/book/aurelian",
           "showTitle": null
         },
         {
@@ -90,7 +90,7 @@
           "releaseYear": 2011,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/deliverance-lost",
+          "href": "/book/deliverance-lost",
           "showTitle": null
         },
         {
@@ -100,7 +100,7 @@
           "releaseYear": 2011,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-face-of-treachery",
+          "href": "/book/the-face-of-treachery",
           "showTitle": null
         },
         {
@@ -110,7 +110,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/horus-heresy-the-scripts-volume-i",
+          "href": "/book/horus-heresy-the-scripts-volume-i",
           "showTitle": null
         },
         {
@@ -120,7 +120,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/shadows-of-treachery",
+          "href": "/book/shadows-of-treachery",
           "showTitle": null
         },
         {
@@ -130,7 +130,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/strike-and-fade",
+          "href": "/book/strike-and-fade",
           "showTitle": null
         },
         {
@@ -140,7 +140,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/veritas-ferrum",
+          "href": "/book/veritas-ferrum",
           "showTitle": null
         },
         {
@@ -150,7 +150,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/angel-exterminatus",
+          "href": "/book/angel-exterminatus",
           "showTitle": null
         },
         {
@@ -160,7 +160,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/riven",
+          "href": "/book/riven",
           "showTitle": null
         },
         {
@@ -170,7 +170,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/scorched-earth",
+          "href": "/book/scorched-earth",
           "showTitle": null
         },
         {
@@ -180,7 +180,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/vulkan-lives",
+          "href": "/book/vulkan-lives",
           "showTitle": null
         },
         {
@@ -190,7 +190,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/echoes-of-ruin",
+          "href": "/book/echoes-of-ruin",
           "showTitle": null
         },
         {
@@ -200,7 +200,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/legacies-of-betrayal",
+          "href": "/book/legacies-of-betrayal",
           "showTitle": null
         },
         {
@@ -210,7 +210,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/raptor",
+          "href": "/book/raptor",
           "showTitle": null
         },
         {
@@ -220,7 +220,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-phoenician",
+          "href": "/book/the-phoenician",
           "showTitle": null
         },
         {
@@ -230,7 +230,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/grey-talon",
+          "href": "/book/grey-talon",
           "showTitle": null
         },
         {
@@ -240,7 +240,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/corax",
+          "href": "/book/corax",
           "showTitle": null
         },
         {
@@ -250,7 +250,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/eye-of-terra",
+          "href": "/book/eye-of-terra",
           "showTitle": null
         },
         {
@@ -260,7 +260,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/immortal-duty",
+          "href": "/book/immortal-duty",
           "showTitle": null
         },
         {
@@ -270,7 +270,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/massacre",
+          "href": "/book/massacre",
           "showTitle": null
         },
         {
@@ -280,7 +280,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/visions-of-heresy-2018-ed",
+          "href": "/book/visions-of-heresy-2018-ed",
           "showTitle": null
         },
         {
@@ -290,7 +290,7 @@
           "releaseYear": 2025,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/dropsite-massacre",
+          "href": "/book/dropsite-massacre",
           "showTitle": null
         }
       ]

@@ -108,7 +108,7 @@ async function main(): Promise<void> {
   await test("200 → exit 0, exactly one POST with the bearer token, summary printed", async () => {
     const mock = await startMock((_req, res) => {
       res.writeHead(200, { "content-type": "application/json" });
-      res.end(JSON.stringify({ revalidated: ["books", "entities"], paths: ["/charakter/[slug]"] }));
+      res.end(JSON.stringify({ revalidated: ["books", "entities"], paths: ["/character/[slug]"] }));
     });
     try {
       const r = await runCli({ REVALIDATE_BASE_URL: mock.base, REVALIDATE_TOKEN: TOKEN });

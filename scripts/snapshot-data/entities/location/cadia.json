@@ -29,7 +29,7 @@
           "releaseYear": 2010,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-first-heretic",
+          "href": "/book/the-first-heretic",
           "showTitle": null
         },
         {
@@ -39,7 +39,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/ragnar-blackmane",
+          "href": "/book/ragnar-blackmane",
           "showTitle": null
         },
         {
@@ -49,7 +49,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/astra-militarum",
+          "href": "/book/astra-militarum",
           "showTitle": null
         },
         {
@@ -59,7 +59,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/cadia-stands",
+          "href": "/book/cadia-stands",
           "showTitle": null
         },
         {
@@ -69,7 +69,7 @@
           "releaseYear": 2020,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-helwinter-gate",
+          "href": "/book/the-helwinter-gate",
           "showTitle": null
         },
         {
@@ -79,7 +79,7 @@
           "releaseYear": 2023,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/minka-lesk-the-last-whiteshield",
+          "href": "/book/minka-lesk-the-last-whiteshield",
           "showTitle": null
         },
         {
@@ -89,7 +89,7 @@
           "releaseYear": 2024,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/creed-ashes-of-cadia",
+          "href": "/book/creed-ashes-of-cadia",
           "showTitle": null
         },
         {
@@ -99,7 +99,7 @@
           "releaseYear": 2024,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/fall-of-cadia",
+          "href": "/book/fall-of-cadia",
           "showTitle": null
         },
         {
@@ -109,7 +109,7 @@
           "releaseYear": 2025,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/darkness-eternal",
+          "href": "/book/darkness-eternal",
           "showTitle": null
         },
         {
@@ -119,7 +119,7 @@
           "releaseYear": 2026,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/veterans-of-the-fall",
+          "href": "/book/veterans-of-the-fall",
           "showTitle": null
         }
       ]

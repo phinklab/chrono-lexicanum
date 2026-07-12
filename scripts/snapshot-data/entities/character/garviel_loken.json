@@ -29,7 +29,7 @@
           "releaseYear": 2006,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/false-gods",
+          "href": "/book/false-gods",
           "showTitle": null
         },
         {
@@ -39,7 +39,7 @@
           "releaseYear": 2006,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/galaxy-in-flames",
+          "href": "/book/galaxy-in-flames",
           "showTitle": null
         },
         {
@@ -49,7 +49,7 @@
           "releaseYear": 2006,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/horus-rising",
+          "href": "/book/horus-rising",
           "showTitle": null
         },
         {
@@ -59,7 +59,7 @@
           "releaseYear": 2011,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/garro-legion-of-one",
+          "href": "/book/garro-legion-of-one",
           "showTitle": null
         },
         {
@@ -69,7 +69,7 @@
           "releaseYear": 2011,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/little-horus",
+          "href": "/book/little-horus",
           "showTitle": null
         },
         {
@@ -79,7 +79,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/grey-angel",
+          "href": "/book/grey-angel",
           "showTitle": null
         },
         {
@@ -89,7 +89,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/luna-mendax",
+          "href": "/book/luna-mendax",
           "showTitle": null
         },
         {
@@ -99,7 +99,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/vengeful-spirit",
+          "href": "/book/vengeful-spirit",
           "showTitle": null
         },
         {
@@ -109,7 +109,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/crusades-end",
+          "href": "/book/crusades-end",
           "showTitle": null
         },
         {
@@ -119,7 +119,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/garro-weapons-of-fate",
+          "href": "/book/garro-weapons-of-fate",
           "showTitle": null
         }
       ]

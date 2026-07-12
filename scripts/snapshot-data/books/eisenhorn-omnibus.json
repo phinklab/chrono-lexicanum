@@ -1,0 +1,200 @@
+{
+  "id": "52bab466-f092-4e8d-8c17-a8d9de01e9cb",
+  "slug": "eisenhorn-omnibus",
+  "title": "Eisenhorn Omnibus",
+  "synopsis": "Omnibus collecting Xenos, Malleus and Hereticus plus the short stories \"Missing in Action\" and \"Backcloth for a Crown Additional\" — the full first arc of Inquisitor Gregor Eisenhorn's record. Across two centuries of in-universe time he advances from puritan Amalathian to radical Inquisitor willing to bind a daemonhost and conceal it from his peers. The omnibus is the most coherent single text on how a servant of the Imperium reaches the threshold of heresy without quite crossing the line he himself can see, and on how the line he cannot see moves behind him. The canonical entry point into Black Library through Abnett.",
+  "coverUrl": null,
+  "releaseYear": 2005,
+  "format": "omnibus",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": "eisenhorn",
+  "seriesName": "Eisenhorn",
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "dan_abnett",
+      "name": "Dan Abnett",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "chaos",
+      "name": "Chaos",
+      "role": "antagonist"
+    },
+    {
+      "id": "inquisition",
+      "name": "Inquisition",
+      "role": "primary"
+    },
+    {
+      "id": "mechanicus",
+      "name": "Adeptus Mechanicus",
+      "role": "supporting"
+    },
+    {
+      "id": "ordo_hereticus",
+      "name": "Ordo Hereticus",
+      "role": "supporting"
+    },
+    {
+      "id": "ordo_malleus",
+      "name": "Ordo Malleus",
+      "role": "supporting"
+    },
+    {
+      "id": "ordo_xenos",
+      "name": "Ordo Xenos",
+      "role": "primary"
+    }
+  ],
+  "locations": [
+    {
+      "id": "gudrun",
+      "name": "Gudrun",
+      "role": "primary"
+    },
+    {
+      "id": "helican",
+      "name": "Helican Subsector",
+      "role": "primary"
+    },
+    {
+      "id": "hubris",
+      "name": "Hubris",
+      "role": "secondary"
+    },
+    {
+      "id": "spaeton_house",
+      "name": "Spaeton House",
+      "role": "secondary"
+    },
+    {
+      "id": "thracian_primaris",
+      "name": "Thracian Primaris",
+      "role": "secondary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "alizebeth_bequin",
+      "name": "Alizebeth Bequin",
+      "role": "appears"
+    },
+    {
+      "id": "cherubael",
+      "name": "Cherubael",
+      "role": "appears"
+    },
+    {
+      "id": "gideon_ravenor",
+      "name": "Gideon Ravenor",
+      "role": "appears"
+    },
+    {
+      "id": "godwyn_fischig",
+      "name": "Godwyn Fischig",
+      "role": "appears"
+    },
+    {
+      "id": "gregor_eisenhorn",
+      "name": "Gregor Eisenhorn",
+      "role": "pov"
+    },
+    {
+      "id": "midas_betancore",
+      "name": "Midas Betancore",
+      "role": "appears"
+    },
+    {
+      "id": "pontius_glaw",
+      "name": "Pontius Glaw",
+      "role": "appears"
+    },
+    {
+      "id": "uber_aemos",
+      "name": "Uber Aemos",
+      "role": "appears"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Series Start",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Doorstopper",
+      "category": "length_tier"
+    },
+    {
+      "name": "Journey",
+      "category": "plot_type"
+    },
+    {
+      "name": "Mystery",
+      "category": "plot_type"
+    },
+    {
+      "name": "Political Thriller",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Inquisitor",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Sector",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Sacrifice",
+      "category": "theme"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Philosophical",
+      "category": "tone"
+    },
+    {
+      "name": "Somber",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

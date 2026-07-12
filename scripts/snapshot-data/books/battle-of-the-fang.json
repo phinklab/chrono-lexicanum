@@ -1,0 +1,135 @@
+{
+  "id": "f5edf19b-279f-4a01-a1a1-a13ec6573142",
+  "slug": "battle-of-the-fang",
+  "title": "Battle of the Fang",
+  "synopsis": "A thousand years after the Horus Heresy, the daemon primarch Magnus the Red leads his Thousand Sons in a vengeful assault on Fenris, home world of the Space Wolves. While Great Wolf Harek Ironhelm hunts his ancient enemy far across the stars, the great mountain fortress of the Fang is left defended by only a skeleton garrison under Wolf Lord Vaer Greyloss. The Thousand Sons descend in overwhelming numbers, and the Space Wolves must fight a desperate holding action through the fortress's endless halls and ice-locked depths. With their home, their relics and their future at stake, the defenders face a battle whose true cost none of them can yet imagine.",
+  "coverUrl": null,
+  "releaseYear": 2011,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": "the_forging",
+  "eraName": "The Forging",
+  "persons": [
+    {
+      "id": "chris_wraight",
+      "name": "Chris Wraight",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "space_wolves",
+      "name": "Space Wolves",
+      "role": "primary"
+    },
+    {
+      "id": "thousand_sons",
+      "name": "Thousand Sons",
+      "role": "antagonist"
+    }
+  ],
+  "locations": [
+    {
+      "id": "fang",
+      "name": "The Fang",
+      "role": "primary"
+    },
+    {
+      "id": "fenris",
+      "name": "Fenris",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "harek_ironhelm",
+      "name": "Harek Ironhelm",
+      "role": "appears"
+    },
+    {
+      "id": "magnus_the_red",
+      "name": "Magnus the Red",
+      "role": "appears"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Last Stand",
+      "category": "plot_type"
+    },
+    {
+      "name": "Siege",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Planetary",
+      "category": "scope"
+    },
+    {
+      "name": "Brotherhood",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Sacrifice",
+      "category": "theme"
+    },
+    {
+      "name": "War",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Somber",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

@@ -1,0 +1,175 @@
+{
+  "id": "3f4cb42d-c044-4ae9-b607-4bf1507d115f",
+  "slug": "for-the-emperor",
+  "title": "For the Emperor",
+  "synopsis": "Commissar Ciaphas Cain takes charge of the freshly-merged Valhallan 597th — a fractious blend of the all-male 296th and all-female 301st — and is shipped to Gravalax, an Imperial mining world on the Tau border where civil unrest is threatening to drag both powers into open war. Cain juggles diplomatic duty alongside Inquisitor Amberley Vail, suppresses food riots in the capital, and survives an early assassination attempt on the Tau ambassador whose architects turn out to be neither Tau nor Imperial. Beneath the diplomatic theatre crawls a deeper conspiracy — a genestealer cult engineering the war from the shadows — and Cain spends the novel trying very hard to be somewhere else while accidentally averting an interstellar incident. The book opens Cain's series and presents itself as the first volume of his memoirs, edited and footnoted by Vail.",
+  "coverUrl": null,
+  "releaseYear": 2003,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": "time_ending",
+  "eraName": "Time of Ending",
+  "persons": [
+    {
+      "id": "sandy_mitchell",
+      "name": "Sandy Mitchell",
+      "role": "author",
+      "displayOrder": 0
+    },
+    {
+      "id": "stephen_perring",
+      "name": "Stephen Perring",
+      "role": "narrator",
+      "displayOrder": 0
+    },
+    {
+      "id": "penelope_rawlins",
+      "name": "Penelope Rawlins",
+      "role": "co_narrator",
+      "displayOrder": 1
+    },
+    {
+      "id": "emma_gregory",
+      "name": "Emma Gregory",
+      "role": "co_narrator",
+      "displayOrder": 2
+    }
+  ],
+  "factions": [
+    {
+      "id": "astra_militarum",
+      "name": "Astra Militarum",
+      "role": "primary"
+    },
+    {
+      "id": "commissariat",
+      "name": "Commissariat",
+      "role": "primary"
+    },
+    {
+      "id": "genestealer_cults",
+      "name": "Genestealer Cults",
+      "role": "antagonist"
+    },
+    {
+      "id": "inquisition",
+      "name": "Inquisition",
+      "role": "supporting"
+    },
+    {
+      "id": "ordo_xenos",
+      "name": "Ordo Xenos",
+      "role": "supporting"
+    },
+    {
+      "id": "tau",
+      "name": "T'au Empire",
+      "role": "antagonist"
+    }
+  ],
+  "locations": [
+    {
+      "id": "gravalax",
+      "name": "Gravalax",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "amberley_vail",
+      "name": "Amberley Vail",
+      "role": "appears"
+    },
+    {
+      "id": "ciaphas_cain",
+      "name": "Ciaphas Cain",
+      "role": "pov"
+    },
+    {
+      "id": "jurgen",
+      "name": "Jurgen",
+      "role": "appears"
+    },
+    {
+      "id": "regina_kasteen",
+      "name": "Regina Kasteen",
+      "role": "appears"
+    },
+    {
+      "id": "ruput_broklaw",
+      "name": "Ruput Broklaw",
+      "role": "appears"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Series Start",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Mystery",
+      "category": "plot_type"
+    },
+    {
+      "name": "Political Thriller",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Guardsman",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Planetary",
+      "category": "scope"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Satirical",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

@@ -1,0 +1,131 @@
+{
+  "id": "fdf8e2c1-4172-4742-b425-1348dc9cdc3c",
+  "slug": "lord-of-the-night",
+  "title": "Lord of the Night",
+  "synopsis": "Zso Sahaal — First Captain of the VIII Legion, lost in the warp for ten thousand years since the death of his master Konrad Curze — surfaces back into realspace on the sunless hive-world of Equixus, hunting the Corona Nox: the relic he needs to reclaim his scattered legion from his treacherous rival Acerbus. Mita Ashyn, a young Inquisitorial interrogator with growing doubts about her own order's hypocrisy, is sent to Equixus on routine corruption work and finds herself on Sahaal's trail. A hive-noir told from both sides of the chase — neither cleanly hero nor villain — and a Night Lords novel where the legion's primarch-orphaned politics weigh as much as the manhunt itself.",
+  "coverUrl": null,
+  "releaseYear": 2005,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "simon_spurrier",
+      "name": "Simon Spurrier",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "adeptus_arbites",
+      "name": "Adeptus Arbites",
+      "role": "supporting"
+    },
+    {
+      "id": "heretic_astartes",
+      "name": "Heretic Astartes",
+      "role": "primary"
+    },
+    {
+      "id": "inquisition",
+      "name": "Inquisition",
+      "role": "primary"
+    },
+    {
+      "id": "night_lords",
+      "name": "Night Lords",
+      "role": "primary"
+    }
+  ],
+  "locations": [
+    {
+      "id": "equixus",
+      "name": "Equixus",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "zso_sahaal",
+      "name": "Zso Sahaal",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "Mystery",
+      "category": "plot_type"
+    },
+    {
+      "name": "Political Thriller",
+      "category": "plot_type"
+    },
+    {
+      "name": "Dual",
+      "category": "pov_side"
+    },
+    {
+      "name": "Multi-class",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Mixed",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Planetary",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Cosmic Horror",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Somber",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

@@ -1,0 +1,124 @@
+{
+  "id": "729b5673-fb22-455a-8154-a5d04249d359",
+  "slug": "catachan-devil",
+  "title": "Catachan Devil",
+  "synopsis": "Colonel Haskell Hell Fist Aldalon brings the Catachan 57th Jungle Fighters to Gondwa VI and chooses attack over defence: retake Outpost Four from the rising Ork threat. The Catachans are saddled with Trooper Torvin, sole Skadi survivor of the outpost's fall and a man they suspect of cowardice, while the Ork kommando Nogrok gives the enemy its own savage momentum rather than scenery. Torvin has to survive jungle, greenskin cunning, and the contempt of allies who respect only proof paid in blood. A hard-edged Catachan war story about survivor shame, regimental pride, and earning a place among soldiers who may kill you first.",
+  "coverUrl": null,
+  "releaseYear": 2022,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "justin_woolley",
+      "name": "Justin Woolley",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "astra_militarum",
+      "name": "Astra Militarum",
+      "role": "primary"
+    },
+    {
+      "id": "catachan_jungle_fighters",
+      "name": "Catachan Jungle Fighters",
+      "role": "primary"
+    },
+    {
+      "id": "orks",
+      "name": "Orks",
+      "role": "antagonist"
+    }
+  ],
+  "locations": [
+    {
+      "id": "gondwa_vi",
+      "name": "Gondwa VI",
+      "role": "primary"
+    }
+  ],
+  "characters": [],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Dual",
+      "category": "pov_side"
+    },
+    {
+      "name": "Guardsman",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Planetary",
+      "category": "scope"
+    },
+    {
+      "name": "Brotherhood",
+      "category": "theme"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Redemption",
+      "category": "theme"
+    },
+    {
+      "name": "War",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Somber",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

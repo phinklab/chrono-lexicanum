@@ -1,0 +1,166 @@
+{
+  "id": "f8fc0d17-0526-43d3-b4d8-eec3b645a36c",
+  "slug": "horus-rising",
+  "title": "Horus Rising",
+  "synopsis": "Two centuries into the Great Crusade, the Emperor has retired to Terra and named his most beloved son Warmaster of the war that will reunite humanity. The 63rd Expedition under Horus, the primarch of the Luna Wolves, moves from world to world, demanding compliance and crushing what refuses. Newly chosen for Horus's inner council — the Mournival — Captain Garviel Loken trades the certainty of war for the harder business of speaking truth to a brother who has begun to need it. On the fleet, remembrancer Mersadie Oliton and the iterator Kyril Sindermann record what they see, and a forbidden cult worshipping the Emperor as a god begins to spread among soldiers and civilians. By the time the expedition reaches a feral world called Davin, the threads of the war that will follow have already been pulled tight.",
+  "coverUrl": null,
+  "releaseYear": 2006,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": "horus_heresy",
+  "eraName": "Horus Heresy & The Great Scouring",
+  "persons": [
+    {
+      "id": "dan_abnett",
+      "name": "Dan Abnett",
+      "role": "author",
+      "displayOrder": 0
+    },
+    {
+      "id": "toby_longworth",
+      "name": "Toby Longworth",
+      "role": "narrator",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "astra_militarum",
+      "name": "Astra Militarum",
+      "role": "supporting"
+    },
+    {
+      "id": "interex",
+      "name": "Interex",
+      "role": "antagonist"
+    },
+    {
+      "id": "mechanicus",
+      "name": "Adeptus Mechanicus",
+      "role": "supporting"
+    },
+    {
+      "id": "sons_of_horus",
+      "name": "Sons of Horus",
+      "role": "primary"
+    }
+  ],
+  "locations": [],
+  "characters": [
+    {
+      "id": "abaddon_the_despoiler",
+      "name": "Abaddon the Despoiler",
+      "role": "appears"
+    },
+    {
+      "id": "garviel_loken",
+      "name": "Garviel Loken",
+      "role": "pov"
+    },
+    {
+      "id": "horus",
+      "name": "Horus",
+      "role": "appears"
+    },
+    {
+      "id": "horus_aximand",
+      "name": "Horus Aximand",
+      "role": "appears"
+    },
+    {
+      "id": "kyril_sindermann",
+      "name": "Kyril Sindermann",
+      "role": "appears"
+    },
+    {
+      "id": "mersadie_oliton",
+      "name": "Mersadie Oliton",
+      "role": "appears"
+    },
+    {
+      "id": "tarik_torgaddon",
+      "name": "Tarik Torgaddon",
+      "role": "appears"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Series Start",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Doorstopper",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Galactic",
+      "category": "scope"
+    },
+    {
+      "name": "Brotherhood",
+      "category": "theme"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Philosophical",
+      "category": "tone"
+    }
+  ],
+  "containedIn": [
+    {
+      "collectionSlug": "crusades-end",
+      "collectionTitle": "Crusade's End"
+    }
+  ]
+}

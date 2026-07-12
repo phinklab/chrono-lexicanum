@@ -1,0 +1,134 @@
+{
+  "id": "133a6595-7a85-4d85-8e55-9316710e3ba3",
+  "slug": "ciaphas-cain-the-anthology",
+  "title": "Ciaphas Cain: The Anthology",
+  "synopsis": "Ciaphas Cain is a true hero of the Imperium: brave, stalwart, a cool head under fire... or so the propaganda claims. In truth, the Commissar of the Valhallan 597th is simply a self-serving rogue trying to stay alive in a hostile galaxy, his reputation built on luck, quick thinking and a talent for being in the wrong place at the right time. Now Inquisitor Amberley Vail opens the Cain archive to present a selection of his strangest and most celebrated exploits. With his ever-loyal, malodorous aide Jurgen at his side, Cain hunts a warp-tainted infection on Lentonia, blunders into his first terrifying encounter with the Necrons when tech-priests rouse a slumbering tomb, and uncovers a genestealer cult festering beneath a soldiers' brothel. Across mining worlds and frontier sectors he faces rampaging orks, a tyranid swarm, treacherous heretics and the murder of a fellow commissar that threatens to end his charmed career for good. Collecting the novella Old Soldiers Never Die and thirteen short stories, this is the reluctant hero at his cowardly, quick-witted best.",
+  "coverUrl": null,
+  "releaseYear": 2025,
+  "format": "anthology",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "sandy_mitchell",
+      "name": "Sandy Mitchell",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "astra_militarum",
+      "name": "Astra Militarum",
+      "role": "primary"
+    },
+    {
+      "id": "genestealer_cults",
+      "name": "Genestealer Cults",
+      "role": "antagonist"
+    },
+    {
+      "id": "necrons",
+      "name": "Necrons",
+      "role": "antagonist"
+    },
+    {
+      "id": "orks",
+      "name": "Orks",
+      "role": "antagonist"
+    },
+    {
+      "id": "tyranids",
+      "name": "Tyranids",
+      "role": "antagonist"
+    }
+  ],
+  "locations": [
+    {
+      "id": "lentonia",
+      "name": "Lentonia",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "amberley_vail",
+      "name": "Amberley Vail",
+      "role": "appears"
+    },
+    {
+      "id": "ciaphas_cain",
+      "name": "Ciaphas Cain",
+      "role": "pov"
+    },
+    {
+      "id": "jurgen",
+      "name": "Jurgen",
+      "role": "appears"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Mid Series",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Commissar",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Regiment",
+      "category": "scope"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "War",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Satirical",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

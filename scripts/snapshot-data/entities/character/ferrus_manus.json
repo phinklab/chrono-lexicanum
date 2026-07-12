@@ -29,7 +29,7 @@
           "releaseYear": 2004,
           "coverUrl": null,
           "role": "mentioned",
-          "href": "/buch/iron-hands",
+          "href": "/book/iron-hands",
           "showTitle": null
         },
         {
@@ -39,7 +39,7 @@
           "releaseYear": 2007,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/fulgrim",
+          "href": "/book/fulgrim",
           "showTitle": null
         },
         {
@@ -49,7 +49,7 @@
           "releaseYear": 2011,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/promethean-sun",
+          "href": "/book/promethean-sun",
           "showTitle": null
         },
         {
@@ -59,7 +59,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/feat-of-iron",
+          "href": "/book/feat-of-iron",
           "showTitle": null
         },
         {
@@ -69,7 +69,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-primarchs",
+          "href": "/book/the-primarchs",
           "showTitle": null
         },
         {
@@ -79,7 +79,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/death-and-defiance",
+          "href": "/book/death-and-defiance",
           "showTitle": null
         },
         {
@@ -89,7 +89,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/imperfect",
+          "href": "/book/imperfect",
           "showTitle": null
         },
         {
@@ -99,7 +99,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-phoenician",
+          "href": "/book/the-phoenician",
           "showTitle": null
         },
         {
@@ -109,7 +109,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-last-phoenix",
+          "href": "/book/the-last-phoenix",
           "showTitle": null
         },
         {
@@ -119,7 +119,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/a-lesson-in-iron",
+          "href": "/book/a-lesson-in-iron",
           "showTitle": null
         },
         {
@@ -129,7 +129,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/ferrus-manus-the-gorgon-of-medusa",
+          "href": "/book/ferrus-manus-the-gorgon-of-medusa",
           "showTitle": null
         },
         {
@@ -139,7 +139,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/mercy-of-the-dragon",
+          "href": "/book/mercy-of-the-dragon",
           "showTitle": null
         },
         {
@@ -149,7 +149,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/scions-of-the-emperor",
+          "href": "/book/scions-of-the-emperor",
           "showTitle": null
         },
         {
@@ -159,7 +159,7 @@
           "releaseYear": 2025,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/dropsite-massacre",
+          "href": "/book/dropsite-massacre",
           "showTitle": null
         }
       ]

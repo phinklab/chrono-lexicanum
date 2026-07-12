@@ -1,0 +1,115 @@
+{
+  "id": "5cabd4b1-fa99-4b84-80b0-04d17a07fb0e",
+  "slug": "fist-of-the-imperium",
+  "title": "Fist of the Imperium",
+  "synopsis": "On the mining world of Ghyre, an Imperial Fists Honour Guard has been butchered upon ground they swore to defend, and a hidden cult is poisoning the planet's miners and its complacent aristocracy alike. Primaris Librarian Aster Lydorran is sent to root it out and finds himself locked in a duel of minds with a psyker whose strength rivals his own. Forced to assume command of a fractious Imperial defence, Lydorran must drag the proud sons of Dorn out from behind their walls and accept allies they would normally disdain — because the cult feeding on Ghyre is the harbinger of something far larger, and it is reaching towards Terra itself.",
+  "coverUrl": null,
+  "releaseYear": 2020,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "andy_clark",
+      "name": "Andy Clark",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "genestealer_cults",
+      "name": "Genestealer Cults",
+      "role": "antagonist"
+    },
+    {
+      "id": "imperial_fists",
+      "name": "Imperial Fists",
+      "role": "primary"
+    }
+  ],
+  "locations": [
+    {
+      "id": "ghyre",
+      "name": "Ghyre",
+      "role": "primary"
+    }
+  ],
+  "characters": [],
+  "facets": [
+    {
+      "name": "Mid Series",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Mystery",
+      "category": "plot_type"
+    },
+    {
+      "name": "Siege",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Planetary",
+      "category": "scope"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Faith",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

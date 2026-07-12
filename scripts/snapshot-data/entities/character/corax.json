@@ -29,7 +29,7 @@
           "releaseYear": 2010,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/ravens-flight",
+          "href": "/book/ravens-flight",
           "showTitle": null
         },
         {
@@ -39,7 +39,7 @@
           "releaseYear": 2011,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/deliverance-lost",
+          "href": "/book/deliverance-lost",
           "showTitle": null
         },
         {
@@ -49,7 +49,7 @@
           "releaseYear": 2011,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-face-of-treachery",
+          "href": "/book/the-face-of-treachery",
           "showTitle": null
         },
         {
@@ -59,7 +59,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/horus-heresy-the-scripts-volume-i",
+          "href": "/book/horus-heresy-the-scripts-volume-i",
           "showTitle": null
         },
         {
@@ -69,7 +69,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/shadows-of-treachery",
+          "href": "/book/shadows-of-treachery",
           "showTitle": null
         },
         {
@@ -79,7 +79,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/corax-soulforge",
+          "href": "/book/corax-soulforge",
           "showTitle": null
         },
         {
@@ -89,7 +89,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/ravenlord",
+          "href": "/book/ravenlord",
           "showTitle": null
         },
         {
@@ -99,7 +99,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/valerius",
+          "href": "/book/valerius",
           "showTitle": null
         },
         {
@@ -109,7 +109,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/corax",
+          "href": "/book/corax",
           "showTitle": null
         },
         {
@@ -119,7 +119,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/echoes-of-revelation",
+          "href": "/book/echoes-of-revelation",
           "showTitle": null
         },
         {
@@ -129,7 +129,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/corax-lord-of-shadows",
+          "href": "/book/corax-lord-of-shadows",
           "showTitle": null
         }
       ]

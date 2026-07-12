@@ -1,0 +1,90 @@
+{
+  "id": "fd533a59-4ad0-4411-9a9c-4faf85c9aed2",
+  "slug": "the-rose-at-war",
+  "title": "The Rose at War",
+  "synopsis": "A collection of Sister Augusta's missions for the Order of the Bloody Rose, gathering the novellas and short stories that follow the Battle Sister across the Imperium's warzones.",
+  "coverUrl": null,
+  "releaseYear": 2022,
+  "format": "anthology",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "danie_ware",
+      "name": "Danie Ware",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "sisters_of_battle",
+      "name": "Adepta Sororitas",
+      "role": "primary"
+    }
+  ],
+  "locations": [],
+  "characters": [
+    {
+      "id": "sister_superior_augusta",
+      "name": "Sister Superior Augusta",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Sister of Battle",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Female",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Galactic",
+      "category": "scope"
+    },
+    {
+      "name": "Faith",
+      "category": "theme"
+    },
+    {
+      "name": "War",
+      "category": "theme"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

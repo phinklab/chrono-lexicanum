@@ -1,0 +1,133 @@
+{
+  "id": "b172823b-39fe-449f-85ec-6f951ad54c8d",
+  "slug": "kingsblade",
+  "title": "Kingsblade",
+  "synopsis": "The Knight Houses of Adrastapol are noble and righteous, and when the Imperial world of Donatos falls to the heresy of the Word Bearers, High King Tolwyn Draconis leads his towering war-machines in the vanguard to retake it. But when tragedy strikes at the campaign's height, the Imperial advance collapses into anarchy. The unblooded Knights Errant Danial Tan Draconis and Luk Kar Chimaeros must master the ways of war faster than they ever dreamed — racing to stop an unholy ritual before Donatos, and every noble House of Adrastapol with it, is lost forever. A tale of chivalry, honour and duty waged from the cockpits of god-machines.",
+  "coverUrl": null,
+  "releaseYear": 2017,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "andy_clark",
+      "name": "Andy Clark",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "house_chimaeros",
+      "name": "House Chimaeros",
+      "role": "supporting"
+    },
+    {
+      "id": "house_draconis",
+      "name": "House Draconis",
+      "role": "primary"
+    },
+    {
+      "id": "word_bearers",
+      "name": "Word Bearers",
+      "role": "antagonist"
+    }
+  ],
+  "locations": [
+    {
+      "id": "adrastapol",
+      "name": "Adrastapol",
+      "role": "secondary"
+    },
+    {
+      "id": "donatos",
+      "name": "Donatos",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "danial_tan_draconis",
+      "name": "Danial Tan Draconis",
+      "role": "pov"
+    },
+    {
+      "id": "luk_kar_chimaeros",
+      "name": "Luk Kar Chimaeros",
+      "role": "pov"
+    },
+    {
+      "id": "tolwyn_draconis",
+      "name": "Tolwyn Draconis",
+      "role": "appears"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Series Start",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Journey",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Planetary",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Sacrifice",
+      "category": "theme"
+    },
+    {
+      "name": "War",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

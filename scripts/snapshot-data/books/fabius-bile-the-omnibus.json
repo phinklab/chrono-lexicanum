@@ -1,0 +1,136 @@
+{
+  "id": "21443f74-f15f-4cde-b121-ad35ec07f196",
+  "slug": "fabius-bile-the-omnibus",
+  "title": "Fabius Bile: The Omnibus",
+  "synopsis": "Fabius Bile — Primogenitor, Clonelord, Manflayer — was once a loyal Apothecary of the Emperor's Children, now a renegade loathed even by the other traitor Legions. Obsessed with perfecting his New Men as the future of a humanity he despises, he pursues his grim genetic craft across the galaxy: from the Eye of Terror to the necron tomb world of Solemnace, and into the dark city of Commorragh itself. This omnibus gathers the three novels Primogenitor, Clonelord and Manflayer alongside their connecting short stories, charting Bile's running war against rival warbands, daemons and harlequins — and against his own failing flesh — as he chases the perfection that has always eluded him.",
+  "coverUrl": null,
+  "releaseYear": 2022,
+  "format": "omnibus",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "josh_reynolds",
+      "name": "Josh Reynolds",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "drukhari",
+      "name": "Drukhari",
+      "role": "supporting"
+    },
+    {
+      "id": "emperors_children",
+      "name": "Emperor's Children",
+      "role": "primary"
+    },
+    {
+      "id": "necrons",
+      "name": "Necrons",
+      "role": "supporting"
+    }
+  ],
+  "locations": [
+    {
+      "id": "commorragh",
+      "name": "Commorragh",
+      "role": "secondary"
+    },
+    {
+      "id": "eye_of_terror",
+      "name": "Eye of Terror",
+      "role": "primary"
+    },
+    {
+      "id": "solemnace",
+      "name": "Solemnace",
+      "role": "secondary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "fabius_bile",
+      "name": "Fabius Bile",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Doorstopper",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "Journey",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Chaos",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Galactic",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Philosophical",
+      "category": "tone"
+    },
+    {
+      "name": "Somber",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

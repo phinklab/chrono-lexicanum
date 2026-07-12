@@ -1,0 +1,116 @@
+{
+  "id": "d511bbd4-b137-490d-b1c1-c4a0a2a48c04",
+  "slug": "wrath-of-iron",
+  "title": "Wrath of Iron",
+  "synopsis": "For decades the rulers of the Contqual sub-sector have given themselves over to the worship of Slaanesh, and now their corruption bears terrible fruit: a tear in reality through which daemons pour to claim their mortal pawns. The cold, merciless Iron Hands are tasked with burning away the taint, and on the hive world of Shardenus the fate of a billion souls will be decided. Alongside massed Imperial Guard regiments and the towering war-engines of the Titan Legions, the sons of the Gorgon grind toward the heart of the infestation. But the Iron Hands' contempt for human weakness is itself a kind of damnation, and their relentless logic of war spares neither enemy nor ally.",
+  "coverUrl": null,
+  "releaseYear": 2012,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "chris_wraight",
+      "name": "Chris Wraight",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "astra_militarum",
+      "name": "Astra Militarum",
+      "role": "supporting"
+    },
+    {
+      "id": "iron_hands",
+      "name": "Iron Hands",
+      "role": "primary"
+    },
+    {
+      "id": "slaanesh",
+      "name": "Slaanesh",
+      "role": "antagonist"
+    }
+  ],
+  "locations": [
+    {
+      "id": "shardenus",
+      "name": "Shardenus",
+      "role": "primary"
+    }
+  ],
+  "characters": [],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Siege",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Planetary",
+      "category": "scope"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Sacrifice",
+      "category": "theme"
+    },
+    {
+      "name": "War",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Somber",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

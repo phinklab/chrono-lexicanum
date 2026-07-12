@@ -28,7 +28,7 @@
           "releaseYear": 1999,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/space-wolf",
+          "href": "/book/space-wolf",
           "showTitle": null
         },
         {
@@ -38,7 +38,7 @@
           "releaseYear": 2000,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/ragnars-claw",
+          "href": "/book/ragnars-claw",
           "showTitle": null
         },
         {
@@ -48,7 +48,7 @@
           "releaseYear": 2002,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/grey-hunter",
+          "href": "/book/grey-hunter",
           "showTitle": null
         },
         {
@@ -58,7 +58,7 @@
           "releaseYear": 2003,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/wolfblade",
+          "href": "/book/wolfblade",
           "showTitle": null
         },
         {
@@ -68,7 +68,7 @@
           "releaseYear": 2007,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/sons-of-fenris",
+          "href": "/book/sons-of-fenris",
           "showTitle": null
         },
         {
@@ -78,7 +78,7 @@
           "releaseYear": 2008,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-space-wolf-omnibus",
+          "href": "/book/the-space-wolf-omnibus",
           "showTitle": null
         },
         {
@@ -88,7 +88,7 @@
           "releaseYear": 2008,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/wolfs-honour",
+          "href": "/book/wolfs-honour",
           "showTitle": null
         },
         {
@@ -98,7 +98,7 @@
           "releaseYear": 2009,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/space-wolf-the-second-omnibus",
+          "href": "/book/space-wolf-the-second-omnibus",
           "showTitle": null
         },
         {
@@ -108,7 +108,7 @@
           "releaseYear": 2010,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/prospero-burns",
+          "href": "/book/prospero-burns",
           "showTitle": null
         },
         {
@@ -118,7 +118,7 @@
           "releaseYear": 2011,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/battle-of-the-fang",
+          "href": "/book/battle-of-the-fang",
           "showTitle": null
         },
         {
@@ -128,7 +128,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": "mentioned",
-          "href": "/buch/the-emperors-gift",
+          "href": "/book/the-emperors-gift",
           "showTitle": null
         },
         {
@@ -138,7 +138,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": "mentioned",
-          "href": "/buch/blood-of-asaheim",
+          "href": "/book/blood-of-asaheim",
           "showTitle": null
         },
         {
@@ -148,7 +148,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/arjac-rockfist-anvil-of-fenris",
+          "href": "/book/arjac-rockfist-anvil-of-fenris",
           "showTitle": null
         },
         {
@@ -158,7 +158,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-razing-of-prospero",
+          "href": "/book/the-razing-of-prospero",
           "showTitle": null
         },
         {
@@ -168,7 +168,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/twelve-wolves",
+          "href": "/book/twelve-wolves",
           "showTitle": null
         },
         {
@@ -178,7 +178,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/curse-of-the-wulfen",
+          "href": "/book/curse-of-the-wulfen",
           "showTitle": null
         },
         {
@@ -188,7 +188,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/lukas-the-trickster",
+          "href": "/book/lukas-the-trickster",
           "showTitle": null
         },
         {
@@ -198,7 +198,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/wolfsbane",
+          "href": "/book/wolfsbane",
           "showTitle": null
         },
         {
@@ -208,7 +208,7 @@
           "releaseYear": 2021,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/blood-of-the-emperor",
+          "href": "/book/blood-of-the-emperor",
           "showTitle": null
         },
         {
@@ -218,7 +218,7 @@
           "releaseYear": 2021,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-wolftime",
+          "href": "/book/the-wolftime",
           "showTitle": null
         },
         {
@@ -228,7 +228,7 @@
           "releaseYear": 2025,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/krakenblood",
+          "href": "/book/krakenblood",
           "showTitle": null
         },
         {
@@ -238,7 +238,7 @@
           "releaseYear": 2025,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/legends-of-the-wolf-the-omnibus",
+          "href": "/book/legends-of-the-wolf-the-omnibus",
           "showTitle": null
         }
       ]

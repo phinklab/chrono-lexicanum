@@ -1,0 +1,146 @@
+{
+  "id": "c294fe35-ad12-4ba4-8144-2e56b0d4db4f",
+  "slug": "the-talon-of-horus",
+  "title": "The Talon of Horus",
+  "synopsis": "When Horus fell, his Legion fell with him. Scattered across the Eye of Terror, hunted by former allies and torn by rivalry, the broken sons of the Warmaster have lost their way — and of Abaddon, his greatest captain, nothing has been heard for years. But when Horus's body is stolen from its tomb, a fragile alliance of legionaries sets out to find the First Captain and convince him to take up the destiny Horus left unfinished. Narrated by Iskandar Khayon, a sorcerer of the Thousand Sons recounting the tale to his Inquisitorial captors, Aaron Dembski-Bowden's novel follows a desperate band — World Eaters, Thousand Sons, and Sons of Horus — as they hunt the lost flagship Vengeful Spirit, clash with Fabius Bile, and witness the birth of the Black Legion.",
+  "coverUrl": null,
+  "releaseYear": 2014,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "aaron_dembski_bowden",
+      "name": "Aaron Dembski-Bowden",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "emperors_children",
+      "name": "Emperor's Children",
+      "role": "antagonist"
+    },
+    {
+      "id": "inquisition",
+      "name": "Inquisition",
+      "role": "supporting"
+    },
+    {
+      "id": "sons_of_horus",
+      "name": "Sons of Horus",
+      "role": "primary"
+    },
+    {
+      "id": "thousand_sons",
+      "name": "Thousand Sons",
+      "role": "primary"
+    },
+    {
+      "id": "world_eaters",
+      "name": "World Eaters",
+      "role": "supporting"
+    }
+  ],
+  "locations": [
+    {
+      "id": "eye_of_terror",
+      "name": "Eye of Terror",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "abaddon_the_despoiler",
+      "name": "Abaddon the Despoiler",
+      "role": "appears"
+    },
+    {
+      "id": "fabius_bile",
+      "name": "Fabius Bile",
+      "role": "appears"
+    },
+    {
+      "id": "iskandar_khayon",
+      "name": "Iskandar Khayon",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Series Start",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Journey",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Chaos",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Sector",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Brotherhood",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Philosophical",
+      "category": "tone"
+    },
+    {
+      "name": "Somber",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

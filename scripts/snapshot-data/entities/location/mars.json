@@ -28,7 +28,7 @@
           "releaseYear": 2007,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/collected-visions",
+          "href": "/book/collected-visions",
           "showTitle": null
         },
         {
@@ -38,7 +38,7 @@
           "releaseYear": 2008,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/mechanicum",
+          "href": "/book/mechanicum",
           "showTitle": null
         },
         {
@@ -48,7 +48,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/priests-of-mars",
+          "href": "/book/priests-of-mars",
           "showTitle": null
         },
         {
@@ -58,7 +58,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/shadows-of-treachery",
+          "href": "/book/shadows-of-treachery",
           "showTitle": null
         },
         {
@@ -68,7 +68,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/lords-of-mars",
+          "href": "/book/lords-of-mars",
           "showTitle": null
         },
         {
@@ -78,7 +78,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-kaban-project",
+          "href": "/book/the-kaban-project",
           "showTitle": null
         },
         {
@@ -88,7 +88,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/gods-of-mars",
+          "href": "/book/gods-of-mars",
           "showTitle": null
         },
         {
@@ -98,7 +98,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/vorax",
+          "href": "/book/vorax",
           "showTitle": null
         },
         {
@@ -108,7 +108,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/cybernetica",
+          "href": "/book/cybernetica",
           "showTitle": null
         },
         {
@@ -118,7 +118,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/echoes-of-the-long-war",
+          "href": "/book/echoes-of-the-long-war",
           "showTitle": null
         },
         {
@@ -128,7 +128,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/into-exhile",
+          "href": "/book/into-exhile",
           "showTitle": null
         },
         {
@@ -138,7 +138,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/myriad",
+          "href": "/book/myriad",
           "showTitle": null
         },
         {
@@ -148,7 +148,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/forges-of-mars-omnibus",
+          "href": "/book/forges-of-mars-omnibus",
           "showTitle": null
         },
         {
@@ -158,7 +158,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-binary-succession",
+          "href": "/book/the-binary-succession",
           "showTitle": null
         },
         {
@@ -168,7 +168,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-burden-of-loyalty",
+          "href": "/book/the-burden-of-loyalty",
           "showTitle": null
         },
         {
@@ -178,7 +178,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/visions-of-heresy-2018-ed",
+          "href": "/book/visions-of-heresy-2018-ed",
           "showTitle": null
         },
         {
@@ -188,7 +188,7 @@
           "releaseYear": 2020,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-lightning-hall",
+          "href": "/book/the-lightning-hall",
           "showTitle": null
         }
       ]

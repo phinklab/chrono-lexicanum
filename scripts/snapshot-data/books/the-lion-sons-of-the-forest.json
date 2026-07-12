@@ -1,0 +1,158 @@
+{
+  "id": "de31aedb-ed37-4be4-969c-218b408fc775",
+  "slug": "the-lion-sons-of-the-forest",
+  "title": "The Lion: Sons of the Forest",
+  "synopsis": "A man wakes in a vast forest with no memory, then learns the impossible truth: he is Lion El'Jonson, Primarch of the Dark Angels, returned after ten thousand years to a galaxy split by the Great Rift. The sons he finds nearby are not the Chapter he expected but Fallen knights, warriors who believe he betrayed them as fiercely as he once believed they betrayed him. Some still wait for redemption; others have gone wholly to Chaos. As the Watchers in the Dark guide by silence and omen, the Lord of Shadowed Paths gathers the loyal lost to face a traitorous son, Zabriel, and the warband around him. A mythic return journey about memory, judgement, and whether a Primarch can learn mercy.",
+  "coverUrl": null,
+  "releaseYear": 2023,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": "indomitus",
+  "eraName": "Era Indomitus",
+  "persons": [
+    {
+      "id": "mike_brooks",
+      "name": "Mike Brooks",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "adeptus_astartes",
+      "name": "Adeptus Astartes",
+      "role": "primary"
+    },
+    {
+      "id": "dark_angels",
+      "name": "Dark Angels",
+      "role": "primary"
+    },
+    {
+      "id": "fallen_angels",
+      "name": "Fallen Angels",
+      "role": "primary"
+    },
+    {
+      "id": "heretic_astartes",
+      "name": "Heretic Astartes",
+      "role": "antagonist"
+    }
+  ],
+  "locations": [
+    {
+      "id": "caliban",
+      "name": "Caliban",
+      "role": "primary"
+    },
+    {
+      "id": "great_rift",
+      "name": "The Great Rift",
+      "role": "secondary"
+    },
+    {
+      "id": "imperium_nihilus",
+      "name": "Imperium Nihilus",
+      "role": "secondary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "lion_el_jonson",
+      "name": "Lion El'Jonson",
+      "role": "pov"
+    },
+    {
+      "id": "roboute_guilliman",
+      "name": "Roboute Guilliman",
+      "role": "mentioned"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "Journey",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Galactic",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Brotherhood",
+      "category": "theme"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Faith",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Redemption",
+      "category": "theme"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Hopepunk",
+      "category": "tone"
+    },
+    {
+      "name": "Philosophical",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

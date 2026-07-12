@@ -1,0 +1,150 @@
+{
+  "id": "4ab19e45-1593-4e02-93e5-34ffc017d1e6",
+  "slug": "angron-the-red-angel",
+  "title": "Angron: The Red Angel",
+  "synopsis": "In Imperium Nihilus, Angron's return is less a miracle than a wound torn open across half a million abandoned worlds. His scattered World Eaters answer the Red Angel's call, but the Legion he summons is already breaking in three directions: Kossolax the Foresworn tries to hold command aboard the flagship while fearing the father he worships, Ortan Leidis of the Angels of the Grail sees in the slaughter a ladder out of petty raiding, and Grey Knight Graucis Telomane moves against plans six centuries in the making. Dense daemon-Primarch war-psychology, Legion politics, and a counter-strike aimed at ending the Emperor's most terrible son.",
+  "coverUrl": null,
+  "releaseYear": 2023,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "david_guymer",
+      "name": "David Guymer",
+      "role": "author",
+      "displayOrder": 0
+    },
+    {
+      "id": "andrew_wincott",
+      "name": "Andrew Wincott",
+      "role": "narrator",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "adeptus_astartes",
+      "name": "Adeptus Astartes",
+      "role": "primary"
+    },
+    {
+      "id": "grey_knights",
+      "name": "Grey Knights",
+      "role": "primary"
+    },
+    {
+      "id": "heretic_astartes",
+      "name": "Heretic Astartes",
+      "role": "primary"
+    },
+    {
+      "id": "khorne",
+      "name": "Khorne",
+      "role": "primary"
+    },
+    {
+      "id": "world_eaters",
+      "name": "World Eaters",
+      "role": "primary"
+    }
+  ],
+  "locations": [
+    {
+      "id": "imperium_nihilus",
+      "name": "Imperium Nihilus",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "angron",
+      "name": "Angron",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "Political Thriller",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Dual",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Galactic",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Brotherhood",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Redemption",
+      "category": "theme"
+    },
+    {
+      "name": "War",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Philosophical",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

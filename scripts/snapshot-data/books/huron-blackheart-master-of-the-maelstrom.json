@@ -1,0 +1,138 @@
+{
+  "id": "b0b098ae-2871-45d4-a014-4512810c31fb",
+  "slug": "huron-blackheart-master-of-the-maelstrom",
+  "title": "Huron Blackheart: Master of the Maelstrom",
+  "synopsis": "Huron Blackheart rules the Red Corsairs from the Maelstrom, but renegade kingship is never still. Guilliman's returned Imperium presses at the borders, while ambitious captains inside Huron's own warband read every fracture as a chance to take the Tyrant of Badab's throne. The book treats Chaos command as court intrigue with bolters: independence gives the Corsairs their bite, and also keeps them tearing at one another. Huron has to make fear, loyalty, and utility look like the same thing. A political warband study about power and what freedom costs when treachery is the native language.",
+  "coverUrl": null,
+  "releaseYear": 2022,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": "time_ending",
+  "eraName": "Time of Ending",
+  "persons": [
+    {
+      "id": "mike_brooks",
+      "name": "Mike Brooks",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "adeptus_astartes",
+      "name": "Adeptus Astartes",
+      "role": "antagonist"
+    },
+    {
+      "id": "heretic_astartes",
+      "name": "Heretic Astartes",
+      "role": "primary"
+    },
+    {
+      "id": "red_corsairs",
+      "name": "Red Corsairs",
+      "role": "primary"
+    }
+  ],
+  "locations": [
+    {
+      "id": "maelstrom",
+      "name": "Maelstrom",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "huron_blackheart",
+      "name": "Huron Blackheart",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "Court Intrigue",
+      "category": "plot_type"
+    },
+    {
+      "name": "Political Thriller",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Chaos",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Sector",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "War",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Somber",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

@@ -27,6 +27,7 @@ import {
   SNAPSHOT_DIR,
   assertEraParity,
   assertPlausibleCounts,
+  bookArtifactPath,
   entityArtifactPath,
   parseManifest,
   resolveGeneratedAt,
@@ -40,10 +41,12 @@ import {
 // Everything in this block is type-only and erased at runtime; the server-only
 // loader modules and the db-coupled exporter are NEVER imported as values here.
 import type {
+  projectBookDetail,
   projectBrowseData,
   projectCharaktereRows,
   projectEntityView,
   projectFactionGuide,
+  projectHotBookSlugs,
   projectHotEntityIds,
   projectPersonenRows,
   projectPodcastIndex,
@@ -61,6 +64,7 @@ import type {
   getPersonenRows,
   getWeltenRows,
 } from "@/lib/compendium/queries";
+import type { listHotBookSlugs, loadBook } from "@/lib/book/loadBook";
 import type { listHotEntityIds, loadEntity } from "@/lib/entity/loader";
 import type { EntityType } from "@/lib/entity/types";
 
@@ -105,6 +109,14 @@ const hotIdsContract: Equals<
   Returned<typeof projectHotEntityIds>["hotIds"],
   Record<EntityType, Returned<typeof listHotEntityIds>>
 > = true;
+const bookDetailContract: Equals<
+  Returned<typeof projectBookDetail>,
+  Returned<typeof loadBook>
+> = true;
+const hotBookSlugsContract: Equals<
+  Returned<typeof projectHotBookSlugs>["hotSlugs"],
+  Returned<typeof listHotBookSlugs>
+> = true;
 
 // --- runtime asserts ---------------------------------------------------------
 
@@ -125,7 +137,7 @@ function check(name: string, fn: () => void): void {
 
 console.log("build-snapshot (pure half + contracts)");
 
-check("all nine shape contracts hold at compile time", () => {
+check("all eleven shape contracts hold at compile time", () => {
   // The real assertion is `npm run typecheck`; this keeps the consts "used".
   const contracts = [
     browseContract,
@@ -137,6 +149,8 @@ check("all nine shape contracts hold at compile time", () => {
     personenContract,
     entityViewContract,
     hotIdsContract,
+    bookDetailContract,
+    hotBookSlugsContract,
   ];
   assert.ok(contracts.every((c) => c === true));
 });
@@ -165,6 +179,9 @@ const countsFixture: SnapshotCounts = {
   personenRows: 136,
   hotIds: { character: 30, faction: 39, location: 13, person: 14 },
   entityViews: 96,
+  bookSlugs: 889,
+  hotBookSlugs: 73,
+  bookDetails: 73,
 };
 
 function manifestFixture(over: Partial<SnapshotManifest> = {}): SnapshotManifest {
@@ -268,6 +285,32 @@ check("assertPlausibleCounts throws when a hot-ID payload is missing", () => {
   );
 });
 
+check("assertPlausibleCounts throws when a hot-book payload is missing", () => {
+  assert.throws(
+    () => assertPlausibleCounts({ ...countsFixture, bookDetails: 72 }),
+    /missing hot-book payloads/,
+  );
+});
+
+check("assertPlausibleCounts throws when the slug list drifts from browse", () => {
+  assert.throws(
+    () => assertPlausibleCounts({ ...countsFixture, bookSlugs: 888 }),
+    /slug list drifted from the browse projection/,
+  );
+});
+
+check("assertPlausibleCounts throws on an implausibly small hot-book set", () => {
+  assert.throws(
+    () =>
+      assertPlausibleCounts({
+        ...countsFixture,
+        hotBookSlugs: 10,
+        bookDetails: 10,
+      }),
+    /hotBookSlugs = 10 < required minimum/,
+  );
+});
+
 check("assertEraParity passes on the identical id set, order-independent", () => {
   assert.doesNotThrow(() => assertEraParity(["a", "b"], ["b", "a"]));
 });
@@ -279,6 +322,10 @@ check("assertEraParity throws on drift in either direction", () => {
 
 check("entityArtifactPath shapes entities/<type>/<id>.json", () => {
   assert.equal(entityArtifactPath("faction", "thousand_sons"), "entities/faction/thousand_sons.json");
+});
+
+check("bookArtifactPath shapes books/<slug>.json", () => {
+  assert.equal(bookArtifactPath("horus-rising"), "books/horus-rising.json");
 });
 
 check("MIN_COUNTS floors stay below the 2026-07-11 live counts (sanity)", () => {
@@ -307,7 +354,7 @@ check("package.json wires exactly the one snapshot:regen entry (S1a exception)",
 check("artifact registry + manifest filename are stable strings", () => {
   assert.equal(SNAPSHOT_DIR, "scripts/snapshot-data");
   assert.equal(MANIFEST_FILENAME, "manifest.json");
-  assert.equal(Object.keys(DATA_ARTIFACTS).length, 8);
+  assert.equal(Object.keys(DATA_ARTIFACTS).length, 10);
 });
 
 console.log(`\n${pass} passed, ${fail} failed`);

@@ -29,7 +29,7 @@
           "releaseYear": 2001,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/malleus",
+          "href": "/book/malleus",
           "showTitle": null
         },
         {
@@ -39,7 +39,7 @@
           "releaseYear": 2001,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/xenos",
+          "href": "/book/xenos",
           "showTitle": null
         },
         {
@@ -49,7 +49,7 @@
           "releaseYear": 2002,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/hereticus",
+          "href": "/book/hereticus",
           "showTitle": null
         },
         {
@@ -59,7 +59,7 @@
           "releaseYear": 2005,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/eisenhorn-omnibus",
+          "href": "/book/eisenhorn-omnibus",
           "showTitle": null
         },
         {
@@ -69,7 +69,7 @@
           "releaseYear": 2009,
           "coverUrl": null,
           "role": "mentioned",
-          "href": "/buch/ravenor-the-omnibus",
+          "href": "/book/ravenor-the-omnibus",
           "showTitle": null
         },
         {
@@ -79,7 +79,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/pariah",
+          "href": "/book/pariah",
           "showTitle": null
         },
         {
@@ -89,7 +89,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/the-magos",
+          "href": "/book/the-magos",
           "showTitle": null
         },
         {
@@ -99,7 +99,7 @@
           "releaseYear": 2021,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/penitent",
+          "href": "/book/penitent",
           "showTitle": null
         }
       ]

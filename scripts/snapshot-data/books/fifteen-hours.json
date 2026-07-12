@@ -1,0 +1,122 @@
+{
+  "id": "3bb4faa7-e5b5-48fa-b557-bfe3fe239ac1",
+  "slug": "fifteen-hours",
+  "title": "Fifteen Hours",
+  "synopsis": "Seventeen-year-old Arvin Larn is conscripted, drilled and shipped to war, and then, through a clerk's error, delivered to the wrong front entirely. He arrives at Broucheroc, a ruined hive-city that the under-strength Vardan Rifles have held against ceaseless Ork assault for over a decade. The grim arithmetic of the trenches gives a fresh replacement a life expectancy of fifteen hours. Across a single brutal day Larn endures snipers, friendly fire, indifferent officers, foul rations and an all-out greenskin offensive, learning what survival actually costs on a front the Imperium has all but forgotten. A ground-level portrait of the ordinary soldier in an endless war.",
+  "coverUrl": null,
+  "releaseYear": 2005,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "mitchel_scanlon",
+      "name": "Mitchel Scanlon",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "astra_militarum",
+      "name": "Astra Militarum",
+      "role": "primary"
+    },
+    {
+      "id": "orks",
+      "name": "Orks",
+      "role": "antagonist"
+    }
+  ],
+  "locations": [
+    {
+      "id": "broucheroc",
+      "name": "Broucheroc",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "arvin_larn",
+      "name": "Arvin Larn",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Siege",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Guardsman",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Planetary",
+      "category": "scope"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Sacrifice",
+      "category": "theme"
+    },
+    {
+      "name": "War",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Somber",
+      "category": "tone"
+    }
+  ],
+  "containedIn": [
+    {
+      "collectionSlug": "imperial-guard-omnibus-volume-one-shield-of-the-emperor",
+      "collectionTitle": "Imperial Guard Omnibus: Volume One / Shield of the Emperor"
+    }
+  ]
+}

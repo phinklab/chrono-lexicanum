@@ -1,0 +1,110 @@
+{
+  "id": "b10ba7fd-2012-4419-98f8-0997f98bdc22",
+  "slug": "deathwatch",
+  "title": "Deathwatch",
+  "synopsis": "Drawn from a dozen different Chapters and forged into a single kill-team within an ironclad watch fortress, the Space Marines of Talon Squad are alien-hunters without equal. Under the cold command of the enigmatic Inquisitor Sigma, and led by the Death Spectres Librarian Lyandro Karras, their first mission together is a brutal one: descend into a genestealer-infested world and burn the xenos brood from its tunnels before an entire planet is consumed. As the team learns to trust one another against borderline-unsurvivable odds, Karras must reconcile honour to his Chapter with the distasteful duties his Inquisitorial master demands. This is the origin of Talon Squad, the tale of how strangers became brothers in the Emperor's deadliest service.",
+  "coverUrl": null,
+  "releaseYear": 2013,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "steve_parker",
+      "name": "Steve Parker",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "deathwatch",
+      "name": "Deathwatch",
+      "role": "primary"
+    },
+    {
+      "id": "ordo_xenos",
+      "name": "Ordo Xenos",
+      "role": "supporting"
+    },
+    {
+      "id": "tyranids",
+      "name": "Tyranids",
+      "role": "antagonist"
+    }
+  ],
+  "locations": [],
+  "characters": [],
+  "facets": [
+    {
+      "name": "Series Start",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Siege",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Squad",
+      "category": "scope"
+    },
+    {
+      "name": "Brotherhood",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "War",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Cosmic Horror",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

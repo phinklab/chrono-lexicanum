@@ -1,0 +1,171 @@
+{
+  "id": "fd263385-84d4-4ea9-8212-4ddd34ba6155",
+  "slug": "ravenor-the-omnibus",
+  "title": "Ravenor: The Omnibus",
+  "synopsis": "Omnibus collecting Ravenor, Ravenor Returned and Ravenor Rogue, plus the short stories \"Thorn Wishes Talon\" and \"Playing Patience\". Together these tell the full arc of Gideon Ravenor's slow drift from sanctioned Imperial investigator to rogue Inquisitor on the run from his own order, while inside him grows the mathematical proof that the daemon Slyte was incubating in his own house. Best read after Eisenhorn: continuity threads (Cherubael, Pontius Glaw, the Pylon Saint) only resolve if both arcs are read in order. The two short stories sit between Hereticus and Ravenor and bridge the two protagonists' eras.",
+  "coverUrl": null,
+  "releaseYear": 2009,
+  "format": "omnibus",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": "ravenor",
+  "seriesName": "Ravenor",
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "dan_abnett",
+      "name": "Dan Abnett",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "chaos",
+      "name": "Chaos",
+      "role": "antagonist"
+    },
+    {
+      "id": "inquisition",
+      "name": "Inquisition",
+      "role": "primary"
+    },
+    {
+      "id": "ordo_xenos",
+      "name": "Ordo Xenos",
+      "role": "primary"
+    }
+  ],
+  "locations": [
+    {
+      "id": "eustis_majoris",
+      "name": "Eustis Majoris",
+      "role": "primary"
+    },
+    {
+      "id": "scarus",
+      "name": "Scarus Sector",
+      "role": "primary"
+    },
+    {
+      "id": "yassilli_sarum",
+      "name": "Yassilli Sarum",
+      "role": "secondary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "carl_thonius",
+      "name": "Carl Thonius",
+      "role": "appears"
+    },
+    {
+      "id": "gideon_ravenor",
+      "name": "Gideon Ravenor",
+      "role": "pov"
+    },
+    {
+      "id": "gregor_eisenhorn",
+      "name": "Gregor Eisenhorn",
+      "role": "mentioned"
+    },
+    {
+      "id": "harlon_nayl",
+      "name": "Harlon Nayl",
+      "role": "appears"
+    },
+    {
+      "id": "kara_swole",
+      "name": "Kara Swole",
+      "role": "appears"
+    },
+    {
+      "id": "patience_kys",
+      "name": "Patience Kys",
+      "role": "appears"
+    },
+    {
+      "id": "wystan_frauka",
+      "name": "Wystan Frauka",
+      "role": "appears"
+    },
+    {
+      "id": "zygmunt_molotch",
+      "name": "Zygmunt Molotch",
+      "role": "appears"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Requires Context",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Doorstopper",
+      "category": "length_tier"
+    },
+    {
+      "name": "Journey",
+      "category": "plot_type"
+    },
+    {
+      "name": "Mystery",
+      "category": "plot_type"
+    },
+    {
+      "name": "Political Thriller",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Inquisitor",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Ensemble",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Sector",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Philosophical",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

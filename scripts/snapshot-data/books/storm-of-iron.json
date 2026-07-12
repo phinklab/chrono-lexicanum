@@ -1,0 +1,162 @@
+{
+  "id": "d47e3f00-9bb0-4ba3-8398-e9bce14b2954",
+  "slug": "storm-of-iron",
+  "title": "Storm of Iron",
+  "synopsis": "Iron Warriors under Warsmith Barban Falk, fronted by the three Grand-Company captains Forrix, Kroeger, and the rising half-breed Honsou, lay siege to the Imperial fortress-world of Hydra Cordatus. The Imperial defenders are an Imperial Guard regiment and a thin Imperial Fists detachment, both protecting a buried Adeptus Mechanicus secret held by Magos Naicin. Across the book the siege rolls section by section in canonical Iron Warriors fashion: the outer walls fall, the inner walls fall, the citadel falls — with the late arrival of Warsmith Berossus's reinforcement column tipping the final push. The buried vault is revealed to hold a fragment of primarch genetic material, which the Iron Warriors mean to weaponise against the Adeptus Astartes' loyalist chapters. Honsou's part in the siege earns him the elevation that carries him through Dead Sky, Black Sun, The Killing Ground, and The Chapter's Due — making Storm of Iron the foundational Honsou origin story, written four years before he appears as Ventris's antagonist. Dual POV across both sides.",
+  "coverUrl": null,
+  "releaseYear": 2002,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": "time_ending",
+  "eraName": "Time of Ending",
+  "persons": [
+    {
+      "id": "graham_mcneill",
+      "name": "Graham McNeill",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "adeptus_astartes",
+      "name": "Adeptus Astartes",
+      "role": "primary"
+    },
+    {
+      "id": "astra_militarum",
+      "name": "Astra Militarum",
+      "role": "primary"
+    },
+    {
+      "id": "imperial_fists",
+      "name": "Imperial Fists",
+      "role": "primary"
+    },
+    {
+      "id": "iron_warriors",
+      "name": "Iron Warriors",
+      "role": "primary"
+    },
+    {
+      "id": "mechanicus",
+      "name": "Adeptus Mechanicus",
+      "role": "supporting"
+    }
+  ],
+  "locations": [
+    {
+      "id": "hydra_cordatus",
+      "name": "Hydra Cordatus",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "barban_falk",
+      "name": "Barban Falk",
+      "role": "appears"
+    },
+    {
+      "id": "berossus",
+      "name": "Berossus",
+      "role": "appears"
+    },
+    {
+      "id": "forrix",
+      "name": "Forrix",
+      "role": "pov"
+    },
+    {
+      "id": "honsou",
+      "name": "Honsou",
+      "role": "pov"
+    },
+    {
+      "id": "kroeger",
+      "name": "Kroeger",
+      "role": "appears"
+    },
+    {
+      "id": "magos_naicin",
+      "name": "Magos Naicin",
+      "role": "appears"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Siege",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Dual",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Ensemble",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Planetary",
+      "category": "scope"
+    },
+    {
+      "name": "Brotherhood",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Somber",
+      "category": "tone"
+    }
+  ],
+  "containedIn": [
+    {
+      "collectionSlug": "iron-warriors-the-complete-honsou-omnibus",
+      "collectionTitle": "Iron Warriors: The Complete Honsou Omnibus"
+    },
+    {
+      "collectionSlug": "iron-warriors-the-omnibus",
+      "collectionTitle": "Iron Warriors: The Omnibus"
+    }
+  ]
+}

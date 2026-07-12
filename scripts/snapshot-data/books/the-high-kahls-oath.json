@@ -1,0 +1,98 @@
+{
+  "id": "d9b77a83-9177-4fdf-adb2-ea820af44c65",
+  "slug": "the-high-kahls-oath",
+  "title": "The High Kâhl’s Oath",
+  "synopsis": "The galactic core is beset by warp storms of a fury the Leagues of Votann have not seen for ten millennia. With both the Imperium and the powers of the warp encroaching ever further onto the Kin's territories, war reigns supreme amongst the coreward stars. Myrtun Dammergot, a Hernkyn Prospect leader of the Kindred of the Eternal Starforge, is in her element, exploiting the unending conflict and living a life of adventure without the unwanted burden of responsibility. But when a messenger from her Kindred's Hold ship brings news that upends everything she knows, responsibility, challenges and opportunity all come knocking at once. Plunged into a venture beyond her wildest expectations, Myrtun and her companions find themselves set against an ancient, deadly foe guarding a mysterious but magnificent prize.",
+  "coverUrl": null,
+  "releaseYear": 2025,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "gav_thorpe",
+      "name": "Gav Thorpe",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "leagues_of_votann",
+      "name": "Leagues of Votann",
+      "role": "primary"
+    }
+  ],
+  "locations": [
+    {
+      "id": "eternal_starforge_hold",
+      "name": "Kindred of the Eternal Starforge Hold ship",
+      "role": "primary"
+    }
+  ],
+  "characters": [],
+  "facets": [
+    {
+      "name": "Series Start",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "Journey",
+      "category": "plot_type"
+    },
+    {
+      "name": "Xenos",
+      "category": "pov_side"
+    },
+    {
+      "name": "Xenos",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Female",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "War",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}
