@@ -1,6 +1,6 @@
 /**
  * Curated "hot subset" of entity ids that are prerendered at build time.
- * The four entity routes (/charakter, /welt, /fraktion,
+ * The four entity routes (/character, /world, /faction,
  * /person) deliberately do NOT prerender every id (~1300 pages): that fans
  * ~1300 full `loadEntity` reads from the US build into the eu-central DB on
  * every deploy — 20-minute builds and a build-egress bill that alone reached

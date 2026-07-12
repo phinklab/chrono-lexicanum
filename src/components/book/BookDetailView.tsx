@@ -1,6 +1,6 @@
 /**
- * Book-detail body — the db-free view shared by the canonical `/buch/[slug]`
- * page and the `@modal/(.)buch` overlay. One server component rendered into
+ * Book-detail body — the db-free view shared by the canonical `/book/[slug]`
+ * page and the `@modal/(.)book` overlay. One server component rendered into
  * both surfaces, so the two can never drift.
  *
  * The record speaks the title-page language on the centre axis —
@@ -8,15 +8,21 @@
  * Synopsis → Appendix (dramatis personae / factions / locations with roles) →
  * motifs → Acquire → the quiet provenance link. No cover image is rendered,
  * deliberately — the title IS the cover.
+ *
+ * The Acquire block is the one client island (<StoreActions> resolves the
+ * store region in the browser — Launch S4); everything above it is static.
+ * The Suspense fallback renders the DEFAULT_REGION actions so the prerendered
+ * shell and no-JS visits always carry working store links.
  */
+import { Suspense } from "react";
 import Link from "next/link";
 import { entityHref } from "@/lib/entity/types";
 import { FORMAT_LABELS } from "@/lib/book-labels";
 import BuyListenActions from "@/components/book/BuyListenActions";
-import RegionSwitcher from "@/components/book/RegionSwitcher";
+import StoreActions from "@/components/book/StoreActions";
 import { type AudioCreditData } from "@/components/book/AudioCredit";
 import { type BookDetail } from "@/lib/book/loadBook";
-import { type StoreRegion } from "@/lib/store-links";
+import { DEFAULT_REGION } from "@/lib/store-links";
 
 function roleLabel(role: string | null, fallback: string): string {
   return (role ?? fallback).replace(/_/g, " ");
@@ -85,13 +91,7 @@ function AppendixColumn({
   );
 }
 
-export default function BookDetailView({
-  book,
-  region,
-}: {
-  book: BookDetail;
-  region: StoreRegion;
-}) {
+export default function BookDetailView({ book }: { book: BookDetail }) {
   const audioCredit = buildAudioCredit(book.persons);
   const isbn = book.isbn13 ?? book.isbn10 ?? null;
   const authorRows = book.persons.filter((p) => p.role === "author");
@@ -138,7 +138,7 @@ export default function BookDetailView({
             <span key={c.collectionSlug}>
               {i > 0 && ", "}
               <Link
-                href={`/buch/${c.collectionSlug}`}
+                href={`/book/${c.collectionSlug}`}
                 className="book-detail__contained-link"
               >
                 {c.collectionTitle}
@@ -201,14 +201,24 @@ export default function BookDetailView({
         </p>
       )}
 
-      <BuyListenActions
-        title={book.title}
-        author={authors[0] ?? null}
-        isbn={isbn}
-        region={region}
-        audio={audioCredit}
-      />
-      <RegionSwitcher active={region} />
+      <Suspense
+        fallback={
+          <BuyListenActions
+            title={book.title}
+            author={authors[0] ?? null}
+            isbn={isbn}
+            region={DEFAULT_REGION}
+            audio={audioCredit}
+          />
+        }
+      >
+        <StoreActions
+          title={book.title}
+          author={authors[0] ?? null}
+          isbn={isbn}
+          audio={audioCredit}
+        />
+      </Suspense>
     </article>
   );
 }

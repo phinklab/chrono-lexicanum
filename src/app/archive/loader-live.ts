@@ -22,7 +22,7 @@ import type {
  * Browse rows carry a *teaser*, not the full synopsis — the catalogue renders
  * all ~900 expanded row bodies into one HTML document, and full synopses were
  * the single biggest driver of its measured 16.45 MB payload.
- * The full text lives one click away on `/buch/[slug]`. Cut at a
+ * The full text lives one click away on `/book/[slug]`. Cut at a
  * word boundary near the cap so the teaser never ends mid-word.
  */
 const SYNOPSIS_TEASER_MAX = 280;

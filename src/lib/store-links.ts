@@ -14,7 +14,9 @@
  *
  * This module imports nothing from `next/*` on purpose: it stays pure so it can
  * be exercised from a throwaway `tsx` smoke or a client island. Region
- * DETECTION (which reads the request) lives in ./store-region.
+ * DETECTION lives client-side since Launch S4 (`StoreActions` island reads
+ * `?store=` + `navigator.languages` through the helpers below) so the
+ * /book/[slug] route can be SSG/ISR instead of per-request dynamic.
  */
 
 export type StoreService = "amazon" | "audible" | "black_library";
@@ -52,6 +54,54 @@ export const STORE_REGIONS: readonly StoreRegion[] = [
   "IN",
   "BR",
 ];
+
+const SUPPORTED_REGIONS: ReadonlySet<string> = new Set(STORE_REGIONS);
+
+/** ISO-ish code → supported region, or null. Pure and case-insensitive. */
+export function normalizeStoreRegion(
+  code: string | null | undefined,
+): StoreRegion | null {
+  const up = code?.trim().toUpperCase();
+  return up && SUPPORTED_REGIONS.has(up) ? (up as StoreRegion) : null;
+}
+
+/**
+ * Bare language subtag → region, for our supported set only. English has no
+ * generic store, so it defaults to US; `en-GB` is already caught by its region
+ * subtag before this table is consulted.
+ */
+const LANG_TO_REGION: Record<string, StoreRegion> = {
+  de: "DE",
+  fr: "FR",
+  es: "ES",
+  it: "IT",
+  nl: "NL",
+  ja: "JP",
+  pt: "BR",
+  en: "US",
+};
+
+/**
+ * BCP-47 tags (in `navigator.languages` preference order) → store region.
+ * Within one tag a region subtag (`en-GB` → GB) wins over the bare-language
+ * table (`en` → US); across tags the first usable one wins. This is the client
+ * twin of the retired server-side Accept-Language parsing (Launch S4) — same
+ * table, same precedence.
+ */
+export function regionFromLanguageTags(
+  tags: readonly string[],
+): StoreRegion | null {
+  for (const raw of tags) {
+    const tag = raw?.trim().toLowerCase();
+    if (!tag) continue;
+    const [lang, region] = tag.split("-");
+    const byRegion = normalizeStoreRegion(region);
+    if (byRegion) return byRegion;
+    const byLang = LANG_TO_REGION[lang ?? ""];
+    if (byLang) return byLang;
+  }
+  return null;
+}
 
 /** Amazon marketplace TLD per region. */
 const AMAZON_TLD: Record<StoreRegion, string> = {

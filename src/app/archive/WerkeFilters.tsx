@@ -81,7 +81,7 @@ export default function WerkeFilters({
     commit(next);
   }
 
-  // Commit a picked suggestion. A book opens (soft-nav → the `(.)buch` intercept
+  // Commit a picked suggestion. A book opens (soft-nav → the `(.)book` intercept
   // mounts the overlay); a faction jumps to its hub; facet/format apply that
   // filter and consume the typed text; an author runs a text search for that name.
   function onPick(s: Suggestion) {
@@ -91,7 +91,7 @@ export default function WerkeFilters({
         // the book overlay closes (else onFocus would reopen the dropdown over
         // the just-dismissed book).
         setQ("");
-        router.push(`/buch/${s.value}`);
+        router.push(`/book/${s.value}`);
         break;
       case "podcast":
         // A podcast pick leaves the archive for /podcasts (show page or episode

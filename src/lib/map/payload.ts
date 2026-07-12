@@ -38,7 +38,7 @@ export interface FeaturedWorld {
   /** Work count (= works.length, precomputed for sizing/tiering). */
   n: number;
   works: MapWorldWork[];
-  /** locations.json id → /welt/{loc}. */
+  /** locations.json id → /world/{loc}. */
   loc?: string;
   /** Curated one-sentence blurb (location-blurbs.json via locationId).
    *  Absent = none curated yet — the panel shows the "empty" filler. */

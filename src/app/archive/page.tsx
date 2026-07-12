@@ -89,7 +89,7 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
   return (
     <main className="catalogue catalogue--werke">
       <SiteBackground variant="main" position="right bottom" />
-      {focusSlug ? <CompendiumFocusOpener href={`/buch/${focusSlug}`} /> : null}
+      {focusSlug ? <CompendiumFocusOpener href={`/book/${focusSlug}`} /> : null}
       <GhostReadout lines={VOX_LINES} />
 
       <section className="catalogue-hero route-act" aria-label="Archive — the media archive">
@@ -161,7 +161,7 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
   );
 }
 
-/** One register row — the whole row is a link; a soft-nav to /buch/[slug] is
+/** One register row — the whole row is a link; a soft-nav to /book/[slug] is
  *  intercepted by the root @modal slot, so the record opens as a popup over
  *  the still-mounted register. */
 function WorkRow({ book, index }: { book: BrowseBook; index: number }) {
@@ -169,7 +169,7 @@ function WorkRow({ book, index }: { book: BrowseBook; index: number }) {
   const rowFaction = primaryRowFaction(book.factions);
 
   return (
-    <Link href={`/buch/${book.slug}`} className="catalogue-row">
+    <Link href={`/book/${book.slug}`} className="catalogue-row">
       <span className="catalogue-row__index">{String(index + 1).padStart(3, "0")}</span>
       <span className="catalogue-row__main">
         <span className="catalogue-row__title">{book.title}</span>

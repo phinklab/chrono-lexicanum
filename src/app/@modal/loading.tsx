@@ -2,7 +2,7 @@ import DetailModalSkeleton from "@/components/shared/DetailModalSkeleton";
 
 /**
  * Suspense fallback for the `@modal` slot. The soft-nav entity intercepts
- * ((.)charakter|fraktion|welt|person|buch) are async server components; while
+ * ((.)book|character|faction|world|person) are async server components; while
  * one streams `loadEntity`/`loadBook`, this paints the overlay shell + a
  * cogitator so the panel doesn't open into a void.
  *

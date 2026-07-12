@@ -2,7 +2,7 @@
  * Entity-graph shared contract.
  *
  * This module is the durable seam the entity graph imports:
- *   - the reference pages (/charakter, /fraktion, /welt)
+ *   - the reference pages (/character, /faction, /world)
  *   - the panel/overlay that mounts the same `EntityView` in an intercepting route
  *   - the universal search, which resolves a hit to `TYPE_TO_ROUTE[type] + id`
  *
@@ -23,9 +23,9 @@ export type EntityType = "character" | "faction" | "location" | "person";
  * verbatim so a search hit and a cross-link resolve to the same href.
  */
 export const TYPE_TO_ROUTE: Record<EntityType, string> = {
-  character: "/charakter",
-  faction: "/fraktion",
-  location: "/welt",
+  character: "/character",
+  faction: "/faction",
+  location: "/world",
   person: "/person",
 };
 
@@ -37,17 +37,17 @@ export const TYPE_TO_ROUTE: Record<EntityType, string> = {
  */
 export const TYPE_TO_COMPENDIUM: Record<EntityType, { href: string; label: string }> =
   {
-    character: { href: "/compendium/charaktere", label: "Characters" },
-    faction: { href: "/compendium/fraktionen", label: "Factions" },
-    location: { href: "/compendium/welten", label: "Worlds" },
-    person: { href: "/compendium/autoren", label: "Authors" },
+    character: { href: "/compendium/characters", label: "Characters" },
+    faction: { href: "/compendium/factions", label: "Factions" },
+    location: { href: "/compendium/worlds", label: "Worlds" },
+    person: { href: "/compendium/authors", label: "Authors" },
   };
 
 /**
  * `works.kind` → human label for the "related works" group headings. The
  * `?? kind` fallback in `kindLabel` means a new work kind never breaks
  * rendering — it just shows its raw enum value until a label is added here.
- * UI copy follows the /buch surface (English / Latin), not the German routes.
+ * UI copy follows the /book surface (English / Latin).
  */
 export const KIND_LABELS: Record<string, string> = {
   book: "Books",
@@ -93,7 +93,7 @@ export function entityHref(ref: EntityRef): string {
 
 /**
  * One related work. The loader resolves `href` per kind so the view stays dumb:
- * a book links to /buch/[slug], a podcast show to /podcasts/[slug], a podcast
+ * a book links to /book/[slug], a podcast show to /archive/podcasts/[slug], a podcast
  * episode to its parent show (with `showTitle` for context); a kind with no
  * public surface arrives with `href === null` and renders inert.
  */

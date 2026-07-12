@@ -42,13 +42,13 @@ function statLine(
   const n = sumWeight.toLocaleString("en");
   const appearances = sumWeight === 1 ? "appearance" : "appearances";
   switch (slug) {
-    case "fraktionen":
+    case "factions":
       return { n, rest: `${appearances} across books & podcasts` };
-    case "primarchen":
-    case "charaktere":
-    case "welten":
+    case "primarchs":
+    case "characters":
+    case "worlds":
       return { n, rest: appearances };
-    case "autoren":
+    case "authors":
       return { n, rest: `${sumWeight === 1 ? "work" : "works"} credited` };
     default:
       return null;

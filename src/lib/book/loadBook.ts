@@ -1,7 +1,7 @@
 /**
  * Book-detail data layer. SERVER-ONLY (imports `@/db`).
  *
- * The canonical `buch/[slug]` page AND the `@modal/(.)buch` intercept share
+ * The canonical `book/[slug]` page AND the `@modal/(.)book` intercept share
  * this one DB fan-out and single source of truth — zero fork, exactly like
  * `src/lib/entity/loader.ts`.
  *

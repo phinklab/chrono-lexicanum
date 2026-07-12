@@ -5,9 +5,9 @@
  * navigation (refresh / direct link / SEO crawler) or otherwise doesn't match
  * one of the slot's intercept segments. `null` → no overlay, so the canonical
  * full SSG page in `children` is what the visitor sees. The intercepts
- * (`(.)charakter|fraktion|welt/[slug]`) only fire on in-app SOFT navigation.
+ * (`(.)book|character|faction|world/[slug]`) only fire on in-app SOFT navigation.
  *
- * Soft-nav reset to a non-entity route (e.g. a `/buch/[slug]` link clicked
+ * Soft-nav reset to a non-entity route (e.g. a `/book/[slug]` link clicked
  * inside an open panel) is handled by the catch-all sibling — see
  * `[...catchAll]/page.tsx`. `default.tsx` alone does not reset a parallel slot
  * on soft navigation.

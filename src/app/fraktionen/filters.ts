@@ -1,7 +1,9 @@
 /**
- * Faction-guide content gate. PURE — no `@/db`, no JSX. The /fraktionen route
- * itself is a permanent redirect to /compendium/fraktionen; this survives
- * because the Compendium faction category filters on it.
+ * Faction-guide content gate. PURE — no `@/db`, no JSX. The old /fraktionen
+ * route is a next.config 308 to /compendium/factions since Launch S4; this
+ * module survives because the Compendium faction category filters on it (and
+ * the snapshot exporter's contract tests import from this path — see the
+ * sibling loader's header).
  */
 import type { FactionGuide } from "./loader";
 

@@ -30,7 +30,7 @@ const TABS: ReadonlyArray<{
   },
   {
     id: "faction",
-    href: "/ask/fraktion",
+    href: "/ask/faction",
     kicker: "Tool II",
     label: "One Faction, One Book",
     desc: "Pick a banner and get one curated start.",

@@ -114,9 +114,9 @@ async function main(): Promise<void> {
     assert.deepEqual(
       pathCalls,
       [
-        { path: "/charakter/[slug]", type: "page" },
-        { path: "/welt/[slug]", type: "page" },
-        { path: "/fraktion/[slug]", type: "page" },
+        { path: "/character/[slug]", type: "page" },
+        { path: "/world/[slug]", type: "page" },
+        { path: "/faction/[slug]", type: "page" },
         { path: "/person/[slug]", type: "page" },
       ],
     );

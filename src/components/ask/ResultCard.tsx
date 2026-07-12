@@ -92,7 +92,7 @@ function PrimeRecommendation({ recommendation }: { recommendation: AskRecommenda
         </p>
       )}
       <p className="ask-prime__act">
-        <Link href={`/buch/${recommendation.slug}`} className="lx-btn lx-btn--primary">
+        <Link href={`/book/${recommendation.slug}`} className="lx-btn lx-btn--primary">
           Open the record
           <span className="lx-btn__mark" aria-hidden>
             →
@@ -115,7 +115,7 @@ function RunnerRecommendation({
   const meta = formatMeta(recommendation);
 
   return (
-    <Link href={`/buch/${recommendation.slug}`} className="ask-runner">
+    <Link href={`/book/${recommendation.slug}`} className="ask-runner">
       <span className="ask-runner__rank">Rank {roman(index + 1)}</span>
       <span className="ask-runner__main">
         <span className="ask-runner__title">{recommendation.title}</span>

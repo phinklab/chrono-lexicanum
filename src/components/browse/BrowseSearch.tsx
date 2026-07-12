@@ -32,7 +32,7 @@ import {
  *   - onSubmit(q)  — the broadened free-text search (Enter with nothing highlighted)
  *   - onClear()    — the custom × button
  * /werke wires these to filter-in-place (`router.replace`, scroll preserved);
- * Home wires them to navigate into the archive (`router.push` to /buch or /werke).
+ * Home wires them to navigate into the archive (`router.push` to /book or /archive).
  * The filter/rank contract stays the single pure source in `werke/filters.ts`.
  */
 export default function BrowseSearch({

@@ -10,7 +10,7 @@
  * the guard while more remain; when the LAST overlay is closed through the
  * UI instead, the guard is consumed silently via history.back() (the
  * resulting popstate is swallowed by `eatPops`). Returning down ONTO the
- * guard entry — back from a /buch modal pushed above it — is recognized by
+ * guard entry — back from a /book modal pushed above it — is recognized by
  * `e.state.cgGuard` and leaves the overlays alone. Plays nice with the
  * throttled replaceState hash writer, which only rewrites the URL of
  * whichever entry is current (hash.ts preserves history.state).

@@ -4,10 +4,11 @@
  * for the five top-level categories of the entity directory.
  *
  * A category is a doorway into one reference table, rendered in the gold archive
- * "reader-language" of /werke and /podcasts (dense, scannable rows — not a card
- * wall). The slug is the URL segment (`/compendium/<slug>`), ASCII-German and
- * URL-stable; the entity rows behind it link to the canonical detail routes
- * (`/fraktion`, `/charakter`, `/welt`, `/person`) which soft-nav into the
+ * "reader-language" of the archive surfaces (dense, scannable rows — not a card
+ * wall). The slug is the URL segment (`/compendium/<slug>`), English and
+ * URL-stable (S4 canonical routes); the entity rows behind it link to the
+ * canonical detail routes
+ * (`/faction`, `/character`, `/world`, `/person`) which soft-nav into the
  * entity overlay. The `href` of each row is resolved server-side in
  * `./loader`, so this module stays free of routing detail beyond the category
  * itself.
@@ -22,7 +23,7 @@ export interface CompendiumFacet {
 export interface CompendiumCategory {
   /** URL segment under /compendium — stable, ASCII, lower-case. */
   slug: string;
-  /** Display label (English/Latin surface, like /buch). */
+  /** Display label (English/Latin surface, like /book). */
   label: string;
   /** A single decorative sigil glyph for the overview door (aria-hidden). */
   sigil: string;
@@ -56,7 +57,7 @@ export const ALIGNMENT_FACETS: ReadonlyArray<CompendiumFacet> = [
  */
 export const COMPENDIUM_CATEGORIES: ReadonlyArray<CompendiumCategory> = [
   {
-    slug: "fraktionen",
+    slug: "factions",
     label: "Factions",
     sigil: "✠",
     noun: "faction",
@@ -67,7 +68,7 @@ export const COMPENDIUM_CATEGORIES: ReadonlyArray<CompendiumCategory> = [
     facetParam: "alignment",
   },
   {
-    slug: "primarchen",
+    slug: "primarchs",
     label: "Primarchs",
     sigil: "❂",
     noun: "primarch",
@@ -75,7 +76,7 @@ export const COMPENDIUM_CATEGORIES: ReadonlyArray<CompendiumCategory> = [
     grouped: false,
   },
   {
-    slug: "charaktere",
+    slug: "characters",
     label: "Characters",
     sigil: "✶",
     noun: "character",
@@ -84,7 +85,7 @@ export const COMPENDIUM_CATEGORIES: ReadonlyArray<CompendiumCategory> = [
     grouped: false,
   },
   {
-    slug: "welten",
+    slug: "worlds",
     label: "Worlds",
     sigil: "◉",
     noun: "world",
@@ -93,7 +94,7 @@ export const COMPENDIUM_CATEGORIES: ReadonlyArray<CompendiumCategory> = [
     grouped: false,
   },
   {
-    slug: "autoren",
+    slug: "authors",
     label: "Authors",
     sigil: "❡",
     noun: "author",

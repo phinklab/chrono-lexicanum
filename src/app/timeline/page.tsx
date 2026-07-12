@@ -50,7 +50,7 @@ export default async function TimelinePage({ searchParams }: TimelinePageProps) 
   const bookRaw = first(sp.book);
 
   // Legacy `?book=` deep links (old DetailPanel) → the book's own page.
-  if (bookRaw) redirect(`/buch/${encodeURIComponent(bookRaw)}`);
+  if (bookRaw) redirect(`/book/${encodeURIComponent(bookRaw)}`);
 
   // Legacy era ids → their new chapter.
   if (eraRaw && LEGACY_ERA[eraRaw]) {

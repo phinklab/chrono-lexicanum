@@ -2,7 +2,7 @@
  * Compendium data layer — DB-FREE façade (Launch S1b Loader-Weiche).
  *
  * Each of the five categories is built from an existing aggregate query — no new
- * SQL: factions reuse `/fraktionen`'s `loadFactionGuide` (+ its `hasContent`
+ * SQL: factions reuse the faction guide's `loadFactionGuide` (+ its `hasContent`
  * gate), the rest reuse the inventory rows in `./queries` (`getCharaktereRows`,
  * `getWeltenRows`, `getPersonenRows`). The builders map those rows to the pure
  * `CompendiumItem` shape — a resolved entity `href` plus pre-computed display
@@ -142,7 +142,7 @@ export const loadFactionItems = cache(async (): Promise<CompendiumItem[]> => {
     .map((f): CompendiumItem => ({
       id: f.id,
       name: f.name,
-      href: `/fraktion/${f.id}`,
+      href: `/faction/${f.id}`,
       kicker: ALIGNMENT_LABELS[f.alignment],
       meta: factionStats(f),
       dotColor: factionDot(f.name),
@@ -166,7 +166,7 @@ export const loadCharacterItems = cache(async (): Promise<CompendiumItem[]> => {
     .map((c): CompendiumItem => ({
       id: c.id,
       name: c.name,
-      href: `/charakter/${c.id}`,
+      href: `/character/${c.id}`,
       kicker: c.primaryFactionName,
       meta: plural(c.workCount, "appearance"),
       dotColor: c.primaryFactionName ? factionDot(c.primaryFactionName) : null,
@@ -194,7 +194,7 @@ export const loadPrimarchItems = cache(async (): Promise<CompendiumItem[]> => {
       if (!c) {
         // A curated id that no longer resolves is a data error, not a silent drop.
         console.error(
-          `[/compendium/primarchen] curated primarch id "${id}" not found in characters — dropping.`,
+          `[/compendium/primarchs] curated primarch id "${id}" not found in characters — dropping.`,
         );
         return null;
       }
@@ -216,7 +216,7 @@ export const loadPrimarchItems = cache(async (): Promise<CompendiumItem[]> => {
       return {
         id: c.id,
         name,
-        href: `/charakter/${c.id}`,
+        href: `/character/${c.id}`,
         kicker: c.primaryFactionName,
         meta: workCount > 0 ? plural(workCount, "appearance") : null,
         dotColor: c.primaryFactionName ? factionDot(c.primaryFactionName) : null,
@@ -324,7 +324,7 @@ export const loadWorldItems = cache(async (): Promise<CompendiumItem[]> => {
     .map((w): CompendiumItem => ({
       id: w.id,
       name: w.name,
-      href: `/welt/${w.id}`,
+      href: `/world/${w.id}`,
       kicker: w.sectorName,
       meta: plural(w.workCount, "appearance"),
       dotColor: null,
@@ -338,7 +338,7 @@ export const loadWorldItems = cache(async (): Promise<CompendiumItem[]> => {
 
 export const loadAuthorItems = cache(async (): Promise<CompendiumItem[]> => {
   const rows = await cachedPersonen();
-  // Autoren = persons who hold an authoring role on at least one work (a
+  // Authors = persons who hold an authoring role on at least one work (a
   // narrator-only person belongs to a future category, not here).
   return rows
     .filter((p) => p.roles.includes("author") || p.roles.includes("co_author"))
@@ -360,15 +360,15 @@ export const loadAuthorItems = cache(async (): Promise<CompendiumItem[]> => {
 /** Dispatch a category slug to its builder. Unknown slug → empty list. */
 export function loadCategoryItems(slug: string): Promise<CompendiumItem[]> {
   switch (slug) {
-    case "fraktionen":
+    case "factions":
       return loadFactionItems();
-    case "primarchen":
+    case "primarchs":
       return loadPrimarchItems();
-    case "charaktere":
+    case "characters":
       return loadCharacterItems();
-    case "welten":
+    case "worlds":
       return loadWorldItems();
-    case "autoren":
+    case "authors":
       return loadAuthorItems();
     default:
       return Promise.resolve([]);
@@ -378,7 +378,7 @@ export function loadCategoryItems(slug: string): Promise<CompendiumItem[]> {
 /** Item counts per category slug, for the nav badges + overview. Cached. */
 export const loadCompendiumCounts = cache(
   async (): Promise<Record<string, number>> => {
-    const [fraktionen, primarchen, charaktere, welten, autoren] =
+    const [factions, primarchs, characters, worlds, authors] =
       await Promise.all([
         loadFactionItems(),
         loadPrimarchItems(),
@@ -387,11 +387,11 @@ export const loadCompendiumCounts = cache(
         loadAuthorItems(),
       ]);
     return {
-      fraktionen: fraktionen.length,
-      primarchen: primarchen.length,
-      charaktere: charaktere.length,
-      welten: welten.length,
-      autoren: autoren.length,
+      factions: factions.length,
+      primarchs: primarchs.length,
+      characters: characters.length,
+      worlds: worlds.length,
+      authors: authors.length,
     };
   },
 );

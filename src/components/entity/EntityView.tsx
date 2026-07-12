@@ -3,8 +3,8 @@
  *
  * TWO SEAM RULES (do not break — they are what let every frame reuse this):
  *   1. **db-free.** This component and its section modules import nothing from
- *      `@/db` and nothing server-only. The page (`/charakter`, `/fraktion`,
- *      `/welt`) owns `<main>` + `SiteBackground` + decor + scrim and feeds in
+ *      `@/db` and nothing server-only. The page (`/character`, `/faction`,
+ *      `/world`) owns `<main>` + `SiteBackground` + decor + scrim and feeds in
  *      the already-loaded `EntityView` object; the overlay panel mounts this
  *      same component with the same payload — zero fork.
  *   2. **owns the single `<h1>`.** The frame contributes no heading, so this is

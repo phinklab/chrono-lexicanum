@@ -3,7 +3,7 @@
  *
  * The index (/archive/podcasts) is a hall of show doorways; this route opens
  * one show and lists every episode through the client archive island (filter +
- * inline play + faction chips). Mirrors the /buch/[slug] route shape —
+ * inline play + faction chips). Mirrors the /book/[slug] route shape —
  * `params` Promise, `notFound()` on a miss, `generateMetadata`. Shows render
  * on demand (empty `generateStaticParams`), never at build time.
  */

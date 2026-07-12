@@ -24,7 +24,7 @@ export function workHref(
 ): string | null {
   switch (kind) {
     case "book":
-      return `/buch/${slug}`;
+      return `/book/${slug}`;
     case "podcast":
       return `/archive/podcasts/${slug}`;
     case "podcast_episode":

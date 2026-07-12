@@ -16,12 +16,12 @@ import {
  * console, wired in NAVIGATE mode: the box does not filter a
  * list on the page (Home has none), it *arrives at the archive with the query*.
  *
- *   - book              → /buch/[slug]          (open the book directly)
+ *   - book              → /book/[slug]          (open the book directly)
  *   - podcast              → /archive/podcasts/[slug](#ep-…)  (show page or episode deep link)
- *   - faction              → /compendium/fraktionen?focus=[id]  (faction directory + popup)
- *   - primarch             → /compendium/primarchen?focus=[id] (primarch directory + popup)
- *   - character            → /compendium/charaktere?focus=[id] (character directory + popup)
- *   - world                → /compendium/welten?focus=[id] (world directory + popup)
+ *   - faction              → /compendium/factions?focus=[id]  (faction directory + popup)
+ *   - primarch             → /compendium/primarchs?focus=[id] (primarch directory + popup)
+ *   - character            → /compendium/characters?focus=[id] (character directory + popup)
+ *   - world                → /compendium/worlds?focus=[id] (world directory + popup)
  *   - facet/format         → /archive?<param>=…   (land in the archive, pre-filtered)
  *   - author / raw Enter   → /archive?q=…          (land in the archive, searched)
  *   - empty Enter          → /archive              (open the unfiltered archive)
@@ -58,7 +58,7 @@ export default function HomeSearch({ index }: { index: Suggestion[] }) {
         // WerkeFilters does) so when the overlay closes and focus returns to
         // this input, onFocus doesn't reopen the dropdown over the dismissed book.
         setQ("");
-        navigate(`/buch/${s.value}`);
+        navigate(`/book/${s.value}`);
         break;
       case "podcast":
         // Episodes deep-link to `#ep-<id>` on the show page; shows to the page
@@ -71,7 +71,7 @@ export default function HomeSearch({ index }: { index: Suggestion[] }) {
       case "faction":
         // A faction pick lands in the Compendium's faction directory and pops the
         // faction overlay on top of it: the compendium page reads `focus` and
-        // soft-navs to /fraktion/<id>, which the root @modal intercept turns into
+        // soft-navs to /faction/<id>, which the root @modal intercept turns into
         // the in-context popup (books AND podcasts) — identical to clicking a row
         // there. Closing the popup leaves the visitor in the browsable list, not
         // back on Home. Consume the draft like the book pick.

@@ -28,7 +28,7 @@ type FactionPickPanelProps = {
  * count. When the node carries ≥2 picks the others are listed BY TITLE as
  * dimmed Sternwarte buttons below the verdict (ephemeral client state, NOT in
  * the URL) — clicking one swaps it into the verdict block. A resolved pick links
- * to `/buch/{slug}`, which the existing intercepting route opens as the book
+ * to `/book/{slug}`, which the existing intercepting route opens as the book
  * popup; an unresolved pick renders its title without a link.
  */
 export default function FactionPickPanel({ contextLabel, picks }: FactionPickPanelProps) {
@@ -50,7 +50,7 @@ export default function FactionPickPanel({ contextLabel, picks }: FactionPickPan
 
         <div className="ask-pick__actions">
           {pick.book ? (
-            <Link href={`/buch/${pick.book}`} className="lx-btn lx-btn--primary ask-pick__open">
+            <Link href={`/book/${pick.book}`} className="lx-btn lx-btn--primary ask-pick__open">
               Open the book
               <span className="lx-btn__mark" aria-hidden>
                 →

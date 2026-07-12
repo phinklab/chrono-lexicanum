@@ -10,8 +10,8 @@
  * body — zero fork.
  *
  * Interaction model:
- *   - Open: any in-app `<Link>` to a single-segment detail URL (`/buch/[slug]`,
- *     `/fraktion/[id]`, `/charakter/[id]`, `/welt/[id]`, `/person/[id]`)
+ *   - Open: any in-app `<Link>` to a single-segment detail URL (`/book/[slug]`,
+ *     `/faction/[id]`, `/character/[id]`, `/world/[id]`, `/person/[id]`)
  *     soft-navigates and the matching `@modal` intercept mounts this shell over
  *     the current context (e.g. the /werke table, the compendium). A hard nav /
  *     refresh / shared link skips the intercept and renders the canonical full
@@ -22,13 +22,13 @@
  *     inside a book, a character inside a world, …) is rewritten to
  *     `router.replace`, so the body swaps IN THE SAME SHELL without stacking
  *     history — one Back still closes to the origin.
- *   - Books swap IN-SHELL: a `/buch/<slug>` link clicked from inside the popup
+ *   - Books swap IN-SHELL: a `/book/<slug>` link clicked from inside the popup
  *     `router.push`-es (one new history entry) so the book body mounts in THIS
  *     SAME shell and "← Back" returns to the origin (usually entity) popup.
  *     Unlike the entity-to-entity replace above, the book hop DOES stack one
  *     history step — that single Back is what walks the reader back to where
  *     they came from.
- *   - Two-segment links (`/buch/[slug]/audit`), external/new-tab and non-detail
+ *   - Two-segment links (`/book/[slug]/audit`), external/new-tab and non-detail
  *     links (e.g. a `/podcasts/…#ep-…` related-work) pass through and navigate
  *     away, clearing the overlay via the catch-all slot.
  *   - A11y to the WAI-ARIA APG "Dialog (Modal)" pattern: focus moves in on open,
@@ -46,9 +46,9 @@ import { useRouteNav } from "@/components/chrono/RouteProgress";
 import { TYPE_TO_ROUTE } from "@/lib/entity/types";
 
 /** Single-segment detail links the panel keeps in-shell (→ in-panel replace-nav).
- *  `/buch/<slug>` plus every entity route; a trailing query/hash is allowed, but
- *  a second path segment (e.g. `/buch/<slug>/audit`) is NOT — it must leave. */
-const DETAIL_PREFIXES = ["/buch", ...Object.values(TYPE_TO_ROUTE)];
+ *  `/book/<slug>` plus every entity route; a trailing query/hash is allowed, but
+ *  a second path segment (e.g. `/book/<slug>/audit`) is NOT — it must leave. */
+const DETAIL_PREFIXES = ["/book", ...Object.values(TYPE_TO_ROUTE)];
 const DETAIL_HREF = new RegExp(
   `^(?:${DETAIL_PREFIXES.join("|")})/[^/?#]+(?:[?#].*)?$`,
 );
@@ -191,7 +191,7 @@ export default function DetailModal({
     // A book opened from inside the popup pushes one history entry so the book
     // modal mounts in this same shell and Back returns here; entity-to-entity
     // links replace (flat) so one Back still closes straight to the origin.
-    if (href.startsWith("/buch/")) {
+    if (href.startsWith("/book/")) {
       navigate(href);
       return;
     }

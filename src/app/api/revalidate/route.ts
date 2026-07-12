@@ -25,11 +25,17 @@
  * for exactly this (`updateTag` is server-action-only).
  *
  * Beyond the catalogue tags, every call also purges the entity detail routes
- * (/charakter, /welt, /fraktion, /person) by path. `loadEntity` reads carry
+ * (/character, /world, /faction, /person) by path. `loadEntity` reads carry
  * the `entities` tag since S2, which already invalidates the data cache AND
  * the pages that rendered from it — the path purge stays as a belt-and-braces
  * layer for pages rendered before the tag existed and can be dropped once a
  * post-release check confirms tag propagation on the deployed runtime.
+ *
+ * /book/[slug] (ISR since S4) is deliberately NOT in the path list: `loadBook`
+ * reads through the tagged `cachedRead` layer (`books` tag, loadBook.ts), the
+ * route is new in S4 so every cached render postdates the tag, and the
+ * pre-tag-era rationale above therefore doesn't apply (verified per
+ * launch-master-plan Anhang A.4).
  *
  * Best-effort extras per call: `resetMemoryCaches()` clears every in-process
  * memory cache (`/archive` browse blob, /ask book list, /ask matrix). Those
@@ -53,9 +59,9 @@ const KNOWN_TAGS: ReadonlySet<string> = new Set(CATALOGUE_TAGS);
  * segment in one call.
  */
 const ENTITY_ROUTES = [
-  "/charakter/[slug]",
-  "/welt/[slug]",
-  "/fraktion/[slug]",
+  "/character/[slug]",
+  "/world/[slug]",
+  "/faction/[slug]",
   "/person/[slug]",
 ] as const;
 

@@ -90,15 +90,15 @@ test("character aliases rank as character suggestions", () => {
 test("focus helpers preserve the compendium routing contract", () => {
   assert.equal(
     factionFocusHref("crimson_slaughter"),
-    "/compendium/fraktionen?focus=crimson_slaughter",
+    "/compendium/factions?focus=crimson_slaughter",
   );
   assert.equal(
     worldFocusHref("candleworld"),
-    "/compendium/welten?focus=candleworld",
+    "/compendium/worlds?focus=candleworld",
   );
   assert.equal(
     characterFocusHref("agusto_zidarov"),
-    "/compendium/charaktere?focus=agusto_zidarov",
+    "/compendium/characters?focus=agusto_zidarov",
   );
 });
 

@@ -236,7 +236,7 @@ async function loadCharacter(id: string): Promise<EntityView | null> {
         name: charactersTable.name,
         primaryFactionId: charactersTable.primaryFactionId,
         // LEFT join: primaryFactionId is NOT a real FK (schema.ts) — it can
-        // dangle. A null name means "faction gone" → no dead /fraktion link.
+        // dangle. A null name means "faction gone" → no dead /faction link.
         factionName: factionsTable.name,
       })
       .from(charactersTable)
