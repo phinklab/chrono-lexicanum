@@ -78,19 +78,15 @@ export async function calmMotion(page: Page) {
  *   no-DB server the DYNAMIC targets (/timeline, /archive, /compendium,
  *   /person/…) legitimately answer 500. That is the target route's designed
  *   degradation, not a defect of the page under test; the degraded project
- *   pins the real navigation behaviour of those routes. The console echo of
- *   an excused prefetch ("Failed to load resource … 500") is dropped at
- *   assert time via its source URL.
+ *   pins the real navigation behaviour of those routes.
+ * - The UA's console ECHO of any failed resource ("Failed to load
+ *   resource: …") — the response watcher is the authority for network
+ *   failures (it has status, path and the prefetch header; the console echo
+ *   carries no reliable source URL in CI Chromium). Non-network
+ *   console.error output is still a hard failure.
  */
 const IGNORED_URL = /\/_vercel\//;
-
-export type ProblemLog = {
-  problems: string[];
-  /** console.error entries held back until assert time (see excusedUrls). */
-  pendingConsole: { url: string | undefined; entry: string }[];
-  /** URLs whose ≥400 response was an excused router prefetch. */
-  excusedUrls: Set<string>;
-};
+const NETWORK_ECHO = /^Failed to load resource:/;
 
 function isPrefetch(headers: Record<string, string>): boolean {
   return (
@@ -100,26 +96,20 @@ function isPrefetch(headers: Record<string, string>): boolean {
   );
 }
 
+export type ProblemLog = { problems: string[] };
+
 /** Attach pageerror / console.error / response watchers. Call BEFORE goto. */
 export function watchPage(page: Page): ProblemLog {
-  const log: ProblemLog = {
-    problems: [],
-    pendingConsole: [],
-    excusedUrls: new Set(),
-  };
+  const log: ProblemLog = { problems: [] };
   page.on("pageerror", (err) => {
     log.problems.push(`pageerror: ${err.message}`);
   });
   page.on("console", (msg) => {
     if (msg.type() !== "error") return;
     const text = msg.text();
+    if (NETWORK_ECHO.test(text)) return;
     if (IGNORED_URL.test(text)) return;
-    // Defer: the matching response event (which may excuse this URL as a
-    // prefetch) has no ordering guarantee against the console event.
-    log.pendingConsole.push({
-      url: msg.location().url || undefined,
-      entry: `console.error: ${text}`,
-    });
+    log.problems.push(`console.error: ${text}`);
   });
   page.on("response", (res) => {
     const url = res.url();
@@ -132,23 +122,14 @@ export function watchPage(page: Page): ProblemLog {
     if (parsed.origin !== new URL(page.url() || url).origin) return;
     if (res.status() < 400) return;
     if (IGNORED_URL.test(parsed.pathname)) return;
-    if (isPrefetch(res.request().headers())) {
-      log.excusedUrls.add(url);
-      return;
-    }
+    if (isPrefetch(res.request().headers())) return;
     log.problems.push(`${res.status()} ${parsed.pathname}`);
   });
   return log;
 }
 
 export function expectCleanLog(log: ProblemLog) {
-  const problems = [
-    ...log.problems,
-    ...log.pendingConsole
-      .filter((p) => !(p.url && log.excusedUrls.has(p.url)))
-      .map((p) => p.entry),
-  ];
-  expect(problems, problems.join("\n")).toEqual([]);
+  expect(log.problems, log.problems.join("\n")).toEqual([]);
 }
 
 /** No horizontal overflow: the page body must never scroll sideways. */

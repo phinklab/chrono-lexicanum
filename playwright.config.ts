@@ -43,6 +43,14 @@ const NO_DB_URL = "postgres://smoke-no-db:x@127.0.0.1:9/none";
 // affected (no DSN in the CI env at all).
 const SENTRY_OFF = { NEXT_PUBLIC_SENTRY_DSN: "" };
 
+// The S5 guard (src/lib/site-url.ts) throws at RUNTIME too, not just at
+// build: without SITE_URL every dynamically rendered route answers 500. CI
+// has no .env.local, so `next start` booted bare and the second PR run
+// failed exactly there (/ask 500, all dynamic prefetch targets 500). Same
+// reserved-invalid host the CI build step uses; set unconditionally so the
+// suite sees identical canonicals locally and in CI (nothing asserts them).
+const SMOKE_SITE_URL = { SITE_URL: "https://example.invalid" };
+
 export default defineConfig({
   testDir: "./e2e",
   fullyParallel: true,
@@ -88,6 +96,7 @@ export default defineConfig({
         DATABASE_URL: NO_DB_URL,
         RUNTIME_DATABASE_URL: NO_DB_URL,
         ...SENTRY_OFF,
+        ...SMOKE_SITE_URL,
       },
     },
     {
@@ -98,6 +107,7 @@ export default defineConfig({
       env: {
         PREVIEW_GATE: "off",
         ...SENTRY_OFF,
+        ...SMOKE_SITE_URL,
         // Locally .env.local supplies DATABASE_URL (never override it —
         // explicit process env beats .env files in Next). In CI there is no
         // .env.local and no secret yet; the live server is unused there but
