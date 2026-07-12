@@ -1,25 +1,40 @@
 /**
  * Drizzle Postgres client.
  *
- * Two patterns to be aware of:
- *  1) DATABASE_URL is the Supabase Transaction pooler URL (port 6543) in both
- *     dev and prod. The free-tier direct hostname is IPv6-only and unreachable
+ * Three patterns to be aware of:
+ *  1) Both URLs are Supabase Transaction pooler URLs (port 6543) in dev and
+ *     prod. The free-tier direct hostname is IPv6-only and unreachable
  *     from typical networks; the pooler is IPv4 and serverless-friendly. We
  *     keep `prepare: false` because pgbouncer (transaction mode) does not
  *     support named prepared statements.
  *  2) Locally, the same module is imported many times (HMR). We cache the
  *     postgres client on the global object so we don't open a new socket on
  *     every save.
+ *  3) Credential selection (Launch S3b runtime cutover, B2): on Vercel
+ *     (`VERCEL` is set) the app prefers RUNTIME_DATABASE_URL — the
+ *     least-privilege `chrono_runtime` role from S3a — with a transitional
+ *     fallback to the privileged DATABASE_URL until the maintainer removes
+ *     that var from Vercel (second cutover checkpoint). Locally (dev server
+ *     AND every tsx script importing this module) the selection deliberately
+ *     stays DATABASE_URL: `.env.local` carries BOTH vars (the S3a db-roles
+ *     runbook stages RUNTIME_DATABASE_URL there for `db:verify-runtime-role`),
+ *     and preferring it here would silently downgrade the privileged
+ *     apply/ingest/migration scripts to a read-only role.
  */
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
 import * as schema from "./schema";
 
-const connectionString = process.env.DATABASE_URL;
+const onVercel = Boolean(process.env.VERCEL);
+const connectionString = onVercel
+  ? process.env.RUNTIME_DATABASE_URL || process.env.DATABASE_URL
+  : process.env.DATABASE_URL;
 
 if (!connectionString) {
   throw new Error(
-    "DATABASE_URL is not set. Did you copy .env.example to .env.local and fill in the Supabase credentials?",
+    onVercel
+      ? "Neither RUNTIME_DATABASE_URL nor DATABASE_URL is set in this Vercel environment. Set RUNTIME_DATABASE_URL (least-privilege runtime credential, see scripts/runbooks/db-roles-runbook.md)."
+      : "DATABASE_URL is not set. Did you copy .env.example to .env.local and fill in the Supabase credentials?",
   );
 }
 
