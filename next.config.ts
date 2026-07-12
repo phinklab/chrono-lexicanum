@@ -4,17 +4,28 @@ import type { NextConfig } from "next";
 // Deliberately the *baseline* form, not the nonce-per-request form the
 // next.config comment below flagged as the bigger step: a nonce forces every
 // page into dynamic rendering, which we do not want for the ISR/SSG catalogue.
-// The cost of going nonce-free is `'unsafe-inline'` (+ `'unsafe-eval'`) on
-// script-src — so this policy does NOT defend against inline-script XSS. What
-// it *does* buy, statically and for free: no external script/object origin can
-// be injected, clickjacking is closed (`frame-ancestors 'self'`, matching the
-// existing X-Frame-Options), and `base-uri`/`form-action` hijacking is blocked.
+// The cost of going nonce-free is `'unsafe-inline'` on script-src — so this
+// policy does NOT defend against inline-script XSS. What it *does* buy,
+// statically and for free: no external script/object origin can be injected,
+// clickjacking is closed (`frame-ancestors 'self'`, matching the existing
+// X-Frame-Options), and `base-uri`/`form-action` hijacking is blocked.
 // Nonce-based script-src hardening stays a future, separate step (see report).
 //
 // `img-src`/`media-src` allow `https:` because /archive + /archive/podcasts
 // render DB-sourced cover/art URLs as plain <img> from open-ended external
 // hosts (Open Library, podcast CDNs, …). `http:` is intentionally omitted —
 // on the https production origin those would already be mixed-content-blocked.
+//
+// E6 observability contract (fixed here in S3b — S5 only activates, it never
+// touches this policy again):
+//  - Vercel Web Analytics + Speed Insights ship SAME-ORIGIN in production
+//    (script under /_vercel/insights/ + /_vercel/speed-insights/, beacons POST
+//    to the same paths) — covered by 'self'. Only dev loads their debug
+//    scripts from https://va.vercel-scripts.com (script-src, dev-gated below).
+//  - The error-only tracker (package picked in S5) MUST be bundled (script-src
+//    'self') and report through a same-origin tunnel route (e.g. Sentry
+//    `tunnelRoute`) — no third-party ingest origin is ever added to
+//    connect-src. A tracker that can't tunnel same-origin is off the table.
 const isDev = process.env.NODE_ENV !== "production";
 const contentSecurityPolicy = [
   "default-src 'self'",
@@ -25,8 +36,13 @@ const contentSecurityPolicy = [
   "img-src 'self' data: blob: https:",
   "font-src 'self'",
   "style-src 'self' 'unsafe-inline'",
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
-  // Dev needs the HMR/React-Refresh websocket; prod talks only to its own origin.
+  // `unsafe-eval` is dev-only: React Refresh/HMR eval; the production bundle
+  // runs without it (verified against the local prod build, Launch S3b).
+  // va.vercel-scripts.com serves the Analytics/Speed-Insights debug scripts in
+  // dev; production loads them same-origin (see E6 note above).
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval' https://va.vercel-scripts.com" : ""}`,
+  // Dev needs the HMR/React-Refresh websocket; prod talks only to its own
+  // origin — the E6 tracker tunnels same-origin, so 'self' stays sufficient.
   `connect-src 'self'${isDev ? " ws: wss:" : ""}`,
   "frame-src 'self'",
   "media-src 'self' https:",
@@ -37,6 +53,9 @@ const contentSecurityPolicy = [
 const nextConfig: NextConfig = {
   // Strict mode catches common bugs early; keep on in dev.
   reactStrictMode: true,
+
+  // No `X-Powered-By: Next.js` fingerprint header (Launch S3b).
+  poweredByHeader: false,
 
   // Pin the workspace root to THIS app dir. Without it Turbopack infers the
   // root from lockfiles and, inside a git worktree, picks the PARENT repo
