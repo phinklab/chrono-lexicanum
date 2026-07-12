@@ -90,7 +90,7 @@ async function main(): Promise<void> {
 
   const rejections: Array<[string, Promise<unknown>]> = [
     ["index: fetchBrowseBooksLive rejects on DB outage (never an empty hall)", fetchBrowseBooksLive()],
-    ["index: loadBrowseBooks (memory-cached façade) rejects on DB outage", loadBrowseBooks()],
+    ["index: loadBrowseBooks (persistent-cache façade) rejects on DB outage", loadBrowseBooks()],
     ["index: loadPodcastIndexLive rejects on DB outage", podcastsLive.loadPodcastIndexLive()],
     ["index: loadPodcastSearchIndexLive rejects on DB outage", podcastsLive.loadPodcastSearchIndexLive()],
     ["detail: loadPodcastShowLive rejects on DB outage (never null → 404)", podcastsLive.loadPodcastShowLive("the-40k-lorecast")],
@@ -135,6 +135,46 @@ async function main(): Promise<void> {
     installSeededIncrementalCache([]);
     assert.deepEqual(await podcasts.loadPodcastIndex(), []);
     assert.deepEqual(await loadChronicleTimeline(), []);
+  });
+
+  await test("index: a cached browse wire entry inflates back to BrowseData (S6)", async () => {
+    const { compactBrowse } = await import("../src/app/archive/browse-wire");
+    const data = {
+      books: [
+        {
+          id: "b1",
+          slug: "xenos",
+          title: "Xenos",
+          releaseYear: 2001,
+          format: "novel",
+          eraName: null,
+          seriesName: "Eisenhorn",
+          authors: ["Dan Abnett"],
+          factions: [
+            {
+              id: "inquisition",
+              name: "Inquisition",
+              role: "primary",
+              alignment: "imperial",
+              parentId: null,
+            },
+          ],
+          facets: [
+            {
+              id: "investigation",
+              name: "Investigation",
+              categoryId: "themes",
+              categoryName: "Themes",
+            },
+          ],
+        },
+      ],
+      eras: [{ id: "time_ending", name: "The Time of Ending", sortOrder: 7 }],
+    };
+    installSeededIncrementalCache(compactBrowse(data));
+    // React's `cache()` memo would replay the poisoned THROW-half call within
+    // one request scope; under tsx each call is its own scope, so this re-runs.
+    assert.deepEqual(await loadBrowseBooks(), data);
   });
 
   console.log("");

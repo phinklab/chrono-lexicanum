@@ -12,7 +12,8 @@ import HubScrollReset from "@/components/home/HubScrollReset";
 import JsonLd from "@/components/seo/JsonLd";
 import { SITE_NAME } from "@/lib/seo";
 import { siteOrigin } from "@/lib/site-url";
-import { loadUnifiedSearchIndex } from "@/lib/search-index";
+import { loadBrowseBooks } from "@/app/archive/loader";
+import { loadPodcastSearchIndex } from "@/app/archive/podcasts/loader";
 
 export const revalidate = 3600;
 
@@ -23,7 +24,12 @@ export const metadata: Metadata = {
 };
 
 export default async function HubPage() {
-  const { books, podcastData, searchIndex } = await loadUnifiedSearchIndex();
+  // Counts only — the suggestion index itself no longer rides in the page
+  // flight; the search console fetches /api/search-index on first focus (S6).
+  const [{ books }, podcastData] = await Promise.all([
+    loadBrowseBooks(),
+    loadPodcastSearchIndex(),
+  ]);
   const novelCount = books.length;
   const podcastCount = podcastData.shows.length;
   const episodeCount = podcastData.episodes.length;
@@ -105,7 +111,7 @@ export default async function HubPage() {
             the doorways further down.
           </p>
 
-          <HomeSearch index={searchIndex} />
+          <HomeSearch />
 
           <p className="lx-stat hub-holdings reveal">
             <b>{novelCount} novels</b>

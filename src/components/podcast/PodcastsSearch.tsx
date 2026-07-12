@@ -33,7 +33,7 @@ import {
  * skin the books view uses — the podcasts index shares /archive's shell so
  * toggling WORKS↔PODCASTS shifts nothing.
  */
-export default function PodcastsSearch({ index }: { index: Suggestion[] }) {
+export default function PodcastsSearch() {
   // Shared nav transition (see HomeSearch) so a pick lights the global beam +
   // this console's inline pending state through the click→stream gap.
   const { navigate } = useRouteNav();
@@ -103,7 +103,6 @@ export default function PodcastsSearch({ index }: { index: Suggestion[] }) {
 
   return (
     <BrowseSearch
-      index={index}
       value={q}
       onValueChange={setQ}
       onPick={onPick}

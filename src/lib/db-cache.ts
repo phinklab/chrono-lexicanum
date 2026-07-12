@@ -107,9 +107,12 @@ interface CachedReadOptions {
  * It MUST also stay under Next's hard **2 MB per-cache-entry limit**. Over that,
  * `unstable_cache` refuses to store it and the set-failure surfaces as an
  * uncatchable background unhandledRejection (the set is fire-and-forget after
- * the value returns) — so only cache compact, list-shaped reads. Payloads that
- * cannot fit (the `/archive` browse blob measured 2.21 MB even with truncated
- * synopses) go through {@link memoryCachedRead} below instead.
+ * the value returns) — so only cache compact, list-shaped reads. A payload that
+ * would not fit gets a compact wire shape first (the `/archive` browse blob
+ * measured 2.05 MB flat and stores as a ~0.5 MB normalized entry since S6 —
+ * see `src/app/archive/browse-wire.ts`); {@link memoryCachedRead} below
+ * remains for values that cannot pass the serialization boundary at all
+ * (the /ask engine's `Map`/`Set` structures).
  */
 export function cachedRead<T>(
   fn: () => Promise<T>,
