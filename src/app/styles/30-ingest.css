@@ -4,8 +4,8 @@
 
 /* Operator tooling on the public /ingest route. Consumes the same tokens as
  * Hub/Timeline (panel, ink, lum, amber, gold, chaos), but more restrained:
- * no glow halos, no warm gradient backdrops, no tile-rise stagger. Cinzel
- * for headings, Cormorant for book titles, mono for counters/IDs, reader
+ * no glow halos, no warm gradient backdrops, no tile-rise stagger. The
+ * display face (Cormorant SC) for headings, Cormorant for book titles, mono for counters/IDs, reader
  * face for prose. */
 
 .ingest-shell {

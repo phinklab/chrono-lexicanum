@@ -13,6 +13,10 @@ import { loadBrowseBooks } from "@/app/archive/loader";
 import { shortDayMonth } from "@/lib/dates";
 import { routeOg } from "@/lib/seo";
 import { loadPodcastIndex, type PodcastIndexShow } from "./loader";
+// Segment-scoped stylesheet (S7a), shared with the show detail page. Its
+// cross-file overrides (31/41/61 selectors) all carry a main.podcasts /
+// body:has(main.podcasts) scope or re-declare after the globals — safe order.
+import "@/app/styles/62-podcasts.css";
 
 const PODCASTS_DESCRIPTION =
   "The lore-podcast pillar of the archive — every show and episode, newest first, with a direct line to play, download or open in your app.";

@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
+import { Cormorant_Unicase } from "next/font/google";
 import { redirect } from "next/navigation";
 import { routeOg } from "@/lib/seo";
 import { loadChronicleTimeline } from "@/lib/chronicle/loadTimeline";
 import ChronicleStage, {
   type ChronicleViewMode,
 } from "@/components/timeline/cinematic/ChronicleStage";
+// Route-scoped stylesheet (S7a): the Chronicle's ~51 KB load only here.
+import "@/app/styles/67-chronicle-cinematic.css";
 
 const TIMELINE_DESCRIPTION =
   "The in-universe timeline of Warhammer 40,000 novels — every era, every event, every book placed on the Imperial calendar.";
@@ -40,6 +43,19 @@ export const metadata: Metadata = {
  *     the URL via history.replaceState.
  *   - `?book=<slug>` (legacy detail-panel deep link) → that book's page.
  */
+
+// Waypoint voice (--font-unicase): the Chronicle's era-band stop labels — the
+// only surface that speaks it, so the face loads with this segment instead of
+// site-wide (S7a). The token pointing at it lives in 67-chronicle-cinematic.css
+// scoped to .chron-shell: a custom property referencing this variable must be
+// declared at or below the element that carries the class, or it would resolve
+// (to invalid) at :root. Upright only — the face ships no italic.
+const cormorantUnicase = Cormorant_Unicase({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-cormorant-unicase",
+  display: "swap",
+});
 
 const LEGACY_ERA: Record<string, string> = {
   M30: "great_crusade",
@@ -78,7 +94,7 @@ export default async function TimelinePage({ searchParams }: TimelinePageProps) 
   const eras = await loadChronicleTimeline();
   if (eras.length === 0) {
     return (
-      <main className="chron-shell">
+      <main className={`chron-shell ${cormorantUnicase.variable}`}>
         <div className="chron-empty">
           <div className="ce-kicker">CHRONICA · TEMPORIS</div>
           <p className="ce-text">
@@ -95,7 +111,7 @@ export default async function TimelinePage({ searchParams }: TimelinePageProps) 
   const initialView: ChronicleViewMode = viewRaw === "index" ? "index" : "cine";
 
   return (
-    <main className="chron-shell">
+    <main className={`chron-shell ${cormorantUnicase.variable}`}>
       <ChronicleStage
         eras={eras}
         initialEraId={initialEraId}

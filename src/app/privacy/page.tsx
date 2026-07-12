@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";
+// Route-scoped stylesheet (S7a), shared by the three legal document pages.
+import "@/app/styles/71-legal.css";
 
 /* Datenschutzerklärung — Art.-13-DSGVO information for the whole
    deployed surface. Static server component, no DB, reachable WITHOUT a

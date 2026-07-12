@@ -4,6 +4,9 @@ import SiteBackground from "@/components/chrome/SiteBackground";
 import { previewSecret } from "@/lib/previewGate";
 import { verifyPreviewToken } from "@/lib/previewToken";
 import { acceptInvite, login } from "./actions";
+// Route-scoped stylesheet (S7a). Its body:has(main.login) chrome overrides
+// out-specify the global chrome rules, so load order stays irrelevant.
+import "@/app/styles/68-login.css";
 
 export const metadata: Metadata = {
   title: "Login",

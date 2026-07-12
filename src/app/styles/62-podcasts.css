@@ -1,6 +1,7 @@
 /* 62-podcasts.css
-   Public podcast pillar — index (/podcasts) + per-show detail
-   (/podcasts/[slug]), on the media-page skeleton shared with /ask + /werke
+   Public podcast pillar — index (/archive/podcasts, runs under main.catalogue)
+   + per-show detail (/archive/podcasts/[slug], main.podcasts), on the
+   media-page skeleton shared with /ask + /archive
    (fixed cathedral-vox photo, scroll-scrim fade, HUD atmosphere).
 
    Podcasts belong to the archive-gold .catalogue domain, in the /buecher
@@ -30,11 +31,6 @@ main.podcasts {
 main.podcasts :focus-visible {
   outline: 1px solid var(--cl-gold);
   box-shadow: none;
-}
-/* 61-browse's input suppression (underline is the focus cue) loads before this
-   file and would lose to the override above — restate it at higher specificity. */
-main.podcasts .browse-search__input:focus-visible {
-  outline: none;
 }
 
 /* Fixed backdrop fade */
@@ -86,68 +82,6 @@ body:has(main.podcasts) .site-bg::after {
   padding: calc(var(--top-nav-h, 48px) + 24px) clamp(20px, 3vw, 48px) 80px;
 }
 
-/* Unified archive search (books + podcasts) */
-/* The shared <BrowseSearch> console, gold-skinned to match the .catalogue
- * surface (mirrors `.catalogue--werke .browse-search`): an elegant serif query
- * line under a gold hairline, not a heavy boxed control. Centred mid-axis like
- * the /archive console. */
-.pod-search {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  margin: 0 0 16px;
-}
-.pod-search__kicker {
-  text-align: center;
-  font-family: var(--font-mono);
-  font-size: var(--fs-label-xs);
-  letter-spacing: var(--track-24);
-  text-transform: uppercase;
-  color: var(--cl-gold-dim);
-}
-.pod-search .browse-search {
-  width: 100%;
-  max-width: 540px;
-  padding: 0;
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid color-mix(in oklch, var(--cl-gold) 32%, transparent);
-  transition: border-color 200ms;
-}
-.pod-search .browse-search:focus-within {
-  border-bottom-color: var(--cl-gold-dim);
-}
-.pod-search .browse-search__input {
-  flex: 1;
-  min-width: 0;
-  text-align: center;
-  font-family: var(--font-body);
-  font-size: var(--fs-read);
-  font-weight: var(--fw-read);
-  letter-spacing: 0.01em;
-  padding: 8px 4px;
-}
-.pod-search .browse-search__input::placeholder {
-  font-style: italic;
-  letter-spacing: 0.01em;
-  text-transform: none;
-  color: var(--cl-dim);
-}
-
-/* Gold re-skin for the typeahead popover on /podcasts — the cyan house default
- * (61-browse.css) re-tinted gold, the same overrides `body:has(main.catalogue)`
- * applies on /werke + Home's archive surface. */
-body:has(main.podcasts) .browse-suggest {
-  border-color: color-mix(in oklch, var(--cl-gold) 30%, transparent);
-}
-body:has(main.podcasts) .browse-suggest__opt.is-active {
-  background: rgba(164, 140, 82, 0.12);
-}
-body:has(main.podcasts) .browse-suggest__hit {
-  color: var(--cl-gold);
-}
-
 /* The register fork's row (controls position, sibling of /archive's
    browse-controls): centred, closing the console zone with a Terminus —
    the same seam .catalogue--werke .browse-filters::after draws. */
@@ -172,44 +106,6 @@ body:has(main.podcasts) .browse-suggest__hit {
     color-mix(in oklch, var(--cl-gold) 16%, transparent) 82%,
     transparent
   );
-}
-
-/* No drawn line — the Terminus above closes the console zone (mirrors the
-   borderless .catalogue-toolbar). */
-.pod-toolbar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 10px;
-  padding: 0 2px;
-  margin-bottom: 20px;
-}
-.pod-toolbar__count {
-  font-family: var(--font-mono);
-  font-size: var(--fs-label-lg);
-  letter-spacing: var(--track-14);
-  color: var(--cl-gold);
-}
-.pod-toolbar__total {
-  font-family: var(--font-mono);
-  font-size: var(--fs-label);
-  letter-spacing: var(--track-08);
-  color: var(--cl-dim);
-}
-.pod-toolbar__dot {
-  color: var(--cl-faint);
-}
-
-/* Frameless empty state — centred italic, mirroring .catalogue-empty (no box,
- * no border; the cathedral/void shows through). */
-.pod-empty {
-  padding: 56px 20px;
-  text-align: center;
-  font-family: var(--font-body);
-  font-style: italic;
-  font-size: var(--fs-read);
-  font-weight: var(--fw-read);
-  color: var(--cl-dim);
 }
 
 /* Index: show blocks (frameless, hairline-divided) */
@@ -720,7 +616,7 @@ body:has(main.podcasts) .browse-suggest__hit {
 /* Episode row = the /buecher catalogue row recipe: a gold hairline divides each
  * row, gold wash on hover, accent reserved for live/interactive bits. Leading
  * date plays the role the catalogue gives its index column; the title is set in
- * Cinzel — the same inscriptional-caps face the catalogue rows use. */
+ * the display face (Cormorant SC) — the same face the catalogue rows use. */
 .pod-ep {
   display: grid;
   /* play · date · title+tags · meta. The optional kind/dur/listen share one
@@ -816,7 +712,7 @@ body:has(main.podcasts) .browse-suggest__hit {
   gap: 4px;
   min-width: 0;
 }
-/* Cinzel — the /werke row title face. Wraps (not truncated) because the episode
+/* Display face (Cormorant SC) — the archive row title face. Wraps (not truncated) because the episode
    title is the row's primary content and there's no detail expansion to recover
    a clipped one. */
 .pod-ep__title {

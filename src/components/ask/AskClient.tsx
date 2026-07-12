@@ -8,6 +8,9 @@ import ProcessingPanel from "./ProcessingPanel";
 import QuestionCard from "./QuestionCard";
 import ResultCard from "./ResultCard";
 import AskToolTabs from "./AskToolTabs";
+// Component-scoped stylesheet (S7a): the questionnaire's card/ballot/result
+// styles ride with this island into /ask.
+import "@/app/styles/58-ask-booklist.css";
 import {
   buildAskHref,
   buildAskSearchParams,

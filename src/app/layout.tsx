@@ -1,11 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import {
-  Cardo,
-  Cinzel,
-  Cormorant_SC,
-  Cormorant_Unicase,
-  Fragment_Mono,
-} from "next/font/google";
+import { Cardo, Cormorant_SC, Fragment_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { siteIndexable, siteOrigin } from "@/lib/site-url";
@@ -19,28 +13,14 @@ import MediaPlayer from "@/components/chrome/MediaPlayer";
 import { NavProgressProvider } from "@/components/chrono/RouteProgress";
 import "./globals.css";
 
-// Display voice: Cormorant SC (small-caps titling face), Cinzel as the loaded
-// fallback — both feed --font-display in 00-tokens.css.
+// Display voice: Cormorant SC (small-caps titling face) — feeds --font-display
+// in 00-tokens.css. Cinzel was removed in S7a: it only ever sat behind
+// Cormorant SC in the stack and never rendered. The Chronicle's waypoint face
+// (Cormorant Unicase) loads in the timeline segment (S7a), not site-wide.
 const cormorantSC = Cormorant_SC({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   variable: "--font-cormorant-sc",
-  display: "swap",
-});
-
-const cinzel = Cinzel({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-cinzel",
-  display: "swap",
-});
-
-// Waypoint voice (--font-unicase): the Chronicle's era-band stop labels.
-// Upright only — the face ships no italic.
-const cormorantUnicase = Cormorant_Unicase({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-cormorant-unicase",
   display: "swap",
 });
 
@@ -118,7 +98,7 @@ export default function RootLayout({
       lang="en"
       data-palette="cold"
       data-theme="dark"
-      className={`${cormorantSC.variable} ${cinzel.variable} ${cormorantUnicase.variable} ${cardo.variable} ${fragmentMono.variable}`}
+      className={`${cormorantSC.variable} ${cardo.variable} ${fragmentMono.variable}`}
     >
       <body suppressHydrationWarning>
         {/* Primary navigation: the left-edge SiteNav rail on hover-capable wide

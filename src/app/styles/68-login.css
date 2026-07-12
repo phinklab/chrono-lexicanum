@@ -45,12 +45,12 @@ main.login {
    viewport edges. The two edges that CAN fall inside the viewport (top vault,
    left shelf) are near-black, so the image dissolves into the void with no
    seam at any aspect ratio. The slack collects on the LEFT as pure void and
-   the credential console moves over it. `background-position` arrives inline
-   from <SiteBackground> (center), hence the !important. */
+   the credential console moves over it. `object-position` arrives inline
+   from <SiteBackground> (center) on the img (S7a), hence the !important. */
 @media (min-width: 960px) {
-  body:has(main.login) .site-bg__photo {
-    background-size: contain;
-    background-position: right bottom !important;
+  body:has(main.login) .site-bg__photo img {
+    object-fit: contain !important;
+    object-position: right bottom !important;
   }
 
   /* The artwork is narrower than most desktop viewports, so `contain` leaves

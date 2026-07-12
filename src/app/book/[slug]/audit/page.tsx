@@ -23,6 +23,8 @@ import {
   workPersons as workPersonsTable,
   works as worksTable,
 } from "@/db/schema";
+// Route-scoped stylesheet (S7a): the audit console loads only here.
+import "@/app/styles/32-book-audit.css";
 import { classifyDrift, type DriftClass } from "@/lib/aliases";
 
 export const metadata: Metadata = {

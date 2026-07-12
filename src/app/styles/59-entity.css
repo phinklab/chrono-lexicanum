@@ -4,7 +4,7 @@
    The page owns the frame (main.entity + SiteBackground + scrim + decor +
    breadcrumb); the db-free <EntityView> (src/components/entity/) renders
    .entity-view. The typographic grammar mirrors 51-book-detail.css (mono `//`
-   eyebrow, Cinzel title, Cormorant tagline, gold section labels, hairline-pill
+   eyebrow, display-face (Cormorant SC) title, Cormorant tagline, gold section labels, hairline-pill
    chips) so the reference pages read as one family with /book/[slug].
 
    Layout: a full-width header over a two-column body (main column + a right

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";
+// Route-scoped stylesheet (S7a), shared by the three legal document pages.
+import "@/app/styles/71-legal.css";
 
 /* /artwork — the site's own background paintings, offered as downloads.
    Third point of the legal row (Impressum · Datenschutz · Artwork) and,

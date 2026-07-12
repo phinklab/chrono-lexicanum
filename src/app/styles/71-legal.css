@@ -3,10 +3,12 @@
    Disclaimer), /privacy (Datenschutzerklärung Art. 13 DSGVO) and /artwork
    (downloadable background originals — third point of the legal row). Sober
    document register on the flat void — the syspage vocabulary up top
-   (mono eyebrow / Cinzel heading / gold hairline), then one left-aligned
+   (mono eyebrow / display-face heading / gold hairline), then one left-aligned
    reading column of numbered sections. Deliberately no glow, no in-universe
    voice: these pages must read as plain paperwork inside the house frame.
-   Legal content is German → those pages set lang="de". */
+   Legal content is German → those pages set lang="de".
+   Route-scoped since S7a: imported by the three document pages, not by
+   globals.css — the global .site-legal chrome row lives in 45-site-legal.css. */
 
 .legal {
   min-height: 100vh;
@@ -240,55 +242,4 @@
   font-size: var(--fs-read-xs);
   line-height: var(--lh-read);
   color: var(--cl-faint);
-}
-
-/* Site-wide legal links (<SiteLegal>, root layout).
-   Tiny fixed row pinned UNDER the media player (player: bottom 24px, left
-   24px) — the one legal affordance the footerless desktop surfaces
-   (map/timeline/entities) get. Provisional. */
-
-.site-legal {
-  position: fixed;
-  bottom: 7px;
-  left: 24px;
-  z-index: 40;
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: var(--track-22);
-  text-transform: uppercase;
-  color: var(--cl-faint);
-}
-
-.site-legal a {
-  color: var(--cl-faint);
-  text-decoration: none;
-  transition: color 0.25s ease;
-}
-
-.site-legal a:hover,
-.site-legal a:focus-visible {
-  color: var(--cl-gold);
-}
-
-/* /login carries its own centered legal line (68-login.css). */
-body:has(main.login) .site-legal {
-  display: none;
-}
-
-/* Track the player's narrow-viewport offset … */
-@media (max-width: 900px) {
-  .site-legal {
-    left: 14px;
-  }
-}
-
-/* … and disappear with it: ≤760px the player is hidden (56-media-player.css)
-   and the burger menu carries the legal links on every page. */
-@media (max-width: 760px) {
-  .site-legal {
-    display: none;
-  }
 }

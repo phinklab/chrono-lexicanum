@@ -16,6 +16,9 @@
  * visible cogitator and Back cue are `aria-hidden`.
  */
 import SternwarteRings from "./SternwarteRings";
+// Component-scoped stylesheet (S7a): the @modal loading fallback renders
+// .detail-modal-* chrome before the live DetailModal streams in.
+import "@/app/styles/64-detail-modal.css";
 
 export default function DetailModalSkeleton() {
   return (
