@@ -51,7 +51,7 @@ export default async function PersonPage({
   if (!view) notFound();
 
   return (
-    <main className="entity">
+    <main id="main" tabIndex={-1} className="entity">
       <SiteBackground variant="vista" position="50% 24%" />
       <div className="entity__decor" aria-hidden>
         <CornerAuspex size={140} label="AVCTOR · 0451" />

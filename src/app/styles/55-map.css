@@ -992,7 +992,7 @@ body.cg-on-map .site-brand .site-brand__map {
   width: 4px;
   height: 4px;
   margin: -2px 0 0 -2px;
-  background: var(--cl-faint);
+  background: var(--cl-faint-deco);
   border-radius: 50%;
   transition:
     background 0.4s,
@@ -1038,7 +1038,7 @@ body.cg-on-map .site-brand .site-brand__map {
   font-size: var(--fs-label-3xs);
   letter-spacing: var(--track-18);
   text-transform: uppercase;
-  color: var(--cl-gold-dim);
+  color: var(--cl-gold);
   padding-top: 2px;
 }
 /* Census filters */
@@ -1047,7 +1047,7 @@ body.cg-on-map .site-brand .site-brand__map {
   font-size: var(--fs-label-2xs);
   letter-spacing: var(--track-26);
   text-transform: uppercase;
-  color: var(--cl-gold-dim);
+  color: var(--cl-gold);
   padding: 3px 0 2px;
 }
 .cg-census .chead.groups {
@@ -1176,7 +1176,7 @@ body.cg-on-map .site-brand .site-brand__map {
 .cg-census .crow.off {
   opacity: 0.32;
   text-decoration: line-through;
-  text-decoration-color: var(--cl-faint);
+  text-decoration-color: var(--cl-faint-deco);
 }
 .cg-census .crow .n {
   font-family: var(--font-mono);
@@ -1882,7 +1882,7 @@ body.cg-on-map .site-brand .site-brand__map {
   transition: color 0.3s;
 }
 .cg-zed .zed-x:hover {
-  color: var(--cl-blood);
+  color: var(--cl-blood-text);
 }
 .cg-zed .zed-add,
 .cg-zed .zed-actions button {
@@ -2224,7 +2224,7 @@ body.cg-on-map .site-brand .site-brand__map {
     font-size: var(--fs-label-3xs);
     letter-spacing: var(--track-22);
     text-transform: uppercase;
-    color: var(--cl-gold-dim);
+    color: var(--cl-gold);
   }
   .cg-sheet.open .cg-sheet-grip {
     gap: 0;
@@ -2263,7 +2263,7 @@ body.cg-on-map .site-brand .site-brand__map {
     font-family: var(--font-mono);
     font-size: var(--fs-label-3xs);
     letter-spacing: var(--track-22);
-    color: var(--cl-gold-dim);
+    color: var(--cl-gold);
   }
   .cg-sheet-badges {
     display: flex;

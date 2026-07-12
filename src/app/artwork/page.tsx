@@ -69,7 +69,7 @@ const PIECES: Piece[] = [
 
 export default function ArtworkPage() {
   return (
-    <main className="legal">
+    <main id="main" tabIndex={-1} className="legal">
       <header className="legal__head">
         <p className="legal__eyebrow">Chrono · Lexicanum · Originals</p>
         <h1 className="legal__title">Artwork</h1>

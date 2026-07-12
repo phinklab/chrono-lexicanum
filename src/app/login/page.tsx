@@ -52,7 +52,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
     : "credentials";
 
   return (
-    <main className="login">
+    <main id="main" tabIndex={-1} className="login">
       <SiteBackground variant="login" position="center" />
       <section className="login-console">
         <p className="login-kicker">RESTRICTED ARCHIVE · PREVIEW ACCESS</p>

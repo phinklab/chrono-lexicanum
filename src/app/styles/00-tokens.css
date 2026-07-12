@@ -23,7 +23,12 @@
   --color-cl-plate-2: rgba(7, 5, 2, 0.86);
   --color-cl-bone: #e4ddcb;
   --color-cl-dim: #9a927e;
-  --color-cl-faint: #6a6455;
+  /* S8 contrast split: --color-cl-faint is TEXT-safe (≥4.5:1 on every site
+     ground: 4.71 on bg-1, 5.02 on void — was #6a6455 at 3.28–3.50). The
+     original dark value lives on as --color-cl-faint-deco for borders,
+     dots and rules, so decor keeps the old depth. */
+  --color-cl-faint: #847d69;
+  --color-cl-faint-deco: #6a6455;
   --color-cl-ghost: rgba(228, 221, 203, 0.14);
   --color-cl-hair: rgba(228, 221, 203, 0.16);
   --color-cl-hair-soft: rgba(228, 221, 203, 0.08);
@@ -33,6 +38,10 @@
   --color-cl-gold: #a48c52;
   --color-cl-gold-dim: #6f5c33;
   --color-cl-blood: #8e3b32;
+  /* S8: blood as READ text (restricted notes, error lines) needs 4.5:1 —
+     #8e3b32 sits at 2.60–2.77. Decorative blood (SVG strokes/fills) keeps
+     --color-cl-blood. */
+  --color-cl-blood-text: #bd6154;
 
   /* Surfaces */
   --color-bg-0: #06080c;
@@ -212,6 +221,7 @@
   --cl-bone:     var(--color-cl-bone);
   --cl-dim:      var(--color-cl-dim);
   --cl-faint:    var(--color-cl-faint);
+  --cl-faint-deco: var(--color-cl-faint-deco);
   --cl-ghost:    var(--color-cl-ghost);
   --cl-hair:     var(--color-cl-hair);
   --cl-hair-soft: var(--color-cl-hair-soft);
@@ -221,6 +231,7 @@
   --cl-gold:     var(--color-cl-gold);
   --cl-gold-dim: var(--color-cl-gold-dim);
   --cl-blood:    var(--color-cl-blood);
+  --cl-blood-text: var(--color-cl-blood-text);
 
   /* Weight primitives — the single numeric source of truth. */
   --fw-regular: 400;

@@ -179,3 +179,13 @@
     padding: 40px 20px 50px;
   }
 }
+
+/* S8 touch targets: the two dismiss controls (coarse pointer only). */
+@media (pointer: coarse) {
+  .detail-modal__back,
+  .detail-modal__close {
+    min-height: 44px;
+    align-items: center;
+    padding: 6px 10px;
+  }
+}

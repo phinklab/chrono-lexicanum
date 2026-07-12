@@ -95,7 +95,7 @@ export default async function AskPage({ searchParams }: AskPageProps) {
   }
 
   return (
-    <main className="ask route-snap">
+    <main id="main" tabIndex={-1} className="ask route-snap">
       <SiteBackground variant="main" position="right bottom" />
       <ScrollScrim
         className="site-scrim"

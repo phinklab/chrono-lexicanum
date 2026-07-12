@@ -9,6 +9,13 @@ body {
   min-height: 100%;
 }
 
+/* The archive is dark-only. Telling the UA lets native surfaces (form
+   controls, scrollbars in browsers that ignore the custom styling below,
+   pickers) render dark instead of flashing white. */
+html {
+  color-scheme: dark;
+}
+
 /* Site-wide custom scrollbar. scrollbar-width/color are inherited, so declaring
  * them on html cascades to every scroller (Firefox). The unscoped ::-webkit
  * rules match every scrollbar, including the viewport's (Chromium/WebKit). */
@@ -50,16 +57,55 @@ h1, h2, h3 {
   letter-spacing: var(--font-display-track);
 }
 
-/* No focus outlines, site-wide: the gold/cyan rings flashed on every click
-   (inputs always match :focus-visible on mouse focus) and read as visual
-   noise. Interactive surfaces keep their own focus affordances (underline
-   brightening, hover-grade color shifts). The !important deliberately
-   neutralises the ~50 per-component outline rules across the partials in one
-   place — remove those rules opportunistically when touching their files.
-   Outline only: box-shadow stays available for decorative use. */
-:focus,
+/* Site-wide focus policy (S8). Mouse/touch focus stays quiet (:focus alone
+   draws nothing — the pre-S8 "rings flashed on every click" complaint), but
+   KEYBOARD focus is visible everywhere: :focus-visible re-enables the gold
+   ring convention the partials already carry (1px --cl-gold, offset 2px).
+   Inputs that own a dedicated focus affordance (the gold underline sweeps on
+   browse/pod/map/lex search fields) override this with their local
+   `outline: none` at higher specificity — that is intentional and no longer
+   needs a global !important to win. */
+:focus {
+  outline: none;
+}
 :focus-visible {
-  outline: none !important;
+  outline: 1px solid var(--cl-gold);
+  outline-offset: 2px;
+}
+/* The skip-link target: programmatic focus on <main> needs no ring — the
+   skip link itself is the control. */
+main:focus-visible {
+  outline: none;
+}
+/* Forced Colors (Windows High Contrast): system colors replace the palette;
+   keep the indicator and thicken it so it survives on any backplate. */
+@media (forced-colors: active) {
+  :focus-visible {
+    outline: 2px solid Highlight;
+  }
+}
+
+/* Skip link: first tabbable element on every route (layout.tsx). Parked
+   off-screen; keyboard focus brings it into the top-left corner. */
+.skip-link {
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  z-index: 120;
+  padding: 12px 18px;
+  background: var(--cl-plate-2);
+  border: 1px solid var(--cl-gold);
+  color: var(--cl-bone);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-lg);
+  letter-spacing: var(--track-14);
+  text-transform: uppercase;
+  text-decoration: none;
+  transform: translateY(calc(-100% - 20px));
+}
+.skip-link:focus-visible {
+  transform: none;
+  outline-offset: 3px;
 }
 
 /* Every route's <main> sits above the fixed Starfield (z-index 0) and below
@@ -71,10 +117,16 @@ main {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  /* Delays must be zeroed alongside durations: `both`-fill entrances (hub /
+     ask / compendium mastheads, modal body stagger) otherwise hold their
+     `opacity: 0` from-state for the full delay — content invisible for up to
+     1.2s under reduced motion. */
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
+    animation-delay: 0s !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
+    transition-delay: 0s !important;
   }
 
   /* Ambient HUD components (ScanLine, FloatingCoord, WordField, LetterField)

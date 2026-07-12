@@ -64,7 +64,7 @@ export default async function PodcastsPage() {
   // show cards). The .catalogue--vox modifier shares the --werke styling via
   // :is() in 61/31; the per-show detail page keeps its own main.podcasts shell.
   return (
-    <main className="catalogue catalogue--vox">
+    <main id="main" tabIndex={-1} className="catalogue catalogue--vox">
       <SiteBackground variant="main" position="right bottom" />
       <GhostReadout lines={voxLines} />
 

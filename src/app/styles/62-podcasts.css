@@ -25,13 +25,10 @@ main.podcasts {
   --pod-wash-on: rgba(164, 140, 82, 0.07);
 }
 
-/* Page-scoped gold focus ring — the sibling of main.catalogue's override in
-   31-catalogue.css. Placed BEFORE this file's .pod-filter__input suppression
-   so that later equal-specificity rule still wins its tie. */
-main.podcasts :focus-visible {
-  outline: 1px solid var(--cl-gold);
-  box-shadow: none;
-}
+/* No page-scoped focus ring anymore: 10-base.css owns :focus-visible site-wide
+   (S8). The old `main.podcasts :focus-visible` copy outranked every local
+   suppression at (0,2,1) — Chrome counts a CLICK into a text field as
+   :focus-visible, so it boxed the search on plain clicks. */
 
 /* Fixed backdrop fade */
 /* Per-show detail page. The show hero is the same 100dvh one-act shell as
@@ -144,14 +141,14 @@ body:has(main.podcasts) .site-bg::after {
   width: 132px;
   height: 132px;
   object-fit: cover;
-  border: 1px solid var(--cl-faint);
+  border: 1px solid var(--cl-faint-deco);
 }
 .pod-card__art-ph {
   width: 132px;
   height: 132px;
   display: grid;
   place-items: center;
-  border: 1px solid var(--cl-faint);
+  border: 1px solid var(--cl-faint-deco);
   background: color-mix(in srgb, var(--cl-void) 50%, transparent);
   font-family: var(--font-mono);
   font-size: var(--fs-label-md);
@@ -257,7 +254,7 @@ body:has(main.podcasts) .site-bg::after {
 .pod-platform {
   display: inline-flex;
   align-items: center;
-  border: 1px solid var(--cl-faint);
+  border: 1px solid var(--cl-faint-deco);
   color: var(--cl-bone);
   background: transparent;
   padding: 6px 12px;
@@ -295,14 +292,14 @@ body:has(main.podcasts) .site-bg::after {
   width: 116px;
   height: 116px;
   object-fit: cover;
-  border: 1px solid var(--cl-faint);
+  border: 1px solid var(--cl-faint-deco);
 }
 .pod-plate__art-ph {
   width: 116px;
   height: 116px;
   display: grid;
   place-items: center;
-  border: 1px solid var(--cl-faint);
+  border: 1px solid var(--cl-faint-deco);
   background: color-mix(in srgb, var(--cl-void) 50%, transparent);
   font-family: var(--font-mono);
   font-size: var(--fs-label-md);
@@ -356,6 +353,11 @@ body:has(main.podcasts) .site-bg::after {
 .pod-archive {
   margin-top: 4px;
 }
+/* Jump target (tabIndex=-1): focus lands on the section — the skip-link →
+   main recipe — so the year pills never paint a ring on the toggle. */
+.pod-year:focus-visible {
+  outline: none;
+}
 /* Two rows by design, mirroring /werke's query console (61-browse.css
    .catalogue--werke .browse-filters): a prominent serif search line on top, a
    quieter controls row (kind pills + status) below. */
@@ -366,31 +368,43 @@ body:has(main.podcasts) .site-bg::after {
   gap: 16px;
   margin-bottom: 18px;
 }
-/* The search is one elegant catalogue line — a serif query under a gold hairline
-   (no boxed control), identical to /werke's .browse-search on the gold surface.
-   Width-capped so it doesn't span the whole list. */
+/* The search IS the house search line — the exact .browse-search recipe the
+   hub and /archive consoles wear (centered italic query, resting hairline, a
+   gold underline that sweeps in on focus), restated here because the route
+   CSS split keeps 61-browse.css off the podcast routes. */
 .pod-filter__search {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 8px;
-  width: 100%;
-  max-width: 540px;
+  align-self: center;
+  width: min(520px, 74vw);
   padding: 0;
   border: 0;
-  border-bottom: 1px solid color-mix(in oklch, var(--cl-gold) 32%, transparent);
   background: transparent;
-  transition: border-color 200ms;
 }
-.pod-filter__search:focus-within {
-  border-bottom-color: var(--cl-gold-dim);
+.pod-filter__search::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--cl-hair);
 }
-/* Auspex reticle (SVG) — the same "deliberate query" sigil /werke marks its
-   console with, in gold-dim. */
-.pod-filter__sigil {
-  flex: none;
-  width: 15px;
-  height: 15px;
-  color: var(--cl-gold-dim);
+.pod-filter__search::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--cl-gold);
+  transform: scaleX(0);
+  transition: transform 0.55s var(--ease);
+  pointer-events: none;
+}
+.pod-filter__search:focus-within::after {
+  transform: scaleX(1);
 }
 .pod-filter__input {
   flex: 1 1 auto;
@@ -400,15 +414,13 @@ body:has(main.podcasts) .site-bg::after {
   outline: none;
   color: var(--cl-bone);
   font-family: var(--font-body);
+  font-style: italic;
   font-size: var(--fs-read);
-  font-weight: var(--fw-read);
-  letter-spacing: 0.01em;
-  padding: 8px 4px;
+  text-align: center;
+  padding: 6px 4px;
 }
 .pod-filter__input::placeholder {
-  color: var(--cl-dim);
-  font-style: italic;
-  letter-spacing: 0.01em;
+  color: var(--cl-faint);
 }
 /* The page-scoped :focus-visible ring above would paint an outline on the
    focused input; here the focus cue is the gold underline (the wrapper's
@@ -434,10 +446,10 @@ body:has(main.podcasts) .site-bg::after {
   background: transparent;
   color: var(--cl-dim);
   cursor: pointer;
-  font-size: var(--fs-label-md);
+  font-size: 15px;
   line-height: var(--lh-solid);
-  padding: 2px 4px;
-  transition: color 160ms;
+  padding: 4px 6px;
+  transition: color 180ms;
 }
 .pod-filter__clear:hover {
   color: var(--cl-bone);
@@ -465,7 +477,7 @@ body:has(main.podcasts) .site-bg::after {
 
 /* Pill toggle (kinds + reset) — catalogue sort/audit-pill vocabulary in gold. */
 .pod-pill {
-  border: 1px solid var(--cl-faint);
+  border: 1px solid var(--cl-faint-deco);
   background: transparent;
   color: var(--cl-dim);
   padding: 5px 12px;
@@ -698,6 +710,11 @@ body:has(main.podcasts) .site-bg::after {
   color: var(--cl-faint);
   cursor: default;
 }
+/* Wide layout: the glyph alone is the affordance; the word exists for the
+   narrow meta-strip variant below. */
+.pod-ep__play-word {
+  display: none;
+}
 
 .pod-ep__date {
   font-family: var(--font-mono);
@@ -843,9 +860,17 @@ body:has(main.podcasts) .site-bg::after {
   .pod-filter__status {
     margin-left: 0;
   }
+  /* Mirrors .browse-search's narrow width. */
+  .pod-filter__search {
+    width: 100%;
+  }
 
-  /* Episode row: play + title (with tags) on line 1; a meta strip
-     (date · kind · dur … download) wraps onto line 2. */
+  /* Episode row: title (with tags) owns line 1; a meta strip
+     (date · kind · dur … Play ▸ · Listen ↗) wraps onto line 2. The former
+     leading glyph column is retired here: once the coarse target override
+     widened it, it orphaned onto its own line above the title (S8 feedback) —
+     instead the play control joins the meta strip as a labeled mono action,
+     right-aligned next to "Listen ↗". */
   .pod-ep {
     display: flex;
     flex-wrap: wrap;
@@ -857,14 +882,9 @@ body:has(main.podcasts) .site-bg::after {
   .pod-ep__meta {
     display: contents;
   }
-  .pod-ep__play {
-    order: 1;
-    flex: 0 0 auto;
-  }
   .pod-ep__main {
-    order: 2;
-    /* Fill the rest of line 1 (32px play + 10px gap) so the meta items wrap. */
-    flex: 1 1 calc(100% - 44px);
+    order: 1;
+    flex: 1 1 100%;
     min-width: 0;
   }
   .pod-ep__date {
@@ -876,8 +896,83 @@ body:has(main.podcasts) .site-bg::after {
   .pod-ep__dur {
     order: 5;
   }
-  .pod-ep__dl {
+  /* "Play ▸" in the meta strip: the word takes the Listen-link recipe (quiet
+     mono label), the glyph keeps the gold accent. */
+  .pod-ep__play {
     order: 6;
     margin-left: auto;
+    width: auto;
+    height: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    letter-spacing: var(--track-14);
+    text-transform: uppercase;
+  }
+  .pod-ep__play-word {
+    display: inline;
+    color: var(--cl-dim);
+  }
+  .pod-ep__play-glyph {
+    font-size: 14px;
+  }
+  /* Label variant hover mirrors the Listen link: color reveal, no scale. */
+  .pod-ep__play:hover {
+    transform: none;
+    color: var(--cl-gold);
+  }
+  .pod-ep:hover .pod-ep__play-word,
+  .pod-ep__play:hover .pod-ep__play-word,
+  .pod-ep__play:focus-visible .pod-ep__play-word {
+    color: var(--cl-gold);
+  }
+  /* No inline audio → no dash placeholder on the meta strip; absence says it. */
+  .pod-ep__play--off {
+    display: none;
+  }
+  .pod-ep__dl {
+    order: 7;
+  }
+  /* Rows without a play control (YouTube shows): Listen/View takes over the
+     right-edge push the play button otherwise provides. */
+  .pod-ep:has(.pod-ep__play--off) .pod-ep__dl {
+    margin-left: auto;
+  }
+}
+
+/* S8 touch targets: >=44px for standalone controls on coarse pointers.
+   Inline faction tags stay compact (inline-with-text exemption; >=24px). */
+@media (pointer: coarse) {
+  /* min- instead of fixed sizes: on narrow layouts the play control is a
+     label in the meta strip (block above) and must keep its natural width. */
+  .pod-ep__play {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .pod-year__toggle {
+    min-height: 44px;
+  }
+  .pod-jump__pill,
+  .pod-pill {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .pod-platform {
+    min-height: 44px;
+  }
+  .pod-plate__back,
+  .pod-ep__dl {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .pod-filter__clear {
+    padding: 12px 14px;
+  }
+  .pod-tag {
+    padding: 5px 10px;
   }
 }

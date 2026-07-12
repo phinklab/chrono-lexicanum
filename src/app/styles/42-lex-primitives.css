@@ -165,7 +165,7 @@
   width: 4px;
   height: 4px;
   margin: -2px 0 0 -2px;
-  background: var(--cl-faint);
+  background: var(--cl-faint-deco);
   border-radius: 50%;
   transition: background 0.4s, transform 0.5s var(--ease);
   animation: dotBreathe 5.4s ease-in-out infinite;
@@ -519,5 +519,12 @@
   .lx-foot__triad {
     flex-direction: column;
     gap: 8px;
+  }
+}
+
+/* S8 touch targets: the seek input (coarse pointer only). */
+@media (pointer: coarse) {
+  .lx-field input {
+    padding: 11px 4px;
   }
 }

@@ -412,6 +412,18 @@ export default function CinematicView({
   useEffect(() => {
     if (!active) return;
     const onKey = (e: KeyboardEvent) => {
+      // Minimal target guard (S8): keys aimed at a control that consumes
+      // arrows itself — the player's volume slider, inputs, native <audio>
+      // transports — must not be hijacked by the stage. S9 narrows this
+      // window listener to the stage properly; this guard is the invariant
+      // the smoke set pins down.
+      const t = e.target;
+      if (
+        t instanceof Element &&
+        t.closest("input, textarea, select, audio, [contenteditable], [role='slider']")
+      ) {
+        return;
+      }
       if (siteMenuOpen()) return;
       if (introOnRef.current) {
         if (["ArrowDown", "PageDown", "Enter", " ", "Escape"].includes(e.key)) {
@@ -567,11 +579,14 @@ export default function CinematicView({
       </div>
       <div className="veil" />
 
+      {/* Pure scroll-capture surface (empty snap cells): no role, so an
+          aria-label is prohibited here (axe: aria-prohibited-attr) and there
+          is nothing for AT to read anyway. S9 owns the real SR model. */}
       <div
         className="cine-scroll"
         ref={scrollRef}
         onScroll={onScroll}
-        aria-label="Timeline scroll"
+        aria-hidden
       >
         {Array.from({ length: N + 2 }, (_, i) => (
           <div key={i} className="snap" />

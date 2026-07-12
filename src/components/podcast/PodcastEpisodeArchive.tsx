@@ -213,10 +213,12 @@ export default function PodcastEpisodeArchive({ episodes, showTitle }: Props) {
 
   function jumpTo(year: number) {
     // Expand the target year, scroll its head into view, then move focus to the
-    // now-expanded heading so keyboard/SR users land on it (and hear its
-    // expanded state) rather than being stranded on the jump pill. The section
-    // anchor exists regardless of open state, and expanding a year never moves
-    // the years above it, so the head's scroll position is stable.
+    // SECTION (tabIndex=-1, outline suppressed — the skip-link → main recipe)
+    // so keyboard users continue tabbing at the year while mouse users never
+    // see a focus ring: programmatic focus on the toggle button matched
+    // :focus-visible in practice and painted the gold ring on plain clicks.
+    // The section anchor exists regardless of open state, and expanding a year
+    // never moves the years above it, so the head's scroll position is stable.
     setOpenYears((cur) => (cur.has(year) ? cur : new Set(cur).add(year)));
     const el = document.getElementById(yearAnchor(year));
     if (!el) return;
@@ -224,9 +226,7 @@ export default function PodcastEpisodeArchive({ episodes, showTitle }: Props) {
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
-    el.querySelector<HTMLButtonElement>(".pod-year__toggle")?.focus({
-      preventScroll: true,
-    });
+    el.focus({ preventScroll: true });
   }
 
   function resetFilters() {
@@ -245,22 +245,6 @@ export default function PodcastEpisodeArchive({ episodes, showTitle }: Props) {
       {showFilter && (
       <div className="pod-filter" role="search">
         <div className="pod-filter__search">
-          {/* Auspex reticle — the same query sigil /werke's BrowseSearch uses. */}
-          <svg className="pod-filter__sigil" viewBox="0 0 16 16" aria-hidden>
-            <circle
-              cx="8"
-              cy="8"
-              r="5.4"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1"
-            />
-            <path
-              d="M8 0.5v3M8 12.5v3M0.5 8h3M12.5 8h3"
-              stroke="currentColor"
-              strokeWidth="1"
-            />
-          </svg>
           <input
             type="search"
             className="pod-filter__input"
@@ -276,7 +260,7 @@ export default function PodcastEpisodeArchive({ episodes, showTitle }: Props) {
               aria-label="Clear search"
               onClick={() => changeQuery("")}
             >
-              ✕
+              ×
             </button>
           )}
         </div>
@@ -360,9 +344,13 @@ export default function PodcastEpisodeArchive({ episodes, showTitle }: Props) {
               <section
                 className="pod-year"
                 id={yearAnchor(g.year)}
+                tabIndex={-1}
                 key={g.year ?? "undated"}
               >
-                <h3 className="pod-year__head">
+                {/* h2, not h3: the show page's only h1 is the masthead title,
+                    so the year groups are the next level (S8 heading order —
+                    styling rides on the class, the tag is free). */}
+                <h2 className="pod-year__head">
                   <button
                     type="button"
                     className="pod-year__toggle"
@@ -378,7 +366,7 @@ export default function PodcastEpisodeArchive({ episodes, showTitle }: Props) {
                       {count} {count === 1 ? "episode" : "episodes"}
                     </span>
                   </button>
-                </h3>
+                </h2>
                 {open && (
                   <ol className="pod-episodes" id={panelId}>
                     {g.episodes.map((ep) => (
@@ -437,7 +425,15 @@ function EpisodeRow({
             aria-label={`${playing ? "Stop" : "Play"} ${ep.title}`}
             onClick={onToggle}
           >
-            <span aria-hidden>{playing ? "❙❙" : "▸"}</span>
+            {/* The word only renders on narrow layouts, where the control sits
+                in the meta strip next to "Listen ↗" instead of a leading glyph
+                column (62-podcasts.css). */}
+            <span className="pod-ep__play-word" aria-hidden>
+              {playing ? "Stop" : "Play"}
+            </span>
+            <span className="pod-ep__play-glyph" aria-hidden>
+              {playing ? "❙❙" : "▸"}
+            </span>
           </button>
         ) : (
           <span className="pod-ep__play pod-ep__play--off" aria-hidden>

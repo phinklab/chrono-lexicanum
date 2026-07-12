@@ -1,8 +1,8 @@
 /* 51-book-detail.css
    The book record body (BookDetailView), shared by /book/[slug] and the
-   @modal popup: the title-page language on the centre axis — format rubric,
-   the title as the cover, byline with series, era line, Synopsis → Appendix →
-   motifs → Acquire → the quiet provenance link. The audit cockpit at
+   @modal popup: the title-page language on the centre axis â format rubric,
+   the title as the cover, byline with series, era line, Synopsis â Appendix â
+   motifs â Acquire â the quiet provenance link. The audit cockpit at
    /book/[slug]/audit keeps its own stylesheet (32-book-audit.css). */
 
 main.book-detail {
@@ -82,7 +82,7 @@ main.book-detail {
   border-bottom-color: var(--cl-gold);
 }
 
-/* Section rubrics — the .lx-sect wings, on the record's measure. */
+/* Section rubrics â the .lx-sect wings, on the record's measure. */
 .book-detail__sect {
   max-width: 440px;
   margin: 46px auto 0;
@@ -104,7 +104,7 @@ main.book-detail {
   font-size: 17px;
 }
 
-/* Appendix — dramatis personae / factions / locations with roles. */
+/* Appendix â dramatis personae / factions / locations with roles. */
 .book-detail__appendix {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -145,10 +145,10 @@ main.book-detail {
   color: var(--cl-faint);
 }
 .book-detail__role--antagonist {
-  color: var(--cl-blood);
+  color: var(--cl-blood-text);
 }
 
-/* Motifs — the facet register as a quiet italic line. */
+/* Motifs â the facet register as a quiet italic line. */
 .book-detail__motifs {
   margin: 24px 0 0;
   font-style: italic;
@@ -213,9 +213,19 @@ main.book-detail {
   color: var(--cl-gold);
 }
 .book-detail__region-buttons button + button::before {
-  content: "·";
+  content: "Â·";
   color: var(--cl-faint);
   padding-right: 14px;
+}
+
+/* S8: the region tab row (Dramatis → regions) runs ~342px as one line -
+   let it wrap on narrow phones instead of widening the page. */
+@media (max-width: 400px) {
+  .book-detail__region-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 2px;
+  }
 }
 
 @media (max-width: 760px) {

@@ -149,7 +149,11 @@ export default function AskClient({
     setEditingCompleteProfile(false);
     navigateWithAnswers({});
     if (wasShowingResult) {
-      gridRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      gridRef.current?.scrollIntoView({
+        behavior: reduce ? "auto" : "smooth",
+        block: "start",
+      });
     }
   };
 

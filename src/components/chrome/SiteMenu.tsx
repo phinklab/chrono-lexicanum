@@ -10,11 +10,12 @@ import { useEffect, useRef, useState } from "react";
  *
  * The overlay stays MOUNTED and toggles `.is-open` so the CSS opacity /
  * stagger transitions run both ways; while closed it is `aria-hidden` + `inert`
- * (out of the tab order, no trap needed). While open: body scroll-lock and a
- * Tab wrap across burger + menu links (DetailModal pattern) keep keyboard focus
- * from reaching the locked page behind; Escape closes and returns focus to the
- * burger. Link clicks close immediately (covers the same-route click, where the
- * pathname effect would never fire).
+ * (out of the tab order, no trap needed). While open: body scroll-lock, a
+ * Tab wrap across burger + menu links (DetailModal pattern), and `inert` on
+ * every body-level sibling — the wrap covers keyboard, but without `inert` the
+ * page behind the full-screen overlay stays click- and AT-reachable. Escape
+ * closes and returns focus to the burger. Link clicks close immediately
+ * (covers the same-route click, where the pathname effect would never fire).
  */
 
 const ENTRIES = [
@@ -90,6 +91,30 @@ export default function SiteMenu() {
     return () => {
       document.documentElement.style.overflow = prevHtml;
       document.body.style.overflow = prevBody;
+    };
+  }, [open]);
+
+  // While open, make the page behind the overlay inert (DetailModal pattern).
+  // The burger and the menu itself stay live; siblings that are already inert
+  // keep their owners' state (release restores only what this effect set).
+  useEffect(() => {
+    if (!open) return;
+    const burger = burgerRef.current;
+    const menu = menuRef.current;
+    const made: HTMLElement[] = [];
+    for (const el of Array.from(document.body.children)) {
+      if (
+        el instanceof HTMLElement &&
+        !(burger && el.contains(burger)) &&
+        !(menu && el.contains(menu)) &&
+        !el.inert
+      ) {
+        el.inert = true;
+        made.push(el);
+      }
+    }
+    return () => {
+      for (const el of made) el.inert = false;
     };
   }, [open]);
 

@@ -111,7 +111,7 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
   }
 
   return (
-    <main className="catalogue catalogue--werke">
+    <main id="main" tabIndex={-1} className="catalogue catalogue--werke">
       <SiteBackground variant="main" position="right bottom" />
       {focusSlug ? <CompendiumFocusOpener href={`/book/${focusSlug}`} /> : null}
       <ArchiveArrival arrival={arrival} />

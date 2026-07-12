@@ -49,7 +49,7 @@ export default async function HubPage() {
   // Three acts: 1 splash (the wordmark IS the hero) → 2 Praefatio + search →
   // 3 the grouped doorways. The fixed art + ScrollScrim sit behind all three.
   return (
-    <main className="hub">
+    <main id="main" tabIndex={-1} className="hub">
       {/* schema.org WebSite: names the site for search engines and points the
           Sitelinks-search action at the real /archive?q= entry. */}
       <JsonLd

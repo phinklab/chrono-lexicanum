@@ -31,6 +31,8 @@ export default function MapPage() {
   const payload = buildMapPayload(loadMapWorlds());
   return (
     <main
+      id="main"
+      tabIndex={-1}
       className="map-route"
       style={{ position: "fixed", inset: 0, zIndex: 1, isolation: "isolate", contain: "paint" }}
     >

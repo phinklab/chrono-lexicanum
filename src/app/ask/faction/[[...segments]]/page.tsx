@@ -91,7 +91,7 @@ export default async function AskFactionPage({ params }: AskFactionPageProps) {
   // Same shell as /ask: photo hero you scroll past, ScrollScrim darkening the
   // fixed art, then the tool — so switching tabs never jumps to another layout.
   return (
-    <main className="ask route-snap">
+    <main id="main" tabIndex={-1} className="ask route-snap">
       <SiteBackground variant="main" position="right bottom" />
       <ScrollScrim
         className="site-scrim"

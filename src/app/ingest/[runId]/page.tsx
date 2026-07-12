@@ -65,7 +65,7 @@ export default async function IngestRunPage({ params }: DetailParams) {
   );
 
   return (
-    <main className="ingest-detail-shell">
+    <main id="main" tabIndex={-1} className="ingest-detail-shell">
       <Link href="/ingest" className="ingest-back-link">
         <span aria-hidden>←</span>
         <span>All runs</span>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SternwarteRings from "@/components/shared/SternwarteRings";
 // Component-scoped stylesheet (S7a): 53-ask rides with the tool doors into
 // BOTH ask routes. Its .ask-doors overrides on the door grammar out-specify
 // the global 31-catalogue rules, so load order stays irrelevant.
@@ -55,7 +56,12 @@ export default function AskToolTabs({ active }: { active: AskTool }) {
             className={`arch-door${isActive ? " is-active" : ""}`}
             aria-current={isActive ? "page" : undefined}
           >
-            <span className="arch-door__kicker">{tab.kicker}</span>
+            <span className="arch-door__kicker">
+              <span className="arch-door__dot" aria-hidden>
+                {isActive && <SternwarteRings className="arch-door__rings" />}
+              </span>
+              {tab.kicker}
+            </span>
             <span className="arch-door__title">{tab.label}</span>
             <span className="arch-door__count">{tab.desc}</span>
           </Link>
