@@ -332,7 +332,7 @@ export function buildEntitySuggestions(
  * (Home, /podcasts, /werke) so the behaviour can't drift: the matching Compendium
  * directory with that entity's overlay auto-opened. The directory page reads
  * `focus`, resolves it to the row's detail href, and `CompendiumFocusOpener`
- * soft-navs there (e.g. /fraktion/<id>, /charakter/<id>) — which the root @modal
+ * soft-navs there (e.g. /faction/<id>, /character/<id>) — which the root @modal
  * intercept turns into the in-context popup (books AND podcasts inside). Closing
  * the popup leaves the visitor in the browsable directory, not on the page they
  * searched from.
@@ -345,22 +345,22 @@ function compendiumFocusHref(category: string, id: string): string {
  *  In the /werke search this leaves the archive for the faction hub; the /werke
  *  "Faction" dropdown stays the in-place list filter. */
 export function factionFocusHref(id: string): string {
-  return compendiumFocusHref("fraktionen", id);
+  return compendiumFocusHref("factions", id);
 }
 
 /** Primarch pick → the Compendium primarch directory with the primarch popped
  *  open. `id` is the canonical character id (the merged "Alpharius Omegon" uses
  *  `alpharius`), so picking the merged entry opens its union detail view. */
 export function primarchFocusHref(id: string): string {
-  return compendiumFocusHref("primarchen", id);
+  return compendiumFocusHref("primarchs", id);
 }
 
 export function characterFocusHref(id: string): string {
-  return compendiumFocusHref("charaktere", id);
+  return compendiumFocusHref("characters", id);
 }
 
 export function worldFocusHref(id: string): string {
-  return compendiumFocusHref("welten", id);
+  return compendiumFocusHref("worlds", id);
 }
 
 /**

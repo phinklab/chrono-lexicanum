@@ -1,11 +1,11 @@
 /* 59-entity.css
-   Entity-hub surface shared by /charakter, /fraktion, /welt.
+   Entity-hub surface shared by /character, /faction, /world.
 
    The page owns the frame (main.entity + SiteBackground + scrim + decor +
    breadcrumb); the db-free <EntityView> (src/components/entity/) renders
    .entity-view. The typographic grammar mirrors 51-book-detail.css (mono `//`
    eyebrow, Cinzel title, Cormorant tagline, gold section labels, hairline-pill
-   chips) so the reference pages read as one family with /buch/[slug].
+   chips) so the reference pages read as one family with /book/[slug].
 
    Layout: a full-width header over a two-column body (main column + a right
    CONNECTIONS rail). `.entity-view` is a query container, so the rail reflows

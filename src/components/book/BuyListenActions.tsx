@@ -1,9 +1,12 @@
 /**
- * The buy/listen actions. Server component: every href is built
- * server-side via the geo-localized `buildStoreUrl`, so the links are correct
- * in the SSR HTML with no client JS. Amazon + Black Library always render;
- * Audible (and the audio credit) render only when the book has narrator /
- * co-narrator / full-cast credits. Buttons are the house Sternwarte.
+ * The buy/listen actions. Pure presentational: hrefs come from the pure
+ * `buildStoreUrl` for the region the caller resolved. Rendered in two places
+ * (Launch S4): inside the <StoreActions> client island with the browser-
+ * resolved region, and server-side as its Suspense fallback with
+ * DEFAULT_REGION — so the static /book shell and no-JS visits still carry
+ * working links. Amazon + Black Library always render; Audible (and the audio
+ * credit) render only when the book has narrator / co-narrator / full-cast
+ * credits. Buttons are the house Sternwarte.
  */
 import BtnFx from "@/components/shared/BtnFx";
 import { buildStoreUrl, type StoreRegion } from "@/lib/store-links";

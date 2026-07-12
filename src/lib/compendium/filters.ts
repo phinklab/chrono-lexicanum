@@ -3,7 +3,7 @@
  * the server page (which does the actual filtering, SEO-friendly) and the client
  * controls island (which mirrors state to the URL) agree on the param grammar.
  * Every control is URL-mirrored: a filtered directory is a shareable link, the
- * same discipline as /werke and /fraktionen.
+ * same discipline as /archive and /compendium/factions.
  */
 import type { CompendiumItem } from "./categories";
 

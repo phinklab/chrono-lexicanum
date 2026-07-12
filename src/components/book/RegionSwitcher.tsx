@@ -1,12 +1,13 @@
 "use client";
 
 /**
- * Optional store-region switcher. Writes `?store=<ISO>` to the URL
- * (the server reads it as the highest-precedence region signal in
- * store-region.ts), mirroring the EraToggle pattern. The default link already
- * localizes server-side from geo headers; this is a nicety that also doubles as
- * the two-region verification path. The currently-resolved region is shown in
- * the label so a visitor outside the quick-switch set still sees their store.
+ * Optional store-region switcher. Writes `?store=<ISO>` to the URL — the
+ * <StoreActions> island reads it back as the highest-precedence region signal
+ * (Launch S4: region resolution is client-side so /book stays static) —
+ * mirroring the EraToggle pattern. The default already localizes from the
+ * browser language; this is a nicety that also doubles as the two-region
+ * verification path. The currently-resolved region is shown in the label so a
+ * visitor outside the quick-switch set still sees their store.
  */
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import type { StoreRegion } from "@/lib/store-links";

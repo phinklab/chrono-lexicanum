@@ -3,7 +3,7 @@
  *
  * Thin frame over the shared entity-view. The `[slug]` segment IS the person id.
  * The page owns the frame (main + photo backdrop + decor); the db-free
- * <EntityView> renders the body from `loadEntity`. Mirrors /charakter exactly.
+ * <EntityView> renders the body from `loadEntity`. Mirrors /character exactly.
  */
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";

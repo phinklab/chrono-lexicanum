@@ -9,15 +9,15 @@
  * Dust worlds (n=0) open the same panel: blurb (or filler) + a quiet
  * "no records" line instead of the works toggle.
  *
- * Links: books soft-navigate to /buch/{slug} — the @modal Kapelle intercept
+ * Links: books soft-navigate to /book/{slug} — the @modal Kapelle intercept
  * opens over the chart; episodes go to the show's archive hall; the footer
- * opens /welt/{locationId} when the world is linked.
+ * opens /world/{locationId} when the world is linked.
  *
  * Layout: under the header sits the curated one-sentence blurb
  * (location-blurbs.json — the same text the big entity view opens with;
  * "empty. add later" when none is curated yet), then a collapsed
  * "Literature & podcasts" row that expands to the first five records;
- * "All N records →" opens the big view (/welt/{loc} — the @modal intercept
+ * "All N records →" opens the big view (/world/{loc} — the @modal intercept
  * renders it over the chart).
  *
  * Positioning is imperative (bus frame subscription) — panning never
@@ -51,7 +51,7 @@ const KIND_LABEL: Record<MapWorldKind, string> = {
 const ROLE_RANK: Record<string, number> = { primary: 0, subject: 1, secondary: 2, mentioned: 3 };
 
 function workHref(w: MapWorldWork): string {
-  return w.type === "book" ? `/buch/${w.slug}` : `/archive/podcasts/${w.show}`;
+  return w.type === "book" ? `/book/${w.slug}` : `/archive/podcasts/${w.show}`;
 }
 
 function viaLabel(via: string): string {
@@ -223,7 +223,7 @@ export default function WorldPanel({ world, payload, bus, onClose }: WorldPanelP
                 ))}
               </ul>
               {shown.loc ? (
-                <Link className="pp-more" href={`/welt/${shown.loc}`}>
+                <Link className="pp-more" href={`/world/${shown.loc}`}>
                   All {shown.n} records →
                 </Link>
               ) : (

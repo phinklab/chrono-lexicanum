@@ -17,12 +17,12 @@ import {
  * The index is the unified book + podcast set, so a query surfaces books first,
  * then a "Podcasts" group (episodes + shows). Routing:
  *
- *   - book                 → /buch/[slug]          (opens the book modal here)
+ *   - book                 → /book/[slug]          (opens the book modal here)
  *   - podcast              → s.href                 (show page, or #ep-<id> deep link)
- *   - faction              → /compendium/fraktionen?focus=[id]  (faction directory + popup)
- *   - primarch             → /compendium/primarchen?focus=[id] (primarch directory + popup)
- *   - character            → /compendium/charaktere?focus=[id] (character directory + popup)
- *   - world                → /compendium/welten?focus=[id] (world directory + popup)
+ *   - faction              → /compendium/factions?focus=[id]  (faction directory + popup)
+ *   - primarch             → /compendium/primarchs?focus=[id] (primarch directory + popup)
+ *   - character            → /compendium/characters?focus=[id] (character directory + popup)
+ *   - world                → /compendium/worlds?focus=[id] (world directory + popup)
  *   - facet/format         → /archive?<param>=…     (land in the archive, pre-filtered)
  *   - author / raw Enter   → /archive?q=…           (land in the archive, searched)
  *   - empty Enter          → /archive               (open the unfiltered archive)
@@ -57,7 +57,7 @@ export default function PodcastsSearch({ index }: { index: Suggestion[] }) {
         // Consume the draft so onFocus doesn't reopen the dropdown when focus
         // returns here after the book overlay closes (matches Home/WerkeFilters).
         setQ("");
-        navigate(`/buch/${s.value}`);
+        navigate(`/book/${s.value}`);
         break;
       case "podcast":
         if (s.href) {

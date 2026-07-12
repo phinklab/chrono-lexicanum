@@ -56,7 +56,7 @@ const CANON: Record<AliasAxis, ReadonlyArray<CanonEntity>> = {
 };
 
 // Drift classification (entity-exact). Consumed by the audit read-path at
-// src/app/buch/[slug]/audit/page.tsx — one rule, one place.
+// src/app/book/[slug]/audit/page.tsx — one rule, one place.
 
 export type DriftClass = "none" | "known-alias" | "drift";
 

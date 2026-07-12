@@ -45,7 +45,7 @@ export interface FactionStarterPick {
   /** Display title with format markers stripped, e.g. "Our Martyred Lady". */
   title: string;
   /**
-   * Resolved book slug → click target `/buch/{slug}` (opens the book popup via
+   * Resolved book slug → click target `/book/{slug}` (opens the book popup via
    * the existing intercepting route). Absent when the convert step could not
    * resolve the title with confidence — the pick still renders, without a link.
    */

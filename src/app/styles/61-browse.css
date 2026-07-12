@@ -2,7 +2,7 @@
    Shared browse vocabulary: the seek line (BrowseSearch), the typeahead
    popover, FilterSelect (custom ARIA listbox), the single sort control and
    the facet chip. One centred console under the archive doors; the same
-   classes serve the compendium directories and /fraktionen. */
+   classes serve the compendium directories and /compendium/factions. */
 
 /* Console layout */
 .browse-filters {

@@ -7,8 +7,8 @@ import Link from "next/link";
  * Auto-opens an entity overlay over the compendium directory. The universal
  * search's faction/primarch pick lands on `/compendium/<category>?focus=<id>`;
  * the directory page resolves that id to the row's detail `href` and renders this
- * island. On mount it triggers a navigation to that href (e.g. `/fraktion/<id>`,
- * `/charakter/<id>`), which the root `@modal` intercept turns into the in-context
+ * island. On mount it triggers a navigation to that href (e.g. `/faction/<id>`,
+ * `/character/<id>`), which the root `@modal` intercept turns into the in-context
  * popup — exactly as clicking a directory row would.
  *
  * It drives a hidden, real Next `<Link>` and clicks it programmatically rather

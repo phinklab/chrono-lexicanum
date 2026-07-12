@@ -115,11 +115,15 @@ const nextConfig: NextConfig = {
     ];
   },
 
-  // /werke + /podcasts merged under /archive (session 139). Query strings are
-  // auto-forwarded; `#ep-` fragments never reach the server and are re-applied
-  // by the browser after the 308 — episode deep-links keep scrolling+highlighting
-  // on hard loads. Internal links all point at /archive/*; these serve bookmarks
-  // and external references.
+  // /werke + /podcasts merged under /archive (session 139); the German entity
+  // paths migrated to the English canonical routes in Launch S4 (URL-Matrix,
+  // launch-master-plan Anhang A.2). Every row is a 308 and the query string is
+  // forwarded verbatim (Next's `redirects()` default) — no redirect rewrites or
+  // drops parameters, so `?store=`, `?alignment=` etc. survive. `#ep-` fragments
+  // never reach the server and are re-applied by the browser after the 308 —
+  // episode deep-links keep scrolling+highlighting on hard loads. Internal links
+  // all point at the canonical routes; these rows serve bookmarks and external
+  // references.
   async redirects() {
     return [
       // /buecher was the maintainer-era catalogue; /archive is the canonical
@@ -130,6 +134,63 @@ const nextConfig: NextConfig = {
       {
         source: "/podcasts/:slug",
         destination: "/archive/podcasts/:slug",
+        permanent: true,
+      },
+      // German → English entity detail routes (Launch S4). `?store=` survives
+      // on /buch via the verbatim query forwarding above.
+      { source: "/buch/:slug", destination: "/book/:slug", permanent: true },
+      {
+        source: "/buch/:slug/audit",
+        destination: "/book/:slug/audit",
+        permanent: true,
+      },
+      {
+        source: "/charakter/:slug",
+        destination: "/character/:slug",
+        permanent: true,
+      },
+      { source: "/fraktion/:slug", destination: "/faction/:slug", permanent: true },
+      { source: "/welt/:slug", destination: "/world/:slug", permanent: true },
+      // /person stays — already English-capable (authors AND narrators).
+      // Compendium category slugs → English (q/alignment/sort survive).
+      {
+        source: "/compendium/fraktionen",
+        destination: "/compendium/factions",
+        permanent: true,
+      },
+      {
+        source: "/compendium/primarchen",
+        destination: "/compendium/primarchs",
+        permanent: true,
+      },
+      {
+        source: "/compendium/charaktere",
+        destination: "/compendium/characters",
+        permanent: true,
+      },
+      {
+        source: "/compendium/welten",
+        destination: "/compendium/worlds",
+        permanent: true,
+      },
+      {
+        source: "/compendium/autoren",
+        destination: "/compendium/authors",
+        permanent: true,
+      },
+      // /fraktionen shortcut: target updated to the English category — a single
+      // 308, never a double hop via /compendium/fraktionen. Was previously a
+      // page-level redirect (src/app/fraktionen/page.tsx, removed in S4).
+      {
+        source: "/fraktionen",
+        destination: "/compendium/factions",
+        permanent: true,
+      },
+      // Ask faction tool: `:path*` also matches the bare /ask/fraktion (zero
+      // segments); the static segment slugs underneath are unchanged.
+      {
+        source: "/ask/fraktion/:path*",
+        destination: "/ask/faction/:path*",
         permanent: true,
       },
     ];

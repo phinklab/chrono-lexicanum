@@ -52,7 +52,7 @@ export type BookWorkRole = "primary" | "secondary" | "mentioned";
 export type EpisodeWorkRole = "subject" | "mentioned";
 
 /** One work attached to a world. `slug` is the `works.slug` the site links to
- *  (`/buch/{slug}` for books); episode slugs are the deterministic
+ *  (`/book/{slug}` for books); episode slugs are the deterministic
  *  `deriveEpisodeSlug(show, guid)` values `apply:podcast` freezes.
  *  `via`: set when the work arrived through a curation ROLLUP —
  *  it names the source `locations.json` id whose works were attached to this
@@ -92,7 +92,7 @@ export interface MapWorld {
   /** 0–1000 grid, aspect-ratio-true (see `grid.transform`), 2 decimals. */
   gx: number;
   gy: number;
-  /** Matched `locations.json` row (→ `/welt/{locationId}`), or null. */
+  /** Matched `locations.json` row (→ `/world/{locationId}`), or null. */
   locationId: string | null;
   /** Works referencing the matched location, plus rolled-up works (`via`).
    *  A world with `locationId: null` can only carry `via` works. */

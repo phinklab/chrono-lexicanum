@@ -4,7 +4,7 @@
  * Compendium directory controls. Search + optional facet pills +
  * sort, all URL-mirrored via `router.replace` — the server page reads the same
  * params and renders the filtered rows, so a filtered directory is a shareable
- * link (the /werke + /fraktionen discipline, reusing the shared `.browse-*`
+ * link (the /archive + /compendium/factions discipline, reusing the shared `.browse-*`
  * vocabulary in the cyan house default — the Compendium drops the `catalogue`
  * class, so it never picks up the gold `body:has(main.catalogue)` re-skin).
  *

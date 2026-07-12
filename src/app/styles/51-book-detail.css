@@ -1,9 +1,9 @@
 /* 51-book-detail.css
-   The book record body (BookDetailView), shared by /buch/[slug] and the
+   The book record body (BookDetailView), shared by /book/[slug] and the
    @modal popup: the title-page language on the centre axis — format rubric,
    the title as the cover, byline with series, era line, Synopsis → Appendix →
    motifs → Acquire → the quiet provenance link. The audit cockpit at
-   /buch/[slug]/audit keeps its own stylesheet (32-book-audit.css). */
+   /book/[slug]/audit keeps its own stylesheet (32-book-audit.css). */
 
 main.book-detail {
   position: relative;

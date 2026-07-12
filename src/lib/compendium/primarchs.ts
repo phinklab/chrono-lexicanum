@@ -47,7 +47,7 @@ export const CURATED_PRIMARCH_IDS: readonly string[] = [
  * the stories treat the twins as one identity, so the merged entry's appearances
  * (and its detail page) include every work featuring EITHER or BOTH. The
  * canonical id (the map key) is the one that stays in `CURATED_PRIMARCH_IDS` and
- * owns the `/charakter/<id>` route; the absorbed ids redirect to it.
+ * owns the `/character/<id>` route; the absorbed ids redirect to it.
  */
 export const PRIMARCH_MERGES: Readonly<
   Record<string, { name: string; absorbs: readonly string[] }>
@@ -72,7 +72,7 @@ export const ALL_PRIMARCH_CHARACTER_IDS: readonly string[] = [
 
 /**
  * If `id` is a twin absorbed into a merged primarch, return the canonical id it
- * should resolve to (so `/charakter/<absorbed>` redirects to the merged page);
+ * should resolve to (so `/character/<absorbed>` redirects to the merged page);
  * otherwise null.
  */
 export function absorbedInto(id: string): string | null {

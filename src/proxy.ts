@@ -40,12 +40,12 @@ function parseBasic(authHeader: string | null): { user: string; pass: string } |
 
 /** Admin-only page routes, hard-401ed in prod without Basic-Auth:
  *  /ingest (internal ingestion logs + raw LLM payloads) and
- *  /buch/[slug]/audit (provenance internals). The pages additionally check
+ *  /book/[slug]/audit (provenance internals). The pages additionally check
  *  `getIsAdmin()` themselves — defense in depth, in case a future matcher edit
  *  drops one of them out of this proxy. */
 function isAdminPath(path: string): boolean {
   if (path === "/ingest" || path.startsWith("/ingest/")) return true;
-  return /^\/buch\/[^/]+\/audit$/.test(path);
+  return /^\/book\/[^/]+\/audit$/.test(path);
 }
 
 export async function proxy(req: NextRequest): Promise<NextResponse> {
@@ -91,7 +91,7 @@ export async function proxy(req: NextRequest): Promise<NextResponse> {
   //   - Local `next dev` should not prompt for credentials when iterating on
   //     UI; the gate is purely a production safeguard.
   // In both cases we still forward `x-atlas-admin: 1` so the surviving admin
-  // surfaces (/ingest, /buch/*/audit) and the Map admin tools render in their
+  // surfaces (/ingest, /book/*/audit) and the Map admin tools render in their
   // authenticated shape. (The header name is kept — it is the shared admin
   // signal read by getIsAdmin().)
   const isProd = process.env.NODE_ENV === "production" && process.env.VERCEL_ENV !== "preview";
@@ -127,7 +127,7 @@ export async function proxy(req: NextRequest): Promise<NextResponse> {
       // server log instead of taking the whole public site down with a
       // boot-time throw over an admin-only secret.
       console.error(
-        "[proxy] ATLAS_PASS is not set in production — admin routes (/ingest, /buch/*/audit) are locked out.",
+        "[proxy] ATLAS_PASS is not set in production — admin routes (/ingest, /book/*/audit) are locked out.",
       );
     }
     return new NextResponse("Authentication required", {

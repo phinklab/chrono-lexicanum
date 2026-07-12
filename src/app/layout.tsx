@@ -92,7 +92,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
   // The `@modal` parallel slot. Renders the in-context
-  // entity panel when an in-app soft-nav hits a `(.)charakter|fraktion|welt`
+  // entity panel when an in-app soft-nav hits a `(.)character|faction|world`
   // intercept; otherwise `null` (slot default / catch-all). Sitting in the root
   // layout is what lets every in-app entity `<Link>` open the panel without any
   // per-link wiring.
