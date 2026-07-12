@@ -36,7 +36,7 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { runId } = await params;
   return {
-    title: `Run ${runId} — Ingestion runs — Chrono Lexicanum`,
+    title: `Run ${runId} — Ingestion runs`,
     robots: { index: false, follow: false },
   };
 }

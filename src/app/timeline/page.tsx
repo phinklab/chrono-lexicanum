@@ -1,11 +1,25 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
+import { routeOg } from "@/lib/seo";
 import { loadChronicleTimeline } from "@/lib/chronicle/loadTimeline";
 import ChronicleStage, {
   type ChronicleViewMode,
 } from "@/components/timeline/cinematic/ChronicleStage";
 
-export const metadata: Metadata = { title: "Chronicle — Timeline" };
+const TIMELINE_DESCRIPTION =
+  "The in-universe timeline of Warhammer 40,000 novels — every era, every event, every book placed on the Imperial calendar.";
+
+// `?era` and `?view` are views of the one chronicle document — canonical
+// stays the bare /timeline (URL matrix A.3).
+export const metadata: Metadata = {
+  title: "Chronicle — Timeline",
+  description: TIMELINE_DESCRIPTION,
+  alternates: { canonical: "/timeline" },
+  openGraph: routeOg({
+    title: "Chronicle — Timeline",
+    description: TIMELINE_DESCRIPTION,
+  }),
+};
 
 /**
  * Timeline route — the Cinematic/Index chronicle.

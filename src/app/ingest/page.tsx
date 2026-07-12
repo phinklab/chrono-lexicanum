@@ -10,7 +10,7 @@ import {
 } from "@/lib/ingestion/diff-reader";
 
 export const metadata: Metadata = {
-  title: "Ingestion runs — Chrono Lexicanum",
+  title: "Ingestion runs",
   description:
     "Read-only inspector for the committed diff files of the bulk-backfill pipeline.",
   robots: { index: false, follow: false },

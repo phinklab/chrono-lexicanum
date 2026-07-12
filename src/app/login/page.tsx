@@ -6,7 +6,7 @@ import { verifyPreviewToken } from "@/lib/previewToken";
 import { acceptInvite, login } from "./actions";
 
 export const metadata: Metadata = {
-  title: "Login - Chrono Lexicanum",
+  title: "Login",
   description: "Restricted preview access to the Chrono Lexicanum archive.",
   robots: { index: false, follow: false },
   // The invite token rides in `?invite=`. `no-referrer` keeps it out

@@ -15,15 +15,18 @@ import ArchiveFooter from "@/components/chrome/ArchiveFooter";
      - Covers are hotlinked from external hosts; podcast audio streams from
        the feed host on user-initiated play; site music comes from the
        project's own Supabase storage; fonts are self-hosted via next/font.
-   The "Reichweitenmessung" section deliberately anticipates a cookieless
-   Vercel Web Analytics / Speed Insights rollout so that can ship without a
-   legal follow-up. English slug per the URL-EN convention; content is
+   Since Launch S5 the observability stack is LIVE and covered here:
+   cookieless Vercel Web Analytics + Speed Insights (Ziffer 06) and the
+   error-only Sentry tracker behind the same-origin /monitoring tunnel —
+   no replay, no tracing, no visitor IP to Sentry, EU data region, 90-day
+   retention (Ziffer 07). English slug per the URL-EN convention; content is
    sober German legal text. */
 
 export const metadata: Metadata = {
   title: "Datenschutzerklärung",
   description:
     "Datenschutzerklärung von Chrono · Lexicanum — Informationen nach Art. 13 DSGVO zu Hosting, Server-Logs, Cookies und Betroffenenrechten.",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPage() {
@@ -33,7 +36,7 @@ export default function PrivacyPage() {
         <p className="legal__eyebrow">Chrono · Lexicanum — Rechtliches</p>
         <h1 className="legal__title">Datenschutzerklärung</h1>
         <div className="legal__rule" aria-hidden />
-        <p className="legal__stand">Stand · 2. Juli 2026</p>
+        <p className="legal__stand">Stand · 12. Juli 2026</p>
       </header>
 
       <div className="legal__doc">
@@ -177,15 +180,16 @@ export default function PrivacyPage() {
           </h2>
           <div className="legal__section-rule" aria-hidden />
           <p className="legal__p">
-            Zur Verbesserung des Angebots kann eine datensparsame,{" "}
-            <strong>cookielose Reichweitenmessung</strong> eingesetzt werden
-            (vorgesehen: Vercel Web Analytics und Vercel Speed Insights). Diese
-            Dienste arbeiten ohne Cookies und ohne geräteübergreifende Profile:
-            Seitenaufrufe und Web-Performance-Werte werden aggregiert erfasst;
-            zur Unterscheidung von Besuchen dient höchstens ein kurzlebiger,
-            aus technischen Merkmalen abgeleiteter Hash, der eine
-            Wiedererkennung über den Besuch hinaus nicht erlaubt. IP-Adressen
-            werden dabei nicht dauerhaft gespeichert.
+            Zur Verbesserung des Angebots wird eine datensparsame,{" "}
+            <strong>cookielose Reichweitenmessung</strong> eingesetzt (Vercel
+            Web Analytics und Vercel Speed Insights, Anbieter: Vercel Inc.,
+            siehe Ziffer 03). Diese Dienste arbeiten ohne Cookies und ohne
+            geräteübergreifende Profile: Seitenaufrufe und
+            Web-Performance-Werte werden aggregiert erfasst; zur Unterscheidung
+            von Besuchen dient höchstens ein kurzlebiger, aus technischen
+            Merkmalen abgeleiteter Hash, der eine Wiedererkennung über den
+            Besuch hinaus nicht erlaubt. IP-Adressen werden dabei nicht
+            dauerhaft gespeichert.
           </p>
           <p className="legal__p">
             Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes
@@ -198,10 +202,44 @@ export default function PrivacyPage() {
           </p>
         </section>
 
+        <section className="legal__section" aria-labelledby="pv-errors">
+          <h2 className="legal__kicker" id="pv-errors">
+            <span className="legal__no" aria-hidden>
+              07
+            </span>
+            Fehlerdiagnose (Sentry)
+          </h2>
+          <div className="legal__section-rule" aria-hidden />
+          <p className="legal__p">
+            Um technische Fehler zu erkennen und zu beheben, wird ein{" "}
+            <strong>reines Fehlerdiagnose-Werkzeug</strong> eingesetzt:
+            Sentry, ein Dienst der Functional Software, Inc., 45 Fremont
+            Street, San Francisco, CA 94105, USA. Nur wenn beim Aufruf der
+            Website ein technischer Fehler auftritt, werden die zugehörigen
+            Diagnosedaten übermittelt: Fehlermeldung und Programm-Stelle
+            (Stacktrace), die betroffene Seiten-URL, Browser- und
+            Betriebssystem-Typ sowie der Zeitpunkt.
+          </p>
+          <p className="legal__p">
+            Es findet <strong>keine Sitzungsaufzeichnung</strong> (Session
+            Replay), kein Performance-Tracing und keine Profilbildung statt;
+            es wird kein Cookie gesetzt. Die Fehlermeldungen werden über die
+            eigene Domain dieser Website weitergeleitet; die IP-Adresse der
+            Besucher wird dabei nicht an Sentry übermittelt. Die Fehlerdaten
+            werden in der EU-Datenregion von Sentry gespeichert und nach
+            spätestens 90 Tagen automatisch gelöscht. Soweit im Rahmen des
+            Dienstes Daten in die USA gelangen, stützt sich die Übermittlung
+            auf die Zertifizierung von Sentry unter dem EU-U.S. Data Privacy
+            Framework bzw. auf EU-Standardvertragsklauseln (Art. 46 DSGVO).
+            Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes
+            Interesse am stabilen, fehlerfreien Betrieb).
+          </p>
+        </section>
+
         <section className="legal__section" aria-labelledby="pv-external">
           <h2 className="legal__kicker" id="pv-external">
             <span className="legal__no" aria-hidden>
-              07
+              08
             </span>
             Externe Inhalte
           </h2>
@@ -237,7 +275,7 @@ export default function PrivacyPage() {
         <section className="legal__section" aria-labelledby="pv-rights">
           <h2 className="legal__kicker" id="pv-rights">
             <span className="legal__no" aria-hidden>
-              08
+              09
             </span>
             Ihre Rechte
           </h2>
@@ -272,7 +310,7 @@ export default function PrivacyPage() {
         <section className="legal__section" aria-labelledby="pv-misc">
           <h2 className="legal__kicker" id="pv-misc">
             <span className="legal__no" aria-hidden>
-              09
+              10
             </span>
             Schlussbemerkungen
           </h2>

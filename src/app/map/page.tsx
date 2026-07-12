@@ -1,10 +1,19 @@
 import type { Metadata } from "next";
 
+import { routeOg } from "@/lib/seo";
 import CartographerRoot from "@/components/cartographer/CartographerRoot";
 import { loadMapWorlds } from "@/lib/map/load-map-worlds";
 import { buildMapPayload } from "@/lib/map/payload";
 
-export const metadata: Metadata = { title: "Cartographer — Chrono Lexicanum" };
+const MAP_DESCRIPTION =
+  "The galaxy chart of the archive — sectors, worlds and the Warhammer 40,000 novels anchored to them, filterable by era.";
+
+export const metadata: Metadata = {
+  title: "Cartographer",
+  description: MAP_DESCRIPTION,
+  alternates: { canonical: "/map" },
+  openGraph: routeOg({ title: "Cartographer", description: MAP_DESCRIPTION }),
+};
 
 // Server component: builds the compact chart payload from the committed
 // SSOT catalog (scripts/seed-data/map-worlds.json — DB-free, bundled at

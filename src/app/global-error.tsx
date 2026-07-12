@@ -9,6 +9,9 @@
  */
 "use client";
 
+import { useEffect } from "react";
+import { captureException } from "@sentry/browser";
+
 const page: React.CSSProperties = {
   minHeight: "100vh",
   margin: 0,
@@ -63,11 +66,18 @@ const button: React.CSSProperties = {
 };
 
 export default function GlobalError({
+  error,
   reset,
 }: {
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  useEffect(() => {
+    // The shell itself failed — this boundary is the only witness. Report
+    // explicitly (no-op while the DSN is unset).
+    captureException(error);
+  }, [error]);
+
   return (
     <html lang="en">
       <body style={page}>

@@ -7,9 +7,22 @@
  * reachable, but the start view is a hall of doorways (no longer a peek list).
  * The shared hero + nav come from the layout.
  */
+import type { Metadata } from "next";
 import Link from "next/link";
+import { routeOg } from "@/lib/seo";
 import { COMPENDIUM_CATEGORIES } from "@/lib/compendium/categories";
 import { loadCategoryItems } from "@/lib/compendium/loader";
+
+const COMPENDIUM_DESCRIPTION =
+  "The entity directory of the archive — factions, primarchs, characters, worlds and the authors behind the canon, each a doorway into its books and podcasts.";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/compendium" },
+  openGraph: routeOg({
+    title: "Compendium",
+    description: COMPENDIUM_DESCRIPTION,
+  }),
+};
 
 // Rendered per request, never prerendered at build. The overview's cold fill
 // (five category builders + the layout counts) is the heaviest aggregate in the

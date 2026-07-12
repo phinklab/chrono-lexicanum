@@ -15,8 +15,11 @@ import FloatingCoord from "@/components/chrono/FloatingCoord";
 import RouteScrollCue from "@/components/chrome/RouteScrollCue";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";
 
+// Title/description default for the whole segment; the overview page adds its
+// canonical itself and each category page overrides all three (canonicals must
+// NOT live in a layout — they would stamp every child with the same URL).
 export const metadata: Metadata = {
-  title: "Compendium — Chrono Lexicanum",
+  title: "Compendium",
   description:
     "The entity directory of the archive — factions, primarchs, characters, worlds and the authors behind the canon, each a doorway into its books and podcasts.",
 };

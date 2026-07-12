@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { routeOg } from "@/lib/seo";
 import SiteBackground from "@/components/chrome/SiteBackground";
 import ScrollScrim from "@/components/chrome/ScrollScrim";
 import FloatingCoord from "@/components/chrono/FloatingCoord";
@@ -15,10 +16,16 @@ import { getAskMatrixCell } from "@/lib/ask/matrix";
 import { buildAskProfile, recommend } from "@/lib/ask/recommend";
 import type { AskRecommendation, AskRecommendationResult } from "@/lib/ask/types";
 
+const ASK_DESCRIPTION =
+  "Two ways into the archive: answer four questions, or pick a faction and get a single curated Warhammer 40,000 novel to start with.";
+
+// Answer/`deeper` queries are steps of the one questionnaire — canonical
+// stays the bare /ask (URL matrix A.3).
 export const metadata: Metadata = {
-  title: "Find Your Next Book - Chrono Lexicanum",
-  description:
-    "Two ways into the archive: answer four questions, or pick a faction and get a single curated Warhammer 40,000 novel to start with.",
+  title: "Find Your Next Book",
+  description: ASK_DESCRIPTION,
+  alternates: { canonical: "/ask" },
+  openGraph: routeOg({ title: "Find Your Next Book", description: ASK_DESCRIPTION }),
 };
 
 interface AskPageProps {

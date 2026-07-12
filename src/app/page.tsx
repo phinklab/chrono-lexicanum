@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import AuspexPair from "@/components/chrono/AuspexPair";
 import FloatingCoord from "@/components/chrono/FloatingCoord";
 import GhostReadout from "@/components/chrono/GhostReadout";
@@ -8,9 +9,18 @@ import RouteScrollCue from "@/components/chrome/RouteScrollCue";
 import HomeSearch from "@/components/home/HomeSearch";
 import HomeExplore from "@/components/home/HomeExplore";
 import HubScrollReset from "@/components/home/HubScrollReset";
+import JsonLd from "@/components/seo/JsonLd";
+import { SITE_NAME } from "@/lib/seo";
+import { siteOrigin } from "@/lib/site-url";
 import { loadUnifiedSearchIndex } from "@/lib/search-index";
 
 export const revalidate = 3600;
+
+// Title/description/OG come from the root layout defaults (the Hub IS the
+// site); only the canonical is route-specific.
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default async function HubPage() {
   const { books, podcastData, searchIndex } = await loadUnifiedSearchIndex();
@@ -31,6 +41,25 @@ export default async function HubPage() {
   // 3 the grouped doorways. The fixed art + ScrollScrim sit behind all three.
   return (
     <main className="hub">
+      {/* schema.org WebSite: names the site for search engines and points the
+          Sitelinks-search action at the real /archive?q= entry. */}
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: SITE_NAME,
+          alternateName: "Chrono · Lexicanum",
+          url: `${siteOrigin()}/`,
+          potentialAction: {
+            "@type": "SearchAction",
+            target: {
+              "@type": "EntryPoint",
+              urlTemplate: `${siteOrigin()}/archive?q={search_term_string}`,
+            },
+            "query-input": "required name=search_term_string",
+          },
+        }}
+      />
       <HubScrollReset />
       <SiteBackground variant="main" position="right bottom" />
       <ScrollScrim

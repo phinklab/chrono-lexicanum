@@ -15,11 +15,16 @@ import { timingSafeEqualStr } from "@/lib/timingSafeEqual";
 // it self-checks the admin credential in its own handler precisely BECAUSE
 // the proxy is bypassed for it). Without that exclusion the preview gate
 // would 307-redirect them to /login, breaking the probe, the apply-script
-// webhook, and the console's cross-origin read. The admin-only paths below
-// additionally run the Basic-Auth admin detection.
+// webhook, and the console's cross-origin read. /monitoring is the Sentry
+// tunnel (S5): error beacons must land even from the pre-auth /login surface
+// (a 307 would silently eat them); the handler only relays envelopes for the
+// configured DSN. manifest.webmanifest + the app-dir icon files are metadata
+// assets every page references — gating them just 307s browser fetches into
+// /login HTML. The admin-only paths below additionally run the Basic-Auth
+// admin detection.
 export const config = {
   matcher: [
-    "/((?!_next/|login|imprint|privacy|artwork|healthz|api/revalidate|api/preview-invites|img/|audio/|timeline/|aquila\\.png|favicon\\.ico|robots\\.txt|sitemap\\.xml).*)",
+    "/((?!_next/|login|imprint|privacy|artwork|healthz|api/revalidate|api/preview-invites|monitoring|img/|audio/|timeline/|aquila\\.png|favicon\\.ico|icon\\.png|apple-icon\\.png|manifest\\.webmanifest|robots\\.txt|sitemap\\.xml).*)",
   ],
 };
 

@@ -12,6 +12,7 @@ import CornerAuspex from "@/components/chrono/CornerAuspex";
 import EntityBackLink from "@/components/entity/EntityBackLink";
 import EntityView from "@/components/entity/EntityView";
 import { listHotEntityIds, loadEntity } from "@/lib/entity/loader";
+import { entityPageMetadata } from "@/lib/entity/metadata";
 
 type Params = { slug: string };
 
@@ -37,8 +38,7 @@ export async function generateMetadata({
   params: Promise<Params>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const view = await loadEntity("location", slug);
-  return { title: view ? view.name : "Unknown world" };
+  return entityPageMetadata("location", slug, "Unknown world");
 }
 
 export default async function WorldPage({

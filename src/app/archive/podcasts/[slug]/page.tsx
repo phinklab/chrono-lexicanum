@@ -20,6 +20,9 @@ import RouteScrollCue from "@/components/chrome/RouteScrollCue";
 import PodcastEpisodeArchive from "@/components/podcast/PodcastEpisodeArchive";
 import ArchiveModeToggle from "@/components/archive/ArchiveModeToggle";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";
+import JsonLd from "@/components/seo/JsonLd";
+import { routeOg } from "@/lib/seo";
+import { siteOrigin } from "@/lib/site-url";
 import { loadPodcastShow } from "../loader";
 
 // Static shell, refreshed hourly — newly-ingested episodes surface without a
@@ -55,13 +58,22 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const show = await getShow(slug);
-  if (!show) return { title: "Podcast — Chrono Lexicanum" };
+  if (!show) return { title: "Podcast" };
   const span = yearSpan(show.firstPubYear, show.lastPubYear);
+  const description = `Every episode of ${show.title} — ${show.episodeCount} episodes${
+    span ? `, ${span}` : ""
+  }, entity-tagged and newest first. Play in place, download, or open in your app.`;
   return {
-    title: `${show.title} — Chrono Lexicanum`,
-    description: `Every episode of ${show.title} — ${show.episodeCount} episodes${
-      span ? `, ${span}` : ""
-    }, entity-tagged and newest first. Play in place, download, or open in your app.`,
+    title: show.title,
+    description,
+    // Episodes are `#ep-…` fragments of this one document (URL matrix A.1) —
+    // the show URL is the only canonical.
+    alternates: { canonical: `/archive/podcasts/${show.slug}` },
+    openGraph: routeOg({
+      title: show.title,
+      description,
+      ...(show.artUrl ? { images: [{ url: show.artUrl }] } : {}),
+    }),
   };
 }
 
@@ -87,6 +99,17 @@ export default async function PodcastShowPage({
 
   return (
     <main className="podcasts podcasts--show">
+      {/* schema.org PodcastSeries — series-level only; episodes are page
+          fragments, never their own URLs (URL matrix A.1). */}
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "PodcastSeries",
+          name: show.title,
+          url: `${siteOrigin()}/archive/podcasts/${show.slug}`,
+          ...(show.artUrl ? { image: show.artUrl } : {}),
+        }}
+      />
       <SiteBackground variant="main" position="right bottom" />
       <GhostReadout lines={voxLines} />
 

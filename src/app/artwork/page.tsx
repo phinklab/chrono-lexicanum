@@ -21,6 +21,7 @@ export const metadata: Metadata = {
   title: "Artwork",
   description:
     "Original background artwork of Chrono · Lexicanum — free to download.",
+  alternates: { canonical: "/artwork" },
 };
 
 const STORAGE =

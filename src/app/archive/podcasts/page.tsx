@@ -11,12 +11,17 @@ import ArchiveModeToggle from "@/components/archive/ArchiveModeToggle";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";
 import { loadUnifiedSearchIndex } from "@/lib/search-index";
 import { shortDayMonth } from "@/lib/dates";
+import { routeOg } from "@/lib/seo";
 import { loadPodcastIndex, type PodcastIndexShow } from "./loader";
 
+const PODCASTS_DESCRIPTION =
+  "The lore-podcast pillar of the archive — every show and episode, newest first, with a direct line to play, download or open in your app.";
+
 export const metadata: Metadata = {
-  title: "Podcasts — Chrono Lexicanum",
-  description:
-    "The lore-podcast pillar of the archive — every show and episode, newest first, with a direct line to play, download or open in your app.",
+  title: "Podcasts",
+  description: PODCASTS_DESCRIPTION,
+  alternates: { canonical: "/archive/podcasts" },
+  openGraph: routeOg({ title: "Podcasts", description: PODCASTS_DESCRIPTION }),
 };
 
 // Static shell, refreshed hourly (matches Home) so newly-ingested episodes
