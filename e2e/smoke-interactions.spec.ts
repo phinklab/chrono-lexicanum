@@ -30,8 +30,14 @@ test("site menu: focus model + inert background (320px)", async ({ page }) => {
   await expect(menu).toHaveAttribute("aria-hidden", "false");
   // The page behind the full-screen overlay must be unreachable for AT.
   await expect(main).toHaveAttribute("inert", "");
+  // The overlay's links are rendered and visible before we walk into them.
+  await expect(menu.locator("a").first()).toBeVisible();
 
   // Tab moves focus into the menu links (burger is first in the wrap order).
+  // Anchor the starting point explicitly: whether a CLICK leaves focus on the
+  // button is UA-dependent (one local run flaked on it) — this test pins the
+  // tab order into the overlay, not click-focus behaviour.
+  await burger.focus();
   await page.keyboard.press("Tab");
   const focusInMenu = await page.evaluate(() =>
     document.getElementById("site-menu")?.contains(document.activeElement),

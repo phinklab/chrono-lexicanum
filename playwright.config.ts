@@ -69,6 +69,12 @@ export default defineConfig({
       name: "live",
       testMatch: /smoke-live\.spec\.ts/,
       use: { baseURL: `http://127.0.0.1:${LIVE_PORT}` },
+      // The FIRST uncached /timeline render pays its DB roundtrips at WAN
+      // latency (local machine → Supabase EU) and has taken >60s on slow
+      // evenings; the rendered result is then cached and instant. Prod pays
+      // the same roundtrips intra-region. This suite asserts correctness,
+      // not a latency budget — give the first render room.
+      timeout: 180_000,
     },
   ],
   webServer: [
