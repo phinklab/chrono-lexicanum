@@ -32,7 +32,11 @@ export const SNAPSHOT_DIR = "scripts/snapshot-data";
  *   welten-rows.json       ← cachedWelten source        (WeltenRow[])
  *   personen-rows.json     ← cachedPersonen source      (PersonenRow[])
  *   entity-hot-ids.json    ← listHotEntityIds per type  (Record<EntityType, string[]>)
- * plus one entities/<type>/<id>.json per hot id (loadEntity → EntityView).
+ *   book-slugs.json        ← every works.kind='book' slug (string[], ascending)
+ *                            — the S5 sitemap source (S4b)
+ *   book-hot-slugs.json    ← listHotBookSlugs           (string[], S4b)
+ * plus one entities/<type>/<id>.json per hot id (loadEntity → EntityView)
+ * and one books/<slug>.json per hot book slug (loadBook → BookDetail, S4b).
  * The compendium snapshot cuts at the `cachedRead` SOURCE layer on purpose:
  * everything above it (items, counts, suggestions) is pure and stays DB-free
  * at build time, so S1b swaps exactly four source reads instead of forking
@@ -47,6 +51,8 @@ export const DATA_ARTIFACTS = {
   weltenRows: "welten-rows.json",
   personenRows: "personen-rows.json",
   entityHotIds: "entity-hot-ids.json",
+  bookSlugs: "book-slugs.json",
+  bookHotSlugs: "book-hot-slugs.json",
 } as const;
 
 export const MANIFEST_FILENAME = "manifest.json";
@@ -54,6 +60,11 @@ export const MANIFEST_FILENAME = "manifest.json";
 /** Snapshot-relative path of one hot entity's EntityView payload. */
 export function entityArtifactPath(type: EntityType, id: string): string {
   return `entities/${type}/${id}.json`;
+}
+
+/** Snapshot-relative path of one hot book's BookDetail payload (S4b). */
+export function bookArtifactPath(slug: string): string {
+  return `books/${slug}.json`;
 }
 
 // =============================================================================
@@ -103,6 +114,12 @@ export interface SnapshotCounts {
   personenRows: number;
   hotIds: Record<EntityType, number>;
   entityViews: number;
+  /** All works.kind='book' slugs — the sitemap source (S4b). */
+  bookSlugs: number;
+  /** Curated hot slugs ∩ live works table — the /book prerender set (S4b). */
+  hotBookSlugs: number;
+  /** Exported books/<slug>.json payloads — must equal hotBookSlugs (S4b). */
+  bookDetails: number;
 }
 
 export interface ManifestArtifact {
@@ -193,6 +210,10 @@ export const MIN_COUNTS = {
   charaktereRows: 250,
   weltenRows: 200,
   personenRows: 60,
+  // S4b: 73 curated hot books at introduction (65 starter picks + 8 marquee);
+  // half-floor like every other projection. bookSlugs carries no own floor —
+  // it must EQUAL books (same kind='book' base set, asserted below).
+  hotBookSlugs: 35,
 } as const;
 
 /** Throws listing EVERY floor violation (not just the first). */
@@ -212,6 +233,18 @@ export function assertPlausibleCounts(counts: SnapshotCounts): void {
   if (counts.entityViews !== hotTotal) {
     problems.push(
       `entityViews = ${counts.entityViews} ≠ hot-id total ${hotTotal} (missing hot-ID payloads)`,
+    );
+  }
+  // S4b invariants: the slug list and the browse projection share the same
+  // kind='book' base set, and every hot slug must have exported a payload.
+  if (counts.bookSlugs !== counts.books) {
+    problems.push(
+      `bookSlugs = ${counts.bookSlugs} ≠ books ${counts.books} (slug list drifted from the browse projection)`,
+    );
+  }
+  if (counts.bookDetails !== counts.hotBookSlugs) {
+    problems.push(
+      `bookDetails = ${counts.bookDetails} ≠ hotBookSlugs ${counts.hotBookSlugs} (missing hot-book payloads)`,
     );
   }
   if (problems.length > 0) {

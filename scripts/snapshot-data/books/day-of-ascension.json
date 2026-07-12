@@ -1,0 +1,132 @@
+{
+  "id": "8aa1e461-9f9e-4089-bcc7-afbb2ece6adc",
+  "slug": "day-of-ascension",
+  "title": "Day of Ascension",
+  "synopsis": "On the forge world Morod, workers spend their lives feeding machines while the Adeptus Mechanicus rule from palatial heights. Genetor Gammat Triskellian sees rot in that stagnation and discovers a hidden congregation promising salvation through angels; the cult sees the same hour as the long-awaited day of ascension. The truth is Genestealer, but the novel lets both sides argue from hunger, faith, and the need to break a world that is already devouring its people. Investigator and convert both get moral teeth before the trap closes. Reform, rebellion, and damnation blur into one uprising. A dual-POV industrial nightmare in a philosophical-cosmic-horror key.",
+  "coverUrl": null,
+  "releaseYear": 2022,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "adrian_tchaikovsky",
+      "name": "Adrian Tchaikovsky",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "genestealer_cults",
+      "name": "Genestealer Cults",
+      "role": "primary"
+    },
+    {
+      "id": "mechanicus",
+      "name": "Adeptus Mechanicus",
+      "role": "primary"
+    },
+    {
+      "id": "tyranids",
+      "name": "Tyranids",
+      "role": "supporting"
+    }
+  ],
+  "locations": [
+    {
+      "id": "morod",
+      "name": "Morod",
+      "role": "primary"
+    }
+  ],
+  "characters": [],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Short Novel",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "Mystery",
+      "category": "plot_type"
+    },
+    {
+      "name": "Political Thriller",
+      "category": "plot_type"
+    },
+    {
+      "name": "Dual",
+      "category": "pov_side"
+    },
+    {
+      "name": "Multi-class",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Ensemble",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Planetary",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Faith",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Sacrifice",
+      "category": "theme"
+    },
+    {
+      "name": "Cosmic Horror",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Philosophical",
+      "category": "tone"
+    },
+    {
+      "name": "Somber",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

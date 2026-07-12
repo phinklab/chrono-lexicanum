@@ -28,7 +28,7 @@
           "releaseYear": 2009,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/salamander",
+          "href": "/book/salamander",
           "showTitle": null
         },
         {
@@ -38,7 +38,7 @@
           "releaseYear": 2010,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/firedrake",
+          "href": "/book/firedrake",
           "showTitle": null
         },
         {
@@ -48,7 +48,7 @@
           "releaseYear": 2011,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/nocturne",
+          "href": "/book/nocturne",
           "showTitle": null
         },
         {
@@ -58,7 +58,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/tome-of-fire",
+          "href": "/book/tome-of-fire",
           "showTitle": null
         },
         {
@@ -68,7 +68,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/salamanders-rebirth",
+          "href": "/book/salamanders-rebirth",
           "showTitle": null
         },
         {
@@ -78,7 +78,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/salamanders-the-omnibus",
+          "href": "/book/salamanders-the-omnibus",
           "showTitle": null
         },
         {
@@ -88,7 +88,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/vulkan-lives",
+          "href": "/book/vulkan-lives",
           "showTitle": null
         },
         {
@@ -98,7 +98,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/deathfire",
+          "href": "/book/deathfire",
           "showTitle": null
         },
         {
@@ -108,7 +108,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/sons-of-the-forge",
+          "href": "/book/sons-of-the-forge",
           "showTitle": null
         },
         {
@@ -118,7 +118,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/old-earth",
+          "href": "/book/old-earth",
           "showTitle": null
         },
         {
@@ -128,7 +128,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/born-of-flame",
+          "href": "/book/born-of-flame",
           "showTitle": null
         },
         {
@@ -138,7 +138,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/vulkan-lord-of-drakes",
+          "href": "/book/vulkan-lord-of-drakes",
           "showTitle": null
         },
         {
@@ -148,7 +148,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/mercy-of-the-dragon",
+          "href": "/book/mercy-of-the-dragon",
           "showTitle": null
         }
       ]

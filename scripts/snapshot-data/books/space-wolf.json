@@ -1,0 +1,169 @@
+{
+  "id": "2890a6ba-6247-49ca-9f95-5f78bc0905a2",
+  "slug": "space-wolf",
+  "title": "Space Wolf",
+  "synopsis": "On Fenris, Ragnar of the Thunderfist tribe is left dying after Strybjorn Grimskull destroys his family and his world. The Space Wolves take both enemies to the Fang, where gene-seed trials, Blood Claw brutality and Wolf Priest Ranek's discipline turn tribal fury into Chapter loyalty. Ragnar's hatred of Strybjorn has to survive pack-bond, war and the Curse of the Wulfen, especially when his friend Kjel falls to the beast within. A harsh coming-of-age saga of ice, blood-feud and the making of Ragnar Blackmane.",
+  "coverUrl": null,
+  "releaseYear": 1999,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": "time_ending",
+  "eraName": "Time of Ending",
+  "persons": [
+    {
+      "id": "william_king",
+      "name": "William King",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "adeptus_astartes",
+      "name": "Adeptus Astartes",
+      "role": "primary"
+    },
+    {
+      "id": "chaos",
+      "name": "Chaos",
+      "role": "antagonist"
+    },
+    {
+      "id": "space_wolves",
+      "name": "Space Wolves",
+      "role": "primary"
+    }
+  ],
+  "locations": [
+    {
+      "id": "asaheim",
+      "name": "Asaheim",
+      "role": "secondary"
+    },
+    {
+      "id": "fang",
+      "name": "The Fang",
+      "role": "primary"
+    },
+    {
+      "id": "fenris",
+      "name": "Fenris",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "kjel",
+      "name": "Kjel",
+      "role": "appears"
+    },
+    {
+      "id": "ragnar_blackmane",
+      "name": "Ragnar Blackmane",
+      "role": "pov"
+    },
+    {
+      "id": "ranek",
+      "name": "Ranek",
+      "role": "appears"
+    },
+    {
+      "id": "strybjorn_grimskull",
+      "name": "Strybjorn Grimskull",
+      "role": "appears"
+    },
+    {
+      "id": "sven_brujothirson",
+      "name": "Sven Brujothirson",
+      "role": "appears"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Series Start",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "Journey",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Planetary",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Brotherhood",
+      "category": "theme"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Sacrifice",
+      "category": "theme"
+    },
+    {
+      "name": "War",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    }
+  ],
+  "containedIn": [
+    {
+      "collectionSlug": "the-space-wolf-omnibus",
+      "collectionTitle": "The Space Wolf Omnibus"
+    }
+  ]
+}

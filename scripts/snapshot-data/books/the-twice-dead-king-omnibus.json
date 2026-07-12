@@ -1,0 +1,149 @@
+{
+  "id": "97d9bd39-3131-40fa-b11b-4ce54a0b4c25",
+  "slug": "the-twice-dead-king-omnibus",
+  "title": "The Twice-Dead King Omnibus",
+  "synopsis": "Nate Crowley's complete Twice-Dead King in one volume: the duology Ruin and Reign — exiled lord Oltyx's reckoning with the brother who broke him, the orks at his gates, and the flayer curse rotting his own court from within — together with the novella Severed and a clutch of shorter pieces that fill out the same dynasty's long, weary history. Read end to end, the omnibus traces a kind of necron tragedy: a species that traded life for immortality and now spends eternity defending the bargain it made, told through one disgraced lord who is slowly remembering what was taken from him. A natural entry point for readers who want the whole arc — court intrigue, crownworld siege, fleet exodus — in a single doorstopper.",
+  "coverUrl": null,
+  "releaseYear": 2025,
+  "format": "omnibus",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "nate_crowley",
+      "name": "Nate Crowley",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "imperial_navy",
+      "name": "Imperial Navy",
+      "role": "antagonist"
+    },
+    {
+      "id": "necrons",
+      "name": "Necrons",
+      "role": "primary"
+    },
+    {
+      "id": "orks",
+      "name": "Orks",
+      "role": "antagonist"
+    }
+  ],
+  "locations": [
+    {
+      "id": "antikef",
+      "name": "Antikef",
+      "role": "primary"
+    },
+    {
+      "id": "sedh",
+      "name": "Sedh",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "djoseras",
+      "name": "Djoseras",
+      "role": "appears"
+    },
+    {
+      "id": "oltyx",
+      "name": "Oltyx",
+      "role": "pov"
+    },
+    {
+      "id": "yenekh",
+      "name": "Yenekh",
+      "role": "appears"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Doorstopper",
+      "category": "length_tier"
+    },
+    {
+      "name": "Journey",
+      "category": "plot_type"
+    },
+    {
+      "name": "Last Stand",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Xenos",
+      "category": "pov_side"
+    },
+    {
+      "name": "Xenos",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Galactic",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Sacrifice",
+      "category": "theme"
+    },
+    {
+      "name": "Cosmic Horror",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Philosophical",
+      "category": "tone"
+    },
+    {
+      "name": "Somber",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

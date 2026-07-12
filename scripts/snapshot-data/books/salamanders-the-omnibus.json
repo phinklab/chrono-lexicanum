@@ -1,0 +1,155 @@
+{
+  "id": "2546e3f6-ab45-4962-90a9-13d8db6e6d90",
+  "slug": "salamanders-the-omnibus",
+  "title": "Salamanders: The Omnibus",
+  "synopsis": "The complete Tome of Fire trilogy in a single volume, gathering Salamander, Firedrake and Nocturne along with a selection of short stories. On the volcanic world of Nocturne, the Salamanders are a Chapter apart, equal parts smith and warrior. Across these linked tales two rival battle-brothers, the visionary Dak'ir and the proud Tsu'gan, are caught in the unfolding of an ancient prophecy as the renegade Nihilan musters Dragon Warriors, Dark Eldar and Chaos renegades for a war of vengeance. From the hunt for a lost relic, through a desperate rescue in a corsair port, to the final battle for Nocturne itself, this is the full saga of the sons of Vulkan and the price they pay to defend their home.",
+  "coverUrl": null,
+  "releaseYear": 2013,
+  "format": "omnibus",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "nick_kyme",
+      "name": "Nick Kyme",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "dragon_warriors",
+      "name": "Dragon Warriors",
+      "role": "antagonist"
+    },
+    {
+      "id": "drukhari",
+      "name": "Drukhari",
+      "role": "antagonist"
+    },
+    {
+      "id": "salamanders",
+      "name": "Salamanders",
+      "role": "primary"
+    }
+  ],
+  "locations": [
+    {
+      "id": "nocturne",
+      "name": "Nocturne",
+      "role": "primary"
+    },
+    {
+      "id": "port_of_anguish",
+      "name": "Port of Anguish",
+      "role": "secondary"
+    },
+    {
+      "id": "stratos",
+      "name": "Stratos",
+      "role": "secondary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "dakir",
+      "name": "Dak'ir",
+      "role": "pov"
+    },
+    {
+      "id": "elysius",
+      "name": "Elysius",
+      "role": "appears"
+    },
+    {
+      "id": "nihilan",
+      "name": "Nihilan",
+      "role": "appears"
+    },
+    {
+      "id": "tsugan",
+      "name": "Tsu'gan",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Series Start",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Doorstopper",
+      "category": "length_tier"
+    },
+    {
+      "name": "Journey",
+      "category": "plot_type"
+    },
+    {
+      "name": "Siege",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Company",
+      "category": "scope"
+    },
+    {
+      "name": "Planetary",
+      "category": "scope"
+    },
+    {
+      "name": "Brotherhood",
+      "category": "theme"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Sacrifice",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

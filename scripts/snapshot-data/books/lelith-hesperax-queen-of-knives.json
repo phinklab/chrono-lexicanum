@@ -1,0 +1,97 @@
+{
+  "id": "2de7fa60-65a1-419e-87c7-519b1c6f806b",
+  "slug": "lelith-hesperax-queen-of-knives",
+  "title": "Lelith Hesperax: Queen of Knives",
+  "synopsis": "Lelith Hesperax — peerless Succubus of the Cult of Strife and undisputed champion of Commorragh's arenas — takes to the road alongside the enigmatic Ynnari death cult.",
+  "coverUrl": null,
+  "releaseYear": 2024,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "mike_brooks",
+      "name": "Mike Brooks",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "drukhari",
+      "name": "Drukhari",
+      "role": "primary"
+    },
+    {
+      "id": "ynnari",
+      "name": "Ynnari",
+      "role": "supporting"
+    }
+  ],
+  "locations": [
+    {
+      "id": "commorragh",
+      "name": "Commorragh",
+      "role": "mentioned"
+    }
+  ],
+  "characters": [
+    {
+      "id": "lelith_hesperax",
+      "name": "Lelith Hesperax",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "Journey",
+      "category": "plot_type"
+    },
+    {
+      "name": "Xenos",
+      "category": "pov_side"
+    },
+    {
+      "name": "Xenos",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Female",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Galactic",
+      "category": "scope"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

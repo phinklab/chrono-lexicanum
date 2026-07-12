@@ -15,7 +15,7 @@
           "releaseYear": 1999,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/space-wolf",
+          "href": "/book/space-wolf",
           "showTitle": null
         },
         {
@@ -25,7 +25,7 @@
           "releaseYear": 2000,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/ragnars-claw",
+          "href": "/book/ragnars-claw",
           "showTitle": null
         },
         {
@@ -35,7 +35,7 @@
           "releaseYear": 2002,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/farseer",
+          "href": "/book/farseer",
           "showTitle": null
         },
         {
@@ -45,7 +45,7 @@
           "releaseYear": 2002,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/grey-hunter",
+          "href": "/book/grey-hunter",
           "showTitle": null
         },
         {
@@ -55,7 +55,7 @@
           "releaseYear": 2003,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/wolfblade",
+          "href": "/book/wolfblade",
           "showTitle": null
         },
         {
@@ -65,7 +65,7 @@
           "releaseYear": 2008,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-space-wolf-omnibus",
+          "href": "/book/the-space-wolf-omnibus",
           "showTitle": null
         },
         {
@@ -75,7 +75,7 @@
           "releaseYear": 2009,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/space-wolf-the-second-omnibus",
+          "href": "/book/space-wolf-the-second-omnibus",
           "showTitle": null
         },
         {
@@ -85,7 +85,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/angel-of-fire",
+          "href": "/book/angel-of-fire",
           "showTitle": null
         },
         {
@@ -95,7 +95,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/fist-of-demetrius",
+          "href": "/book/fist-of-demetrius",
           "showTitle": null
         },
         {
@@ -105,7 +105,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/fall-of-macharius",
+          "href": "/book/fall-of-macharius",
           "showTitle": null
         },
         {
@@ -115,7 +115,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-macharian-crusade-omnibus",
+          "href": "/book/the-macharian-crusade-omnibus",
           "showTitle": null
         }
       ]

@@ -1,0 +1,165 @@
+{
+  "id": "87b78e93-f1cf-471e-a3fb-1a4ddb55b3de",
+  "slug": "xenos",
+  "title": "Xenos",
+  "synopsis": "Inquisitor Gregor Eisenhorn of the Ordo Xenos pursues a renegade rogue trader on the ice-world of Hubris and unravels the cult of Pontius Glaw — a discarnate scion of an executed heretic family whose preserved consciousness sells xenos artefacts to anyone willing to pay in souls. The trail crosses the hive of Thracian Primaris and the agri-world of Damask, and forces Eisenhorn into first contact with an alien intelligence that bargains in centuries. He acquires a retinue — savant Aemos, the pariah Bequin, pilot Midas Betancore — and reads, against orders, from the proscribed Necroteuch. Along the way he learns that Inquisitors can become the thing they hunt, and that the slow seduction of useful means is how heretics first persuade themselves.",
+  "coverUrl": null,
+  "releaseYear": 2001,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": "eisenhorn",
+  "seriesName": "Eisenhorn",
+  "seriesIndex": 1,
+  "primaryEraId": "time_ending",
+  "eraName": "Time of Ending",
+  "persons": [
+    {
+      "id": "dan_abnett",
+      "name": "Dan Abnett",
+      "role": "author",
+      "displayOrder": 0
+    },
+    {
+      "id": "toby_longworth",
+      "name": "Toby Longworth",
+      "role": "narrator",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "chaos",
+      "name": "Chaos",
+      "role": "antagonist"
+    },
+    {
+      "id": "inquisition",
+      "name": "Inquisition",
+      "role": "primary"
+    },
+    {
+      "id": "ordo_xenos",
+      "name": "Ordo Xenos",
+      "role": "primary"
+    }
+  ],
+  "locations": [
+    {
+      "id": "damask",
+      "name": "Damask",
+      "role": "secondary"
+    },
+    {
+      "id": "helican",
+      "name": "Helican Subsector",
+      "role": "mentioned"
+    },
+    {
+      "id": "hubris",
+      "name": "Hubris",
+      "role": "primary"
+    },
+    {
+      "id": "thracian_primaris",
+      "name": "Thracian Primaris",
+      "role": "secondary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "alizebeth_bequin",
+      "name": "Alizebeth Bequin",
+      "role": "appears"
+    },
+    {
+      "id": "godwyn_fischig",
+      "name": "Godwyn Fischig",
+      "role": "appears"
+    },
+    {
+      "id": "gregor_eisenhorn",
+      "name": "Gregor Eisenhorn",
+      "role": "pov"
+    },
+    {
+      "id": "midas_betancore",
+      "name": "Midas Betancore",
+      "role": "appears"
+    },
+    {
+      "id": "pontius_glaw",
+      "name": "Pontius Glaw",
+      "role": "appears"
+    },
+    {
+      "id": "uber_aemos",
+      "name": "Uber Aemos",
+      "role": "appears"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Series Start",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Journey",
+      "category": "plot_type"
+    },
+    {
+      "name": "Mystery",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Inquisitor",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Sector",
+      "category": "scope"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Philosophical",
+      "category": "tone"
+    }
+  ],
+  "containedIn": [
+    {
+      "collectionSlug": "eisenhorn-omnibus",
+      "collectionTitle": "Eisenhorn Omnibus"
+    }
+  ]
+}

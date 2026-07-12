@@ -1,0 +1,169 @@
+{
+  "id": "e0d839dc-1fc1-4587-9d30-96cec5ceef44",
+  "slug": "the-emperors-gift",
+  "title": "The Emperor's Gift",
+  "synopsis": "First-person Grey Knights novel narrated in retrospect by Hyperion of Squad Castian, covering the chapter's part in the First War of Armageddon and the intra-Imperium fallout remembered as the Months of Shame. Hyperion grows up inside Castian under Justicar Galeo as the squad's daemon-eradication work pulls them across the war and the warp around it. Annika Jarlsdottir — a Fenrisian Inquisitor whose home-world loyalty to Logan Grimnar's Space Wolves collides with Grey Knights methods — anchors the Inquisition end and brings the chapter into a later confrontation with the Wolves over the fate of Armageddon's survivors. Somber and reflective rather than action-march: incorruptible but not infallible, the moral cost is the load-bearing spine.",
+  "coverUrl": null,
+  "releaseYear": 2012,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "aaron_dembski_bowden",
+      "name": "Aaron Dembski-Bowden",
+      "role": "author",
+      "displayOrder": 0
+    },
+    {
+      "id": "christopher_kent",
+      "name": "Christopher Kent",
+      "role": "narrator",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "adeptus_astartes",
+      "name": "Adeptus Astartes",
+      "role": "primary"
+    },
+    {
+      "id": "astra_militarum",
+      "name": "Astra Militarum",
+      "role": "supporting"
+    },
+    {
+      "id": "daemons",
+      "name": "Daemons",
+      "role": "antagonist"
+    },
+    {
+      "id": "grey_knights",
+      "name": "Grey Knights",
+      "role": "primary"
+    },
+    {
+      "id": "inquisition",
+      "name": "Inquisition",
+      "role": "primary"
+    },
+    {
+      "id": "ordo_malleus",
+      "name": "Ordo Malleus",
+      "role": "supporting"
+    },
+    {
+      "id": "space_wolves",
+      "name": "Space Wolves",
+      "role": "antagonist"
+    }
+  ],
+  "locations": [
+    {
+      "id": "armageddon",
+      "name": "Armageddon",
+      "role": "primary"
+    },
+    {
+      "id": "fenris",
+      "name": "Fenris",
+      "role": "mentioned"
+    }
+  ],
+  "characters": [
+    {
+      "id": "logan_grimnar",
+      "name": "Logan Grimnar",
+      "role": "appears"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "Political Thriller",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Galactic",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Brotherhood",
+      "category": "theme"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Sacrifice",
+      "category": "theme"
+    },
+    {
+      "name": "Cosmic Horror",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Philosophical",
+      "category": "tone"
+    },
+    {
+      "name": "Somber",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

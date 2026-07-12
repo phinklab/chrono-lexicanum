@@ -28,7 +28,7 @@
           "releaseYear": 2007,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/descent-of-angels",
+          "href": "/book/descent-of-angels",
           "showTitle": null
         },
         {
@@ -38,7 +38,7 @@
           "releaseYear": 2009,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/fallen-angels",
+          "href": "/book/fallen-angels",
           "showTitle": null
         },
         {
@@ -48,7 +48,7 @@
           "releaseYear": 2009,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/tales-of-heresy",
+          "href": "/book/tales-of-heresy",
           "showTitle": null
         },
         {
@@ -58,7 +58,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/grey-angel",
+          "href": "/book/grey-angel",
           "showTitle": null
         },
         {
@@ -68,7 +68,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/cypher-guardian-of-order",
+          "href": "/book/cypher-guardian-of-order",
           "showTitle": null
         },
         {
@@ -78,7 +78,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": "mentioned",
-          "href": "/buch/luna-mendax",
+          "href": "/book/luna-mendax",
           "showTitle": null
         },
         {
@@ -88,7 +88,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/master-of-the-first",
+          "href": "/book/master-of-the-first",
           "showTitle": null
         },
         {
@@ -98,7 +98,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/angels-of-caliban",
+          "href": "/book/angels-of-caliban",
           "showTitle": null
         },
         {
@@ -108,7 +108,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": "mentioned",
-          "href": "/buch/dreadwing",
+          "href": "/book/dreadwing",
           "showTitle": null
         },
         {
@@ -118,7 +118,7 @@
           "releaseYear": 2021,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/luther-first-of-the-fallen",
+          "href": "/book/luther-first-of-the-fallen",
           "showTitle": null
         },
         {
@@ -128,7 +128,7 @@
           "releaseYear": 2023,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-lion-sons-of-the-forest",
+          "href": "/book/the-lion-sons-of-the-forest",
           "showTitle": null
         }
       ]

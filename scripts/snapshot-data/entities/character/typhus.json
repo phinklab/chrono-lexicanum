@@ -29,7 +29,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-lion",
+          "href": "/book/the-lion",
           "showTitle": null
         },
         {
@@ -39,7 +39,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/by-the-lions-command",
+          "href": "/book/by-the-lions-command",
           "showTitle": null
         },
         {
@@ -49,7 +49,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/exocytosis",
+          "href": "/book/exocytosis",
           "showTitle": null
         },
         {
@@ -59,7 +59,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/plague-war",
+          "href": "/book/plague-war",
           "showTitle": null
         },
         {
@@ -69,7 +69,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-buried-dagger",
+          "href": "/book/the-buried-dagger",
           "showTitle": null
         },
         {
@@ -79,7 +79,7 @@
           "releaseYear": 2024,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-end-and-the-death-vol-3",
+          "href": "/book/the-end-and-the-death-vol-3",
           "showTitle": null
         }
       ]

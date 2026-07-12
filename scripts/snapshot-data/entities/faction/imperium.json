@@ -25,7 +25,7 @@
           "releaseYear": 2010,
           "coverUrl": null,
           "role": "antagonist",
-          "href": "/buch/daenyathos",
+          "href": "/book/daenyathos",
           "showTitle": null
         },
         {
@@ -35,7 +35,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/ghost-of-nuceria",
+          "href": "/book/ghost-of-nuceria",
           "showTitle": null
         },
         {
@@ -45,7 +45,7 @@
           "releaseYear": 2020,
           "coverUrl": null,
           "role": "antagonist",
-          "href": "/buch/the-infinite-and-the-divine",
+          "href": "/book/the-infinite-and-the-divine",
           "showTitle": null
         },
         {
@@ -55,7 +55,7 @@
           "releaseYear": 2020,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/traitor-by-deed",
+          "href": "/book/traitor-by-deed",
           "showTitle": null
         },
         {
@@ -65,7 +65,7 @@
           "releaseYear": 2022,
           "coverUrl": null,
           "role": "background",
-          "href": "/buch/shadowsun-the-patient-hunter",
+          "href": "/book/shadowsun-the-patient-hunter",
           "showTitle": null
         },
         {
@@ -75,7 +75,7 @@
           "releaseYear": 2023,
           "coverUrl": null,
           "role": "antagonist",
-          "href": "/buch/warboss",
+          "href": "/book/warboss",
           "showTitle": null
         },
         {
@@ -85,7 +85,7 @@
           "releaseYear": 2024,
           "coverUrl": null,
           "role": "antagonist",
-          "href": "/buch/elemental-council",
+          "href": "/book/elemental-council",
           "showTitle": null
         }
       ]

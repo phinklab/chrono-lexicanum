@@ -29,7 +29,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/horus-heresy-the-scripts-volume-i",
+          "href": "/book/horus-heresy-the-scripts-volume-i",
           "showTitle": null
         },
         {
@@ -39,7 +39,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/templar",
+          "href": "/book/templar",
           "showTitle": null
         },
         {
@@ -49,7 +49,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/champion-of-oaths",
+          "href": "/book/champion-of-oaths",
           "showTitle": null
         },
         {
@@ -59,7 +59,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/praetorian-of-dorn",
+          "href": "/book/praetorian-of-dorn",
           "showTitle": null
         },
         {
@@ -69,7 +69,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/the-solar-war",
+          "href": "/book/the-solar-war",
           "showTitle": null
         },
         {
@@ -79,7 +79,7 @@
           "releaseYear": 2021,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/mortis",
+          "href": "/book/mortis",
           "showTitle": null
         },
         {
@@ -89,7 +89,7 @@
           "releaseYear": 2022,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/sigismund-the-eternal-crusader",
+          "href": "/book/sigismund-the-eternal-crusader",
           "showTitle": null
         }
       ]

@@ -1,0 +1,135 @@
+{
+  "id": "92d92f34-b93c-44bb-bac3-8a4f73b75657",
+  "slug": "rites-of-passage",
+  "title": "Rites of Passage",
+  "synopsis": "Lord Azariel of House Brobantis is dead, and his widow Chettamandey knows exactly who killed him: she did. The frail, brilliant Navigator expects to inherit his power, until ritual murders begin targeting the Navis Nobilite and harvesting their warp-eyes. On Vorlese, the Chaos-touched Radimir Niklau turns the aftermath of his Galimo Prime rite into a campaign of surgical assassinations, forcing Chettamandey into a house-politics investigation where every ally has a price. A court-intrigue mystery inside the Navigator Houses, with old age, ambition and warp-sight made dangerous.",
+  "coverUrl": null,
+  "releaseYear": 2019,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "mike_brooks",
+      "name": "Mike Brooks",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "chaos",
+      "name": "Chaos",
+      "role": "antagonist"
+    },
+    {
+      "id": "house_brobantis",
+      "name": "House Brobantis",
+      "role": "primary"
+    },
+    {
+      "id": "navis_nobilite",
+      "name": "Navis Nobilite",
+      "role": "primary"
+    }
+  ],
+  "locations": [
+    {
+      "id": "galimo_prime",
+      "name": "Galimo Prime",
+      "role": "mentioned"
+    },
+    {
+      "id": "vorlese",
+      "name": "Vorlese",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "lady_chettamandey_brobantis",
+      "name": "Lady Chettamandey Brobantis",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Series Start",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Court Intrigue",
+      "category": "plot_type"
+    },
+    {
+      "name": "Mystery",
+      "category": "plot_type"
+    },
+    {
+      "name": "Political Thriller",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Civilian",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Female",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Planetary",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Philosophical",
+      "category": "tone"
+    },
+    {
+      "name": "Somber",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

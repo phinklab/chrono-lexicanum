@@ -29,7 +29,7 @@
           "releaseYear": 2009,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/tales-of-heresy",
+          "href": "/book/tales-of-heresy",
           "showTitle": null
         },
         {
@@ -39,7 +39,7 @@
           "releaseYear": 2010,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-first-heretic",
+          "href": "/book/the-first-heretic",
           "showTitle": null
         },
         {
@@ -49,7 +49,7 @@
           "releaseYear": 2011,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/aurelian",
+          "href": "/book/aurelian",
           "showTitle": null
         },
         {
@@ -59,7 +59,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/butchers-nails",
+          "href": "/book/butchers-nails",
           "showTitle": null
         },
         {
@@ -69,7 +69,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/know-no-fear",
+          "href": "/book/know-no-fear",
           "showTitle": null
         },
         {
@@ -79,7 +79,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/angron",
+          "href": "/book/angron",
           "showTitle": null
         },
         {
@@ -89,7 +89,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/betrayer",
+          "href": "/book/betrayer",
           "showTitle": null
         },
         {
@@ -99,7 +99,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/heart-of-the-conqueror",
+          "href": "/book/heart-of-the-conqueror",
           "showTitle": null
         },
         {
@@ -109,7 +109,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-purge",
+          "href": "/book/the-purge",
           "showTitle": null
         },
         {
@@ -119,7 +119,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/crusades-end",
+          "href": "/book/crusades-end",
           "showTitle": null
         },
         {
@@ -129,7 +129,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/child-of-chaos",
+          "href": "/book/child-of-chaos",
           "showTitle": null
         },
         {
@@ -139,7 +139,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/eye-of-terra",
+          "href": "/book/eye-of-terra",
           "showTitle": null
         },
         {
@@ -149,7 +149,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/lorgar-bearer-of-the-word",
+          "href": "/book/lorgar-bearer-of-the-word",
           "showTitle": null
         },
         {
@@ -159,7 +159,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/slaves-to-darkness",
+          "href": "/book/slaves-to-darkness",
           "showTitle": null
         },
         {
@@ -169,7 +169,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/the-revelation-of-the-word",
+          "href": "/book/the-revelation-of-the-word",
           "showTitle": null
         },
         {
@@ -179,7 +179,7 @@
           "releaseYear": 2026,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/zardu-layak-the-crimson-apostle",
+          "href": "/book/zardu-layak-the-crimson-apostle",
           "showTitle": null
         }
       ]

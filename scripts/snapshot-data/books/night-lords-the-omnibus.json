@@ -1,0 +1,229 @@
+{
+  "id": "f419f040-80b7-4114-b5be-e5e9dfbedd11",
+  "slug": "night-lords-the-omnibus",
+  "title": "Night Lords: The Omnibus",
+  "synopsis": "The complete saga of the galaxy's most feared traitors, collecting the Night Lords trilogy — Soul Hunter, Blood Reaver and Void Stalker — alongside the short fiction that frames it. Follow Talos, prophet of a murdered Primarch, and his brothers of First Claw across ten thousand years of bitterness: from a black crusade against the forge world of Crythe, through a treacherous alliance with Huron Blackheart's Red Corsairs, to a final hunt on the haunted world of Tsagualsa where the Eldar move to end them. A study of damnation, brotherhood and the long shadow of betrayal, told entirely from the side of the damned.",
+  "coverUrl": null,
+  "releaseYear": 2014,
+  "format": "omnibus",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "aaron_dembski_bowden",
+      "name": "Aaron Dembski-Bowden",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "black_legion",
+      "name": "Black Legion",
+      "role": "supporting"
+    },
+    {
+      "id": "eldar",
+      "name": "Aeldari",
+      "role": "antagonist"
+    },
+    {
+      "id": "marines_errant",
+      "name": "Marines Errant",
+      "role": "antagonist"
+    },
+    {
+      "id": "mechanicus",
+      "name": "Adeptus Mechanicus",
+      "role": "antagonist"
+    },
+    {
+      "id": "night_lords",
+      "name": "Night Lords",
+      "role": "primary"
+    },
+    {
+      "id": "red_corsairs",
+      "name": "Red Corsairs",
+      "role": "supporting"
+    }
+  ],
+  "locations": [
+    {
+      "id": "crythe",
+      "name": "Crythe",
+      "role": "secondary"
+    },
+    {
+      "id": "maelstrom",
+      "name": "Maelstrom",
+      "role": "secondary"
+    },
+    {
+      "id": "tsagualsa",
+      "name": "Tsagualsa",
+      "role": "secondary"
+    },
+    {
+      "id": "vilamus",
+      "name": "Vilamus",
+      "role": "secondary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "cyrion",
+      "name": "Cyrion",
+      "role": "appears"
+    },
+    {
+      "id": "huron_blackheart",
+      "name": "Huron Blackheart",
+      "role": "appears"
+    },
+    {
+      "id": "mercutian",
+      "name": "Mercutian",
+      "role": "appears"
+    },
+    {
+      "id": "octavia",
+      "name": "Octavia",
+      "role": "appears"
+    },
+    {
+      "id": "septimus",
+      "name": "Septimus",
+      "role": "appears"
+    },
+    {
+      "id": "talos",
+      "name": "Talos",
+      "role": "pov"
+    },
+    {
+      "id": "the_exalted",
+      "name": "The Exalted",
+      "role": "appears"
+    },
+    {
+      "id": "uzas",
+      "name": "Uzas",
+      "role": "appears"
+    },
+    {
+      "id": "variel_the_flayer",
+      "name": "Variel the Flayer",
+      "role": "appears"
+    },
+    {
+      "id": "xarl",
+      "name": "Xarl",
+      "role": "appears"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Series Start",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Doorstopper",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "Last Stand",
+      "category": "plot_type"
+    },
+    {
+      "name": "Siege",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Chaos",
+      "category": "pov_side"
+    },
+    {
+      "name": "Xenos",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Galactic",
+      "category": "scope"
+    },
+    {
+      "name": "Sector",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Brotherhood",
+      "category": "theme"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Sacrifice",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Philosophical",
+      "category": "tone"
+    },
+    {
+      "name": "Somber",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

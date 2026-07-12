@@ -1,0 +1,135 @@
+{
+  "id": "ed51b60c-e550-40a4-a47c-98ada7d98ae9",
+  "slug": "helsreach",
+  "title": "Helsreach",
+  "synopsis": "When the orks of a vast Waaagh! descend on the industrial world of Armageddon, the Black Templars are among the Chapters that answer the call. Reclusiarch Grimaldus, newly raised to his office and wrestling with his own crisis of faith, is charged with holding the sprawling Hive Helsreach against the xenos flood. Alongside the soldiers of the Armageddon Steel Legion and the towering war-engines of Legio Invigilata, his small band of Templars must turn the hive into a fortress. As the greenskins keep coming and the defenders dwindle, Grimaldus resolves to sell their lives at a terrible price, making his stand in an Imperial temple where faith and fury are all that remain. A defining tale of the Third War for Armageddon.",
+  "coverUrl": null,
+  "releaseYear": 2010,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": "time_ending",
+  "eraName": "Time of Ending",
+  "persons": [
+    {
+      "id": "aaron_dembski_bowden",
+      "name": "Aaron Dembski-Bowden",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "astra_militarum",
+      "name": "Astra Militarum",
+      "role": "supporting"
+    },
+    {
+      "id": "black_templars",
+      "name": "Black Templars",
+      "role": "primary"
+    },
+    {
+      "id": "orks",
+      "name": "Orks",
+      "role": "antagonist"
+    }
+  ],
+  "locations": [
+    {
+      "id": "armageddon",
+      "name": "Armageddon",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "grimaldus",
+      "name": "Grimaldus",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Last Stand",
+      "category": "plot_type"
+    },
+    {
+      "name": "Siege",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Planetary",
+      "category": "scope"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Faith",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Sacrifice",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Somber",
+      "category": "tone"
+    }
+  ],
+  "containedIn": [
+    {
+      "collectionSlug": "war-for-armageddon-omnibus",
+      "collectionTitle": "War for Armageddon Omnibus"
+    }
+  ]
+}

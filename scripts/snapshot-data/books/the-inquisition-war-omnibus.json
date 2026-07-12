@@ -1,0 +1,235 @@
+{
+  "id": "0b7ab119-0b50-41e4-a21d-3618b9654820",
+  "slug": "the-inquisition-war-omnibus",
+  "title": "The Inquisition War Omnibus",
+  "synopsis": "Jaq Draco's Inquisition War is gathered here as one feverish early-40K epic: an Ordo Malleus inquisitor sent to cleanse a Genestealer-tainted hive world instead uncovers the Hydra, a rogue cabal convinced it can solve the fate of humanity's soul. His pursuit carries him from Stalinvast and a Harlequin rite of catastrophe to the Webway and Sabulorb, with Meh'Lindi, Vitali Googol and Grimm dragged through conspiracies that mix Inquisition paranoia, Eldar mystery and Thousand Sons sorcery. It reads like a relic from the setting's stranger youth - cosmic, heretical, overripe and more interested in forbidden metaphysics than clean war-story closure.",
+  "coverUrl": null,
+  "releaseYear": 2009,
+  "format": "omnibus",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "ian_watson",
+      "name": "Ian Watson",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "adeptus_astartes",
+      "name": "Adeptus Astartes",
+      "role": "antagonist"
+    },
+    {
+      "id": "callidus_temple",
+      "name": "Callidus Temple",
+      "role": "primary"
+    },
+    {
+      "id": "eldar",
+      "name": "Aeldari",
+      "role": "primary"
+    },
+    {
+      "id": "genestealer_cults",
+      "name": "Genestealer Cults",
+      "role": "antagonist"
+    },
+    {
+      "id": "harlequins",
+      "name": "Harlequins",
+      "role": "primary"
+    },
+    {
+      "id": "heretic_astartes",
+      "name": "Heretic Astartes",
+      "role": "antagonist"
+    },
+    {
+      "id": "hydra_cabal",
+      "name": "Hydra",
+      "role": "antagonist"
+    },
+    {
+      "id": "inquisition",
+      "name": "Inquisition",
+      "role": "primary"
+    },
+    {
+      "id": "navis_nobilite",
+      "name": "Navis Nobilite",
+      "role": "primary"
+    },
+    {
+      "id": "officio_assassinorum",
+      "name": "Officio Assassinorum",
+      "role": "primary"
+    },
+    {
+      "id": "ordo_malleus",
+      "name": "Ordo Malleus",
+      "role": "primary"
+    },
+    {
+      "id": "squats",
+      "name": "Squats",
+      "role": "primary"
+    },
+    {
+      "id": "thousand_sons",
+      "name": "Thousand Sons",
+      "role": "antagonist"
+    },
+    {
+      "id": "tyranids",
+      "name": "Tyranids",
+      "role": "antagonist"
+    },
+    {
+      "id": "tzeentch",
+      "name": "Tzeentch",
+      "role": "antagonist"
+    }
+  ],
+  "locations": [
+    {
+      "id": "sabulorb",
+      "name": "Sabulorb",
+      "role": "primary"
+    },
+    {
+      "id": "stalinvast",
+      "name": "Stalinvast",
+      "role": "primary"
+    },
+    {
+      "id": "webway",
+      "name": "Webway",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "grimm",
+      "name": "Grimm",
+      "role": "appears"
+    },
+    {
+      "id": "jaq_draco",
+      "name": "Jaq Draco",
+      "role": "pov"
+    },
+    {
+      "id": "meh_lindi",
+      "name": "Meh'Lindi",
+      "role": "appears"
+    },
+    {
+      "id": "vitali_googol",
+      "name": "Vitali Googol",
+      "role": "appears"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Doorstopper",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "Journey",
+      "category": "plot_type"
+    },
+    {
+      "name": "Mystery",
+      "category": "plot_type"
+    },
+    {
+      "name": "Political Thriller",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Inquisitor",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Galactic",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Redemption",
+      "category": "theme"
+    },
+    {
+      "name": "Sacrifice",
+      "category": "theme"
+    },
+    {
+      "name": "War",
+      "category": "theme"
+    },
+    {
+      "name": "Cosmic Horror",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Philosophical",
+      "category": "tone"
+    },
+    {
+      "name": "Somber",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

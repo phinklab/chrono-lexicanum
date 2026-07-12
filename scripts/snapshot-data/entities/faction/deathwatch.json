@@ -33,7 +33,7 @@
           "releaseYear": 2005,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/warrior-brood",
+          "href": "/book/warrior-brood",
           "showTitle": null
         },
         {
@@ -43,7 +43,7 @@
           "releaseYear": 2006,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/warrior-coven",
+          "href": "/book/warrior-coven",
           "showTitle": null
         },
         {
@@ -53,7 +53,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/deathwatch",
+          "href": "/book/deathwatch",
           "showTitle": null
         },
         {
@@ -63,7 +63,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/deathwatch-legends",
+          "href": "/book/deathwatch-legends",
           "showTitle": null
         },
         {
@@ -73,7 +73,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/storm-of-damocles",
+          "href": "/book/storm-of-damocles",
           "showTitle": null
         },
         {
@@ -83,7 +83,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-last-son-of-dorn",
+          "href": "/book/the-last-son-of-dorn",
           "showTitle": null
         },
         {
@@ -93,7 +93,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/watchers-in-death",
+          "href": "/book/watchers-in-death",
           "showTitle": null
         },
         {
@@ -103,7 +103,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/shadowbreaker",
+          "href": "/book/shadowbreaker",
           "showTitle": null
         },
         {
@@ -113,7 +113,7 @@
           "releaseYear": 2025,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/legends-of-the-wolf-the-omnibus",
+          "href": "/book/legends-of-the-wolf-the-omnibus",
           "showTitle": null
         },
         {
@@ -123,7 +123,7 @@
           "releaseYear": 2025,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-dark-coil-ascension",
+          "href": "/book/the-dark-coil-ascension",
           "showTitle": null
         }
       ]

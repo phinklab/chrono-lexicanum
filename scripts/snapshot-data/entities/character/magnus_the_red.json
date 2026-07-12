@@ -29,7 +29,7 @@
           "releaseYear": 2002,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/grey-hunter",
+          "href": "/book/grey-hunter",
           "showTitle": null
         },
         {
@@ -39,7 +39,7 @@
           "releaseYear": 2008,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-space-wolf-omnibus",
+          "href": "/book/the-space-wolf-omnibus",
           "showTitle": null
         },
         {
@@ -49,7 +49,7 @@
           "releaseYear": 2010,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/a-thousand-sons",
+          "href": "/book/a-thousand-sons",
           "showTitle": null
         },
         {
@@ -59,7 +59,7 @@
           "releaseYear": 2011,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/battle-of-the-fang",
+          "href": "/book/battle-of-the-fang",
           "showTitle": null
         },
         {
@@ -69,7 +69,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/thief-of-revelations",
+          "href": "/book/thief-of-revelations",
           "showTitle": null
         },
         {
@@ -79,7 +79,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/ahriman-exodus",
+          "href": "/book/ahriman-exodus",
           "showTitle": null
         },
         {
@@ -89,7 +89,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/ahriman-unchanged",
+          "href": "/book/ahriman-unchanged",
           "showTitle": null
         },
         {
@@ -99,7 +99,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-hunt-of-magnus",
+          "href": "/book/the-hunt-of-magnus",
           "showTitle": null
         },
         {
@@ -109,7 +109,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/the-razing-of-prospero",
+          "href": "/book/the-razing-of-prospero",
           "showTitle": null
         },
         {
@@ -119,7 +119,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/ahriman-the-omnibus",
+          "href": "/book/ahriman-the-omnibus",
           "showTitle": null
         },
         {
@@ -129,7 +129,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "mentioned",
-          "href": "/buch/curse-of-the-wulfen",
+          "href": "/book/curse-of-the-wulfen",
           "showTitle": null
         },
         {
@@ -139,7 +139,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/magnus-the-red-master-of-prospero",
+          "href": "/book/magnus-the-red-master-of-prospero",
           "showTitle": null
         },
         {
@@ -149,7 +149,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/the-crimson-king",
+          "href": "/book/the-crimson-king",
           "showTitle": null
         },
         {
@@ -159,7 +159,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-master-of-mankind",
+          "href": "/book/the-master-of-mankind",
           "showTitle": null
         },
         {
@@ -169,7 +169,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/jaghatai-khan-warhawk-of-chogoris",
+          "href": "/book/jaghatai-khan-warhawk-of-chogoris",
           "showTitle": null
         },
         {
@@ -179,7 +179,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/sons-of-the-emperor",
+          "href": "/book/sons-of-the-emperor",
           "showTitle": null
         },
         {
@@ -189,7 +189,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/morningstar",
+          "href": "/book/morningstar",
           "showTitle": null
         },
         {
@@ -199,7 +199,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-abyssal-edge",
+          "href": "/book/the-abyssal-edge",
           "showTitle": null
         },
         {
@@ -209,7 +209,7 @@
           "releaseYear": 2021,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/blood-of-the-emperor",
+          "href": "/book/blood-of-the-emperor",
           "showTitle": null
         },
         {
@@ -219,7 +219,7 @@
           "releaseYear": 2021,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/fury-of-magnus",
+          "href": "/book/fury-of-magnus",
           "showTitle": null
         },
         {
@@ -229,7 +229,7 @@
           "releaseYear": 2026,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/the-shattered-and-the-soulless",
+          "href": "/book/the-shattered-and-the-soulless",
           "showTitle": null
         }
       ]

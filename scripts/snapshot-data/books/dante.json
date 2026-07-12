@@ -1,0 +1,135 @@
+{
+  "id": "fca1b4a3-160e-4f04-9158-e1a3870e3e2e",
+  "slug": "dante",
+  "title": "Dante",
+  "synopsis": "Commander Dante has led the Blood Angels for over a thousand years, the longest-serving Chapter Master in the Imperium's history. This novel braids two stories fifteen centuries apart: the origin of a boy born in the rad-blasted wastes of Baal Secundus, destined for glory, rising from aspirant to the angelic lord of a Space Marine Chapter; and the present-day commander fighting to save his people as tyranid hive fleets devour the Cryptus system at the edge of Baal. Across both, Dante wrestles with the Flaw in the blood of Sanguinius and the darkness it breeds in every Blood Angel — and with what it costs to wear the Death Mask and never falter.",
+  "coverUrl": null,
+  "releaseYear": 2017,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": "time_ending",
+  "eraName": "Time of Ending",
+  "persons": [
+    {
+      "id": "guy_haley",
+      "name": "Guy Haley",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "blood_angels",
+      "name": "Blood Angels",
+      "role": "primary"
+    },
+    {
+      "id": "tyranids",
+      "name": "Tyranids",
+      "role": "antagonist"
+    }
+  ],
+  "locations": [
+    {
+      "id": "armageddon",
+      "name": "Armageddon",
+      "role": "secondary"
+    },
+    {
+      "id": "baal_secundus",
+      "name": "Baal Secundus",
+      "role": "primary"
+    },
+    {
+      "id": "cryptus",
+      "name": "Cryptus",
+      "role": "secondary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "commander_dante",
+      "name": "Commander Dante",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "Journey",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Sector",
+      "category": "scope"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Faith",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Sacrifice",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Somber",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

@@ -29,7 +29,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/dark-imperium",
+          "href": "/book/dark-imperium",
           "showTitle": null
         },
         {
@@ -39,7 +39,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/wolfsbane",
+          "href": "/book/wolfsbane",
           "showTitle": null
         },
         {
@@ -49,7 +49,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/belisarius-cawl-the-great-work",
+          "href": "/book/belisarius-cawl-the-great-work",
           "showTitle": null
         },
         {
@@ -59,7 +59,7 @@
           "releaseYear": 2020,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/avenging-son",
+          "href": "/book/avenging-son",
           "showTitle": null
         },
         {
@@ -69,7 +69,7 @@
           "releaseYear": 2024,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/genefather",
+          "href": "/book/genefather",
           "showTitle": null
         },
         {
@@ -79,7 +79,7 @@
           "releaseYear": 2025,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/archmagos",
+          "href": "/book/archmagos",
           "showTitle": null
         }
       ]

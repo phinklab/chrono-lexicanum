@@ -1,172 +1,74 @@
 /**
- * Book-detail data layer. SERVER-ONLY (imports `@/db`).
+ * Book-detail data layer — DB-FREE façade (Launch S4b Loader-Weiche, the
+ * entity `loader.ts` pattern).
  *
  * The canonical `book/[slug]` page AND the `@modal/(.)book` intercept share
- * this one DB fan-out and single source of truth — zero fork, exactly like
- * `src/lib/entity/loader.ts`.
+ * this one data source — zero fork, exactly like `src/lib/entity/loader.ts`.
  *
- * Wrapped in React `cache()` (per-request memo: `generateMetadata` + the default
- * export dedupe to a single fan-out). Error contract (S2, see
- * `src/lib/db-cache.ts`): data | null (unknown slug) | throw (DB error).
+ * Two entry points:
+ *   - `listHotBookSlugs()` feeds `generateStaticParams` on /book/[slug]: at
+ *     build time the curated hot-slug list comes straight from the committed
+ *     snapshot (zero DB reads on the build path); at request time (`next dev`)
+ *     it intersects the curated constant with the live works table.
+ *   - `loadBook(slug)` returns the full detail payload, or null for a
+ *     genuinely missing slug → the page calls `notFound()`; DB errors THROW
+ *     into the route's error boundary (S2 contract, see `src/lib/db-cache.ts`).
+ *     At build time — only ever reached with hot slugs, via
+ *     `generateStaticParams` — it reads the per-book snapshot payload
+ *     (fail-closed: a missing artifact throws and fails the build). At request
+ *     time it lazy-imports the live Postgres module behind a per-slug
+ *     `cachedRead` layer: repeat visits serve from Next's persistent Data
+ *     Cache instead of re-running the 8-query fan-out (under load the uncached
+ *     route degraded from 0.21 s to a 90 s timeout); one payload is a few KB,
+ *     far under the 2 MB cache cap. A missing slug caches as `null` (a stable
+ *     404 is a legitimate result); a DB error is never cached. The `books` tag
+ *     is invalidated by `POST /api/revalidate` after ingestion.
+ *
+ * Wrapped in React `cache()` (per-request memo: `generateMetadata` + the
+ * default export dedupe to a single read). This module must never statically
+ * import `@/db` — every prerendered book page pulls it in, and the DB-free CI
+ * build depends on the chain staying clean. The Postgres bodies live in
+ * `./loader-live`.
  */
 import "server-only";
 import { cache } from "react";
-import { asc, eq } from "drizzle-orm";
-import { isVisibleFacetCategory } from "@/lib/facet-visibility";
 import { cachedRead } from "@/lib/db-cache";
-import { db } from "@/db/client";
 import {
-  bookDetails as bookDetailsTable,
-  characters as charactersTable,
-  eras as erasTable,
-  facetValues as facetValuesTable,
-  factions as factionsTable,
-  locations as locationsTable,
-  persons as personsTable,
-  series as seriesTable,
-  workCharacters as workCharactersTable,
-  workCollections as workCollectionsTable,
-  workFacets as workFacetsTable,
-  workFactions as workFactionsTable,
-  workLocations as workLocationsTable,
-  workPersons as workPersonsTable,
-  works as worksTable,
-} from "@/db/schema";
+  isBuildPhase,
+  readSnapshotArtifact,
+  readSnapshotBook,
+} from "@/lib/snapshot/build-data";
+import type { BookDetail } from "./loader-live";
 
-async function loadBookBySlug(slug: string) {
-  const [work] = await db
-    .select({
-      id: worksTable.id,
-      slug: worksTable.slug,
-      title: worksTable.title,
-      synopsis: worksTable.synopsis,
-      coverUrl: worksTable.coverUrl,
-      releaseYear: worksTable.releaseYear,
-    })
-    .from(worksTable)
-    .where(eq(worksTable.slug, slug))
-    .limit(1);
-  if (!work) return null;
+export type { BookDetail } from "./loader-live";
 
-  const [
-    details,
-    personRows,
-    factionRows,
-    locationRows,
-    characterRows,
-    facetRows,
-    containedInRows,
-  ] = await Promise.all([
-    db
-      .select({
-        format: bookDetailsTable.format,
-        isbn13: bookDetailsTable.isbn13,
-        isbn10: bookDetailsTable.isbn10,
-        seriesId: bookDetailsTable.seriesId,
-        seriesName: seriesTable.name,
-        seriesIndex: bookDetailsTable.seriesIndex,
-        primaryEraId: bookDetailsTable.primaryEraId,
-        eraName: erasTable.name,
-      })
-      .from(bookDetailsTable)
-      .leftJoin(seriesTable, eq(seriesTable.id, bookDetailsTable.seriesId))
-      .leftJoin(erasTable, eq(erasTable.id, bookDetailsTable.primaryEraId))
-      .where(eq(bookDetailsTable.workId, work.id))
-      .limit(1),
-    db
-      .select({
-        id: personsTable.id,
-        name: personsTable.name,
-        role: workPersonsTable.role,
-        displayOrder: workPersonsTable.displayOrder,
-      })
-      .from(workPersonsTable)
-      .innerJoin(personsTable, eq(personsTable.id, workPersonsTable.personId))
-      .where(eq(workPersonsTable.workId, work.id))
-      .orderBy(asc(workPersonsTable.role), asc(workPersonsTable.displayOrder)),
-    db
-      .select({
-        id: factionsTable.id,
-        name: factionsTable.name,
-        role: workFactionsTable.role,
-      })
-      .from(workFactionsTable)
-      .innerJoin(factionsTable, eq(factionsTable.id, workFactionsTable.factionId))
-      .where(eq(workFactionsTable.workId, work.id)),
-    db
-      .select({
-        id: locationsTable.id,
-        name: locationsTable.name,
-        role: workLocationsTable.role,
-      })
-      .from(workLocationsTable)
-      .innerJoin(locationsTable, eq(locationsTable.id, workLocationsTable.locationId))
-      .where(eq(workLocationsTable.workId, work.id)),
-    db
-      .select({
-        id: charactersTable.id,
-        name: charactersTable.name,
-        role: workCharactersTable.role,
-      })
-      .from(workCharactersTable)
-      .innerJoin(charactersTable, eq(charactersTable.id, workCharactersTable.characterId))
-      .where(eq(workCharactersTable.workId, work.id)),
-    db
-      .select({ name: facetValuesTable.name, category: facetValuesTable.categoryId })
-      .from(workFacetsTable)
-      .innerJoin(facetValuesTable, eq(facetValuesTable.id, workFacetsTable.facetValueId))
-      .where(eq(workFacetsTable.workId, work.id)),
-    db
-      .select({
-        collectionSlug: worksTable.slug,
-        collectionTitle: worksTable.title,
-      })
-      .from(workCollectionsTable)
-      .innerJoin(
-        worksTable,
-        eq(worksTable.id, workCollectionsTable.collectionWorkId),
-      )
-      .where(eq(workCollectionsTable.contentWorkId, work.id))
-      .orderBy(asc(workCollectionsTable.displayOrder), asc(worksTable.title)),
-  ]);
-
-  return {
-    ...work,
-    format: details[0]?.format ?? null,
-    isbn13: details[0]?.isbn13 ?? null,
-    isbn10: details[0]?.isbn10 ?? null,
-    seriesId: details[0]?.seriesId ?? null,
-    seriesName: details[0]?.seriesName ?? null,
-    seriesIndex: details[0]?.seriesIndex ?? null,
-    primaryEraId: details[0]?.primaryEraId ?? null,
-    eraName: details[0]?.eraName ?? null,
-    persons: personRows,
-    factions: factionRows,
-    locations: locationRows,
-    characters: characterRows,
-    facets: facetRows.filter((f) => isVisibleFacetCategory(f.category)),
-    containedIn: containedInRows,
-  };
+/**
+ * The curated build-time prerender set for /book/[slug]. At build time the
+ * snapshot's hot-slug list is authoritative: it was intersected with the live
+ * works table at export time, and every listed slug is guaranteed a matching
+ * `books/<slug>.json` payload (manifest gate), so `loadBook` below can never
+ * miss during prerender. At request time the live intersect keeps the same
+ * drop-to-on-demand semantics for slugs that have since vanished.
+ */
+export async function listHotBookSlugs(): Promise<string[]> {
+  if (isBuildPhase()) {
+    return readSnapshotArtifact<string[]>("bookHotSlugs");
+  }
+  const { listHotBookSlugsLive } = await import("./loader-live");
+  return listHotBookSlugsLive();
 }
 
 /**
  * Load one book's full detail payload by slug, or null if the slug does not
- * exist. `cache()`-memoised per request; shared by the canonical page + the
- * modal.
- *
- * The per-slug `cachedRead` layer serves repeat visits from Next's persistent
- * Data Cache instead of re-running the 8-query fan-out on every request —
- * under load the uncached route degraded from 0.21 s to a 90 s timeout.
- * One book's payload is a few KB, far under the 2 MB cache cap. A
- * missing slug caches as `null` (a stable 404 is a legitimate result); a DB
- * error is never cached and THROWS into the route's error boundary — an
- * outage must read as a fault, not as a 404 (S2 contract). The
- * `books` tag is invalidated by `POST /api/revalidate` after ingestion.
+ * exist (→ 404); DB errors throw. See the module header for the build/runtime
+ * split and the cache layers.
  */
-export const loadBook = cache(async (slug: string) =>
-  cachedRead(() => loadBookBySlug(slug), ["book", slug], {
+export const loadBook = cache(async (slug: string): Promise<BookDetail | null> => {
+  if (isBuildPhase()) {
+    return readSnapshotBook<BookDetail>(slug);
+  }
+  const { loadBookLive } = await import("./loader-live");
+  return cachedRead(() => loadBookLive(slug), ["book", slug], {
     tags: ["books"],
-  })(),
-);
-
-export type BookDetail = NonNullable<Awaited<ReturnType<typeof loadBook>>>;
+  })();
+});

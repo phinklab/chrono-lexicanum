@@ -1,0 +1,217 @@
+{
+  "id": "1030e7e8-eff7-43aa-9303-61e049ef03cf",
+  "slug": "first-and-only",
+  "title": "First and Only",
+  "synopsis": "The Sabbat Worlds Crusade is on the verge of collapse when the brutal warmaster Slaydo dies and Macaroth inherits a fractured high command. Commissar Ibram Gaunt, demoted by political enemies to a regimental command, leads the Tanith First-and-Only — the only survivors of his evacuation of the burning forest world of Tanith Magna, who will never see their homeworld again — through campaigns on Voltemand, Pyrites and Fortis Binary toward the Menazoid Epsilon stalingrad. There the Ghosts uncover a clue to a Standard Template Constructor buried under the Necromantic ice, and Gaunt finds himself targeted from within the Imperium by Lord General Dravere and the Jantine Patricians, whose patron's grudge with Gaunt runs back to Slaydo's deathbed. The series opener establishes the regiment cast — Corbec, Rawne, Larkin, Mkoll, Bragg, Caffran, Milo, Dorden — and the Crusade's grinding-attritional war frame.",
+  "coverUrl": null,
+  "releaseYear": 1999,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": "time_ending",
+  "eraName": "Time of Ending",
+  "persons": [
+    {
+      "id": "dan_abnett",
+      "name": "Dan Abnett",
+      "role": "author",
+      "displayOrder": 0
+    },
+    {
+      "id": "toby_longworth",
+      "name": "Toby Longworth",
+      "role": "narrator",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "astra_militarum",
+      "name": "Astra Militarum",
+      "role": "primary"
+    },
+    {
+      "id": "chaos",
+      "name": "Chaos",
+      "role": "antagonist"
+    },
+    {
+      "id": "commissariat",
+      "name": "Commissariat",
+      "role": "primary"
+    },
+    {
+      "id": "jantine_patricians",
+      "name": "Jantine Patricians",
+      "role": "antagonist"
+    },
+    {
+      "id": "tanith_first",
+      "name": "Tanith First-and-Only",
+      "role": "primary"
+    }
+  ],
+  "locations": [
+    {
+      "id": "fortis_binary",
+      "name": "Fortis Binary",
+      "role": "secondary"
+    },
+    {
+      "id": "menazoid_epsilon",
+      "name": "Menazoid Epsilon",
+      "role": "primary"
+    },
+    {
+      "id": "pyrites",
+      "name": "Pyrites",
+      "role": "secondary"
+    },
+    {
+      "id": "sabbat",
+      "name": "Sabbat Worlds",
+      "role": "mentioned"
+    },
+    {
+      "id": "tanith",
+      "name": "Tanith",
+      "role": "mentioned"
+    },
+    {
+      "id": "voltemand",
+      "name": "Voltemand",
+      "role": "secondary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "bragg",
+      "name": "Bragg",
+      "role": "appears"
+    },
+    {
+      "id": "brin_milo",
+      "name": "Brin Milo",
+      "role": "appears"
+    },
+    {
+      "id": "caffran",
+      "name": "Caffran",
+      "role": "appears"
+    },
+    {
+      "id": "colm_corbec",
+      "name": "Colm Corbec",
+      "role": "appears"
+    },
+    {
+      "id": "elim_rawne",
+      "name": "Elim Rawne",
+      "role": "appears"
+    },
+    {
+      "id": "hlaine_larkin",
+      "name": "Hlaine Larkin",
+      "role": "appears"
+    },
+    {
+      "id": "ibram_gaunt",
+      "name": "Ibram Gaunt",
+      "role": "pov"
+    },
+    {
+      "id": "lord_general_dravere",
+      "name": "Lord General Dravere",
+      "role": "appears"
+    },
+    {
+      "id": "oan_mkoll",
+      "name": "Oan Mkoll",
+      "role": "appears"
+    },
+    {
+      "id": "tolin_dorden",
+      "name": "Tolin Dorden",
+      "role": "appears"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Series Start",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Mystery",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Guardsman",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Regiment",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Brotherhood",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "War",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Somber",
+      "category": "tone"
+    }
+  ],
+  "containedIn": [
+    {
+      "collectionSlug": "gaunts-ghosts-the-founding-omnibus-1-3",
+      "collectionTitle": "Gaunt's Ghosts: The Founding Omnibus, 1-3"
+    }
+  ]
+}

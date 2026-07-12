@@ -1,0 +1,256 @@
+{
+  "id": "110fd17a-9153-4ee9-b4a1-0e59a0fb5ab1",
+  "slug": "the-uriel-ventris-chronicles-vol-1-omnibus",
+  "title": "The Uriel Ventris Chronicles Vol. 1 Omnibus",
+  "synopsis": "The first three Uriel Ventris novels under Black Library's later 'Chronicles' reissue branding — Nightbringer, Warriors of Ultramar, and Dead Sky, Black Sun — content unchanged from the older Ultramarines Omnibus. A 4th Company captain learning what command costs: Ventris is sent first to the mercantile world of Pavonis with Inquisitor Ario Barzano on a corruption-and-conspiracy thread; then to the agri-world of Tarsis Ultra, where the Mortifactors and Imperial Guard hold the line against a Tyranid splinter-fleet; finally on a death-oath into the Eye of Terror itself, to Medrengard, where Honsou's Daemonculaba forges parody-Astartes and the Iron Warriors enter the saga. The canonical entry-point omnibus for the Ventris career.",
+  "coverUrl": null,
+  "releaseYear": 2019,
+  "format": "omnibus",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "graham_mcneill",
+      "name": "Graham McNeill",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "adeptus_astartes",
+      "name": "Adeptus Astartes",
+      "role": "primary"
+    },
+    {
+      "id": "astra_militarum",
+      "name": "Astra Militarum",
+      "role": "supporting"
+    },
+    {
+      "id": "ctan",
+      "name": "C'tan",
+      "role": "antagonist"
+    },
+    {
+      "id": "daemons",
+      "name": "Daemons",
+      "role": "antagonist"
+    },
+    {
+      "id": "eldar",
+      "name": "Aeldari",
+      "role": "supporting"
+    },
+    {
+      "id": "inquisition",
+      "name": "Inquisition",
+      "role": "supporting"
+    },
+    {
+      "id": "iron_warriors",
+      "name": "Iron Warriors",
+      "role": "antagonist"
+    },
+    {
+      "id": "lords_of_unholy_host",
+      "name": "Lords of the Unholy Host",
+      "role": "supporting"
+    },
+    {
+      "id": "mechanicus",
+      "name": "Adeptus Mechanicus",
+      "role": "supporting"
+    },
+    {
+      "id": "mortifactors",
+      "name": "Mortifactors",
+      "role": "supporting"
+    },
+    {
+      "id": "necrons",
+      "name": "Necrons",
+      "role": "antagonist"
+    },
+    {
+      "id": "tyranids",
+      "name": "Tyranids",
+      "role": "antagonist"
+    },
+    {
+      "id": "ultramarines",
+      "name": "Ultramarines",
+      "role": "primary"
+    }
+  ],
+  "locations": [
+    {
+      "id": "eye_of_terror",
+      "name": "Eye of Terror",
+      "role": "primary"
+    },
+    {
+      "id": "macragge",
+      "name": "Macragge",
+      "role": "secondary"
+    },
+    {
+      "id": "medrengard",
+      "name": "Medrengard",
+      "role": "primary"
+    },
+    {
+      "id": "pavonis",
+      "name": "Pavonis",
+      "role": "primary"
+    },
+    {
+      "id": "tarsis_ultra",
+      "name": "Tarsis Ultra",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "ardaric_vaanes",
+      "name": "Ardaric Vaanes",
+      "role": "appears"
+    },
+    {
+      "id": "ario_barzano",
+      "name": "Ario Barzano",
+      "role": "appears"
+    },
+    {
+      "id": "captain_idaeus",
+      "name": "Captain Idaeus",
+      "role": "mentioned"
+    },
+    {
+      "id": "chaplain_astador",
+      "name": "Chaplain Astador",
+      "role": "appears"
+    },
+    {
+      "id": "honsou",
+      "name": "Honsou",
+      "role": "appears"
+    },
+    {
+      "id": "mykola_shonai",
+      "name": "Mykola Shonai",
+      "role": "appears"
+    },
+    {
+      "id": "nightbringer",
+      "name": "Nightbringer",
+      "role": "appears"
+    },
+    {
+      "id": "pasanius_lysane",
+      "name": "Pasanius Lysane",
+      "role": "appears"
+    },
+    {
+      "id": "uriel_ventris",
+      "name": "Uriel Ventris",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Series Start",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Doorstopper",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "Journey",
+      "category": "plot_type"
+    },
+    {
+      "name": "Mystery",
+      "category": "plot_type"
+    },
+    {
+      "name": "Siege",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Company",
+      "category": "scope"
+    },
+    {
+      "name": "Brotherhood",
+      "category": "theme"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Sacrifice",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Cosmic Horror",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Somber",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

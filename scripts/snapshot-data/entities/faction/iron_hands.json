@@ -33,7 +33,7 @@
           "releaseYear": 2004,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/iron-hands",
+          "href": "/book/iron-hands",
           "showTitle": null
         },
         {
@@ -43,7 +43,7 @@
           "releaseYear": 2007,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/collected-visions",
+          "href": "/book/collected-visions",
           "showTitle": null
         },
         {
@@ -53,7 +53,7 @@
           "releaseYear": 2007,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/fulgrim",
+          "href": "/book/fulgrim",
           "showTitle": null
         },
         {
@@ -63,7 +63,7 @@
           "releaseYear": 2011,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/age-of-darkness",
+          "href": "/book/age-of-darkness",
           "showTitle": null
         },
         {
@@ -73,7 +73,7 @@
           "releaseYear": 2011,
           "coverUrl": null,
           "role": "antagonist",
-          "href": "/buch/little-horus",
+          "href": "/book/little-horus",
           "showTitle": null
         },
         {
@@ -83,7 +83,7 @@
           "releaseYear": 2011,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/promethean-sun",
+          "href": "/book/promethean-sun",
           "showTitle": null
         },
         {
@@ -93,7 +93,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/feat-of-iron",
+          "href": "/book/feat-of-iron",
           "showTitle": null
         },
         {
@@ -103,7 +103,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/kryptos",
+          "href": "/book/kryptos",
           "showTitle": null
         },
         {
@@ -113,7 +113,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-primarchs",
+          "href": "/book/the-primarchs",
           "showTitle": null
         },
         {
@@ -123,7 +123,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/veritas-ferrum",
+          "href": "/book/veritas-ferrum",
           "showTitle": null
         },
         {
@@ -133,7 +133,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/wrath-of-iron",
+          "href": "/book/wrath-of-iron",
           "showTitle": null
         },
         {
@@ -143,7 +143,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": "antagonist",
-          "href": "/buch/angel-exterminatus",
+          "href": "/book/angel-exterminatus",
           "showTitle": null
         },
         {
@@ -153,7 +153,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/riven",
+          "href": "/book/riven",
           "showTitle": null
         },
         {
@@ -163,7 +163,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/vulkan-lives",
+          "href": "/book/vulkan-lives",
           "showTitle": null
         },
         {
@@ -173,7 +173,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/death-and-defiance",
+          "href": "/book/death-and-defiance",
           "showTitle": null
         },
         {
@@ -183,7 +183,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/echoes-of-ruin",
+          "href": "/book/echoes-of-ruin",
           "showTitle": null
         },
         {
@@ -193,7 +193,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-damnation-of-pythos",
+          "href": "/book/the-damnation-of-pythos",
           "showTitle": null
         },
         {
@@ -203,7 +203,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-seventh-serpent",
+          "href": "/book/the-seventh-serpent",
           "showTitle": null
         },
         {
@@ -213,7 +213,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/imperfect",
+          "href": "/book/imperfect",
           "showTitle": null
         },
         {
@@ -223,7 +223,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/legacies-of-betrayal",
+          "href": "/book/legacies-of-betrayal",
           "showTitle": null
         },
         {
@@ -233,7 +233,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/meduson",
+          "href": "/book/meduson",
           "showTitle": null
         },
         {
@@ -243,7 +243,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-phoenician",
+          "href": "/book/the-phoenician",
           "showTitle": null
         },
         {
@@ -253,7 +253,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/grey-talon",
+          "href": "/book/grey-talon",
           "showTitle": null
         },
         {
@@ -263,7 +263,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/meduson-wings",
+          "href": "/book/meduson-wings",
           "showTitle": null
         },
         {
@@ -273,7 +273,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": "antagonist",
-          "href": "/buch/the-either",
+          "href": "/book/the-either",
           "showTitle": null
         },
         {
@@ -283,7 +283,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-last-phoenix",
+          "href": "/book/the-last-phoenix",
           "showTitle": null
         },
         {
@@ -293,7 +293,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/a-lesson-in-iron",
+          "href": "/book/a-lesson-in-iron",
           "showTitle": null
         },
         {
@@ -303,7 +303,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/immortal-duty",
+          "href": "/book/immortal-duty",
           "showTitle": null
         },
         {
@@ -313,7 +313,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/old-earth",
+          "href": "/book/old-earth",
           "showTitle": null
         },
         {
@@ -323,7 +323,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/shattered-legions",
+          "href": "/book/shattered-legions",
           "showTitle": null
         },
         {
@@ -333,7 +333,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-eye-of-medusa",
+          "href": "/book/the-eye-of-medusa",
           "showTitle": null
         },
         {
@@ -343,7 +343,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/ferrus-manus-the-gorgon-of-medusa",
+          "href": "/book/ferrus-manus-the-gorgon-of-medusa",
           "showTitle": null
         },
         {
@@ -353,7 +353,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": "antagonist",
-          "href": "/buch/massacre",
+          "href": "/book/massacre",
           "showTitle": null
         },
         {
@@ -363,7 +363,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-voice-of-mars",
+          "href": "/book/the-voice-of-mars",
           "showTitle": null
         },
         {
@@ -373,7 +373,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/visions-of-heresy-2018-ed",
+          "href": "/book/visions-of-heresy-2018-ed",
           "showTitle": null
         },
         {
@@ -383,7 +383,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/mercy-of-the-dragon",
+          "href": "/book/mercy-of-the-dragon",
           "showTitle": null
         },
         {
@@ -393,7 +393,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/scions-of-the-emperor",
+          "href": "/book/scions-of-the-emperor",
           "showTitle": null
         },
         {
@@ -403,7 +403,7 @@
           "releaseYear": 2020,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-sons-of-selenar",
+          "href": "/book/the-sons-of-selenar",
           "showTitle": null
         },
         {
@@ -413,7 +413,7 @@
           "releaseYear": 2025,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/dropsite-massacre",
+          "href": "/book/dropsite-massacre",
           "showTitle": null
         },
         {
@@ -423,7 +423,7 @@
           "releaseYear": 2026,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-shattered-and-the-soulless",
+          "href": "/book/the-shattered-and-the-soulless",
           "showTitle": null
         }
       ]

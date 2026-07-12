@@ -1,0 +1,134 @@
+{
+  "id": "38edadbc-9407-42fa-8e2a-e760a3ad79a5",
+  "slug": "path-of-the-eldar-omnibus",
+  "title": "Path of the Eldar Omnibus",
+  "synopsis": "The complete Path of the Eldar trilogy in one volume. On the craftworld Alaitoc, three friends each walk a different road: Korlandril the sculptor who becomes a Striking Scorpion, Thirianna the poet who trains as a farseer, and Aradryan the outcast who flees to live among rangers and corsairs. The three novels — Path of the Warrior, Path of the Seer and Path of the Outcast — retell the same gathering catastrophe from each of their viewpoints, building a portrait of a proud and ancient people, the discipline that holds them together, and the choices that bring war to their home.",
+  "coverUrl": null,
+  "releaseYear": 2014,
+  "format": "omnibus",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "gav_thorpe",
+      "name": "Gav Thorpe",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "eldar",
+      "name": "Aeldari",
+      "role": "primary"
+    }
+  ],
+  "locations": [
+    {
+      "id": "alaitoc",
+      "name": "Alaitoc",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "aradryan",
+      "name": "Aradryan",
+      "role": "pov"
+    },
+    {
+      "id": "korlandril",
+      "name": "Korlandril",
+      "role": "pov"
+    },
+    {
+      "id": "thirianna",
+      "name": "Thirianna",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Series Start",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Doorstopper",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "Journey",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Xenos",
+      "category": "pov_side"
+    },
+    {
+      "name": "Xenos",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Ensemble",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Sector",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Sacrifice",
+      "category": "theme"
+    },
+    {
+      "name": "War",
+      "category": "theme"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Philosophical",
+      "category": "tone"
+    },
+    {
+      "name": "Somber",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

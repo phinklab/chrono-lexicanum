@@ -1,0 +1,137 @@
+{
+  "id": "a5ffe205-b993-445b-bdde-b14c75ff31e6",
+  "slug": "ghazghkull-thraka-prophet-of-the-waaagh",
+  "title": "Ghazghkull Thraka: Prophet of the Waaagh!",
+  "synopsis": "A radical Ordo Xenos inquisitor named Falx has captured a grot calling himself Makari, the personal banner-bearer of Ghazghkull Mag Uruk Thraka — the warlord whose Waaagh! has eaten worlds. Across the length of a long, distrustful interrogation, Makari pours out the warlord's story: a runt of a beast on a green moon, a head injury, a series of visions, a procession of larger and louder orks who somehow keep ending up dead at the right moment. Inquisitor Falx and her retinue listen, argue, drink, and slowly come unstuck — because if any of what Makari is saying is true, the orks are not the brute, dying species the Imperium has insisted on for centuries. Nate Crowley's Ghazghkull novel uses the interrogation as a back door into ork psychology, ork theology, and the uncomfortable possibility that the Beast was made, not born.",
+  "coverUrl": null,
+  "releaseYear": 2022,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "nate_crowley",
+      "name": "Nate Crowley",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "inquisition",
+      "name": "Inquisition",
+      "role": "primary"
+    },
+    {
+      "id": "ordo_xenos",
+      "name": "Ordo Xenos",
+      "role": "primary"
+    },
+    {
+      "id": "orks",
+      "name": "Orks",
+      "role": "primary"
+    }
+  ],
+  "locations": [
+    {
+      "id": "armageddon",
+      "name": "Armageddon",
+      "role": "secondary"
+    },
+    {
+      "id": "ullanor",
+      "name": "Ullanor",
+      "role": "secondary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "falx",
+      "name": "Falx",
+      "role": "pov"
+    },
+    {
+      "id": "ghazghkull_thraka",
+      "name": "Ghazghkull Thraka",
+      "role": "appears"
+    },
+    {
+      "id": "makari",
+      "name": "Makari",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Dual",
+      "category": "pov_side"
+    },
+    {
+      "name": "Multi-class",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Mixed",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Galactic",
+      "category": "scope"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Faith",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Philosophical",
+      "category": "tone"
+    },
+    {
+      "name": "Satirical",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

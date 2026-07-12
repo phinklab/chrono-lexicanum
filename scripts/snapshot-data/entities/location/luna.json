@@ -25,7 +25,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/luna-mendax",
+          "href": "/book/luna-mendax",
           "showTitle": null
         },
         {
@@ -35,7 +35,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/ghosts-speak-not-patience",
+          "href": "/book/ghosts-speak-not-patience",
           "showTitle": null
         },
         {
@@ -45,7 +45,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-silent-war",
+          "href": "/book/the-silent-war",
           "showTitle": null
         },
         {
@@ -55,7 +55,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/garro-weapons-of-fate",
+          "href": "/book/garro-weapons-of-fate",
           "showTitle": null
         },
         {
@@ -65,7 +65,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-emperors-legion",
+          "href": "/book/the-emperors-legion",
           "showTitle": null
         },
         {
@@ -75,7 +75,7 @@
           "releaseYear": 2020,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-regents-shadow",
+          "href": "/book/the-regents-shadow",
           "showTitle": null
         },
         {
@@ -85,7 +85,7 @@
           "releaseYear": 2020,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-sons-of-selenar",
+          "href": "/book/the-sons-of-selenar",
           "showTitle": null
         },
         {
@@ -95,7 +95,7 @@
           "releaseYear": 2026,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-shattered-and-the-soulless",
+          "href": "/book/the-shattered-and-the-soulless",
           "showTitle": null
         }
       ]

@@ -29,7 +29,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/brotherhood-of-the-storm",
+          "href": "/book/brotherhood-of-the-storm",
           "showTitle": null
         },
         {
@@ -39,7 +39,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/brotherhood-of-the-moon",
+          "href": "/book/brotherhood-of-the-moon",
           "showTitle": null
         },
         {
@@ -49,7 +49,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/scars",
+          "href": "/book/scars",
           "showTitle": null
         },
         {
@@ -59,7 +59,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/legacies-of-betrayal",
+          "href": "/book/legacies-of-betrayal",
           "showTitle": null
         },
         {
@@ -69,7 +69,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-last-son-of-prospero",
+          "href": "/book/the-last-son-of-prospero",
           "showTitle": null
         },
         {
@@ -79,7 +79,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/the-path-of-heaven",
+          "href": "/book/the-path-of-heaven",
           "showTitle": null
         },
         {
@@ -89,7 +89,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/jaghatai-khan-warhawk-of-chogoris",
+          "href": "/book/jaghatai-khan-warhawk-of-chogoris",
           "showTitle": null
         },
         {
@@ -99,7 +99,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/scions-of-the-emperor",
+          "href": "/book/scions-of-the-emperor",
           "showTitle": null
         },
         {
@@ -109,7 +109,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-lost-and-the-damned",
+          "href": "/book/the-lost-and-the-damned",
           "showTitle": null
         },
         {
@@ -119,7 +119,7 @@
           "releaseYear": 2021,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/warhawk",
+          "href": "/book/warhawk",
           "showTitle": null
         }
       ]

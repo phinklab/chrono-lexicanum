@@ -1,0 +1,158 @@
+{
+  "id": "e7f2bba7-bfe8-4a1a-bc1a-138dad72d52d",
+  "slug": "valedor",
+  "title": "Valedor",
+  "synopsis": "Apocalypse-scale Eldar novel set at the Battle of Duriel. Prince Yriel of Iyanden — carrying the consequences of an earlier engagement his farseers diverted into the warp — learns that the diverted fragment of Hive Fleet Kraken has re-emerged on a collision course with Hive Fleet Leviathan, and that the two swarms' genetic exchange would produce something the galaxy cannot survive. Yriel forges an uneasy three-way alliance with the Aspect-Warrior swordwind of Biel-Tan and the Dark Eldar of Commorragh, who fight only as long as the soul-toll suits them. Wraithguard, Aspect shrines, Kabal raiders and Tyranid bioforms collide across battlefield set pieces; a somber-cosmic register in which even victory only postpones the long extinction.",
+  "coverUrl": null,
+  "releaseYear": 2014,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "guy_haley",
+      "name": "Guy Haley",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "drukhari",
+      "name": "Drukhari",
+      "role": "primary"
+    },
+    {
+      "id": "eldar",
+      "name": "Aeldari",
+      "role": "primary"
+    },
+    {
+      "id": "hive_fleet_kraken",
+      "name": "Hive Fleet Kraken",
+      "role": "antagonist"
+    },
+    {
+      "id": "hive_fleet_leviathan",
+      "name": "Hive Fleet Leviathan",
+      "role": "antagonist"
+    },
+    {
+      "id": "tyranids",
+      "name": "Tyranids",
+      "role": "antagonist"
+    }
+  ],
+  "locations": [
+    {
+      "id": "commorragh",
+      "name": "Commorragh",
+      "role": "secondary"
+    },
+    {
+      "id": "duriel",
+      "name": "Duriel",
+      "role": "primary"
+    },
+    {
+      "id": "iyanden",
+      "name": "Iyanden",
+      "role": "secondary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "yriel",
+      "name": "Yriel",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Journey",
+      "category": "plot_type"
+    },
+    {
+      "name": "Last Stand",
+      "category": "plot_type"
+    },
+    {
+      "name": "Siege",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Xenos",
+      "category": "pov_side"
+    },
+    {
+      "name": "Xenos",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Mixed",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Sector",
+      "category": "scope"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Sacrifice",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Cosmic Horror",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Somber",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

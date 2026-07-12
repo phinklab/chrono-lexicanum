@@ -1,0 +1,126 @@
+{
+  "id": "c06de235-6373-4a38-ba38-8d86daf8fb08",
+  "slug": "elemental-council",
+  "title": "Elemental Council",
+  "synopsis": "On Cao Quo, a newly annexed human world keeps resisting the T'au Empire with sabotage, insurgency, and stubborn memory. Ethereal Yor'i forms an Elemental Council to pacify the crisis: Fire Caste discipline, Water Caste intelligence, Air Caste speed, Earth Caste ingenuity, and the Ethereal certainty that all must serve the Greater Good. But the rebellion understands the Empire too well, and the council's own priorities start to fracture under pressure from human resistance and T'au politics alike. A T'au political spy-thriller about occupation, doctrine, caste friction, and how much compromise an empire can survive before its bright philosophy becomes rule by force.",
+  "coverUrl": null,
+  "releaseYear": 2024,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [],
+  "factions": [
+    {
+      "id": "ethereal_caste",
+      "name": "Ethereal Caste",
+      "role": "primary"
+    },
+    {
+      "id": "fire_caste",
+      "name": "Fire Caste",
+      "role": "primary"
+    },
+    {
+      "id": "imperium",
+      "name": "Imperium of Man",
+      "role": "antagonist"
+    },
+    {
+      "id": "tau",
+      "name": "T'au Empire",
+      "role": "primary"
+    }
+  ],
+  "locations": [
+    {
+      "id": "cao_quo",
+      "name": "Cao Quo",
+      "role": "primary"
+    }
+  ],
+  "characters": [],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "Mystery",
+      "category": "plot_type"
+    },
+    {
+      "name": "Political Thriller",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Xenos",
+      "category": "pov_side"
+    },
+    {
+      "name": "Xenos",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Ensemble",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Planetary",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "War",
+      "category": "theme"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Philosophical",
+      "category": "tone"
+    },
+    {
+      "name": "Somber",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

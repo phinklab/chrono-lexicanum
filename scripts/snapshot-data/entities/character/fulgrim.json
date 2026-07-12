@@ -29,7 +29,7 @@
           "releaseYear": 2006,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/galaxy-in-flames",
+          "href": "/book/galaxy-in-flames",
           "showTitle": null
         },
         {
@@ -39,7 +39,7 @@
           "releaseYear": 2007,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/fulgrim",
+          "href": "/book/fulgrim",
           "showTitle": null
         },
         {
@@ -49,7 +49,7 @@
           "releaseYear": 2011,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/aurelian",
+          "href": "/book/aurelian",
           "showTitle": null
         },
         {
@@ -59,7 +59,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-primarchs",
+          "href": "/book/the-primarchs",
           "showTitle": null
         },
         {
@@ -69,7 +69,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-reflection-crackd",
+          "href": "/book/the-reflection-crackd",
           "showTitle": null
         },
         {
@@ -79,7 +79,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/angel-exterminatus",
+          "href": "/book/angel-exterminatus",
           "showTitle": null
         },
         {
@@ -89,7 +89,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-imperial-truth",
+          "href": "/book/the-imperial-truth",
           "showTitle": null
         },
         {
@@ -99,7 +99,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/death-and-defiance",
+          "href": "/book/death-and-defiance",
           "showTitle": null
         },
         {
@@ -109,7 +109,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/imperfect",
+          "href": "/book/imperfect",
           "showTitle": null
         },
         {
@@ -119,7 +119,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/legacies-of-betrayal",
+          "href": "/book/legacies-of-betrayal",
           "showTitle": null
         },
         {
@@ -129,7 +129,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-phoenician",
+          "href": "/book/the-phoenician",
           "showTitle": null
         },
         {
@@ -139,7 +139,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/the-last-phoenix",
+          "href": "/book/the-last-phoenix",
           "showTitle": null
         },
         {
@@ -149,7 +149,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": "mentioned",
-          "href": "/buch/the-soul-severed",
+          "href": "/book/the-soul-severed",
           "showTitle": null
         },
         {
@@ -159,7 +159,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/war-without-end",
+          "href": "/book/war-without-end",
           "showTitle": null
         },
         {
@@ -169,7 +169,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/fulgrim-the-palatine-phoenix",
+          "href": "/book/fulgrim-the-palatine-phoenix",
           "showTitle": null
         },
         {
@@ -179,7 +179,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/ferrus-manus-the-gorgon-of-medusa",
+          "href": "/book/ferrus-manus-the-gorgon-of-medusa",
           "showTitle": null
         },
         {
@@ -189,7 +189,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/slaves-to-darkness",
+          "href": "/book/slaves-to-darkness",
           "showTitle": null
         },
         {
@@ -199,7 +199,7 @@
           "releaseYear": 2021,
           "coverUrl": null,
           "role": "mentioned",
-          "href": "/buch/amor-fati",
+          "href": "/book/amor-fati",
           "showTitle": null
         },
         {
@@ -209,7 +209,7 @@
           "releaseYear": 2025,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/fulgrim-the-perfect-son",
+          "href": "/book/fulgrim-the-perfect-son",
           "showTitle": null
         }
       ]

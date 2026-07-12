@@ -1,0 +1,164 @@
+{
+  "id": "e9eced55-da9a-48d1-a15e-8831f6d30979",
+  "slug": "the-infinite-and-the-divine",
+  "title": "The Infinite and the Divine",
+  "synopsis": "Trazyn the Infinite guards the galleries of Solemnace like a museum, a fortress and a private joke. Orikan the Diviner breaks in to steal a device he believes will lead to the tomb of the last true Necrontyr Phaeron and the secret of undoing biotransference. Their feud stretches across millennia, through lawsuits before the Triarch Council, uneasy alliances, and the human world of Cepharil, also called Serenade, where a signal beneath the surface draws in Necrons, a Genestealer Cult and Imperial extermination. A philosophical, action-heavy rivalry novel with antique arrogance, deadpan comedy and genuine cosmic stakes.",
+  "coverUrl": null,
+  "releaseYear": 2020,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": "time_ending",
+  "eraName": "Time of Ending",
+  "persons": [
+    {
+      "id": "robert_rath",
+      "name": "Robert Rath",
+      "role": "author",
+      "displayOrder": 0
+    },
+    {
+      "id": "richard_reed",
+      "name": "Richard Reed",
+      "role": "narrator",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "genestealer_cults",
+      "name": "Genestealer Cults",
+      "role": "antagonist"
+    },
+    {
+      "id": "imperium",
+      "name": "Imperium of Man",
+      "role": "antagonist"
+    },
+    {
+      "id": "necrons",
+      "name": "Necrons",
+      "role": "primary"
+    },
+    {
+      "id": "sautekh_dynasty",
+      "name": "Sautekh Dynasty",
+      "role": "primary"
+    },
+    {
+      "id": "triarch_praetorians",
+      "name": "Triarch Praetorians",
+      "role": "supporting"
+    }
+  ],
+  "locations": [
+    {
+      "id": "cepharil",
+      "name": "Cepharil",
+      "role": "primary"
+    },
+    {
+      "id": "solemnace",
+      "name": "Solemnace",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "orikan_the_diviner",
+      "name": "Orikan the Diviner",
+      "role": "pov"
+    },
+    {
+      "id": "trazyn_the_infinite",
+      "name": "Trazyn the Infinite",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "Heist",
+      "category": "plot_type"
+    },
+    {
+      "name": "Journey",
+      "category": "plot_type"
+    },
+    {
+      "name": "Mystery",
+      "category": "plot_type"
+    },
+    {
+      "name": "Xenos",
+      "category": "pov_side"
+    },
+    {
+      "name": "Xenos",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Ensemble",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Galactic",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Brotherhood",
+      "category": "theme"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Philosophical",
+      "category": "tone"
+    },
+    {
+      "name": "Satirical",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

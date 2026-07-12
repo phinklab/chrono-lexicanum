@@ -29,7 +29,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/cypher-guardian-of-order",
+          "href": "/book/cypher-guardian-of-order",
           "showTitle": null
         },
         {
@@ -39,7 +39,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/echoes-of-ruin",
+          "href": "/book/echoes-of-ruin",
           "showTitle": null
         },
         {
@@ -49,7 +49,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-unforgiven",
+          "href": "/book/the-unforgiven",
           "showTitle": null
         },
         {
@@ -59,7 +59,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/legacy-of-caliban-the-omnibus",
+          "href": "/book/legacy-of-caliban-the-omnibus",
           "showTitle": null
         },
         {
@@ -69,7 +69,7 @@
           "releaseYear": 2023,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/lord-of-the-fallen",
+          "href": "/book/lord-of-the-fallen",
           "showTitle": null
         }
       ]

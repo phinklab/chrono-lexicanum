@@ -1,0 +1,119 @@
+{
+  "id": "6ac4a7de-3db0-4c75-b6cc-72f00d6c4100",
+  "slug": "renegades-harrowmaster",
+  "title": "Renegades: Harrowmaster",
+  "synopsis": "Harrowmaster Drazus Jate dies in the opening pages, and with him goes the fragile leash holding the Serpent's Teeth warband together. Solomon Akurra, lieutenant and chief schemer, decides he is the only one who can take the title — not by acclaim but by being the last of his rivals still breathing when the dust settles. Around him the Indomitus Crusade pushes deeper into the Ultima Segmentum, the new Primaris Marines are uglier news than the warband expected, and the hydra-headed Alpha Legion is feuding with itself across half a sector. Mike Brooks' first Renegades novel is a slow, paranoid power struggle inside a Chaos legion famous for never showing its real face, told from the inside by someone who knows every knife in every back is meant to look like it belongs there.",
+  "coverUrl": null,
+  "releaseYear": 2022,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "mike_brooks",
+      "name": "Mike Brooks",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "adeptus_astartes",
+      "name": "Adeptus Astartes",
+      "role": "antagonist"
+    },
+    {
+      "id": "alpha_legion",
+      "name": "Alpha Legion",
+      "role": "primary"
+    }
+  ],
+  "locations": [],
+  "characters": [
+    {
+      "id": "solomon_akurra",
+      "name": "Solomon Akurra",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Series Start",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Court Intrigue",
+      "category": "plot_type"
+    },
+    {
+      "name": "Political Thriller",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Chaos",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Sector",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Brotherhood",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Somber",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

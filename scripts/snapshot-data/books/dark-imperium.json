@@ -1,0 +1,138 @@
+{
+  "id": "94dd8181-e953-433a-b382-211f1cc02d44",
+  "slug": "dark-imperium",
+  "title": "Dark Imperium",
+  "synopsis": "Ten thousand years after he was struck down at the Battle of Thessala, Roboute Guilliman walks the galaxy once more. The first phase of the Indomitus Crusade has bought the Imperium a breath; now Guilliman turns toward Ultramar, where his brother Mortarion and the Death Guard march from the wounded warp to drown the Ultramarines' realm in pestilence. Belisarius Cawl, the strange archmagos who pulled the primarch from his stasis, has gifted Guilliman a new breed of Space Marines — taller, harder, never quite at ease in their own skin. As Mortarion's plague-fleets close on the heart of Ultramar, Guilliman must rebuild his fractured kingdom, take the measure of his Primaris sons, and decide whether the Imperium he means to save still resembles the one he was born to build.",
+  "coverUrl": null,
+  "releaseYear": 2017,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": "indomitus",
+  "eraName": "Era Indomitus",
+  "persons": [
+    {
+      "id": "guy_haley",
+      "name": "Guy Haley",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "death_guard",
+      "name": "Death Guard",
+      "role": "antagonist"
+    },
+    {
+      "id": "ecclesiarchy",
+      "name": "Ecclesiarchy",
+      "role": "supporting"
+    },
+    {
+      "id": "mechanicus",
+      "name": "Adeptus Mechanicus",
+      "role": "supporting"
+    },
+    {
+      "id": "ultramarines",
+      "name": "Ultramarines",
+      "role": "primary"
+    }
+  ],
+  "locations": [
+    {
+      "id": "macragge",
+      "name": "Macragge",
+      "role": "secondary"
+    },
+    {
+      "id": "ultramar",
+      "name": "Ultramar",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "belisarius_cawl",
+      "name": "Belisarius Cawl",
+      "role": "appears"
+    },
+    {
+      "id": "mortarion",
+      "name": "Mortarion",
+      "role": "appears"
+    },
+    {
+      "id": "roboute_guilliman",
+      "name": "Roboute Guilliman",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Series Start",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Sector",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "War",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

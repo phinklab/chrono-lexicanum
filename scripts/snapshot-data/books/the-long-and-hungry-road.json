@@ -1,0 +1,91 @@
+{
+  "id": "ef2348c7-1ad7-4cda-bb76-f5a533a0c81c",
+  "slug": "the-long-and-hungry-road",
+  "title": "The Long and Hungry Road",
+  "synopsis": "A rare glimpse inside the tyranid hive mind as a hive fleet's vanguard descends on the doomed world of Chertes, whose defenders mount a resistance that is ultimately consumed.",
+  "coverUrl": null,
+  "releaseYear": 2023,
+  "format": "short_story",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "adrian_tchaikovsky",
+      "name": "Adrian Tchaikovsky",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "genestealer_cults",
+      "name": "Genestealer Cults",
+      "role": "background"
+    },
+    {
+      "id": "tyranids",
+      "name": "Tyranids",
+      "role": "primary"
+    }
+  ],
+  "locations": [
+    {
+      "id": "chertes",
+      "name": "Chertes",
+      "role": "primary"
+    }
+  ],
+  "characters": [],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Last Stand",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Xenos",
+      "category": "pov_side"
+    },
+    {
+      "name": "Xenos",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Planetary",
+      "category": "scope"
+    },
+    {
+      "name": "War",
+      "category": "theme"
+    },
+    {
+      "name": "Cosmic Horror",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

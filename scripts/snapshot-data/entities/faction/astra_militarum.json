@@ -33,7 +33,7 @@
           "releaseYear": 1999,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/first-and-only",
+          "href": "/book/first-and-only",
           "showTitle": null
         },
         {
@@ -43,7 +43,7 @@
           "releaseYear": 2000,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/ghostmaker",
+          "href": "/book/ghostmaker",
           "showTitle": null
         },
         {
@@ -53,7 +53,7 @@
           "releaseYear": 2000,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/necropolis",
+          "href": "/book/necropolis",
           "showTitle": null
         },
         {
@@ -63,7 +63,7 @@
           "releaseYear": 2001,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/13th-legion",
+          "href": "/book/13th-legion",
           "showTitle": null
         },
         {
@@ -73,7 +73,7 @@
           "releaseYear": 2001,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/honour-guard",
+          "href": "/book/honour-guard",
           "showTitle": null
         },
         {
@@ -83,7 +83,7 @@
           "releaseYear": 2001,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/kill-team",
+          "href": "/book/kill-team",
           "showTitle": null
         },
         {
@@ -93,7 +93,7 @@
           "releaseYear": 2001,
           "coverUrl": null,
           "role": "antagonist",
-          "href": "/buch/pawns-of-chaos",
+          "href": "/book/pawns-of-chaos",
           "showTitle": null
         },
         {
@@ -103,7 +103,7 @@
           "releaseYear": 2002,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/storm-of-iron",
+          "href": "/book/storm-of-iron",
           "showTitle": null
         },
         {
@@ -113,7 +113,7 @@
           "releaseYear": 2002,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/straight-silver",
+          "href": "/book/straight-silver",
           "showTitle": null
         },
         {
@@ -123,7 +123,7 @@
           "releaseYear": 2002,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-guns-of-tanith",
+          "href": "/book/the-guns-of-tanith",
           "showTitle": null
         },
         {
@@ -133,7 +133,7 @@
           "releaseYear": 2003,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/angels-of-darkness",
+          "href": "/book/angels-of-darkness",
           "showTitle": null
         },
         {
@@ -143,7 +143,7 @@
           "releaseYear": 2003,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/crusade-for-armageddon",
+          "href": "/book/crusade-for-armageddon",
           "showTitle": null
         },
         {
@@ -153,7 +153,7 @@
           "releaseYear": 2003,
           "coverUrl": null,
           "role": "antagonist",
-          "href": "/buch/fire-warrior",
+          "href": "/book/fire-warrior",
           "showTitle": null
         },
         {
@@ -163,7 +163,7 @@
           "releaseYear": 2003,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/for-the-emperor",
+          "href": "/book/for-the-emperor",
           "showTitle": null
         },
         {
@@ -173,7 +173,7 @@
           "releaseYear": 2003,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/gaunts-ghosts-the-founding-omnibus-1-3",
+          "href": "/book/gaunts-ghosts-the-founding-omnibus-1-3",
           "showTitle": null
         },
         {
@@ -183,7 +183,7 @@
           "releaseYear": 2003,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/sabbat-martyr",
+          "href": "/book/sabbat-martyr",
           "showTitle": null
         },
         {
@@ -193,7 +193,7 @@
           "releaseYear": 2003,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/warriors-of-the-ultramar",
+          "href": "/book/warriors-of-the-ultramar",
           "showTitle": null
         },
         {
@@ -203,7 +203,7 @@
           "releaseYear": 2004,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/annihilation-squad",
+          "href": "/book/annihilation-squad",
           "showTitle": null
         },
         {
@@ -213,7 +213,7 @@
           "releaseYear": 2004,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/caves-of-ice",
+          "href": "/book/caves-of-ice",
           "showTitle": null
         },
         {
@@ -223,7 +223,7 @@
           "releaseYear": 2004,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/double-eagle",
+          "href": "/book/double-eagle",
           "showTitle": null
         },
         {
@@ -233,7 +233,7 @@
           "releaseYear": 2004,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/iron-hands",
+          "href": "/book/iron-hands",
           "showTitle": null
         },
         {
@@ -243,7 +243,7 @@
           "releaseYear": 2004,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/traitor-general",
+          "href": "/book/traitor-general",
           "showTitle": null
         },
         {
@@ -253,7 +253,7 @@
           "releaseYear": 2005,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/conquest-of-armageddon",
+          "href": "/book/conquest-of-armageddon",
           "showTitle": null
         },
         {
@@ -263,7 +263,7 @@
           "releaseYear": 2005,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/crimson-tears",
+          "href": "/book/crimson-tears",
           "showTitle": null
         },
         {
@@ -273,7 +273,7 @@
           "releaseYear": 2005,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/fifteen-hours",
+          "href": "/book/fifteen-hours",
           "showTitle": null
         },
         {
@@ -283,7 +283,7 @@
           "releaseYear": 2005,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/his-last-command",
+          "href": "/book/his-last-command",
           "showTitle": null
         },
         {
@@ -293,7 +293,7 @@
           "releaseYear": 2005,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-traitors-hand",
+          "href": "/book/the-traitors-hand",
           "showTitle": null
         },
         {
@@ -303,7 +303,7 @@
           "releaseYear": 2006,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/death-or-glory",
+          "href": "/book/death-or-glory",
           "showTitle": null
         },
         {
@@ -313,7 +313,7 @@
           "releaseYear": 2006,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/death-world",
+          "href": "/book/death-world",
           "showTitle": null
         },
         {
@@ -323,7 +323,7 @@
           "releaseYear": 2006,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/horus-rising",
+          "href": "/book/horus-rising",
           "showTitle": null
         },
         {
@@ -333,7 +333,7 @@
           "releaseYear": 2006,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-armour-of-contempt",
+          "href": "/book/the-armour-of-contempt",
           "showTitle": null
         },
         {
@@ -343,7 +343,7 @@
           "releaseYear": 2006,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-last-chancers-omnibus",
+          "href": "/book/the-last-chancers-omnibus",
           "showTitle": null
         },
         {
@@ -353,7 +353,7 @@
           "releaseYear": 2006,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-soul-drinkers-omnibus",
+          "href": "/book/the-soul-drinkers-omnibus",
           "showTitle": null
         },
         {
@@ -363,7 +363,7 @@
           "releaseYear": 2006,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-ultramarines-omnibus",
+          "href": "/book/the-ultramarines-omnibus",
           "showTitle": null
         },
         {
@@ -373,7 +373,7 @@
           "releaseYear": 2007,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/brothers-of-the-snake",
+          "href": "/book/brothers-of-the-snake",
           "showTitle": null
         },
         {
@@ -383,7 +383,7 @@
           "releaseYear": 2007,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/dark-apostle",
+          "href": "/book/dark-apostle",
           "showTitle": null
         },
         {
@@ -393,7 +393,7 @@
           "releaseYear": 2007,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/desert-raiders",
+          "href": "/book/desert-raiders",
           "showTitle": null
         },
         {
@@ -403,7 +403,7 @@
           "releaseYear": 2007,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/duty-calls",
+          "href": "/book/duty-calls",
           "showTitle": null
         },
         {
@@ -413,7 +413,7 @@
           "releaseYear": 2007,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/gaunts-ghosts-the-saint-omnibus-4-7",
+          "href": "/book/gaunts-ghosts-the-saint-omnibus-4-7",
           "showTitle": null
         },
         {
@@ -423,7 +423,7 @@
           "releaseYear": 2007,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/rebel-winter",
+          "href": "/book/rebel-winter",
           "showTitle": null
         },
         {
@@ -433,7 +433,7 @@
           "releaseYear": 2007,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/star-of-damocles",
+          "href": "/book/star-of-damocles",
           "showTitle": null
         },
         {
@@ -443,7 +443,7 @@
           "releaseYear": 2008,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/cains-last-stand",
+          "href": "/book/cains-last-stand",
           "showTitle": null
         },
         {
@@ -453,7 +453,7 @@
           "releaseYear": 2008,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/dark-disciple",
+          "href": "/book/dark-disciple",
           "showTitle": null
         },
         {
@@ -463,7 +463,7 @@
           "releaseYear": 2008,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/imperial-guard-omnibus-volume-one-shield-of-the-emperor",
+          "href": "/book/imperial-guard-omnibus-volume-one-shield-of-the-emperor",
           "showTitle": null
         },
         {
@@ -473,7 +473,7 @@
           "releaseYear": 2008,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/legion",
+          "href": "/book/legion",
           "showTitle": null
         },
         {
@@ -483,7 +483,7 @@
           "releaseYear": 2008,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/only-in-death",
+          "href": "/book/only-in-death",
           "showTitle": null
         },
         {
@@ -493,7 +493,7 @@
           "releaseYear": 2008,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/relentless",
+          "href": "/book/relentless",
           "showTitle": null
         },
         {
@@ -503,7 +503,7 @@
           "releaseYear": 2008,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/titanicus",
+          "href": "/book/titanicus",
           "showTitle": null
         },
         {
@@ -513,7 +513,7 @@
           "releaseYear": 2009,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/blood-pact",
+          "href": "/book/blood-pact",
           "showTitle": null
         },
         {
@@ -523,7 +523,7 @@
           "releaseYear": 2009,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/courage-and-honour",
+          "href": "/book/courage-and-honour",
           "showTitle": null
         },
         {
@@ -533,7 +533,7 @@
           "releaseYear": 2009,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/emperors-mercy",
+          "href": "/book/emperors-mercy",
           "showTitle": null
         },
         {
@@ -543,7 +543,7 @@
           "releaseYear": 2009,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/gaunts-ghosts-the-lost-omnibus-8-11",
+          "href": "/book/gaunts-ghosts-the-lost-omnibus-8-11",
           "showTitle": null
         },
         {
@@ -553,7 +553,7 @@
           "releaseYear": 2009,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/gunheads",
+          "href": "/book/gunheads",
           "showTitle": null
         },
         {
@@ -563,7 +563,7 @@
           "releaseYear": 2009,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/ice-guard",
+          "href": "/book/ice-guard",
           "showTitle": null
         },
         {
@@ -573,7 +573,7 @@
           "releaseYear": 2010,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/flesh-and-iron",
+          "href": "/book/flesh-and-iron",
           "showTitle": null
         },
         {
@@ -583,7 +583,7 @@
           "releaseYear": 2010,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/helsreach",
+          "href": "/book/helsreach",
           "showTitle": null
         },
         {
@@ -593,7 +593,7 @@
           "releaseYear": 2010,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/redemption-corps",
+          "href": "/book/redemption-corps",
           "showTitle": null
         },
         {
@@ -603,7 +603,7 @@
           "releaseYear": 2010,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/sabbat-worlds",
+          "href": "/book/sabbat-worlds",
           "showTitle": null
         },
         {
@@ -613,7 +613,7 @@
           "releaseYear": 2010,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/sons-of-dorn",
+          "href": "/book/sons-of-dorn",
           "showTitle": null
         },
         {
@@ -623,7 +623,7 @@
           "releaseYear": 2011,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/imperial-glory",
+          "href": "/book/imperial-glory",
           "showTitle": null
         },
         {
@@ -633,7 +633,7 @@
           "releaseYear": 2011,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/salvations-reach",
+          "href": "/book/salvations-reach",
           "showTitle": null
         },
         {
@@ -643,7 +643,7 @@
           "releaseYear": 2011,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/savage-scars",
+          "href": "/book/savage-scars",
           "showTitle": null
         },
         {
@@ -653,7 +653,7 @@
           "releaseYear": 2011,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-armageddon-omnibus",
+          "href": "/book/the-armageddon-omnibus",
           "showTitle": null
         },
         {
@@ -663,7 +663,7 @@
           "releaseYear": 2011,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-emperors-finest",
+          "href": "/book/the-emperors-finest",
           "showTitle": null
         },
         {
@@ -673,7 +673,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/angel-of-fire",
+          "href": "/book/angel-of-fire",
           "showTitle": null
         },
         {
@@ -683,7 +683,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/iron-warriors-the-omnibus",
+          "href": "/book/iron-warriors-the-omnibus",
           "showTitle": null
         },
         {
@@ -693,7 +693,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/old-soldiers-never-die",
+          "href": "/book/old-soldiers-never-die",
           "showTitle": null
         },
         {
@@ -703,7 +703,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/priests-of-mars",
+          "href": "/book/priests-of-mars",
           "showTitle": null
         },
         {
@@ -713,7 +713,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-emperors-gift",
+          "href": "/book/the-emperors-gift",
           "showTitle": null
         },
         {
@@ -723,7 +723,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-last-ditch",
+          "href": "/book/the-last-ditch",
           "showTitle": null
         },
         {
@@ -733,7 +733,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-word-bearers-omnibus",
+          "href": "/book/the-word-bearers-omnibus",
           "showTitle": null
         },
         {
@@ -743,7 +743,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/ultramarines-the-second-omnibus",
+          "href": "/book/ultramarines-the-second-omnibus",
           "showTitle": null
         },
         {
@@ -753,7 +753,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/wrath-of-iron",
+          "href": "/book/wrath-of-iron",
           "showTitle": null
         },
         {
@@ -763,7 +763,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/baneblade",
+          "href": "/book/baneblade",
           "showTitle": null
         },
         {
@@ -773,7 +773,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/censure",
+          "href": "/book/censure",
           "showTitle": null
         },
         {
@@ -783,7 +783,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/chains-of-golgotha",
+          "href": "/book/chains-of-golgotha",
           "showTitle": null
         },
         {
@@ -793,7 +793,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/fire-caste",
+          "href": "/book/fire-caste",
           "showTitle": null
         },
         {
@@ -803,7 +803,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/fist-of-demetrius",
+          "href": "/book/fist-of-demetrius",
           "showTitle": null
         },
         {
@@ -813,7 +813,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/lords-of-mars",
+          "href": "/book/lords-of-mars",
           "showTitle": null
         },
         {
@@ -823,7 +823,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/pandorax",
+          "href": "/book/pandorax",
           "showTitle": null
         },
         {
@@ -833,7 +833,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/seventh-retribution",
+          "href": "/book/seventh-retribution",
           "showTitle": null
         },
         {
@@ -843,7 +843,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/stormseer",
+          "href": "/book/stormseer",
           "showTitle": null
         },
         {
@@ -853,7 +853,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/tallarn-executioner",
+          "href": "/book/tallarn-executioner",
           "showTitle": null
         },
         {
@@ -863,7 +863,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-greater-good",
+          "href": "/book/the-greater-good",
           "showTitle": null
         },
         {
@@ -873,7 +873,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-sigillite",
+          "href": "/book/the-sigillite",
           "showTitle": null
         },
         {
@@ -883,7 +883,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/bastion-wars-the-omnibus",
+          "href": "/book/bastion-wars-the-omnibus",
           "showTitle": null
         },
         {
@@ -893,7 +893,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/fall-of-macharius",
+          "href": "/book/fall-of-macharius",
           "showTitle": null
         },
         {
@@ -903,7 +903,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/gods-of-mars",
+          "href": "/book/gods-of-mars",
           "showTitle": null
         },
         {
@@ -913,7 +913,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/honour-imperialis-omnibus",
+          "href": "/book/honour-imperialis-omnibus",
           "showTitle": null
         },
         {
@@ -923,7 +923,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/imperial-creed",
+          "href": "/book/imperial-creed",
           "showTitle": null
         },
         {
@@ -933,7 +933,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/overfiend",
+          "href": "/book/overfiend",
           "showTitle": null
         },
         {
@@ -943,7 +943,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/sabbat-crusade",
+          "href": "/book/sabbat-crusade",
           "showTitle": null
         },
         {
@@ -953,7 +953,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/sanctus-reach-blood-on-the-mountain",
+          "href": "/book/sanctus-reach-blood-on-the-mountain",
           "showTitle": null
         },
         {
@@ -963,7 +963,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/vengeful-spirit",
+          "href": "/book/vengeful-spirit",
           "showTitle": null
         },
         {
@@ -973,7 +973,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/all-that-remains",
+          "href": "/book/all-that-remains",
           "showTitle": null
         },
         {
@@ -983,7 +983,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/dark-hunters-umbra-sumus",
+          "href": "/book/dark-hunters-umbra-sumus",
           "showTitle": null
         },
         {
@@ -993,7 +993,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": "antagonist",
-          "href": "/buch/farsight",
+          "href": "/book/farsight",
           "showTitle": null
         },
         {
@@ -1003,7 +1003,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/sanctus-reach",
+          "href": "/book/sanctus-reach",
           "showTitle": null
         },
         {
@@ -1013,7 +1013,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/silver-skulls-portents",
+          "href": "/book/silver-skulls-portents",
           "showTitle": null
         },
         {
@@ -1023,7 +1023,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/tallarn-ironclad",
+          "href": "/book/tallarn-ironclad",
           "showTitle": null
         },
         {
@@ -1033,7 +1033,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/tallarn-witness",
+          "href": "/book/tallarn-witness",
           "showTitle": null
         },
         {
@@ -1043,7 +1043,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-pyres-of-armageddon",
+          "href": "/book/the-pyres-of-armageddon",
           "showTitle": null
         },
         {
@@ -1053,7 +1053,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/astra-militarum",
+          "href": "/book/astra-militarum",
           "showTitle": null
         },
         {
@@ -1063,7 +1063,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/hell-night",
+          "href": "/book/hell-night",
           "showTitle": null
         },
         {
@@ -1073,7 +1073,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/shadowsword",
+          "href": "/book/shadowsword",
           "showTitle": null
         },
         {
@@ -1083,7 +1083,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/cadia-stands",
+          "href": "/book/cadia-stands",
           "showTitle": null
         },
         {
@@ -1093,7 +1093,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "antagonist",
-          "href": "/buch/crisis-of-faith",
+          "href": "/book/crisis-of-faith",
           "showTitle": null
         },
         {
@@ -1103,7 +1103,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/echoes-of-revelation",
+          "href": "/book/echoes-of-revelation",
           "showTitle": null
         },
         {
@@ -1113,7 +1113,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/forges-of-mars-omnibus",
+          "href": "/book/forges-of-mars-omnibus",
           "showTitle": null
         },
         {
@@ -1123,7 +1123,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/glory-imperialis-omnibus",
+          "href": "/book/glory-imperialis-omnibus",
           "showTitle": null
         },
         {
@@ -1133,7 +1133,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/now-peals-midnight",
+          "href": "/book/now-peals-midnight",
           "showTitle": null
         },
         {
@@ -1143,7 +1143,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/shield-of-baal",
+          "href": "/book/shield-of-baal",
           "showTitle": null
         },
         {
@@ -1153,7 +1153,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "antagonist",
-          "href": "/buch/shroud-of-night",
+          "href": "/book/shroud-of-night",
           "showTitle": null
         },
         {
@@ -1163,7 +1163,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/tallarn",
+          "href": "/book/tallarn",
           "showTitle": null
         },
         {
@@ -1173,7 +1173,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-eye-of-ezekiel",
+          "href": "/book/the-eye-of-ezekiel",
           "showTitle": null
         },
         {
@@ -1183,7 +1183,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-last-hunt",
+          "href": "/book/the-last-hunt",
           "showTitle": null
         },
         {
@@ -1193,7 +1193,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-macharian-crusade-omnibus",
+          "href": "/book/the-macharian-crusade-omnibus",
           "showTitle": null
         },
         {
@@ -1203,7 +1203,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-warmaster",
+          "href": "/book/the-warmaster",
           "showTitle": null
         },
         {
@@ -1213,7 +1213,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/warlord-fury-of-the-god-machine",
+          "href": "/book/warlord-fury-of-the-god-machine",
           "showTitle": null
         },
         {
@@ -1223,7 +1223,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/blood-of-iax",
+          "href": "/book/blood-of-iax",
           "showTitle": null
         },
         {
@@ -1233,7 +1233,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/cadian-honour",
+          "href": "/book/cadian-honour",
           "showTitle": null
         },
         {
@@ -1243,7 +1243,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/choose-your-enemies",
+          "href": "/book/choose-your-enemies",
           "showTitle": null
         },
         {
@@ -1253,7 +1253,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/corax-lord-of-shadows",
+          "href": "/book/corax-lord-of-shadows",
           "showTitle": null
         },
         {
@@ -1263,7 +1263,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/cult-of-the-spiral-dawn",
+          "href": "/book/cult-of-the-spiral-dawn",
           "showTitle": null
         },
         {
@@ -1273,7 +1273,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/gaunts-ghosts-the-victory-omnibus-part-one-12-13",
+          "href": "/book/gaunts-ghosts-the-victory-omnibus-part-one-12-13",
           "showTitle": null
         },
         {
@@ -1283,7 +1283,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/legacy-of-dorn",
+          "href": "/book/legacy-of-dorn",
           "showTitle": null
         },
         {
@@ -1293,7 +1293,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/rogue-trader-omnibus",
+          "href": "/book/rogue-trader-omnibus",
           "showTitle": null
         },
         {
@@ -1303,7 +1303,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/steel-daemon",
+          "href": "/book/steel-daemon",
           "showTitle": null
         },
         {
@@ -1313,7 +1313,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/yarrick-the-omnibus",
+          "href": "/book/yarrick-the-omnibus",
           "showTitle": null
         },
         {
@@ -1323,7 +1323,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/celestine",
+          "href": "/book/celestine",
           "showTitle": null
         },
         {
@@ -1333,7 +1333,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/honourbound",
+          "href": "/book/honourbound",
           "showTitle": null
         },
         {
@@ -1343,7 +1343,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/iron-warriors-the-complete-honsou-omnibus",
+          "href": "/book/iron-warriors-the-complete-honsou-omnibus",
           "showTitle": null
         },
         {
@@ -1353,7 +1353,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/ishas-lament",
+          "href": "/book/ishas-lament",
           "showTitle": null
         },
         {
@@ -1363,7 +1363,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/maledictions",
+          "href": "/book/maledictions",
           "showTitle": null
         },
         {
@@ -1373,7 +1373,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/requiem-infernal",
+          "href": "/book/requiem-infernal",
           "showTitle": null
         },
         {
@@ -1383,7 +1383,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-anarch",
+          "href": "/book/the-anarch",
           "showTitle": null
         },
         {
@@ -1393,7 +1393,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-colonels-monograph",
+          "href": "/book/the-colonels-monograph",
           "showTitle": null
         },
         {
@@ -1403,7 +1403,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-house-of-the-night-and-chain",
+          "href": "/book/the-house-of-the-night-and-chain",
           "showTitle": null
         },
         {
@@ -1413,7 +1413,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-lost-and-the-damned",
+          "href": "/book/the-lost-and-the-damned",
           "showTitle": null
         },
         {
@@ -1423,7 +1423,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-uriel-ventris-chronicles-vol-1-omnibus",
+          "href": "/book/the-uriel-ventris-chronicles-vol-1-omnibus",
           "showTitle": null
         },
         {
@@ -1433,7 +1433,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-uriel-ventris-chronicles-vol-2-omnibus",
+          "href": "/book/the-uriel-ventris-chronicles-vol-2-omnibus",
           "showTitle": null
         },
         {
@@ -1443,7 +1443,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-wicked-and-the-damned",
+          "href": "/book/the-wicked-and-the-damned",
           "showTitle": null
         },
         {
@@ -1453,7 +1453,7 @@
           "releaseYear": 2020,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/armageddon-saint",
+          "href": "/book/armageddon-saint",
           "showTitle": null
         },
         {
@@ -1463,7 +1463,7 @@
           "releaseYear": 2020,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/prisoners-of-waaagh",
+          "href": "/book/prisoners-of-waaagh",
           "showTitle": null
         },
         {
@@ -1473,7 +1473,7 @@
           "releaseYear": 2020,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-first-wall",
+          "href": "/book/the-first-wall",
           "showTitle": null
         },
         {
@@ -1483,7 +1483,7 @@
           "releaseYear": 2021,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/sabbat-war",
+          "href": "/book/sabbat-war",
           "showTitle": null
         },
         {
@@ -1493,7 +1493,7 @@
           "releaseYear": 2021,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/steel-tread",
+          "href": "/book/steel-tread",
           "showTitle": null
         },
         {
@@ -1503,7 +1503,7 @@
           "releaseYear": 2021,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-accursed",
+          "href": "/book/the-accursed",
           "showTitle": null
         },
         {
@@ -1513,7 +1513,7 @@
           "releaseYear": 2021,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-gates-of-bones",
+          "href": "/book/the-gates-of-bones",
           "showTitle": null
         },
         {
@@ -1523,7 +1523,7 @@
           "releaseYear": 2021,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-magister-and-the-martyr",
+          "href": "/book/the-magister-and-the-martyr",
           "showTitle": null
         },
         {
@@ -1533,7 +1533,7 @@
           "releaseYear": 2021,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-serpent-and-the-saint",
+          "href": "/book/the-serpent-and-the-saint",
           "showTitle": null
         },
         {
@@ -1543,7 +1543,7 @@
           "releaseYear": 2021,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-vincula-insurgency",
+          "href": "/book/the-vincula-insurgency",
           "showTitle": null
         },
         {
@@ -1553,7 +1553,7 @@
           "releaseYear": 2021,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/traitor-rock",
+          "href": "/book/traitor-rock",
           "showTitle": null
         },
         {
@@ -1563,7 +1563,7 @@
           "releaseYear": 2021,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/volpone-glory",
+          "href": "/book/volpone-glory",
           "showTitle": null
         },
         {
@@ -1573,7 +1573,7 @@
           "releaseYear": 2022,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/catachan-devil",
+          "href": "/book/catachan-devil",
           "showTitle": null
         },
         {
@@ -1583,7 +1583,7 @@
           "releaseYear": 2022,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/kasrkin",
+          "href": "/book/kasrkin",
           "showTitle": null
         },
         {
@@ -1593,7 +1593,7 @@
           "releaseYear": 2022,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/krieg",
+          "href": "/book/krieg",
           "showTitle": null
         },
         {
@@ -1603,7 +1603,7 @@
           "releaseYear": 2022,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/outgunned",
+          "href": "/book/outgunned",
           "showTitle": null
         },
         {
@@ -1613,7 +1613,7 @@
           "releaseYear": 2022,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/witchbringer",
+          "href": "/book/witchbringer",
           "showTitle": null
         },
         {
@@ -1623,7 +1623,7 @@
           "releaseYear": 2023,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/longshot",
+          "href": "/book/longshot",
           "showTitle": null
         },
         {
@@ -1633,7 +1633,7 @@
           "releaseYear": 2023,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/minka-lesk-the-last-whiteshield",
+          "href": "/book/minka-lesk-the-last-whiteshield",
           "showTitle": null
         },
         {
@@ -1643,7 +1643,7 @@
           "releaseYear": 2023,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/shadow-of-the-eighth",
+          "href": "/book/shadow-of-the-eighth",
           "showTitle": null
         },
         {
@@ -1653,7 +1653,7 @@
           "releaseYear": 2023,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-iron-kingdom",
+          "href": "/book/the-iron-kingdom",
           "showTitle": null
         },
         {
@@ -1663,7 +1663,7 @@
           "releaseYear": 2023,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/vainglorious",
+          "href": "/book/vainglorious",
           "showTitle": null
         },
         {
@@ -1673,7 +1673,7 @@
           "releaseYear": 2024,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/above-and-beyond",
+          "href": "/book/above-and-beyond",
           "showTitle": null
         },
         {
@@ -1683,7 +1683,7 @@
           "releaseYear": 2024,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/creed-ashes-of-cadia",
+          "href": "/book/creed-ashes-of-cadia",
           "showTitle": null
         },
         {
@@ -1693,7 +1693,7 @@
           "releaseYear": 2024,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/deathworlder",
+          "href": "/book/deathworlder",
           "showTitle": null
         },
         {
@@ -1703,7 +1703,7 @@
           "releaseYear": 2024,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/fall-of-cadia",
+          "href": "/book/fall-of-cadia",
           "showTitle": null
         },
         {
@@ -1713,7 +1713,7 @@
           "releaseYear": 2025,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/blood-of-the-imperium",
+          "href": "/book/blood-of-the-imperium",
           "showTitle": null
         },
         {
@@ -1723,7 +1723,7 @@
           "releaseYear": 2025,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/ciaphas-cain-the-anthology",
+          "href": "/book/ciaphas-cain-the-anthology",
           "showTitle": null
         },
         {
@@ -1733,7 +1733,7 @@
           "releaseYear": 2025,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/darkness-eternal",
+          "href": "/book/darkness-eternal",
           "showTitle": null
         },
         {
@@ -1743,7 +1743,7 @@
           "releaseYear": 2025,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/death-and-duty",
+          "href": "/book/death-and-duty",
           "showTitle": null
         },
         {
@@ -1753,7 +1753,7 @@
           "releaseYear": 2025,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/demolisher",
+          "href": "/book/demolisher",
           "showTitle": null
         },
         {
@@ -1763,7 +1763,7 @@
           "releaseYear": 2025,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/final-deployment",
+          "href": "/book/final-deployment",
           "showTitle": null
         },
         {
@@ -1773,7 +1773,7 @@
           "releaseYear": 2025,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/hells-last",
+          "href": "/book/hells-last",
           "showTitle": null
         },
         {
@@ -1783,7 +1783,7 @@
           "releaseYear": 2025,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/interceptor-city",
+          "href": "/book/interceptor-city",
           "showTitle": null
         },
         {
@@ -1793,7 +1793,7 @@
           "releaseYear": 2025,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/leontus",
+          "href": "/book/leontus",
           "showTitle": null
         },
         {
@@ -1803,7 +1803,7 @@
           "releaseYear": 2025,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/no-peace-among-stars",
+          "href": "/book/no-peace-among-stars",
           "showTitle": null
         },
         {
@@ -1813,7 +1813,7 @@
           "releaseYear": 2025,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/soldiers-of-the-imperium",
+          "href": "/book/soldiers-of-the-imperium",
           "showTitle": null
         },
         {
@@ -1823,7 +1823,7 @@
           "releaseYear": 2025,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-dark-coil-ascension",
+          "href": "/book/the-dark-coil-ascension",
           "showTitle": null
         },
         {
@@ -1833,7 +1833,7 @@
           "releaseYear": 2025,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-dark-coil-damnation",
+          "href": "/book/the-dark-coil-damnation",
           "showTitle": null
         },
         {
@@ -1843,7 +1843,7 @@
           "releaseYear": 2025,
           "coverUrl": null,
           "role": "antagonist",
-          "href": "/buch/tomb-world",
+          "href": "/book/tomb-world",
           "showTitle": null
         },
         {
@@ -1853,7 +1853,7 @@
           "releaseYear": 2025,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/vagabond-squadron",
+          "href": "/book/vagabond-squadron",
           "showTitle": null
         },
         {
@@ -1863,7 +1863,7 @@
           "releaseYear": 2025,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/yarrick-imperial-creed",
+          "href": "/book/yarrick-imperial-creed",
           "showTitle": null
         },
         {
@@ -1873,7 +1873,7 @@
           "releaseYear": 2026,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/armageddon-season-of-fire",
+          "href": "/book/armageddon-season-of-fire",
           "showTitle": null
         },
         {
@@ -1883,7 +1883,7 @@
           "releaseYear": 2026,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/carnage-unending",
+          "href": "/book/carnage-unending",
           "showTitle": null
         },
         {
@@ -1893,7 +1893,7 @@
           "releaseYear": 2026,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/chem-dog",
+          "href": "/book/chem-dog",
           "showTitle": null
         },
         {
@@ -1903,7 +1903,7 @@
           "releaseYear": 2026,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/death-rider",
+          "href": "/book/death-rider",
           "showTitle": null
         },
         {
@@ -1913,7 +1913,7 @@
           "releaseYear": 2026,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-green-tide",
+          "href": "/book/the-green-tide",
           "showTitle": null
         },
         {
@@ -1923,7 +1923,7 @@
           "releaseYear": 2026,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/veterans-of-the-fall",
+          "href": "/book/veterans-of-the-fall",
           "showTitle": null
         },
         {
@@ -1933,7 +1933,7 @@
           "releaseYear": 2026,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/world-ablaze",
+          "href": "/book/world-ablaze",
           "showTitle": null
         },
         {
@@ -1943,7 +1943,7 @@
           "releaseYear": null,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/war-for-armageddon-omnibus",
+          "href": "/book/war-for-armageddon-omnibus",
           "showTitle": null
         }
       ]

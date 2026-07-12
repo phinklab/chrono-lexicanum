@@ -29,7 +29,7 @@
           "releaseYear": 2008,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/legion",
+          "href": "/book/legion",
           "showTitle": null
         },
         {
@@ -39,7 +39,7 @@
           "releaseYear": 2011,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/deliverance-lost",
+          "href": "/book/deliverance-lost",
           "showTitle": null
         },
         {
@@ -49,7 +49,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-primarchs",
+          "href": "/book/the-primarchs",
           "showTitle": null
         },
         {
@@ -59,7 +59,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-serpent-beneath",
+          "href": "/book/the-serpent-beneath",
           "showTitle": null
         },
         {
@@ -69,7 +69,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": "mentioned",
-          "href": "/buch/hunters-moon",
+          "href": "/book/hunters-moon",
           "showTitle": null
         },
         {
@@ -79,7 +79,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/praetorian-of-dorn",
+          "href": "/book/praetorian-of-dorn",
           "showTitle": null
         },
         {
@@ -89,7 +89,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/scions-of-the-emperor",
+          "href": "/book/scions-of-the-emperor",
           "showTitle": null
         },
         {
@@ -99,7 +99,7 @@
           "releaseYear": 2021,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/alpharius-head-of-the-hydra",
+          "href": "/book/alpharius-head-of-the-hydra",
           "showTitle": null
         },
         {
@@ -109,7 +109,7 @@
           "releaseYear": 2021,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/blood-of-the-emperor",
+          "href": "/book/blood-of-the-emperor",
           "showTitle": null
         }
       ]

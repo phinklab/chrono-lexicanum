@@ -29,7 +29,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/angel-exterminatus",
+          "href": "/book/angel-exterminatus",
           "showTitle": null
         },
         {
@@ -39,7 +39,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-crimson-fist",
+          "href": "/book/the-crimson-fist",
           "showTitle": null
         },
         {
@@ -49,7 +49,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/black-oculus",
+          "href": "/book/black-oculus",
           "showTitle": null
         },
         {
@@ -59,7 +59,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/ironfire",
+          "href": "/book/ironfire",
           "showTitle": null
         },
         {
@@ -69,7 +69,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/tallarn-ironclad",
+          "href": "/book/tallarn-ironclad",
           "showTitle": null
         },
         {
@@ -79,7 +79,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/the-last-phoenix",
+          "href": "/book/the-last-phoenix",
           "showTitle": null
         },
         {
@@ -89,7 +89,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/magnus-the-red-master-of-prospero",
+          "href": "/book/magnus-the-red-master-of-prospero",
           "showTitle": null
         },
         {
@@ -99,7 +99,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/perturabo-stone-and-iron",
+          "href": "/book/perturabo-stone-and-iron",
           "showTitle": null
         },
         {
@@ -109,7 +109,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/perturabo-the-hammer-of-olympia",
+          "href": "/book/perturabo-the-hammer-of-olympia",
           "showTitle": null
         },
         {
@@ -119,7 +119,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/tallarn",
+          "href": "/book/tallarn",
           "showTitle": null
         },
         {
@@ -129,7 +129,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/slaves-to-darkness",
+          "href": "/book/slaves-to-darkness",
           "showTitle": null
         },
         {
@@ -139,7 +139,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/the-lords-of-terra",
+          "href": "/book/the-lords-of-terra",
           "showTitle": null
         },
         {
@@ -149,7 +149,7 @@
           "releaseYear": 2020,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/ember-of-extinction",
+          "href": "/book/ember-of-extinction",
           "showTitle": null
         },
         {
@@ -159,7 +159,7 @@
           "releaseYear": 2020,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/saturnine",
+          "href": "/book/saturnine",
           "showTitle": null
         },
         {
@@ -169,7 +169,7 @@
           "releaseYear": 2020,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-first-wall",
+          "href": "/book/the-first-wall",
           "showTitle": null
         }
       ]

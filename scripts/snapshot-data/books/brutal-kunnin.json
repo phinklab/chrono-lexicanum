@@ -1,0 +1,142 @@
+{
+  "id": "890bae38-73d2-4e52-9f4f-717680207d30",
+  "slug": "brutal-kunnin",
+  "title": "Brutal Kunnin",
+  "synopsis": "Ufthak Blackhawk, a Goff Big-Mek with more cunning than anyone wants to admit, leads an Ork assault on the forge world Hephaesto and finds Kaptin Badrukk's Freebooterz already looting the prize. Ordered into temporary cooperation by Da Biggest Big Mek, Ufthak sees a chance to make his name by crushing the Adeptus Mechanicus, stealing the best toys on the planet and surviving Badrukk's inevitable double-cross. His grot Nizkwik adds panic, loyalty and comic timing to the carnage. A rare Ork-POV war-heist that swaps solemn grimdark for loud, brutal, very kunnin' satire.",
+  "coverUrl": null,
+  "releaseYear": 2020,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": "indomitus",
+  "eraName": "Era Indomitus",
+  "persons": [
+    {
+      "id": "mike_brooks",
+      "name": "Mike Brooks",
+      "role": "author",
+      "displayOrder": 0
+    },
+    {
+      "id": "tom_allenby",
+      "name": "Tom Allenby",
+      "role": "narrator",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "freebooterz",
+      "name": "Freebooterz",
+      "role": "supporting"
+    },
+    {
+      "id": "goffs",
+      "name": "Goffs",
+      "role": "primary"
+    },
+    {
+      "id": "mechanicus",
+      "name": "Adeptus Mechanicus",
+      "role": "antagonist"
+    },
+    {
+      "id": "orks",
+      "name": "Orks",
+      "role": "primary"
+    },
+    {
+      "id": "skitarii",
+      "name": "Skitarii",
+      "role": "antagonist"
+    }
+  ],
+  "locations": [
+    {
+      "id": "hephaesto",
+      "name": "Hephaesto",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "ufthak_blackhawk",
+      "name": "Ufthak Blackhawk",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "Heist",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Xenos",
+      "category": "pov_side"
+    },
+    {
+      "name": "Xenos",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Planetary",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Brotherhood",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Satirical",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

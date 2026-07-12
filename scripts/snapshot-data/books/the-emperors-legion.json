@@ -1,0 +1,164 @@
+{
+  "id": "7dbb24bb-5ade-4d41-985e-536e0a6b7662",
+  "slug": "the-emperors-legion",
+  "title": "The Emperor's Legion",
+  "synopsis": "Cadia has fallen. The Cicatrix Maledictum has torn the galaxy in two, and Terra reels under the shock of psykers awakening and warp-storms tearing at her sky. Three sets of eyes track the crisis. Valerian, of the Adeptus Custodes, stalks the lower vaults of the Imperial Palace where things never meant to walk among men have begun to stir. Tanau Aleya, a Sister of Silence, is recalled with her order from a millennium of self-imposed exile to face the daemonic tide. And Aleksei Lev Tieron, chancellor of the Senatorum Imperialis, fights a quieter war in the council chambers — pleading with the Lord of Terra to lift an ancient edict and unleash the Imperium's strongest weapons before the throneworld is overrun. As a daemonic incursion bursts into the Palace itself, the three threads converge: the Custodian and the Null-maiden race to thwart a Black Legion plot to sever Terra from the warp's last conduits, and a returning Primarch sets foot once more on the holy soil his father trod.",
+  "coverUrl": null,
+  "releaseYear": 2017,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": "time_ending",
+  "eraName": "Time of Ending",
+  "persons": [
+    {
+      "id": "chris_wraight",
+      "name": "Chris Wraight",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "black_legion",
+      "name": "Black Legion",
+      "role": "antagonist"
+    },
+    {
+      "id": "custodes",
+      "name": "Adeptus Custodes",
+      "role": "primary"
+    },
+    {
+      "id": "senatorum_imperialis",
+      "name": "Senatorum Imperialis",
+      "role": "primary"
+    },
+    {
+      "id": "talons_of_the_emperor",
+      "name": "Talons of the Emperor",
+      "role": "primary"
+    },
+    {
+      "id": "ultramarines",
+      "name": "Ultramarines",
+      "role": "supporting"
+    }
+  ],
+  "locations": [
+    {
+      "id": "luna",
+      "name": "Luna",
+      "role": "secondary"
+    },
+    {
+      "id": "terra",
+      "name": "Terra",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "aleksei_lev_tieron",
+      "name": "Aleksei Lev Tieron",
+      "role": "pov"
+    },
+    {
+      "id": "roboute_guilliman",
+      "name": "Roboute Guilliman",
+      "role": "appears"
+    },
+    {
+      "id": "tanau_aleya",
+      "name": "Tanau Aleya",
+      "role": "pov"
+    },
+    {
+      "id": "valerian",
+      "name": "Valerian",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Series Start",
+      "category": "entry_point"
+    },
+    {
+      "name": "Audiobook",
+      "category": "format"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Court Intrigue",
+      "category": "plot_type"
+    },
+    {
+      "name": "Political Thriller",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Custodes",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Ensemble",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Planetary",
+      "category": "scope"
+    },
+    {
+      "name": "Faith",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Sacrifice",
+      "category": "theme"
+    },
+    {
+      "name": "War",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Philosophical",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

@@ -1,0 +1,157 @@
+{
+  "id": "f6178187-ac23-49ac-a259-03184c43eefc",
+  "slug": "false-gods",
+  "title": "False Gods",
+  "synopsis": "After Ullanor, Horus rides the wave of his own glory and his Legion bleeds for it. When a ritual duel on the feral world of Davin leaves the Warmaster mortally wounded, the Word Bearers chaplain Erebus and a serpent-lodge of native priests have him carried to a sealed temple, where a long spirit-walk through the warp shows Horus a future in which the Emperor of Mankind has discarded the species he built. Horus rises restored in body, broken in faith. Garviel Loken senses the change before he can name it. The Mournival splinters; old brothers begin to speak in coded loyalties; an entire Crusade quietly bends toward the conflagration to come.",
+  "coverUrl": null,
+  "releaseYear": 2006,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": "horus_heresy",
+  "eraName": "Horus Heresy & The Great Scouring",
+  "persons": [
+    {
+      "id": "graham_mcneill",
+      "name": "Graham McNeill",
+      "role": "author",
+      "displayOrder": 0
+    },
+    {
+      "id": "toby_longworth",
+      "name": "Toby Longworth",
+      "role": "narrator",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "sons_of_horus",
+      "name": "Sons of Horus",
+      "role": "primary"
+    },
+    {
+      "id": "word_bearers",
+      "name": "Word Bearers",
+      "role": "antagonist"
+    }
+  ],
+  "locations": [
+    {
+      "id": "davin",
+      "name": "Davin",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "abaddon_the_despoiler",
+      "name": "Abaddon the Despoiler",
+      "role": "appears"
+    },
+    {
+      "id": "erebus",
+      "name": "Erebus",
+      "role": "appears"
+    },
+    {
+      "id": "garviel_loken",
+      "name": "Garviel Loken",
+      "role": "pov"
+    },
+    {
+      "id": "horus",
+      "name": "Horus",
+      "role": "pov"
+    },
+    {
+      "id": "horus_aximand",
+      "name": "Horus Aximand",
+      "role": "appears"
+    },
+    {
+      "id": "tarik_torgaddon",
+      "name": "Tarik Torgaddon",
+      "role": "appears"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Mid Series",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Doorstopper",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Planetary",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Brotherhood",
+      "category": "theme"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Cosmic Horror",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Philosophical",
+      "category": "tone"
+    }
+  ],
+  "containedIn": [
+    {
+      "collectionSlug": "crusades-end",
+      "collectionTitle": "Crusade's End"
+    }
+  ]
+}

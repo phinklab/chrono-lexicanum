@@ -1,0 +1,138 @@
+{
+  "id": "7867fe42-f528-4783-bc45-361a231e49b1",
+  "slug": "assassinorum-kingmaker",
+  "title": "Assassinorum: Kingmaker",
+  "synopsis": "On the Knight World Dominion, a secessionist king has become too dangerous for the Imperium to leave alive. Vindicare assassin Absolom Raithe is forced into a three-temple operation with Callidus shapeshifter Sycorax and Vanus analyst Avaaris Koln: kill the ruler, steer the succession, and survive nobles whose oaths are as armoured as their war machines. The assignment turns from clean execution into succession crisis, spy game, and Knight-scale bodyguard problem, with every ally a possible future target. A sharp Officio Assassinorum thriller where the hardest shot may be deciding what political future the bullet is meant to buy.",
+  "coverUrl": null,
+  "releaseYear": 2022,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "robert_rath",
+      "name": "Robert Rath",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "callidus_temple",
+      "name": "Callidus Temple",
+      "role": "primary"
+    },
+    {
+      "id": "imperial_knights",
+      "name": "Imperial Knights",
+      "role": "supporting"
+    },
+    {
+      "id": "officio_assassinorum",
+      "name": "Officio Assassinorum",
+      "role": "primary"
+    },
+    {
+      "id": "vanus_temple",
+      "name": "Vanus Temple",
+      "role": "primary"
+    },
+    {
+      "id": "vindicare_temple",
+      "name": "Vindicare Temple",
+      "role": "primary"
+    }
+  ],
+  "locations": [
+    {
+      "id": "dominion",
+      "name": "Dominion",
+      "role": "primary"
+    }
+  ],
+  "characters": [],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Court Intrigue",
+      "category": "plot_type"
+    },
+    {
+      "name": "Heist",
+      "category": "plot_type"
+    },
+    {
+      "name": "Mystery",
+      "category": "plot_type"
+    },
+    {
+      "name": "Political Thriller",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Multi-class",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Mixed",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Planetary",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Satirical",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

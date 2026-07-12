@@ -16,9 +16,13 @@
  *                                       welten-rows/personen-rows.json
  *   - Entity prerender subset         → entity-hot-ids.json +
  *                                       entities/<type>/<id>.json (EntityView)
+ *   - Book prerender subset (S4b)     → book-hot-slugs.json +
+ *                                       books/<slug>.json (BookDetail)
+ *   - Book slug list (S4b)            → book-slugs.json (string[] — the S5
+ *                                       sitemap reads this at build time)
  * NOT here: /map (committed map-worlds.json), /timeline, /ask, /archive
- * (searchParams-dynamic), /ask/fraktion (committed JSON), /compendium
- * (force-dynamic). Book projection joins in S4b, sitemap source in S5.
+ * (searchParams-dynamic), /ask/faction (committed JSON), /compendium
+ * (force-dynamic).
  *
  * ── The duplicate window ────────────────────────────────────────────────────
  * The productive loaders import `server-only` and cannot run under tsx, so the
@@ -30,7 +34,9 @@
  * snapshot at build time. Runtime imports from `src/**` are limited to modules
  * that are documented PURE (or the DB layer every script already uses):
  * `@/db/client` + `@/db/schema`, `@/lib/entity/hot-subset`, `@/lib/entity/types`
- * (kindLabel), `@/lib/compendium/primarchs`, `@/lib/facet-visibility`,
+ * (kindLabel), `@/lib/book/hot-subset` (+ its `@/lib/ask/faction-starters`
+ * source, committed JSON + pure validator), `@/lib/compendium/primarchs`,
+ * `@/lib/facet-visibility`,
  * `@/lib/work-links` (workHref + resolveEpisodeShows; no `server-only`) — the
  * curated constants among them are exactly the editorial intent that must NOT
  * be duplicated into a second drifting copy.
@@ -75,18 +81,24 @@ import { alias } from "drizzle-orm/pg-core";
 
 import { db } from "@/db/client";
 import {
+  bookDetails as bookDetailsTable,
   characters as charactersTable,
   eras as erasTable,
+  facetValues as facetValuesTable,
   factions as factionsTable,
   locations as locationsTable,
   persons as personsTable,
   sectors as sectorsTable,
+  series as seriesTable,
   workCharacters as workCharactersTable,
+  workCollections as workCollectionsTable,
+  workFacets as workFacetsTable,
   workFactions as workFactionsTable,
   workLocations as workLocationsTable,
   workPersons as workPersonsTable,
   works as worksTable,
 } from "@/db/schema";
+import { HOT_BOOK_SLUGS } from "@/lib/book/hot-subset";
 import { HOT_ENTITY_IDS } from "@/lib/entity/hot-subset";
 import { kindLabel } from "@/lib/entity/types";
 import { PRIMARCH_MERGES } from "@/lib/compendium/primarchs";
@@ -107,6 +119,7 @@ import type {
   PodcastSearchData,
 } from "@/app/archive/podcasts/loader";
 import type { FactionGuide } from "@/app/fraktionen/loader";
+import type { BookDetail } from "@/lib/book/loadBook";
 import type {
   CharaktereRow,
   PersonenRow,
@@ -129,6 +142,7 @@ import {
   SNAPSHOT_DIR,
   assertEraParity,
   assertPlausibleCounts,
+  bookArtifactPath,
   entityArtifactPath,
   parseManifest,
   resolveGeneratedAt,
@@ -1272,6 +1286,171 @@ export async function projectEntityView(
 }
 
 // =============================================================================
+// Projection 10 — hot book slugs (mirrors listHotBookSlugs in
+// src/lib/book/loadBook.ts, but reports the drops; HOT_BOOK_SLUGS is already
+// deduplicated + ascending)
+// =============================================================================
+
+export async function projectHotBookSlugs(): Promise<{
+  hotSlugs: string[];
+  curatedMissing: string[];
+}> {
+  const curated = [...HOT_BOOK_SLUGS];
+  const rows = await db
+    .select({ slug: worksTable.slug })
+    .from(worksTable)
+    .where(and(eq(worksTable.kind, "book"), inArray(worksTable.slug, curated)));
+  const found = new Set(rows.map((r) => r.slug));
+  return {
+    hotSlugs: curated.filter((slug) => found.has(slug)),
+    curatedMissing: curated.filter((slug) => !found.has(slug)),
+  };
+}
+
+// =============================================================================
+// Projection 11 — BookDetail per hot slug (verbatim from
+// src/lib/book/loader-live.ts `loadBookLive`, minus cache()/cachedRead).
+// Deterministic-ordering deviations from the live loader (which returns
+// incidental DB order for the unordered junction queries): factions/locations/
+// characters ORDER BY id, facets ORDER BY (category, name, id); persons and
+// containedIn keep the live semantic ORDER BY and only gain a unique
+// tiebreaker. Consumers group/filter downstream, so only tie order can differ
+// from a live render.
+// =============================================================================
+
+export async function projectBookDetail(slug: string): Promise<BookDetail | null> {
+  const [work] = await db
+    .select({
+      id: worksTable.id,
+      slug: worksTable.slug,
+      title: worksTable.title,
+      synopsis: worksTable.synopsis,
+      coverUrl: worksTable.coverUrl,
+      releaseYear: worksTable.releaseYear,
+    })
+    .from(worksTable)
+    .where(eq(worksTable.slug, slug))
+    .limit(1);
+  if (!work) return null;
+
+  const [
+    details,
+    personRows,
+    factionRows,
+    locationRows,
+    characterRows,
+    facetRows,
+    containedInRows,
+  ] = await Promise.all([
+    db
+      .select({
+        format: bookDetailsTable.format,
+        isbn13: bookDetailsTable.isbn13,
+        isbn10: bookDetailsTable.isbn10,
+        seriesId: bookDetailsTable.seriesId,
+        seriesName: seriesTable.name,
+        seriesIndex: bookDetailsTable.seriesIndex,
+        primaryEraId: bookDetailsTable.primaryEraId,
+        eraName: erasTable.name,
+      })
+      .from(bookDetailsTable)
+      .leftJoin(seriesTable, eq(seriesTable.id, bookDetailsTable.seriesId))
+      .leftJoin(erasTable, eq(erasTable.id, bookDetailsTable.primaryEraId))
+      .where(eq(bookDetailsTable.workId, work.id))
+      .limit(1),
+    db
+      .select({
+        id: personsTable.id,
+        name: personsTable.name,
+        role: workPersonsTable.role,
+        displayOrder: workPersonsTable.displayOrder,
+      })
+      .from(workPersonsTable)
+      .innerJoin(personsTable, eq(personsTable.id, workPersonsTable.personId))
+      .where(eq(workPersonsTable.workId, work.id))
+      .orderBy(
+        asc(workPersonsTable.role),
+        asc(workPersonsTable.displayOrder),
+        asc(personsTable.id),
+      ),
+    db
+      .select({
+        id: factionsTable.id,
+        name: factionsTable.name,
+        role: workFactionsTable.role,
+      })
+      .from(workFactionsTable)
+      .innerJoin(factionsTable, eq(factionsTable.id, workFactionsTable.factionId))
+      .where(eq(workFactionsTable.workId, work.id))
+      .orderBy(asc(factionsTable.id), asc(workFactionsTable.role)),
+    db
+      .select({
+        id: locationsTable.id,
+        name: locationsTable.name,
+        role: workLocationsTable.role,
+      })
+      .from(workLocationsTable)
+      .innerJoin(locationsTable, eq(locationsTable.id, workLocationsTable.locationId))
+      .where(eq(workLocationsTable.workId, work.id))
+      .orderBy(asc(locationsTable.id), asc(workLocationsTable.role)),
+    db
+      .select({
+        id: charactersTable.id,
+        name: charactersTable.name,
+        role: workCharactersTable.role,
+      })
+      .from(workCharactersTable)
+      .innerJoin(charactersTable, eq(charactersTable.id, workCharactersTable.characterId))
+      .where(eq(workCharactersTable.workId, work.id))
+      .orderBy(asc(charactersTable.id), asc(workCharactersTable.role)),
+    db
+      .select({ name: facetValuesTable.name, category: facetValuesTable.categoryId })
+      .from(workFacetsTable)
+      .innerJoin(facetValuesTable, eq(facetValuesTable.id, workFacetsTable.facetValueId))
+      .where(eq(workFacetsTable.workId, work.id))
+      .orderBy(
+        asc(facetValuesTable.categoryId),
+        asc(facetValuesTable.name),
+        asc(facetValuesTable.id),
+      ),
+    db
+      .select({
+        collectionSlug: worksTable.slug,
+        collectionTitle: worksTable.title,
+      })
+      .from(workCollectionsTable)
+      .innerJoin(
+        worksTable,
+        eq(worksTable.id, workCollectionsTable.collectionWorkId),
+      )
+      .where(eq(workCollectionsTable.contentWorkId, work.id))
+      .orderBy(
+        asc(workCollectionsTable.displayOrder),
+        asc(worksTable.title),
+        asc(worksTable.slug),
+      ),
+  ]);
+
+  return {
+    ...work,
+    format: details[0]?.format ?? null,
+    isbn13: details[0]?.isbn13 ?? null,
+    isbn10: details[0]?.isbn10 ?? null,
+    seriesId: details[0]?.seriesId ?? null,
+    seriesName: details[0]?.seriesName ?? null,
+    seriesIndex: details[0]?.seriesIndex ?? null,
+    primaryEraId: details[0]?.primaryEraId ?? null,
+    eraName: details[0]?.eraName ?? null,
+    persons: personRows,
+    factions: factionRows,
+    locations: locationRows,
+    characters: characterRows,
+    facets: facetRows.filter((f) => isVisibleFacetCategory(f.category)),
+    containedIn: containedInRows,
+  };
+}
+
+// =============================================================================
 // Assembly + write
 // =============================================================================
 
@@ -1353,6 +1532,37 @@ async function runExport(): Promise<void> {
   }
   console.log(`[snapshot]   ${entityBlobs.length} entity views`);
 
+  console.log("[snapshot] projecting book slugs + hot book payloads…");
+  // Same kind='book' base set as the browse projection (rows are slug-sorted
+  // there) — the S5 sitemap source.
+  const bookSlugs = browse.books.map((b) => b.slug);
+  const { hotSlugs: hotBookSlugs, curatedMissing: missingHotBooks } =
+    await projectHotBookSlugs();
+  for (const slug of missingHotBooks) {
+    console.warn(
+      `[snapshot]   ⚠ curated hot book slug not in DB (drops to on-demand): ${slug}`,
+    );
+  }
+  const bookBlobs: ArtifactBlob[] = [];
+  const missingBookPayloads: string[] = [];
+  for (const slug of hotBookSlugs) {
+    const detail = await projectBookDetail(slug);
+    if (detail === null) {
+      missingBookPayloads.push(slug);
+      continue;
+    }
+    bookBlobs.push(blob(bookArtifactPath(slug), detail));
+  }
+  if (missingBookPayloads.length > 0) {
+    throw new Error(
+      `[snapshot] ${missingBookPayloads.length} hot book slug(s) produced NO BookDetail payload — refusing to write:\n` +
+        missingBookPayloads.map((s) => `  - ${s}`).join("\n"),
+    );
+  }
+  console.log(
+    `[snapshot]   ${bookSlugs.length} book slugs · ${bookBlobs.length} hot book payloads`,
+  );
+
   // ── Fail-closed gates (nothing has been written yet) ──────────────────────
   const seedEras = JSON.parse(
     readFileSync(resolve(SEED_DIR, "eras.json"), "utf8"),
@@ -1379,6 +1589,9 @@ async function runExport(): Promise<void> {
       person: hotIds.person.length,
     },
     entityViews: entityBlobs.length,
+    bookSlugs: bookSlugs.length,
+    hotBookSlugs: hotBookSlugs.length,
+    bookDetails: bookBlobs.length,
   };
   assertPlausibleCounts(counts);
 
@@ -1391,7 +1604,10 @@ async function runExport(): Promise<void> {
     blob(DATA_ARTIFACTS.weltenRows, weltenRows),
     blob(DATA_ARTIFACTS.personenRows, personenRows),
     blob(DATA_ARTIFACTS.entityHotIds, hotIds),
+    blob(DATA_ARTIFACTS.bookSlugs, bookSlugs),
+    blob(DATA_ARTIFACTS.bookHotSlugs, hotBookSlugs),
     ...entityBlobs,
+    ...bookBlobs,
   ].sort(byKey((b) => b.path));
 
   // ── Manifest with generatedAt carry-forward (byte-identical re-runs) ──────
@@ -1454,7 +1670,7 @@ Usage:
                                         # repo == DB migration-head check ONLY
   npx tsx scripts/build-snapshot.ts --help
 
-Artifacts: ${Object.values(DATA_ARTIFACTS).join(" · ")} · entities/<type>/<id>.json
+Artifacts: ${Object.values(DATA_ARTIFACTS).join(" · ")} · entities/<type>/<id>.json · books/<slug>.json
 Manifest:  ${MANIFEST_FILENAME} (generatedAt, source migration head, counts,
            sha256 per data artifact — the manifest does not hash itself).
 

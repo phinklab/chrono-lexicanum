@@ -1,0 +1,101 @@
+{
+  "id": "929b9197-e427-4a7a-9f3f-56dade95ce33",
+  "slug": "renegades-lord-of-excess",
+  "title": "Renegades: Lord of Excess",
+  "synopsis": "The Emperor's Children have long since shattered into warring splinters, pillaging the galaxy to feed appetites that can never be sated. Xantine, lord of the warband known as the Adored and a self-styled son of Fulgrim, craves something grander than endless raiding. When he discovers Serrine — a wealthy planet rotting under corrupt misrule and cut off from the Imperium by warp storms — he sees not a prize to be plundered but a canvas for perfection. He will reshape this world in his image. But Serrine has its own festering secrets, treachery waits within the Adored's own ranks, and the daemon that shares Xantine's flesh has appetites of its own. As Xantine's grand vision begins to devour itself, the cruel truth at the heart of every Chaos ambition is laid bare.",
+  "coverUrl": null,
+  "releaseYear": 2025,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "rich_mccormick",
+      "name": "Rich McCormick",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "emperors_children",
+      "name": "Emperor's Children",
+      "role": "primary"
+    },
+    {
+      "id": "genestealer_cults",
+      "name": "Genestealer Cults",
+      "role": "antagonist"
+    }
+  ],
+  "locations": [
+    {
+      "id": "serrine",
+      "name": "Serrine",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "xantine",
+      "name": "Xantine",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Mid Series",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "Chaos",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Sector",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

@@ -1,0 +1,181 @@
+{
+  "id": "180cd850-1dee-47c7-800b-fe9f07beec4c",
+  "slug": "nightbringer",
+  "title": "Nightbringer",
+  "synopsis": "The Ventris saga opens with newly promoted Captain Uriel Ventris of the Ultramarines 4th Company taking command after the death of his mentor Captain Idaeus. His first independent deployment is to Pavonis, a mercantile world in the Eastern Fringe whose seven Cardinal Houses — the old mercantile dynasties that effectively run the planet — are deep in conspiracy against the planetary governor and against each other. Inquisitor Ario Barzano arrives in parallel, pursuing a far older threat: a slumbering C'tan, the Nightbringer, buried beneath Pavonis by an ancient Eldar exile civilisation that built its planetary structure as a prison. Together with battle-brother Pasanius Lysane, the rest of the 4th Company under Ventris's command, and the unexpected tactical cooperation of an Eldar farseer who arrives to ensure the C'tan stays sealed, Ventris must thread the Cardinal-House intrigue, the Imperial-Navy presence, an awakening Necron tomb-complex, and his own Codex-pragmatist instincts to prevent the Nightbringer from rising. Sets up the Codex-versus-pragmatism arc that defines Ventris, the Pasanius battle-brother throughline, and the Inquisitor-Barzano partnership that recurs in Warriors of the Ultramar.",
+  "coverUrl": null,
+  "releaseYear": 2002,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": "time_ending",
+  "eraName": "Time of Ending",
+  "persons": [
+    {
+      "id": "graham_mcneill",
+      "name": "Graham McNeill",
+      "role": "author",
+      "displayOrder": 0
+    },
+    {
+      "id": "bruce_mackinnon",
+      "name": "Bruce Mackinnon",
+      "role": "narrator",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "adeptus_astartes",
+      "name": "Adeptus Astartes",
+      "role": "primary"
+    },
+    {
+      "id": "chaos",
+      "name": "Chaos",
+      "role": "antagonist"
+    },
+    {
+      "id": "eldar",
+      "name": "Aeldari",
+      "role": "supporting"
+    },
+    {
+      "id": "imperial_navy",
+      "name": "Imperial Navy",
+      "role": "supporting"
+    },
+    {
+      "id": "inquisition",
+      "name": "Inquisition",
+      "role": "supporting"
+    },
+    {
+      "id": "necrons",
+      "name": "Necrons",
+      "role": "antagonist"
+    },
+    {
+      "id": "ultramarines",
+      "name": "Ultramarines",
+      "role": "primary"
+    }
+  ],
+  "locations": [
+    {
+      "id": "pavonis",
+      "name": "Pavonis",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "ario_barzano",
+      "name": "Ario Barzano",
+      "role": "appears"
+    },
+    {
+      "id": "captain_idaeus",
+      "name": "Captain Idaeus",
+      "role": "mentioned"
+    },
+    {
+      "id": "nightbringer",
+      "name": "Nightbringer",
+      "role": "appears"
+    },
+    {
+      "id": "pasanius_lysane",
+      "name": "Pasanius Lysane",
+      "role": "appears"
+    },
+    {
+      "id": "uriel_ventris",
+      "name": "Uriel Ventris",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Series Start",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Mystery",
+      "category": "plot_type"
+    },
+    {
+      "name": "Political Thriller",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Company",
+      "category": "scope"
+    },
+    {
+      "name": "Brotherhood",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "War",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    }
+  ],
+  "containedIn": [
+    {
+      "collectionSlug": "the-ultramarines-omnibus",
+      "collectionTitle": "The Ultramarines Omnibus"
+    },
+    {
+      "collectionSlug": "the-uriel-ventris-chronicles-vol-1-omnibus",
+      "collectionTitle": "The Uriel Ventris Chronicles Vol. 1 Omnibus"
+    }
+  ]
+}

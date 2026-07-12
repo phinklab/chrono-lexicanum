@@ -33,7 +33,7 @@
           "releaseYear": 2003,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/daemon-world",
+          "href": "/book/daemon-world",
           "showTitle": null
         },
         {
@@ -43,7 +43,7 @@
           "releaseYear": 2018,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/the-lords-of-silence",
+          "href": "/book/the-lords-of-silence",
           "showTitle": null
         },
         {
@@ -53,7 +53,7 @@
           "releaseYear": 2020,
           "coverUrl": null,
           "role": "antagonist",
-          "href": "/buch/plague-of-the-nurglings",
+          "href": "/book/plague-of-the-nurglings",
           "showTitle": null
         },
         {
@@ -63,7 +63,7 @@
           "releaseYear": 2022,
           "coverUrl": null,
           "role": "antagonist",
-          "href": "/buch/king-of-pigs",
+          "href": "/book/king-of-pigs",
           "showTitle": null
         },
         {
@@ -73,7 +73,7 @@
           "releaseYear": 2023,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-resting-places",
+          "href": "/book/the-resting-places",
           "showTitle": null
         },
         {
@@ -83,7 +83,7 @@
           "releaseYear": 2023,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/unholy-tales-of-horror-woe-from-the-imperium",
+          "href": "/book/unholy-tales-of-horror-woe-from-the-imperium",
           "showTitle": null
         },
         {
@@ -93,7 +93,7 @@
           "releaseYear": 2024,
           "coverUrl": null,
           "role": "antagonist",
-          "href": "/buch/creed-ashes-of-cadia",
+          "href": "/book/creed-ashes-of-cadia",
           "showTitle": null
         }
       ]

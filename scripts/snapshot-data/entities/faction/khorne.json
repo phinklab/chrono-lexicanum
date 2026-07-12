@@ -33,7 +33,7 @@
           "releaseYear": 1999,
           "coverUrl": null,
           "role": "antagonist",
-          "href": "/buch/eye-of-terror",
+          "href": "/book/eye-of-terror",
           "showTitle": null
         },
         {
@@ -43,7 +43,7 @@
           "releaseYear": 2003,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/daemon-world",
+          "href": "/book/daemon-world",
           "showTitle": null
         },
         {
@@ -53,7 +53,7 @@
           "releaseYear": 2008,
           "coverUrl": null,
           "role": "antagonist",
-          "href": "/buch/hammer-of-daemons",
+          "href": "/book/hammer-of-daemons",
           "showTitle": null
         },
         {
@@ -63,7 +63,7 @@
           "releaseYear": 2009,
           "coverUrl": null,
           "role": "antagonist",
-          "href": "/buch/the-grey-knights-omnibus",
+          "href": "/book/the-grey-knights-omnibus",
           "showTitle": null
         },
         {
@@ -73,7 +73,7 @@
           "releaseYear": 2010,
           "coverUrl": null,
           "role": "antagonist",
-          "href": "/buch/the-chapters-due",
+          "href": "/book/the-chapters-due",
           "showTitle": null
         },
         {
@@ -83,7 +83,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": "antagonist",
-          "href": "/buch/ultramarines-the-second-omnibus",
+          "href": "/book/ultramarines-the-second-omnibus",
           "showTitle": null
         },
         {
@@ -93,7 +93,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "antagonist",
-          "href": "/buch/lucius-the-faultless-blade",
+          "href": "/book/lucius-the-faultless-blade",
           "showTitle": null
         },
         {
@@ -103,7 +103,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "antagonist",
-          "href": "/buch/shroud-of-night",
+          "href": "/book/shroud-of-night",
           "showTitle": null
         },
         {
@@ -113,7 +113,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": "antagonist",
-          "href": "/buch/the-uriel-ventris-chronicles-vol-2-omnibus",
+          "href": "/book/the-uriel-ventris-chronicles-vol-2-omnibus",
           "showTitle": null
         },
         {
@@ -123,7 +123,7 @@
           "releaseYear": 2023,
           "coverUrl": null,
           "role": "primary",
-          "href": "/buch/angron-the-red-angel",
+          "href": "/book/angron-the-red-angel",
           "showTitle": null
         }
       ]

@@ -1,0 +1,177 @@
+{
+  "id": "72e0d8f0-235f-40c0-bcd7-0c01595ce27b",
+  "slug": "the-lords-of-silence",
+  "title": "The Lords of Silence",
+  "synopsis": "First-Captain Vorx leads the Lords of Silence, a Death Guard warband sailing with Abaddon's Thirteenth Black Crusade, when their grand cruiser Solace is flung off course into a nameless stretch of the warp. Vorx, Biologus Putrifier Slert and Tallyman Philemon must discover where they are, how to rejoin the war for Ultramar, and which of their own made the ship jump. A Word Bearers encounter turns the problem into an uneasy Chaos alliance, but the real pleasure is stranger: plague monks conducting a slow whodunnit inside Astartes ranks. Patient, rancid and oddly funny, this is Death Guard as implacable routine horror.",
+  "coverUrl": null,
+  "releaseYear": 2018,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "chris_wraight",
+      "name": "Chris Wraight",
+      "role": "author",
+      "displayOrder": 0
+    },
+    {
+      "id": "john_banks",
+      "name": "John Banks",
+      "role": "narrator",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "black_legion",
+      "name": "Black Legion",
+      "role": "background"
+    },
+    {
+      "id": "death_guard",
+      "name": "Death Guard",
+      "role": "primary"
+    },
+    {
+      "id": "heretic_astartes",
+      "name": "Heretic Astartes",
+      "role": "primary"
+    },
+    {
+      "id": "nurgle",
+      "name": "Nurgle",
+      "role": "primary"
+    },
+    {
+      "id": "word_bearers",
+      "name": "Word Bearers",
+      "role": "supporting"
+    }
+  ],
+  "locations": [
+    {
+      "id": "eye_of_terror",
+      "name": "Eye of Terror",
+      "role": "mentioned"
+    },
+    {
+      "id": "solace",
+      "name": "Solace",
+      "role": "primary"
+    },
+    {
+      "id": "ultramar",
+      "name": "Ultramar",
+      "role": "mentioned"
+    }
+  ],
+  "characters": [
+    {
+      "id": "abaddon_the_despoiler",
+      "name": "Abaddon the Despoiler",
+      "role": "mentioned"
+    },
+    {
+      "id": "vorx",
+      "name": "Vorx",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "Journey",
+      "category": "plot_type"
+    },
+    {
+      "name": "Mystery",
+      "category": "plot_type"
+    },
+    {
+      "name": "Political Thriller",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Chaos",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Sector",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Brotherhood",
+      "category": "theme"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Cosmic Horror",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Philosophical",
+      "category": "tone"
+    },
+    {
+      "name": "Somber",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

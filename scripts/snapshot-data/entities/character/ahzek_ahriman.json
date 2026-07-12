@@ -29,7 +29,7 @@
           "releaseYear": 2010,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/a-thousand-sons",
+          "href": "/book/a-thousand-sons",
           "showTitle": null
         },
         {
@@ -39,7 +39,7 @@
           "releaseYear": 2011,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/atlas-infernal",
+          "href": "/book/atlas-infernal",
           "showTitle": null
         },
         {
@@ -49,7 +49,7 @@
           "releaseYear": 2012,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/ahriman-exile",
+          "href": "/book/ahriman-exile",
           "showTitle": null
         },
         {
@@ -59,7 +59,7 @@
           "releaseYear": 2013,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/thief-of-revelations",
+          "href": "/book/thief-of-revelations",
           "showTitle": null
         },
         {
@@ -69,7 +69,7 @@
           "releaseYear": 2014,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/ahriman-sorcerer",
+          "href": "/book/ahriman-sorcerer",
           "showTitle": null
         },
         {
@@ -79,7 +79,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/ahriman-exodus",
+          "href": "/book/ahriman-exodus",
           "showTitle": null
         },
         {
@@ -89,7 +89,7 @@
           "releaseYear": 2015,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/ahriman-unchanged",
+          "href": "/book/ahriman-unchanged",
           "showTitle": null
         },
         {
@@ -99,7 +99,7 @@
           "releaseYear": 2016,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/the-razing-of-prospero",
+          "href": "/book/the-razing-of-prospero",
           "showTitle": null
         },
         {
@@ -109,7 +109,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/ahriman-the-omnibus",
+          "href": "/book/ahriman-the-omnibus",
           "showTitle": null
         },
         {
@@ -119,7 +119,7 @@
           "releaseYear": 2017,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/the-crimson-king",
+          "href": "/book/the-crimson-king",
           "showTitle": null
         },
         {
@@ -129,7 +129,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/morningstar",
+          "href": "/book/morningstar",
           "showTitle": null
         },
         {
@@ -139,7 +139,7 @@
           "releaseYear": 2019,
           "coverUrl": null,
           "role": null,
-          "href": "/buch/the-solar-war",
+          "href": "/book/the-solar-war",
           "showTitle": null
         },
         {
@@ -149,7 +149,7 @@
           "releaseYear": 2022,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/ahriman-eternal",
+          "href": "/book/ahriman-eternal",
           "showTitle": null
         },
         {
@@ -159,7 +159,7 @@
           "releaseYear": 2024,
           "coverUrl": null,
           "role": "pov",
-          "href": "/buch/ahriman-undying",
+          "href": "/book/ahriman-undying",
           "showTitle": null
         }
       ]

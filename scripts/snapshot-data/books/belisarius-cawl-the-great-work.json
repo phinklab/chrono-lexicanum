@@ -1,0 +1,165 @@
+{
+  "id": "015ddf7e-9439-40b2-b32f-7ce00d12620e",
+  "slug": "belisarius-cawl-the-great-work",
+  "title": "Belisarius Cawl: The Great Work",
+  "synopsis": "Belisarius Cawl brings Tetrarch Felix, Ultramarines and the battered remnants of the Scythes of the Emperor back to Sotha, the chapter homeworld Hive Fleet Kraken left in ruins. Beneath the old monastery lies a Necron tomb-network tied to Cawl's next secret Great Work, and the Archmagos intends to raid it even while Tyranid remnants and ancient machines stir around him. The expedition becomes a tomb-heist, a war-story and a reckoning with ten thousand years of memories Cawl has lost, deleted or stolen from himself. Philosophical Mechanicus adventure with the heresy of genius glowing at its core.",
+  "coverUrl": null,
+  "releaseYear": 2019,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "guy_haley",
+      "name": "Guy Haley",
+      "role": "author",
+      "displayOrder": 0
+    },
+    {
+      "id": "john_banks",
+      "name": "John Banks",
+      "role": "narrator",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "adeptus_astartes",
+      "name": "Adeptus Astartes",
+      "role": "supporting"
+    },
+    {
+      "id": "mechanicus",
+      "name": "Adeptus Mechanicus",
+      "role": "primary"
+    },
+    {
+      "id": "necrons",
+      "name": "Necrons",
+      "role": "antagonist"
+    },
+    {
+      "id": "scythes_of_the_emperor",
+      "name": "Scythes of the Emperor",
+      "role": "primary"
+    },
+    {
+      "id": "tyranids",
+      "name": "Tyranids",
+      "role": "antagonist"
+    },
+    {
+      "id": "ultramarines",
+      "name": "Ultramarines",
+      "role": "supporting"
+    }
+  ],
+  "locations": [
+    {
+      "id": "imperium_nihilus",
+      "name": "Imperium Nihilus",
+      "role": "mentioned"
+    },
+    {
+      "id": "sotha",
+      "name": "Sotha",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "belisarius_cawl",
+      "name": "Belisarius Cawl",
+      "role": "pov"
+    },
+    {
+      "id": "tetrarch_felix",
+      "name": "Tetrarch Felix",
+      "role": "appears"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Standalone",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Heist",
+      "category": "plot_type"
+    },
+    {
+      "name": "Mystery",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Tech-Priest",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Planetary",
+      "category": "scope"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Redemption",
+      "category": "theme"
+    },
+    {
+      "name": "Sacrifice",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Cosmic Horror",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    },
+    {
+      "name": "Philosophical",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

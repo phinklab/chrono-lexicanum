@@ -1,0 +1,132 @@
+{
+  "id": "664c3c43-ca26-49f4-a8c6-9b498751d79a",
+  "slug": "cadia-stands",
+  "title": "Cadia Stands",
+  "synopsis": "Abaddon the Despoiler's Thirteenth Black Crusade has come at last. The Black Legion and the warlords of the Eye of Terror are battering Cadia, the fortress world that has stood as the Imperium's bulwark for ten thousand years. Cadia Stands tells the planet's defence from inside the Cadian regiments themselves. Major Bendikt, a tank commander stranded at a remote outpost, watches the invasion fall through binoculars and broken vox channels. Minka, a Whiteshield barely old enough to be a soldier, holes up with a ragged company in the rubble of a Kasr. General Grüber commands from the High Command bunkers as one ruined city falls after another. The pylons that have kept Cadia stable since the dawn of the Imperium begin to fail. And the planet's defenders — stoic, stubborn, justifiably proud — discover what their oath of loyalty actually costs.",
+  "coverUrl": null,
+  "releaseYear": 2017,
+  "format": "novel",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": "time_ending",
+  "eraName": "Time of Ending",
+  "persons": [
+    {
+      "id": "justin_d_hill",
+      "name": "Justin D. Hill",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "astra_militarum",
+      "name": "Astra Militarum",
+      "role": "primary"
+    },
+    {
+      "id": "black_legion",
+      "name": "Black Legion",
+      "role": "antagonist"
+    },
+    {
+      "id": "heretic_astartes",
+      "name": "Heretic Astartes",
+      "role": "antagonist"
+    }
+  ],
+  "locations": [
+    {
+      "id": "cadia",
+      "name": "Cadia",
+      "role": "primary"
+    },
+    {
+      "id": "eye_of_terror",
+      "name": "Eye of Terror",
+      "role": "secondary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "abaddon_the_despoiler",
+      "name": "Abaddon the Despoiler",
+      "role": "appears"
+    },
+    {
+      "id": "minka_lesk",
+      "name": "Minka Lesk",
+      "role": "pov"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Series Start",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Standard",
+      "category": "length_tier"
+    },
+    {
+      "name": "Last Stand",
+      "category": "plot_type"
+    },
+    {
+      "name": "Siege",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Guardsman",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Mixed",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Planetary",
+      "category": "scope"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Sacrifice",
+      "category": "theme"
+    },
+    {
+      "name": "War",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}

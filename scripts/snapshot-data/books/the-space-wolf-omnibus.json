@@ -1,0 +1,236 @@
+{
+  "id": "e18d6741-760c-44df-afab-0eac143561df",
+  "slug": "the-space-wolf-omnibus",
+  "title": "The Space Wolf Omnibus",
+  "synopsis": "The opening Ragnar Blackmane trilogy follows a Fenrisian tribesman from mortal feud to Space Wolves legend. Taken to the Fang after Strybjorn Grimskull's attack leaves him dying, Ragnar survives the Chapter's trials under Ranek, learns the savage discipline of the Blood Claws, loses Kjel to the Curse of the Wulfen, hunts the Talisman of Lykos for Inquisitor Ivan Sternberg across Aerius, Galt and Venam, and finally faces Madox of the Thousand Sons over the Spear of Russ on Garm. As an omnibus, it is the cleanest entry into Ragnar's first arc: coming-of-age, relic quest and Chapter myth fused into one winter-blooded saga.",
+  "coverUrl": null,
+  "releaseYear": 2008,
+  "format": "omnibus",
+  "isbn13": null,
+  "isbn10": null,
+  "seriesId": null,
+  "seriesName": null,
+  "seriesIndex": null,
+  "primaryEraId": null,
+  "eraName": null,
+  "persons": [
+    {
+      "id": "william_king",
+      "name": "William King",
+      "role": "author",
+      "displayOrder": 0
+    }
+  ],
+  "factions": [
+    {
+      "id": "adeptus_astartes",
+      "name": "Adeptus Astartes",
+      "role": "primary"
+    },
+    {
+      "id": "heretic_astartes",
+      "name": "Heretic Astartes",
+      "role": "antagonist"
+    },
+    {
+      "id": "inquisition",
+      "name": "Inquisition",
+      "role": "supporting"
+    },
+    {
+      "id": "space_wolves",
+      "name": "Space Wolves",
+      "role": "primary"
+    },
+    {
+      "id": "thousand_sons",
+      "name": "Thousand Sons",
+      "role": "antagonist"
+    },
+    {
+      "id": "tzeentch",
+      "name": "Tzeentch",
+      "role": "antagonist"
+    }
+  ],
+  "locations": [
+    {
+      "id": "aerius",
+      "name": "Aerius",
+      "role": "primary"
+    },
+    {
+      "id": "asaheim",
+      "name": "Asaheim",
+      "role": "secondary"
+    },
+    {
+      "id": "fang",
+      "name": "The Fang",
+      "role": "primary"
+    },
+    {
+      "id": "fenris",
+      "name": "Fenris",
+      "role": "primary"
+    },
+    {
+      "id": "galt",
+      "name": "Galt",
+      "role": "primary"
+    },
+    {
+      "id": "garm",
+      "name": "Garm",
+      "role": "primary"
+    },
+    {
+      "id": "planet_of_the_sorcerers",
+      "name": "Planet of the Sorcerers",
+      "role": "secondary"
+    },
+    {
+      "id": "venam",
+      "name": "Venam",
+      "role": "primary"
+    }
+  ],
+  "characters": [
+    {
+      "id": "berek_thunderfist",
+      "name": "Berek Thunderfist",
+      "role": "appears"
+    },
+    {
+      "id": "ivan_sternberg",
+      "name": "Ivan Sternberg",
+      "role": "appears"
+    },
+    {
+      "id": "kjel",
+      "name": "Kjel",
+      "role": "appears"
+    },
+    {
+      "id": "madox",
+      "name": "Madox",
+      "role": "appears"
+    },
+    {
+      "id": "magnus_the_red",
+      "name": "Magnus the Red",
+      "role": "appears"
+    },
+    {
+      "id": "ragnar_blackmane",
+      "name": "Ragnar Blackmane",
+      "role": "pov"
+    },
+    {
+      "id": "ranek",
+      "name": "Ranek",
+      "role": "appears"
+    },
+    {
+      "id": "strybjorn_grimskull",
+      "name": "Strybjorn Grimskull",
+      "role": "appears"
+    },
+    {
+      "id": "sven_brujothirson",
+      "name": "Sven Brujothirson",
+      "role": "appears"
+    }
+  ],
+  "facets": [
+    {
+      "name": "Series Start",
+      "category": "entry_point"
+    },
+    {
+      "name": "Book",
+      "category": "format"
+    },
+    {
+      "name": "English",
+      "category": "language"
+    },
+    {
+      "name": "Doorstopper",
+      "category": "length_tier"
+    },
+    {
+      "name": "Character Study",
+      "category": "plot_type"
+    },
+    {
+      "name": "Journey",
+      "category": "plot_type"
+    },
+    {
+      "name": "Last Stand",
+      "category": "plot_type"
+    },
+    {
+      "name": "War Story",
+      "category": "plot_type"
+    },
+    {
+      "name": "Imperium",
+      "category": "pov_side"
+    },
+    {
+      "name": "Space Marine",
+      "category": "protagonist_class"
+    },
+    {
+      "name": "Male",
+      "category": "protagonist_gender"
+    },
+    {
+      "name": "Galactic",
+      "category": "scope"
+    },
+    {
+      "name": "Betrayal",
+      "category": "theme"
+    },
+    {
+      "name": "Brotherhood",
+      "category": "theme"
+    },
+    {
+      "name": "Doubt",
+      "category": "theme"
+    },
+    {
+      "name": "Hubris",
+      "category": "theme"
+    },
+    {
+      "name": "Loyalty",
+      "category": "theme"
+    },
+    {
+      "name": "Redemption",
+      "category": "theme"
+    },
+    {
+      "name": "Sacrifice",
+      "category": "theme"
+    },
+    {
+      "name": "War",
+      "category": "theme"
+    },
+    {
+      "name": "Action-heavy",
+      "category": "tone"
+    },
+    {
+      "name": "Grimdark",
+      "category": "tone"
+    }
+  ],
+  "containedIn": []
+}
