@@ -24,6 +24,8 @@ import JsonLd from "@/components/seo/JsonLd";
 import { routeOg } from "@/lib/seo";
 import { siteOrigin } from "@/lib/site-url";
 import { loadPodcastShow } from "../loader";
+// Segment-scoped stylesheet (S7a), shared with the podcast index page.
+import "@/app/styles/62-podcasts.css";
 
 // Static shell, refreshed hourly — newly-ingested episodes surface without a
 // redeploy, matching the index.

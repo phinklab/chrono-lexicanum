@@ -1,4 +1,8 @@
 import Link from "next/link";
+// Component-scoped stylesheet (S7a): 53-ask rides with the tool doors into
+// BOTH ask routes. Its .ask-doors overrides on the door grammar out-specify
+// the global 31-catalogue rules, so load order stays irrelevant.
+import "@/app/styles/53-ask.css";
 
 /**
  * The tool doors — the two named ways into the catalogue (questionnaire and

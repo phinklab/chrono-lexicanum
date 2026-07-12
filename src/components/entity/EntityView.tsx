@@ -27,6 +27,9 @@ import EntityBlurb from "./EntityBlurb";
 import EntityFacts from "./EntityFacts";
 import RelatedWorks from "./RelatedWorks";
 import CrossLinkRail from "./CrossLinkRail";
+// Component-scoped stylesheet (S7a): rides with this view into the four
+// entity routes AND the @modal entity intercepts.
+import "@/app/styles/59-entity.css";
 
 /**
  * Facts hoisted into the header meta-line, per type (the loader already

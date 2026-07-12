@@ -1324,6 +1324,15 @@
 
 /* DB-unreachable fallback (server-rendered) */
 .chron-shell { min-height: 60vh; }
+
+/* Waypoint voice — era-band stop labels (.eb-n). Declared HERE, not in
+   00-tokens.css: timeline/page.tsx loads the face segment-only (S7a) and puts
+   --font-cormorant-unicase on .chron-shell — a custom property referencing it
+   must sit at or below that element, or it would resolve (to invalid) at
+   :root. Upright only — the face ships no italic. */
+.chron-shell {
+  --font-unicase: var(--font-cormorant-unicase), serif;
+}
 .chron-empty {
   max-width: 520px;
   margin: 18vh auto 0 auto;

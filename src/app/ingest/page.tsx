@@ -8,6 +8,8 @@ import {
   type DiffSummary,
   listDiffFiles,
 } from "@/lib/ingestion/diff-reader";
+// Route-scoped stylesheet (S7a): the admin ingest console loads only here.
+import "@/app/styles/30-ingest.css";
 
 export const metadata: Metadata = {
   title: "Ingestion runs",

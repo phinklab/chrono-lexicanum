@@ -21,6 +21,7 @@
  *   - "login"      — /login (lightless cathedral librarium — phil kuenzler)
  *   - "none"       — just vignette + grain over the void
  */
+import Image from "next/image";
 import ArtCreditTag from "@/components/chrome/ArtCreditTag";
 import { backgroundArtCredit } from "@/lib/art-credits";
 
@@ -80,14 +81,26 @@ export default function SiteBackground({
         {photo && (
           <div
             className="site-bg__photo"
-            style={
-              {
-                backgroundImage: `url(${photo})`,
-                backgroundPosition: position,
-                "--bg-pos-m": mobilePosition,
-              } as React.CSSProperties
-            }
-          />
+            style={{ "--bg-pos-m": mobilePosition } as React.CSSProperties}
+          >
+            {/* A real <img> instead of a CSS background (S7a): the preload
+                scanner finds it in the HTML and `sizes` gives phones a small
+                variant instead of the full ~1920px file. `priority` because
+                the backdrop is by definition the first paintable viewport
+                content on every page that renders one. Crop overrides
+                (portrait re-center in 41-site-bg.css, /login contain-mode in
+                68-login.css) target `.site-bg__photo img` with !important to
+                beat the inline object-position, mirroring the old
+                background-position contract. */}
+            <Image
+              src={photo}
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              style={{ objectFit: "cover", objectPosition: position }}
+            />
+          </div>
         )}
         <div className="site-bg__vignette" />
         <div className="site-bg__fade" />

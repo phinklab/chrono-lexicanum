@@ -1,4 +1,6 @@
 import Link from "next/link";
+// Route-scoped stylesheet (S7a) — this 404 renders .ingest-* classes.
+import "@/app/styles/30-ingest.css";
 
 export default function IngestRunNotFound() {
   return (

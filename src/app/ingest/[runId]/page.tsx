@@ -7,6 +7,8 @@ import {
   listValidRunIds,
   loadDiffById,
 } from "@/lib/ingestion/diff-reader";
+// Route-scoped stylesheet (S7a): the admin ingest console loads only here.
+import "@/app/styles/30-ingest.css";
 import type {
   AddedEntry,
   DiffFieldChange,

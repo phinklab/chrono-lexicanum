@@ -1,7 +1,7 @@
 /* 65-loading.css
    Themed Suspense fallback for /werke (perceived speed). The page streams
    the shell + this loader instantly while the catalogue fan-out resolves.
-   Translucent void veil, gold hairline accents, Cinzel +
+   Translucent void veil, gold hairline accents, the display face +
    Plex Mono — the same vocabulary as the /werke hero, deliberately WITHOUT
    glow halos or warm gradients (house aesthetic). Cycling phrases fade/rise
    in; the JS suppresses the cycle under reduced-motion and the global cascade

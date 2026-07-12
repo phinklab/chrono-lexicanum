@@ -1,36 +1,51 @@
 @import 'tailwindcss';
 
 /* Design CSS, split by ownership. The partials are unlayered, so the import
- * order below IS the cascade order — do not reorder. */
+ * order below IS the cascade order — do not reorder.
+ *
+ * Since S7a only the shared chrome + cross-route vocabulary is global.
+ * Route-specific partials are imported by their route segment or owning
+ * component and load only there:
+ *   30-ingest            → src/app/ingest/** pages
+ *   31.. see below       (stays global: .arch-door* used by /archive AND /ask,
+ *                         .catalogue-hero* by /archive AND podcast pages)
+ *   32-book-audit        → src/app/book/[slug]/audit/page.tsx
+ *   50-hub               → src/app/page.tsx
+ *   51-book-detail       → src/components/book/BookDetailView.tsx
+ *   53-ask               → src/components/ask/AskToolTabs.tsx (/ask + /ask/faction)
+ *   54-ask-faction       → src/app/ask/faction/[[...segments]]/page.tsx
+ *   55-map               → src/app/map/page.tsx
+ *   58-ask-booklist      → src/components/ask/AskClient.tsx
+ *   59-entity            → src/components/entity/EntityView.tsx
+ *   62-podcasts          → src/app/archive/podcasts/** pages
+ *   64-detail-modal      → src/components/shared/DetailModal(+Skeleton).tsx
+ *   66-compendium        → src/app/compendium/layout.tsx
+ *   67-chronicle-cinematic → src/app/timeline/page.tsx
+ *   68-login             → src/app/login/page.tsx
+ *   71-legal             → /imprint, /privacy, /artwork pages
+ * (63-fraktionen.css was 100 % dead and is deleted, S7a.)
+ *
+ * Cascade contract for the moved partials: route CSS always loads AFTER this
+ * global bundle, and every cross-file override in a moved partial carries
+ * strictly higher specificity (extra ancestor class like .detail-modal__scroll,
+ * .ask-doors, body.cg-on-map, body:has(main.login)) — so the relative order
+ * of two route chunks meeting on a client-side navigation path is irrelevant.
+ * Keep it that way: a moved partial must never override a foreign selector at
+ * EQUAL specificity. */
 @import './styles/00-tokens.css';
 @import './styles/10-base.css';
 @import './styles/16-shared.css';
-@import './styles/30-ingest.css';
 @import './styles/31-catalogue.css';
-@import './styles/32-book-audit.css';
 @import './styles/40-primitives.css';
 @import './styles/41-site-bg.css';
 @import './styles/42-lex-primitives.css';
 @import './styles/43-site-menu.css';
 @import './styles/44-nav-frame.css';
+@import './styles/45-site-legal.css';
 @import './styles/46-site-nav.css';
 @import './styles/47-hud.css';
-@import './styles/50-hub.css';
-@import './styles/51-book-detail.css';
-@import './styles/53-ask.css';
-@import './styles/54-ask-faction.css';
-@import './styles/55-map.css';
 @import './styles/56-media-player.css';
-@import './styles/58-ask-booklist.css';
-@import './styles/59-entity.css';
 @import './styles/61-browse.css';
-@import './styles/62-podcasts.css';
-@import './styles/63-fraktionen.css';
-@import './styles/64-detail-modal.css';
 @import './styles/65-loading.css';
-@import './styles/66-compendium.css';
-@import './styles/67-chronicle-cinematic.css';
-@import './styles/68-login.css';
 @import './styles/69-system-pages.css';
 @import './styles/70-route-progress.css';
-@import './styles/71-legal.css';

@@ -59,13 +59,13 @@
   --color-chaos: oklch(0.68 0.14 25);
 
   /* Typography — three voices. next/font (layout.tsx) loads the faces into
-   * --font-cormorant-sc / --font-cinzel / --font-cardo / --font-fragment-mono
-   * on <html>. */
-  --font-display: var(--font-cormorant-sc), var(--font-cinzel), serif;
+   * --font-cormorant-sc / --font-cardo / --font-fragment-mono on <html>.
+   * The Chronicle-only waypoint voice (--font-unicase) is declared in
+   * 67-chronicle-cinematic.css on .chron-shell — its face loads with the
+   * timeline segment, not site-wide (S7a). */
+  --font-display: var(--font-cormorant-sc), serif;
   --font-body: var(--font-cardo), Georgia, serif;
   --font-mono: var(--font-fragment-mono), ui-monospace, monospace;
-  /* Waypoint voice — era-band stop labels (Chronicle). Upright only. */
-  --font-unicase: var(--font-cormorant-unicase), var(--font-cinzel), serif;
 
   /* Animations */
   --animate-fade-slide: fadeSlide 0.6s ease-out both;

@@ -14,6 +14,8 @@ import GhostReadout from "@/components/chrono/GhostReadout";
 import FloatingCoord from "@/components/chrono/FloatingCoord";
 import RouteScrollCue from "@/components/chrome/RouteScrollCue";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";
+// Segment-scoped stylesheet (S7a): loads for the overview and every category.
+import "@/app/styles/66-compendium.css";
 
 // Title/description default for the whole segment; the overview page adds its
 // canonical itself and each category page overrides all three (canonicals must

@@ -1,7 +1,7 @@
 /* 69-system-pages.css
    Root system boundaries: the global 404 catch-all
    (`app/not-found.tsx`) and the root error boundary (`app/error.tsx`). Same
-   vocabulary as 65-loading.css — flat void surface, gold hairline, Cinzel +
+   vocabulary as 65-loading.css — flat void surface, gold hairline, the display face +
    Plex Mono, deliberately WITHOUT glow halos or warm gradients (house
    aesthetic). `app/global-error.tsx` can NOT use these classes: it replaces
    the root layout, so globals.css never loads there — it carries its own

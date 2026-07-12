@@ -44,6 +44,9 @@ import { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { useRouteNav } from "@/components/chrono/RouteProgress";
 import { TYPE_TO_ROUTE } from "@/lib/entity/types";
+// Component-scoped stylesheet (S7a): the overlay chrome loads with whichever
+// @modal intercept mounts it (also imported by DetailModalSkeleton).
+import "@/app/styles/64-detail-modal.css";
 
 /** Single-segment detail links the panel keeps in-shell (→ in-panel replace-nav).
  *  `/book/<slug>` plus every entity route; a trailing query/hash is allowed, but

@@ -4,6 +4,9 @@ import { routeOg } from "@/lib/seo";
 import CartographerRoot from "@/components/cartographer/CartographerRoot";
 import { loadMapWorlds } from "@/lib/map/load-map-worlds";
 import { buildMapPayload } from "@/lib/map/payload";
+// Route-scoped stylesheet (S7a): the Cartographer's ~54 KB load only here. Its
+// body.cg-on-map chrome overrides out-specify the global 43/44/46 rules.
+import "@/app/styles/55-map.css";
 
 const MAP_DESCRIPTION =
   "The galaxy chart of the archive — sectors, worlds and the Warhammer 40,000 novels anchored to them, filterable by era.";

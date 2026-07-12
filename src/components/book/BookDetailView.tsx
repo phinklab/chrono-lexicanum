@@ -23,6 +23,10 @@ import StoreActions from "@/components/book/StoreActions";
 import { type AudioCreditData } from "@/components/book/AudioCredit";
 import { type BookDetail } from "@/lib/book/loadBook";
 import { DEFAULT_REGION } from "@/lib/store-links";
+// Component-scoped stylesheet (S7a): rides with this view into /book/[slug]
+// AND the @modal book intercept. 64-detail-modal.css reaches into
+// .book-detail__* only at higher specificity, so load order stays irrelevant.
+import "@/app/styles/51-book-detail.css";
 
 function roleLabel(role: string | null, fallback: string): string {
   return (role ?? fallback).replace(/_/g, " ");

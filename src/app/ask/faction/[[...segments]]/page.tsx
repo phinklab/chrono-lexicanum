@@ -17,6 +17,8 @@ import {
   findSubfaction,
   type FactionStarterNode,
 } from "@/lib/ask/faction-starters";
+// Route-scoped stylesheet (S7a): the faction tool's picker/carousel styles.
+import "@/app/styles/54-ask-faction.css";
 
 const ASK_FACTION_DESCRIPTION =
   "Pick a Warhammer 40,000 faction and the archive names a single, curated novel to start with.";

@@ -14,6 +14,9 @@ import { SITE_NAME } from "@/lib/seo";
 import { siteOrigin } from "@/lib/site-url";
 import { loadBrowseBooks } from "@/app/archive/loader";
 import { loadPodcastSearchIndex } from "@/app/archive/podcasts/loader";
+// Route-scoped stylesheet (S7a): the Hub's three acts load only on Home. Its
+// .hub-search override of .browse-search out-specifies the global 61 rules.
+import "@/app/styles/50-hub.css";
 
 export const revalidate = 3600;
 

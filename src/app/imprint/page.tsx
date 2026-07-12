@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";
+// Route-scoped stylesheet (S7a), shared by the three legal document pages.
+import "@/app/styles/71-legal.css";
 
 /* Impressum — § 5 DDG mandatory information plus the long-form
    Games Workshop IP disclaimer. Static server
