@@ -38,9 +38,10 @@
  * launch-master-plan Anhang A.4).
  *
  * Best-effort extras per call: `resetMemoryCaches()` clears every in-process
- * memory cache (`/archive` browse blob, /ask book list, /ask matrix). Those
- * only exist per serverless instance, so other warm instances refresh by TTL
- * — acceptable for a read-mostly catalogue.
+ * memory cache (/ask book list, /ask matrix; the /archive browse blob moved
+ * to the tagged Data Cache in S6). Those only exist per serverless instance,
+ * so other warm instances refresh by TTL — acceptable for a read-mostly
+ * catalogue.
  */
 import { revalidatePath, revalidateTag } from "next/cache";
 import { NextResponse, type NextRequest } from "next/server";

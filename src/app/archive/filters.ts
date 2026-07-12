@@ -33,7 +33,18 @@ export interface WorksParams {
   format: string | null;
   facet: string | null;
   sort: SortKey;
+  /** 1-based register page (server-side pagination, Launch S6). Anything
+   *  unparsable normalises to 1; out-of-range is clamped in `paginateWorks`
+   *  once the filtered total is known. */
+  page: number;
 }
+
+/**
+ * Register page size. Filtering/sorting/counts/facets always run over the FULL
+ * catalogue — this only caps how many rows one document renders (the DOM/HTML
+ * budget; ~900 rows in one flight measured 1.94 MB HTML before S6).
+ */
+export const WORKS_PAGE_SIZE = 100;
 
 function first(v: string | string[] | undefined): string | undefined {
   return Array.isArray(v) ? v[0] : v;
@@ -62,12 +73,18 @@ function parseId(raw: string | undefined): string | null {
   return s && ID_PATTERN.test(s) ? s : null;
 }
 
+function parsePage(raw: string | undefined): number {
+  const n = Number(raw);
+  return Number.isInteger(n) && n >= 1 ? n : 1;
+}
+
 export function parseWorksParams(sp: {
   q?: string | string[];
   faction?: string | string[];
   format?: string | string[];
   facet?: string | string[];
   sort?: string | string[];
+  page?: string | string[];
 }): WorksParams {
   return {
     q: first(sp.q)?.trim() ?? "",
@@ -75,6 +92,7 @@ export function parseWorksParams(sp: {
     format: parseFormat(first(sp.format)),
     facet: parseId(first(sp.facet)),
     sort: parseSort(first(sp.sort)),
+    page: parsePage(first(sp.page)),
   };
 }
 
@@ -126,6 +144,57 @@ export function applyWorksFilters(
   p: WorksParams,
 ): BrowseBook[] {
   return books.filter((b) => matches(b, p)).sort((a, b) => compare(a, b, p.sort));
+}
+
+export interface WorksPage {
+  /** The rows this page renders (a slice of the FULL filtered+sorted list). */
+  items: BrowseBook[];
+  /** Requested page clamped into [1, totalPages] — an over-range deep link
+   *  (stale bookmark after the catalogue shrank) lands on the last page, an
+   *  under-range one on the first; never an artificial empty register. */
+  page: number;
+  totalPages: number;
+  /** 0-based index of `items[0]` in the filtered list — keeps the printed
+   *  register numbers (001…) continuous across pages. */
+  offset: number;
+}
+
+/** Cut one register page out of the filtered+sorted catalogue. Pure slice —
+ *  counts, facet options and search always come from the full list. */
+export function paginateWorks(
+  filtered: readonly BrowseBook[],
+  requestedPage: number,
+): WorksPage {
+  const totalPages = Math.max(1, Math.ceil(filtered.length / WORKS_PAGE_SIZE));
+  const page = Math.min(Math.max(1, requestedPage), totalPages);
+  const offset = (page - 1) * WORKS_PAGE_SIZE;
+  return {
+    items: filtered.slice(offset, offset + WORKS_PAGE_SIZE),
+    page,
+    totalPages,
+    offset,
+  };
+}
+
+/**
+ * Which page numbers the pager renders: first, last, and a window around the
+ * current page; `null` marks a gap (an ellipsis). With ≤ 7 pages everything is
+ * listed, so the pager never jumps in width for the common catalogue sizes.
+ */
+export function pagerItems(page: number, totalPages: number): Array<number | null> {
+  if (totalPages <= 7) {
+    return Array.from({ length: totalPages }, (_, i) => i + 1);
+  }
+  const wanted = new Set<number>([1, totalPages, page - 1, page, page + 1]);
+  const out: Array<number | null> = [];
+  for (let n = 1; n <= totalPages; n++) {
+    if (wanted.has(n)) {
+      out.push(n);
+    } else if (out[out.length - 1] !== null) {
+      out.push(null);
+    }
+  }
+  return out;
 }
 
 /* Universal search suggestions (typeahead).

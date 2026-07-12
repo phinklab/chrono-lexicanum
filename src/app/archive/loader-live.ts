@@ -18,28 +18,10 @@ import type {
   EraOption,
 } from "./loader";
 
-/**
- * Browse rows carry a *teaser*, not the full synopsis — the catalogue renders
- * all ~900 expanded row bodies into one HTML document, and full synopses were
- * the single biggest driver of its measured 16.45 MB payload.
- * The full text lives one click away on `/book/[slug]`. Cut at a
- * word boundary near the cap so the teaser never ends mid-word.
- */
-const SYNOPSIS_TEASER_MAX = 280;
-
-function synopsisTeaser(raw: string | null): string | null {
-  if (!raw) return null;
-  const s = raw.trim();
-  if (!s) return null;
-  if (s.length <= SYNOPSIS_TEASER_MAX) return s;
-  const cut = s.slice(0, SYNOPSIS_TEASER_MAX);
-  const lastSpace = cut.lastIndexOf(" ");
-  const safe = lastSpace > SYNOPSIS_TEASER_MAX - 80 ? cut.slice(0, lastSpace) : cut;
-  return `${safe.trimEnd()}…`;
-}
-
 /** Index contract (S2, see `src/lib/db-cache.ts`): DB errors throw — never an
- *  empty hall standing in for an outage. */
+ *  empty hall standing in for an outage. The projection selects only what the
+ *  browse surface consumes (Launch S6 dead-field cut — synopsis, cover,
+ *  setting dates, page count, era id and series index live on /book/[slug]). */
 export async function fetchBrowseBooksLive(): Promise<BrowseData> {
   const [rows, erasRows] = await Promise.all([
     db.query.works.findMany({
@@ -48,18 +30,12 @@ export async function fetchBrowseBooksLive(): Promise<BrowseData> {
         id: true,
         slug: true,
         title: true,
-        synopsis: true,
-        coverUrl: true,
         releaseYear: true,
-        startY: true,
-        endY: true,
       },
       with: {
         bookDetails: {
           columns: {
             format: true,
-            pageCount: true,
-            seriesIndex: true,
             primaryEraId: true,
           },
           with: { series: { columns: { name: true } } },
@@ -135,17 +111,10 @@ export async function fetchBrowseBooksLive(): Promise<BrowseData> {
       id: w.id,
       slug: w.slug,
       title: w.title,
-      synopsis: synopsisTeaser(w.synopsis),
-      coverUrl: w.coverUrl,
       releaseYear: w.releaseYear,
-      startY: w.startY == null ? null : Number(w.startY),
-      endY: w.endY == null ? null : Number(w.endY),
       format: w.bookDetails?.format ?? null,
-      pageCount: w.bookDetails?.pageCount ?? null,
-      eraId,
       eraName: eraId ? erasById.get(eraId) ?? null : null,
       seriesName: w.bookDetails?.series?.name ?? null,
-      seriesIndex: w.bookDetails?.seriesIndex ?? null,
       authors,
       factions,
       facets,

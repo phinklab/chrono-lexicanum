@@ -9,7 +9,7 @@ import RouteScrollCue from "@/components/chrome/RouteScrollCue";
 import PodcastsSearch from "@/components/podcast/PodcastsSearch";
 import ArchiveModeToggle from "@/components/archive/ArchiveModeToggle";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";
-import { loadUnifiedSearchIndex } from "@/lib/search-index";
+import { loadBrowseBooks } from "@/app/archive/loader";
 import { shortDayMonth } from "@/lib/dates";
 import { routeOg } from "@/lib/seo";
 import { loadPodcastIndex, type PodcastIndexShow } from "./loader";
@@ -34,12 +34,12 @@ function yearSpan(first: number | null, last: number | null): string | null {
 }
 
 export default async function PodcastsPage() {
-  // The show hall plus the unified search index — books (from /archive) merged
-  // with podcasts so this view carries the same archive-wide search Home and
-  // the books view do.
-  const [shows, { books, searchIndex }] = await Promise.all([
+  // The show hall plus the books count for the WORKS door. The archive-wide
+  // search console fetches its index lazily (/api/search-index, S6) — nothing
+  // search-related rides in this page's flight.
+  const [shows, { books }] = await Promise.all([
     loadPodcastIndex(),
-    loadUnifiedSearchIndex(),
+    loadBrowseBooks(),
   ]);
   const totalEpisodes = shows.reduce((n, s) => n + s.episodeCount, 0);
   const showWord =
@@ -98,11 +98,9 @@ export default async function PodcastsPage() {
           podcastsLine={`${totalEpisodes} episodes · ${showWord.toLowerCase()}`}
         />
 
-        {searchIndex.length > 0 && (
-          <div className="browse-filters" role="group" aria-label="Browse the archive">
-            <PodcastsSearch index={searchIndex} />
-          </div>
-        )}
+        <div className="browse-filters" role="group" aria-label="Browse the archive">
+          <PodcastsSearch />
+        </div>
 
         {shows.length > 0 && (
           <p className="catalogue-census">

@@ -4,6 +4,7 @@ import {
   Fragment,
   useEffect,
   useId,
+  useMemo,
   useRef,
   useState,
   type FormEvent,
@@ -25,6 +26,14 @@ import {
  * status region, click-outside and scroll-into-view — and renders the exact
  * `.browse-search` + `.browse-suggest` markup the CSS already styles.
  *
+ * The suggestion index is NOT a prop (Launch S6): serialized into the page it
+ * cost every route ~470 KB of initial HTML/RSC. The console fetches
+ * `/api/search-index` lazily on the visitor's first focus/keystroke; the
+ * resolved index is module-cached, so all consoles (Home, /archive,
+ * /archive/podcasts) share one fetch per session. Until it arrives — or if it
+ * fails — the free-text path (`Enter` → onSubmit) works regardless; the
+ * dropdown says so instead of faking an empty result.
+ *
  * It owns NO routing. The query value is fully controlled (`value` /
  * `onValueChange`) so /werke can mirror it from the URL `q`, and every commit is
  * delegated to the parent:
@@ -35,8 +44,30 @@ import {
  * Home wires them to navigate into the archive (`router.push` to /book or /archive).
  * The filter/rank contract stays the single pure source in `werke/filters.ts`.
  */
+
+/** Module-scoped index cache: one fetch per SPA session shared by every
+ *  console. A failed fetch clears the slot so the next focus retries. */
+let indexPromise: Promise<Suggestion[]> | null = null;
+let resolvedIndex: Suggestion[] | null = null;
+
+function fetchSearchIndex(): Promise<Suggestion[]> {
+  if (!indexPromise) {
+    indexPromise = fetch("/api/search-index")
+      .then(async (res) => {
+        if (!res.ok) throw new Error(`search index: HTTP ${res.status}`);
+        const data = (await res.json()) as Suggestion[];
+        resolvedIndex = data;
+        return data;
+      })
+      .catch((err: unknown) => {
+        indexPromise = null;
+        throw err;
+      });
+  }
+  return indexPromise;
+}
+
 export default function BrowseSearch({
-  index,
   value,
   onValueChange,
   onPick,
@@ -46,7 +77,6 @@ export default function BrowseSearch({
   placeholder = "Search titles, authors, factions, facets…",
   ariaLabel = "Search the book archive",
 }: {
-  index: Suggestion[];
   value: string;
   onValueChange: (next: string) => void;
   onPick: (suggestion: Suggestion) => void;
@@ -62,12 +92,32 @@ export default function BrowseSearch({
   // Combobox state: dropdown open + active descendant (-1 = none, input owns).
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(-1);
+  // The lazily-fetched index. Initialised from the module cache so a console
+  // mounted after a soft-nav starts ready instead of re-showing the load hint.
+  const [index, setIndex] = useState<Suggestion[] | null>(resolvedIndex);
+  const [indexFailed, setIndexFailed] = useState(false);
   const rootRef = useRef<HTMLFormElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const baseId = useId();
   const listId = `${baseId}-list`;
 
-  const suggestions = rankSuggestions(index, value);
+  // First focus/keystroke pulls the index; later calls are no-ops (or retries
+  // after a failure). Resolution is idempotent, so a stale console picking up
+  // the shared promise after remount is fine.
+  function ensureIndex() {
+    if (index !== null) return;
+    setIndexFailed(false);
+    fetchSearchIndex()
+      .then(setIndex)
+      .catch(() => setIndexFailed(true));
+  }
+
+  // Ranking is pure but O(index) per keystroke (~3,400 entries) — memoised so
+  // unrelated re-renders (pending tint, focus churn) don't re-rank.
+  const suggestions = useMemo(
+    () => (index ? rankSuggestions(index, value) : []),
+    [index, value],
+  );
   const showList = open && value.trim().length >= SUGGEST_MIN_LEN;
 
   function closeList() {
@@ -154,13 +204,22 @@ export default function BrowseSearch({
 
   const activeId = showList && active >= 0 ? `${baseId}-opt-${active}` : undefined;
 
+  const indexReady = index !== null;
+  const emptyHint = indexFailed
+    ? "Suggestions unavailable — press Enter to search every field."
+    : "No quick matches — press Enter to search every field.";
+
   // Announced to assistive tech when the suggestion set changes (WCAG 4.1.3):
   // sighted users read the dropdown; SR users get the count via this live node.
   const statusMsg = !showList
     ? ""
-    : suggestions.length === 0
-      ? "No quick matches — press Enter to search every field."
-      : `${suggestions.length} suggestion${suggestions.length === 1 ? "" : "s"}`;
+    : !indexReady
+      ? indexFailed
+        ? "Suggestions unavailable — press Enter to search every field."
+        : "Consulting the index…"
+      : suggestions.length === 0
+        ? "No quick matches — press Enter to search every field."
+        : `${suggestions.length} suggestion${suggestions.length === 1 ? "" : "s"}`;
 
   return (
     <form
@@ -186,11 +245,13 @@ export default function BrowseSearch({
         autoComplete="off"
         value={value}
         onChange={(e) => {
+          ensureIndex();
           onValueChange(e.target.value);
           setOpen(true);
           setActive(-1);
         }}
         onFocus={() => {
+          ensureIndex();
           if (value.trim().length >= SUGGEST_MIN_LEN) setOpen(true);
         }}
         onKeyDown={onInputKeyDown}
@@ -212,7 +273,18 @@ export default function BrowseSearch({
 
       {showList && (
         <div className="browse-suggest">
-          {suggestions.length === 0 ? (
+          {!indexReady ? (
+            <p className="browse-suggest__empty">
+              {indexFailed ? (
+                <>
+                  Suggestions unavailable — press <kbd>Enter</kbd> to search
+                  every field.
+                </>
+              ) : (
+                <>Consulting the index…</>
+              )}
+            </p>
+          ) : suggestions.length === 0 ? (
             <p className="browse-suggest__empty">
               No quick matches — press <kbd>Enter</kbd> to search every field.
             </p>

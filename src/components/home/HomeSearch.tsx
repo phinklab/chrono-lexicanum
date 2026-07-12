@@ -26,11 +26,12 @@ import {
  *   - author / raw Enter   → /archive?q=…          (land in the archive, searched)
  *   - empty Enter          → /archive              (open the unfiltered archive)
  *
- * The grouped typeahead is fed by the same server-built `index` /archive uses
- * (books + podcasts), so the suggestions are live and identical. The combobox
- * mechanics live in the shared console; this wrapper only supplies the routing.
+ * The grouped typeahead is fed by the same lazily-fetched index /archive uses
+ * (books + podcasts, via /api/search-index), so the suggestions are live and
+ * identical. The combobox mechanics (and the index fetch) live in the shared
+ * console; this wrapper only supplies the routing.
  */
-export default function HomeSearch({ index }: { index: Suggestion[] }) {
+export default function HomeSearch() {
   // Every pick navigates through the shared transition so the click→stream gap
   // lights the global beam + this console's inline pending state, instead of
   // sitting dead until the target paints. `pendingVisible` is the anti-flash-
@@ -113,7 +114,6 @@ export default function HomeSearch({ index }: { index: Suggestion[] }) {
   return (
     <div className="hub-search">
       <BrowseSearch
-        index={index}
         value={q}
         onValueChange={setQ}
         onPick={onPick}

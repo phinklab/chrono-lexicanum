@@ -34,11 +34,11 @@ export function resetMemoryCaches(): void {
 
 /**
  * Wrap a zero-arg async loader in a per-process promise cache. Used for
- * read-mostly payloads that exceed Next's 2 MB per-cache-entry limit and
- * therefore cannot use the persistent Data Cache (the `/archive` browse blob:
- * 2.60 MB full, 2.21 MB with truncated synopses — measured at 889 books), and
- * for non-serializable derived structures (the /ask book list and result
- * matrix hold `Map`s/`Set`s).
+ * non-serializable derived structures that cannot enter the persistent Data
+ * Cache (the /ask book list and result matrix hold `Map`s/`Set`s). The
+ * `/archive` browse blob — the original oversized-payload consumer — moved to
+ * the persistent tagged cache in S6 via a compact wire shape
+ * (`src/app/archive/browse-wire.ts`).
  *
  * The cache holds the *promise*, so concurrent callers coalesce onto one
  * in-flight read — the anti-stampede property that stops N parallel `/archive`

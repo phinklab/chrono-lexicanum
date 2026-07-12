@@ -23,8 +23,9 @@ type Option = { value: string; label: string };
  * params — the server owns the actual filtering (`applyWorksFilters`).
  *
  * The search itself is the shared `<BrowseSearch>` console:
- * a grouped typeahead over the server-built `index` of books, podcasts,
- * factions, facets, formats and authors. Here it mostly filters IN PLACE —
+ * a grouped typeahead over the lazily-fetched index (/api/search-index) of
+ * books, podcasts, factions, facets, formats and authors. Here it mostly
+ * filters IN PLACE —
  * picking a facet/format applies that filter, an author or raw Enter sets `q`, a
  * book opens it; entity and podcast picks navigate to their canonical surfaces.
  * (Home renders the same console in navigate-mode.) The console owns the
@@ -38,12 +39,10 @@ export default function WerkeFilters({
   factions,
   formats,
   activeFacet,
-  index,
 }: {
   factions: Option[];
   formats: Option[];
   activeFacet: { id: string; name: string; category: string | null } | null;
-  index: Suggestion[];
 }) {
   const router = useRouter();
   const pathname = usePathname();
@@ -78,6 +77,9 @@ export default function WerkeFilters({
     const next = new URLSearchParams(params.toString());
     if (value) next.set(key, value);
     else next.delete(key);
+    // Any filter/sort/query change re-derives the result set — a page number
+    // held over from the previous view would point into the void (S6 pager).
+    next.delete("page");
     commit(next);
   }
 
@@ -155,7 +157,6 @@ export default function WerkeFilters({
   return (
     <div className="browse-filters" role="group" aria-label="Browse the archive">
       <BrowseSearch
-        index={index}
         value={q}
         onValueChange={setQ}
         onPick={onPick}
