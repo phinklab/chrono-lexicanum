@@ -436,7 +436,9 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
             nihilus={state.nihilus}
             names={state.names}
             zones={state.zones}
-            courseId={state.voyage?.id ?? null}
+            // Keep the voyage alive behind a world panel, but suspend its
+            // aggressive context dimming while that panel is being read.
+            courseId={state.selectedId === null ? (state.voyage?.id ?? null) : null}
             condensed={state.condensed}
             reduce={reduce}
             magRef={magRef}
@@ -444,7 +446,6 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
             onPick={pick}
             motionLayer={
               <>
-                <LumenNihilus />
                 <RoutesLayer resolved={activeVoyage} progress={voyageProgress} />
                 <TerraInstrument />
                 {selectedWorld && <Selection key={selectedWorld.id} world={selectedWorld} />}
@@ -453,6 +454,10 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           >
             <HatchDefs />
             <GridDots />
+            {/* Background instruments belong below every world, label and
+                route. They previously lived in the later motion SVG, which
+                made the huge Lumen/Nihilus shades cover the planets. */}
+            <LumenNihilus />
             <PolarFrame />
             <SegmentumWatermarks />
             {/* Zone fields come exclusively from the hand-curated zones.json. */}
