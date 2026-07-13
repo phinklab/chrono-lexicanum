@@ -6,10 +6,12 @@ status: complete
 slug: great-journeys-research-pass
 parent: none (direct maintainer session, no architect brief)
 links:
+  - https://github.com/phinklab/chrono-lexicanum/pull/261
   - sessions/2026-07-09-190-impl-ui-refinements-great-journeys.md
   - sessions/2026-07-13-213-impl-map-mobile-rendering.md
 commits:
   - 3bbe63e
+  - 274b4be
 ---
 
 # Great Journeys research and route expansion
