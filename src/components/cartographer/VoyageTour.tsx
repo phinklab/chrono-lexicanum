@@ -4,10 +4,12 @@
  * VoyageTour — the guided playback of a Great Journey: one bottom-docked
  * card on BOTH breakpoints (the mobile dock grammar promoted to desktop).
  *
- * step −1 is the overture (title card: begin / skip); steps 0…n−1 fly the
- * camera station to station while RoutesLayer draws the arriving leg; the
- * last station offers "Fin — survey the voyage", which hands over to the
- * free-explore tableau (CourseCards + fully drawn route).
+ * step −1 is the overture (title card: one "Begin journey" action — the old
+ * "Skip tour" read as an unwanted autoplay and went 2026-07-13; ✕ leaves the
+ * journey); steps 0…n−1 fly the camera station to station while RoutesLayer
+ * draws the arriving leg; the last station offers "Show the full route",
+ * which hands over to the free-explore tableau (CourseCards + fully drawn
+ * route).
  *
  * The camera zoom adapts to leg length (short hops magnify, galaxy-spanning
  * reunions pull back) and the chart stays freely pannable throughout — Next
@@ -23,11 +25,6 @@ import { useEffect } from "react";
 import type { ResolvedVoyage } from "@/lib/map/voyages";
 import type { ChartBus } from "./chart-bus";
 
-const ROMAN = [
-  "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII",
-  "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX", "XXI", "XXII", "XXIII", "XXIV",
-];
-
 interface VoyageTourProps {
   resolved: ResolvedVoyage;
   bus: ChartBus;
@@ -39,10 +36,8 @@ interface VoyageTourProps {
   /** −1 overture … n−1 last station. */
   step: number;
   onStep: (step: number) => void;
-  /** Tour finished (Fin) — free mode with the route fully drawn. */
+  /** Tour finished — free mode with the route fully drawn. */
   onFin: () => void;
-  /** Tour skipped/left early — free mode with the ambient draw-in. */
-  onSkip: () => void;
   /** Leave the journey entirely and return to the neutral chart. */
   onExit: () => void;
 }
@@ -56,7 +51,6 @@ export default function VoyageTour({
   step,
   onStep,
   onFin,
-  onSkip,
   onExit,
 }: VoyageTourProps) {
   const n = resolved.stations.length;
@@ -111,17 +105,24 @@ export default function VoyageTour({
         className={`cg-ccard cg-ccard--dock cg-tour show${suppressed ? " hide" : ""}`}
         inert={suppressed || muted}
       >
+        <button
+          type="button"
+          className="cpg cg-tour-x"
+          title="Leave the journey"
+          aria-label="Leave the journey"
+          onClick={onExit}
+        >
+          ✕
+        </button>
         <p className="ck">
           GREAT JOURNEY · {resolved.tag.toUpperCase()}
         </p>
         <p className="cg-tour-name">{resolved.name}</p>
         <p className="ct">{resolved.blurb}</p>
         <div className="cg-tour-row">
-          <button className="cpg quiet" onClick={onSkip}>
-            SKIP TOUR
-          </button>
+          <span />
           <button className="cpg lead" onClick={() => onStep(0)}>
-            BEGIN · {n} STATIONS →
+            BEGIN JOURNEY · {n} STATIONS →
           </button>
         </div>
       </div>
@@ -145,10 +146,10 @@ export default function VoyageTour({
       >
         ✕
       </button>
-      <p className="ck">
-        ACT {ROMAN[step] ?? step + 1}
-        {st.date ? ` · ${st.date}` : ""} · {st.heading.toUpperCase()}
-      </p>
+      {/* Hierarchy: name + text carry the act; the date is a quiet footnote;
+          position lives in the pager button ("3 / 9"), no ACT numeral. */}
+      <p className="cg-tour-name">{st.heading}</p>
+      {st.date && <p className="cg-tour-date">{st.date}</p>}
       <p className="ct">{st.text}</p>
       <div className="cg-tour-row">
         <span>
@@ -159,7 +160,7 @@ export default function VoyageTour({
           )}
         </span>
         <button className="cpg lead" onClick={() => (last ? onFin() : onStep(step + 1))}>
-          {last ? "FIN · SURVEY THE VOYAGE" : `${step + 1} / ${n} · NEXT →`}
+          {last ? "SHOW THE FULL ROUTE →" : `${step + 1} / ${n} · NEXT →`}
         </button>
       </div>
     </div>

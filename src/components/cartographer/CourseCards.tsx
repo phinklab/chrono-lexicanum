@@ -5,9 +5,10 @@
  * bottom-docked card carrying the final station's act while the route
  * stands fully drawn on the chart. The maintainer cut the pin-anchored
  * all-acts tableau (2026-07-09): at 10–21 stations it drowned the chart
- * in text at journey's end. Earlier acts are read in the tour (Back/Next);
- * ✕ dismisses the card without ending the journey. Reuses the tour card's
- * dock grammar on both breakpoints.
+ * in text at journey's end. The card keeps the voyage navigable (2026-07-13):
+ * "← Back" returns to the tour at the last station, "Restart journey" starts
+ * over at station one; ✕ dismisses the card without ending the journey.
+ * Reuses the tour card's dock grammar on both breakpoints.
  *
  * Mount keyed by voyage id (parent) — switching journeys resets dismissal.
  */
@@ -16,20 +17,25 @@ import { useState } from "react";
 
 import type { ResolvedVoyage } from "@/lib/map/voyages";
 
-const ROMAN = [
-  "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII",
-  "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX", "XXI", "XXII", "XXIII", "XXIV",
-];
-
 interface CourseCardsProps {
   resolved: ResolvedVoyage;
   /** World popup open — the card steps aside and returns when it closes. */
   suppressed: boolean;
   /** Mobile sheet open (modal) — the card leaves the AT tree meanwhile. */
   muted?: boolean;
+  /** Return to the tour at its last station. */
+  onBack: () => void;
+  /** Fly the tour again from the first station. */
+  onRestart: () => void;
 }
 
-export default function CourseCards({ resolved, suppressed, muted = false }: CourseCardsProps) {
+export default function CourseCards({
+  resolved,
+  suppressed,
+  muted = false,
+  onBack,
+  onRestart,
+}: CourseCardsProps) {
   const [dismissed, setDismissed] = useState(false);
   const st = resolved.stations[resolved.stations.length - 1];
   if (!st || dismissed) return null;
@@ -46,11 +52,18 @@ export default function CourseCards({ resolved, suppressed, muted = false }: Cou
       >
         ✕
       </button>
-      <p className="ck">
-        ACT {ROMAN[st.i] ?? st.i + 1}
-        {st.date ? ` · ${st.date}` : ""} · {st.heading.toUpperCase()}
-      </p>
+      {/* Same hierarchy as the tour card: name + text lead, date recedes. */}
+      <p className="cg-tour-name">{st.heading}</p>
+      {st.date && <p className="cg-tour-date">{st.date}</p>}
       <p className="ct">{st.text}</p>
+      <div className="cg-tour-row">
+        <button className="cpg quiet" onClick={onBack}>
+          ← BACK
+        </button>
+        <button className="cpg lead" onClick={onRestart}>
+          RESTART JOURNEY
+        </button>
+      </div>
     </div>
   );
 }

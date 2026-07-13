@@ -251,7 +251,6 @@ export function SeekPanel({
             }
           }}
         />
-        <span className="go">RET</span>
       </div>
       {open && (
         // preventDefault keeps the input focused so the click lands before

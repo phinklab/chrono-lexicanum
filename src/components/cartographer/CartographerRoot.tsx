@@ -39,8 +39,10 @@ import { ZonesLayer } from "./ZonesLayer";
 
 /** Active Great Journey: mode "tour" is the guided playback (step −1 =
  *  overture card, 0…n−1 = stations), mode "free" the explore tableau
- *  (step −1 = reached via skip → ambient draw-in; step ≥ n = reached via
- *  Fin → route stands fully drawn). */
+ *  (step ≥ n, reached via "Show the full route" → route stands fully drawn;
+ *  its Back/Restart buttons dispatch voyageStep, which returns to "tour").
+ *  A free step < 0 would mean the ambient draw-in — no UI path leads there
+ *  since the "Skip tour" button went (2026-07-13). */
 interface VoyageState {
   id: string;
   mode: "tour" | "free";
@@ -192,9 +194,9 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
         : null,
     [activeVoyage],
   );
-  /* RoutesLayer reveal: tour steps gate the drawing; free mode is either the
-     ambient choreography (skip, step −1 → null) or the standing route (Fin,
-     step = n). */
+  /* RoutesLayer reveal: tour steps gate the drawing; free mode is the
+     standing route (step = n). The null/ambient branch survives only as a
+     fallback — no UI dispatches a free step < 0 anymore. */
   const voyageProgress =
     state.voyage === null
       ? null
@@ -358,7 +360,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
       msg =
         s < 0 || !st
           ? `${activeVoyage.name} — journey tour open — ${activeVoyage.stations.length} stations`
-          : `Act ${s + 1} of ${activeVoyage.stations.length} — ${st.heading}`;
+          : `Station ${s + 1} of ${activeVoyage.stations.length} — ${st.heading}`;
     } else {
       key = "idle";
       // Announce the close only after a panel actually spoke (never on load).
@@ -537,7 +539,6 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           step={state.voyage.step}
           onStep={(step) => dispatch({ type: "voyageStep", step })}
           onFin={() => dispatch({ type: "voyageFree", step: activeVoyage.stations.length })}
-          onSkip={() => dispatch({ type: "voyageFree", step: -1 })}
           onExit={() => dispatch({ type: "voyageEnd" })}
         />
       )}
@@ -548,6 +549,8 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           resolved={activeVoyage}
           suppressed={state.selectedId !== null}
           muted={sheetOpen}
+          onBack={() => dispatch({ type: "voyageStep", step: activeVoyage.stations.length - 1 })}
+          onRestart={() => dispatch({ type: "voyageStep", step: 0 })}
         />
       )}
 

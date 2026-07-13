@@ -34,15 +34,23 @@
 }
 
 /* On the map the brand moves to the centre of the north edge ("Chrono
-   Lexicanum · Tabula") — the left flank belongs to the legend. */
+   Lexicanum") — the left flank belongs to the vox stud, the right to the
+   burger. */
 body.cg-on-map .site-brand {
   left: 50%;
   transform: translateX(-50%);
   white-space: nowrap;
   font-size: 15px;
 }
-body.cg-on-map .site-brand .site-brand__map {
-  color: var(--cl-gold);
+@media (max-width: 640px) {
+  /* Phones: the wordmark must clear the 44px vox stud (top-left) and the
+     burger (top-right) — smaller type, same centre. */
+  body.cg-on-map .site-brand {
+    font-size: var(--fs-label-xs);
+    max-width: calc(100vw - 132px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 /* Chart edge: rules + degree markers */
@@ -113,9 +121,9 @@ body.cg-on-map .site-brand .site-brand__map {
 }
 
 /* Desktop keeps animated linework in a separate SVG tree. Mobile does not
-   animate SVG paint properties at all; RouteMotionCanvas owns the moving
-   journey dashes there. Do not force this plane into a compositor backing
-   store on either Blink or WebKit. */
+   animate SVG paint properties at all; RouteMotionCanvas owns the journey
+   line there (static chevrons, repaint on camera frames only). Do not force
+   this plane into a compositor backing store on either Blink or WebKit. */
 .cg-motion-plane {
   position: absolute;
   inset: 0;
@@ -866,16 +874,8 @@ body.cg-on-map .site-brand .site-brand__map {
   color: var(--cl-faint);
   font-style: italic;
 }
-:is(.cg-cartouche, .cg-sheet) .seek .go {
-  font-family: var(--font-mono);
-  font-size: var(--fs-label-2xs);
-  color: var(--cl-faint);
-}
 :is(.cg-cartouche, .cg-sheet) .seek:focus-within {
   border-color: var(--cl-gold-dim);
-}
-:is(.cg-cartouche, .cg-sheet) .seek:focus-within .go {
-  color: var(--cl-gold);
 }
 /* Live search: candidate list under the seek field (inline in the scrolling
    cartouche flow, its own internal scroll from ~8 rows). */
@@ -1608,6 +1608,16 @@ body.cg-on-map .site-brand .site-brand__map {
   color: var(--cl-bone);
   margin: 2px 0 6px;
 }
+/* Station date — deliberately quiet: name + text carry the act, the date is
+   a footnote (the old "ACT VII · date · HEADING" kicker crowded all three
+   into one line). */
+.cg-tour .cg-tour-date {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-3xs);
+  letter-spacing: var(--track-22);
+  color: var(--cl-faint);
+  margin: -3px 0 7px;
+}
 .cg-tour .cg-tour-row {
   display: flex;
   justify-content: space-between;
@@ -1630,7 +1640,7 @@ body.cg-on-map .site-brand .site-brand__map {
   padding: 4px 6px;
   font-size: 10px;
 }
-.cg-tour .cg-tour-x + .ck {
+.cg-tour .cg-tour-x + :is(.ck, .cg-tour-name) {
   padding-right: 34px;
 }
 
@@ -2267,7 +2277,8 @@ body.cg-on-map .site-brand .site-brand__map {
 
   /* WebKit/Blink rasterize animated SVG stroke paint on the CPU. On phones
      the motion SVG is therefore fully static; Canvas carries the route
-     reveal + dash movement without invalidating an SVG backing store. */
+     (static chevron line + the step draw-in) and repaints only on camera
+     frames — no standing animation invalidates a fullscreen layer. */
   .cg-chart--motion *,
   .cg-course--lite .cg-rtFly {
     animation: none !important;
@@ -2379,12 +2390,6 @@ body.cg-on-map .site-brand .site-brand__map {
     font-size: var(--fs-read-xs);
     color: var(--cl-faint);
   }
-  .cg-sheet-pill .go {
-    font-family: var(--font-mono);
-    font-size: var(--fs-label-3xs);
-    letter-spacing: var(--track-22);
-    color: var(--cl-gold);
-  }
   .cg-sheet-badges {
     display: flex;
     gap: 8px;
@@ -2402,9 +2407,10 @@ body.cg-on-map .site-brand .site-brand__map {
     display: none;
   }
 
-  /* Expanded: internal scroll, capped height. */
+  /* Expanded: internal scroll, capped height — deliberately low enough that
+     a good band of the chart stays visible above the sheet. */
   .cg-sheet.open {
-    max-height: min(72dvh, calc(100dvh - 88px));
+    max-height: min(60dvh, calc(100dvh - 88px));
   }
   .cg-sheet-body {
     overflow-y: auto;
@@ -2471,7 +2477,7 @@ body.cg-on-map .site-brand .site-brand__map {
     height: 44px;
     padding: 0;
   }
-  .cg-tour .cg-tour-x + .ck {
+  .cg-tour .cg-tour-x + :is(.ck, .cg-tour-name) {
     padding-right: 44px;
   }
 }

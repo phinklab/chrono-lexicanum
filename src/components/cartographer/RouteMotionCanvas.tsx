@@ -1,12 +1,19 @@
 "use client";
 
 /**
- * RouteMotionCanvas — mobile-only raster animation for Great Journeys.
+ * RouteMotionCanvas — mobile-only raster rendering for Great Journeys.
  *
  * Mobile WebKit/Blink repaint SVG stroke-dashoffset animations in software;
  * on a transformed map that can flash the SVG backing store. The route stays
- * vector-authored, but its moving dashes are sampled into this small Canvas
- * surface at 30 fps. Static SVG rings/labels remain in RoutesLayer.
+ * vector-authored, but its line is sampled into this small Canvas surface.
+ *
+ * Since 2026-07-13 the standing line is STATIC — a row of small chevrons
+ * pointing in travel direction instead of marching dashes. The old perpetual
+ * 30 fps dash drift kept invalidating a fullscreen layer and the entity
+ * flicker on drag came back with it. Now the canvas repaints only (a) on
+ * camera frames (the route must track the chart) and (b) during the bounded
+ * draw-in window when the tour enters a new leg. Idle = zero repaints.
+ * Static SVG rings/labels remain in RoutesLayer.
  */
 
 import { useEffect, useRef } from "react";
@@ -30,7 +37,13 @@ const FRAME_MS = 1000 / 30;
 const REVEAL_MS = 900;
 const AMBIENT_STAGGER_MS = 1450;
 const AMBIENT_LEAD_MS = 350;
-const PATH_SAMPLES = 48;
+const PATH_SAMPLES = 64;
+/** Chevron row: tip-to-tip spacing, arm length and half-width (screen px). */
+const CHEV_SPACING = 14;
+const CHEV_LEN = 4.2;
+const CHEV_HALF = 2.4;
+/** Offscreen cull margin for chevron placement. */
+const CULL_PAD = 24;
 
 const clamp01 = (n: number) => Math.max(0, Math.min(1, n));
 
@@ -50,6 +63,7 @@ export default function RouteMotionCanvas({
     if (!ctx) return;
 
     let raf = 0;
+    let pendingFrame = 0;
     let lastPaint = -Infinity;
     const startedAt = performance.now();
 
@@ -95,6 +109,20 @@ export default function RouteMotionCanvas({
       return clamp01(elapsed / REVEAL_MS);
     };
 
+    /* How long anything animates at all: the draw-in of the leg the tour
+       just entered (or the ambient stagger). 0 = fully static from the
+       first paint — no ticker runs. */
+    const animEnd = (() => {
+      if (reduce) return 0;
+      if (progress === null) {
+        return (resolved.legs.length - 1) * AMBIENT_STAGGER_MS + AMBIENT_LEAD_MS + REVEAL_MS;
+      }
+      for (const entry of firstEntry.values()) {
+        if (entry === progress) return REVEAL_MS;
+      }
+      return 0;
+    })();
+
     const paint = (now: number): boolean => {
       const driver = bus.driver;
       if (!driver) return false;
@@ -102,56 +130,96 @@ export default function RouteMotionCanvas({
       ctx.clearRect(0, 0, rect.width, rect.height);
       ctx.strokeStyle = GOLD;
       ctx.globalAlpha = 0.9;
-      ctx.lineWidth = 1.7;
+      ctx.lineWidth = 1.3;
       ctx.lineCap = "round";
-      ctx.setLineDash([2.2, 5.4]);
-      ctx.lineDashOffset = reduce ? 0 : -((now - startedAt) * 0.008);
+      ctx.lineJoin = "round";
 
       const elapsed = now - startedAt;
       resolved.legs.forEach((leg, legIndex) => {
         const fraction = revealFraction(legIndex, elapsed);
         if (fraction <= 0) return;
         const samples = Math.max(2, Math.ceil(PATH_SAMPLES * fraction));
-        ctx.beginPath();
+        // Sample the revealed part of the leg into a screen-space polyline…
+        const xs = new Array<number>(samples + 1);
+        const ys = new Array<number>(samples + 1);
         for (let i = 0; i <= samples; i += 1) {
           const point = pointOnLeg(leg, (fraction * i) / samples);
-          if (!point) continue;
+          if (!point) return;
           const screen = driver.worldToScreen(point.x, point.y);
-          const x = screen.x - rect.left;
-          const y = screen.y - rect.top;
-          if (i === 0) ctx.moveTo(x, y);
-          else ctx.lineTo(x, y);
+          xs[i] = screen.x - rect.left;
+          ys[i] = screen.y - rect.top;
+        }
+        // …and walk it, dropping a direction chevron every CHEV_SPACING px.
+        ctx.beginPath();
+        let carry = CHEV_SPACING * 0.5;
+        for (let i = 1; i <= samples; i += 1) {
+          const dx = xs[i] - xs[i - 1];
+          const dy = ys[i] - ys[i - 1];
+          const segLen = Math.hypot(dx, dy);
+          if (segLen < 1e-3) continue;
+          const ux = dx / segLen;
+          const uy = dy / segLen;
+          while (carry <= segLen) {
+            const x = xs[i - 1] + ux * carry;
+            const y = ys[i - 1] + uy * carry;
+            if (
+              x >= -CULL_PAD &&
+              x <= rect.width + CULL_PAD &&
+              y >= -CULL_PAD &&
+              y <= rect.height + CULL_PAD
+            ) {
+              const bx = x - ux * CHEV_LEN;
+              const by = y - uy * CHEV_LEN;
+              ctx.moveTo(bx - uy * CHEV_HALF, by + ux * CHEV_HALF);
+              ctx.lineTo(x, y);
+              ctx.lineTo(bx + uy * CHEV_HALF, by - ux * CHEV_HALF);
+            }
+            carry += CHEV_SPACING;
+          }
+          carry -= segLen;
         }
         ctx.stroke();
       });
-      ctx.setLineDash([]);
       ctx.globalAlpha = 1;
       return true;
     };
 
-    if (reduce) {
-      const redraw = () => paint(performance.now());
-      const unsubscribe = bus.onFrame(redraw);
-      const drawWhenReady = () => {
-        if (!paint(performance.now())) raf = requestAnimationFrame(drawWhenReady);
-      };
-      raf = requestAnimationFrame(drawWhenReady);
-      return () => {
-        cancelAnimationFrame(raf);
-        unsubscribe();
-        clear();
-      };
-    }
+    /* Camera frames: one coalesced repaint per frame event — the only
+       repaint source once the draw-in window is over. */
+    const requestPaint = () => {
+      if (pendingFrame) return;
+      pendingFrame = requestAnimationFrame((now) => {
+        pendingFrame = 0;
+        paint(now);
+      });
+    };
+    const unsubscribe = bus.onFrame(requestPaint);
 
+    /* Bounded reveal ticker (30 fps) — runs only through the draw-in window,
+       then paints one final full state and stops. */
     const tick = (now: number) => {
-      raf = requestAnimationFrame(tick);
-      if (now - lastPaint < FRAME_MS) return;
+      const done = now - startedAt > animEnd + 80;
+      if (!done) raf = requestAnimationFrame(tick);
+      if (!done && now - lastPaint < FRAME_MS) return;
       lastPaint = now;
       paint(now);
     };
-    raf = requestAnimationFrame(tick);
+
+    /* First paint may precede the chart driver — retry until it lands, then
+       hand over to the reveal ticker (if anything animates at all). */
+    const drawWhenReady = (now: number) => {
+      if (!paint(now)) {
+        raf = requestAnimationFrame(drawWhenReady);
+        return;
+      }
+      if (animEnd > 0) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(drawWhenReady);
+
     return () => {
       cancelAnimationFrame(raf);
+      cancelAnimationFrame(pendingFrame);
+      unsubscribe();
       clear();
     };
   }, [bus, narrow, progress, reduce, resolved]);
