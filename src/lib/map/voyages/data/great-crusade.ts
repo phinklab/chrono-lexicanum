@@ -2,8 +2,8 @@
  * The Great Crusade (M30–M31) — the Imperium's two-hundred-year reconquest,
  * told in full: launch, first compliance, and the rediscovery of every lost
  * primarch in the canonical Black Library order (Lexicanum "Primarch"
- * discovery table = Fandom "Primarchs" list, identical), closing with the
- * Triumph of Ullanor.
+ * discovery table = Fandom "Primarchs" list, identical), framed by the
+ * conquest of Sol and the Council of Nikaea epilogue.
  *
  * Ullanor rides the `armageddon` pin (the stripped world was later
  * recolonized as Armageddon); Alpharius' rediscovery world is canonically
@@ -12,8 +12,13 @@
  * "Alpharius: Head of the Hydra"). The two Lost Primarchs (II at 821.M30,
  * XI at 927.M30 in the timeline) have no worlds — they ride the legs as
  * WAYPOINTS, two unmarked dots in the dark between their brothers.
- * Magnus' 840.M30 is the official timeline number; Lexicanum flags it may
- * date first psychic contact. Sanguinius landed on Baal Secundus and rides
+ * Luna and Mars predate the formal launch and are intentionally presented
+ * as its Sol-system prologue. Sedna is off-chart and rides the Cthonia →
+ * Fenris leg. Gorro's sources agree on the event but not a precise date, so
+ * it sits late M30
+ * before Ullanor without a false year. Magnus' 840.M30 is the official
+ * timeline number; Lexicanum flags it may date first psychic contact.
+ * Sanguinius landed on Baal Secundus and rides
  * the `baal` pin. Sources per station in `source`.
  */
 
@@ -23,8 +28,22 @@ export const GREAT_CRUSADE: Voyage = {
   id: "great-crusade",
   name: "The Great Crusade",
   tag: "M30–M31",
-  blurb: "Two hundred years of reconquest: eighteen sons regained, from the launch at Terra to the Triumph of Ullanor.",
+  blurb: "Two hundred years of reconquest: Sol reclaimed, eighteen sons regained, and the first great fracture at Nikaea.",
   stations: [
+    {
+      world: "luna",
+      heading: "Luna · The First Pacification",
+      date: "c. 703.M30 · Prologue",
+      text: "The Crusade's first battle is fought in Terra's own sky. The fanatical Selenar gene-cults submit, and Luna's ancient vats turn to a new work: the mass-raising of the Legiones Astartes.",
+      source: "https://wh40k.lexicanum.com/wiki/First_Pacification_of_Luna",
+    },
+    {
+      world: "mars",
+      heading: "Mars · The Treaty of Olympus",
+      date: "739.M30 · Prologue",
+      text: "At Olympus Mons, the Emperor makes peace where conquest would bleed both worlds dry. The Treaty of Olympus binds the Mechanicum to his newborn Imperium, and the forges that will arm the Crusade ignite.",
+      source: "https://wh40k.lexicanum.com/wiki/Treaty_of_Olympus",
+    },
     {
       world: "terra",
       heading: "Terra · The Crusade Begins",
@@ -33,18 +52,19 @@ export const GREAT_CRUSADE: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/Great_Crusade",
     },
     {
-      world: "luna",
-      heading: "Luna · The First Pacification",
-      date: "c. 798.M30",
-      text: "The Crusade's first battle is fought in Terra's own sky. The fanatical Selenar gene-cults submit, and Luna's ancient vats turn to a new work: the mass-raising of the Legiones Astartes.",
-      source: "https://wh40k.lexicanum.com/wiki/Luna",
-    },
-    {
       world: "cthonia",
       heading: "Cthonia · Horus",
       date: "801.M30",
-      text: "On the mined-out gang-world of Cthonia the Emperor finds his first son. For thirty years Horus alone campaigns at his father's side; at Gorro he hews an Ork's arm from the Emperor's throat.",
+      text: "On the mined-out gang-world of Cthonia the Emperor finds his first son. For thirty years Horus alone campaigns at his father's side, learning conquest as the Great Crusade breaks beyond Sol.",
       source: "https://wh40k.lexicanum.com/wiki/Horus",
+    },
+    {
+      via: 0.5,
+      name: "Sedna",
+      heading: "Sedna · The Last Gate of Sol",
+      date: "803.M30",
+      text: "At Sol's outer dark, eight Legions assault a false world ruled by xenos. The enemy is erased by psychic means and Sedna falls silent, the last gate before the expedition fleets break into the wider galaxy.",
+      source: "https://wh40k.lexicanum.com/wiki/Sedna_Campaign",
     },
     {
       world: "fenris",
@@ -146,6 +166,13 @@ export const GREAT_CRUSADE: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/Jaghatai_Khan",
     },
     {
+      world: "molech",
+      heading: "Molech · The Sealed Gate",
+      date: "869.M30",
+      text: "Four primarchs bring the Knight world into compliance with the Emperor among them. Beneath Lupercalia lies the gate he entered long before; he leaves a garrison and erases the world's significance from Lion, Horus, Fulgrim and the Khan.",
+      source: "https://wh40k.lexicanum.com/wiki/Molech",
+    },
+    {
       world: "nostramo",
       heading: "Nostramo · Konrad Curze",
       date: "896.M30",
@@ -182,11 +209,26 @@ export const GREAT_CRUSADE: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/Alpharius",
     },
     {
+      via: 0.5,
+      name: "Gorro",
+      heading: "Gorro · The Emperor's Peril",
+      date: "late M30",
+      text: "The Emperor and Horus descend into an ork scrapworld built around a stolen planetary core. A warboss closes one hand around the Emperor's throat; Horus hews the arm away, and Gorro tears itself apart around them.",
+      source: "https://wh40k.lexicanum.com/wiki/Battle_of_Gorro",
+    },
+    {
       world: "armageddon",
       heading: "Ullanor · The Triumph",
       date: "000.M31",
       text: "Urlakk Urg hurled from his own tower, the greenskin empire breaks. Down a granite road lined with Ork skulls the Legions parade in their millions; Horus is named Warmaster, and the Emperor turns for home.",
       source: "https://wh40k.lexicanum.com/wiki/Ullanor_Crusade",
+    },
+    {
+      world: "nikaea",
+      heading: "Nikaea · The Council",
+      date: "001.M31",
+      text: "On a world still being born, the Emperor gathers the Legions' greatest voices to judge their Librarians. Magnus pleads for knowledge; Mortarion demands restraint. The decree falls: the Librarius must disband, and the son who knows the warp best swears an obedience he will break.",
+      source: "https://wh40k.lexicanum.com/wiki/Council_of_Nikaea",
     },
   ],
   lbl: { x: 645, y: 565, t: "THE GREAT CRUSADE" },

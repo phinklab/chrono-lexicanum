@@ -11,9 +11,12 @@
  * bowed Istvaan → Luna leg — the dot sits in the deep void off the direct
  * line, where the detour belongs. Sword of Truth's Kuiper-Belt action
  * anchors on Luna (mission
- * start/debrief at the Somnus Citadel); Shield of Lies' Riga plate and Vow
- * of Faith's Hesperides plate anchor on Terra. Legion of One's dead world
- * IS Istvaan III (canonical). Sources per station in `source`.
+ * start/debrief at the Somnus Citadel). Ashes of Fealty's Luna → Io action
+ * anchors on Terra as an explicit Sol-system stand-in because Io has no pin;
+ * it belongs before Optera and Legion of One in the collected-novel
+ * chronology. Shield of Lies' Riga plate and Vow of Faith's Hesperides plate
+ * anchor on Terra. Legion of One's dead world IS Istvaan III (canonical).
+ * Sources per station in `source`.
  */
 
 import type { Voyage } from "../types";
@@ -82,6 +85,20 @@ export const GARRO: Voyage = {
       date: "c. 007.M31",
       text: "From the Somnus Citadel Garro is sent to the Daggerline at Sol's cold edge, where refugee loyalists beg sanctuary. He unmasks Hakeem's White Scars as the traitors aboard and wins the World Eater Macer Varren for the grey.",
       source: "https://wh40k.lexicanum.com/wiki/Garro:_Sword_of_Truth_(Audio_Book)",
+    },
+    {
+      world: "terra",
+      heading: "Sol · Ashes of Fealty",
+      date: "c. 008.M31",
+      text: "Dorn's warning sends Garro after Meric Voyen, who has recovered Solun Decius's tainted remains from Luna and carries them toward Io in hope of a cure. Garro intercepts the ship and turns the course sunward, consigning the deadly cargo to the fire.",
+      source: "https://warhammer40k.fandom.com/wiki/Nathaniel_Garro",
+    },
+    {
+      world: "optera",
+      heading: "Optera IV · The Loyalist Conclave",
+      date: "017.008.M31",
+      text: "Garro broadcasts a summons that only a truly loyal Astartes can read. Blood Angels, White Scars and the Nemean Reaver answer at Optera IV; when the Alpha Legion springs its ambush, Garro escapes with the one knight Malcador sent him to claim.",
+      source: "https://wh40k.lexicanum.com/wiki/Purging_of_the_Invocastus_Sector",
     },
     {
       world: "istvaan-iii",
