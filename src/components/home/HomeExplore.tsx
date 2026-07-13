@@ -95,9 +95,9 @@ const BANDS: Band[] = [
     rows: [
       {
         n: "VIII",
-        title: "Ask the Archive",
-        desc: "Five questions to your one entry book.",
-        gloss: "INTERROGATORIVM",
+        title: "The Curator",
+        desc: "Four questions or one chosen faction — two paths to your next book.",
+        gloss: "CVRATOR · LECTORIS",
         href: "/ask",
       },
       {

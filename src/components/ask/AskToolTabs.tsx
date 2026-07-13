@@ -1,69 +1,91 @@
 import Link from "next/link";
+import BtnFx from "@/components/shared/BtnFx";
 import SternwarteRings from "@/components/shared/SternwarteRings";
-// Component-scoped stylesheet (S7a): 53-ask rides with the tool doors into
-// BOTH ask routes. Its .ask-doors overrides on the door grammar out-specify
-// the global 31-catalogue rules, so load order stays irrelevant.
+// Component-scoped stylesheet (S7a): the Curator threshold and compact switch
+// ride with both tool routes.
 import "@/app/styles/53-ask.css";
 
 /**
- * The tool doors — the two named ways into the catalogue (questionnaire and
- * faction tool), as prominent as the archive's Books/Podcasts doors and in the
- * same door grammar (arch-door classes, 31-catalogue.css). Pure Links, server
- * component; the active route carries the Sternwarte dot in its kicker.
- * `scroll={false}` + `prefetch={true}`: switching tools is a view swap — the
- * soft nav keeps the reader at the same scroll depth instead of jumping back
- * to the hero, and the full-route prefetch has the other tool ready in the
- * router cache when clicked (production; prefetch is disabled in dev).
- * Cold/slow switches fall back to the jump-proof cogitator screen
- * (ask/loading.tsx).
+ * The Curator has two presentations of the same routes:
+ * - `landing`: two generous Sternwarte-dot doorways, shown only before a tool
+ *   has been chosen;
+ * - `compact`: a quiet inline switch above the active tool.
+ *
+ * Keeping both in one server component makes the labels, URLs and a11y state a
+ * single contract while letting the selected tool own the visual hierarchy.
  */
 export type AskTool = "questionnaire" | "faction";
+export type AskToolTabsVariant = "landing" | "compact";
 
 const TABS: ReadonlyArray<{
   id: AskTool;
   href: string;
-  kicker: string;
   label: string;
+  compactLabel: string;
   desc: string;
 }> = [
   {
     id: "questionnaire",
-    href: "/ask",
-    kicker: "Tool I",
-    label: "Ask the Archive",
-    desc: "Four questions to your one entry book.",
+    href: "/ask?mode=profile",
+    label: "Four Questions",
+    compactLabel: "Questions",
+    desc: "Answer a short reading profile and receive a ranked path through the shelves.",
   },
   {
     id: "faction",
     href: "/ask/faction",
-    kicker: "Tool II",
-    label: "One Faction, One Book",
-    desc: "Pick a banner and get one curated start.",
+    label: "By Faction",
+    compactLabel: "Faction",
+    desc: "Choose an army and receive one carefully curated entry point.",
   },
 ];
 
-export default function AskToolTabs({ active }: { active: AskTool }) {
+type AskToolTabsProps = {
+  active: AskTool | null;
+  variant?: AskToolTabsVariant;
+};
+
+export default function AskToolTabs({
+  active,
+  variant = "compact",
+}: AskToolTabsProps) {
+  if (variant === "landing") {
+    return (
+      <nav className="curator-picker" aria-label="Choose a Curator path">
+        {TABS.map((tab) => (
+          <Link
+            key={tab.id}
+            href={tab.href}
+            prefetch
+            className="lx-btn curator-picker__path"
+          >
+            <span className="curator-picker__label">{tab.label}</span>
+            <span className="curator-picker__desc">{tab.desc}</span>
+            <BtnFx />
+          </Link>
+        ))}
+      </nav>
+    );
+  }
+
   return (
-    <nav className="arch-doors ask-doors" aria-label="Find your next book">
+    <nav className="curator-switch" aria-label="Curator paths">
       {TABS.map((tab) => {
         const isActive = tab.id === active;
         return (
           <Link
             key={tab.id}
             href={tab.href}
-            scroll={false}
-            prefetch={true}
-            className={`arch-door${isActive ? " is-active" : ""}`}
+            prefetch
+            className={`curator-switch__link${isActive ? " is-active" : ""}`}
+            aria-label={tab.label}
             aria-current={isActive ? "page" : undefined}
           >
-            <span className="arch-door__kicker">
-              <span className="arch-door__dot" aria-hidden>
-                {isActive && <SternwarteRings className="arch-door__rings" />}
-              </span>
-              {tab.kicker}
+            <span className="curator-switch__dot" aria-hidden>
+              <span className="curator-switch__seed" />
+              {isActive && <SternwarteRings className="curator-switch__rings" />}
             </span>
-            <span className="arch-door__title">{tab.label}</span>
-            <span className="arch-door__count">{tab.desc}</span>
+            <span>{tab.compactLabel}</span>
           </Link>
         );
       })}

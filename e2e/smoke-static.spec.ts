@@ -1,7 +1,7 @@
 /**
  * DB-free route smokes (project `static`, no-DB server): the prerendered/
  * snapshot core routes — hub, map, podcasts index, the hot book subset —
- * plus /ask (its questionnaire renders from static config; verified against
+ * plus /ask (its Curator landing renders from static config; verified against
  * /healthz 503) must serve their REAL content with NO database. Per route ×
  * (320/1280): one SPECIFIC landmark assert (green tests can never all be
  * /login), no pageerror / console.error / unexpected same-origin 4xx-5xx,
@@ -100,7 +100,7 @@ const ROUTES: {
     landmark: async (page) => {
       await expect(page.locator("main#main.ask")).toBeVisible();
       await expect(page.locator("h1#ask-title")).toHaveText(
-        "Find Your Next Book",
+        "The Curator",
       );
     },
   },

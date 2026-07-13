@@ -21,7 +21,7 @@ const ENTRIES: readonly NavEntry[] = [
   { num: "I", label: "Home", href: "/" },
   { num: "II", label: "Archive", href: "/archive" },
   { num: "III", label: "Compendium", href: "/compendium" },
-  { num: "IV", label: "Ask", href: "/ask" },
+  { num: "IV", label: "Curator", href: "/ask" },
   { num: "V", label: "Chronicle", href: "/timeline" },
   { num: "VI", label: "Cartographer", href: "/map" },
 ];

@@ -41,6 +41,7 @@ export default function FactionPickPanel({ contextLabel, picks }: FactionPickPan
       {/* Keyed on the pick so a reshuffle re-triggers the reveal (motion is
           gated on prefers-reduced-motion in CSS). */}
       <div className="ask-pick__body" key={safeIndex}>
+        <p className="ask-pick__kicker">The Curator answers</p>
         <h2 className="ask-pick__title">{pick.title}</h2>
         <div className="ask-pick__meta">
           {pick.author && <span className="ask-pick__author">{pick.author}</span>}

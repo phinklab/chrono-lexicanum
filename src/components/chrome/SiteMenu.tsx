@@ -22,7 +22,7 @@ const ENTRIES = [
   { num: "I", label: "Home", href: "/" },
   { num: "II", label: "Archive", href: "/archive" },
   { num: "III", label: "Compendium", href: "/compendium" },
-  { num: "IV", label: "Ask", href: "/ask" },
+  { num: "IV", label: "Curator", href: "/ask" },
   { num: "V", label: "Chronicle", href: "/timeline" },
   { num: "VI", label: "Cartographer", href: "/map" },
 ] as const;
@@ -163,15 +163,15 @@ export default function SiteMenu() {
           </ul>
           {/* Legal links: the burger is the only chrome on the immersive
               surfaces (map/timeline/entities), so on touch/narrow viewports
-              this row is what keeps Impressum + Datenschutz + Artwork
+              this row is what keeps Imprint + Privacy + Artwork
               reachable from every page. */}
-          <div className="site-menu__legal">
+          <div className="site-menu__legal" lang="en">
             <Link href="/imprint" onClick={() => setOpen(false)}>
-              Impressum
+              Imprint
             </Link>
             <span aria-hidden>·</span>
             <Link href="/privacy" onClick={() => setOpen(false)}>
-              Datenschutz
+              Privacy
             </Link>
             <span aria-hidden>·</span>
             <Link href="/artwork" onClick={() => setOpen(false)}>

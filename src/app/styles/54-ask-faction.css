@@ -1,134 +1,63 @@
 /* 54-ask-faction.css
-   "One faction, one book" — three mono steps: I the faction rail + stage
-   (arrows, index; the chosen faction is named by its highlighted rail entry,
-   not by a second display-size title), II the chapter row (optional), III
-   the entry-point panel with the alternative picks named beneath it. The
-   tool doors themselves ride the arch-door grammar (31-catalogue.css). */
+   The selected E · Cameo direction, ported into the live Curator. Controls sit
+   naked on the void; the complete faction muster is a disciplined register;
+   answer sections are separated only by fading hairlines. */
 
 .ofob {
   outline: none;
 }
 
-/* Step kickers — the hierarchy carriers. */
-.ofob__step {
-  margin: 52px 0 18px;
+/* ── Choosing: no panel, no false I / II / III ceremony ─────────────── */
+.ofob__chooser {
   text-align: center;
+  animation: enter 0.55s var(--ease) both;
+}
+.ofob__kicker,
+.ofob__chapter-label {
+  margin: 0;
   font-family: var(--font-mono);
   font-size: var(--fs-label-md);
   letter-spacing: var(--track-26);
   text-transform: uppercase;
   color: var(--cl-gold);
 }
-.ofob__step:first-child {
-  margin-top: 0;
-}
-.ofob__step-n {
-  color: var(--cl-faint);
-  padding-right: 12px;
-}
-.ofob__step-note {
-  color: var(--cl-faint);
-  text-transform: none;
-  letter-spacing: var(--track-10);
-}
-
-/* Step I: the faction rail */
-.ofob__rail-wrap {
-  max-width: 680px;
-  margin: 0 auto;
-}
-.ofob__rail {
+.ofob__faction-line {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
-  gap: 6px 0;
+  gap: 10px;
+  margin-top: 16px;
+}
+.ofob__faction-name {
+  min-width: 0;
   margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.ofob__rail-item {
-  list-style: none;
-  display: inline-flex;
-  align-items: baseline;
-}
-.ofob__rail-item + .ofob__rail-item::before {
-  content: "·";
-  color: var(--cl-faint);
-  padding: 0 8px;
-  font-size: var(--fs-label-md);
-}
-.ofob__rail-btn {
-  position: relative;
-  background: none;
-  border: 0;
-  padding: 3px 4px;
-  font-family: var(--font-body);
-  font-size: 13px;
-  letter-spacing: var(--track-20);
-  text-transform: uppercase;
-  color: var(--cl-dim);
-  cursor: pointer;
-  white-space: nowrap;
-  transition: color 0.3s, font-size 0.3s var(--ease);
-}
-.ofob__rail-btn:hover {
+  font-family: var(--font-display);
+  font-weight: var(--font-display-wght);
+  font-size: clamp(28px, 5.4vw, 40px);
+  line-height: var(--lh-title);
+  letter-spacing: var(--font-display-track);
   color: var(--cl-bone);
 }
-/* The active entry IS the faction title now (the big display-voice heading
-   below is retired): gold, a step larger, with the breathing origin dot of
-   the button grammar in front. */
-.ofob__rail-btn[data-active="true"] {
-  color: var(--cl-gold);
-  font-size: 15px;
-  padding-left: 16px;
-}
-.ofob__rail-btn[data-active="true"]::before {
-  content: "";
-  position: absolute;
-  left: 4px;
-  top: 50%;
-  width: 4px;
-  height: 4px;
-  margin-top: -2px;
-  background: var(--cl-gold);
-  border-radius: 50%;
-  animation: dotBreathe 5.4s ease-in-out infinite;
-}
-
-/* The stage: one quiet stepper line (arrow, index, arrow) under the rail,
-   the keyed slide below. The arrows used to sit absolutely at the stage
-   edges, which parked them beside the book title — reading as if they
-   cycled the book instead of the faction. */
-.ofob__stage {
-  text-align: center;
-  margin-top: 20px;
-}
-.ofob__nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
 .ofob__arrow {
+  flex: none;
   background: none;
   border: 0;
-  padding: 4px 14px;
-  font-size: 20px;
+  padding: 5px 14px;
+  font-size: 21px;
   line-height: var(--lh-solid);
   color: var(--cl-dim);
   cursor: pointer;
   transition: color 0.3s;
 }
-.ofob__arrow:hover {
+.ofob__arrow:hover,
+.ofob__arrow:focus-visible {
   color: var(--cl-gold);
 }
-.ofob__slide {
-  animation: enter 0.6s var(--ease) both;
-}
 .ofob__index {
-  margin: 0;
+  margin: 10px 0 0;
   font-family: var(--font-mono);
   font-size: var(--fs-label-md);
+  font-variant-numeric: tabular-nums;
   letter-spacing: var(--track-20);
   color: var(--cl-faint);
 }
@@ -136,12 +65,103 @@
   padding: 0 5px;
 }
 
-/* Step II: chapters */
+/* Full muster: always legible, but ordered as a register rather than a cloud. */
+.ofob__all {
+  margin-top: 26px;
+}
+.ofob__all-label {
+  display: grid;
+  grid-template-columns: minmax(24px, 1fr) auto minmax(24px, 1fr);
+  align-items: center;
+  gap: 14px;
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-xs);
+  letter-spacing: var(--track-20);
+  text-transform: uppercase;
+  color: var(--cl-faint);
+}
+.ofob__all-label::before,
+.ofob__all-label::after {
+  content: "";
+  height: 1px;
+}
+.ofob__all-label::before {
+  background: linear-gradient(90deg, transparent, var(--cl-hair));
+}
+.ofob__all-label::after {
+  background: linear-gradient(90deg, var(--cl-hair), transparent);
+}
+.ofob__roster {
+  max-width: 680px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px 18px;
+  margin: 18px auto 0;
+  padding: 0;
+  list-style: none;
+}
+.ofob__roster-item {
+  display: block;
+  list-style: none;
+}
+.ofob__roster-btn {
+  position: relative;
+  width: 100%;
+  min-height: 36px;
+  background: none;
+  border: 0;
+  padding: 5px 6px;
+  font-family: var(--font-body);
+  font-size: var(--fs-label-xs);
+  line-height: 1.35;
+  letter-spacing: var(--track-14);
+  text-transform: uppercase;
+  text-align: left;
+  color: var(--cl-dim);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.ofob__roster-btn:hover,
+.ofob__roster-btn:focus-visible {
+  color: var(--cl-bone);
+}
+.ofob__roster-btn[data-active="true"] {
+  padding-left: 16px;
+  color: var(--cl-gold);
+}
+.ofob__roster-btn[data-active="true"]::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  margin-top: -2px;
+  border-radius: 50%;
+  background: var(--cl-gold);
+  animation: dotBreathe 5.4s ease-in-out infinite;
+}
+
+/* Optional chapter row: plain text choices immediately under the faction. */
+.ofob__chapter-group {
+  margin-top: 24px;
+}
+.ofob__chapter-label {
+  font-size: var(--fs-label-xs);
+  color: var(--cl-dim);
+}
+.ofob__chapter-label span {
+  color: var(--cl-faint);
+  letter-spacing: var(--track-10);
+  text-transform: none;
+}
 .ofob__chapters {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 4px 0;
+  margin-top: 10px;
 }
 .ofob__chapter {
   background: none;
@@ -155,7 +175,8 @@
   cursor: pointer;
   transition: color 0.3s;
 }
-.ofob__chapter:hover {
+.ofob__chapter:hover,
+.ofob__chapter:focus-visible {
   color: var(--cl-bone);
 }
 .ofob__chapter[data-active="true"] {
@@ -163,31 +184,54 @@
 }
 .ofob__chapter + .ofob__chapter::before {
   content: "·";
-  color: var(--cl-faint);
   padding-right: 14px;
-}
-.ofob__empty {
-  margin: 0;
-  text-align: center;
-  font-style: italic;
-  font-size: 17px;
   color: var(--cl-faint);
 }
 
-/* Step III: the entry point */
+/* ── The answer: separated by light, never boxed ───────────────────── */
+.ofob__answer {
+  position: relative;
+  margin-top: clamp(38px, 6vw, 52px);
+  padding: 44px 26px 30px;
+  text-align: center;
+  background: none;
+}
+.ofob__answer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--cl-gold) 42%, transparent) 50%,
+    transparent
+  );
+}
 .ask-pick {
-  max-width: 480px;
+  max-width: 560px;
   margin: 0 auto;
   text-align: center;
 }
 .ask-pick__body {
-  animation: enter 0.5s var(--ease) both;
+  animation: enter 0.48s var(--ease) both;
+}
+.ask-pick__kicker {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-md);
+  letter-spacing: var(--track-26);
+  text-transform: uppercase;
+  color: var(--cl-gold);
 }
 .ask-pick__title {
-  margin: 0;
+  max-width: 18ch;
+  margin: 18px auto 0;
   font-family: var(--font-display);
   font-weight: var(--font-display-wght);
-  font-size: clamp(30px, 4vw, 44px);
+  font-size: clamp(31px, 5vw, 46px);
   line-height: var(--lh-title);
   color: var(--cl-bone);
 }
@@ -205,28 +249,59 @@
   color: var(--cl-faint);
 }
 .ask-pick__note {
-  margin: 14px 0 0;
+  max-width: 48ch;
+  margin: 14px auto 0;
   font-size: var(--fs-read-sm);
+  line-height: 1.55;
   color: var(--cl-dim);
 }
 .ask-pick__actions {
   margin-top: 18px;
 }
 .ask-pick__pending {
+  display: inline-block;
+  padding: 8px 0 6px;
   font-style: italic;
   font-size: var(--fs-read-xs);
   color: var(--cl-faint);
 }
-/* Alternatives — the node's other curated picks, named by title (the old
-   "Alternative" cycler hid that there was a choice at all). Full Sternwarte
-   buttons (.lx-btn + BtnFx, 42-lex-primitives.css) at the DEFAULT geometry:
-   the dot sits at left 24px and the hover rings/stars are pinned to that
-   same origin, so any padding override would tear them apart. Dimmed and a
-   type step below the gold primary CTA so the hierarchy stays with "Open
-   the book"; the label gets its own line. Clicking one swaps that pick into
-   the verdict block above. */
+.ofob__empty {
+  margin: 0;
+  padding: 12px 0;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--cl-faint);
+}
+
+/* The faction route does not load the questionnaire stylesheet, so keep its
+   live-region count locally available to assistive tech without painting it. */
+.ask-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Alternatives are a second register, divided by the same fading hairline. */
 .ask-pick__alts {
-  margin-top: 26px;
+  position: relative;
+  margin-top: 30px;
+  padding: 24px 16px 12px;
+  background: none;
+}
+.ask-pick__alts::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cl-hair), transparent);
 }
 .ask-pick__alts-label {
   margin: 0 0 2px;
@@ -243,23 +318,63 @@
   gap: 0 8px;
 }
 .ask-pick__alt {
-  font-size: var(--fs-label-md);
-  color: var(--cl-dim);
+  max-width: 100%;
   padding-top: 11px;
   padding-bottom: 10px;
+  font-size: var(--fs-label-md);
+  line-height: 1.35;
+  color: var(--cl-dim);
 }
 
-/* S8 touch targets (coarse pointer only). */
-@media (pointer: coarse) {
-  .ofob__rail-btn {
-    min-height: 44px;
-    padding: 3px 10px;
+@media (min-width: 720px) {
+  .ofob__answer {
+    padding: 50px 56px 34px;
+  }
+}
+
+@media (max-width: 520px) {
+  .ofob__faction-line {
+    gap: 2px;
+  }
+  .ofob__faction-name {
+    max-width: calc(100% - 82px);
+    font-size: clamp(27px, 9vw, 36px);
   }
   .ofob__arrow {
-    padding: 12px 16px;
+    min-width: 44px;
+    padding-right: 10px;
+    padding-left: 10px;
   }
+  .ofob__roster {
+    max-width: 340px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2px 10px;
+  }
+  .ofob__roster-btn {
+    font-size: var(--fs-label-2xs);
+  }
+  .ofob__answer {
+    margin-top: 38px;
+    padding: 38px 18px 24px;
+  }
+  .ask-pick__alts {
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+}
+
+@media (pointer: coarse) {
+  .ofob__arrow,
+  .ofob__roster-btn,
   .ofob__chapter {
     min-height: 44px;
-    padding: 2px 12px;
+  }
+  .ofob__roster-btn {
+    padding-right: 9px;
+    padding-left: 9px;
+  }
+  .ofob__chapter {
+    padding-right: 12px;
+    padding-left: 12px;
   }
 }

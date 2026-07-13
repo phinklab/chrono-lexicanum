@@ -3,9 +3,6 @@ import { notFound } from "next/navigation";
 import { routeOg } from "@/lib/seo";
 import SiteBackground from "@/components/chrome/SiteBackground";
 import ScrollScrim from "@/components/chrome/ScrollScrim";
-import RouteScrollCue from "@/components/chrome/RouteScrollCue";
-import AuspexPair from "@/components/chrono/AuspexPair";
-import FloatingCoord from "@/components/chrono/FloatingCoord";
 import GhostReadout from "@/components/chrono/GhostReadout";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";
 import AskToolTabs from "@/components/ask/AskToolTabs";
@@ -21,7 +18,7 @@ import {
 import "@/app/styles/54-ask-faction.css";
 
 const ASK_FACTION_DESCRIPTION =
-  "Pick a Warhammer 40,000 faction and the archive names a single, curated novel to start with.";
+  "Choose a Warhammer 40,000 faction and The Curator names one carefully selected book to begin with.";
 
 interface AskFactionPageProps {
   params: Promise<{ segments?: string[] }>;
@@ -36,11 +33,11 @@ export async function generateMetadata({
   const { segments } = await params;
   const path = ["/ask/faction", ...(segments ?? [])].join("/");
   return {
-    title: "One Faction, One Book",
+    title: "By Faction · The Curator",
     description: ASK_FACTION_DESCRIPTION,
     alternates: { canonical: path },
     openGraph: routeOg({
-      title: "One Faction, One Book",
+      title: "By Faction · The Curator",
       description: ASK_FACTION_DESCRIPTION,
     }),
   };
@@ -48,10 +45,10 @@ export async function generateMetadata({
 
 /** Same vox voice as /ask, tilted to the faction tool. */
 const FACTION_VOX_LINES = [
+  "Cvrator · by faction",
   "Vna factio · vnvs liber",
   "One army · one doorway",
   "Cvrated · not a reading list",
-  "Cognitio link stable",
 ];
 
 /**
@@ -88,40 +85,31 @@ export default async function AskFactionPage({ params }: AskFactionPageProps) {
     if (!subfaction) notFound();
   }
 
-  // Same shell as /ask: photo hero you scroll past, ScrollScrim darkening the
-  // fixed art, then the tool — so switching tabs never jumps to another layout.
   return (
-    <main id="main" tabIndex={-1} className="ask route-snap">
+    <main id="main" tabIndex={-1} className="ask curator">
       <SiteBackground variant="main" position="right bottom" />
       <ScrollScrim
         className="site-scrim"
         varName="--scrim-o"
-        heroSelector=".ask-console__mast"
+        heroSelector=".curator-toolhead"
         maxOpacity={0.94}
       />
       <GhostReadout lines={FACTION_VOX_LINES} />
-      <FloatingCoord x="9%" y="30%" label="Vna factio · vnvs liber" delay={7} />
 
-      <section className="ask-console" aria-labelledby="ask-faction-title">
-        <header className="ask-console__mast route-act">
-          <AuspexPair />
-          <p className="ask-console__eyebrow">Where to Begin</p>
-          <h1 id="ask-faction-title" className="ask-console__title">
-            Find Your Next Book
+      <section className="ask-console curator-tool" aria-labelledby="ask-faction-title">
+        <header className="curator-toolhead">
+          <p className="curator-toolhead__brand">The Curator</p>
+          <AskToolTabs active="faction" />
+          <h1 id="ask-faction-title" className="curator-toolhead__title">
+            By Faction
           </h1>
-          <p className="ask-console__sub">
-            One faction, one book: choose an army and the archive answers with
-            a single curated doorway, not a reading list.
+          <p className="curator-toolhead__sub">
+            Choose an army. The Curator answers with one deliberate doorway,
+            not another reading list.
           </p>
-          <RouteScrollCue
-            className="route-cue--flow"
-            label="Choose a faction"
-            target=".ask-console__grid"
-          />
         </header>
 
-        <div className="ask-console__grid ask-faction__grid route-body-snap">
-          <AskToolTabs active="faction" />
+        <div className="ask-console__grid ask-faction__grid">
           <FactionCarousel
             nodes={FACTION_STARTER_NODES}
             initialFactionSlug={faction?.slug ?? null}
@@ -131,7 +119,7 @@ export default async function AskFactionPage({ params }: AskFactionPageProps) {
       </section>
 
       <div className="ask-foot">
-        <ArchiveFooter mid="One faction · one book" />
+        <ArchiveFooter mid="The Curator · by faction" />
       </div>
     </main>
   );

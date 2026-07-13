@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";
+import LegalLanguageToggle, {
+  legalLanguageFromParam,
+  type LegalLanguage,
+} from "@/components/legal/LegalLanguageToggle";
 // Route-scoped stylesheet (S7a), shared by the three legal document pages.
 import "@/app/styles/71-legal.css";
 
@@ -21,23 +25,47 @@ import "@/app/styles/71-legal.css";
    cookieless Vercel Web Analytics + Speed Insights (Ziffer 06) and the
    error-only Sentry tracker behind the same-origin /monitoring tunnel —
    no replay, no tracing, no visitor IP to Sentry, EU data region, 90-day
-   retention (Ziffer 07). English slug per the URL-EN convention; content is
-   sober German legal text. */
+   retention (Ziffer 07). English is the canonical default; `?lang=de`
+   selects the sober German legal text without a site-wide locale layer. */
 
-export const metadata: Metadata = {
-  title: "Datenschutzerklärung",
-  description:
-    "Datenschutzerklärung von Chrono · Lexicanum — Informationen nach Art. 13 DSGVO zu Hosting, Server-Logs, Cookies und Betroffenenrechten.",
-  alternates: { canonical: "/privacy" },
-};
+interface PrivacyPageProps {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}
 
-export default function PrivacyPage() {
+async function resolveLanguage(
+  searchParams: PrivacyPageProps["searchParams"],
+): Promise<LegalLanguage> {
+  const params = await searchParams;
+  return legalLanguageFromParam(params.lang);
+}
+
+export async function generateMetadata({
+  searchParams,
+}: PrivacyPageProps): Promise<Metadata> {
+  const language = await resolveLanguage(searchParams);
+  return language === "de"
+    ? {
+        title: "Datenschutzerklärung",
+        description:
+          "Datenschutzerklärung von Chrono · Lexicanum — Informationen nach Art. 13 DSGVO zu Hosting, Server-Logs, Cookies und Betroffenenrechten.",
+        alternates: { canonical: "/privacy" },
+      }
+    : {
+        title: "Privacy Policy",
+        description:
+          "Privacy Policy for Chrono · Lexicanum — information under Article 13 GDPR about hosting, server logs, cookies and data-subject rights.",
+        alternates: { canonical: "/privacy" },
+      };
+}
+
+function PrivacyGermanPage() {
   return (
     <main id="main" tabIndex={-1} className="legal" lang="de">
       <header className="legal__head">
         <p className="legal__eyebrow">Chrono · Lexicanum — Rechtliches</p>
         <h1 className="legal__title">Datenschutzerklärung</h1>
         <div className="legal__rule" aria-hidden />
+        <LegalLanguageToggle language="de" pathname="/privacy" />
         <p className="legal__stand">Stand · 12. Juli 2026</p>
       </header>
 
@@ -328,7 +356,7 @@ export default function PrivacyPage() {
             Diese Erklärung wird angepasst, sobald sich das Angebot ändert; es
             gilt die jeweils hier veröffentlichte Fassung. Die
             Anbieterkennzeichnung finden Sie im{" "}
-            <Link href="/imprint">Impressum</Link>.
+            <Link href="/imprint?lang=de">Impressum</Link>.
           </p>
         </section>
       </div>
@@ -336,4 +364,305 @@ export default function PrivacyPage() {
       <ArchiveFooter mid="TVTELA DATORVM · DSGVO" />
     </main>
   );
+}
+
+function PrivacyEnglishPage() {
+  return (
+    <main id="main" tabIndex={-1} className="legal" lang="en">
+      <header className="legal__head">
+        <p className="legal__eyebrow">Chrono · Lexicanum — Legal</p>
+        <h1 className="legal__title">Privacy Policy</h1>
+        <div className="legal__rule" aria-hidden />
+        <LegalLanguageToggle language="en" pathname="/privacy" />
+        <p className="legal__stand">Last updated · 12 July 2026</p>
+      </header>
+
+      <div className="legal__doc">
+        <section className="legal__section" aria-labelledby="pv-controller">
+          <h2 className="legal__kicker" id="pv-controller">
+            <span className="legal__no" aria-hidden>
+              01
+            </span>
+            Controller
+          </h2>
+          <div className="legal__section-rule" aria-hidden />
+          <address className="legal__address">
+            Philipp Künzler
+            <br />
+            Saseler Weg 11a
+            <br />
+            22359 Hamburg, Germany
+            <br />
+            Email:{" "}
+            <a href="mailto:info@chrono-lexicanum.com">
+              info@chrono-lexicanum.com
+            </a>
+          </address>
+          <p className="legal__p">
+            This is the controller within the meaning of the General Data
+            Protection Regulation (GDPR) for the processing of data on this
+            website. Please send privacy enquiries to the email address above.
+          </p>
+        </section>
+
+        <section className="legal__section" aria-labelledby="pv-overview">
+          <h2 className="legal__kicker" id="pv-overview">
+            <span className="legal__no" aria-hidden>
+              02
+            </span>
+            Key information at a glance
+          </h2>
+          <div className="legal__section-rule" aria-hidden />
+          <p className="legal__p">
+            Chrono · Lexicanum is a non-commercial fan archive. There are
+            <strong> no user accounts</strong>, comments, newsletters or sales.
+            Personal data is generated only to the extent technically
+            inherent in visiting any website (server log data, section 03) and
+            through one technically necessary cookie during the non-public
+            preview phase (section 05). Data is neither shared for advertising
+            purposes nor sold; no advertising trackers are used.
+          </p>
+        </section>
+
+        <section className="legal__section" aria-labelledby="pv-hosting">
+          <h2 className="legal__kicker" id="pv-hosting">
+            <span className="legal__no" aria-hidden>
+              03
+            </span>
+            Hosting and server log data (Vercel)
+          </h2>
+          <div className="legal__section-rule" aria-hidden />
+          <p className="legal__p">
+            This website is hosted by <strong>Vercel Inc.</strong>, 440 N
+            Barranca Ave #4133, Covina, CA 91723, USA. When the website is
+            accessed, Vercel automatically processes server log data: IP
+            address, date and time of access, requested URL, referrer URL,
+            browser identifier (user agent) and HTTP status codes.
+          </p>
+          <p className="legal__p">
+            The purposes of this processing are to deliver the website and to
+            ensure its stability and security, including the detection of
+            attacks and misuse. The legal basis is Article 6(1)(f) GDPR
+            (legitimate interest in secure and stable operation). Log data is
+            retained only for a short period and is not combined with other
+            data sources.
+          </p>
+          <p className="legal__p">
+            Vercel may also process data in the United States. Transfers rely
+            on Vercel&apos;s certification under the EU-U.S. Data Privacy
+            Framework or on EU Standard Contractual Clauses (Article 46 GDPR).
+          </p>
+        </section>
+
+        <section className="legal__section" aria-labelledby="pv-db">
+          <h2 className="legal__kicker" id="pv-db">
+            <span className="legal__no" aria-hidden>
+              04
+            </span>
+            Database (Supabase, EU)
+          </h2>
+          <div className="legal__section-rule" aria-hidden />
+          <p className="legal__p">
+            The archive&apos;s content (books, factions, worlds, timelines and
+            podcasts) is stored in a Postgres database provided by{" "}
+            <strong>Supabase</strong> and hosted in the EU (AWS region
+            eu-central-1, Frankfurt am Main). The database contains catalogue
+            data, not visitor data.
+          </p>
+          <p className="legal__p">
+            The sole exception is the redemption of a personal preview
+            invitation link. In that case, a record is kept that the link was
+            activated (the link&apos;s technical identifier, the time of first and
+            latest activation, and a counter) — without an IP address, device
+            data or a name. This serves to prevent misuse of issued
+            invitations; the legal basis is Article 6(1)(f) GDPR. These records
+            will be deleted when the preview phase ends.
+          </p>
+        </section>
+
+        <section className="legal__section" aria-labelledby="pv-cookie">
+          <h2 className="legal__kicker" id="pv-cookie">
+            <span className="legal__no" aria-hidden>
+              05
+            </span>
+            Preview access and cookie
+          </h2>
+          <div className="legal__section-rule" aria-hidden />
+          <p className="legal__p">
+            During the non-public preview phase, access to the website is
+            restricted. After a successful login, a cookie (
+            <strong>cl-preview</strong>) is set. It is a signed access token
+            with a fixed expiry date. It contains no tracking identifier, is
+            not used for analytics and serves solely to protect access.
+          </p>
+          <p className="legal__p">
+            Because this cookie is strictly necessary to provide the access
+            expressly requested, no consent is required (§ 25(2)(2) TDDDG);
+            the associated data processing is based on Article 6(1)(f) GDPR.
+            The cookie expires automatically and will no longer be used once
+            the preview phase ends. A cookie banner is not required because no
+            other cookies are set.
+          </p>
+        </section>
+
+        <section className="legal__section" aria-labelledby="pv-analytics">
+          <h2 className="legal__kicker" id="pv-analytics">
+            <span className="legal__no" aria-hidden>
+              06
+            </span>
+            Audience measurement
+          </h2>
+          <div className="legal__section-rule" aria-hidden />
+          <p className="legal__p">
+            To improve the service, privacy-conscious{" "}
+            <strong>cookieless audience measurement</strong> is used (Vercel
+            Web Analytics and Vercel Speed Insights, provided by Vercel Inc.;
+            see section 03). These services operate without cookies and
+            without cross-device profiles. Page views and web-performance
+            values are collected in aggregate; visits may at most be
+            distinguished by a short-lived hash derived from technical
+            characteristics that does not permit recognition beyond the visit.
+            IP addresses are not retained permanently for this purpose.
+          </p>
+          <p className="legal__p">
+            The legal basis is Article 6(1)(f) GDPR (legitimate interest in
+            statistical analysis of use). Because no information is stored on
+            or read from the user&apos;s device, consent under § 25 TDDDG is not
+            required. If a method requiring consent is introduced in the
+            future, consent will be obtained in advance and this policy will
+            be updated.
+          </p>
+        </section>
+
+        <section className="legal__section" aria-labelledby="pv-errors">
+          <h2 className="legal__kicker" id="pv-errors">
+            <span className="legal__no" aria-hidden>
+              07
+            </span>
+            Error diagnostics (Sentry)
+          </h2>
+          <div className="legal__section-rule" aria-hidden />
+          <p className="legal__p">
+            To detect and resolve technical errors, a{" "}
+            <strong>tool used solely for error diagnostics</strong> is
+            employed: Sentry, a service of Functional Software, Inc., 45
+            Fremont Street, San Francisco, CA 94105, USA. Diagnostic data is
+            transmitted only when a technical error occurs while the website
+            is being used: the error message and code location (stack trace),
+            the affected page URL, browser and operating-system type, and the
+            time of the error.
+          </p>
+          <p className="legal__p">
+            There is <strong>no session recording</strong> (Session Replay),
+            performance tracing or profiling, and no cookie is set. Error
+            reports are forwarded through this website&apos;s own domain; visitor
+            IP addresses are not transmitted to Sentry. Error data is stored
+            in Sentry&apos;s EU data region and automatically deleted after no more
+            than 90 days. Where data reaches the United States in connection
+            with the service, the transfer relies on Sentry&apos;s certification
+            under the EU-U.S. Data Privacy Framework or on EU Standard
+            Contractual Clauses (Article 46 GDPR). The legal basis is Article
+            6(1)(f) GDPR (legitimate interest in stable, error-free operation).
+          </p>
+        </section>
+
+        <section className="legal__section" aria-labelledby="pv-external">
+          <h2 className="legal__kicker" id="pv-external">
+            <span className="legal__no" aria-hidden>
+              08
+            </span>
+            External content
+          </h2>
+          <div className="legal__section-rule" aria-hidden />
+          <p className="legal__p">
+            <strong>Cover images:</strong> Book covers are not stored locally
+            but loaded directly from external, publicly accessible sources
+            (for example Open Library, Wikimedia, or the servers of publishers
+            and catalogue services). When a page containing covers is loaded,
+            your browser connects directly to those servers. The respective
+            provider therefore receives your IP address and the usual browser
+            information for technical reasons. I have no control over that
+            processing; the respective provider&apos;s privacy information
+            applies. The legal basis is Article 6(1)(f) GDPR (the interest in
+            identifying the works discussed by their original covers).
+          </p>
+          <p className="legal__p">
+            <strong>Podcast audio:</strong> Podcast episodes are streamed or
+            downloaded from the respective podcast provider&apos;s server only
+            when you actively play an episode or use its download link. The
+            provider receives your IP address in that event.
+          </p>
+          <p className="legal__p">
+            <strong>Music and fonts:</strong> The archive&apos;s optional
+            background music is loaded from the project&apos;s own storage
+            (Supabase, EU). All fonts are hosted locally; loading a page does
+            not establish a connection to Google Fonts or other font services.
+          </p>
+        </section>
+
+        <section className="legal__section" aria-labelledby="pv-rights">
+          <h2 className="legal__kicker" id="pv-rights">
+            <span className="legal__no" aria-hidden>
+              09
+            </span>
+            Your rights
+          </h2>
+          <div className="legal__section-rule" aria-hidden />
+          <p className="legal__p">
+            You have the following rights in relation to your personal data:
+          </p>
+          <ul className="legal__list">
+            <li>access to the data processed (Article 15 GDPR),</li>
+            <li>rectification of inaccurate data (Article 16 GDPR),</li>
+            <li>erasure (Article 17 GDPR),</li>
+            <li>restriction of processing (Article 18 GDPR),</li>
+            <li>data portability (Article 20 GDPR),</li>
+            <li>
+              objection to processing based on Article 6(1)(f) GDPR (Article
+              21 GDPR).
+            </li>
+          </ul>
+          <p className="legal__p">
+            To exercise these rights, an informal email to{" "}
+            <a href="mailto:info@chrono-lexicanum.com">
+              info@chrono-lexicanum.com
+            </a>{" "}
+            is sufficient. You also have the right to lodge a complaint with a
+            data protection supervisory authority (Article 77 GDPR), such as
+            the Hamburg Commissioner for Data Protection and Freedom of
+            Information.
+          </p>
+        </section>
+
+        <section className="legal__section" aria-labelledby="pv-misc">
+          <h2 className="legal__kicker" id="pv-misc">
+            <span className="legal__no" aria-hidden>
+              10
+            </span>
+            Final information
+          </h2>
+          <div className="legal__section-rule" aria-hidden />
+          <p className="legal__p">
+            Providing personal data is neither a statutory nor a contractual
+            requirement; however, the technical data generated when a page is
+            accessed is necessary to deliver the website. No automated
+            decision-making, including profiling (Article 22 GDPR), takes
+            place.
+          </p>
+          <p className="legal__p">
+            This policy will be amended whenever the service changes; the
+            version published here at any given time applies. Provider
+            information is available in the <Link href="/imprint">Imprint</Link>.
+          </p>
+        </section>
+      </div>
+
+      <ArchiveFooter mid="TVTELA DATORVM · GDPR" />
+    </main>
+  );
+}
+
+export default async function PrivacyPage({ searchParams }: PrivacyPageProps) {
+  const language = await resolveLanguage(searchParams);
+  return language === "de" ? <PrivacyGermanPage /> : <PrivacyEnglishPage />;
 }

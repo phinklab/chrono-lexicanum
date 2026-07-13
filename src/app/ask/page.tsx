@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { routeOg } from "@/lib/seo";
 import SiteBackground from "@/components/chrome/SiteBackground";
 import ScrollScrim from "@/components/chrome/ScrollScrim";
-import FloatingCoord from "@/components/chrono/FloatingCoord";
 import GhostReadout from "@/components/chrono/GhostReadout";
 import AskClient from "@/components/ask/AskClient";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";
@@ -17,15 +16,15 @@ import { buildAskProfile, recommend } from "@/lib/ask/recommend";
 import type { AskRecommendation, AskRecommendationResult } from "@/lib/ask/types";
 
 const ASK_DESCRIPTION =
-  "Two ways into the archive: answer four questions, or pick a faction and get a single curated Warhammer 40,000 novel to start with.";
+  "The Curator offers two ways into the archive: a four-question reading profile or one carefully chosen book for your faction.";
 
 // Answer/`deeper` queries are steps of the one questionnaire — canonical
 // stays the bare /ask (URL matrix A.3).
 export const metadata: Metadata = {
-  title: "Find Your Next Book",
+  title: "The Curator",
   description: ASK_DESCRIPTION,
   alternates: { canonical: "/ask" },
-  openGraph: routeOg({ title: "Find Your Next Book", description: ASK_DESCRIPTION }),
+  openGraph: routeOg({ title: "The Curator", description: ASK_DESCRIPTION }),
 };
 
 interface AskPageProps {
@@ -40,12 +39,16 @@ interface AskPageProps {
 const DEEPER_LIMIT = 24;
 
 const ASK_VOX_LINES = [
-  "Interrogatorivm · online",
+  "Cvrator · in attendance",
   "IV qvaestiones · flat profile",
   "Vna factio · vnvs liber",
-  "Cogitator · ranking ready",
+  "Two paths · one next book",
   "Qvery is server-side",
 ];
+
+function readSingleParam(value: string | string[] | undefined): string | undefined {
+  return Array.isArray(value) ? value[0] : value;
+}
 
 function readDeeperFlag(params: Record<string, string | string[] | undefined>): boolean {
   const value = params.deeper;
@@ -65,6 +68,11 @@ export default async function AskPage({ searchParams }: AskPageProps) {
   const answeredCount = countAskAnswers(answers);
   const isComplete = isAskAnswersComplete(answers);
   const deeperRequested = isComplete && readDeeperFlag(rawParams);
+  // The bare route is The Curator's threshold. Existing answer deep-links
+  // continue to open the questionnaire directly; `mode=profile` is only the
+  // explicit zero-answer choice from the landing and never enters scoring.
+  const showLanding =
+    answeredCount === 0 && readSingleParam(rawParams.mode) !== "profile";
 
   let result: AskRecommendationResult | null = null;
   let deeper: AskRecommendation[] | null = null;
@@ -95,23 +103,18 @@ export default async function AskPage({ searchParams }: AskPageProps) {
   }
 
   return (
-    <main id="main" tabIndex={-1} className="ask route-snap">
+    <main id="main" tabIndex={-1} className="ask curator">
       <SiteBackground variant="main" position="right bottom" />
       <ScrollScrim
         className="site-scrim"
         varName="--scrim-o"
-        heroSelector=".ask-console__mast"
+        heroSelector=".curator-landing__mast, .curator-toolhead"
         maxOpacity={0.94}
       />
       <GhostReadout lines={ASK_VOX_LINES} />
-      <FloatingCoord
-        x="9%"
-        y="30%"
-        label={`Profile · ${answeredCount} of ${ASK_QUESTIONS.length}`}
-        delay={7}
-      />
 
       <AskClient
+        showLanding={showLanding}
         questions={ASK_QUESTIONS}
         initialAnswers={answers}
         initialIsComplete={isComplete}
@@ -122,7 +125,7 @@ export default async function AskPage({ searchParams }: AskPageProps) {
       />
 
       <div className="ask-foot">
-        <ArchiveFooter mid="Four questions · one doorway" />
+        <ArchiveFooter mid="The Curator · two paths" />
       </div>
     </main>
   );

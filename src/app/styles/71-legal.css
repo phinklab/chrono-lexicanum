@@ -6,7 +6,8 @@
    (mono eyebrow / display-face heading / gold hairline), then one left-aligned
    reading column of numbered sections. Deliberately no glow, no in-universe
    voice: these pages must read as plain paperwork inside the house frame.
-   Legal content is German → those pages set lang="de".
+   /imprint and /privacy are English-first with a route-local EN/DE switch;
+   their selected reading column carries the matching lang attribute.
    Route-scoped since S7a: imported by the three document pages, not by
    globals.css — the global .site-legal chrome row lives in 45-site-legal.css. */
 
@@ -46,6 +47,59 @@
   margin: 20px auto 0;
   background: linear-gradient(90deg, transparent, var(--cl-gold-dim), transparent);
   opacity: 0.85;
+}
+
+/* Route-local language switch — the same frameless, dot-separated grammar as
+   the archive's quiet selectors. The generous invisible hit area keeps it
+   comfortable on phones without introducing a drawn control or card. */
+.legal__language {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 44px;
+  margin: 10px auto -2px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-xs);
+  letter-spacing: var(--track-24);
+  text-transform: uppercase;
+}
+
+.legal__language-option {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 10px;
+  color: var(--cl-faint);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.legal__language-option:hover,
+.legal__language-option:focus-visible {
+  color: var(--cl-bone);
+}
+
+.legal__language-option:focus-visible {
+  outline: 1px solid color-mix(in oklch, var(--cl-gold) 58%, transparent);
+  outline-offset: -6px;
+}
+
+.legal__language-option[aria-current="page"] {
+  color: var(--cl-gold);
+}
+
+.legal__language-option[aria-current="page"]::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 10px color-mix(in oklch, var(--cl-gold) 55%, transparent);
+}
+
+.legal__language-sep {
+  color: var(--cl-ghost);
 }
 
 /* Version stamp under the rule ("STAND · …") — only the privacy page uses it. */
