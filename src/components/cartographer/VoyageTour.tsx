@@ -20,7 +20,7 @@
  * (parent) — switching journeys restarts the tour.
  */
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 import type { ResolvedVoyage } from "@/lib/map/voyages";
 import type { ChartBus } from "./chart-bus";
@@ -55,10 +55,14 @@ export default function VoyageTour({
 }: VoyageTourProps) {
   const n = resolved.stations.length;
   const last = step >= n - 1;
+  const cardRef = useRef<HTMLDivElement | null>(null);
 
   /* Camera: overture surveys the whole chart, each station flies in at a
      zoom fitted to the arriving leg (short hops magnify, long hauls pull
-     back so the transit reads). */
+     back so the transit reads). The station is centred in the FREE area
+     above the bottom-docked card, not the raw viewport — on phones the card
+     covers the lower half and the targeted world hid beneath it (maintainer
+     device test 2026-07-13). */
   useEffect(() => {
     const driver = bus.driver;
     if (!driver) return;
@@ -71,7 +75,11 @@ export default function VoyageTour({
     const ref = resolved.stations[step > 0 ? step - 1 : Math.min(1, n - 1)];
     const legDist = Math.max(1, Math.hypot(st.gx - ref.gx, st.gy - ref.gy));
     const kr = Math.min(8, Math.max(2.4, 200 / legDist));
-    bus.flyTo(st.gx, st.gy, driver.getK0() * kr, reduce ? 0 : 1000);
+    // Effects run after commit — the card already shows this step's content,
+    // so its measured top edge is the real free-area boundary.
+    const cardTop = cardRef.current?.getBoundingClientRect().top ?? 0;
+    const dy = cardTop > 0 && cardTop < window.innerHeight ? (cardTop - window.innerHeight) / 2 : 0;
+    bus.flyTo(st.gx, st.gy, driver.getK0() * kr, reduce ? 0 : 1000, dy);
   }, [bus, resolved, step, n, reduce]);
 
   /* Arrow keys page the tour — with the S9 target guard: a focused field,
@@ -102,6 +110,7 @@ export default function VoyageTour({
   if (step < 0) {
     return (
       <div
+        ref={cardRef}
         className={`cg-ccard cg-ccard--dock cg-tour show${suppressed ? " hide" : ""}`}
         inert={suppressed || muted}
       >
@@ -138,6 +147,7 @@ export default function VoyageTour({
     // iOS WebKit left ghost pixels (stray ✕) and misplaced/clipped cards
     // behind (maintainer device test 2026-07-13).
     <div
+      ref={cardRef}
       className={`cg-ccard cg-ccard--dock cg-tour show${suppressed ? " hide" : ""}`}
       inert={suppressed || muted}
     >

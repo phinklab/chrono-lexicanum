@@ -208,17 +208,20 @@ export default function ChartStage({
       bus.emitFlightChange(v);
     };
 
-    const flyTo = (gx: number, gy: number, kT: number, ms?: number) => {
+    // dy: screen-space vertical offset — the target lands dy px off the
+    // viewport centre (negative = above). The voyage tour centres its
+    // station in the free area ABOVE the bottom-docked card.
+    const flyTo = (gx: number, gy: number, kT: number, ms?: number, dy = 0) => {
       const eK = clampK(kT);
       if (reduceRef.current) {
         c.k = eK;
         c.tx = c.vw / 2 - gx * eK;
-        c.ty = c.vh / 2 - gy * eK;
+        c.ty = c.vh / 2 + dy - gy * eK;
         apply();
         return;
       }
       const st = { tx: c.tx, ty: c.ty, k: c.k };
-      const e = { tx: c.vw / 2 - gx * eK, ty: c.vh / 2 - gy * eK, k: eK };
+      const e = { tx: c.vw / 2 - gx * eK, ty: c.vh / 2 + dy - gy * eK, k: eK };
       const t0 = performance.now();
       const dur = ms ?? 1000;
       cancelAnimationFrame(flight.current);
