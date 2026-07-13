@@ -19,25 +19,31 @@ import { VIEWPORTS, calmMotion } from "./helpers";
 type ProgressGeometry = {
   lineStartDelta: number;
   lineEndDelta: number;
+  lineYDelta: number;
   fillEndDelta: number;
 };
 
-async function readProgressGeometry(page: Page): Promise<ProgressGeometry> {
-  return page.locator(".ask-timeline").evaluate((timeline) => {
+async function readProgressGeometry(
+  page: Page,
+  useLastStop = false,
+): Promise<ProgressGeometry> {
+  return page.locator(".ask-timeline").evaluate((timeline, finalStop) => {
     const rect = (selector: string) => {
       const node = timeline.querySelector<HTMLElement>(selector);
       if (!node) throw new Error(`missing progress node: ${selector}`);
       return node.getBoundingClientRect();
     };
-    const center = (box: DOMRect) => box.left + box.width / 2;
+    const centerX = (box: DOMRect) => box.left + box.width / 2;
+    const centerY = (box: DOMRect) => box.top + box.height / 2;
     const line = rect(".ask-timeline__line");
     const fill = rect(".ask-timeline__fill");
     const marks = [
       ...timeline.querySelectorAll<HTMLElement>(".ask-tl-stop__mark"),
     ];
-    const current = timeline.querySelector<HTMLElement>(
-      ".ask-tl-stop.on .ask-tl-stop__mark",
-    );
+    const current =
+      timeline.querySelector<HTMLElement>(
+        ".ask-tl-stop.on .ask-tl-stop__mark",
+      ) ?? (finalStop ? marks.at(-1) : null);
 
     if (marks.length < 2 || !current) {
       throw new Error("incomplete progress stops");
@@ -45,26 +51,35 @@ async function readProgressGeometry(page: Page): Promise<ProgressGeometry> {
 
     return {
       lineStartDelta: Math.abs(
-        line.left - center(marks[0]!.getBoundingClientRect()),
+        line.left - centerX(marks[0]!.getBoundingClientRect()),
       ),
       lineEndDelta: Math.abs(
-        line.right - center(marks.at(-1)!.getBoundingClientRect()),
+        line.right - centerX(marks.at(-1)!.getBoundingClientRect()),
+      ),
+      lineYDelta: Math.max(
+        ...marks.map((mark) =>
+          Math.abs(centerY(line) - centerY(mark.getBoundingClientRect())),
+        ),
       ),
       fillEndDelta: Math.abs(
-        fill.right - center(current.getBoundingClientRect()),
+        fill.right - centerX(current.getBoundingClientRect()),
       ),
     };
-  });
+  }, useLastStop);
 }
 
-async function expectProgressOnDotCentres(page: Page) {
+async function expectProgressOnDotCentres(page: Page, useLastStop = false) {
   await expect
-    .poll(async () => (await readProgressGeometry(page)).fillEndDelta)
+    .poll(
+      async () =>
+        (await readProgressGeometry(page, useLastStop)).fillEndDelta,
+    )
     .toBeLessThanOrEqual(1);
 
-  const geometry = await readProgressGeometry(page);
+  const geometry = await readProgressGeometry(page, useLastStop);
   expect(geometry.lineStartDelta).toBeLessThanOrEqual(1);
   expect(geometry.lineEndDelta).toBeLessThanOrEqual(1);
+  expect(geometry.lineYDelta).toBeLessThanOrEqual(1);
 }
 
 test("site menu: focus model + inert background (320px)", async ({ page }) => {
@@ -235,6 +250,10 @@ for (const viewport of VIEWPORTS) {
         await page.locator(".ask-question .ask-opt").first().click();
       }
     }
+
+    await page.locator(".ask-question .ask-opt").first().click();
+    await expect(page.locator(".ask-tl-stop.on")).toHaveCount(0);
+    await expectProgressOnDotCentres(page, true);
   });
 
   test(`curator: faction register is visible, unsnapped + keeps one pick (${viewport.name}px)`, async ({
@@ -255,10 +274,24 @@ for (const viewport of VIEWPORTS) {
     await expect(roster).toBeVisible();
     const rosterOptions = roster.getByRole("button");
     await expect(rosterOptions).toHaveCount(18);
+    expect(
+      await rosterOptions.evaluateAll((buttons) =>
+        buttons.every((button) =>
+          getComputedStyle(button).fontFamily.includes("Cardo"),
+        ),
+      ),
+    ).toBe(true);
 
     const pickTitle = page.locator(".ofob__answer .ask-pick__title");
     await expect(pickTitle).toBeVisible();
     await expect(pickTitle).not.toBeEmpty();
+    const formatBadge = page.locator(".ask-pick__badge");
+    await expect(formatBadge).toBeVisible();
+    expect(
+      await formatBadge.evaluate(
+        (badge) => getComputedStyle(badge, "::before").content,
+      ),
+    ).toBe("none");
 
     await expect(page.locator("main#main.ask")).not.toHaveClass(/route-snap/);
     expect(
@@ -271,5 +304,22 @@ for (const viewport of VIEWPORTS) {
     await expect(roster).toBeVisible();
     await expect(rosterOptions.nth(1)).toHaveAttribute("aria-current", "true");
     await expect(rosterOptions.nth(1)).toBeFocused();
+    expect(
+      await rosterOptions
+        .nth(1)
+        .evaluate((button) => getComputedStyle(button, "::before").content),
+    ).toBe("none");
+
+    await rosterOptions.nth(3).click();
+    const subfactions = page.locator(".ofob__chapter");
+    await expect(subfactions).toHaveCount(5);
+    expect(
+      await subfactions.evaluateAll((buttons) =>
+        buttons.every((button) => {
+          const style = getComputedStyle(button);
+          return style.fontFamily.includes("Cardo") && style.textTransform === "none";
+        }),
+      ),
+    ).toBe(true);
   });
 }

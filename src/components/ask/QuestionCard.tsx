@@ -5,6 +5,7 @@ import type {
   AskQuestion,
   AskQuestionId,
 } from "@/lib/ask/types";
+import BtnFx from "@/components/shared/BtnFx";
 
 type QuestionCardProps = {
   question: AskQuestion;
@@ -49,6 +50,7 @@ export default function QuestionCard({
                 <span className="ask-opt__label">{option.label}</span>
                 <span className="ask-opt__sub">{option.sub}</span>
               </span>
+              <BtnFx />
             </button>
           );
         })}

@@ -93,10 +93,10 @@
   background: linear-gradient(90deg, var(--cl-hair), transparent);
 }
 .ofob__roster {
-  max-width: 680px;
+  max-width: 720px;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 4px 18px;
+  gap: 6px 22px;
   margin: 18px auto 0;
   padding: 0;
   list-style: none;
@@ -107,16 +107,18 @@
 }
 .ofob__roster-btn {
   position: relative;
+  display: flex;
+  align-items: center;
   width: 100%;
-  min-height: 36px;
+  min-height: 48px;
   background: none;
   border: 0;
-  padding: 5px 6px;
+  padding: 8px 8px;
   font-family: var(--font-body);
-  font-size: var(--fs-label-xs);
-  line-height: 1.35;
-  letter-spacing: var(--track-14);
-  text-transform: uppercase;
+  font-weight: var(--fw-regular);
+  font-size: clamp(17px, 2vw, 20px);
+  line-height: 1.12;
+  letter-spacing: 0.015em;
   text-align: left;
   color: var(--cl-dim);
   cursor: pointer;
@@ -127,20 +129,7 @@
   color: var(--cl-bone);
 }
 .ofob__roster-btn[data-active="true"] {
-  padding-left: 16px;
   color: var(--cl-gold);
-}
-.ofob__roster-btn[data-active="true"]::before {
-  content: "";
-  position: absolute;
-  left: 4px;
-  top: 50%;
-  width: 4px;
-  height: 4px;
-  margin-top: -2px;
-  border-radius: 50%;
-  background: var(--cl-gold);
-  animation: dotBreathe 5.4s ease-in-out infinite;
 }
 
 /* Optional chapter row: plain text choices immediately under the faction. */
@@ -168,9 +157,10 @@
   border: 0;
   padding: 2px 8px;
   font-family: var(--font-body);
-  font-size: 13px;
-  letter-spacing: var(--track-18);
-  text-transform: uppercase;
+  font-weight: var(--fw-regular);
+  font-size: clamp(15.5px, 1.8vw, 17px);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
   color: var(--cl-dim);
   cursor: pointer;
   transition: color 0.3s;
@@ -241,12 +231,8 @@
   font-size: var(--fs-read-sm);
   color: var(--cl-dim);
 }
-.ask-pick__badge {
-  padding-left: 8px;
-}
-.ask-pick__badge::before {
-  content: "· ";
-  color: var(--cl-faint);
+.ask-pick__author + .ask-pick__badge {
+  margin-left: 10px;
 }
 .ask-pick__note {
   max-width: 48ch;
@@ -348,10 +334,13 @@
   .ofob__roster {
     max-width: 340px;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2px 10px;
+    gap: 4px 12px;
   }
   .ofob__roster-btn {
-    font-size: var(--fs-label-2xs);
+    min-height: 52px;
+    padding-right: 4px;
+    padding-left: 4px;
+    font-size: clamp(17px, 5vw, 19px);
   }
   .ofob__answer {
     margin-top: 38px;
@@ -364,6 +353,9 @@
 }
 
 @media (pointer: coarse) {
+  .ofob__arrow {
+    min-width: 44px;
+  }
   .ofob__arrow,
   .ofob__roster-btn,
   .ofob__chapter {

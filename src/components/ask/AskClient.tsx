@@ -214,12 +214,14 @@ export default function AskClient({
                   style={
                     {
                       "--atl-n": questions.length,
-                      "--atl-fill": fillFraction,
+                      "--atl-fill": `${fillFraction * 100}%`,
                     } as CSSProperties
                   }
                 >
-                  <span className="ask-timeline__line" aria-hidden />
-                  <span className="ask-timeline__fill" aria-hidden />
+                  <span className="ask-timeline__rail" aria-hidden>
+                    <span className="ask-timeline__line" />
+                    <span className="ask-timeline__fill" />
+                  </span>
                   <ol className="ask-timeline__stops">
                     {selectedSummary.map((item, index) => {
                       const sealed = Boolean(item.value);
