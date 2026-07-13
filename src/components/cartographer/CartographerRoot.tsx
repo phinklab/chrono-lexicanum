@@ -22,6 +22,7 @@ import { useReducedMotion } from "@/lib/useReducedMotion";
 
 import { Cartouche, Overture } from "./Cartouche";
 import CartoucheSheet from "./CartoucheSheet";
+import CanvasStage from "./CanvasStage";
 import Census from "./Census";
 import ChartStage from "./ChartStage";
 import CourseCards from "./CourseCards";
@@ -31,6 +32,7 @@ import Selection from "./Selection";
 import VoyageTour from "./VoyageTour";
 import WorldPanel from "./WorldPanel";
 import { ChartBus } from "./chart-bus";
+import { ZOOM_STEP_FACTOR } from "./camera-core";
 import { GridDots, HatchDefs, PolarFrame, SegmentumWatermarks, TerraInstrument } from "./decor";
 import { DustLayer, PinLayer, RegionLabels } from "./layers";
 import { LumenNihilus } from "./LumenNihilus";
@@ -153,6 +155,19 @@ function reducer(state: CgState, action: CgAction): CgState {
 
 const emptySubscribe = () => () => {};
 
+function wantsCanvasRenderer(): boolean {
+  const override = new URLSearchParams(window.location.search).get("mapRenderer");
+  if (override === "canvas") return true;
+  if (override === "svg") return false;
+  const navigatorWithHints = window.navigator as Navigator & {
+    userAgentData?: { platform?: string };
+  };
+  return (
+    /Android/i.test(navigatorWithHints.userAgentData?.platform ?? "") ||
+    /Android/i.test(navigatorWithHints.userAgent)
+  );
+}
+
 export default function CartographerRoot({ payload }: { payload: MapPayload }) {
   // Mount gate: SSR renders overture + cartouche, the chart is client-only.
   const mounted = useSyncExternalStore(
@@ -174,6 +189,14 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
   // (including its import) drops out of the bundle as dead code. The curated
   // zones themselves (zones.json, published) still ship.
   const zoneEdit = process.env.NODE_ENV === "development" && zoneEditParam;
+  // Android gets one opaque viewport Canvas instead of the 6,000-node SVG.
+  // Query overrides keep both paths directly testable without changing the
+  // production default; the SVG-backed development editor always wins.
+  const canvasRenderer = useSyncExternalStore(
+    emptySubscribe,
+    wantsCanvasRenderer,
+    () => false,
+  ) && !zoneEdit;
   const [state, dispatch] = useReducer(reducer, INITIAL);
   // Sheet expansion lives here (not in CartoucheSheet) so the phone
   // back-guard below can dismiss it.
@@ -183,10 +206,11 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
 
   const source = useMemo(() => catalogSource(payload), [payload]);
   const selectedWorld = state.selectedId ? source.peek(state.selectedId) : null;
+  const voyageId = state.voyage?.id ?? null;
   const activeVoyage = useMemo(() => {
-    const v = state.voyage ? VOYAGES.find((c) => c.id === state.voyage?.id) : null;
+    const v = voyageId ? VOYAGES.find((c) => c.id === voyageId) : null;
     return v ? resolveVoyage(v, payload) : null;
-  }, [state.voyage, payload]);
+  }, [voyageId, payload]);
   const hiIds = useMemo(
     () =>
       activeVoyage
@@ -326,6 +350,15 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
 
   const condense = useCallback(() => dispatch({ type: "condense" }), []);
   const pick = useCallback((id: string | null) => selectWorld(id), [selectWorld]);
+  const startVoyage = useCallback(
+    (id: string) => {
+      // A journey is a new primary context. Close any world panel in the
+      // same event so it cannot keep the tour card suppressed behind it.
+      if (state.selectedId !== null) selectWorld(null, false);
+      dispatch({ type: "voyageStart", id });
+    },
+    [selectWorld, state.selectedId],
+  );
 
   /* Keyboard entry: the overture's ENTER button lifts the veil and parks
      focus on #main — the next Tab lands on the first live control (desktop:
@@ -429,51 +462,80 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
       </span>
 
       {mounted && (
-        <>
-          <ChartStage
+        canvasRenderer ? (
+          <CanvasStage
             bus={bus}
-            lumen={state.lumen}
-            nihilus={state.nihilus}
+            payload={payload}
+            hiddenCls={state.hiddenCls}
+            dustOff={state.dustOff}
+            worksOnly={state.worksOnly}
             names={state.names}
             zones={state.zones}
-            courseId={state.voyage?.id ?? null}
+            lumen={state.lumen}
+            nihilus={state.nihilus}
+            selectedWorld={selectedWorld}
+            activeVoyage={activeVoyage}
+            voyageProgress={voyageProgress}
+            hiIds={hiIds}
+            routeDim={state.selectedId === null && activeVoyage !== null}
             condensed={state.condensed}
             reduce={reduce}
             magRef={magRef}
             onCondense={condense}
             onPick={pick}
-            motionLayer={
-              <>
-                <LumenNihilus />
-                <RoutesLayer resolved={activeVoyage} progress={voyageProgress} />
-                <TerraInstrument />
-                {selectedWorld && <Selection key={selectedWorld.id} world={selectedWorld} />}
-              </>
-            }
-          >
-            <HatchDefs />
-            <GridDots />
-            <PolarFrame />
-            <SegmentumWatermarks />
-            {/* Zone fields come exclusively from the hand-curated zones.json. */}
-            <g id="cg-fields">{!zoneEdit && <ZonesLayer />}</g>
-            <DustLayer
-              payload={payload}
-              hiddenCls={state.hiddenCls}
-              dustOff={state.dustOff}
-              worksOnly={state.worksOnly}
-            />
-            <PinLayer featured={payload.featured} hiddenCls={state.hiddenCls} hiIds={hiIds} />
-            <RegionLabels regions={payload.regions} featured={payload.featured} />
-            {zoneEdit && <ZoneEditor bus={bus} />}
-          </ChartStage>
-          <RouteMotionCanvas
-            bus={bus}
-            resolved={activeVoyage}
-            progress={voyageProgress}
-            reduce={reduce}
           />
-        </>
+        ) : (
+          <>
+            <ChartStage
+              bus={bus}
+              lumen={state.lumen}
+              nihilus={state.nihilus}
+              names={state.names}
+              zones={state.zones}
+              // Keep the voyage alive behind a world panel, but suspend its
+              // aggressive context dimming while that panel is being read.
+              courseId={state.selectedId === null ? (state.voyage?.id ?? null) : null}
+              condensed={state.condensed}
+              reduce={reduce}
+              magRef={magRef}
+              onCondense={condense}
+              onPick={pick}
+              motionLayer={
+                <>
+                  <RoutesLayer resolved={activeVoyage} progress={voyageProgress} />
+                  <TerraInstrument />
+                  {selectedWorld && <Selection key={selectedWorld.id} world={selectedWorld} />}
+                </>
+              }
+            >
+              <HatchDefs />
+              <GridDots />
+              {/* Background instruments belong below every world, label and
+                  route. They previously lived in the later motion SVG, which
+                  made the huge Lumen/Nihilus shades cover the planets. */}
+              <LumenNihilus />
+              <PolarFrame />
+              <SegmentumWatermarks />
+              {/* Zone fields come exclusively from the hand-curated zones.json. */}
+              <g id="cg-fields">{!zoneEdit && <ZonesLayer />}</g>
+              <DustLayer
+                payload={payload}
+                hiddenCls={state.hiddenCls}
+                dustOff={state.dustOff}
+                worksOnly={state.worksOnly}
+              />
+              <PinLayer featured={payload.featured} hiddenCls={state.hiddenCls} hiIds={hiIds} />
+              <RegionLabels regions={payload.regions} featured={payload.featured} />
+              {zoneEdit && <ZoneEditor bus={bus} />}
+            </ChartStage>
+            <RouteMotionCanvas
+              bus={bus}
+              resolved={activeVoyage}
+              progress={voyageProgress}
+              reduce={reduce}
+            />
+          </>
+        )
       )}
 
       <Overture condensed={state.condensed} payload={payload} onEnter={enterChart} />
@@ -492,7 +554,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
         nihilus={state.nihilus}
         filtered={anyFiltered}
         onPick={pick}
-        onVoyage={(id) => dispatch({ type: "voyageStart", id })}
+        onVoyage={startVoyage}
         onToggleLumen={() => dispatch({ type: "toggleLumen" })}
         onToggleNihilus={() => dispatch({ type: "toggleNihilus" })}
       >
@@ -512,7 +574,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
         open={sheetOpen}
         onOpenChange={setSheetOpen}
         onPick={pick}
-        onVoyage={(id) => dispatch({ type: "voyageStart", id })}
+        onVoyage={startVoyage}
         onToggleLumen={() => dispatch({ type: "toggleLumen" })}
         onToggleNihilus={() => dispatch({ type: "toggleNihilus" })}
       >
@@ -560,7 +622,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           aria-label="Magnify"
           onClick={() => {
             condense();
-            bus.zoomAtCenter(1.45);
+            bus.zoomAtCenter(ZOOM_STEP_FACTOR);
           }}
         >
           +
@@ -570,7 +632,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           aria-label="Withdraw"
           onClick={() => {
             condense();
-            bus.zoomAtCenter(1 / 1.45);
+            bus.zoomAtCenter(1 / ZOOM_STEP_FACTOR);
           }}
         >
           −

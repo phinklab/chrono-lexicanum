@@ -74,7 +74,9 @@ export default function CartoucheSheet({
   onToggleNihilus,
   children,
 }: CartoucheSheetProps) {
-  const [openSecs, setOpenSecs] = useState<ReadonlySet<SectionId>>(new Set(["census"]));
+  // Phones open on the four-section overview; the desktop cartouche keeps
+  // its primary census section open by default.
+  const [openSecs, setOpenSecs] = useState<ReadonlySet<SectionId>>(new Set());
   const sheetRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const gripRef = useRef<HTMLButtonElement | null>(null);

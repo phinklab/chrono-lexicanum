@@ -97,6 +97,10 @@ body.cg-on-map .site-brand {
   transform: translateY(-50%);
   writing-mode: vertical-rl;
 }
+body.cg-canvas-renderer .cg-rule,
+body.cg-canvas-renderer .cg-deg {
+  z-index: 12;
+}
 
 /* Stage */
 .cg-stage {
@@ -117,6 +121,19 @@ body.cg-on-map .site-brand {
   -webkit-user-select: none;
 }
 .cg-stage svg.dragging {
+  cursor: grabbing;
+}
+.cg-map-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  background: var(--cl-void);
+}
+.cg-map-canvas.dragging {
   cursor: grabbing;
 }
 
@@ -2283,6 +2300,14 @@ body.cg-on-map .site-brand {
   .cg-pop,
   .cg-sheet {
     will-change: transform;
+  }
+  /* The Android Canvas stage no longer repaints a giant SVG beneath these
+     cards. Let Chrome promote them only while they actually transition so
+     rapid panel/tour navigation cannot accumulate permanent GPU layers. */
+  body.cg-canvas-renderer .cg-ccard--dock,
+  body.cg-canvas-renderer .cg-pop,
+  body.cg-canvas-renderer .cg-sheet {
+    will-change: auto;
   }
 
   /* WebKit/Blink rasterize animated SVG stroke paint on the CPU. On phones
