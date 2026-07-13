@@ -10,7 +10,9 @@ import { H, W } from "./chart-geometry";
 
 export const FIT_INSET = 0.93;
 export const MIN_RELATIVE_SCALE = 0.75;
-export const MAX_RELATIVE_SCALE = 9;
+export const ZOOM_STEP_FACTOR = 1.45;
+/** One full control step beyond the former 9x ceiling. */
+export const MAX_RELATIVE_SCALE = 13.05;
 
 export interface CameraPose {
   tx: number;

@@ -1,6 +1,8 @@
 import assert from "node:assert/strict";
 
 import {
+  MAX_RELATIVE_SCALE,
+  ZOOM_STEP_FACTOR,
   cameraBand,
   centerRelative,
   clampScale,
@@ -41,11 +43,14 @@ close(anchoredAgain.x, anchor.x, "zoom preserves x anchor");
 close(anchoredAgain.y, anchor.y, "zoom preserves y anchor");
 
 assert.equal(clampScale(k0 * 0.1, k0), k0 * 0.75);
-assert.equal(clampScale(k0 * 20, k0), k0 * 9);
+assert.equal(MAX_RELATIVE_SCALE, 13.05);
+assert.equal(MAX_RELATIVE_SCALE / ZOOM_STEP_FACTOR, 9);
+assert.equal(clampScale(k0 * 20, k0), k0 * MAX_RELATIVE_SCALE);
 assert.equal(cameraBand(k0 * 1.69, k0), "0");
 assert.equal(cameraBand(k0 * 1.7, k0), "1");
 assert.equal(cameraBand(k0 * 3.1, k0), "2");
 assert.equal(cameraBand(k0 * 5.6, k0), "3");
+assert.equal(cameraBand(k0 * MAX_RELATIVE_SCALE, k0), "3");
 
 const relative = centerRelative({
   ...zoomed,

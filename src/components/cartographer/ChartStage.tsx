@@ -364,7 +364,7 @@ export default function ChartStage({
       const d = Math.hypot(p2.x - p1.x, p2.y - p1.y) || 1;
       const midX = (p1.x + p2.x) / 2;
       const midY = (p1.y + p2.y) / 2;
-      const nk = Math.max(c.k0 * 0.75, Math.min(c.k0 * 9, pz.k0 * (d / pz.d0)));
+      const nk = clampScale(pz.k0 * (d / pz.d0), c.k0);
       const scale = nk / pz.k0;
       c.k = nk;
       c.tx = midX - c.ox - (pz.midX - c.ox - pz.tx0) * scale;

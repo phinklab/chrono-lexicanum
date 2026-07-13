@@ -32,6 +32,7 @@ import Selection from "./Selection";
 import VoyageTour from "./VoyageTour";
 import WorldPanel from "./WorldPanel";
 import { ChartBus } from "./chart-bus";
+import { ZOOM_STEP_FACTOR } from "./camera-core";
 import { GridDots, HatchDefs, PolarFrame, SegmentumWatermarks, TerraInstrument } from "./decor";
 import { DustLayer, PinLayer, RegionLabels } from "./layers";
 import { LumenNihilus } from "./LumenNihilus";
@@ -349,6 +350,15 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
 
   const condense = useCallback(() => dispatch({ type: "condense" }), []);
   const pick = useCallback((id: string | null) => selectWorld(id), [selectWorld]);
+  const startVoyage = useCallback(
+    (id: string) => {
+      // A journey is a new primary context. Close any world panel in the
+      // same event so it cannot keep the tour card suppressed behind it.
+      if (state.selectedId !== null) selectWorld(null, false);
+      dispatch({ type: "voyageStart", id });
+    },
+    [selectWorld, state.selectedId],
+  );
 
   /* Keyboard entry: the overture's ENTER button lifts the veil and parks
      focus on #main — the next Tab lands on the first live control (desktop:
@@ -544,7 +554,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
         nihilus={state.nihilus}
         filtered={anyFiltered}
         onPick={pick}
-        onVoyage={(id) => dispatch({ type: "voyageStart", id })}
+        onVoyage={startVoyage}
         onToggleLumen={() => dispatch({ type: "toggleLumen" })}
         onToggleNihilus={() => dispatch({ type: "toggleNihilus" })}
       >
@@ -564,7 +574,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
         open={sheetOpen}
         onOpenChange={setSheetOpen}
         onPick={pick}
-        onVoyage={(id) => dispatch({ type: "voyageStart", id })}
+        onVoyage={startVoyage}
         onToggleLumen={() => dispatch({ type: "toggleLumen" })}
         onToggleNihilus={() => dispatch({ type: "toggleNihilus" })}
       >
@@ -612,7 +622,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           aria-label="Magnify"
           onClick={() => {
             condense();
-            bus.zoomAtCenter(1.45);
+            bus.zoomAtCenter(ZOOM_STEP_FACTOR);
           }}
         >
           +
@@ -622,7 +632,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           aria-label="Withdraw"
           onClick={() => {
             condense();
-            bus.zoomAtCenter(1 / 1.45);
+            bus.zoomAtCenter(1 / ZOOM_STEP_FACTOR);
           }}
         >
           −

@@ -45,8 +45,8 @@ const ROUTES: {
     name: "map",
     path: (viewport) =>
       viewport.name === "320"
-        ? "/map?mapRenderer=canvas"
-        : "/map?mapRenderer=svg",
+        ? "/map?mapRenderer=canvas#cam=500,404.3,999"
+        : "/map?mapRenderer=svg#cam=500,404.3,999",
     landmark: async (page, viewport) => {
       await expect(page.locator("main#main.map-route")).toBeVisible();
       if (viewport.name === "320") {
@@ -57,10 +57,40 @@ const ROUTES: {
         await expect(canvas).toHaveAttribute("data-backing", /\d+x\d+/);
         await expect(page.locator("svg.cg-chart")).toHaveCount(0);
         await expect(page.locator("canvas.cg-route-canvas")).toHaveCount(0);
+        await expect(page.locator(".cg-readout .mag")).toHaveText("MAG 13.05×");
+
+        await page.getByRole("button", { name: "Enter the chart" }).click();
+        await page.getByRole("button", { name: "Open chart instruments" }).click();
+        const mobileSections = page.locator(".cg-sheet.open .c-sec");
+        await expect(mobileSections).toHaveCount(4);
+        for (let index = 0; index < 4; index += 1) {
+          await expect(mobileSections.nth(index)).toHaveAttribute("aria-expanded", "false");
+        }
       } else {
         const stage = page.locator('[data-map-renderer="svg"]');
         await expect(stage.locator("svg.cg-chart--base")).toBeAttached();
         await expect(page.locator("canvas.cg-map-canvas")).toHaveCount(0);
+        await expect(page.locator(".cg-readout .mag")).toHaveText("MAG 13.05×");
+
+        await page.getByRole("button", { name: "Enter the chart" }).click();
+        const seek = page.getByRole("combobox", { name: "Seek a world" });
+        await seek.fill("Terra");
+        await page.getByRole("option", { name: /^Terra\b/ }).click();
+        await expect(page.locator(".cg-pop.open")).toHaveAttribute("aria-label", "Terra");
+
+        await page.getByRole("button", { name: /Great Journeys/ }).click();
+        const journey = page.getByRole("button", { name: /^The Great Crusade/ });
+        await journey.focus();
+        await journey.press("Enter");
+        await expect(journey).toBeFocused();
+        await expect(journey).toHaveAttribute("aria-pressed", "true");
+        await expect(page.locator(".cg-pop.open")).toHaveCount(0);
+        await expect(page.locator(".cg-pop")).toHaveAttribute("aria-hidden", "true");
+        await expect(page.locator(".cg-w.sel-on")).toHaveCount(0);
+        await expect(page.locator(".cg-tour")).not.toHaveClass(/hide/);
+        await expect(page.getByRole("button", { name: "Begin journey" })).toBeVisible();
+        await expect(page.locator(".cg-sr")).toContainText("journey tour open");
+        await expect.poll(() => page.evaluate(() => location.hash)).not.toContain("world=");
       }
     },
   },
