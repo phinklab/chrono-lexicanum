@@ -145,8 +145,8 @@ export default function CartoucheSheet({
       y0: e.clientY,
       moved: false,
       closedH: el?.offsetHeight ?? 0,
-      // mirrors the CSS cap on .cg-sheet.open: min(72dvh, 100dvh - 88px)
-      maxH: Math.min(window.innerHeight * 0.72, window.innerHeight - 88),
+      // mirrors the CSS cap on .cg-sheet.open: min(60dvh, 100dvh - 88px)
+      maxH: Math.min(window.innerHeight * 0.6, window.innerHeight - 88),
     };
     e.currentTarget.setPointerCapture(e.pointerId);
   };
@@ -230,7 +230,6 @@ export default function CartoucheSheet({
           ) : (
             <button type="button" className="cg-sheet-pill" onClick={openWithSeek}>
               <span className="ph">Seek a world…</span>
-              <span className="go">SEEK</span>
             </button>
           )}
           {!open && (

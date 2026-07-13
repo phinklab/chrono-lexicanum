@@ -16,7 +16,8 @@
  * World stations render as rings (deduped by id — repeat visits share one
  * ring at the FIRST visit's step); waypoints render as small dashed dots ON
  * their leg. Below 900px masks are skipped and SVG paths stand static/hidden;
- * RouteMotionCanvas draws the moving route without SVG paint animation.
+ * RouteMotionCanvas draws the route there (static chevron line + step
+ * draw-in) without SVG paint animation.
  * Mounted only while a journey is active — mounting restarts the desktop CSS
  * choreography.
  */
