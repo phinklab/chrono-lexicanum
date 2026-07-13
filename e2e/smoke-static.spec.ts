@@ -28,8 +28,8 @@ import {
 
 const ROUTES: {
   name: string;
-  path: () => string;
-  landmark: (page: Page) => Promise<void>;
+  path: (viewport: (typeof VIEWPORTS)[number]) => string;
+  landmark: (page: Page, viewport: (typeof VIEWPORTS)[number]) => Promise<void>;
 }[] = [
   {
     name: "hub",
@@ -43,11 +43,25 @@ const ROUTES: {
   },
   {
     name: "map",
-    path: () => "/map",
-    landmark: async (page) => {
+    path: (viewport) =>
+      viewport.name === "320"
+        ? "/map?mapRenderer=canvas"
+        : "/map?mapRenderer=svg",
+    landmark: async (page, viewport) => {
       await expect(page.locator("main#main.map-route")).toBeVisible();
-      // The chart itself, not just the shell: the SVG stage must mount.
-      await expect(page.locator("main.map-route svg").first()).toBeAttached();
+      if (viewport.name === "320") {
+        const stage = page.locator('[data-map-renderer="canvas"]');
+        const canvas = stage.locator("canvas.cg-map-canvas");
+        await expect(stage).toBeAttached();
+        await expect(canvas).toBeVisible();
+        await expect(canvas).toHaveAttribute("data-backing", /\d+x\d+/);
+        await expect(page.locator("svg.cg-chart")).toHaveCount(0);
+        await expect(page.locator("canvas.cg-route-canvas")).toHaveCount(0);
+      } else {
+        const stage = page.locator('[data-map-renderer="svg"]');
+        await expect(stage.locator("svg.cg-chart--base")).toBeAttached();
+        await expect(page.locator("canvas.cg-map-canvas")).toHaveCount(0);
+      }
     },
   },
   {
@@ -91,10 +105,10 @@ for (const viewport of VIEWPORTS) {
       });
       await calmMotion(page);
       const log = watchPage(page);
-      const res = await page.goto(route.path());
+      const res = await page.goto(route.path(viewport));
       expect(res, "expected a navigation response").not.toBeNull();
       expect(res!.status()).toBe(200);
-      await route.landmark(page);
+      await route.landmark(page, viewport);
       await expectNoHorizontalOverflow(page);
       await expectNoSeriousAxeViolations(page);
       expectCleanLog(log);

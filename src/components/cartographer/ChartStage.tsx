@@ -18,6 +18,17 @@ import type { ZonesMode } from "@/lib/map/zones";
 
 import type { ChartBus } from "./chart-bus";
 import { H, W } from "./chart-geometry";
+import {
+  cameraBand,
+  centeredPose,
+  centerRelative,
+  clampScale,
+  fitScale,
+  homePose,
+  localToWorld,
+  worldToLocal,
+  zoomPoseAt,
+} from "./camera-core";
 
 interface CamRef {
   tx: number;
@@ -121,7 +132,7 @@ export default function ChartStage({
     if (!svg || !camG || !motionSvg || !motionG) return;
     const c = cam.current;
 
-    const clampK = (x: number) => Math.max(c.k0 * 0.75, Math.min(c.k0 * 9, x));
+    const clampK = (x: number) => clampScale(x, c.k0);
 
     let lastIk = "";
     const apply = () => {
@@ -150,8 +161,7 @@ export default function ChartStage({
       }, 160);
       // Four bands: 0 overview, 1 tier-1 names, 2 tier-2 names, 3 dust names
       // + full dust opacity. Thresholds roughly geometric (×1.8).
-      const band =
-        c.k < c.k0 * 1.7 ? "0" : c.k < c.k0 * 3.1 ? "1" : c.k < c.k0 * 5.6 ? "2" : "3";
+      const band = cameraBand(c.k, c.k0);
       if (band !== c.band) {
         c.band = band;
         svg.setAttribute("data-band", band);
@@ -174,7 +184,7 @@ export default function ChartStage({
       c.vh = rect.height || 1;
       c.ox = rect.left;
       c.oy = rect.top;
-      c.k0 = Math.min(c.vw / W, c.vh / H) * 0.93;
+      c.k0 = fitScale(c.vw, c.vh);
     };
 
     const home = (ms?: number) => {
@@ -182,9 +192,7 @@ export default function ChartStage({
         flyTo(W / 2, H / 2, c.k0, ms);
         return;
       }
-      c.k = c.k0;
-      c.tx = (c.vw - W * c.k) / 2;
-      c.ty = (c.vh - H * c.k) / 2;
+      Object.assign(c, homePose(c.vw, c.vh, c.k0));
       apply();
     };
 
@@ -192,9 +200,7 @@ export default function ChartStage({
       cancelAnimationFrame(flight.current);
       setFlightRef.current(false);
       const nk = clampK(c.k * factor);
-      c.tx = sx - ((sx - c.tx) * nk) / c.k;
-      c.ty = sy - ((sy - c.ty) * nk) / c.k;
-      c.k = nk;
+      Object.assign(c, zoomPoseAt(c, sx, sy, nk));
       apply();
     };
 
@@ -221,7 +227,7 @@ export default function ChartStage({
         return;
       }
       const st = { tx: c.tx, ty: c.ty, k: c.k };
-      const e = { tx: c.vw / 2 - gx * eK, ty: c.vh / 2 + dy - gy * eK, k: eK };
+      const e = centeredPose(c.vw, c.vh, gx, gy, eK, dy);
       const t0 = performance.now();
       const dur = ms ?? 1000;
       cancelAnimationFrame(flight.current);
@@ -251,17 +257,15 @@ export default function ChartStage({
         cancelAnimationFrame(flight.current);
         setFlightRef.current(false);
         c.k = clampK(c.k0 * kr);
-        c.tx = c.vw / 2 - gx * c.k;
-        c.ty = c.vh / 2 - gy * c.k;
+        Object.assign(c, centeredPose(c.vw, c.vh, gx, gy, c.k));
         apply();
       },
-      getCenterRel: () => ({
-        gx: (c.vw / 2 - c.tx) / c.k,
-        gy: (c.vh / 2 - c.ty) / c.k,
-        kr: c.k / c.k0,
-      }),
-      worldToScreen: (gx, gy) => ({ x: c.ox + c.tx + gx * c.k, y: c.oy + c.ty + gy * c.k }),
-      screenToWorld: (sx, sy) => ({ gx: (sx - c.ox - c.tx) / c.k, gy: (sy - c.oy - c.ty) / c.k }),
+      getCenterRel: () => centerRelative(c),
+      worldToScreen: (gx, gy) => {
+        const p = worldToLocal(c, gx, gy);
+        return { x: c.ox + p.x, y: c.oy + p.y };
+      },
+      screenToWorld: (sx, sy) => localToWorld(c, sx - c.ox, sy - c.oy),
       getViewport: () => ({ vw: c.vw, vh: c.vh }),
       getK: () => c.k,
       getK0: () => c.k0,
@@ -419,7 +423,7 @@ export default function ChartStage({
   const chartClass = `cg-chart${lumen ? " lumen" : ""}${nihilus ? " nihilus" : ""}${names ? " names" : ""}${zones === "off" ? " nozones" : ""}${zones === "dim" ? " zones-dim" : ""}`;
 
   return (
-    <div className="cg-stage">
+    <div className="cg-stage" data-map-renderer="svg">
       <svg
         ref={svgRef}
         className={`${chartClass} cg-chart--base`}
