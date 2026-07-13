@@ -5,8 +5,11 @@
  * Supersedes the retired "Path of Heresy" course: its Davin → Istvaan III →
  * Istvaan V → Molech corridor keeps three hand-drawn legs as `leg.d`.
  *
- * Research notes: Xenobia (the Interex capital where Erebus stole the
- * anathame — off-chart) rides the Ullanor → Davin leg as a WAYPOINT.
+ * Research notes: Sixty-Three Nineteen, Murder and Xenobia (the Interex
+ * capital where Erebus stole the anathame) are off-chart and share the
+ * Ullanor → Davin leg as ordered WAYPOINTS. Aureus rides Davin → Istvaan
+ * III. Dwell rides the Isstvan V → Molech leg; its repository gives Horus
+ * his lead to the warp gate.
  * Davin is c. 004.M31 (Isstvan III article: the fall came
  * "over a year before the battle"; the 001.M31 figure is off-wiki legacy).
  * Phall verified-dropped, Perturabo commanded the ambush in person. The
@@ -31,7 +34,23 @@ export const HORUS: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/Ullanor_Crusade",
     },
     {
-      via: 0.45,
+      via: 0.22,
+      name: "Sixty-Three Nineteen",
+      heading: "Sixty-Three Nineteen · The False Emperor",
+      date: "001.M31",
+      text: "The 63rd Expedition finds a human Imperium that claims Terra as its throne. Sejanus dies beneath a white flag; Horus storms the palace himself and shoots the false Emperor from his golden throne.",
+      source: "https://wh40k.lexicanum.com/wiki/Battle_of_63-19",
+    },
+    {
+      via: 0.48,
+      name: "Murder",
+      heading: "Murder · The Spider War",
+      date: "c. 001.M31",
+      text: "For six months the Blood Angels and Luna Wolves bleed against the megarachnids beneath Murder's screaming trees. Victory brings the Interex, and the revelation that this death world was a prison whose warning the Imperials mistook for a name.",
+      source: "https://wh40k.lexicanum.com/wiki/Murder",
+    },
+    {
+      via: 0.75,
       name: "Xenobia",
       heading: "Xenobia · The Stolen Blade",
       date: "c. 003.M31",
@@ -44,6 +63,14 @@ export const HORUS: Voyage = {
       date: "c. 004.M31",
       text: "Sixty years after its compliance the 63rd Expedition returns to Davin. On its plague moon Temba's stolen anathame bites where no wound may heal. In the Serpent Lodge the priests whisper the Warmaster to Chaos.",
       source: "https://wh40k.lexicanum.com/wiki/Davin",
+    },
+    {
+      via: 0.5,
+      name: "Aureus",
+      heading: "Aureus · The Price of Treason",
+      date: "c. 004–005.M31",
+      text: "Horus murders the Auretian Technocracy's emissary and spends ten months grinding a human brother-culture into ruin. Its two Standard Template Constructs become the price that buys him the traitor Mechanicum's allegiance.",
+      source: "https://wh40k.lexicanum.com/wiki/Auretian_Technocracy_War",
     },
     {
       world: "istvaan-iii",
@@ -63,12 +90,27 @@ export const HORUS: Voyage = {
       leg: { d: "M 496 161 L 490 155" },
     },
     {
+      via: 0.5,
+      name: "Dwell",
+      heading: "Dwell · The Snare",
+      date: "008.M31",
+      text: "Shadrak Meduson springs an Iron Hands trap and comes within a heartbeat of killing the Warmaster. Horus survives the burning Fire Raptors, then tears the world's memory-vault open and finds the secret that draws him to Molech.",
+      source: "https://wh40k.lexicanum.com/wiki/Battle_of_Dwell",
+    },
+    {
       world: "molech",
       heading: "Molech · The Warp Gate",
       date: "009.M31",
       text: "Horus walks the Fulgurine Path in the Emperor's own footsteps and passes through the gate. Moments go by in the Materium and an eternity within. What returns is aged, god-empowered, and greater than any primarch.",
       source: "https://wh40k.lexicanum.com/wiki/Battle_of_Molech",
       leg: { d: "M 490 155 C 497 196, 500 232, 500 269.2" },
+    },
+    {
+      world: "trisolian",
+      heading: "Trisolian · The Wolf's Spear",
+      date: "012.M31",
+      text: "Russ boards the Vengeful Spirit and drives the Emperor's spear into his brother. For one clear instant the gods' hold breaks and Horus sees what he has become, but the Wolf King hesitates; the Warmaster mauls him and later falls into a death-coma from the wound.",
+      source: "https://wh40k.lexicanum.com/wiki/Battle_of_Trisolian",
     },
     {
       world: "armageddon",

@@ -3,18 +3,17 @@
  * (chronological by era; the two pre-voyage courses live on inside it:
  * Indomitus expanded in place, The Path of Heresy absorbed into Horus ·
  * Rise and Ruin). "The Master of Mankind" was cut 2026-07-09 on maintainer
- * call: it overlapped the Great Crusade almost station for station.
+ * call: it overlapped the Great Crusade almost station for station. Farsight
+ * and Jaghatai Khan were cut 2026-07-13 on maintainer call.
  * Adding a journey = one data file + one line here.
  */
 
 import { EISENHORN } from "./data/eisenhorn";
-import { FARSIGHT } from "./data/farsight";
 import { GARRO } from "./data/garro";
 import { GREAT_CRUSADE } from "./data/great-crusade";
 import { GUILLIMAN } from "./data/guilliman";
 import { HORUS } from "./data/horus";
 import { INDOMITUS } from "./data/indomitus";
-import { KHAN } from "./data/khan";
 import type { Voyage } from "./types";
 
 export type { LegOverride, Voyage, VoyageStation, VoyageStop, VoyageWaypoint } from "./types";
@@ -27,10 +26,8 @@ export type { VoyageBounds, VoyageFit } from "./fit";
 export const VOYAGES: readonly Voyage[] = [
   GREAT_CRUSADE,
   HORUS,
-  KHAN,
   GUILLIMAN,
   GARRO,
   EISENHORN,
-  FARSIGHT,
   INDOMITUS,
 ];

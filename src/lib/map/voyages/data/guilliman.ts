@@ -1,19 +1,25 @@
 /**
  * Guilliman · Lord of Ultramar (M30–M42): the longest arc on the chart.
  * Finding on Macragge, Monarchia's rebuke, Ullanor, the Heresy (Calth,
- * Nuceria, Imperium Secundus, the Pharos), the Avenging Son's late arrival
- * at Terra, the wounding and ten thousand years of stasis, the Terran
- * Crusade home through Luna, and the Plague Wars (Espandor, Parmenio, Iax).
+ * Nuceria, Imperium Secundus, the Pharos, and the Ruinstorm road through
+ * Anuari, Pyrrhan and Davin), the Avenging Son's late arrival at Terra, the
+ * wounding and ten thousand years of stasis, the Terran Crusade through the
+ * Maelstrom, the Indomitus handoff at Fenris, the Plague Wars, and Baal.
  *
  * Thessala (the wounding, 121.M31) has NO canonical location anywhere (a
  * gas giant; "Thessala orbit" is all the sources give; the pursuit came
  * from equally unlocated Xolco) — it rides the Terra → Macragge leg as a
- * WAYPOINT instead of an invented pin. Verified-dropped: Vigilus
+ * WAYPOINT instead of an invented pin. Pyrrhan likewise has no chart pin
+ * and rides Anuari → Davin. Anuari is a system/orbital anchor: Guilliman's
+ * personal action is aboard the Samothrace, not on the forge world below.
+ * Verified-dropped: Vigilus
  * (commanded from afar;
  * his own route ran through the Attilan Gate) and Gathalamor (Achallor's
  * Custodes, not Guilliman in person). The Ullanor act claims only the
  * Crusade role; the Triumph dais list does not include him. Monarchia date
- * derived (~963.M30); Imperium Secundus 009–014.M31 per Lexicanum.
+ * derived (~963.M30); Imperium Secundus 009–014.M31 per Lexicanum. Baal
+ * follows the current post-Plague-Wars chronology; the fleet-scale
+ * Indomitus journey intentionally preserves the older campaign ordering.
  * Sources per station in `source`.
  */
 
@@ -23,7 +29,7 @@ export const GUILLIMAN: Voyage = {
   id: "guilliman",
   name: "Guilliman · Lord of Ultramar",
   tag: "M30–M42",
-  blurb: "From the finding at Hera's Falls to the Plague Wars: ten thousand years in the service of one Imperium.",
+  blurb: "From Hera's Falls through the Ruinstorm and the Maelstrom to Imperium Nihilus: ten thousand years in the service of one realm.",
   stations: [
     {
       world: "macragge",
@@ -75,6 +81,28 @@ export const GUILLIMAN: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/Battle_of_Sotha",
     },
     {
+      world: "anuari",
+      heading: "Anuari · The Broken Ambush",
+      date: "011–012.M31",
+      text: "Cut off with only one cruiser beside the Samothrace, Guilliman is attacked on three sides. He leads the counterattack through his own flagship, kills Toc Derenoth and two athame-bearing apostles, then takes the Navigators who can cross the Ruinstorm.",
+      source: "https://wh40k.lexicanum.com/wiki/Battle_of_Anuari",
+    },
+    {
+      via: 0.5,
+      name: "Pyrrhan",
+      heading: "Pyrrhan · The Impossible Wall",
+      date: "011–012.M31",
+      text: "A daemon fortress the size of a solar system seals every road to Terra. On Pyrrhan below, Guilliman drives Ultramarine phalanxes across continent-wide forges until Sanguinius destroys their heart and the world collapses with the wall above it.",
+      source: "https://wh40k.lexicanum.com/wiki/Harrowing_of_Pyrrhan",
+    },
+    {
+      world: "davin",
+      heading: "Davin · The World Where It Began",
+      date: "c. 011.M31",
+      text: "The three brothers return to the world where Horus fell and find it sealed inside a shell of bones. Guilliman and the Lion break a Soul Grinder together, then cyclonic torpedoes shatter Davin and tear a narrow road through the Ruinstorm.",
+      source: "https://wh40k.lexicanum.com/wiki/Second_Battle_of_Davin",
+    },
+    {
       world: "terra",
       heading: "Terra · The Avenging Son",
       date: "014.M31",
@@ -97,6 +125,13 @@ export const GUILLIMAN: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/Battle_of_Thessala",
     },
     {
+      world: "the-maelstrom",
+      heading: "The Maelstrom · Fateweaver's Chains",
+      date: "c. 999.M41",
+      text: "Magnus casts the Terran Crusade into the Maelstrom, where Kairos Fateweaver cages Guilliman inside a crystal fortress. Cypher and the Harlequins break the prison and lead the survivors into the webway, one impossible passage from Sol.",
+      source: "https://wh40k.lexicanum.com/wiki/Terran_Crusade",
+    },
+    {
       world: "luna",
       heading: "Luna · Return to Sol",
       date: "c. 999.M41",
@@ -109,6 +144,13 @@ export const GUILLIMAN: Voyage = {
       date: "c. 999.M41",
       text: "Alone past the Eternity Gate, Guilliman stands before the Golden Throne, and the Emperor wakes for the first time in millennia. Minutes pass within; a full day passes without. He emerges Lord Commander once more and calls the Indomitus Crusade.",
       source: "https://wh40k.lexicanum.com/wiki/Terran_Crusade",
+    },
+    {
+      world: "fenris",
+      heading: "Fenris · The Kin-Pack",
+      date: "Indomitus Era",
+      text: "Guilliman brings five hundred Greyshields of Russ's blood to the Fang and proposes that some form a new Chapter. Logan Grimnar answers with the Kin-Pack Declaration: every true son of the gene-line is a son of Russ, wherever he was forged.",
+      source: "https://wh40k.lexicanum.com/wiki/Wolfspear",
     },
     {
       world: "espandor",
@@ -130,6 +172,13 @@ export const GUILLIMAN: Voyage = {
       date: "c. 012.M42",
       text: "Mortarion pins his brother to the blighted soil of Iax and pours the Godblight into him, a phage brewed to kill a primarch. Guilliman dies. Then his father's power floods through him, scorching Nurgle's own Garden, and Mortarion flees.",
       source: "https://wh40k.lexicanum.com/wiki/Plague_Wars",
+    },
+    {
+      world: "baal",
+      heading: "Baal · Regent of Nihilus",
+      date: "after the Plague Wars",
+      text: "The Indomitus fleet reaches Baal in the wake of Leviathan and brings the bloodied Chapters the Primaris reinforcements they feared would replace them. Guilliman names Dante Regent of Imperium Nihilus and commands him to make the sundered half of mankind live again.",
+      source: "https://wh40k.lexicanum.com/wiki/Devastation_of_Baal",
     },
   ],
   lbl: { x: 720, y: 660, t: "LORD OF ULTRAMAR" },
