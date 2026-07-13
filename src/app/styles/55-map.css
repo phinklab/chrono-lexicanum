@@ -122,7 +122,7 @@ body.cg-on-map .site-brand {
 
 /* Desktop keeps animated linework in a separate SVG tree. Mobile does not
    animate SVG paint properties at all; RouteMotionCanvas owns the journey
-   line there (static chevrons, repaint on camera frames only). Do not force
+   line there (static dashes, repaint on camera frames only). Do not force
    this plane into a compositor backing store on either Blink or WebKit. */
 .cg-motion-plane {
   position: absolute;
@@ -2277,7 +2277,7 @@ body.cg-on-map .site-brand {
 
   /* WebKit/Blink rasterize animated SVG stroke paint on the CPU. On phones
      the motion SVG is therefore fully static; Canvas carries the route
-     (static chevron line + the step draw-in) and repaints only on camera
+     (static dashed line + the step draw-in) and repaints only on camera
      frames — no standing animation invalidates a fullscreen layer. */
   .cg-chart--motion *,
   .cg-course--lite .cg-rtFly {

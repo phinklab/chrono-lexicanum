@@ -7,13 +7,13 @@
  * on a transformed map that can flash the SVG backing store. The route stays
  * vector-authored, but its line is sampled into this small Canvas surface.
  *
- * Since 2026-07-13 the standing line is STATIC — a row of small chevrons
- * pointing in travel direction instead of marching dashes. The old perpetual
- * 30 fps dash drift kept invalidating a fullscreen layer and the entity
- * flicker on drag came back with it. Now the canvas repaints only (a) on
- * camera frames (the route must track the chart) and (b) during the bounded
- * draw-in window when the tour enters a new leg. Idle = zero repaints.
- * Static SVG rings/labels remain in RoutesLayer.
+ * Since 2026-07-13 the standing line is STATIC — a plain dashed line, no
+ * dash drift (the maintainer tried direction chevrons and preferred the
+ * dashes). The old perpetual 30 fps drift kept invalidating a fullscreen
+ * layer and the entity flicker on drag came back with it. Now the canvas
+ * repaints only (a) on camera frames (the route must track the chart) and
+ * (b) during the bounded draw-in window when the tour enters a new leg.
+ * Idle = zero repaints. Static SVG rings/labels remain in RoutesLayer.
  */
 
 import { useEffect, useRef } from "react";
@@ -38,12 +38,6 @@ const REVEAL_MS = 900;
 const AMBIENT_STAGGER_MS = 1450;
 const AMBIENT_LEAD_MS = 350;
 const PATH_SAMPLES = 64;
-/** Chevron row: tip-to-tip spacing, arm length and half-width (screen px). */
-const CHEV_SPACING = 14;
-const CHEV_LEN = 4.2;
-const CHEV_HALF = 2.4;
-/** Offscreen cull margin for chevron placement. */
-const CULL_PAD = 24;
 
 const clamp01 = (n: number) => Math.max(0, Math.min(1, n));
 
@@ -130,56 +124,31 @@ export default function RouteMotionCanvas({
       ctx.clearRect(0, 0, rect.width, rect.height);
       ctx.strokeStyle = GOLD;
       ctx.globalAlpha = 0.9;
-      ctx.lineWidth = 1.3;
+      ctx.lineWidth = 1.7;
       ctx.lineCap = "round";
-      ctx.lineJoin = "round";
+      // Static dash pattern — same voice as the desktop SVG line, but the
+      // offset never moves (the drift was the flicker driver).
+      ctx.setLineDash([2.2, 5.4]);
+      ctx.lineDashOffset = 0;
 
       const elapsed = now - startedAt;
       resolved.legs.forEach((leg, legIndex) => {
         const fraction = revealFraction(legIndex, elapsed);
         if (fraction <= 0) return;
         const samples = Math.max(2, Math.ceil(PATH_SAMPLES * fraction));
-        // Sample the revealed part of the leg into a screen-space polyline…
-        const xs = new Array<number>(samples + 1);
-        const ys = new Array<number>(samples + 1);
+        ctx.beginPath();
         for (let i = 0; i <= samples; i += 1) {
           const point = pointOnLeg(leg, (fraction * i) / samples);
-          if (!point) return;
+          if (!point) continue;
           const screen = driver.worldToScreen(point.x, point.y);
-          xs[i] = screen.x - rect.left;
-          ys[i] = screen.y - rect.top;
-        }
-        // …and walk it, dropping a direction chevron every CHEV_SPACING px.
-        ctx.beginPath();
-        let carry = CHEV_SPACING * 0.5;
-        for (let i = 1; i <= samples; i += 1) {
-          const dx = xs[i] - xs[i - 1];
-          const dy = ys[i] - ys[i - 1];
-          const segLen = Math.hypot(dx, dy);
-          if (segLen < 1e-3) continue;
-          const ux = dx / segLen;
-          const uy = dy / segLen;
-          while (carry <= segLen) {
-            const x = xs[i - 1] + ux * carry;
-            const y = ys[i - 1] + uy * carry;
-            if (
-              x >= -CULL_PAD &&
-              x <= rect.width + CULL_PAD &&
-              y >= -CULL_PAD &&
-              y <= rect.height + CULL_PAD
-            ) {
-              const bx = x - ux * CHEV_LEN;
-              const by = y - uy * CHEV_LEN;
-              ctx.moveTo(bx - uy * CHEV_HALF, by + ux * CHEV_HALF);
-              ctx.lineTo(x, y);
-              ctx.lineTo(bx + uy * CHEV_HALF, by - ux * CHEV_HALF);
-            }
-            carry += CHEV_SPACING;
-          }
-          carry -= segLen;
+          const x = screen.x - rect.left;
+          const y = screen.y - rect.top;
+          if (i === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
         }
         ctx.stroke();
       });
+      ctx.setLineDash([]);
       ctx.globalAlpha = 1;
       return true;
     };
