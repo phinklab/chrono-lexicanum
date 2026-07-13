@@ -33,7 +33,10 @@ export const metadata: Metadata = {
  * The legacy roster overlay (`@/lib/chronicle/roster`) is not read here.
  *
  * URL contract: `?era=<era id>` selects the chapter, `?view=index` opens the
- * index view. Legacy values keep working:
+ * index view, `?view=cine` explicitly opens the cinematic stage. Without a
+ * `?view=` the cinematic stage opens on every device (Philipp's S9 call,
+ * overriding the plan's coarse-pointer index default) and the URL stays
+ * bare. Legacy values keep working:
  *   - legacy `?era=M30|M31|M42` → mapped era id
  *   - era ids absent from the 8-era map: `age_rebirth` →
  *     `horus_heresy` (the Scouring lives in M31), `long_war` → `the_forging`
@@ -84,7 +87,12 @@ export default async function TimelinePage({ searchParams }: TimelinePageProps) 
 
   // Legacy era ids → their new chapter.
   if (eraRaw && LEGACY_ERA[eraRaw]) {
-    const view = viewRaw === "index" ? "&view=index" : "";
+    const view =
+      viewRaw === "index"
+        ? "&view=index"
+        : viewRaw === "cine"
+          ? "&view=cine"
+          : "";
     redirect(`/timeline?era=${LEGACY_ERA[eraRaw]}${view}`);
   }
 
@@ -108,7 +116,10 @@ export default async function TimelinePage({ searchParams }: TimelinePageProps) 
 
   const initialEraId =
     eraRaw && eras.some((e) => e.id === eraRaw) ? eraRaw : null;
-  const initialView: ChronicleViewMode = viewRaw === "index" ? "index" : "cine";
+  // null = no explicit choice → cinematic default, URL stays bare (only an
+  // explicit pick writes `view=`).
+  const initialView: ChronicleViewMode | null =
+    viewRaw === "index" ? "index" : viewRaw === "cine" ? "cine" : null;
 
   return (
     <main id="main" tabIndex={-1} className={`chron-shell ${cormorantUnicase.variable}`}>

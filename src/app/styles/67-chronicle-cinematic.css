@@ -123,6 +123,31 @@
   visibility: hidden;
   pointer-events: none;
 }
+/* stage body wrapper — layout-inert (display: contents); exists so the era
+   intro can flip everything behind it `inert` in one place while it is up */
+.chron .cine-body { display: contents; }
+
+/* visually-hidden utility (scoped; the ask-sr-only recipe) — carries the
+   full dossier/intro text for AT under the typing effect, the keyboard hint,
+   and the stage's single status region */
+.chron .chron-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* the stage is the focusable keyboard surface (S9) — the global 2px-offset
+   ring would sit outside the full-bleed viewport, so the frame draws inset */
+.chron .chron-cine:focus-visible {
+  outline: 1px solid var(--gold);
+  outline-offset: -6px;
+}
 
 /* Cinematic mode */
 .chron .bg-stack {
@@ -736,11 +761,16 @@
   color: var(--parchment-dim);
   text-shadow: 0 1px 16px rgba(0, 0, 0, 0.85);
 }
+/* a real <button> since S9 — the intro's focusable dismiss control */
 .chron .ei-enter {
   position: absolute;
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
   font-family: var(--font-mono);
   font-size: var(--fs-label-2xs);
   letter-spacing: var(--track-30);
@@ -1127,12 +1157,16 @@
   color: var(--steel-dim);
   white-space: nowrap;
 }
+/* mm marks are real <button>s since S9 (aria-pressed selection state) —
+   padding/appearance resets keep them pixel-identical to the old divs */
 .chron .mm-dot {
   position: absolute;
   top: 14.5px;
   transform: translate(-50%, -50%);
   width: 7px;
   height: 7px;
+  padding: 0;
+  appearance: none;
   border-radius: 50%;
   border: 1.5px solid var(--steel);
   background: var(--void);
@@ -1153,11 +1187,20 @@
   top: 14.5px;
   transform: translateY(-50%);
   height: 7px;
+  padding: 0;
+  appearance: none;
   border-radius: 4px;
   border: 1.5px solid var(--steel);
   background: rgba(125, 135, 153, 0.2);
   cursor: pointer;
   transition: all 0.25s;
+}
+
+/* dock sentinel — 1px, layout-free; its exit from the scrollport tells the
+   IntersectionObserver the sticky map has docked (no per-scroll rect reads) */
+.chron .mm-sentinel {
+  height: 1px;
+  margin-bottom: -1px;
 }
 .chron .mm-bar.epoch { border-color: var(--gold-dim); height: 9px; }
 .chron .mm-bar:hover,
@@ -1200,12 +1243,22 @@
   border-bottom: 1px solid rgba(125, 135, 153, 0.1);
   cursor: pointer;
 }
+/* a real <button> since S9 (aria-expanded on the row disclosure) — width /
+   font / color resets keep it reading exactly like the old div line */
 .chron .row-line {
   display: grid;
   grid-template-columns: minmax(230px, 1.1fr) 150px 2fr 22px;
   gap: 18px;
   align-items: baseline;
+  width: 100%;
   padding: 17px 10px;
+  appearance: none;
+  background: transparent;
+  border: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
   transition: background 0.2s;
 }
 .chron .row:hover .row-line { background: rgba(255, 255, 255, 0.03); }
@@ -1252,7 +1305,16 @@
   transition: grid-template-rows 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 .chron .row.open .row-detail { grid-template-rows: 1fr; }
-.chron .row-detail-inner { overflow: hidden; }
+/* visibility keeps the collapsed detail's controls (media links, OPEN IN
+   CINEMATIC) out of the tab order — height 0 + overflow hidden alone left
+   them focusable. Discrete transition: content appears instantly on open,
+   stays visible through the 0.45s collapse (flips to hidden at its end). */
+.chron .row-detail-inner {
+  overflow: hidden;
+  visibility: hidden;
+  transition: visibility 0.45s;
+}
+.chron .row.open .row-detail-inner { visibility: visible; }
 .chron .row-detail-pad { padding: 6px 10px 24px 10px; }
 .chron .row-note {
   margin: 0 0 14px 0;
@@ -1365,7 +1427,12 @@
   .chron .cine-lower .d-kicker { margin-bottom: 8px; }
 }
 
-/* larger touch targets on coarse pointers — invisible hit areas only */
+/* larger touch targets on coarse pointers — invisible hit areas, plus the
+   S9 44px bumps on the chronicle chrome (S8-Punkt-6 recipe: visible where
+   needed). The minimap marks and the phone dot strip stay under 44px by
+   design (densely packed scale marks — enlarged hits would overlap and
+   mis-tap); their 44px equivalents are the index rows directly beneath and
+   the era band/intro/terminus navigation (WCAG 2.5.8 equivalent control). */
 @media (pointer: coarse) {
   .chron .node .dot::after {
     content: '';
@@ -1376,13 +1443,32 @@
   .chron .eb-stop::after {
     content: '';
     position: absolute;
-    inset: -12px -16px;
+    inset: -18px -16px;
   }
   .chron .mm-dot::before,
   .chron .mm-bar::before {
     content: '';
     position: absolute;
     inset: -9px;
+  }
+  /* Deliberately COMPACT (Philipp's S9 browser call): a 44px pill overlapped
+     the phone era caption and the intro's enter line (the toggle floats at
+     z-40 above both). 28px keeps WCAG 2.5.8's 24px minimum with the words
+     sitting tight in the pill. */
+  .chron .chron-mode-toggle button {
+    min-width: 44px;
+    min-height: 28px;
+  }
+  .chron .eb-arrow {
+    width: 44px;
+    height: 44px;
+  }
+  .chron .open-cine { min-height: 44px; }
+  /* padded hit box, negative margin holds the text at its optical spot
+     regardless of which breakpoint set `bottom` */
+  .chron .ei-enter {
+    padding: 14px 18px;
+    margin-bottom: -14px;
   }
   /* Animated blur() on every rail node is the single biggest phone cost in
      this view — depth stays readable through the opacity/scale falloff.
@@ -1435,7 +1521,9 @@
     right: calc(10px + env(safe-area-inset-right, 0px));
   }
   .chron .chron-mode-toggle .lab { display: none; }
-  .chron .chron-mode-toggle button { padding: 10px 11px; }
+  /* tight words in a low pill — the coarse block's min-height 28px carries
+     the touch target */
+  .chron .chron-mode-toggle button { padding: 7px 11px; }
   .chron .era-bar {
     top: calc(8px + env(safe-area-inset-top, 0px));
     left: calc(14px + env(safe-area-inset-left, 0px));
@@ -1453,7 +1541,7 @@
      dossier kicker and the INDEX view. */
   .chron .cine-band {
     top: auto;
-    bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+    bottom: calc(80px + env(safe-area-inset-bottom, 0px));
     left: 50%;
     transform: translateX(-50%);
     width: min(52vw, 210px);
@@ -1480,9 +1568,10 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    /* 52px clears the mode toggle's band (~12–46px) — the caption used to
-       sit at 38px and collide with it. */
-    bottom: calc(52px + env(safe-area-inset-bottom, 0px));
+    /* 60px clears the compact mode toggle (~12–42px incl. pill border) with
+       real air — the caption sat at 52px and was clipped by the taller pill
+       during the S9 acceptance. */
+    bottom: calc(60px + env(safe-area-inset-bottom, 0px));
     z-index: 13;
     font-family: var(--font-mono);
     font-size: var(--fs-label-3xs);
@@ -1624,9 +1713,11 @@
   .chron .terminus-btn { padding: 18px 26px; width: 100%; max-width: 340px; }
   .chron .terminus-btn .tb-name { font-size: 20px; }
 
-  /* terminus + era intro respect the home indicator */
+  /* terminus + era intro respect the home indicator; the enter line rides
+     high enough that the mode toggle (z-40, floats above the intro) never
+     covers it — at 24px the two overlapped on phones */
   .chron .terminus { padding-bottom: env(safe-area-inset-bottom, 0px); }
-  .chron .ei-enter { bottom: calc(24px + env(safe-area-inset-bottom, 0px)); }
+  .chron .ei-enter { bottom: calc(64px + env(safe-area-inset-bottom, 0px)); }
 
   /* index */
   .chron .arch-inner {
@@ -1670,6 +1761,15 @@
    a CSS scaleY(-1) mirror on the scroll proxy used to do it, but transformed
    scroll containers lose native fling/momentum + snap on phone engines
    (drag felt heavy, snapped back to entry 0). Keep the proxy untransformed. */
+
+/* touch-phone targets — the media disclosure is only interactive below the
+   sheet breakpoint (an inert label on desktop, so no tablet bump) */
+@media (max-width: 760px) and (pointer: coarse) {
+  .chron .media-seg .m-disclose {
+    min-height: 44px;
+    align-items: center;
+  }
+}
 
 /* short phones (SE-class) — compress the dossier so the stage keeps air */
 @media (max-width: 760px) and (max-height: 700px) {
