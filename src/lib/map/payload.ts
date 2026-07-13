@@ -5,14 +5,14 @@
  *
  * Shape: the 70
  * primary classifications become an indexed list, dust worlds collapse to
- * coordinate triples, featured worlds keep their full work lists (largest is
- * Terra at ~196 — the world panel scrolls internally).
+ * coordinate triples, featured worlds carry counts only. The work lists and
+ * blurbs live behind `PinSource.detail()` (S10a): the panel fetches
+ * `/api/map/world/{id}` per world instead of shipping ~190 KB with the page.
  *
  * Coverage comes from `coverage` verbatim — NEVER sum `worlds[].works`
  * (duplicate pins + rollups double-count, see map-worlds-schema.ts).
  */
 
-import { getBlurb } from "../blurbs";
 import {
   MAP_WORLD_KINDS,
   type MapWorldKind,
@@ -35,14 +35,21 @@ export interface FeaturedWorld {
   gy: number;
   /** Segmentum short name ("Solar", "Ultima", …). */
   seg?: string;
-  /** Work count (= works.length, precomputed for sizing/tiering). */
+  /** Work count (works.length in the catalog, precomputed for sizing/tiering
+   *  — the list itself arrives via `PinSource.detail()`). */
   n: number;
-  works: MapWorldWork[];
   /** locations.json id → /world/{loc}. */
   loc?: string;
-  /** Curated one-sentence blurb (location-blurbs.json via locationId).
-   *  Absent = none curated yet — the panel shows the "empty" filler. */
-  blurb?: string;
+}
+
+/** The lazy per-world complement to `FeaturedWorld` — what
+ *  `/api/map/world/{id}` returns and `PinSource.detail()` resolves. */
+export interface WorldDetail {
+  works: MapWorldWork[];
+  /** Curated one-sentence blurb — location-blurbs.json (via locationId)
+   *  first, else the researched world-blurbs.json entry, else null
+   *  (the panel shows the "empty" filler). */
+  blurb: string | null;
 }
 
 /** Region curation pin (kind=region) — rendered as area typography. */
@@ -128,17 +135,12 @@ export function buildMapPayload(file: MapWorldsFile): MapPayload {
         gx: w.gx,
         gy: w.gy,
         n: w.works.length,
-        works: w.works,
       };
       if (w.classification2) fw.c2 = w.classification2;
       const c3 = TERTIARY[w.id];
       if (c3) fw.c3 = c3;
       if (w.segmentum) fw.seg = w.segmentum;
-      if (w.locationId) {
-        fw.loc = w.locationId;
-        const blurb = getBlurb("location", w.locationId);
-        if (blurb) fw.blurb = blurb.text;
-      }
+      if (w.locationId) fw.loc = w.locationId;
       if (w.kind === "region") {
         regions.push({ name: w.name, gx: w.gx, gy: w.gy, fi: featured.length });
       }

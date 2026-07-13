@@ -72,4 +72,4 @@ Arbeite die offenen Welten alphabetisch nach `id` ab.
 
 - Stoppe nach ~120 neuen Einträgen pro Lauf (Folge-Lauf macht weiter).
 - Ändere NICHTS außer `src/lib/map/world-blurbs.json`. Kein git (kein add/commit/push) — committet wird manuell.
-- Nicht rendern/testen — das Wiring im Welt-Popup existiert bereits (`src/lib/map/world-blurbs.ts`).
+- Nicht rendern/testen — das Wiring im Welt-Popup existiert bereits (`src/lib/map/world-detail.ts`, ausgeliefert über `/api/map/world/{id}`).

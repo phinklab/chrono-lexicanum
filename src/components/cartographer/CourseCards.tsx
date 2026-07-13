@@ -25,15 +25,25 @@ interface CourseCardsProps {
   resolved: ResolvedVoyage;
   /** World popup open — the card steps aside and returns when it closes. */
   suppressed: boolean;
+  /** Mobile sheet open (modal) — the card leaves the AT tree meanwhile. */
+  muted?: boolean;
 }
 
-export default function CourseCards({ resolved, suppressed }: CourseCardsProps) {
+export default function CourseCards({ resolved, suppressed, muted = false }: CourseCardsProps) {
   const [dismissed, setDismissed] = useState(false);
   const st = resolved.stations[resolved.stations.length - 1];
   if (!st || dismissed) return null;
   return (
-    <div className={`cg-ccard cg-ccard--dock cg-tour show${suppressed ? " hide" : ""}`}>
-      <button className="cpg cg-tour-x" title="Dismiss" onClick={() => setDismissed(true)}>
+    <div
+      className={`cg-ccard cg-ccard--dock cg-tour show${suppressed ? " hide" : ""}`}
+      inert={suppressed || muted}
+    >
+      <button
+        className="cpg cg-tour-x"
+        title="Dismiss"
+        aria-label="Dismiss the final act card"
+        onClick={() => setDismissed(true)}
+      >
         ✕
       </button>
       <p className="ck">

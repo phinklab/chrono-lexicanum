@@ -26,9 +26,8 @@ import type { ReactNode } from "react";
 
 import type { MapPayload } from "@/lib/map/payload";
 
-import { OverlayButtons, SectionHead, SeekPanel, VoyageButtons } from "./Cartouche";
-
-type SectionId = "courses" | "instruments" | "census";
+import { OverlayButtons, SectionHead, SeekPanel, VoyageButtons, WorldIndex } from "./Cartouche";
+import type { SectionId } from "./Cartouche";
 
 interface CartoucheSheetProps {
   payload: MapPayload;
@@ -40,6 +39,9 @@ interface CartoucheSheetProps {
   filtered: boolean;
   /** World popup open — the dock steps aside and returns when it closes. */
   suppressed: boolean;
+  /** Overture veil still up — the dock is invisible behind it and must not
+   *  be a hidden tab stop. */
+  veiled: boolean;
   /** Sheet expanded — owned by the root so the back-guard can dismiss it. */
   open: boolean;
   onOpenChange: (open: boolean) => void;
@@ -63,6 +65,7 @@ export default function CartoucheSheet({
   nihilus,
   filtered,
   suppressed,
+  veiled,
   open,
   onOpenChange,
   onPick,
@@ -74,6 +77,7 @@ export default function CartoucheSheet({
   const [openSecs, setOpenSecs] = useState<ReadonlySet<SectionId>>(new Set(["census"]));
   const sheetRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const gripRef = useRef<HTMLButtonElement | null>(null);
   const dragRef = useRef<{
     id: number;
     y0: number;
@@ -102,6 +106,22 @@ export default function CartoucheSheet({
     window.addEventListener("keydown", onKey, true);
     return () => window.removeEventListener("keydown", onKey, true);
   }, [open, onOpenChange]);
+
+  // Modal focus model: when the sheet closes and focus died with the
+  // unmounted head (seek input) or sat behind the backdrop, return it to
+  // the grip. Never fires on mount (wasOpen guard).
+  const wasOpen = useRef(false);
+  useEffect(() => {
+    if (open) {
+      wasOpen.current = true;
+      return;
+    }
+    if (!wasOpen.current) return;
+    const a = document.activeElement;
+    if (a === document.body || (a && sheetRef.current?.contains(a))) {
+      gripRef.current?.focus();
+    }
+  }, [open]);
 
   const pick = (id: string) => {
     onOpenChange(false);
@@ -171,14 +191,23 @@ export default function CartoucheSheet({
   return (
     <>
       {open && <div className="cg-sheet-backdrop" onPointerDown={() => onOpenChange(false)} />}
+      {/* Deliberately MODAL while open (S10a): the backdrop already blocks
+          pointers; aria-modal + the root's inert on chart/zoomer/panel make
+          the same statement to AT. Closed, the dock is a plain toolbar. */}
       <div
         ref={sheetRef}
         className={`cg-sheet${open ? " open" : ""}${suppressed && !open ? " hidden" : ""}`}
         role="dialog"
+        aria-modal={open || undefined}
         aria-label="Chart instruments"
+        // veiled: invisible behind the overture; suppressed && !open: the
+        // dock is translated offscreen while the world panel is up — both
+        // states must not leave hidden tab stops.
+        inert={veiled || (suppressed && !open)}
       >
         <button
           type="button"
+          ref={gripRef}
           className="cg-sheet-grip"
           aria-label={open ? "Close chart instruments" : "Open chart instruments"}
           aria-expanded={open}
@@ -254,6 +283,18 @@ export default function CartoucheSheet({
             onToggle={() => toggleSec("census")}
           />
           {openSecs.has("census") && <div className="c-body">{children}</div>}
+
+          <SectionHead
+            open={openSecs.has("index")}
+            label="World index"
+            note={null}
+            onToggle={() => toggleSec("index")}
+          />
+          {openSecs.has("index") && (
+            <div className="c-body">
+              <WorldIndex payload={payload} onPick={pick} />
+            </div>
+          )}
         </div>
       </div>
     </>

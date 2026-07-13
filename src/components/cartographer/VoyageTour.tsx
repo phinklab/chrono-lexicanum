@@ -11,9 +11,11 @@
  *
  * The camera zoom adapts to leg length (short hops magnify, galaxy-spanning
  * reunions pull back) and the chart stays freely pannable throughout — Next
- * simply re-flies. ArrowRight/ArrowLeft page the tour; Escape is handled by
- * the root (popup → tour precedence). Mount keyed by voyage id (parent) —
- * switching journeys restarts the tour.
+ * simply re-flies. ArrowRight/ArrowLeft page the tour — window-bound so the
+ * arrows work without focusing the card, but behind the S9 target guard:
+ * fields, sliders and the seek combobox keep their own arrows. Escape is
+ * handled by the root (popup → tour precedence). Mount keyed by voyage id
+ * (parent) — switching journeys restarts the tour.
  */
 
 import { useEffect } from "react";
@@ -32,6 +34,8 @@ interface VoyageTourProps {
   reduce: boolean;
   /** World popup open — the card steps aside and returns when it closes. */
   suppressed: boolean;
+  /** Mobile sheet open (modal) — the card leaves the AT tree meanwhile. */
+  muted?: boolean;
   /** −1 overture … n−1 last station. */
   step: number;
   onStep: (step: number) => void;
@@ -48,6 +52,7 @@ export default function VoyageTour({
   bus,
   reduce,
   suppressed,
+  muted = false,
   step,
   onStep,
   onFin,
@@ -75,9 +80,19 @@ export default function VoyageTour({
     bus.flyTo(st.gx, st.gy, driver.getK0() * kr, reduce ? 0 : 1000);
   }, [bus, resolved, step, n, reduce]);
 
-  /* Arrow keys page the tour. */
+  /* Arrow keys page the tour — with the S9 target guard: a focused field,
+     slider or listbox (seek combobox, census rows, the media player's
+     volume) keeps its own arrow keys, the tour only pages when the keys
+     belong to nobody. */
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
+      const t = e.target;
+      if (
+        t instanceof Element &&
+        t.closest("input, textarea, select, audio, [contenteditable], [role='slider'], [role='listbox']")
+      ) {
+        return;
+      }
       if (e.key === "ArrowRight") {
         if (step < 0) onStep(0);
         else if (!last) onStep(step + 1);
@@ -92,7 +107,10 @@ export default function VoyageTour({
 
   if (step < 0) {
     return (
-      <div className={`cg-ccard cg-ccard--dock cg-tour show${suppressed ? " hide" : ""}`}>
+      <div
+        className={`cg-ccard cg-ccard--dock cg-tour show${suppressed ? " hide" : ""}`}
+        inert={suppressed || muted}
+      >
         <p className="ck">
           GREAT JOURNEY · {resolved.tag.toUpperCase()}
         </p>
@@ -113,7 +131,11 @@ export default function VoyageTour({
   const st = resolved.stations[step];
   if (!st) return null;
   return (
-    <div className={`cg-ccard cg-ccard--dock cg-tour show${suppressed ? " hide" : ""}`} key={step}>
+    <div
+      className={`cg-ccard cg-ccard--dock cg-tour show${suppressed ? " hide" : ""}`}
+      inert={suppressed || muted}
+      key={step}
+    >
       <button
         type="button"
         className="cpg cg-tour-x"
