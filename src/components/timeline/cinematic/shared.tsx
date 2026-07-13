@@ -9,6 +9,11 @@ import { useMediaQuery } from "@/lib/useMediaQuery";
 
 export { useMediaQuery };
 
+/** Coarse-pointer phone — the breakpoint that flips the stage's reading
+ * direction (CinematicView's scrollTop ⇄ t mapping) and gates the phone
+ * touch-target bumps in 67-chronicle-cinematic.css. */
+export const COARSE_PHONE_MQ = "(max-width: 760px) and (pointer: coarse)";
+
 export const TIER_MARK: Record<string, string> = {
   epoch: "◈",
   major: "◆",
@@ -48,6 +53,13 @@ export function siteMenuOpen(): boolean {
  * min-height so the layout doesn't shift while characters arrive. Typing
  * bypasses React state (leaf span owned via ref, re-keyed by callers per
  * event/era so reconciliation never races the interval).
+ *
+ * SR model (S9): the full text is server-rendered — the visible span carries
+ * it in the HTML (SEO/no-JS), then the client effect replays the typing over
+ * it. The typing layer is aria-hidden so AT never reads the character stream
+ * or a half-typed state; a visually-hidden sibling carries the complete text
+ * for the virtual cursor. Announcement-on-change is NOT this component's job
+ * (one status region in ChronicleStage owns that).
  */
 export function TypedParagraph({
   className,
@@ -93,8 +105,11 @@ export function TypedParagraph({
 
   return (
     <p className={className} ref={pRef}>
-      <span ref={spanRef} />
-      <span className="caret" />
+      <span aria-hidden="true" ref={spanRef}>
+        {text}
+      </span>
+      <span className="caret" aria-hidden="true" />
+      <span className="chron-sr">{text}</span>
     </p>
   );
 }

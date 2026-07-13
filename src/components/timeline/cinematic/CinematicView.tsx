@@ -12,6 +12,12 @@
  *   - the era intro dolly (`enterTimeline`) sweeps the rail in from the
  *     horizon while CSS `.wake` draws the chrome
  *
+ * Keyboard model (S9): the SECTION is the focusable stage (tabIndex 0) and
+ * owns the keydown handler — nothing listens on window anymore, so controls
+ * outside the stage (the media player's volume slider, any input) keep their
+ * arrow keys structurally. Focus follows era navigation: the keyed remount
+ * would otherwise drop focus to <body> and strand keyboard users.
+ *
  * The component is REMOUNTED per era (keyed by the stage), so `era`/`N` are
  * mount constants.
  */
@@ -32,6 +38,7 @@ import MediaRows from "./MediaRows";
 import { isCoarsePointer } from "@/lib/useMediaQuery";
 import {
   clamp,
+  COARSE_PHONE_MQ,
   DOT_R,
   roman,
   siteMenuOpen,
@@ -55,7 +62,7 @@ const PULL_MAX = 300; // wheel/touch distance to re-enter the previous era
 let flipMql: MediaQueryList | null = null;
 const isFlipped = () => {
   if (typeof window === "undefined") return false;
-  flipMql ??= window.matchMedia("(max-width: 760px) and (pointer: coarse)");
+  flipMql ??= window.matchMedia(COARSE_PHONE_MQ);
   return flipMql.matches;
 };
 
@@ -67,6 +74,9 @@ interface CinematicViewProps {
   active: boolean;
   wipeActive: boolean;
   reduced: boolean;
+  /** True when this mount came from era navigation (not initial page load) —
+   * the previous view unmounted with focus inside it, so the stage adopts it. */
+  focusOnMount: boolean;
   onEntryChange: (i: number) => void;
   onGotoEra: (era: number, idx: number) => void;
 }
@@ -79,6 +89,7 @@ export default function CinematicView({
   active,
   wipeActive,
   reduced,
+  focusOnMount,
   onEntryChange,
   onGotoEra,
 }: CinematicViewProps) {
@@ -96,6 +107,7 @@ export default function CinematicView({
   const terminusBtnRef = useRef<HTMLButtonElement>(null);
   const fillRef = useRef<HTMLDivElement>(null);
   const backPullRef = useRef<HTMLDivElement>(null);
+  const introBtnRef = useRef<HTMLButtonElement>(null);
   // per-event artwork overlay (EVENT_ART) — driven imperatively from an effect
   // so React re-renders never reset its crossfade; the last background stays on
   // the element while it fades out, then the era cover shows through again
@@ -135,14 +147,19 @@ export default function CinematicView({
   // Rail geometry lives in CSS (--cine-sp / --cine-dz on .chron, with the
   // mobile values in the 760px block), read into refs once per mount/resize —
   // the first client paint has the correct geometry with no hydration flip.
+  // The proxy's clientHeight is cached alongside (vhRef): the scroll handler
+  // must not read layout (S9 — a clientHeight read after the previous frame's
+  // style writes forces a reflow on every scroll event).
   const spRef = useRef(SPACING);
   const dzRef = useRef(DEPTH);
+  const vhRef = useRef(1);
   const readGeometry = useCallback(() => {
     const el = sectionRef.current;
     if (!el) return;
     const cs = getComputedStyle(el);
     spRef.current = parseFloat(cs.getPropertyValue("--cine-sp")) || SPACING;
     dzRef.current = parseFloat(cs.getPropertyValue("--cine-dz")) || DEPTH;
+    vhRef.current = scrollRef.current?.clientHeight || 1;
   }, []);
 
   // Per-frame rendering
@@ -304,25 +321,25 @@ export default function CinematicView({
 
   // scrollTop ⇄ t conversions — on flipped (touch-phone) stages the proxy
   // scrolls "backwards": t = 0 (entry 0) is the bottom edge, the terminus
-  // zone (t = N + 1) the top.
+  // zone (t = N + 1) the top. Both directions run off the cached viewport
+  // height (vhRef) so the hot paths never read layout.
   const toTop = useCallback(
-    (sc: HTMLElement, t: number) => (isFlipped() ? N + 1 - t : t) * sc.clientHeight,
+    (t: number) => (isFlipped() ? N + 1 - t : t) * vhRef.current,
     [N],
   );
-  const toT = useCallback(
-    (sc: HTMLElement) => {
-      const raw = sc.scrollTop / (sc.clientHeight || 1);
-      return isFlipped() ? N + 1 - raw : raw;
-    },
-    [N],
-  );
+  const toT = useCallback(() => {
+    const sc = scrollRef.current;
+    if (!sc) return 0;
+    const raw = sc.scrollTop / vhRef.current;
+    return isFlipped() ? N + 1 - raw : raw;
+  }, [N]);
 
   const goTo = useCallback(
     (i: number) => {
       const sc = scrollRef.current;
       if (!sc) return;
       sc.scrollTo({
-        top: toTop(sc, i),
+        top: toTop(i),
         behavior: reducedRef.current ? "auto" : "smooth",
       });
     },
@@ -334,7 +351,7 @@ export default function CinematicView({
     if (!sc) return;
     // Clamp: rubber-banding past the start edge would otherwise read as a
     // terminus overshoot on the flipped mapping and skip an era.
-    tRef.current.t = clamp(toT(sc), 0, N + 1);
+    tRef.current.t = clamp(toT(), 0, N + 1);
     animateCine();
     const idx = Math.round(tRef.current.t);
     if (idx !== entryRef.current && idx < N) onEntryChange(clamp(idx, 0, N - 1));
@@ -355,11 +372,32 @@ export default function CinematicView({
     if (prevActiveRef.current === null || (active && !prevActiveRef.current)) {
       readGeometry();
       const sc = scrollRef.current;
-      if (sc) sc.scrollTop = toTop(sc, entryRef.current);
+      if (sc) sc.scrollTop = toTop(entryRef.current);
       jumpCine(entryRef.current);
+      // arriving from the now-hidden index view (e.g. OPEN IN CINEMATIC)
+      // would strand focus in invisible content — adopt it into the stage
+      if (prevActiveRef.current === false) {
+        const ae = document.activeElement;
+        if (ae instanceof Element && ae.closest(".chron-archive")) {
+          sectionRef.current?.focus({ preventScroll: true });
+        }
+      }
     }
     prevActiveRef.current = active;
   }, [active, jumpCine, readGeometry, toTop]);
+
+  // era navigation remounts this view and unmounts whatever held focus (band
+  // stop, terminus button, the previous stage) — put keyboard users back on
+  // the stage: the intro's enter control when the intro opens, else the stage
+  // itself. Initial page load never steals focus (focusOnMount is false).
+  const mountFocusDone = useRef(false);
+  useEffect(() => {
+    if (mountFocusDone.current) return;
+    mountFocusDone.current = true;
+    if (!focusOnMount || !active) return;
+    const target = introOnRef.current ? introBtnRef.current : sectionRef.current;
+    target?.focus({ preventScroll: true });
+  }, [focusOnMount, active]);
 
   // keep position locked to the active event on resize / breakpoint flips
   useEffect(() => {
@@ -367,7 +405,7 @@ export default function CinematicView({
       readGeometry();
       const sc = scrollRef.current;
       if (!sc) return;
-      sc.scrollTop = toTop(sc, entryRef.current);
+      sc.scrollTop = toTop(entryRef.current);
       jumpCine(entryRef.current);
     };
     window.addEventListener("resize", onResize);
@@ -403,61 +441,92 @@ export default function CinematicView({
     setPrintNonce((x) => x + 1);
     // and dolly the timeline in from the horizon
     enterTimeline();
+    // the intro (and any focus on it) is going away — keyboard flow
+    // continues on the stage
+    sectionRef.current?.focus({ preventScroll: true });
   }, [enterTimeline]);
 
   const introTouchY = useRef<number | null>(null);
 
-  // Keyboard
+  // Keyboard — bound to the stage section (S9), NOT window: keys reach the
+  // handler only while focus is inside the stage, so inputs and the media
+  // player's volume slider (outside the stage) keep their arrows natively.
 
-  useEffect(() => {
+  const onStageKeyDown = (e: React.KeyboardEvent) => {
     if (!active) return;
-    const onKey = (e: KeyboardEvent) => {
-      // Minimal target guard (S8): keys aimed at a control that consumes
-      // arrows itself — the player's volume slider, inputs, native <audio>
-      // transports — must not be hijacked by the stage. S9 narrows this
-      // window listener to the stage properly; this guard is the invariant
-      // the smoke set pins down.
-      const t = e.target;
-      if (
-        t instanceof Element &&
-        t.closest("input, textarea, select, audio, [contenteditable], [role='slider']")
-      ) {
-        return;
+    // Target guard (S8 invariant, pinned by the volume-slider smoke): any
+    // control inside the stage that consumes keys itself stays untouched.
+    const t = e.target;
+    if (
+      t instanceof Element &&
+      t.closest(
+        "input, textarea, select, audio, [contenteditable], [role='slider']",
+      )
+    ) {
+      return;
+    }
+    const onActivatable = t instanceof Element && !!t.closest("button, a");
+    if (siteMenuOpen()) return;
+    if (introOnRef.current) {
+      if (["ArrowDown", "PageDown", "Enter", " ", "Escape"].includes(e.key)) {
+        // a focused control inside the intro (enter button, credit links)
+        // handles its own Enter/Space activation natively
+        if ((e.key === "Enter" || e.key === " ") && onActivatable) return;
+        e.preventDefault();
+        dismissIntro();
       }
-      if (siteMenuOpen()) return;
-      if (introOnRef.current) {
-        if (["ArrowDown", "PageDown", "Enter", " ", "Escape"].includes(e.key)) {
-          e.preventDefault();
-          dismissIntro();
-        }
-        return;
-      }
-      if (e.key === "ArrowDown" || e.key === "PageDown") {
-        e.preventDefault();
-        const cur = Math.round(tRef.current.t);
-        if (cur >= N) onGotoEra(nextIdx, 0);
-        else goTo(cur + 1);
-      } else if (e.key === "ArrowUp" || e.key === "PageUp") {
-        e.preventDefault();
-        const cur = Math.round(tRef.current.t);
-        if (cur <= 0 && eraIdx > 0) {
-          onGotoEra(eraIdx - 1, eras[eraIdx - 1].events.length - 1);
-        } else goTo(Math.max(cur - 1, 0));
-      } else if (e.key === "Home") {
-        e.preventDefault();
-        goTo(0);
-      } else if (e.key === "End") {
-        e.preventDefault();
-        goTo(N - 1);
-      }
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [active, N, eraIdx, eras, nextIdx, dismissIntro, goTo, onGotoEra]);
+      return;
+    }
+    // Enter/Space on a focused button or link inside the stage = activation,
+    // never stage navigation
+    if ((e.key === "Enter" || e.key === " ") && onActivatable) return;
+    if (
+      e.key === "ArrowDown" ||
+      e.key === "PageDown" ||
+      (e.key === " " && !e.shiftKey)
+    ) {
+      e.preventDefault();
+      const cur = Math.round(tRef.current.t);
+      if (cur >= N) onGotoEra(nextIdx, 0);
+      else goTo(cur + 1);
+    } else if (
+      e.key === "ArrowUp" ||
+      e.key === "PageUp" ||
+      (e.key === " " && e.shiftKey)
+    ) {
+      e.preventDefault();
+      const cur = Math.round(tRef.current.t);
+      if (cur <= 0 && eraIdx > 0) {
+        onGotoEra(eraIdx - 1, eras[eraIdx - 1].events.length - 1);
+      } else goTo(Math.max(cur - 1, 0));
+    } else if (e.key === "Home") {
+      e.preventDefault();
+      goTo(0);
+    } else if (e.key === "End") {
+      e.preventDefault();
+      goTo(N - 1);
+    }
+  };
+
+  // Clicks on non-interactive stage surface route focus to the section, so a
+  // pointer user can always follow up with the arrow keys (the old window
+  // listener allowed that from anywhere; the scoped handler needs focus).
+  const onStagePointerDown = (e: React.PointerEvent) => {
+    const t = e.target;
+    if (
+      t instanceof Element &&
+      t.closest("button, a, input, textarea, select, [contenteditable]")
+    ) {
+      return;
+    }
+    sectionRef.current?.focus({ preventScroll: true });
+  };
 
   // Backscroll into the previous era: pulling up (wheel / touch) at an era's
   // first entry re-enters the previous era at its final event — the mirror of
-  // scrolling past the terminus.
+  // scrolling past the terminus. Wheel listens on the section (S9), not
+  // window: a wheel over the site menu or the player popover is not stage
+  // input.
 
   useEffect(() => {
     if (!active || eraIdx === 0) return;
@@ -465,12 +534,14 @@ export default function CinematicView({
     let pull = 0;
     let pullTimer: ReturnType<typeof setTimeout> | undefined;
     // "At the era's first entry" = the proxy rests at its start edge —
-    // scrollTop 0 normally, the bottom edge on the flipped mapping.
+    // scrollTop 0 normally, the bottom edge on the flipped mapping. Both
+    // edges derive from the cached viewport height (max scrollTop of the
+    // N+2 snap cells is (N+1) · vh) — no layout reads in the wheel path.
     const atStart = () => {
       const sc = scrollRef.current;
       if (!sc) return true;
       return isFlipped()
-        ? sc.scrollTop >= sc.scrollHeight - sc.clientHeight - 1
+        ? sc.scrollTop >= (N + 1) * vhRef.current - 2
         : sc.scrollTop <= 1;
     };
     const canPullBack = () =>
@@ -512,18 +583,18 @@ export default function CinematicView({
       touchY0 = null;
       setPull(0);
     };
-    window.addEventListener("wheel", onWheel, { passive: true });
+    section?.addEventListener("wheel", onWheel, { passive: true });
     section?.addEventListener("touchstart", onTouchStart, { passive: true });
     section?.addEventListener("touchmove", onTouchMove, { passive: true });
     section?.addEventListener("touchend", onTouchEnd);
     return () => {
-      window.removeEventListener("wheel", onWheel);
+      section?.removeEventListener("wheel", onWheel);
       section?.removeEventListener("touchstart", onTouchStart);
       section?.removeEventListener("touchmove", onTouchMove);
       section?.removeEventListener("touchend", onTouchEnd);
       clearTimeout(pullTimer);
     };
-  }, [active, eraIdx, eras, onGotoEra]);
+  }, [active, eraIdx, eras, N, onGotoEra]);
 
   // Render
 
@@ -563,171 +634,188 @@ export default function CinematicView({
       ref={sectionRef}
       className={`chron-cine${wake ? " wake" : ""}${introOn ? " intro-hold" : ""}`}
       aria-label="Cinematic timeline"
+      aria-describedby="cine-kbd-hint"
+      tabIndex={0}
+      onKeyDown={onStageKeyDown}
+      onPointerDown={onStagePointerDown}
     >
-      {/* background — era cover underneath, with a per-event artwork override
-          (EVENT_ART) crossfading over it for the length of that event's slide */}
-      <div className="bg-stack">
-        <div
-          className={`bg${reduced ? "" : " kb"}`}
-          style={{
-            backgroundImage: `url("${era.cover}")`,
-            opacity: 1,
-            visibility: "visible",
-          }}
-        />
-        <div ref={bgEvRef} className={`bg bg-ev${reduced ? "" : " kb"}`} />
-      </div>
-      <div className="veil" />
+      <p id="cine-kbd-hint" className="chron-sr">
+        Use the up and down arrow keys to move between entries, Home and End to
+        jump to the first or last entry. Advancing past the final entry crosses
+        into the next era.
+      </p>
 
-      {/* Pure scroll-capture surface (empty snap cells): no role, so an
-          aria-label is prohibited here (axe: aria-prohibited-attr) and there
-          is nothing for AT to read anyway. S9 owns the real SR model. */}
-      <div
-        className="cine-scroll"
-        ref={scrollRef}
-        onScroll={onScroll}
-        aria-hidden
-      >
-        {Array.from({ length: N + 2 }, (_, i) => (
-          <div key={i} className="snap" />
-        ))}
-      </div>
-
-      <header className="era-bar">
-        <div className="row1">
-          <span className="era-pos">
-            ERA {eraIdx + 1}/{eras.length}
-          </span>
-          <span className="entry-count">
-            ENTRY {entry + 1} / {N}
-          </span>
-        </div>
-        <div className="era-rail">
-          <div className="fill" ref={fillRef} />
-        </div>
-      </header>
-
-      <EraBand
-        className="cine-band"
-        eras={eras}
-        activeIdx={eraIdx}
-        onSelect={(i) => onGotoEra(i, 0)}
-        ariaLabel="All eras"
-      />
-      {/* mobile-only caption naming the active era under the dot strip —
-          the band hides its per-stop labels there; desktop never shows it */}
-      <div className="cine-band-era" aria-hidden="true">
-        {era.short}
-      </div>
-
-      <div className="rail3d" aria-hidden="true">
-        {era.events.map((evt, i) => (
+      {/* everything except the era intro — inert while the intro is up, so
+          assistive tech cannot wander into the covered stage (display:
+          contents keeps the layout byte-identical) */}
+      <div className="cine-body" inert={introOn}>
+        {/* background — era cover underneath, with a per-event artwork override
+            (EVENT_ART) crossfading over it for the length of that event's slide */}
+        <div className="bg-stack">
           <div
-            key={evt.id}
-            className={`node ${evt.tier}${i === entry ? " on" : i < entry ? " past" : ""}`}
-            ref={(el) => {
-              nodeRefs.current[i] = el;
+            className={`bg${reduced ? "" : " kb"}`}
+            style={{
+              backgroundImage: `url("${era.cover}")`,
+              opacity: 1,
+              visibility: "visible",
             }}
-          >
-            {i < N - 1 && (
-              <div
-                className="seg"
-                ref={(el) => {
-                  segRefs.current[i] = el;
-                }}
-              />
-            )}
-            <div className="ring" />
-            <div
-              className="dot"
-              role="button"
-              tabIndex={-1}
-              onClick={() => goTo(i)}
-            />
-            <div className="nlab">{evt.dateLabel}</div>
-          </div>
-        ))}
-      </div>
+          />
+          <div ref={bgEvRef} className={`bg bg-ev${reduced ? "" : " kb"}`} />
+        </div>
+        <div className="veil" />
 
-      {/* keyed remount per entry re-triggers the dossier entrance + typing */}
-      <div
-        className="cine-lower print"
-        ref={lowerRef}
-        key={`${entry}:${printNonce}`}
-      >
-        <aside className="dossier" aria-live="polite">
-          {/* Pretitle is the tier alone (epoch / major / minor); the date
-              rides the rail node above. */}
-          <div className="d-kicker">
-            <span className="d-tier">
-              {TIER_MARK[ev.tier]} {ev.tier.toUpperCase()}
+        {/* Pure scroll-capture surface (empty snap cells): no role, aria-hidden,
+            and tabIndex -1 keeps UA keyboard-scroller heuristics from making a
+            hidden element focusable. The stage section owns the real keyboard
+            model. */}
+        <div
+          className="cine-scroll"
+          ref={scrollRef}
+          onScroll={onScroll}
+          aria-hidden
+          tabIndex={-1}
+        >
+          {Array.from({ length: N + 2 }, (_, i) => (
+            <div key={i} className="snap" />
+          ))}
+        </div>
+
+        <header className="era-bar">
+          <div className="row1">
+            <span className="era-pos">
+              ERA {eraIdx + 1}/{eras.length}
+            </span>
+            <span className="entry-count">
+              ENTRY {entry + 1} / {N}
             </span>
           </div>
-          <h1 className="d-title">{ev.title}</h1>
-          <TypedParagraph
-            className="d-note"
-            text={ev.blurb}
-            delayMs={320}
-            reduced={reduced}
-          />
-        </aside>
-        <MediaSegment media={ev.media} />
-      </div>
+          <div className="era-rail">
+            <div className="fill" ref={fillRef} />
+          </div>
+        </header>
 
-      <div className="terminus" ref={terminusRef}>
-        <div className="t-kicker">ERA COMPLETE</div>
-        <div className="t-era-done">
-          {era.m} · {era.name}
+        <EraBand
+          className="cine-band"
+          eras={eras}
+          activeIdx={eraIdx}
+          onSelect={(i) => onGotoEra(i, 0)}
+          ariaLabel="All eras"
+        />
+        {/* mobile-only caption naming the active era under the dot strip —
+            the band hides its per-stop labels there; desktop never shows it */}
+        <div className="cine-band-era" aria-hidden="true">
+          {era.short}
         </div>
-        <div className="t-rule" />
-        <p className="t-tagline">
-          {next ? next.tagline : "The chronicle ends here — for now."}
-        </p>
-        <button
-          ref={terminusBtnRef}
-          type="button"
-          className="terminus-btn"
-          onClick={() => onGotoEra(nextIdx, 0)}
+
+        <div className="rail3d" aria-hidden="true">
+          {era.events.map((evt, i) => (
+            <div
+              key={evt.id}
+              className={`node ${evt.tier}${i === entry ? " on" : i < entry ? " past" : ""}`}
+              ref={(el) => {
+                nodeRefs.current[i] = el;
+              }}
+            >
+              {i < N - 1 && (
+                <div
+                  className="seg"
+                  ref={(el) => {
+                    segRefs.current[i] = el;
+                  }}
+                />
+              )}
+              <div className="ring" />
+              {/* pointer affordance only — the rail sits under aria-hidden;
+                  the keyboard path is the stage's arrow keys */}
+              <div className="dot" onClick={() => goTo(i)} />
+              <div className="nlab">{evt.dateLabel}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* keyed remount per entry re-triggers the dossier entrance + typing */}
+        <div
+          className="cine-lower print"
+          ref={lowerRef}
+          key={`${entry}:${printNonce}`}
         >
-          <span className="tb-lab">{next ? "NEXT ERA" : "RETURN TO"}</span>
-          <span className="tb-name">
-            {next ? `${next.m} — ${next.name}` : "THE BEGINNING — DEEP HISTORY"}
-          </span>
-          <span className="tb-arrow">→</span>
-        </button>
-        <div className="t-scroll">SCROLL ON TO ENTER</div>
+          {/* NOT a live region: the stage's single status region announces the
+              entry change; the typing effect here is aria-hidden visual sugar
+              (TypedParagraph carries the full text for the virtual cursor). */}
+          <aside className="dossier">
+            {/* Pretitle is the tier alone (epoch / major / minor); the date
+                rides the rail node above. */}
+            <div className="d-kicker">
+              <span className="d-tier">
+                {TIER_MARK[ev.tier]} {ev.tier.toUpperCase()}
+              </span>
+            </div>
+            <h1 className="d-title">{ev.title}</h1>
+            <TypedParagraph
+              className="d-note"
+              text={ev.blurb}
+              delayMs={320}
+              reduced={reduced}
+            />
+          </aside>
+          <MediaSegment media={ev.media} />
+        </div>
+
+        <div className="terminus" ref={terminusRef}>
+          <div className="t-kicker">ERA COMPLETE</div>
+          <div className="t-era-done">
+            {era.m} · {era.name}
+          </div>
+          <div className="t-rule" />
+          <p className="t-tagline">
+            {next ? next.tagline : "The chronicle ends here — for now."}
+          </p>
+          <button
+            ref={terminusBtnRef}
+            type="button"
+            className="terminus-btn"
+            onClick={() => onGotoEra(nextIdx, 0)}
+          >
+            <span className="tb-lab">{next ? "NEXT ERA" : "RETURN TO"}</span>
+            <span className="tb-name">
+              {next ? `${next.m} — ${next.name}` : "THE BEGINNING — DEEP HISTORY"}
+            </span>
+            <span className="tb-arrow">→</span>
+          </button>
+          <div className="t-scroll">SCROLL ON TO ENTER</div>
+        </div>
+
+        <div className={`scroll-hint${hintGone ? " gone" : ""}`}>
+          SCROLL TO ADVANCE
+        </div>
+
+        <div className="back-pull" aria-hidden="true" ref={backPullRef}>
+          <span className="bp-arrow">↑</span>
+          <span className="bp-lab">PREVIOUS ERA</span>
+          <span className="bp-name">{prev ? `${prev.m} — ${prev.name}` : ""}</span>
+        </div>
+
+        {/* artist attribution — reserved bottom-right slot. Precedence: an
+            EVENT_ART override (its own artwork), then a per-event DB credit,
+            then the era cover's credit (matching whichever bg is showing). */}
+        {slideCredit ? (
+          <ArtCreditTag credit={slideCredit} />
+        ) : (
+          <a
+            className="art-credit"
+            target="_blank"
+            rel="noopener"
+            {...(ev.artCreditUrl ? { href: ev.artCreditUrl } : {})}
+          >
+            <span className="ac-lab">ARTWORK</span>
+            <span className="ac-name">
+              {ev.artCreditName || "ADD ARTIST CREDIT"}
+            </span>
+          </a>
+        )}
+
+        <div className="grain" />
       </div>
-
-      <div className={`scroll-hint${hintGone ? " gone" : ""}`}>
-        SCROLL TO ADVANCE
-      </div>
-
-      <div className="back-pull" aria-hidden="true" ref={backPullRef}>
-        <span className="bp-arrow">↑</span>
-        <span className="bp-lab">PREVIOUS ERA</span>
-        <span className="bp-name">{prev ? `${prev.m} — ${prev.name}` : ""}</span>
-      </div>
-
-      {/* artist attribution — reserved bottom-right slot. Precedence: an
-          EVENT_ART override (its own artwork), then a per-event DB credit,
-          then the era cover's credit (matching whichever bg is showing). */}
-      {slideCredit ? (
-        <ArtCreditTag credit={slideCredit} />
-      ) : (
-        <a
-          className="art-credit"
-          target="_blank"
-          rel="noopener"
-          {...(ev.artCreditUrl ? { href: ev.artCreditUrl } : {})}
-        >
-          <span className="ac-lab">ARTWORK</span>
-          <span className="ac-name">
-            {ev.artCreditName || "ADD ARTIST CREDIT"}
-          </span>
-        </a>
-      )}
-
-      <div className="grain" />
 
       {/* era intro — full-bleed opening whenever an era loads at its first entry */}
       <div
@@ -771,7 +859,19 @@ export default function CinematicView({
             <p className="ei-text" />
           )}
         </div>
-        <div className="ei-enter">CLICK OR SCROLL TO ENTER</div>
+        {/* the intro's focusable dismiss control — receives focus on era
+            arrival, so a keyboard user lands ON the intro (and SR announces
+            the era through the label) instead of losing focus to <body>.
+            The aria-label leads with the era and keeps the visible text (WCAG
+            2.5.3 label-in-name). Click bubbles to the intro's own handler. */}
+        <button
+          type="button"
+          className="ei-enter"
+          ref={introBtnRef}
+          aria-label={`${era.m} — ${era.name}: click or scroll to enter`}
+        >
+          CLICK OR SCROLL TO ENTER
+        </button>
         {eraCredit && (
           // stopPropagation: a click on the credit links must not double as
           // the intro's dismiss tap

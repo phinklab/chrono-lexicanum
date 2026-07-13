@@ -71,14 +71,31 @@ for (const viewport of VIEWPORTS) {
   }
 }
 
-test("timeline: volume slider keeps its arrow keys (1280px)", async ({
+test("timeline: stage arrows navigate, volume slider keeps its own (1280px)", async ({
   page,
 }) => {
   await page.setViewportSize({ width: 1280, height: 800 });
+  await calmMotion(page);
   await page.goto("/timeline");
   await expect(page.locator("main#main.chron-shell")).toBeVisible();
+  // The URL mirror (?era=) is written by a post-hydration effect — the
+  // keyboard model is only attached once it appears.
+  await page.waitForURL(/[?&]era=/);
 
-  // Open the player's volume popover and focus the slider.
+  // Half 1 (S9): the stage section owns the keydown — the whole timeline
+  // drives by keyboard alone. First ArrowDown dismisses the era intro,
+  // the next advances an entry.
+  const stage = page.locator("section.chron-cine");
+  const counter = page.locator(".era-bar .entry-count");
+  await stage.focus();
+  await expect(stage).toBeFocused();
+  await page.keyboard.press("ArrowDown");
+  await expect(page.locator(".era-intro")).not.toHaveClass(/\bon\b/);
+  await page.keyboard.press("ArrowDown");
+  await expect(counter).toHaveText(/^ENTRY 2 \//);
+
+  // Half 2 (S8 invariant): open the player's volume popover and focus the
+  // slider — its arrows must stay its own.
   await page.locator("button.media-player__vol").click();
   const slider = page.locator("input.media-player__volume");
   await expect(slider).toBeVisible();
@@ -89,9 +106,12 @@ test("timeline: volume slider keeps its arrow keys (1280px)", async ({
   await page.keyboard.press("ArrowUp");
   const after = Number(await slider.inputValue());
 
-  // Without the target guard the timeline's window keydown preventDefault()s
-  // the arrow and the slider never moves — the exact S8 invariant.
+  // Pre-S8 the timeline's window keydown preventDefault()ed the arrow and the
+  // slider never moved; since S9 the keydown lives on the stage, so the
+  // slider (outside it) is structurally unreachable.
   expect(after).toBeGreaterThan(before);
+  // …and the slider's keys must not have driven the stage either.
+  await expect(counter).toHaveText(/^ENTRY 2 \//);
 });
 
 test("book long tail renders through a live DB read", async ({ page }) => {
