@@ -20,9 +20,13 @@
  * (parent) — switching journeys restarts the tour.
  */
 
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 
-import type { ResolvedVoyage } from "@/lib/map/voyages";
+import {
+  fitVoyageBounds,
+  resolvedVoyageBounds,
+  type ResolvedVoyage,
+} from "@/lib/map/voyages";
 import type { ChartBus } from "./chart-bus";
 
 interface VoyageTourProps {
@@ -57,6 +61,29 @@ export default function VoyageTour({
   const last = step >= n - 1;
   const cardRef = useRef<HTMLDivElement | null>(null);
 
+  const finishTour = useCallback(() => {
+    const driver = bus.driver;
+    const bounds = resolvedVoyageBounds(resolved);
+    if (driver && bounds) {
+      const { vw, vh } = driver.getViewport();
+      const compact = vw <= 900;
+      const cardTop = cardRef.current?.getBoundingClientRect().top ?? 0;
+      const bottom =
+        cardTop > 120 && cardTop < vh
+          ? vh - cardTop + 24
+          : compact
+            ? 150
+            : 80;
+      const fit = fitVoyageBounds(
+        bounds,
+        { width: vw, height: vh },
+        { horizontal: compact ? 28 : 64, top: 72, bottom },
+      );
+      bus.flyTo(fit.gx, fit.gy, fit.k, reduce ? 0 : 1100, fit.dy);
+    }
+    onFin();
+  }, [bus, onFin, reduce, resolved]);
+
   /* Camera: overture surveys the whole chart, each station flies in at a
      zoom fitted to the arriving leg (short hops magnify, long hauls pull
      back so the transit reads). The station is centred in the FREE area
@@ -88,6 +115,7 @@ export default function VoyageTour({
      belong to nobody. */
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
+      if (suppressed || muted) return;
       const t = e.target;
       if (
         t instanceof Element &&
@@ -98,14 +126,14 @@ export default function VoyageTour({
       if (e.key === "ArrowRight") {
         if (step < 0) onStep(0);
         else if (!last) onStep(step + 1);
-        else onFin();
+        else finishTour();
       } else if (e.key === "ArrowLeft" && step > 0) {
         onStep(step - 1);
       }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [step, last, onStep, onFin]);
+  }, [step, last, onStep, finishTour, suppressed, muted]);
 
   if (step < 0) {
     return (
@@ -173,7 +201,7 @@ export default function VoyageTour({
             </button>
           )}
         </span>
-        <button className="cpg lead" onClick={() => (last ? onFin() : onStep(step + 1))}>
+        <button className="cpg lead" onClick={() => (last ? finishTour() : onStep(step + 1))}>
           {last ? "SHOW THE FULL ROUTE →" : `${step + 1} / ${n} · NEXT →`}
         </button>
       </div>

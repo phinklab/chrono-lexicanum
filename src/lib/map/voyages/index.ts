@@ -21,6 +21,8 @@ export type { LegOverride, Voyage, VoyageStation, VoyageStop, VoyageWaypoint } f
 export { isWaypoint } from "./types";
 export { pointOnLeg, resolveVoyage } from "./resolve";
 export type { ResolvedStation, ResolvedVoyage, VoyageChart } from "./resolve";
+export { fitVoyageBounds, resolvedVoyageBounds } from "./fit";
+export type { VoyageBounds, VoyageFit } from "./fit";
 
 export const VOYAGES: readonly Voyage[] = [
   GREAT_CRUSADE,

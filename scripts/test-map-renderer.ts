@@ -16,6 +16,7 @@ import {
   pickCanvasTarget,
 } from "../src/components/cartographer/canvas-renderer";
 import { H, W } from "../src/components/cartographer/chart-geometry";
+import { fitVoyageBounds, resolvedVoyageBounds } from "../src/lib/map/voyages";
 
 function close(actual: number, expected: number, message: string): void {
   assert.ok(Math.abs(actual - expected) < 1e-9, `${message}: ${actual} !== ${expected}`);
@@ -97,4 +98,35 @@ assert.equal(
   "an actual label-rect hit beats a merely nearby equal-rank pin",
 );
 
-console.log("map renderer: camera, backing budget, labels and picking green");
+const routeBounds = resolvedVoyageBounds({
+  stations: [
+    { gx: 100, gy: 200 },
+    { gx: 500, gy: 200 },
+  ],
+  legs: ["M 100 200 Q 300 0 500 200"],
+  lbl: { x: 300, y: 190, t: "ROUTE" },
+});
+assert.deepEqual(
+  routeBounds,
+  { minX: 100, minY: 100, maxX: 500, maxY: 200 },
+  "route bounds include the curved leg, not only its stations",
+);
+const routeLabelBounds = resolvedVoyageBounds({
+  stations: [{ gx: 100, gy: 100 }],
+  legs: [],
+  lbl: { x: 600, y: 250, t: "FULL ROUTE" },
+});
+assert.ok(routeLabelBounds && routeLabelBounds.maxX > 600, "route bounds include label width");
+assert.ok(routeLabelBounds && routeLabelBounds.maxY > 250, "route bounds include label baseline");
+
+const routeFit = fitVoyageBounds(
+  { minX: 100, minY: 100, maxX: 500, maxY: 300 },
+  { width: 400, height: 800 },
+  { horizontal: 20, top: 80, bottom: 320 },
+);
+close(routeFit.gx, 300, "route fit centers the grid bounds horizontally");
+close(routeFit.gy, 200, "route fit centers the grid bounds vertically");
+close(routeFit.k, 0.9, "route fit uses the limiting visible dimension");
+close(routeFit.dy, -120, "route fit centers above the docked card");
+
+console.log("map renderer: camera, backing budget, labels, picking and voyage fit green");
