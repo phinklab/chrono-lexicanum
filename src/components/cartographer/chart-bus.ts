@@ -11,8 +11,11 @@ export type FrameListener = () => void;
 export interface CameraDriver {
   /** Multiply zoom around the viewport center. */
   zoomAtCenter(factor: number): void;
-  /** Eased flight to a grid point at an absolute scale. */
-  flyTo(gx: number, gy: number, kAbs: number, ms?: number): void;
+  /** Eased flight to a grid point at an absolute scale. `dy` offsets where
+   *  the target lands vertically, in screen px off the viewport centre
+   *  (negative = above — the voyage tour centres its station in the free
+   *  area above the bottom-docked card). */
+  flyTo(gx: number, gy: number, kAbs: number, ms?: number, dy?: number): void;
   /** Back to the full sweep. */
   home(ms?: number): void;
   /** Instant restore: center on a grid point at kr = k/k0 (hash restore). */
@@ -66,8 +69,8 @@ export class ChartBus {
     this.driver?.zoomAtCenter(factor);
   }
 
-  flyTo(gx: number, gy: number, kAbs: number, ms?: number): void {
-    this.driver?.flyTo(gx, gy, kAbs, ms);
+  flyTo(gx: number, gy: number, kAbs: number, ms?: number, dy?: number): void {
+    this.driver?.flyTo(gx, gy, kAbs, ms, dy);
   }
 
   home(ms?: number): void {

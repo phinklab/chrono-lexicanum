@@ -1817,6 +1817,16 @@ body.cg-on-map .site-brand {
   color: var(--cl-gold);
   border-color: var(--cl-gold-dim);
 }
+/* Phones: bottom-right belongs to the voyage dock card — the toggle sat on
+   top of the tour's Next button. Park it top-left under the vox stud. */
+@media (max-width: 900px) {
+  .cg-zed-toggle {
+    right: auto;
+    bottom: auto;
+    left: 10px;
+    top: 64px;
+  }
+}
 
 /* Zone editor: handles in the chart + panel on the right */
 /* In the editor the zone shapes live in #cg-fields (portal, beneath the
