@@ -21,9 +21,10 @@
  * the mobile drawer (CartoucheSheet) so both surfaces render one vocabulary.
  */
 
-import { useMemo, useState } from "react";
+import { useId, useMemo, useState } from "react";
 import type { ReactNode, Ref } from "react";
 
+import BtnFx from "@/components/shared/BtnFx";
 import type { MapPayload } from "@/lib/map/payload";
 import { VOYAGES } from "@/lib/map/voyages";
 
@@ -32,9 +33,21 @@ export function fmt(n: number): string {
   return n.toLocaleString("en-US").replace(/,/g, " ");
 }
 
-export function Overture({ condensed, payload }: { condensed: boolean; payload: MapPayload }) {
+export function Overture({
+  condensed,
+  payload,
+  onEnter,
+}: {
+  condensed: boolean;
+  payload: MapPayload;
+  onEnter: () => void;
+}) {
+  // While the veil stands, the invisible chart chrome behind it is inert
+  // (CartographerRoot) — this button is the keyboard door: it lifts the
+  // veil and hands focus to the live controls. Once condensed the section
+  // goes inert itself so the hidden button leaves the tab order.
   return (
-    <section className={`cg-overture${condensed ? " off" : ""}`} aria-hidden={condensed}>
+    <section className={`cg-overture${condensed ? " off" : ""}`} aria-hidden={condensed} inert={condensed}>
       <p className="over">Chartae Imperialis · Maledictum</p>
       <h1>
         The <em>Cartographer</em>
@@ -48,6 +61,12 @@ export function Overture({ condensed, payload }: { condensed: boolean; payload: 
         <span className="hint-fine">drag to survey · scroll to magnify · click a world</span>
         <span className="hint-coarse">drag to survey · pinch to magnify · tap a world</span>
       </p>
+      {/* Site-wide Sternwarte button: origin dot blooms into rings + survey
+          stars on hover (BtnFx). */}
+      <button type="button" className="lx-btn cg-enter" onClick={onEnter}>
+        Enter the chart
+        <BtnFx />
+      </button>
     </section>
   );
 }
@@ -62,7 +81,7 @@ interface SeekHit {
  *  is a "keep typing" line. */
 const SEEK_CAP = 160;
 
-type SectionId = "courses" | "instruments" | "census";
+export type SectionId = "courses" | "instruments" | "census" | "index";
 
 /** Collapsible-section header — car glyph + label + optional gold state note. */
 export function SectionHead({
@@ -101,6 +120,7 @@ export function VoyageButtons({
         <button
           key={voyage.id}
           className={`rt${voyageId === voyage.id ? " on" : ""}`}
+          aria-pressed={voyageId === voyage.id}
           onClick={() => onVoyage(voyage.id)}
         >
           {voyage.name}
@@ -127,11 +147,11 @@ export function OverlayButtons({
 }) {
   return (
     <div className="routes">
-      <button className={`rt${lumen ? " on" : ""}`} onClick={onToggleLumen}>
+      <button className={`rt${lumen ? " on" : ""}`} aria-pressed={lumen} onClick={onToggleLumen}>
         Lumen Astronomican
         <span className="rt-tag">the beacon&rsquo;s reach</span>
       </button>
-      <button className={`rt${nihilus ? " on" : ""}`} onClick={onToggleNihilus}>
+      <button className={`rt${nihilus ? " on" : ""}`} aria-pressed={nihilus} onClick={onToggleNihilus}>
         Imperium Nihilus
         <span className="rt-tag">the dark half</span>
       </button>
@@ -140,7 +160,11 @@ export function OverlayButtons({
 }
 
 /** Seek input + live result list. Owns its query state; picking a hit clears
- *  the query and hands the id to `onPick`. */
+ *  the query and hands the id to `onPick`.
+ *  A11y (S10a): a real combobox — the input keeps focus for the whole
+ *  seek→pick→Escape loop (pinned by the S8 smoke) while
+ *  `aria-activedescendant` walks the listbox options. Two instances render
+ *  (cartouche + sheet), so every id is `useId`-scoped. */
 export function SeekPanel({
   payload,
   onPick,
@@ -153,6 +177,9 @@ export function SeekPanel({
   const [query, setQuery] = useState("");
   const [cursor, setCursor] = useState(0);
   const [focused, setFocused] = useState(false);
+  const baseId = useId();
+  const listId = `${baseId}-list`;
+  const optId = (i: number) => `${baseId}-opt-${i}`;
 
   const index = useMemo<SeekHit[]>(() => {
     const arr: SeekHit[] = payload.featured.map((f) => ({ id: f.id, name: f.name, n: f.n }));
@@ -190,6 +217,13 @@ export function SeekPanel({
           type="text"
           placeholder="Seek a world…"
           aria-label="Seek a world"
+          role="combobox"
+          aria-expanded={open}
+          // Only while the listbox exists — a dangling id reference is an
+          // axe violation (aria-valid-attr-value).
+          aria-controls={open ? listId : undefined}
+          aria-autocomplete="list"
+          aria-activedescendant={open ? optId(cur) : undefined}
           spellCheck={false}
           value={query}
           onChange={(e) => {
@@ -221,26 +255,66 @@ export function SeekPanel({
       </div>
       {open && (
         // preventDefault keeps the input focused so the click lands before
-        // the list would close on blur.
+        // the list would close on blur. The listbox itself is the inner
+        // wrapper — options only, the "keep typing" line stays outside it.
         <div className="seeklist" onMouseDown={(e) => e.preventDefault()}>
-          {hits.slice(0, SEEK_CAP).map((hit, i) => (
-            <button
-              key={hit.id}
-              className={`skitem${i === cur ? " cur" : ""}`}
-              ref={i === cur ? (el) => el?.scrollIntoView({ block: "nearest" }) : undefined}
-              onClick={() => pickHit(hit)}
-            >
-              <span className="nm">{hit.name}</span>
-              <span className="tag">
-                {hit.n > 0 ? (hit.n === 1 ? "1 work" : `${hit.n} works`) : "dust"}
-              </span>
-            </button>
-          ))}
+          <div role="listbox" id={listId} aria-label="Matching worlds">
+            {hits.slice(0, SEEK_CAP).map((hit, i) => (
+              <button
+                key={hit.id}
+                role="option"
+                id={optId(i)}
+                aria-selected={i === cur}
+                className={`skitem${i === cur ? " cur" : ""}`}
+                ref={i === cur ? (el) => el?.scrollIntoView({ block: "nearest" }) : undefined}
+                onClick={() => pickHit(hit)}
+              >
+                <span className="nm">{hit.name}</span>
+                <span className="tag">
+                  {hit.n > 0 ? (hit.n === 1 ? "1 work" : `${hit.n} works`) : "dust"}
+                </span>
+              </button>
+            ))}
+          </div>
           {hits.length > SEEK_CAP && (
             <p className="skmore">… {fmt(hits.length - SEEK_CAP)} more — keep typing</p>
           )}
         </div>
       )}
+    </>
+  );
+}
+
+/** The recorded-worlds index — the keyboard/AT parallel path to the 1 000+
+ *  pointer-only pins: every world that carries records, A–Z, as real
+ *  buttons. Dust contacts stay reachable through the seek (it indexes all
+ *  contacts). Rendered only while its section is open — zero cost closed. */
+export function WorldIndex({
+  payload,
+  onPick,
+}: {
+  payload: MapPayload;
+  onPick: (id: string) => void;
+}) {
+  const rows = useMemo(
+    () => [...payload.featured].sort((a, b) => a.name.localeCompare(b.name)),
+    [payload],
+  );
+  return (
+    <>
+      <p className="c-hint">
+        every recorded world, A–Z — the seek reaches all {fmt(payload.contacts)} contacts
+      </p>
+      <ul className="cg-windex">
+        {rows.map((f) => (
+          <li key={f.id}>
+            <button onClick={() => onPick(f.id)}>
+              <span className="nm">{f.name}</span>
+              <span className="tag">{f.n === 1 ? "1 work" : `${f.n} works`}</span>
+            </button>
+          </li>
+        ))}
+      </ul>
     </>
   );
 }
@@ -291,9 +365,11 @@ export function Cartouche({
   const instrumentsNote = [lumen && "Lumen", nihilus && "Nihilus"].filter(Boolean).join(" · ");
 
   return (
-    <aside className={`cg-cartouche${condensed ? " on" : ""}`}>
+    // inert while the overture veil is up: the legend is invisible then
+    // (opacity 0 until `.on`) and must not be a hidden tab stop.
+    <aside className={`cg-cartouche${condensed ? " on" : ""}`} inert={!condensed}>
       <div className="c-head">
-        <p className="c-title">The Cartographer</p>
+        <h2 className="c-title">The Cartographer</h2>
       </div>
       <SeekPanel payload={payload} onPick={onPick} />
       <SectionHead
@@ -333,6 +409,18 @@ export function Cartouche({
         onToggle={() => toggleSec("census")}
       />
       {openSecs.has("census") && <div className="c-body">{children}</div>}
+
+      <SectionHead
+        open={openSecs.has("index")}
+        label="World index"
+        note={null}
+        onToggle={() => toggleSec("index")}
+      />
+      {openSecs.has("index") && (
+        <div className="c-body">
+          <WorldIndex payload={payload} onPick={onPick} />
+        </div>
+      )}
     </aside>
   );
 }

@@ -109,7 +109,7 @@ export default function Census({
   return (
     <div className="cg-census">
       <p className="chead">Show on the chart</p>
-      <button className={`cx${worksOnly ? " on" : ""}`} onClick={onToggleWorksOnly}>
+      <button className={`cx${worksOnly ? " on" : ""}`} aria-pressed={worksOnly} onClick={onToggleWorksOnly}>
         <span className="pad" />
         <span className="sym">
           <svg viewBox="-8 -8 16 16" width={18} height={18}>
@@ -121,7 +121,7 @@ export default function Census({
         <span className="n">{featTotal}</span>
       </button>
       {!worksOnly && (
-        <button className={`cx${dustOff ? " off" : ""}`} onClick={onToggleDust}>
+        <button className={`cx${dustOff ? " off" : ""}`} aria-pressed={!dustOff} onClick={onToggleDust}>
           <span className="pad" />
           <span className="sym">
             <svg viewBox="-8 -8 16 16" width={18} height={18}>
@@ -139,6 +139,9 @@ export default function Census({
           className={`cx${zones === "off" ? " off" : ""}${zones === "dim" ? " dim" : ""}`}
           onClick={onCycleZones}
           title="Cycle the marked zones: full → dimmed without names → hidden"
+          aria-label={`Zones & warp storms: ${
+            zones === "on" ? "shown" : zones === "dim" ? "dimmed" : "hidden"
+          } — cycle`}
         >
           <span className="pad" />
           <span className="sym">
@@ -166,6 +169,7 @@ export default function Census({
           say, leaves the overview nearly empty otherwise. */}
       <button
         className={`cx${namesOn ? " on" : ""}`}
+        aria-pressed={namesOn}
         onClick={onToggleNames}
         title="Show the name of every visible world, no matter how far the chart is zoomed out"
       >
@@ -229,6 +233,8 @@ export default function Census({
               <button
                 className="car"
                 title="Unfold: filter single classifications inside this group"
+                aria-label={`Unfold ${label}: filter single classifications`}
+                aria-expanded={isOpen}
                 onClick={() =>
                   setOpen((o) => {
                     const next = new Set(o);
@@ -245,7 +251,7 @@ export default function Census({
                   <Glyph kind={kind} s={3.4} />
                 </svg>
               </span>
-              <button className="gname" onClick={() => onSetCls(members, !allOff)}>
+              <button className="gname" aria-pressed={!allOff} onClick={() => onSetCls(members, !allOff)}>
                 {label}
                 {kind === "unclassified" && (
                   <i className="hint">no type recorded in the archive</i>
@@ -260,6 +266,7 @@ export default function Census({
                     <button
                       key={ci}
                       className={`crow${hiddenCls.has(ci) ? " off" : ""}`}
+                      aria-pressed={!hiddenCls.has(ci)}
                       onClick={() => onToggleCls(ci)}
                     >
                       <span>{payload.cls[ci]}</span>

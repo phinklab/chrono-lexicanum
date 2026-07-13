@@ -180,7 +180,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
   const magRef = useRef<HTMLSpanElement | null>(null);
 
   const source = useMemo(() => catalogSource(payload), [payload]);
-  const selectedWorld = state.selectedId ? source.detail(state.selectedId) : null;
+  const selectedWorld = state.selectedId ? source.peek(state.selectedId) : null;
   const activeVoyage = useMemo(() => {
     const v = state.voyage ? VOYAGES.find((c) => c.id === state.voyage?.id) : null;
     return v ? resolveVoyage(v, payload) : null;
@@ -220,12 +220,31 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
     }
   }, []);
 
+  /* Focus restore (S10a): remember the control that opened the panel; when
+     the panel closes while focus is INSIDE it (user tabbed in, or clicked
+     the ✕), hand focus back. Opening never steals focus (S8 smoke: seek
+     keeps focus while the panel opens). */
+  const invokerRef = useRef<HTMLElement | null>(null);
+
   const selectWorld = useCallback(
     (id: string | null, fly = true) => {
+      if (id) {
+        const a = document.activeElement;
+        invokerRef.current = a instanceof HTMLElement && a !== document.body ? a : null;
+      } else {
+        const pop = document.querySelector(".cg-pop");
+        if (pop && pop.contains(document.activeElement)) {
+          const target = invokerRef.current?.isConnected
+            ? invokerRef.current
+            : document.getElementById("main");
+          target?.focus();
+        }
+        invokerRef.current = null;
+      }
       applySelClass(id);
       dispatch({ type: "select", id });
       if (!id || !fly) return;
-      const w = source.detail(id);
+      const w = source.peek(id);
       const driver = bus.driver;
       if (w && driver) {
         bus.flyTo(w.gx, w.gy, Math.max(driver.getK(), driver.getK0() * 2.4), 900);
@@ -265,7 +284,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
     restored.current = true;
     const h = parseMapHash();
     if (h.cam && bus.driver) bus.driver.setCamRel(h.cam.gx, h.cam.gy, h.cam.kr);
-    if (h.world && source.detail(h.world)) {
+    if (h.world && source.peek(h.world)) {
       dispatch({ type: "condense" });
       selectWorld(h.world, !h.cam);
     }
@@ -305,6 +324,49 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
 
   const condense = useCallback(() => dispatch({ type: "condense" }), []);
   const pick = useCallback((id: string | null) => selectWorld(id), [selectWorld]);
+
+  /* Keyboard entry: the overture's ENTER button lifts the veil and parks
+     focus on #main — the next Tab lands on the first live control (desktop:
+     the seek field; phones: the drawer grip). */
+  const enterChart = useCallback(() => {
+    dispatch({ type: "condense" });
+    document.getElementById("main")?.focus();
+  }, []);
+
+  /* ONE status region (the S9 Chronicle lesson): world panel + tour steps
+     speak here; everything else announces via its own control semantics.
+     Derived with the "adjust state during render" pattern (same as the
+     panel's setShown) — keyed, so each state speaks exactly once and the
+     initial mount stays silent. */
+  const [live, setLive] = useState<{ key: string; msg: string }>({ key: "init", msg: "" });
+  {
+    let key: string;
+    let msg: string;
+    if (selectedWorld) {
+      const records =
+        selectedWorld.n === 0
+          ? "no records"
+          : selectedWorld.n === 1
+            ? "1 record"
+            : `${selectedWorld.n} records`;
+      key = `sel:${selectedWorld.id}`;
+      msg = `${selectedWorld.name} — ${records} — world panel open`;
+    } else if (state.voyage?.mode === "tour" && activeVoyage) {
+      const s = state.voyage.step;
+      const st = activeVoyage.stations[s];
+      key = `tour:${activeVoyage.id}:${s}`;
+      msg =
+        s < 0 || !st
+          ? `${activeVoyage.name} — journey tour open — ${activeVoyage.stations.length} stations`
+          : `Act ${s + 1} of ${activeVoyage.stations.length} — ${st.heading}`;
+    } else {
+      key = "idle";
+      // Announce the close only after a panel actually spoke (never on load).
+      msg = live.key.startsWith("sel:") ? "World panel closed" : "";
+    }
+    if (key !== live.key) setLive({ key, msg });
+  }
+  const liveMsg = live.msg;
 
   /* Zoom presets: fly — the center stays put — to exactly the magnification
      at which the next name tier is loaded (band thresholds 3.1/5.6 in
@@ -412,7 +474,12 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
         </>
       )}
 
-      <Overture condensed={state.condensed} payload={payload} />
+      <Overture condensed={state.condensed} payload={payload} onEnter={enterChart} />
+
+      {/* The one SR status region — world panel + tour steps. */}
+      <div className="cg-sr" role="status">
+        {liveMsg}
+      </div>
 
       <Cartouche
         payload={payload}
@@ -439,6 +506,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
         nihilus={state.nihilus}
         filtered={anyFiltered}
         suppressed={state.selectedId !== null}
+        veiled={!state.condensed}
         open={sheetOpen}
         onOpenChange={setSheetOpen}
         onPick={pick}
@@ -452,7 +520,9 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
       <WorldPanel
         world={selectedWorld}
         payload={payload}
+        source={source}
         bus={bus}
+        suppressed={sheetOpen}
         onClose={() => selectWorld(null)}
       />
 
@@ -463,6 +533,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           bus={bus}
           reduce={reduce}
           suppressed={state.selectedId !== null}
+          muted={sheetOpen}
           step={state.voyage.step}
           onStep={(step) => dispatch({ type: "voyageStep", step })}
           onFin={() => dispatch({ type: "voyageFree", step: activeVoyage.stations.length })}
@@ -476,12 +547,14 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           key={activeVoyage.id}
           resolved={activeVoyage}
           suppressed={state.selectedId !== null}
+          muted={sheetOpen}
         />
       )}
 
-      <div className="cg-zoomer">
+      <div className="cg-zoomer" inert={!state.condensed || sheetOpen}>
         <button
           title="Magnify"
+          aria-label="Magnify"
           onClick={() => {
             condense();
             bus.zoomAtCenter(1.45);
@@ -491,6 +564,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
         </button>
         <button
           title="Withdraw"
+          aria-label="Withdraw"
           onClick={() => {
             condense();
             bus.zoomAtCenter(1 / 1.45);
@@ -501,6 +575,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
         <button
           className="preset"
           title="Magnify to 3.2×: the recorded worlds' names come on"
+          aria-label="Magnify to 3×: the recorded worlds' names come on"
           onClick={() => zoomPreset(3.2)}
         >
           3×
@@ -508,12 +583,14 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
         <button
           className="preset"
           title="Magnify to 6.0×: every name on the chart comes on"
+          aria-label="Magnify to 6×: every name on the chart comes on"
           onClick={() => zoomPreset(6.0)}
         >
           6×
         </button>
         <button
           title="Full sweep"
+          aria-label="Full sweep: withdraw to the whole chart"
           onClick={() => {
             condense();
             selectWorld(null);
@@ -524,8 +601,9 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
         </button>
       </div>
       {/* Coordinates are curation internals (Excel space) — the readout shows
-          only the magnification. */}
-      <p className="cg-readout">
+          only the magnification. aria-hidden: a per-frame textContent write
+          is a visual instrument, not something AT should stumble into. */}
+      <p className="cg-readout" aria-hidden="true">
         <span className="mag" ref={magRef}>
           MAG 1.00×
         </span>

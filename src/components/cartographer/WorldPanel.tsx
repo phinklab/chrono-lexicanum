@@ -20,6 +20,16 @@
  * "All N records →" opens the big view (/world/{loc} — the @modal intercept
  * renders it over the chart).
  *
+ * Data: the panel shell (name, class, count) renders synchronously from the
+ * payload skeleton; blurb + work list arrive per world via
+ * `source.detail()` (S10a — one small fetch per first open, cached).
+ *
+ * A11y: non-modal dialog. Opening never steals focus (the S8 smoke pins
+ * "seek keeps focus while the panel opens" — deliberate: seek world after
+ * world without re-tabbing); the root announces the selection in its status
+ * region and restores focus to the invoker when the panel closes while
+ * focus was inside it. `inert` parks the hidden panel out of the tab order.
+ *
  * Positioning is imperative (bus frame subscription) — panning never
  * re-renders React. The last world stays rendered through the fade-out.
  */
@@ -28,9 +38,9 @@ import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { isNarrow } from "@/lib/useMediaQuery";
-import type { FeaturedWorld, MapPayload } from "@/lib/map/payload";
+import type { FeaturedWorld, MapPayload, WorldDetail } from "@/lib/map/payload";
 import type { MapWorldKind, MapWorldWork } from "@/lib/map/map-worlds-schema";
-import { loadWorldBlurbs } from "@/lib/map/world-blurbs";
+import type { PinSource } from "@/lib/map/pin-source";
 import type { ChartBus } from "./chart-bus";
 
 const KIND_LABEL: Record<MapWorldKind, string> = {
@@ -61,11 +71,21 @@ function viaLabel(via: string): string {
 interface WorldPanelProps {
   world: FeaturedWorld | null;
   payload: MapPayload;
+  source: PinSource;
   bus: ChartBus;
+  /** The mobile sheet is up (modal) — park the panel out of the AT tree. */
+  suppressed?: boolean;
   onClose: () => void;
 }
 
-export default function WorldPanel({ world, payload, bus, onClose }: WorldPanelProps) {
+export default function WorldPanel({
+  world,
+  payload,
+  source,
+  bus,
+  suppressed = false,
+  onClose,
+}: WorldPanelProps) {
   const elRef = useRef<HTMLDivElement | null>(null);
   const worldRef = useRef<FeaturedWorld | null>(null);
   // Last non-null world keeps the content alive through the close fade-out
@@ -79,21 +99,22 @@ export default function WorldPanel({ world, payload, bus, onClose }: WorldPanelP
   const expanded = shown !== null && openFor === shown.id;
   const full = shown !== null && fullFor === shown.id;
 
-  /* Blurb fallback: worlds without a location-blurb (dust + unlinked
-     featured) get their text from the lazy world-blurbs chunk — keyed per
-     world id so a stale lookup never shows on the wrong world. */
-  const [fallback, setFallback] = useState<{ id: string; text: string | null } | null>(null);
+  /* Lazy detail (works + blurb): fetched per world on open — keyed per
+     world id so a stale response never shows on the wrong world. */
+  const [detail, setDetail] = useState<{ id: string; d: WorldDetail | null } | null>(null);
   useEffect(() => {
-    if (!shown || shown.blurb) return;
+    if (!shown) return;
     let live = true;
     const id = shown.id;
-    loadWorldBlurbs().then((map) => {
-      if (live) setFallback({ id, text: map.get(id) ?? null });
+    source.detail(id).then((d) => {
+      if (live) setDetail({ id, d });
     });
     return () => {
       live = false;
     };
-  }, [shown]);
+  }, [shown, source]);
+  const shownDetail = shown && detail?.id === shown.id ? detail.d : null;
+  const detailPending = shown !== null && detail?.id !== shown.id;
 
   const place = useCallback(() => {
     const el = elRef.current;
@@ -117,11 +138,12 @@ export default function WorldPanel({ world, payload, bus, onClose }: WorldPanelP
     el.style.top = `${py}px`;
   }, [bus]);
 
-  // Re-place when selection or content committed (size may have changed).
+  // Re-place when selection or content committed (size may have changed —
+  // including the async detail arriving).
   useEffect(() => {
     worldRef.current = world;
     place();
-  }, [world, shown, expanded, full, place]);
+  }, [world, shown, expanded, full, detail, place]);
 
   useEffect(() => bus.onFrame(place), [bus, place]);
 
@@ -141,14 +163,21 @@ export default function WorldPanel({ world, payload, bus, onClose }: WorldPanelP
     (shown.kind !== "region" && shown.c >= 0 && payload.cls[shown.c] !== "Unclassified"
       ? payload.cls[shown.c]
       : KIND_LABEL[shown.kind]);
-  const works = shown
-    ? [...shown.works].sort(
+  const works = shownDetail
+    ? [...shownDetail.works].sort(
         (a, b) => (ROLE_RANK[a.role] ?? 9) - (ROLE_RANK[b.role] ?? 9) || a.title.localeCompare(b.title),
       )
     : [];
 
   return (
-    <div ref={elRef} className={`cg-pop${world ? " open" : ""}`} aria-hidden={!world}>
+    <div
+      ref={elRef}
+      className={`cg-pop${world ? " open" : ""}`}
+      role="dialog"
+      aria-label={shown?.name}
+      aria-hidden={!world || suppressed}
+      inert={!world || suppressed}
+    >
       {shown && (
         <>
           <button className="pp-close" onClick={onClose} aria-label="Close">
@@ -183,9 +212,11 @@ export default function WorldPanel({ world, payload, bus, onClose }: WorldPanelP
           )}
           <div className="pp-rule" />
           {(() => {
-            const text = shown.blurb ?? (fallback?.id === shown.id ? fallback.text : null);
+            const text = shownDetail?.blurb ?? null;
             return (
-              <p className={`pp-blurb${text ? "" : " missing"}`}>{text ?? "empty. add later"}</p>
+              <p className={`pp-blurb${text ? "" : " missing"}`}>
+                {text ?? (detailPending ? "…" : "empty. add later")}
+              </p>
             );
           })()}
           {shown.n === 0 && shown.kind !== "region" && (
@@ -194,6 +225,7 @@ export default function WorldPanel({ world, payload, bus, onClose }: WorldPanelP
           {shown.n > 0 && (
             <button
               className={`pp-works-toggle${expanded ? " open" : ""}`}
+              aria-expanded={expanded}
               onClick={() => {
                 setOpenFor(expanded ? null : shown.id);
                 if (expanded) setFullFor(null);

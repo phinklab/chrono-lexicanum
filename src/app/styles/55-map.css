@@ -681,14 +681,16 @@ body.cg-on-map .site-brand .site-brand__map {
   justify-content: center;
   text-align: center;
   pointer-events: none;
-  /* Noticeably darker than the map itself: while the overture stands,
-     "The Cartographer" + text must stay readable with the map only
-     shimmering through. The first interaction lifts the veil. */
+  /* Near-opaque while the overture stands: the chart may only faintly
+     shimmer through (maintainer call 2026-07-13 — the old 0.88/0.74/0.56
+     ramp left the map too present and the text hard to read). The gentle
+     radial falloff keeps the vignette feel; the first interaction lifts
+     the veil. */
   background: radial-gradient(
     ellipse at 50% 46%,
-    rgba(3, 2, 1, 0.88) 0%,
-    rgba(3, 2, 1, 0.74) 58%,
-    rgba(3, 2, 1, 0.56) 100%
+    rgba(3, 2, 1, 0.97) 0%,
+    rgba(3, 2, 1, 0.93) 58%,
+    rgba(3, 2, 1, 0.86) 100%
   );
   transition:
     opacity 1.1s var(--ease),
@@ -771,6 +773,32 @@ body.cg-on-map .site-brand .site-brand__map {
     opacity: 1;
     transform: none;
   }
+}
+/* The keyboard door through the veil: the overture itself is pointer-
+   transparent (a drag anywhere lifts it) — this button is the focusable
+   equivalent. Speaks the site-wide Sternwarte button (.lx-btn + BtnFx:
+   origin dot → rings + survey stars on hover); here only the overture
+   specifics: re-enable pointers and ride the entrance choreography. */
+.cg-overture .cg-enter {
+  margin-top: 26px;
+  pointer-events: auto;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: cgEnter 1s var(--ease) 0.62s forwards;
+}
+
+/* The route's single SR status region (world panel + tour steps) — the
+   chron-sr recipe from the Chronicle stage (S9). */
+.cg-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* Cartouche: glass surface (frameless, shadow + light edge). Sits TOP left —
@@ -903,6 +931,51 @@ body.cg-on-map .site-brand .site-brand__map {
   text-transform: uppercase;
   color: var(--cl-faint);
   padding: 5px 4px 7px;
+}
+/* World index (S10a): the recorded worlds A–Z — the keyboard/AT parallel
+   path to the pointer-only pins. Speaks the seek list's row vocabulary;
+   scrolls internally like the seek list. */
+:is(.cg-cartouche, .cg-sheet) .cg-windex {
+  list-style: none;
+  margin: 4px 0 10px;
+  padding: 0;
+  max-height: 288px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--cl-gold-dim) transparent;
+}
+:is(.cg-cartouche, .cg-sheet) .cg-windex button {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: var(--fs-read-xs);
+  font-style: italic;
+  color: var(--cl-dim);
+  padding: 3px 4px;
+  text-align: left;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+:is(.cg-cartouche, .cg-sheet) .cg-windex button:hover {
+  color: var(--cl-gold);
+}
+:is(.cg-cartouche, .cg-sheet) .cg-windex .nm {
+  flex: 1;
+  min-width: 0;
+}
+:is(.cg-cartouche, .cg-sheet) .cg-windex .tag {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-3xs);
+  font-style: normal;
+  letter-spacing: var(--track-14);
+  text-transform: uppercase;
+  color: var(--cl-faint);
+  white-space: nowrap;
 }
 /* Section headers: full row, deliberately prominent; a gold status badge on
    the right so a collapsed section never hides an active state. */
@@ -2047,7 +2120,8 @@ body.cg-on-map .site-brand .site-brand__map {
   .cg-overture .over,
   .cg-overture h1,
   .cg-overture .edition,
-  .cg-overture .hint {
+  .cg-overture .hint,
+  .cg-overture .cg-enter {
     animation: none;
     opacity: 1;
     transform: none;
@@ -2080,6 +2154,52 @@ body.cg-on-map .site-brand .site-brand__map {
      stays its drawn size; only the invisible hit circle grows. */
   .cg-w .halo {
     r: 16px;
+  }
+
+  /* Touch targets ≥44px (S10a): every interactive ROW of the legend/sheet
+     vocabulary grows through padding — type sizes stay untouched. The
+     zoomer only matters for coarse desktops/tablets (phones hide it). */
+  .cg-zoomer button {
+    width: 44px;
+    height: 44px;
+  }
+  .cg-pop .pp-close {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+  }
+  :is(.cg-cartouche, .cg-sheet) .c-sec {
+    min-height: 44px;
+    align-items: center;
+  }
+  :is(.cg-cartouche, .cg-sheet) .skitem,
+  :is(.cg-cartouche, .cg-sheet) .cg-windex button {
+    min-height: 44px;
+    align-items: center;
+  }
+  :is(.cg-cartouche, .cg-sheet) .seek input {
+    min-height: 44px;
+  }
+  .cg-census .cx,
+  .cg-census .crow,
+  .cg-census .cgrp-h .car,
+  .cg-census .cgrp-h .gname,
+  .cg-census .creset {
+    min-height: 44px;
+  }
+  .cg-pop .pp-works-toggle,
+  .cg-pop li a,
+  .cg-pop .pp-more {
+    min-height: 44px;
+    align-items: center;
+  }
+  .cg-tour .cpg,
+  .cg-ccard .cpg {
+    min-height: 44px;
+  }
+  .cg-sheet-grip {
+    min-height: 44px;
   }
 }
 

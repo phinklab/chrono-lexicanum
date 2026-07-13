@@ -55,7 +55,12 @@ test("map: seek by keyboard + focus restore (1280px)", async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 800 });
   await page.goto("/map");
 
-  const seek = page.locator('input[aria-label="Seek a world"]');
+  // While the overture veil stands, the chart chrome is inert (S10a) — the
+  // overture's ENTER button is the keyboard door. Activate it first, exactly
+  // like a keyboard user would.
+  await page.getByRole("button", { name: /enter the chart/i }).click();
+
+  const seek = page.locator('.cg-cartouche input[aria-label="Seek a world"]');
   const panel = page.locator(".cg-pop");
 
   await seek.click();
