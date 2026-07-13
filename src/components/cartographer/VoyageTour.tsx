@@ -132,10 +132,14 @@ export default function VoyageTour({
   const st = resolved.stations[step];
   if (!st) return null;
   return (
+    // Deliberately NOT keyed by step: one stable DOM node (and one stable
+    // will-change compositor layer) carries the whole tour. The per-step
+    // remount allocated a fresh promoted layer mid-flight on every "Next" —
+    // iOS WebKit left ghost pixels (stray ✕) and misplaced/clipped cards
+    // behind (maintainer device test 2026-07-13).
     <div
       className={`cg-ccard cg-ccard--dock cg-tour show${suppressed ? " hide" : ""}`}
       inert={suppressed || muted}
-      key={step}
     >
       <button
         type="button"
