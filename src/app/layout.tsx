@@ -134,7 +134,7 @@ export default function RootLayout({
           {modal}
         </NavProgressProvider>
         <MediaPlayer />
-        {/* Fixed Impressum/Datenschutz links under the player:
+        {/* Fixed Imprint/Privacy links under the player:
             the legal-reachability guarantee for footerless desktop surfaces.
             Hidden on /login and ≤760px via 71-legal.css. */}
         <SiteLegal />

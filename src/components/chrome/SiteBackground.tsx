@@ -13,7 +13,7 @@
  *   - "scriptorium" — Compendium (grand cathedral-library, scribe at a lectern)
  *   - "librarium"  — (legacy) library/scriptorium interior
  *   - "vox"        — Podcasts (cathedral nave, two scribes at vox-podiums)
- *   - "oracle"     — Ask the Archive (gothic scriptorium, void window)
+ *   - "oracle"     — The Curator (gothic scriptorium, void window)
  *   - "chronicle"  — Timeline / Chronicle (cathedral timeline diagram)
  *   - "cartog"     — cartog-hall (handoff photo, currently unused)
  *   - "cartog-holo" — (unused — /map sits on a flat color without a

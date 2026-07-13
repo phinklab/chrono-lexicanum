@@ -105,6 +105,13 @@
    scrim is reused (64-detail-modal.css) so the hand-off to the live panel
    carries no scrim flash. The stack sits above the backdrop (z-index 1, mirrors
    the real panel) and shares the cogitator's 18px vertical rhythm. */
+/* An intercepted detail navigation can briefly mount its modal fallback and
+   the canonical route's full-page fallback at the same time. The modal owns
+   that wait state: hide only the competing cogitator, while leaving a
+   `.route-loading` ancestor in flow so its jump-proof spacer still holds. */
+body:has([data-detail-modal] .detail-modal-skeleton) .cogitator-loading {
+  visibility: hidden;
+}
 .detail-modal-skeleton {
   position: relative;
   z-index: 1;

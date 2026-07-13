@@ -52,13 +52,10 @@ function wrapIndex(i: number, len: number): number {
 }
 
 /**
- * The "One faction, one book" carousel. One faction per
- * slide, the curated book shown immediately. Navigation is pure client state —
- * prev/next, the jump rail, and arrow keys all swap the slide WITHOUT a route
- * change, so the page never reloads or jumps back to the top. The URL segment
- * only seeds the initial slide (so a deep-link / the static page lands on the
- * right faction, and SSR still renders one). Sub-faction factions surface their
- * chapters as chips inside the slide that swap the book in place.
+ * The Curator's faction path: one selected faction, the complete roster as a
+ * calm register, and one answer. Navigation stays in client state, so arrows,
+ * roster picks and optional chapters never reload or jump the page. URL
+ * segments only seed the initial faction/facet for deep links and SSR.
  */
 export default function FactionCarousel({
   nodes,
@@ -100,46 +97,10 @@ export default function FactionCarousel({
   };
 
   return (
-    <div
-      className="ofob"
-      role="group"
-      aria-roledescription="carousel"
-      aria-label="One faction, one book"
-      onKeyDown={onKeyDown}
-    >
-      {/* Jump rail — every faction, the active one marked. Doubles as the
-          position indicator; no navigation, so picking a faction never jumps
-          the page to the top. */}
-      <p className="ofob__step">
-        <span className="ofob__step-n">I</span>Choose your faction
-      </p>
-      <div className="ofob__rail-wrap">
-        <ul className="ofob__rail" aria-label="Choose a faction">
-          {nodes.map((node, i) => {
-            const active = i === factionIndex;
-            return (
-              <li key={node.slug} className="ofob__rail-item">
-                <button
-                  type="button"
-                  className="ofob__rail-btn"
-                  data-active={active}
-                  aria-current={active ? "true" : undefined}
-                  onClick={() => goToFaction(i)}
-                >
-                  {node.label}
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-
-      <div className="ofob__stage">
-        {/* Faction stepper — arrows + index on one line, directly under the
-            rail. They cycle the FACTION; parked at the stage edges they read
-            as if they cycled the book below. Outside the keyed slide so the
-            chrome doesn't re-animate on every swap. */}
-        <div className="ofob__nav">
+    <div className="ofob" role="group" aria-label="Curated faction entry point">
+      <section className="ofob__chooser" aria-labelledby="ofob-faction-name">
+        <p className="ofob__kicker">Choose your faction</p>
+        <div className="ofob__faction-line" onKeyDown={onKeyDown}>
           <button
             type="button"
             className="ofob__arrow"
@@ -148,11 +109,9 @@ export default function FactionCarousel({
           >
             <span aria-hidden>‹</span>
           </button>
-          <p className="ofob__index" aria-hidden>
-            {String(factionIndex + 1).padStart(2, "0")}
-            <span className="ofob__index-sep">/</span>
-            {String(nodes.length).padStart(2, "0")}
-          </p>
+          <h2 id="ofob-faction-name" className="ofob__faction-name">
+            {faction.label}
+          </h2>
           <button
             type="button"
             className="ofob__arrow"
@@ -162,53 +121,76 @@ export default function FactionCarousel({
             <span aria-hidden>›</span>
           </button>
         </div>
+        <p className="ofob__index" aria-label={`Faction ${factionIndex + 1} of ${nodes.length}`}>
+          {String(factionIndex + 1).padStart(2, "0")}
+          <span className="ofob__index-sep">/</span>
+          {String(nodes.length).padStart(2, "0")}
+        </p>
 
-        {/* Keyed on the faction so the reveal animation re-fires per slide. */}
-        <div className="ofob__slide" key={faction.slug}>
-          {/* The faction is named by the highlighted rail entry above — a
-              second display-size repetition of it pushed the actual verdict
-              (the book) down the hierarchy. Kept for screen readers. */}
-          <h2 className="ask-sr-only">{faction.label}</h2>
-
-          {showChapters && (
-            <>
-              <p className="ofob__step">
-                <span className="ofob__step-n">II</span>Narrow to a chapter
-                <span className="ofob__step-note"> · optional</span>
-              </p>
-              <div className="ofob__chapters" aria-label={`${faction.label} chapters`}>
-                {facets.map((f, i) => {
-                  const active = i === safeFacet;
-                  return (
-                    <button
-                      key={f.key}
-                      type="button"
-                      className="ofob__chapter"
-                      data-active={active}
-                      aria-pressed={active}
-                      onClick={() => setFacetIndex(i)}
-                    >
-                      {f.label}
-                    </button>
-                  );
-                })}
-              </div>
-            </>
-          )}
-
-          <p className="ofob__step">
-            <span className="ofob__step-n">III</span>Your entry point
+        <div className="ofob__all">
+          <p id="ofob-all-label" className="ofob__all-label">
+            <span>All factions</span>
           </p>
-          {facet.picks.length > 0 ? (
-            <FactionPickPanel
-              key={`${faction.slug}:${facet.key}`}
-              contextLabel={showChapters ? `${faction.label} · ${facet.label}` : faction.label}
-              picks={facet.picks}
-            />
-          ) : (
-            <p className="ofob__empty">No entry point on file yet.</p>
-          )}
+          <ul
+            id="ofob-faction-roster"
+            className="ofob__roster"
+            aria-labelledby="ofob-all-label"
+          >
+            {nodes.map((node, i) => {
+              const active = i === factionIndex;
+              return (
+                <li key={node.slug} className="ofob__roster-item">
+                  <button
+                    type="button"
+                    className="ofob__roster-btn"
+                    data-active={active}
+                    aria-current={active ? "true" : undefined}
+                    onClick={() => goToFaction(i)}
+                  >
+                    {node.label}
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
         </div>
+
+        {showChapters && (
+          <div className="ofob__chapter-group">
+            <p className="ofob__chapter-label">
+              Choose a chapter <span>· optional</span>
+            </p>
+            <div className="ofob__chapters" aria-label={`${faction.label} chapters`}>
+              {facets.map((f, i) => {
+                const active = i === safeFacet;
+                return (
+                  <button
+                    key={f.key}
+                    type="button"
+                    className="ofob__chapter"
+                    data-active={active}
+                    aria-pressed={active}
+                    aria-label={f.label}
+                    onClick={() => setFacetIndex(i)}
+                  >
+                    {f.label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
+      </section>
+
+      <div className="ofob__answer" key={`${faction.slug}:${facet.key}`}>
+        {facet.picks.length > 0 ? (
+          <FactionPickPanel
+            contextLabel={showChapters ? `${faction.label} · ${facet.label}` : faction.label}
+            picks={facet.picks}
+          />
+        ) : (
+          <p className="ofob__empty">No entry point on file yet.</p>
+        )}
       </div>
     </div>
   );
