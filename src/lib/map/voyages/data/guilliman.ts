@@ -8,9 +8,9 @@
  *
  * Thessala (the wounding, 121.M31) has NO canonical location anywhere (a
  * gas giant; "Thessala orbit" is all the sources give; the pursuit came
- * from equally unlocated Xolco) — it rides the Terra → Macragge leg as a
- * WAYPOINT instead of an invented pin. Pyrrhan likewise has no chart pin
- * and rides Anuari → Davin. Anuari is a system/orbital anchor: Guilliman's
+ * from equally unlocated Xolco), so it uses a disclosed schematic point.
+ * Pyrrhan is placed only relative to the sourced Ruinstorm sequence between
+ * Anuari and Davin. Anuari is a system/orbital anchor: Guilliman's
  * personal action is aboard the Samothrace, not on the forge world below.
  * Verified-dropped: Vigilus
  * (commanded from afar;
@@ -19,7 +19,7 @@
  * Crusade role; the Triumph dais list does not include him. Monarchia date
  * derived (~963.M30); Imperium Secundus 009–014.M31 per Lexicanum. Baal
  * follows the current post-Plague-Wars chronology; the fleet-scale
- * Indomitus journey intentionally preserves the older campaign ordering.
+ * Indomitus journey follows the same retconned sequence.
  * Sources per station in `source`.
  */
 
@@ -88,12 +88,18 @@ export const GUILLIMAN: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/Battle_of_Anuari",
     },
     {
-      via: 0.5,
       name: "Pyrrhan",
+      gx: 717.1,
+      gy: 495.6,
       heading: "Pyrrhan · The Impossible Wall",
       date: "011–012.M31",
       text: "A daemon fortress the size of a solar system seals every road to Terra. On Pyrrhan below, Guilliman drives Ultramarine phalanxes across continent-wide forges until Sanguinius destroys their heart and the world collapses with the wall above it.",
       source: "https://wh40k.lexicanum.com/wiki/Harrowing_of_Pyrrhan",
+      placement: {
+        precision: "relative",
+        note: "The source places Pyrrhan on the Ruinstorm passage after Anuari and before the fleet reaches Davin, but gives no sector; the coordinate follows that constrained corridor.",
+        source: "https://wh40k.lexicanum.com/wiki/Harrowing_of_Pyrrhan",
+      },
     },
     {
       world: "davin",
@@ -110,12 +116,19 @@ export const GUILLIMAN: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/Roboute_Guilliman",
     },
     {
-      via: 0.45,
       name: "Thessala",
+      gx: 565.7,
+      gy: 549.6,
       heading: "Thessala · The Wounding",
       date: "121.M31",
       text: "The Scouring's long hunt for Fulgrim ends in ambush over an uncharted gas giant: three traitor fleets pin the loyalists above Thessala, and the Phoenician's venomed blade opens his brother's throat. The survivors run for home with a dying primarch.",
       source: "https://wh40k.lexicanum.com/wiki/Battle_of_Thessala",
+      breakBefore: true,
+      placement: {
+        precision: "schematic",
+        note: "Published accounts identify only an uncharted gas giant and give no sector or system coordinates; the point sits between Terra and Macragge solely to carry the chronology home.",
+        source: "https://wh40k.lexicanum.com/wiki/Battle_of_Thessala",
+      },
     },
     {
       world: "macragge",
@@ -123,6 +136,7 @@ export const GUILLIMAN: Voyage = {
       date: "121.M31 → 999.M41",
       text: "Carried home neither dead nor living, Guilliman lies ten thousand years in stasis within the Temple of Correction. In 999.M41 Cawl's Armour of Fate and Yvraine, herald of Ynnead, call him back to a Macragge under Black Legion guns.",
       source: "https://wh40k.lexicanum.com/wiki/Battle_of_Thessala",
+      breakBefore: true,
     },
     {
       world: "the-maelstrom",
@@ -170,7 +184,7 @@ export const GUILLIMAN: Voyage = {
       world: "iax",
       heading: "Iax · Godblight",
       date: "c. 012.M42",
-      text: "Mortarion pins his brother to the blighted soil of Iax and pours the Godblight into him, a phage brewed to kill a primarch. Guilliman dies. Then his father's power floods through him, scorching Nurgle's own Garden, and Mortarion flees.",
+      text: "Mortarion pins his brother to the blighted soil of Iax and pours the Godblight into him, a phage brewed to kill a primarch. Guilliman appears to die. Then his father's power floods through him, scorching Nurgle's own Garden, and Mortarion flees.",
       source: "https://wh40k.lexicanum.com/wiki/Plague_Wars",
     },
     {

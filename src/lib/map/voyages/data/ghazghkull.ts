@@ -3,7 +3,8 @@
  * space hulk Wurld Killa have no chart position, so the visible route
  * begins where the hulk falls on Armageddon and keeps the origin in the card
  * copy. Octaria is the central planet Octarius under its attested alternate
- * name, not a proxy. Every unpinned later location rides a leg as a waypoint.
+ * name, not a proxy. Unpinned later locations use sourced relative or
+ * schematic chart points with visible uncertainty disclosures.
  */
 
 import type { Voyage } from "../types";
@@ -43,51 +44,82 @@ export const GHAZGHKULL: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/Ghazghkull",
     },
     {
-      via: 0.1,
       name: "Haunted Gulf",
+      gx: 450,
+      gy: 350,
       heading: "Haunted Gulf · No Time to Die",
       date: "189.999.M41",
       text: "Imperial hunters corner Kill Wrecka in the Haunted Gulf with Ghazghkull aboard. A surge of Weirdboy power cripples the trap and hurls his flagship into the Warp, leaving the Great Waaagh alive and moving.",
       source: "https://wh40k.lexicanum.com/wiki/Battle_of_Haunted_Gulf",
+      placement: {
+        precision: "schematic",
+        note: "The source calls the Haunted Gulf an otherwise unidentified barren zone reached after Armageddon; the point marks the pursuit only. Kill Wrecka's uncontrolled Warp disappearance does not supply a realspace course to its next emergence.",
+        source: "https://wh40k.lexicanum.com/wiki/Battle_of_Haunted_Gulf",
+      },
     },
     {
-      via: 0.26,
       name: "Urgok's Realm",
+      gx: 816,
+      gy: 552,
       heading: "Urgok's Realm · Da First Toadie",
       date: "694.999.M41",
       text: "Ghazghkull teleports his Bullyboyz straight into Warlord Urgok's command room. One brutal audience turns a rival empire into the first great host marching beneath his banner.",
       source: "https://wh40k.lexicanum.com/wiki/Great_Waaagh%21",
+      breakBefore: true,
+      placement: {
+        precision: "schematic",
+        note: "Urgok's realm contains a T'au colony but has no named sector. It is placed schematically on the western border of the charted T'au zone: close enough for the attested overlap, without assigning a sept or claiming an exact coordinate.",
+        source: "https://warhammer40k.fandom.com/wiki/Ghazghkull_Mag_Uruk_Thraka",
+      },
     },
     {
-      via: 0.42,
       name: "Fang's World",
+      gx: 829,
+      gy: 558,
       heading: "Fang's World · A New Horde",
       date: "704.999.M41",
       text: "The prophet and his Bullyboyz crash into Urgok's failing battle against the T'au and turn it by force. Victory binds the rescued horde to Ghazghkull rather than to the warlord who led it there.",
       source: "https://wh40k.lexicanum.com/wiki/Great_Waaagh%21",
+      placement: {
+        precision: "relative",
+        note: "Fang's World is explicitly a nearby T'au colony inside Urgok's realm; it is plotted just inside the western edge of the charted T'au zone beside Urgok, without inferring a sept from the warriors' red armour.",
+        source: "https://warhammer40k.fandom.com/wiki/Ghazghkull_Mag_Uruk_Thraka",
+      },
     },
     {
-      via: 0.58,
       name: "Kongajaro",
+      gx: 804,
+      gy: 570,
       heading: "Kongajaro · Da Beast Hunt",
       date: "730.999.M41",
       text: "On Kongajaro, Ghazghkull joins the Snakebites' ritual hunt and kills beside them. The beast is barely cold when another clan swears itself to the road toward Octarius.",
       source: "https://wh40k.lexicanum.com/wiki/Great_Waaagh%21",
+      placement: {
+        precision: "relative",
+        note: "Kongajaro is the nearby star system of the next recruitment beat after Fang's World. It is kept in the local Urgok/T'au-border cluster; the source does not establish a precise bearing or a location near Octarius.",
+        source: "https://warhammer40k.fandom.com/wiki/Ghazghkull_Mag_Uruk_Thraka",
+      },
     },
     {
-      via: 0.74,
       name: "Black Kraken Nebula",
+      gx: 684,
+      gy: 512,
       heading: "Black Kraken Nebula · Redklaw's Choice",
       date: "730.999.M41",
       text: "Redklaw's pirates ambush the Waaagh in the Black Kraken Nebula and discover prey too dangerous to rob. Their captain changes sides before the guns cool, adding his fleet to Ghazghkull's tide.",
       source: "https://wh40k.lexicanum.com/wiki/Great_Waaagh%21",
+      placement: {
+        precision: "schematic",
+        note: "The nebula is named only as the final recruitment theatre before Octarius. It is a schematic corridor marker between the Urgok cluster and charted Octarius, not a claimed nebula coordinate.",
+        source: "https://warhammer40k.fandom.com/wiki/Ghazghkull_Mag_Uruk_Thraka",
+      },
     },
     {
       world: "octarius",
       heading: "Octaria · The Mawloc",
       date: "836–852.999.M41",
       text: "Ghazghkull teleports onto Octaria, the central world of Octarius, and tears his way out through a Mawloc that swallows him whole. Warlord Zog Steeltooth submits, and the sector's endless Ork–Tyranid slaughter feeds a still greater Waaagh.",
-      source: "https://warhammer40k.fandom.com/wiki/Ghazghkull_Mag_Uruk_Thraka",
+      source: "https://wh40k.lexicanum.com/wiki/Great_Waaagh%21",
     },
     {
       world: "krongar",
@@ -97,19 +129,27 @@ export const GHAZGHKULL: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/Battle_of_Krongar",
     },
     {
-      via: 0.55,
       name: "Icaria",
+      gx: 455.2,
+      gy: 259.1,
       heading: "Icaria · The Dying Prototype",
       date: "Era Indomitus",
       text: "A prototype Tellyshokka rips Icaria apart around Ghazghkull and his oldest foe. He defeats Yarrick in person, spares him once more, and leaves the broken world to its ending.",
       source: "https://wh40k.lexicanum.com/wiki/Icaria",
+      breakBefore: true,
+      placement: {
+        precision: "schematic",
+        note: "Icaria's source records the battle but no segmentum, sector or system; the point only carries the post-Krongar, pre-Armageddon chronology.",
+        source: "https://wh40k.lexicanum.com/wiki/Icaria",
+      },
     },
     {
       world: "armageddon",
       heading: "Armageddon · The Beast Returns",
       date: "M42",
       text: "Roks annihilate Hive Hades before Ghazghkull teleports into its ruins. The Fourth War begins where his legend first struck ground, and Armageddon hears the prophet's roar again.",
-      source: "https://wh40k.lexicanum.com/wiki/Fourth_War_for_Armageddon",
+      source: "https://www.warhammer-community.com/en-gb/articles/0gmcnp9x/lore-of-armageddon-part-3-ghazghkulls-grand-plan/",
+      breakBefore: true,
     },
   ],
   lbl: { x: 500, y: 230, t: "DA GREAT WAAAGH!" },

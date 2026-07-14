@@ -53,9 +53,24 @@ export default function CourseCards({
         ✕
       </button>
       {/* Same hierarchy as the tour card: name + text lead, date recedes. */}
+      {st.section && (
+        <p className="cg-tour-section" style={{ color: st.section.color }}>
+          {st.section.label}
+        </p>
+      )}
       <p className="cg-tour-name">{st.heading}</p>
       {st.date && <p className="cg-tour-date">{st.date}</p>}
       <p className="ct">{st.text}</p>
+      {st.placement && (
+        <p className="cg-tour-placement">
+          {st.placement.precision === "relative" ? "INFERRED PLACEMENT" : "SCHEMATIC PLACEMENT"}
+          {" · "}
+          {st.placement.note}{" "}
+          <a href={st.placement.source} target="_blank" rel="noreferrer">
+            SOURCE ↗
+          </a>
+        </p>
+      )}
       <div className="cg-tour-row">
         <button className="cpg quiet" onClick={onBack}>
           ← BACK

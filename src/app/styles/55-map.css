@@ -1625,6 +1625,18 @@ body.cg-canvas-renderer .cg-deg {
   color: var(--cl-bone);
   margin: 2px 0 6px;
 }
+.cg-tour .cg-tour-section {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-3xs);
+  letter-spacing: var(--track-22);
+  line-height: 1.2;
+  margin: 0 34px 6px 0;
+  text-transform: uppercase;
+}
+.cg-rt-active {
+  opacity: 0.95;
+  stroke-dasharray: 2.4 3.2;
+}
 /* Station date — deliberately quiet: name + text carry the act, the date is
    a footnote (the old "ACT VII · date · HEADING" kicker crowded all three
    into one line). */
@@ -1634,6 +1646,23 @@ body.cg-canvas-renderer .cg-deg {
   letter-spacing: var(--track-22);
   color: var(--cl-faint);
   margin: -3px 0 7px;
+}
+.cg-tour .cg-tour-method,
+.cg-tour .cg-tour-placement {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-3xs);
+  letter-spacing: var(--track-10);
+  line-height: 1.45;
+  color: var(--cl-faint);
+  margin: 8px 0 0;
+}
+.cg-tour .cg-tour-placement a {
+  color: var(--cl-gold);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.cg-tour .cg-tour-placement a:hover {
+  color: var(--cl-bone);
 }
 .cg-tour .cg-tour-row {
   display: flex;

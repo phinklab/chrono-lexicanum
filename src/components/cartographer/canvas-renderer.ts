@@ -951,7 +951,7 @@ function routeGeometry(voyage: ResolvedVoyage): CachedRouteGeometry {
   const firstVisit = new Map<string, number>();
   for (const station of voyage.stations) {
     if (station.legIndex >= 0 && !firstEntry.has(station.legIndex)) firstEntry.set(station.legIndex, station.i);
-    if (station.kind === "world" && !firstVisit.has(station.id)) firstVisit.set(station.id, station.i);
+    if (station.kind !== "way" && !firstVisit.has(station.id)) firstVisit.set(station.id, station.i);
   }
   const samples = voyage.legs.map((leg) =>
     Array.from({ length: ROUTE_SAMPLES + 1 }, (_, index) => pointOnLeg(leg, index / ROUTE_SAMPLES)),
@@ -991,7 +991,6 @@ function drawRoute(
   const state = routeState(scene, now, geometry);
   ctx.save();
   mapTransform(ctx, camera);
-  ctx.strokeStyle = GOLD;
   ctx.globalAlpha = 0.9;
   ctx.lineWidth = 1.7 / camera.k;
   ctx.lineCap = "round";
@@ -999,6 +998,7 @@ function drawRoute(
   voyage.legs.forEach((leg, legIndex) => {
     const fraction = state.fraction(legIndex);
     if (fraction <= 0) return;
+    ctx.strokeStyle = voyage.legColors[legIndex] ?? GOLD;
     if (fraction >= 1) {
       ctx.stroke(cachedPath(leg));
       return;
@@ -1031,15 +1031,18 @@ function drawRoute(
   ctx.setLineDash([]);
 
   ctx.globalAlpha = 0.8;
-  ctx.strokeStyle = GOLD;
-  ctx.fillStyle = GOLD;
   ctx.lineWidth = 0.8 / camera.k;
   for (const [, index] of geometry.firstVisit) {
     if (scene.voyageProgress !== null && scene.voyageProgress < index) continue;
     const station = voyage.stations[index];
+    const color = station.section?.color ?? GOLD;
+    ctx.strokeStyle = color;
+    ctx.fillStyle = color;
+    if (station.kind === "point") ctx.setLineDash([2 / camera.k, 2.5 / camera.k]);
     ctx.beginPath();
-    ctx.arc(station.gx, station.gy, 8, 0, Math.PI * 2);
+    ctx.arc(station.gx, station.gy, station.kind === "point" ? 6 : 8, 0, Math.PI * 2);
     ctx.stroke();
+    ctx.setLineDash([]);
     ctx.beginPath();
     ctx.arc(station.gx, station.gy, 1.4, 0, Math.PI * 2);
     ctx.fill();
@@ -1047,6 +1050,9 @@ function drawRoute(
   for (const station of voyage.stations) {
     if (station.kind !== "way") continue;
     if (scene.voyageProgress !== null && scene.voyageProgress < station.i) continue;
+    const color = station.section?.color ?? GOLD;
+    ctx.strokeStyle = color;
+    ctx.fillStyle = color;
     ctx.setLineDash([1.4 / camera.k, 2 / camera.k]);
     ctx.beginPath();
     ctx.arc(station.gx, station.gy, 4, 0, Math.PI * 2);
@@ -1055,6 +1061,19 @@ function drawRoute(
     ctx.beginPath();
     ctx.arc(station.gx, station.gy, 1.2, 0, Math.PI * 2);
     ctx.fill();
+  }
+  if (
+    scene.voyageProgress !== null &&
+    scene.voyageProgress >= 0 &&
+    scene.voyageProgress < voyage.stations.length
+  ) {
+    const active = voyage.stations[scene.voyageProgress];
+    ctx.strokeStyle = active.section?.color ?? GOLD;
+    ctx.globalAlpha = 0.95;
+    ctx.lineWidth = 1.4 / camera.k;
+    ctx.beginPath();
+    ctx.arc(active.gx, active.gy, 11, 0, Math.PI * 2);
+    ctx.stroke();
   }
   if (
     fontsReady &&

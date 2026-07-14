@@ -58,11 +58,12 @@ export default function RoutesLayer({ resolved, progress }: RoutesLayerProps) {
     return entry === progress ? " rt-drawing" : " rt-drawn";
   };
 
-  // A station's ring appears when the tour reaches its FIRST visit; repeat
-  // visits (Terra twice) share one ring keyed by world id.
+  // An anchor's ring appears when the tour reaches its FIRST visit; repeat
+  // catalog worlds (Terra twice) share one ring, while sourced chart points
+  // carry unique ids and therefore remain individually visible.
   const firstVisit = new Map<string, number>();
   for (const st of resolved.stations) {
-    if (st.kind === "world" && !firstVisit.has(st.id)) firstVisit.set(st.id, st.i);
+    if (st.kind !== "way" && !firstVisit.has(st.id)) firstVisit.set(st.id, st.i);
   }
   const rings = [...firstVisit.entries()].map(([id, i]) => ({
     id,
@@ -102,7 +103,7 @@ export default function RoutesLayer({ resolved, progress }: RoutesLayerProps) {
             className={`cg-rtFly${legState(li)}`}
             d={d}
             fill="none"
-            stroke={GOLD}
+            stroke={resolved.legColors[li] ?? GOLD}
             strokeOpacity={0.9}
             strokeWidth={1.7}
             strokeDasharray="1.6 4.6"
@@ -115,21 +116,32 @@ export default function RoutesLayer({ resolved, progress }: RoutesLayerProps) {
       })}
       {rings.map(({ id, i, st }) => {
         const pending = tour && (progress as number) < i;
+        const color = st.section?.color ?? GOLD;
         return (
           <g
             key={id}
-            className={`cg-rt-st${pending ? " rt-pending" : ""}`}
+            className={`cg-rt-st${st.kind === "point" ? " cg-rt-point" : ""}${pending ? " rt-pending" : ""}`}
             // Ambient cadence: a ring lands as its arriving leg finishes
             // (leg k draws at k·1.45s; the station 0 ring opens the show).
             style={{ "--i": tour ? 0 : st.legIndex + 1 } as CSSProperties}
           >
-            <circle cx={st.gx} cy={st.gy} r={8} fill="none" stroke={GOLD} strokeWidth={1} vectorEffect="non-scaling-stroke" />
-            <circle cx={st.gx} cy={st.gy} r={1.4} fill={GOLD} stroke="none" />
+            <circle
+              cx={st.gx}
+              cy={st.gy}
+              r={st.kind === "point" ? 6 : 8}
+              fill="none"
+              stroke={color}
+              strokeWidth={1}
+              strokeDasharray={st.kind === "point" ? "2 2.5" : undefined}
+              vectorEffect="non-scaling-stroke"
+            />
+            <circle cx={st.gx} cy={st.gy} r={1.4} fill={color} stroke="none" />
           </g>
         );
       })}
       {waypoints.map((st) => {
         const pending = tour && (progress as number) < st.i;
+        const color = st.section?.color ?? GOLD;
         return (
           <g
             key={st.id}
@@ -137,11 +149,23 @@ export default function RoutesLayer({ resolved, progress }: RoutesLayerProps) {
             // Ambient: bloom mid-draw of the leg the dot rides.
             style={{ "--i": tour ? 0 : st.legIndex + 0.6 } as CSSProperties}
           >
-            <circle cx={st.gx} cy={st.gy} r={4} fill="none" stroke={GOLD} strokeWidth={0.8} strokeDasharray="1.4 2" vectorEffect="non-scaling-stroke" />
-            <circle cx={st.gx} cy={st.gy} r={1.2} fill={GOLD} stroke="none" />
+            <circle cx={st.gx} cy={st.gy} r={4} fill="none" stroke={color} strokeWidth={0.8} strokeDasharray="1.4 2" vectorEffect="non-scaling-stroke" />
+            <circle cx={st.gx} cy={st.gy} r={1.2} fill={color} stroke="none" />
           </g>
         );
       })}
+      {tour && progress !== null && progress >= 0 && progress < resolved.stations.length && (
+        <circle
+          className="cg-rt-active"
+          cx={resolved.stations[progress].gx}
+          cy={resolved.stations[progress].gy}
+          r={11}
+          fill="none"
+          stroke={resolved.stations[progress].section?.color ?? GOLD}
+          strokeWidth={1.4}
+          vectorEffect="non-scaling-stroke"
+        />
+      )}
       <text
         className={`cg-rt-lbl${tour && (progress as number) < resolved.stations.length - 1 ? " rt-pending" : ""}`}
         x={resolved.lbl.x}

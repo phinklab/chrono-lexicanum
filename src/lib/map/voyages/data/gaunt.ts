@@ -36,12 +36,18 @@ export const GAUNT: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/Tanith",
     },
     {
-      via: 0.48,
       name: "Blackshard",
+      gx: 168,
+      gy: 520,
       heading: "Blackshard · Ghosts in the Dark",
       date: "765.M41",
       text: "One hundred Tanith scouts slip beneath a citadel held by seventeen thousand cultists. Gaunt emerges carrying the wounded Rawne, and in Blackshard's tunnels Larkin coins the name that will follow them: Gaunt's Ghosts.",
       source: "https://wh40k.lexicanum.com/wiki/Gaunt%27s_Ghosts",
+      placement: {
+        precision: "relative",
+        note: "Blackshard is explicitly in the Sabbat Worlds of Segmentum Pacificus; its exact system is unknown, so it is placed inside the charted Sabbat cluster near the early campaign worlds.",
+        source: "https://wh40k.lexicanum.com/wiki/Blackshard",
+      },
     },
     {
       world: "voltemand",

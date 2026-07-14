@@ -3,8 +3,9 @@
  * Magos coda) across the Helican/Scarus cluster, told as an inquisitorial
  * dossier — the long fall from puritan to radical.
  *
- * Off-chart beats, per research notes: KCX-1288 and 56-Izar ride the
- * Damask → Thracian leg as WAYPOINTS, Farness Beta rides Cadia → Gudrun.
+ * Off-chart beats, per research notes: KCX-1288 and 56-Izar use relative
+ * points inside their sourced Scarus/Vincies regions; Farness Beta is placed
+ * beside Cadia because it lies at the mouth of the Cadian Gate.
  * Still folded into act texts: Lethe Eleven (the chart's `lethe` is a
  * DIFFERENT dead world in Ultima — do not use) → Thracian; Messina's
  * Distaff massacre → Spaeton House; Ghül + the Gershom / King-in-Yellow
@@ -46,20 +47,32 @@ export const EISENHORN: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/Damask",
     },
     {
-      via: 0.32,
       name: "KCX-1288",
+      gx: 238.2,
+      gy: 118,
       heading: "KCX-1288 · The Necroteuch",
       date: "241.M41",
       text: "At a dying star the cabal treats with the saruthi aboard a rogue trader's wreck, the Necroteuch as the price of passage. Eisenhorn sees the abominable book burn, and half of Glaw's design with it.",
       source: "https://wh40k.lexicanum.com/wiki/KCX-1288",
+      placement: {
+        precision: "relative",
+        note: "KCX-1288 is explicitly deep in Saruthi space within the Scarus Sector; it is clustered with the charted Scarus dossier worlds without claiming a known system.",
+        source: "https://wh40k.lexicanum.com/wiki/KCX-1288",
+      },
     },
     {
-      via: 0.62,
       name: "56-Izar",
+      gx: 237.3,
+      gy: 110.4,
       heading: "56-Izar · The Tetrascape",
       date: "241.M41",
       text: "In the saruthi tetrascape, where geometry itself runs wrong, the survivors corner Glaw's cabal at last. A daemonhost turns upon the company and gives its name for the first time: Cherubael.",
       source: "https://wh40k.lexicanum.com/wiki/56-Izar",
+      placement: {
+        precision: "relative",
+        note: "56-Izar is fixed to the Vincies Subsector of Scarus; the offset from the Scarus marker is regional because the source gives no stellar coordinates.",
+        source: "https://wh40k.lexicanum.com/wiki/56-Izar",
+      },
     },
     {
       world: "thracian-primaris",
@@ -83,12 +96,18 @@ export const EISENHORN: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/Malleus_(Novel)",
     },
     {
-      via: 0.5,
       name: "Farness Beta",
+      gx: 284,
+      gy: 229,
       heading: "Farness Beta · Quixos Falls",
       date: "343.M41",
       text: "At the Eye's edge the fugitive years end: Eisenhorn runs Quixos through in his own tower while Voke dies breaking the daemonhosts. The Malus Codicium leaves the field in a survivor's coat.",
       source: "https://wh40k.lexicanum.com/wiki/Cherubael",
+      placement: {
+        precision: "relative",
+        note: "Farness Beta lies at the mouth of the Cadian Gate in the Cadian Subsector, so it is plotted immediately beside Cadia rather than halfway to Gudrun.",
+        source: "https://wh40k.lexicanum.com/wiki/Farness_Beta",
+      },
     },
     {
       world: "gudrun",

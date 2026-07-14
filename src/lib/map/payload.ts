@@ -95,6 +95,36 @@ const TERTIARY: Readonly<Record<string, string>> = {
   vigilus: "Genestealer Infested",
 };
 
+/**
+ * Mobile contacts occasionally reuse a world's source coordinate. Keep the
+ * catalog position canonical, but fan an unrecorded fleet marker away from a
+ * recorded contact in the compact display payload so both glyphs and hit
+ * areas remain legible. At the moment this resolves the exact Armageddon /
+ * Helbrecht Crusade overlap; the rule is data-driven for future fleet pins.
+ */
+function fleetDisplayPositions(file: MapWorldsFile): ReadonlyMap<string, { gx: number; gy: number }> {
+  const recordedCoordinates = new Set(
+    file.worlds
+      .filter((world) => world.works.length > 0 && world.kind !== "region")
+      .map((world) => `${world.gx},${world.gy}`),
+  );
+  const collisionIndex = new Map<string, number>();
+  const positions = new Map<string, { gx: number; gy: number }>();
+  for (const world of file.worlds) {
+    if (world.kind !== "fleet" || world.works.length > 0) continue;
+    const key = `${world.gx},${world.gy}`;
+    if (!recordedCoordinates.has(key)) continue;
+    const index = collisionIndex.get(key) ?? 0;
+    collisionIndex.set(key, index + 1);
+    const angle = (Math.PI / 4) + index * (Math.PI / 2);
+    positions.set(world.id, {
+      gx: Math.round((world.gx + Math.cos(angle) * 5) * 100) / 100,
+      gy: Math.round((world.gy + Math.sin(angle) * 5) * 100) / 100,
+    });
+  }
+  return positions;
+}
+
 export function buildMapPayload(file: MapWorldsFile): MapPayload {
   // Classification index: every non-region world's primary classification,
   // ordered by frequency desc (ties alphabetically, deterministic).
@@ -125,6 +155,7 @@ export function buildMapPayload(file: MapWorldsFile): MapPayload {
   const featured: FeaturedWorld[] = [];
   const regions: RegionPin[] = [];
   const dust: DustWorld[] = [];
+  const fleetPositions = fleetDisplayPositions(file);
   for (const w of file.worlds) {
     if (w.works.length > 0) {
       const fw: FeaturedWorld = {
@@ -148,9 +179,10 @@ export function buildMapPayload(file: MapWorldsFile): MapPayload {
     } else if (w.kind === "region") {
       regions.push({ name: w.name, gx: w.gx, gy: w.gy, fi: -1 });
     } else {
+      const display = fleetPositions.get(w.id);
       dust.push([
-        w.gx,
-        w.gy,
+        display?.gx ?? w.gx,
+        display?.gy ?? w.gy,
         clsIndex.get(w.classification ?? "Unclassified") ?? 0,
         w.id,
         w.name,

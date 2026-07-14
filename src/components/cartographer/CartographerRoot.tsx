@@ -422,7 +422,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
   /* Legend badge for the journeys section: live tour progress, else "active". */
   const voyageNote = state.voyage
     ? state.voyage.mode === "tour" && state.voyage.step >= 0 && activeVoyage
-      ? `touring ${state.voyage.step + 1}/${activeVoyage.stations.length}`
+      ? `${activeVoyage.stations[state.voyage.step]?.section?.label ?? "touring"} · ${state.voyage.step + 1}/${activeVoyage.stations.length}`
       : "active"
     : null;
 

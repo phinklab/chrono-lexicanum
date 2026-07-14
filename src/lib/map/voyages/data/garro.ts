@@ -4,19 +4,12 @@
  * recruitments (the Garro audio/novel series), and the two deaths at the
  * Siege of Terra.
  *
- * Cartographic stand-ins, per research notes: the blockade run rides
- * `istvaan-v` for map movement (canonically it happens at the Istvaan
- * system's edge; the Eisenstein never touched Isstvan V). The warp flight
- * (Grulgor, the dead Navigator, the engine-beacon) is a WAYPOINT on the
- * bowed Istvaan → Luna leg — the dot sits in the deep void off the direct
- * line, where the detour belongs. Sword of Truth's Kuiper-Belt action
- * anchors on Luna (mission
- * start/debrief at the Somnus Citadel). Ashes of Fealty's Luna → Io action
- * anchors on Terra as an explicit Sol-system stand-in because Io has no pin;
- * it belongs before Optera and Legion of One in the collected-novel
- * chronology. Shield of Lies' Riga plate and Vow of Faith's Hesperides plate
- * anchor on Terra. Legion of One's dead world IS Istvaan III (canonical).
- * Sources per station in `source`.
+ * Prototype for inferred cartography: the Istvaan System edge, Daggerline,
+ * Io, Riga and Hesperides are explicit chart points rather than false planet
+ * stand-ins. Each coordinate carries a rendered placement note and source;
+ * local offsets are legibility devices, never canonical ephemerides. The
+ * Empyrean is a schematic chart point because Warp transit has no stable
+ * real-space coordinate. Legion of One's dead world IS Istvaan III.
  */
 
 import type { Voyage } from "../types";
@@ -26,6 +19,10 @@ export const GARRO: Voyage = {
   name: "Garro · Knight of Grey",
   tag: "005–014.M31",
   blurb: "Seventy loyal sons carry the first warning of the Heresy, and their captain becomes the Sigillite's first Knight-Errant.",
+  cartography: {
+    label: "inferred course",
+    note: "Five uncharted locations use sourced relative positions. Their local offsets make the route legible; they are not canonical galactic coordinates.",
+  },
   stations: [
     {
       world: "istvaan-iii",
@@ -35,19 +32,33 @@ export const GARRO: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/The_Flight_of_the_Eisenstein_(Novel)",
     },
     {
-      world: "istvaan-v",
-      heading: "Istvaan · Running the Blockade",
+      name: "Istvaan System Edge",
+      gx: 487.5,
+      gy: 166.5,
+      heading: "Istvaan System Edge · Running the Blockade",
       date: "005.M31",
-      text: "Seventy loyal Death Guard swear an oath of moment on the blade Libertas and run the traitor fleet. Typhon's Terminus Est cripples the fleeing frigate with its guns, but the Eisenstein claws her way into the warp.",
+      text: "Seventy loyalists — Death Guard and the Son of Horus Iacton Qruze — swear an oath of moment on Libertas and run the traitor fleet. Typhon's Terminus Est cripples the fleeing frigate, but the Eisenstein claws her way into the warp.",
       source: "https://wh40k.lexicanum.com/wiki/Eisenstein",
+      placement: {
+        precision: "relative",
+        note: "The sources fix the escape inside the Istvaan System, but give no bearing; the point is offset from Istvaan III and deliberately does not use Istvaan V.",
+        source: "https://wh40k.lexicanum.com/wiki/Battle_of_Isstvan_III",
+      },
     },
     {
-      via: 0.5,
       name: "The Empyrean",
+      gx: 392,
+      gy: 270.1,
       heading: "The Empyrean · The God of Plagues",
       date: "005–006.M31",
       text: "In the warp the Geller field falters and Nurgle takes notice: Grulgor rises as plague-flesh, the Navigator dies at his post. The Seventy jettison the crippled warp engines and detonate them as a beacon in the storm.",
       source: "https://wh40k.lexicanum.com/wiki/Nathaniel_Garro",
+      breakBefore: true,
+      placement: {
+        precision: "schematic",
+        note: "A Warp transit has no stable real-space coordinate; the dot only marks the narrative interval between the Istvaan escape and Dorn's rescue.",
+        source: "https://wh40k.lexicanum.com/wiki/Nathaniel_Garro",
+      },
     },
     {
       world: "luna",
@@ -57,6 +68,7 @@ export const GARRO: Voyage = {
       leg: { bow: 48 },
       text: "Summoned by the dying frigate's beacon, Dorn's Phalanx hauls the Eisenstein out of the storm. On Luna the Seventy deliver their warning, and Terra hears a truth Dorn can hardly bear to believe.",
       source: "https://wh40k.lexicanum.com/wiki/Nathaniel_Garro",
+      breakBefore: true,
     },
     {
       world: "luna",
@@ -80,18 +92,32 @@ export const GARRO: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/Garro:_Oath_of_Moment_(Audio_Drama)",
     },
     {
-      world: "luna",
-      heading: "Luna · Sword of Truth",
+      name: "Daggerline",
+      gx: 329.8,
+      gy: 397.5,
+      heading: "The Daggerline · Sword of Truth",
       date: "c. 007.M31",
-      text: "From the Somnus Citadel Garro is sent to the Daggerline at Sol's cold edge, where refugee loyalists beg sanctuary. He unmasks Hakeem's White Scars as the traitors aboard and wins the World Eater Macer Varren for the grey.",
+      text: "From the Somnus Citadel Garro is sent to a refugee flotilla led by the Daggerline at Sol's cold edge. He unmasks Hakeem's White Scars as the traitors aboard and wins the World Eater Macer Varren for the grey.",
       source: "https://wh40k.lexicanum.com/wiki/Garro:_Sword_of_Truth_(Audio_Book)",
+      placement: {
+        precision: "relative",
+        note: "The action is explicitly in the Kuiper Belt on the outskirts of the Sol System, so the point sits just outside the Terra–Luna cluster.",
+        source: "https://wh40k.lexicanum.com/wiki/Garro:_Sword_of_Truth_(Audio_Book)",
+      },
     },
     {
-      world: "terra",
-      heading: "Sol · Ashes of Fealty",
+      name: "Io",
+      gx: 331.2,
+      gy: 404.8,
+      heading: "Io · Ashes of Fealty",
       date: "c. 008.M31",
       text: "Dorn's warning sends Garro after Meric Voyen, who has recovered Solun Decius's tainted remains from Luna and carries them toward Io in hope of a cure. Garro intercepts the ship and turns the course sunward, consigning the deadly cargo to the fire.",
       source: "https://warhammer40k.fandom.com/wiki/Nathaniel_Garro",
+      placement: {
+        precision: "relative",
+        note: "Io is identified as Jupiter's moon; its small offset within the Sol cluster is schematic because the galactic chart cannot resolve planetary orbits.",
+        source: "https://warhammer40k.fandom.com/wiki/Nathaniel_Garro",
+      },
     },
     {
       world: "optera",
@@ -108,18 +134,32 @@ export const GARRO: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/Garro:_Legion_of_One_(Audio_Book)",
     },
     {
-      world: "terra",
-      heading: "Terra · Shield of Lies",
+      name: "Riga Orbital Plate",
+      gx: 335,
+      gy: 403.8,
+      heading: "Riga Orbital Plate · Shield of Lies",
       date: "c. 008–013.M31",
       text: "Hunting rumours of the Saint on the Riga orbital plate, Garro finds instead the scribe Tallery and the Othrys conspiracy, a hidden fortress rising on Titan for the war after the war. Ordered to silence her, he refuses.",
       source: "https://wh40k.lexicanum.com/wiki/Garro:_Shield_of_Lies_(Audio_Drama)",
+      placement: {
+        precision: "relative",
+        note: "Riga is explicitly an orbital plate over Terra; the offset separates it visually from the Throneworld without claiming an orbital longitude.",
+        source: "https://wh40k.lexicanum.com/wiki/Garro:_Shield_of_Lies",
+      },
     },
     {
-      world: "terra",
-      heading: "Terra · Vow of Faith",
+      name: "Hesperides Orbital Plate",
+      gx: 331.6,
+      gy: 399.2,
+      heading: "Hesperides Orbital Plate · Vow of Faith",
       date: "c. 013.M31",
       text: "On the Hesperides plate Garro finds Euphrati Keeler at last, hurling Libertas to cut down the Warmaster's assassins mid-strike. Taken into custody, the Saint promises that his hand will one day set her free.",
       source: "https://wh40k.lexicanum.com/wiki/Garro:_Vow_of_Faith_(Novella)",
+      placement: {
+        precision: "relative",
+        note: "Hesperides is explicitly a Terran orbital plate; the plotted offset is only a legibility device within the Sol cluster.",
+        source: "https://wh40k.lexicanum.com/wiki/Garro:_Vow_of_Faith_(Novella)",
+      },
     },
     {
       world: "terra",

@@ -2,22 +2,26 @@
  * voyages/types.ts — the "Great Journeys" data contract.
  *
  * A Voyage is a curated, ordered journey across the chart. Its stops come in
- * two kinds:
+ * three kinds:
  *
  *   - STATIONS reference catalog ids from scripts/seed-data/map-worlds.json
  *     (NOT display names — ids are unique, names may repeat) and resolve over
  *     featured AND dust worlds (resolve.ts), so a station does not need
  *     linked works.
- *   - WAYPOINTS are the "on the way" beats: events at worlds the chart cannot
- *     locate (Thessala, the Empyrean, Farness Beta …). They ride the dashed
- *     leg between their two neighbouring stations at an eye-placed fraction
- *     `via`, render as small dots on the path, and behave like full acts in
- *     the tour (camera, card, numbering).
+ *   - WAYPOINTS are the legacy "on the way" fallback for a beat that can only
+ *     be ordered between two anchors. They ride the enclosing leg at `via`
+ *     and behave like full acts in the tour. Current authored journeys prefer
+ *     sourced chart points whenever the lore supports a useful placement.
+ *   - CHART POINTS are named locations without catalog entities whose
+ *     relative position is still constrained by the lore (a moon, orbital
+ *     plate, system edge ...). They carry explicit grid coordinates plus a
+ *     rendered placement note and source, so inferred cartography never
+ *     masquerades as a canonical coordinate.
  *
- * Legs are GENERATED between consecutive STATIONS (quadratic Béziers bowing
- * away from Terra, resolve.ts) — waypoints never affect leg geometry. `leg`
- * on the arriving station overrides the bow or supplies a hand-authored path
- * (the pre-voyage hand legs of Indomitus/Via Horus ride along verbatim).
+ * Legs are GENERATED between consecutive ANCHORS (stations or chart points;
+ * quadratic Béziers bowing away from Terra, resolve.ts). Waypoints never
+ * affect leg geometry. `leg` on the arriving anchor overrides the bow or
+ * supplies a hand-authored path; `breakBefore` starts a disconnected segment.
  *
  * `scripts/test-voyages.ts` (npm run test:voyages) is the research gate:
  * every station id must exist in the catalog, every act text must be
@@ -32,6 +36,24 @@ export interface LegOverride {
   /** Full hand-authored SVG path `d` in grid coordinates — the art-direction
    *  escape hatch. Wins over `bow`. */
   d?: string;
+}
+
+export interface VoyagePlacement {
+  /** How strongly the lore constrains the plotted position. */
+  precision: "relative" | "schematic";
+  /** Concise, user-facing account of what the source does and does not fix. */
+  note: string;
+  /** Provenance for the placement claim, rendered as the note's source link. */
+  source: string;
+}
+
+/** Editorial section inside a long voyage. The start index is an authored
+ * stop index; the colour is shared by SVG, Canvas and cards. */
+export interface VoyageSection {
+  id: string;
+  label: string;
+  color: `#${string}`;
+  start: number;
 }
 
 export interface VoyageStation {
@@ -49,6 +71,9 @@ export interface VoyageStation {
   /** Styling of the leg ARRIVING at this station (from the previous
    *  station). Ignored on the first station. */
   leg?: LegOverride;
+  /** Start a new route segment here. The tour chronology continues, but no
+   *  line is drawn from the preceding anchor. */
+  breakBefore?: boolean;
 }
 
 export interface VoyageWaypoint {
@@ -67,11 +92,34 @@ export interface VoyageWaypoint {
   date?: string;
   /** Research provenance (Lexicanum/Fandom URL). Never rendered. */
   source?: string;
+  /** Optional disclosure where even the position along a leg needs context. */
+  placement?: VoyagePlacement;
 }
 
-export type VoyageStop = VoyageStation | VoyageWaypoint;
+export interface VoyageChartPoint {
+  /** Designation shown on the act card. */
+  name: string;
+  /** Explicit chart coordinate, inferred at the precision disclosed below. */
+  gx: number;
+  gy: number;
+  heading?: string;
+  text: string;
+  date?: string;
+  /** Research provenance for the event itself. */
+  source?: string;
+  /** Mandatory provenance and uncertainty disclosure for the coordinates. */
+  placement: VoyagePlacement;
+  /** Styling of the leg arriving at this point. */
+  leg?: LegOverride;
+  /** Start a new route segment here without connecting it to the preceding
+   *  anchor. */
+  breakBefore?: boolean;
+}
 
-export const isWaypoint = (s: VoyageStop): s is VoyageWaypoint => !("world" in s);
+export type VoyageStop = VoyageStation | VoyageWaypoint | VoyageChartPoint;
+
+export const isWaypoint = (s: VoyageStop): s is VoyageWaypoint => "via" in s;
+export const isChartPoint = (s: VoyageStop): s is VoyageChartPoint => "gx" in s;
 
 export interface Voyage {
   /** Stable id — reducer state, legend rows, mask ids. */
@@ -82,8 +130,15 @@ export interface Voyage {
   tag: string;
   /** One-line legend row description. */
   blurb: string;
-  /** ≥ 2 stations plus optional waypoints, in travel order. Repeat station
-   *  visits allowed. */
+  /** Optional prototype disclosure for how the route geometry should be read. */
+  cartography?: {
+    label: string;
+    note: string;
+  };
+  /** Optional chronology sections with a shared visual identity. */
+  sections?: VoyageSection[];
+  /** ≥ 2 anchors plus optional waypoints, in narrative order. Repeat station
+   *  visits and disconnected route segments are allowed. */
   stations: VoyageStop[];
   /** On-chart label (grid coordinates). */
   lbl: { x: number; y: number; t: string };

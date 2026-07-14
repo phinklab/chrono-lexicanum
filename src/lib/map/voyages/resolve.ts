@@ -3,14 +3,17 @@
  * for the Great Journeys.
  *
  * Stations resolve over featured AND dust worlds (a pinned world with no
- * linked works — Luna — is a legitimate station). Waypoints resolve to a
+ * linked works — Luna — is a legitimate station). Sourced chart points keep
+ * their explicit coordinates. Waypoints resolve to a
  * point ON the enclosing leg (previous station → next station) at fraction
  * `via` of the path parameter — the "on the way" beats for worlds the chart
  * cannot locate. An unresolvable stop drops with a dev-console warning;
  * `scripts/test-voyages.ts` fails hard on the same cases so a bad stop
  * cannot ship silently.
  *
- * Legs connect consecutive STATIONS only (waypoints never bend geometry) and
+ * Legs connect consecutive ANCHORS only (worlds and chart points; waypoints
+ * never bend geometry), except where the arriving anchor starts a new
+ * segment with `breakBefore`, and
  * default to quadratic Béziers: control point = leg midpoint pushed
  * perpendicular by `bow` grid units, side chosen AWAY from Terra so arcs
  * read as transits skirting the core (matches the hand-drawn originals).
@@ -20,7 +23,15 @@
  */
 
 import { TERRA } from "../projection";
-import { isWaypoint, type Voyage, type VoyageStation } from "./types";
+import {
+  isChartPoint,
+  isWaypoint,
+  type Voyage,
+  type VoyageChartPoint,
+  type VoyagePlacement,
+  type VoyageSection,
+  type VoyageStation,
+} from "./types";
 
 /** Structural subset of MapPayload the resolver needs — keeps this module
  *  (and scripts/test-voyages.ts) free of the server-only blurb layer that
@@ -34,8 +45,8 @@ export interface VoyageChart {
 export interface ResolvedStation {
   /** Index in the RESOLVED sequence (act numbering, progress gating). */
   i: number;
-  /** "world" = a chart station (ring); "way" = a leg waypoint (dot). */
-  kind: "world" | "way";
+  /** Catalog world, sourced synthetic point, or a leg-riding waypoint. */
+  kind: "world" | "point" | "way";
   /** Catalog world id, or a synthetic `~name` id for waypoints. */
   id: string;
   /** Chart name (map-worlds.json spelling), or the waypoint designation. */
@@ -49,6 +60,8 @@ export interface ResolvedStation {
   /** The leg this stop arrives on (world) or rides (way); −1 for the first
    *  station. Drives the tour's step→draw gating in RoutesLayer. */
   legIndex: number;
+  placement?: VoyagePlacement;
+  section?: VoyageSection;
 }
 
 export interface ResolvedVoyage {
@@ -56,10 +69,13 @@ export interface ResolvedVoyage {
   name: string;
   tag: string;
   blurb: string;
+  cartography?: Voyage["cartography"];
   lbl: { x: number; y: number; t: string };
   stations: ResolvedStation[];
   /** One SVG path `d` per STATION transition (worldCount − 1). */
   legs: string[];
+  /** Section colour for each leg, aligned with `legs`. */
+  legColors: string[];
 }
 
 const r1 = (n: number) => Math.round(n * 10) / 10;
@@ -132,10 +148,20 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
   const byId = new Map<string, { name: string; gx: number; gy: number }>();
   for (const f of chart.featured) byId.set(f.id, { name: f.name, gx: f.gx, gy: f.gy });
   for (const d of chart.dust) byId.set(d[3], { name: d[4], gx: d[0], gy: d[1] });
+  const sections = [...(voyage.sections ?? [])].sort((a, b) => a.start - b.start);
+  const sectionAt = (stopIdx: number): VoyageSection | undefined => {
+    let active: VoyageSection | undefined;
+    for (const section of sections) {
+      if (section.start > stopIdx) break;
+      active = section;
+    }
+    return active;
+  };
 
-  // Pass 1 — resolve the world stations (in stop order) and build the legs.
+  // Pass 1 — resolve route anchors (catalog worlds or chart points) and
+  // build the legs.
   interface Anchor {
-    stop: VoyageStation;
+    stop: VoyageStation | VoyageChartPoint;
     w: { name: string; gx: number; gy: number };
     stopIdx: number;
   }
@@ -143,17 +169,31 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
   const anchorByStop = new Map<number, number>();
   voyage.stations.forEach((stop, stopIdx) => {
     if (isWaypoint(stop)) return;
-    const w = byId.get(stop.world);
+    const w = isChartPoint(stop)
+      ? { name: stop.name, gx: stop.gx, gy: stop.gy }
+      : byId.get(stop.world);
     if (!w) {
-      devWarn(`${voyage.id}: station "${stop.world}" not on the chart — dropped`);
+      devWarn(
+        `${voyage.id}: station "${isChartPoint(stop) ? stop.name : stop.world}" not on the chart — dropped`,
+      );
       return;
     }
     anchorByStop.set(stopIdx, anchors.length);
     anchors.push({ stop, w, stopIdx });
   });
-  const legs: string[] = anchors
-    .slice(1)
-    .map((a, k) => a.stop.leg?.d ?? legPath(anchors[k].w, a.w, a.stop.leg?.bow));
+  const legs: string[] = [];
+  const legColors: string[] = [];
+  const incomingLeg: number[] = anchors.map(() => -1);
+  const outgoingLeg: number[] = anchors.map(() => -1);
+  anchors.slice(1).forEach((a, offset) => {
+    const previousAnchor = offset;
+    if (a.stop.breakBefore) return;
+    const legIndex = legs.length;
+    legs.push(a.stop.leg?.d ?? legPath(anchors[previousAnchor].w, a.w, a.stop.leg?.bow));
+    legColors.push(sectionAt(a.stopIdx)?.color ?? "#b89b63");
+    incomingLeg[previousAnchor + 1] = legIndex;
+    outgoingLeg[previousAnchor] = legIndex;
+  });
 
   // Pass 2 — assemble the act sequence; waypoints ride the leg between the
   // anchors around them.
@@ -165,22 +205,28 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
       if (k === undefined) return; // dropped above
       lastAnchor = k;
       const { w } = anchors[k];
+      const point = isChartPoint(stop);
       const st: ResolvedStation = {
         i: stations.length,
-        kind: "world",
-        id: stop.world,
+        kind: point ? "point" : "world",
+        id: point
+          ? `@${stop.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-${stopIdx}`
+          : stop.world,
         name: w.name,
         heading: stop.heading ?? w.name,
         text: stop.text,
         gx: w.gx,
         gy: w.gy,
-        legIndex: k - 1,
+        legIndex: incomingLeg[k],
       };
       if (stop.date) st.date = stop.date;
+      if (point) st.placement = stop.placement;
+      const section = sectionAt(stopIdx);
+      if (section) st.section = section;
       stations.push(st);
       return;
     }
-    const legIdx = lastAnchor;
+    const legIdx = outgoingLeg[lastAnchor] ?? -1;
     const d = legIdx >= 0 && legIdx < legs.length ? legs[legIdx] : null;
     const pt = d ? pointOnLeg(d, Math.min(0.97, Math.max(0.03, stop.via))) : null;
     if (!pt) {
@@ -199,6 +245,9 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
       legIndex: legIdx,
     };
     if (stop.date) st.date = stop.date;
+    if (stop.placement) st.placement = stop.placement;
+    const section = sectionAt(stopIdx);
+    if (section) st.section = section;
     stations.push(st);
   });
 
@@ -207,8 +256,10 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
     name: voyage.name,
     tag: voyage.tag,
     blurb: voyage.blurb,
+    ...(voyage.cartography ? { cartography: voyage.cartography } : {}),
     lbl: voyage.lbl,
     stations,
     legs,
+    legColors,
   };
 }

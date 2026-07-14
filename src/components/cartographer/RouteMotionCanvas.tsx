@@ -122,7 +122,6 @@ export default function RouteMotionCanvas({
       if (!driver) return false;
       const rect = sizeCanvas();
       ctx.clearRect(0, 0, rect.width, rect.height);
-      ctx.strokeStyle = GOLD;
       ctx.globalAlpha = 0.9;
       ctx.lineWidth = 1.7;
       ctx.lineCap = "round";
@@ -135,6 +134,7 @@ export default function RouteMotionCanvas({
       resolved.legs.forEach((leg, legIndex) => {
         const fraction = revealFraction(legIndex, elapsed);
         if (fraction <= 0) return;
+        ctx.strokeStyle = resolved.legColors[legIndex] ?? GOLD;
         const samples = Math.max(2, Math.ceil(PATH_SAMPLES * fraction));
         ctx.beginPath();
         for (let i = 0; i <= samples; i += 1) {
