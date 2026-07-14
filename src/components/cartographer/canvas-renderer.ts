@@ -951,7 +951,7 @@ function routeGeometry(voyage: ResolvedVoyage): CachedRouteGeometry {
   const firstVisit = new Map<string, number>();
   for (const station of voyage.stations) {
     if (station.legIndex >= 0 && !firstEntry.has(station.legIndex)) firstEntry.set(station.legIndex, station.i);
-    if (station.kind === "world" && !firstVisit.has(station.id)) firstVisit.set(station.id, station.i);
+    if (station.kind !== "way" && !firstVisit.has(station.id)) firstVisit.set(station.id, station.i);
   }
   const samples = voyage.legs.map((leg) =>
     Array.from({ length: ROUTE_SAMPLES + 1 }, (_, index) => pointOnLeg(leg, index / ROUTE_SAMPLES)),
@@ -1037,9 +1037,11 @@ function drawRoute(
   for (const [, index] of geometry.firstVisit) {
     if (scene.voyageProgress !== null && scene.voyageProgress < index) continue;
     const station = voyage.stations[index];
+    if (station.kind === "point") ctx.setLineDash([2 / camera.k, 2.5 / camera.k]);
     ctx.beginPath();
-    ctx.arc(station.gx, station.gy, 8, 0, Math.PI * 2);
+    ctx.arc(station.gx, station.gy, station.kind === "point" ? 6 : 8, 0, Math.PI * 2);
     ctx.stroke();
+    ctx.setLineDash([]);
     ctx.beginPath();
     ctx.arc(station.gx, station.gy, 1.4, 0, Math.PI * 2);
     ctx.fill();

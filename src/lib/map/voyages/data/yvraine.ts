@@ -2,9 +2,10 @@
  * Yvraine's personally attested road from Biel-Tan to the Ynnari. The
  * `remnants-of-biel-tan` pin is the same travelling craftworld before and
  * after its fracture; the heading carries the story-era name. Commorragh's
- * canonical catalog id is used deliberately. Iathglas is omitted because it
- * has no chart pin and no later personal station on which a final waypoint
- * could honestly land.
+ * canonical catalog id is used deliberately. Iathglas closes the current
+ * Cronesword arc as a sourced SCHEMATIC chart point: no published source
+ * gives it galactic coordinates, so its offset from Zandros is explicitly
+ * disclosed as non-geographic rather than presented as a false world pin.
  */
 
 import type { Voyage } from "../types";
@@ -23,12 +24,18 @@ export const YVRAINE: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/Yvraine",
     },
     {
-      via: 0.5,
       name: "Gnosis Prime",
+      gx: 419.7,
+      gy: 303,
       heading: "Gnosis Prime · The Avatar's War",
       date: "M41",
       text: "Yvraine marches beside Biel-Tan's Avatar on Gnosis Prime and takes the Dire Avenger's path. The war tempers her as an Aspect Warrior, yet no single shrine can hold her restless course.",
       source: "https://wh40k.lexicanum.com/wiki/Gnosis_Prime",
+      placement: {
+        precision: "schematic",
+        note: "Gnosis Prime is fixed to the Talhor Sector, but that sector has no established chart position; the point carries Yvraine's pre-Commorragh chronology only.",
+        source: "https://wh40k.lexicanum.com/wiki/Gnosis_Prime",
+      },
     },
     {
       world: "commorragh",
@@ -59,12 +66,18 @@ export const YVRAINE: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/Ynnari",
     },
     {
-      via: 0.5,
       name: "Belial IV",
+      gx: 252,
+      gy: 220,
       heading: "Belial IV · The Sword in the Crone World",
       date: "999.M41",
       text: "Yvraine lands on a world drowned in the Eye of Terror and fights daemons, Haemonculi and the Prophets of Flesh. The Yncarne tears Vilith-zhar from the dead world, placing another Cronesword in Ynnari hands.",
       source: "https://wh40k.lexicanum.com/wiki/Belial_IV",
+      placement: {
+        precision: "relative",
+        note: "Belial IV is explicitly a Crone World pulled into the Eye of Terror; it is plotted inside the charted Eye, while its exact position within the rift remains approximate.",
+        source: "https://wh40k.lexicanum.com/wiki/Belial_IV",
+      },
     },
     {
       world: "iyanden",
@@ -74,20 +87,32 @@ export const YVRAINE: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/Iyanden",
     },
     {
-      via: 0.34,
       name: "Psychedelta",
+      gx: 290,
+      gy: 245,
       heading: "Psychedelta · Nine Lives Returned",
       date: "999.M41",
       text: "Ahriman corners the Ynnari in the Webway, certain that Yvraine knows the path to his Legion's salvation. She restores Rubricae to living Thousand Sons for a single heartbeat—then casts them through the sundered path and escapes.",
       source: "https://wh40k.lexicanum.com/wiki/War_in_the_Labyrinth",
+      placement: {
+        precision: "schematic",
+        note: "Psychedelta is a Webway convergence linked by Klaisus to the Eastern Fringe, not an ordinal realspace point; it is shown beside the Cadian waystation for narrative legibility.",
+        source: "https://wh40k.lexicanum.com/wiki/Klaisus",
+      },
     },
     {
-      via: 0.69,
       name: "Klaisus",
+      gx: 282,
+      gy: 240,
       heading: "Klaisus · The Fractured Road",
       date: "999.M41",
       text: "On Klaisus, the Ynnari find survivors of fallen Cadia and meet the warriors who will carry them toward Ultramar. Together they repel the Black Legion and turn an alliance of necessity into a road to the Avenging Son.",
       source: "https://wh40k.lexicanum.com/wiki/Klaisus",
+      placement: {
+        precision: "relative",
+        note: "Klaisus is the outermost ice moon of the Cadian System; it is plotted as a local offset from Cadia rather than on the old Iyanden–Macragge midpoint.",
+        source: "https://wh40k.lexicanum.com/wiki/Klaisus",
+      },
     },
     {
       world: "macragge",
@@ -104,20 +129,32 @@ export const YVRAINE: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/Hand_of_Darkness",
     },
     {
-      via: 0.34,
       name: "Garden of Nurgle",
+      gx: 556.4,
+      gy: 87,
       heading: "Garden of Nurgle · The Hand of Darkness",
       date: "after 999.M41",
       text: "The Rose opens a path through Nurgle's impossible garden to Mortarion's Whispering Tower. Yvraine enters the Plague Planet, steals the Hand of Darkness and escapes a realm built to make escape meaningless.",
       source: "https://wh40k.lexicanum.com/wiki/Hand_of_Darkness_(Audio_Drama)",
+      placement: {
+        precision: "schematic",
+        note: "Nurgle's Garden is a Warp realm reached from the Black Library and through the Whispering Tower, not a stable galactic coordinate; the point marks that extradimensional passage.",
+        source: "https://wh40k.lexicanum.com/wiki/Hand_of_Darkness",
+      },
     },
     {
-      via: 0.7,
       name: "Einerash",
+      gx: 383,
+      gy: 142.8,
       heading: "Einerash · The Dead City",
       date: "after 999.M41",
       text: "A dead Webway city closes around the Ynnari while Ahriman's sorcerers and Tzeentch's daemons hunt them. Yvraine spends the Rose of Isha against a Lord of Change and wins the path home.",
       source: "https://wh40k.lexicanum.com/wiki/Yvraine",
+      placement: {
+        precision: "schematic",
+        note: "Einerash is a dead city inside the non-ordinal Webway; its mark only separates the escape from Nurgle's Garden from the return to Ulthwé.",
+        source: "https://wh40k.lexicanum.com/wiki/Yvraine",
+      },
     },
     {
       world: "ulthwe",
@@ -134,28 +171,46 @@ export const YVRAINE: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/Yvraine",
     },
     {
-      via: 0.22,
       name: "Zaisuthra",
+      gx: 482.8,
+      gy: 635.5,
       heading: "Zaisuthra · The Well of the Dead",
       date: "after 999.M41",
       text: "The Yncarne enters the lost craftworld's Genestealer group mind and tears its infection apart. At the Well of the Dead, Yvraine lets the frenzied Visarch strike her down; resurrected, she defeats the Warshard and finds the Heart of Eldanesh where a Cronesword should have been.",
       source: "https://wh40k.lexicanum.com/wiki/Zaisuthra",
+      placement: {
+        precision: "schematic",
+        note: "Zaisuthra developed in isolation inside the Webway and only later entered the Materium; no stable galactic region is given, so the point follows the Iyanden expedition.",
+        source: "https://wh40k.lexicanum.com/wiki/Zaisuthra",
+      },
     },
     {
-      via: 0.5,
       name: "Agarimethea",
+      gx: 825,
+      gy: 510,
       heading: "Agarimethea · The Temporal Tomb",
       date: "after 999.M41",
       text: "Within Agarimethea's tomb complex, Necron null-fields sever the Ynnari from the Webway as a temporal portal and a Warp breach tear open. Yvraine feeds Iyothia's soul to the Yncarne; Caelledhin gives her life to seal the breach, and still no sword waits among the dead.",
       source: "https://wh40k.lexicanum.com/wiki/Agarimethea",
+      placement: {
+        precision: "schematic",
+        note: "Agarimethea's segmentum is unknown; it is grouped toward Saim-Hann because the Maiden/Tomb World is spiritually important to that craftworld and its clans initiate the expedition.",
+        source: "https://wh40k.lexicanum.com/wiki/Agarimethea",
+      },
     },
     {
-      via: 0.78,
       name: "Saim-Hann",
+      gx: 890,
+      gy: 410,
       heading: "Saim-Hann · The Phoenix Descends",
       date: "after the Great Rift",
       text: "Yvraine comes to Saim-Hann seeking new believers and finds Drazhar waiting. Jain Zar descends into the ambush, buys the prophet's escape and carries the feud toward one final arena.",
       source: "https://wh40k.lexicanum.com/wiki/Raid_on_Saim-Hann",
+      placement: {
+        precision: "relative",
+        note: "Current sources place the travelling craftworld in the Eastern Fringe; the coordinate is regional and cannot be a permanent ephemeris for a mobile world-ship.",
+        source: "https://wh40k.lexicanum.com/wiki/Saim-Hann",
+      },
     },
     {
       world: "zandros",
@@ -163,6 +218,20 @@ export const YVRAINE: Voyage = {
       date: "M42",
       text: "On Zandros, Yvraine learns that Drazhar has killed Jain Zar in Shaa-Dom. She sends Ynnead's power through death; the reborn Phoenix Lord arrives and, six days later, kills the master of blades.",
       source: "https://wh40k.lexicanum.com/wiki/Zandros",
+    },
+    {
+      name: "Iathglas",
+      gx: 760,
+      gy: 360,
+      heading: "Iathglas · The Fifth Sword",
+      date: "M42",
+      text: "At an Aeldari conclave on Iathglas, a glamour of Shalaxi Helbane cuts through Yvraine's champions and tests the Yncarne itself. The daemon reveals the last Cronesword beyond mortal reach in the Palace of Slaanesh.",
+      source: "https://wh40k.lexicanum.com/wiki/Battle_of_Iathglas",
+      placement: {
+        precision: "relative",
+        note: "Iathglas is now identified as a Maiden World of the Miaghu System in Ultima Segmentum; the chart uses that broad region because no sector or exact coordinate is published.",
+        source: "https://wh40k.lexicanum.com/wiki/Iathglas",
+      },
     },
   ],
   lbl: { x: 642, y: 192, t: "THE SEVENTH PATH" },

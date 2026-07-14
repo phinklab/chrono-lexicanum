@@ -21,8 +21,16 @@ import { LION } from "./data/lion";
 import { YVRAINE } from "./data/yvraine";
 import type { Voyage } from "./types";
 
-export type { LegOverride, Voyage, VoyageStation, VoyageStop, VoyageWaypoint } from "./types";
-export { isWaypoint } from "./types";
+export type {
+  LegOverride,
+  Voyage,
+  VoyageChartPoint,
+  VoyagePlacement,
+  VoyageStation,
+  VoyageStop,
+  VoyageWaypoint,
+} from "./types";
+export { isChartPoint, isWaypoint } from "./types";
 export { pointOnLeg, resolveVoyage } from "./resolve";
 export type { ResolvedStation, ResolvedVoyage, VoyageChart } from "./resolve";
 export { fitVoyageBounds, resolvedVoyageBounds } from "./fit";

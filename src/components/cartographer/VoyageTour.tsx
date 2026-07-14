@@ -153,9 +153,11 @@ export default function VoyageTour({
         </button>
         <p className="ck">
           GREAT JOURNEY · {resolved.tag.toUpperCase()}
+          {resolved.cartography ? ` · ${resolved.cartography.label.toUpperCase()}` : ""}
         </p>
         <p className="cg-tour-name">{resolved.name}</p>
         <p className="ct">{resolved.blurb}</p>
+        {resolved.cartography && <p className="cg-tour-method">{resolved.cartography.note}</p>}
         <div className="cg-tour-row">
           <span />
           <button className="cpg lead" onClick={() => onStep(0)}>
@@ -193,6 +195,16 @@ export default function VoyageTour({
       <p className="cg-tour-name">{st.heading}</p>
       {st.date && <p className="cg-tour-date">{st.date}</p>}
       <p className="ct">{st.text}</p>
+      {st.placement && (
+        <p className="cg-tour-placement">
+          {st.placement.precision === "relative" ? "INFERRED PLACEMENT" : "SCHEMATIC PLACEMENT"}
+          {" · "}
+          {st.placement.note}{" "}
+          <a href={st.placement.source} target="_blank" rel="noreferrer">
+            SOURCE ↗
+          </a>
+        </p>
+      )}
       <div className="cg-tour-row">
         <span>
           {step > 0 && (

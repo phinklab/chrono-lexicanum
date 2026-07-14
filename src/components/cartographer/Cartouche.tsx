@@ -126,7 +126,10 @@ export function VoyageButtons({
           {voyage.name}
           <span className="rt-tag">{voyage.tag}</span>
           <span className="rt-blurb">{voyage.blurb}</span>
-          <span className="rt-meta">{voyage.stations.length} stations</span>
+          <span className="rt-meta">
+            {voyage.stations.length} stations
+            {voyage.cartography ? ` · ${voyage.cartography.label}` : ""}
+          </span>
         </button>
       ))}
     </div>
@@ -379,7 +382,7 @@ export function Cartouche({
       />
       {openSecs.has("courses") && (
         <div className="c-body">
-          <p className="c-hint">trace the paths of legend across the chart</p>
+          <p className="c-hint">charted routes and curated chronologies across the galaxy</p>
           <VoyageButtons voyageId={voyageId} onVoyage={onVoyage} />
         </div>
       )}

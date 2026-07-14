@@ -17,7 +17,16 @@ import process from "node:process";
 
 import { validateMapWorlds, type MapWorldsFile } from "@/lib/map/map-worlds-schema";
 import { GRID_H, GRID_W } from "@/lib/map/projection";
-import { VOYAGES, isWaypoint, resolveVoyage, type VoyageChart } from "@/lib/map/voyages";
+import {
+  VOYAGES,
+  isChartPoint,
+  isWaypoint,
+  resolveVoyage,
+  type VoyageChart,
+  type VoyageChartPoint,
+  type VoyageStation,
+  type VoyageStop,
+} from "@/lib/map/voyages";
 
 const raw: unknown = JSON.parse(
   readFileSync(path.join(process.cwd(), "scripts", "seed-data", "map-worlds.json"), "utf8"),
@@ -30,6 +39,11 @@ const file = raw as MapWorldsFile;
 const chart: VoyageChart = { featured: file.worlds, dust: [] };
 const catalogIds = new Set(file.worlds.map((w) => w.id));
 const worldById = new Map(file.worlds.map((w) => [w.id, w]));
+const stopCoordinates = (stop: VoyageStop) => {
+  if (isWaypoint(stop)) return null;
+  if (isChartPoint(stop)) return { gx: stop.gx, gy: stop.gy };
+  return worldById.get(stop.world) ?? null;
+};
 
 let cases = 0;
 const check = (cond: boolean, msg: string) => {
@@ -39,6 +53,22 @@ const check = (cond: boolean, msg: string) => {
 
 check(VOYAGES.length >= 2, "at least two journeys exist");
 check(new Set(VOYAGES.map((v) => v.id)).size === VOYAGES.length, "voyage ids are unique");
+check(
+  !VOYAGES.some((v) => v.stations.some(isWaypoint)),
+  "authored journeys use sourced chart points instead of leg-riding waypoints",
+);
+
+const abaddon = VOYAGES.find((v) => v.id === "abaddon");
+check(abaddon !== undefined, "Abaddon journey exists");
+const blackCrusadeStarts =
+  abaddon?.stations.filter(
+    (s) =>
+      !isWaypoint(s) &&
+      !isChartPoint(s) &&
+      s.world === "eye-of-terror" &&
+      s.breakBefore === true,
+  ) ?? [];
+check(blackCrusadeStarts.length === 13, "all thirteen Black Crusades restart at the Eye");
 
 for (const v of VOYAGES) {
   check(v.name.trim().length > 0, `${v.id}: name`);
@@ -49,8 +79,10 @@ for (const v of VOYAGES) {
     `${v.id}: label on the grid`,
   );
 
-  const worlds = v.stations.filter((s) => !isWaypoint(s));
-  check(worlds.length >= 2, `${v.id}: >= 2 world stations`);
+  const anchors = v.stations.filter(
+    (s): s is VoyageStation | VoyageChartPoint => !isWaypoint(s),
+  );
+  check(anchors.length >= 2, `${v.id}: >= 2 route anchors`);
   check(!isWaypoint(v.stations[0]), `${v.id}: first stop is a station`);
   check(!isWaypoint(v.stations[v.stations.length - 1]), `${v.id}: last stop is a station`);
 
@@ -65,17 +97,37 @@ for (const v of VOYAGES) {
       const next = v.stations.slice(si + 1).find((s) => !isWaypoint(s));
       check(prev !== undefined && next !== undefined, `${v.id}/${st.name}: between stations`);
       if (prev && !isWaypoint(prev) && next && !isWaypoint(next)) {
-        const a = worldById.get(prev.world);
-        const b = worldById.get(next.world);
+        const a = stopCoordinates(prev);
+        const b = stopCoordinates(next);
         check(
           !!a && !!b && Math.hypot(a.gx - b.gx, a.gy - b.gy) >= 0.5,
-          `${v.id}/${st.name}: enclosing leg has length (${prev.world} → ${next.world})`,
+          `${v.id}/${st.name}: enclosing leg has length (${isChartPoint(prev) ? prev.name : prev.world} → ${isChartPoint(next) ? next.name : next.world})`,
         );
+      }
+    } else if (isChartPoint(st)) {
+      check(st.name.trim().length > 0, `${v.id}[${si}]: chart point name`);
+      check(
+        st.gx >= 0 && st.gx <= GRID_W && st.gy >= 0 && st.gy <= GRID_H,
+        `${v.id}/${st.name}: chart point on the grid`,
+      );
+      check(st.placement.note.trim().length > 0, `${v.id}/${st.name}: placement note`);
+      check(
+        /^https:\/\//.test(st.placement.source),
+        `${v.id}/${st.name}: placement source URL`,
+      );
+      if (st.leg?.d !== undefined) {
+        check(/^M[\s\d.-]/.test(st.leg.d), `${v.id}/${st.name}: leg.d parses as a path`);
+      }
+      if (st.breakBefore) {
+        check(si > 0, `${v.id}/${st.name}: route break is not first`);
       }
     } else {
       check(catalogIds.has(st.world), `${v.id}: station "${st.world}" exists in map-worlds.json`);
       if (st.leg?.d !== undefined) {
         check(/^M[\s\d.-]/.test(st.leg.d), `${v.id}/${st.world}: leg.d parses as a path`);
+      }
+      if (st.breakBefore) {
+        check(si > 0, `${v.id}/${st.world}: route break is not first`);
       }
     }
   });
@@ -85,7 +137,8 @@ for (const v of VOYAGES) {
     resolved.stations.length === v.stations.length,
     `${v.id}: every stop resolves (no silent drops)`,
   );
-  check(resolved.legs.length === worlds.length - 1, `${v.id}: one leg per station transition`);
+  const expectedLegs = anchors.slice(1).filter((s) => !s.breakBefore).length;
+  check(resolved.legs.length === expectedLegs, `${v.id}: one leg per connected anchor transition`);
   for (const d of resolved.legs) {
     check(/^M -?[\d.]+ -?[\d.]+ (Q|L|C)/.test(d), `${v.id}: generated leg is a path (${d.slice(0, 24)}…)`);
   }

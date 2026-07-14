@@ -3,7 +3,8 @@
  * space hulk Wurld Killa have no chart position, so the visible route
  * begins where the hulk falls on Armageddon and keeps the origin in the card
  * copy. Octaria is the central planet Octarius under its attested alternate
- * name, not a proxy. Every unpinned later location rides a leg as a waypoint.
+ * name, not a proxy. Unpinned later locations use sourced relative or
+ * schematic chart points with visible uncertainty disclosures.
  */
 
 import type { Voyage } from "../types";
@@ -43,44 +44,74 @@ export const GHAZGHKULL: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/Ghazghkull",
     },
     {
-      via: 0.1,
       name: "Haunted Gulf",
+      gx: 450,
+      gy: 350,
       heading: "Haunted Gulf · No Time to Die",
       date: "189.999.M41",
       text: "Imperial hunters corner Kill Wrecka in the Haunted Gulf with Ghazghkull aboard. A surge of Weirdboy power cripples the trap and hurls his flagship into the Warp, leaving the Great Waaagh alive and moving.",
       source: "https://wh40k.lexicanum.com/wiki/Battle_of_Haunted_Gulf",
+      placement: {
+        precision: "schematic",
+        note: "The source calls the Haunted Gulf an otherwise unidentified barren zone reached after Armageddon; the point marks that pursuit before the Warp jump to Octarius.",
+        source: "https://wh40k.lexicanum.com/wiki/Battle_of_Haunted_Gulf",
+      },
     },
     {
-      via: 0.26,
       name: "Urgok's Realm",
+      gx: 520,
+      gy: 415,
       heading: "Urgok's Realm · Da First Toadie",
       date: "694.999.M41",
       text: "Ghazghkull teleports his Bullyboyz straight into Warlord Urgok's command room. One brutal audience turns a rival empire into the first great host marching beneath his banner.",
       source: "https://wh40k.lexicanum.com/wiki/Great_Waaagh%21",
+      placement: {
+        precision: "schematic",
+        note: "Kill Wrecka emerges in Urgok's territory before the Waaagh turns toward Octarius, but the realm has no named sector; it is plotted on that approach only.",
+        source: "https://warhammer40k.fandom.com/wiki/Ghazghkull_Mag_Uruk_Thraka",
+      },
     },
     {
-      via: 0.42,
       name: "Fang's World",
+      gx: 532,
+      gy: 425,
       heading: "Fang's World · A New Horde",
       date: "704.999.M41",
       text: "The prophet and his Bullyboyz crash into Urgok's failing battle against the T'au and turn it by force. Victory binds the rescued horde to Ghazghkull rather than to the warlord who led it there.",
       source: "https://wh40k.lexicanum.com/wiki/Great_Waaagh%21",
+      placement: {
+        precision: "relative",
+        note: "Fang's World is explicitly a nearby T'au colony inside the bounds of Urgok's realm; it is therefore plotted as the next local stop, not as a known galactic coordinate.",
+        source: "https://warhammer40k.fandom.com/wiki/Ghazghkull_Mag_Uruk_Thraka",
+      },
     },
     {
-      via: 0.58,
       name: "Kongajaro",
+      gx: 548,
+      gy: 442,
       heading: "Kongajaro · Da Beast Hunt",
       date: "730.999.M41",
       text: "On Kongajaro, Ghazghkull joins the Snakebites' ritual hunt and kills beside them. The beast is barely cold when another clan swears itself to the road toward Octarius.",
       source: "https://wh40k.lexicanum.com/wiki/Great_Waaagh%21",
+      placement: {
+        precision: "relative",
+        note: "Kongajaro is described as a jungle world near the Ork Empire of Octarius; the point is placed just outside the charted Octarius marker.",
+        source: "https://wh40k.lexicanum.com/wiki/Ork_Domains",
+      },
     },
     {
-      via: 0.74,
       name: "Black Kraken Nebula",
+      gx: 558,
+      gy: 450,
       heading: "Black Kraken Nebula · Redklaw's Choice",
       date: "730.999.M41",
       text: "Redklaw's pirates ambush the Waaagh in the Black Kraken Nebula and discover prey too dangerous to rob. Their captain changes sides before the guns cool, adding his fleet to Ghazghkull's tide.",
       source: "https://wh40k.lexicanum.com/wiki/Great_Waaagh%21",
+      placement: {
+        precision: "schematic",
+        note: "The nebula is named only as the final recruitment theatre before Octarius; no segmentum position is published, so it is plotted on that last approach.",
+        source: "https://wh40k.lexicanum.com/wiki/Great_Waaagh%21",
+      },
     },
     {
       world: "octarius",
@@ -97,12 +128,18 @@ export const GHAZGHKULL: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/Battle_of_Krongar",
     },
     {
-      via: 0.55,
       name: "Icaria",
+      gx: 455.2,
+      gy: 259.1,
       heading: "Icaria · The Dying Prototype",
       date: "Era Indomitus",
       text: "A prototype Tellyshokka rips Icaria apart around Ghazghkull and his oldest foe. He defeats Yarrick in person, spares him once more, and leaves the broken world to its ending.",
       source: "https://wh40k.lexicanum.com/wiki/Icaria",
+      placement: {
+        precision: "schematic",
+        note: "Icaria's source records the battle but no segmentum, sector or system; the point only carries the post-Krongar, pre-Armageddon chronology.",
+        source: "https://wh40k.lexicanum.com/wiki/Icaria",
+      },
     },
     {
       world: "armageddon",

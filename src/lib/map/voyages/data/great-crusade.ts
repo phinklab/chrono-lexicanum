@@ -10,11 +10,13 @@
  * unknown and rides `terra` as "The Final Son", the act text carrying both
  * accounts (revealed to Horus in deep space vs. found first on Terra, per
  * "Alpharius: Head of the Hydra"). The two Lost Primarchs (II at 821.M30,
- * XI at 927.M30 in the timeline) have no worlds — they ride the legs as
- * WAYPOINTS, two unmarked dots in the dark between their brothers.
+ * XI at 927.M30 in the timeline) have no worlds or regions — they use
+ * explicitly schematic chart points, two uncertain marks in the dark between
+ * their brothers.
  * Luna and Mars predate the formal launch and are intentionally presented
- * as its Sol-system prologue. Sedna is off-chart and rides the Cthonia →
- * Fenris leg. Gorro's sources agree on the event but not a precise date, so
+ * as its Sol-system prologue. Sedna is placed beside Sol because its campaign
+ * completed the liberation of that system. Gorro's sources agree on the
+ * event but not a precise date, so
  * it sits late M30
  * before Ullanor without a false year. Magnus' 840.M30 is the official
  * timeline number; Lexicanum flags it may date first psychic contact.
@@ -55,16 +57,22 @@ export const GREAT_CRUSADE: Voyage = {
       world: "cthonia",
       heading: "Cthonia · Horus",
       date: "801.M30",
-      text: "On the mined-out gang-world of Cthonia the Emperor finds his first son. For thirty years Horus alone campaigns at his father's side, learning conquest as the Great Crusade breaks beyond Sol.",
+      text: "On the mined-out gang-world of Cthonia the Emperor finds his first son. Horus alone campaigns at his father's side until Russ is recovered, learning conquest as the Great Crusade breaks beyond Sol.",
       source: "https://wh40k.lexicanum.com/wiki/Horus",
     },
     {
-      via: 0.5,
       name: "Sedna",
+      gx: 326,
+      gy: 409,
       heading: "Sedna · The Last Gate of Sol",
       date: "803.M30",
       text: "At Sol's outer dark, eight Legions assault a false world ruled by xenos. The enemy is erased by psychic means and Sedna falls silent, the last gate before the expedition fleets break into the wider galaxy.",
       source: "https://wh40k.lexicanum.com/wiki/Sedna_Campaign",
+      placement: {
+        precision: "relative",
+        note: "The campaign is explicitly the final battle to liberate the Sol System; no orbit or surviving coordinates are given, so Sedna is plotted just beyond the Sol cluster.",
+        source: "https://wh40k.lexicanum.com/wiki/Sedna_Campaign",
+      },
     },
     {
       world: "fenris",
@@ -74,12 +82,18 @@ export const GREAT_CRUSADE: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/Leman_Russ_(Primarch)",
     },
     {
-      via: 0.5,
       name: "The Second",
+      gx: 288.1,
+      gy: 228,
       heading: "The Second · Expunged",
       date: "821.M30",
       text: "Between the finding of the Wolf King and the Gorgon, a primarch is found whose name no record keeps. Of him and his Legion the Imperial archive says one thing only: expunged.",
       source: "https://wh40k.lexicanum.com/wiki/Lost_Primarchs",
+      placement: {
+        precision: "schematic",
+        note: "The archive preserves a rediscovery date but no homeworld or region; this point only holds the Second's chronological place between Russ and Ferrus Manus.",
+        source: "https://wh40k.lexicanum.com/wiki/Lost_Primarchs",
+      },
     },
     {
       world: "medusa",
@@ -194,12 +208,18 @@ export const GREAT_CRUSADE: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/Corvus_Corax",
     },
     {
-      via: 0.5,
       name: "The Eleventh",
+      gx: 335.6,
+      gy: 564.6,
       heading: "The Eleventh · Expunged",
       date: "927.M30",
       text: "A second gap in the roll of the returned. Whatever world gave him up, whatever his Legion did or failed to do, the record ends the same way: all mention deleted from the Imperial archive.",
       source: "https://wh40k.lexicanum.com/wiki/Lost_Primarchs",
+      placement: {
+        precision: "schematic",
+        note: "Only the rediscovery date and its place in the sequence survive; the plotted position makes no claim about the Eleventh's erased homeworld.",
+        source: "https://wh40k.lexicanum.com/wiki/Lost_Primarchs",
+      },
     },
     {
       world: "terra",
@@ -209,12 +229,18 @@ export const GREAT_CRUSADE: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/Alpharius",
     },
     {
-      via: 0.5,
       name: "Gorro",
+      gx: 400,
+      gy: 298,
       heading: "Gorro · The Emperor's Peril",
       date: "late M30",
       text: "The Emperor and Horus descend into an ork scrapworld built around a stolen planetary core. A warboss closes one hand around the Emperor's throat; Horus hews the arm away, and Gorro tears itself apart around them.",
       source: "https://wh40k.lexicanum.com/wiki/Battle_of_Gorro",
+      placement: {
+        precision: "relative",
+        note: "Gorro is placed close to Ullanor because the source identifies it as a mobile scrapworld in the Telon Reach and a satrapy of the Ullanor empire; no exact coordinates survive.",
+        source: "https://wh40k.lexicanum.com/wiki/Battle_of_Gorro",
+      },
     },
     {
       world: "armageddon",

@@ -58,11 +58,12 @@ export default function RoutesLayer({ resolved, progress }: RoutesLayerProps) {
     return entry === progress ? " rt-drawing" : " rt-drawn";
   };
 
-  // A station's ring appears when the tour reaches its FIRST visit; repeat
-  // visits (Terra twice) share one ring keyed by world id.
+  // An anchor's ring appears when the tour reaches its FIRST visit; repeat
+  // catalog worlds (Terra twice) share one ring, while sourced chart points
+  // carry unique ids and therefore remain individually visible.
   const firstVisit = new Map<string, number>();
   for (const st of resolved.stations) {
-    if (st.kind === "world" && !firstVisit.has(st.id)) firstVisit.set(st.id, st.i);
+    if (st.kind !== "way" && !firstVisit.has(st.id)) firstVisit.set(st.id, st.i);
   }
   const rings = [...firstVisit.entries()].map(([id, i]) => ({
     id,
@@ -118,12 +119,21 @@ export default function RoutesLayer({ resolved, progress }: RoutesLayerProps) {
         return (
           <g
             key={id}
-            className={`cg-rt-st${pending ? " rt-pending" : ""}`}
+            className={`cg-rt-st${st.kind === "point" ? " cg-rt-point" : ""}${pending ? " rt-pending" : ""}`}
             // Ambient cadence: a ring lands as its arriving leg finishes
             // (leg k draws at k·1.45s; the station 0 ring opens the show).
             style={{ "--i": tour ? 0 : st.legIndex + 1 } as CSSProperties}
           >
-            <circle cx={st.gx} cy={st.gy} r={8} fill="none" stroke={GOLD} strokeWidth={1} vectorEffect="non-scaling-stroke" />
+            <circle
+              cx={st.gx}
+              cy={st.gy}
+              r={st.kind === "point" ? 6 : 8}
+              fill="none"
+              stroke={GOLD}
+              strokeWidth={1}
+              strokeDasharray={st.kind === "point" ? "2 2.5" : undefined}
+              vectorEffect="non-scaling-stroke"
+            />
             <circle cx={st.gx} cy={st.gy} r={1.4} fill={GOLD} stroke="none" />
           </g>
         );

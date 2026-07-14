@@ -255,7 +255,7 @@ export default function CartoucheSheet({
           />
           {openSecs.has("courses") && (
             <div className="c-body">
-              <p className="c-hint">trace the paths of legend across the chart</p>
+              <p className="c-hint">charted routes and curated chronologies across the galaxy</p>
               <VoyageButtons voyageId={voyageId} onVoyage={pickVoyage} />
             </div>
           )}
