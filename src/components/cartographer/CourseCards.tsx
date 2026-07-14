@@ -53,6 +53,11 @@ export default function CourseCards({
         ✕
       </button>
       {/* Same hierarchy as the tour card: name + text lead, date recedes. */}
+      {st.section && (
+        <p className="cg-tour-section" style={{ color: st.section.color }}>
+          {st.section.label}
+        </p>
+      )}
       <p className="cg-tour-name">{st.heading}</p>
       {st.date && <p className="cg-tour-date">{st.date}</p>}
       <p className="ct">{st.text}</p>

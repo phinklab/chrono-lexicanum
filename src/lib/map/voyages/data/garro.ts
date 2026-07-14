@@ -53,6 +53,7 @@ export const GARRO: Voyage = {
       date: "005–006.M31",
       text: "In the warp the Geller field falters and Nurgle takes notice: Grulgor rises as plague-flesh, the Navigator dies at his post. The Seventy jettison the crippled warp engines and detonate them as a beacon in the storm.",
       source: "https://wh40k.lexicanum.com/wiki/Nathaniel_Garro",
+      breakBefore: true,
       placement: {
         precision: "schematic",
         note: "A Warp transit has no stable real-space coordinate; the dot only marks the narrative interval between the Istvaan escape and Dorn's rescue.",
@@ -67,6 +68,7 @@ export const GARRO: Voyage = {
       leg: { bow: 48 },
       text: "Summoned by the dying frigate's beacon, Dorn's Phalanx hauls the Eisenstein out of the storm. On Luna the Seventy deliver their warning, and Terra hears a truth Dorn can hardly bear to believe.",
       source: "https://wh40k.lexicanum.com/wiki/Nathaniel_Garro",
+      breakBefore: true,
     },
     {
       world: "luna",

@@ -10,6 +10,34 @@
 
 import type { Voyage } from "../types";
 
+/** Muted archival pigments: distinct enough to trace overlapping sorties
+ * without turning the war chart into a spectral rainbow. */
+export const BLACK_CRUSADE_PALETTE = [
+  "#b88a72",
+  "#a96773",
+  "#8d6f91",
+  "#6f7094",
+  "#5f7d93",
+  "#4f8588",
+  "#5c876f",
+  "#78875e",
+  "#96905a",
+  "#aa8957",
+  "#ad744f",
+  "#8a6860",
+  "#b64d54",
+] as const;
+
+const roman = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII"] as const;
+const starts = [2, 5, 8, 11, 14, 16, 18, 20, 23, 26, 29, 31, 38] as const;
+
+export const BLACK_CRUSADE_SECTIONS = roman.map((numeral, index) => ({
+  id: `black-crusade-${index + 1}`,
+  label: `BLACK CRUSADE ${numeral} / XIII`,
+  color: BLACK_CRUSADE_PALETTE[index],
+  start: starts[index],
+}));
+
 export const ABADDON: Voyage = {
   id: "abaddon",
   name: "Abaddon · The Long War",
@@ -19,6 +47,11 @@ export const ABADDON: Voyage = {
     label: "13 campaign sorties",
     note: "Each numbered route restarts at the Eye of Terror. Lines connect only theatres within that Crusade; launch cards summarise concurrent fleet actions that cannot honestly be drawn as one itinerary.",
   },
+  sections: [
+    { id: "long-war-prologue", label: "LONG WAR · PROLOGUE", color: "#b89b63", start: 0 },
+    ...BLACK_CRUSADE_SECTIONS,
+    { id: "long-war-epilogue", label: "LONG WAR · EPILOGUE", color: "#b89b63", start: 41 },
+  ],
   stations: [
     {
       world: "eye-of-terror",
@@ -226,9 +259,10 @@ export const ABADDON: Voyage = {
       date: "999.M37",
       text: "Eight of Teekus's twenty crater cities are peeled open to the void while the others remain untouched. The selective slaughter is one term in a galaxy-spanning ritual sum.",
       source: "https://wh40k.lexicanum.com/wiki/8th_Black_Crusade",
+      breakBefore: true,
       placement: {
         precision: "schematic",
-        note: "Teekus is named within the Eighth Crusade's Segmentum Obscurus theatre but has no sector coordinate; it is placed on the outward strike from the Eye.",
+        note: "Teekus is named within the Eighth Crusade's Segmentum Obscurus theatre but has no sector coordinate. The Black Legion struck in every direction, so this is an isolated campaign marker rather than a course from the Eye.",
         source: "https://wh40k.lexicanum.com/wiki/8th_Black_Crusade",
       },
     },
@@ -240,9 +274,10 @@ export const ABADDON: Voyage = {
       date: "999.M37",
       text: "At the forge world, the Black Legion turns a mutant uprising into a final sacrifice. Tech-Magi die inside their own manufactorums and the Skullgather's sequence is complete.",
       source: "https://wh40k.lexicanum.com/wiki/8th_Black_Crusade",
+      breakBefore: true,
       placement: {
         precision: "schematic",
-        note: "Rithcarn is the Eighth Crusade's climax in Segmentum Obscurus, but no sector is recorded; it is shown after Teekus as a campaign sequence, not an exact bearing.",
+        note: "Rithcarn is the Eighth Crusade's ritual climax in Segmentum Obscurus, but no sector or travel relation to Teekus is recorded; the isolated point preserves chronology only.",
         source: "https://wh40k.lexicanum.com/wiki/8th_Black_Crusade",
       },
     },
@@ -298,6 +333,7 @@ export const ABADDON: Voyage = {
       date: "001.M39",
       text: "The Black Legion fleet attacks the sector capital while Abaddon's warlords scatter across scores of worlds. The feint masks the debt of vengeance being paid elsewhere.",
       source: "https://wh40k.lexicanum.com/wiki/10th_Black_Crusade",
+      breakBefore: true,
     },
     {
       world: "medusa",
@@ -305,6 +341,7 @@ export const ABADDON: Voyage = {
       date: "001.M39",
       text: "From the Vengeful Spirit, Abaddon watches the Iron Warriors burn the Medusa System's outer worlds and tighten a war of attrition around the Iron Hands. The defenders survive and the Chaos fleet retreats.",
       source: "https://wh40k.lexicanum.com/wiki/10th_Black_Crusade",
+      breakBefore: true,
     },
 
     {
@@ -323,6 +360,7 @@ export const ABADDON: Voyage = {
       date: "301.M39",
       text: "Relorria becomes a three-sided war between Humanity, daemons and Orks. Abaddon abducts thousands of greenskins for experiments on their psychic link and carries them back to the Eye.",
       source: "https://wh40k.lexicanum.com/wiki/11th_Black_Crusade",
+      breakBefore: true,
       placement: {
         precision: "schematic",
         note: "The daemon navigator scatters the fleet thousands of light years from the Eye and the source gives no resulting sector; the large offset visualises that uncertainty only.",

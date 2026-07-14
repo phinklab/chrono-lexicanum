@@ -1,5 +1,5 @@
 /**
- * Lion El'Jonson's personally attested passage from Caliban to Kronus.
+ * Lion El'Jonson's personally attested passage from Caliban to Wyrmwood.
  * `gramarye` is the curated catalog record; its duplicate is not used. Taxal,
  * Diamat, Sheol, Mirror-Caliban, Camarth, Avalus and Wyrmwood are sourced
  * chart points with disclosed relative or schematic precision, never proxies.
@@ -35,6 +35,7 @@ export const LION: Voyage = {
       date: "late M30",
       text: "At Taxal, the Lion commits the First to the climax of a war that has already devoured legions, fleets and worlds. Victory leaves eighty thousand Astartes dead across the Xenocides and much of the truth sealed away.",
       source: "https://wh40k.lexicanum.com/wiki/Rangdan_Xenocides",
+      breakBefore: true,
       placement: {
         precision: "schematic",
         note: "The Xenocides span Segmentum Obscurus, Ultima and the galactic north-west, but Taxal itself has no published coordinates; this point sits only within that broad northern theatre.",
@@ -49,6 +50,7 @@ export const LION: Voyage = {
       date: "005–006.M31",
       text: "With only sixteen ships, the Lion takes Diamat and its siege engines from Horus. Then he gives the weapons to Perturabo, believing his brother loyal—and arms the massacre still to come.",
       source: "https://wh40k.lexicanum.com/wiki/Battle_of_Diamat",
+      breakBefore: true,
       placement: {
         precision: "relative",
         note: "Diamat is explicitly 52.7 light years from Isstvan at the edge of the Ulthoris Subsector; the point is therefore plotted immediately beside the charted Isstvan system.",
@@ -154,6 +156,7 @@ export const LION: Voyage = {
       date: "M42",
       text: "He wakes older and memoryless in a forest shaped like his dead home. A Watcher tells him only that he is home, and the Lion learns to walk that shadow wood between worlds.",
       source: "https://wh40k.lexicanum.com/wiki/Lion_El%27Jonson",
+      breakBefore: true,
       placement: {
         precision: "schematic",
         note: "Mirror-Caliban is a liminal realm used to reach distant destinations, not a fixed realspace world; the point merely marks the Forestwalk between the Rock and Camarth.",
@@ -168,9 +171,10 @@ export const LION: Voyage = {
       date: "M42",
       text: "The forest fades into ruined Camarth, where the Fallen Zabriel returns the Lion's memories. Instead of executing his lost son, the Lion hears him—and begins gathering the Risen while liberating the world.",
       source: "https://wh40k.lexicanum.com/wiki/Camarth",
+      breakBefore: true,
       placement: {
-        precision: "relative",
-        note: "Camarth is placed in the Ultima-side Imperium Nihilus named by the source; no sector or system is published, so the coordinate remains regional.",
+        precision: "schematic",
+        note: "Camarth is known only to lie in Ultima Segmentum within Imperium Nihilus; no sector or system is published. The isolated point expresses that broad theatre, not a route out of Mirror-Caliban.",
         source: "https://wh40k.lexicanum.com/wiki/Camarth",
       },
     },
@@ -182,6 +186,7 @@ export const LION: Voyage = {
       date: "M42",
       text: "On Avalus, the Lion turns scattered survivor worlds into a protectorate. Risen and mortal Lion Guard fight beside him for people the Imperium has abandoned.",
       source: "https://wh40k.lexicanum.com/wiki/Avalus",
+      breakBefore: true,
       placement: {
         precision: "schematic",
         note: "Avalus is a hub of the Lion's Protectorate in Imperium Nihilus, but its sector is not fixed; it is grouped with Camarth and Sable without asserting their real distances.",
@@ -194,27 +199,22 @@ export const LION: Voyage = {
       date: "M42",
       text: "Seraphax captures the Lion and tries to hollow out his soul, intending to wear a primarch's body before the Emperor. The Risen break the trap, and the Lion defeats the sorcerer who would make him a weapon.",
       source: "https://wh40k.lexicanum.com/wiki/Lion_El%27Jonson",
+      breakBefore: true,
     },
     {
       name: "Wyrmwood",
-      gx: 815.5,
-      gy: 397,
+      gx: 949,
+      gy: 300,
       heading: "Wyrmwood · Brother Against Brother",
       date: "M42",
       text: "The Forestwalk carries him into Idolatros as Angron closes on Dante. The Lion banishes his brother with Fealty and the Emperor's Shield, then carves an evacuation corridor as Wyrmwood awakens the Key.",
       source: "https://wh40k.lexicanum.com/wiki/Lion_El%27Jonson",
+      breakBefore: true,
       placement: {
-        precision: "schematic",
-        note: "Wyrmwood is fixed to the Idolatros System during the battle, but that system has no published galactic coordinate; its point bridges Sable and the later Kronus beat chronologically.",
-        source: "https://wh40k.lexicanum.com/wiki/Arks_of_Omen_Campaign",
+        precision: "relative",
+        note: "Wyrmwood is the planetoid of the Idolatros System, explicitly on the fringes of the Somnium Stars in Ultima. The point sits at that charted zone's edge; the Forestwalk into it remains a disconnected transit.",
+        source: "https://wh40k.lexicanum.com/wiki/Idolatros_System",
       },
-    },
-    {
-      world: "kronus",
-      heading: "Kronus · War Returns",
-      date: "Era Indomitus",
-      text: "When the Blood Ravens return to burning Kronus, the Dark Angels answer under Company Master Astoran and Chaplain Ezrael. Rumour says even the Lion has taken an interest in the war of awakening Necrons and resurgent Orks.",
-      source: "https://www.warhammer-community.com/en-gb/articles/amsujx55/the-blood-ravens-are-not-alone-in-a-new-warhammer-40000-dawn-of-war-iv-story-trailer/",
     },
   ],
   lbl: { x: 756, y: 326, t: "SON OF THE FOREST" },

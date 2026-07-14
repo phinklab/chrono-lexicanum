@@ -26,6 +26,7 @@ export type {
   Voyage,
   VoyageChartPoint,
   VoyagePlacement,
+  VoyageSection,
   VoyageStation,
   VoyageStop,
   VoyageWaypoint,

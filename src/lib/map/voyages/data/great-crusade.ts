@@ -89,6 +89,7 @@ export const GREAT_CRUSADE: Voyage = {
       date: "821.M30",
       text: "Between the finding of the Wolf King and the Gorgon, a primarch is found whose name no record keeps. Of him and his Legion the Imperial archive says one thing only: expunged.",
       source: "https://wh40k.lexicanum.com/wiki/Lost_Primarchs",
+      breakBefore: true,
       placement: {
         precision: "schematic",
         note: "The archive preserves a rediscovery date but no homeworld or region; this point only holds the Second's chronological place between Russ and Ferrus Manus.",
@@ -101,6 +102,7 @@ export const GREAT_CRUSADE: Voyage = {
       date: "824.M30",
       text: "The Gorgon, his hands sheathed in the living silver of the wyrm Asirnoth, tests the newcomer in a duel said to have laid waste to mountains. Finding his equal at last, Ferrus Manus takes up the Tenth.",
       source: "https://wh40k.lexicanum.com/wiki/Ferrus_Manus",
+      breakBefore: true,
     },
     {
       world: "chemos",
@@ -215,6 +217,7 @@ export const GREAT_CRUSADE: Voyage = {
       date: "927.M30",
       text: "A second gap in the roll of the returned. Whatever world gave him up, whatever his Legion did or failed to do, the record ends the same way: all mention deleted from the Imperial archive.",
       source: "https://wh40k.lexicanum.com/wiki/Lost_Primarchs",
+      breakBefore: true,
       placement: {
         precision: "schematic",
         note: "Only the rediscovery date and its place in the sequence survive; the plotted position makes no claim about the Eleventh's erased homeworld.",
@@ -227,6 +230,7 @@ export const GREAT_CRUSADE: Voyage = {
       date: "981.M30",
       text: "Officially the last: a nameless raider carves his way to the bridge of Horus' flagship and answers only \"I am Alpharius.\" Yet the Hydra whispers he was found first of all, on Terra itself, in secret.",
       source: "https://wh40k.lexicanum.com/wiki/Alpharius",
+      breakBefore: true,
     },
     {
       name: "Gorro",

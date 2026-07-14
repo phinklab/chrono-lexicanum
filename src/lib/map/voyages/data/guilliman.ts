@@ -123,6 +123,7 @@ export const GUILLIMAN: Voyage = {
       date: "121.M31",
       text: "The Scouring's long hunt for Fulgrim ends in ambush over an uncharted gas giant: three traitor fleets pin the loyalists above Thessala, and the Phoenician's venomed blade opens his brother's throat. The survivors run for home with a dying primarch.",
       source: "https://wh40k.lexicanum.com/wiki/Battle_of_Thessala",
+      breakBefore: true,
       placement: {
         precision: "schematic",
         note: "Published accounts identify only an uncharted gas giant and give no sector or system coordinates; the point sits between Terra and Macragge solely to carry the chronology home.",
@@ -135,6 +136,7 @@ export const GUILLIMAN: Voyage = {
       date: "121.M31 → 999.M41",
       text: "Carried home neither dead nor living, Guilliman lies ten thousand years in stasis within the Temple of Correction. In 999.M41 Cawl's Armour of Fate and Yvraine, herald of Ynnead, call him back to a Macragge under Black Legion guns.",
       source: "https://wh40k.lexicanum.com/wiki/Battle_of_Thessala",
+      breakBefore: true,
     },
     {
       world: "the-maelstrom",

@@ -22,6 +22,10 @@ export const INDOMITUS: Voyage = {
   name: "The Indomitus Crusade",
   tag: "M42 · ongoing",
   blurb: "The greatest muster since the Great Crusade: ten fleets sail to relight a sundered Imperium.",
+  cartography: {
+    label: "fleet-scale campaign",
+    note: "This is a campaign chronology, not one ship's itinerary. Route breaks separate different crusade fleets, delegated fronts and Guilliman's personal passage.",
+  },
   stations: [
     {
       world: "terra",
@@ -43,6 +47,7 @@ export const INDOMITUS: Voyage = {
       date: "c. 001.M42",
       text: "Fleet Tertius launches days ahead of schedule to intercept a Khornate Slaughter Host reaving toward Sol. Fleetmistress VanLeskus breaks it across several star systems, and the crusade records its first major victory.",
       source: "https://wh40k.lexicanum.com/wiki/Avenging_Son_(Novel)",
+      breakBefore: true,
     },
     {
       world: "gathalamor",
@@ -50,6 +55,7 @@ export const INDOMITUS: Voyage = {
       date: "early M42",
       text: "Fleet Primus claims its first great victory on the shrine world. The Custodes of Shield-Captain Achallor silence a Dark Mechanicum cannon built from the bones of Gathalamor's buried billions, and the Shield-Captain falls in the deed.",
       source: "https://wh40k.lexicanum.com/wiki/Battle_of_Gathalamor",
+      breakBefore: true,
     },
     {
       world: "ophellia-vii",
@@ -57,6 +63,7 @@ export const INDOMITUS: Voyage = {
       date: "early M42",
       text: "On the cardinal world the crusade breaks the dominion of the Tyrant of Blueflame and frees an enslaved population entire. The Greater Daemon itself slips the Emperor's justice.",
       source: "https://wh40k.lexicanum.com/wiki/Indomitus_Crusade",
+      breakBefore: true,
     },
     {
       world: "fenris",
@@ -64,6 +71,7 @@ export const INDOMITUS: Voyage = {
       date: "c. 004.M42",
       text: "A Torchbearer vessel runs ahead of Fleet Primus to the world of the Wolves. Guilliman treats with a distrustful Logan Grimnar, and the Space Wolves agree to guard the crusade's rear against the rising Waaagh! of Ghazghkull Thraka.",
       source: "https://wh40k.lexicanum.com/wiki/The_Wolftime_(Novel)",
+      breakBefore: true,
     },
     {
       world: "vigilus",
@@ -71,6 +79,7 @@ export const INDOMITUS: Voyage = {
       date: "001–025.M42",
       text: "Commanded by Guilliman that Vigilus must not fall, Marneus Calgar lands at Saint's Haven and raises the Vigilus Senate to master the War of Beasts. At its height he duels Abaddon in person, surviving only by his Belisarian Furnace.",
       source: "https://wh40k.lexicanum.com/wiki/War_of_Beasts",
+      breakBefore: true,
     },
     {
       name: "The Pit of Raukos",
@@ -80,9 +89,10 @@ export const INDOMITUS: Voyage = {
       date: "c. 012.M42",
       text: "At a wound in space where daemon ships spill into the Materium, the first phase reaches its culminating battle. Guilliman holds a triumph of two million souls at 108/Beta-Kalapus-9.2 and disperses the Unnumbered Sons, while the wider Crusade continues.",
       source: "https://wh40k.lexicanum.com/wiki/Battle_of_Raukos",
+      breakBefore: true,
       placement: {
         precision: "relative",
-        note: "The Pit has no published sector coordinate, but later sources place it beside the Attilan Gate, which is near charted Attila in Ultima; it is plotted as that local warp-rift theatre.",
+        note: "The Pit has no published sector coordinate, but later sources place it beside the Attilan Gate near charted Attila in Ultima. The local offset expresses that relation; overlap with the broad modern Sautekh overlay is not a historical control claim.",
         source: "https://wh40k.lexicanum.com/wiki/Pit_of_Raukos",
       },
     },
@@ -103,7 +113,7 @@ export const INDOMITUS: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/Indomitus_Crusade",
       placement: {
         precision: "relative",
-        note: "The gate is explicitly near Attila in Ultima Segmentum and beside the Pit of Raukos; this offset from the charted Attila pin expresses that relationship, not an exact aperture coordinate.",
+        note: "The gate is explicitly near Attila in Ultima Segmentum and beside the Pit of Raukos. This offset from charted Attila expresses that relationship, not an exact aperture coordinate or historical Sautekh control.",
         source: "https://wh40k.lexicanum.com/wiki/Attilan_Gate",
       },
     },

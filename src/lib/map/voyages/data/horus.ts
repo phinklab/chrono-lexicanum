@@ -40,6 +40,7 @@ export const HORUS: Voyage = {
       date: "001.M31",
       text: "The 63rd Expedition finds a human Imperium that claims Terra as its throne. Sejanus dies beneath a white flag; Horus storms the palace himself and shoots the false Emperor from his golden throne.",
       source: "https://wh40k.lexicanum.com/wiki/Battle_of_63-19",
+      breakBefore: true,
       placement: {
         precision: "schematic",
         note: "The fleet reached the unnamed system by an accidental warp-storm reroute and no galactic region is recorded; the point preserves the post-Ullanor sequence only.",
@@ -54,6 +55,7 @@ export const HORUS: Voyage = {
       date: "c. 001.M31",
       text: "For six months the Blood Angels and Luna Wolves bleed against the megarachnids beneath Murder's screaming trees. Victory brings the Interex, and the revelation that this death world was a prison whose warning the Imperials mistook for a name.",
       source: "https://wh40k.lexicanum.com/wiki/Murder",
+      breakBefore: true,
       placement: {
         precision: "schematic",
         note: "Murder is identified as a quarantined Interex frontier world but the Interex realm has no published galactic position; placement follows the expedition chronology.",
@@ -80,6 +82,7 @@ export const HORUS: Voyage = {
       date: "c. 004.M31",
       text: "Sixty years after its compliance the 63rd Expedition returns to Davin. On its plague moon Temba's stolen anathame bites where no wound may heal. In the Serpent Lodge the priests whisper the Warmaster to Chaos.",
       source: "https://wh40k.lexicanum.com/wiki/Davin",
+      breakBefore: true,
     },
     {
       name: "Aureus",
@@ -89,6 +92,7 @@ export const HORUS: Voyage = {
       date: "c. 004–005.M31",
       text: "Horus murders the Auretian Technocracy's emissary and spends ten months grinding a human brother-culture into ruin. Its two Standard Template Constructs become the price that buys him the traitor Mechanicum's allegiance.",
       source: "https://wh40k.lexicanum.com/wiki/Auretian_Technocracy_War",
+      breakBefore: true,
       placement: {
         precision: "schematic",
         note: "Aureus is fixed only to the binary cluster Drakonis Three Eleven; no segmentum or sector is given, so its coordinate marks the campaign between Davin and Isstvan.",
@@ -101,6 +105,7 @@ export const HORUS: Voyage = {
       date: "005–006.M31",
       text: "Horus sends the loyal sons of four Legions down to the Choral City, then the virus bombs fall. Twelve billion die in a single breath, their death-scream louder than the Astronomican. The Heresy is begun.",
       source: "https://wh40k.lexicanum.com/wiki/Isstvan_III_Atrocity",
+      breakBefore: true,
       // Hand-drawn leg from the retired Path of Heresy course.
       leg: { d: "M 544.3 419.6 C 535 330, 515 215, 496 161" },
     },
@@ -120,6 +125,7 @@ export const HORUS: Voyage = {
       date: "008.M31",
       text: "Shadrak Meduson springs an Iron Hands trap and comes within a heartbeat of killing the Warmaster. Horus survives the burning Fire Raptors, then tears the world's memory-vault open and finds the secret that draws him to Molech.",
       source: "https://wh40k.lexicanum.com/wiki/Battle_of_Dwell",
+      breakBefore: true,
       placement: {
         precision: "schematic",
         note: "Dwell has a named system and historical ties to Molech but no published galactic region; it is placed on Horus's documented road from Isstvan to Molech without claiming proximity.",
@@ -132,6 +138,7 @@ export const HORUS: Voyage = {
       date: "009.M31",
       text: "Horus walks the Fulgurine Path in the Emperor's own footsteps and passes through the gate. Moments go by in the Materium and an eternity within. What returns is aged, god-empowered, and greater than any primarch.",
       source: "https://wh40k.lexicanum.com/wiki/Battle_of_Molech",
+      breakBefore: true,
       leg: { d: "M 490 155 C 497 196, 500 232, 500 269.2" },
     },
     {

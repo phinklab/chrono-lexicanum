@@ -29,6 +29,7 @@ import {
   type Voyage,
   type VoyageChartPoint,
   type VoyagePlacement,
+  type VoyageSection,
   type VoyageStation,
 } from "./types";
 
@@ -60,6 +61,7 @@ export interface ResolvedStation {
    *  station. Drives the tour's step→draw gating in RoutesLayer. */
   legIndex: number;
   placement?: VoyagePlacement;
+  section?: VoyageSection;
 }
 
 export interface ResolvedVoyage {
@@ -72,6 +74,8 @@ export interface ResolvedVoyage {
   stations: ResolvedStation[];
   /** One SVG path `d` per STATION transition (worldCount − 1). */
   legs: string[];
+  /** Section colour for each leg, aligned with `legs`. */
+  legColors: string[];
 }
 
 const r1 = (n: number) => Math.round(n * 10) / 10;
@@ -144,6 +148,15 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
   const byId = new Map<string, { name: string; gx: number; gy: number }>();
   for (const f of chart.featured) byId.set(f.id, { name: f.name, gx: f.gx, gy: f.gy });
   for (const d of chart.dust) byId.set(d[3], { name: d[4], gx: d[0], gy: d[1] });
+  const sections = [...(voyage.sections ?? [])].sort((a, b) => a.start - b.start);
+  const sectionAt = (stopIdx: number): VoyageSection | undefined => {
+    let active: VoyageSection | undefined;
+    for (const section of sections) {
+      if (section.start > stopIdx) break;
+      active = section;
+    }
+    return active;
+  };
 
   // Pass 1 — resolve route anchors (catalog worlds or chart points) and
   // build the legs.
@@ -169,6 +182,7 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
     anchors.push({ stop, w, stopIdx });
   });
   const legs: string[] = [];
+  const legColors: string[] = [];
   const incomingLeg: number[] = anchors.map(() => -1);
   const outgoingLeg: number[] = anchors.map(() => -1);
   anchors.slice(1).forEach((a, offset) => {
@@ -176,6 +190,7 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
     if (a.stop.breakBefore) return;
     const legIndex = legs.length;
     legs.push(a.stop.leg?.d ?? legPath(anchors[previousAnchor].w, a.w, a.stop.leg?.bow));
+    legColors.push(sectionAt(a.stopIdx)?.color ?? "#b89b63");
     incomingLeg[previousAnchor + 1] = legIndex;
     outgoingLeg[previousAnchor] = legIndex;
   });
@@ -206,6 +221,8 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
       };
       if (stop.date) st.date = stop.date;
       if (point) st.placement = stop.placement;
+      const section = sectionAt(stopIdx);
+      if (section) st.section = section;
       stations.push(st);
       return;
     }
@@ -229,6 +246,8 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
     };
     if (stop.date) st.date = stop.date;
     if (stop.placement) st.placement = stop.placement;
+    const section = sectionAt(stopIdx);
+    if (section) st.section = section;
     stations.push(st);
   });
 
@@ -241,5 +260,6 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
     lbl: voyage.lbl,
     stations,
     legs,
+    legColors,
   };
 }

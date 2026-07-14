@@ -192,6 +192,11 @@ export default function VoyageTour({
       </button>
       {/* Hierarchy: name + text carry the act; the date is a quiet footnote;
           position lives in the pager button ("3 / 9"), no ACT numeral. */}
+      {st.section && (
+        <p className="cg-tour-section" style={{ color: st.section.color }}>
+          {st.section.label}
+        </p>
+      )}
       <p className="cg-tour-name">{st.heading}</p>
       {st.date && <p className="cg-tour-date">{st.date}</p>}
       <p className="ct">{st.text}</p>

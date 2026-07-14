@@ -17,6 +17,7 @@ import process from "node:process";
 
 import { validateMapWorlds, type MapWorldsFile } from "@/lib/map/map-worlds-schema";
 import { GRID_H, GRID_W } from "@/lib/map/projection";
+import { CURATED_ZONES } from "@/lib/map/zones";
 import {
   VOYAGES,
   isChartPoint,
@@ -69,6 +70,84 @@ const blackCrusadeStarts =
       s.breakBefore === true,
   ) ?? [];
 check(blackCrusadeStarts.length === 13, "all thirteen Black Crusades restart at the Eye");
+const roman = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII"];
+const crusadeSections = abaddon?.sections?.filter((section) => section.id.startsWith("black-crusade-")) ?? [];
+check(crusadeSections.length === 13, "Abaddon has thirteen colour-coded Crusade sections");
+check(
+  crusadeSections.every((section, index) => section.label === `BLACK CRUSADE ${roman[index]} / XIII`),
+  "Black Crusade sections carry ordered Roman I–XIII labels",
+);
+check(
+  crusadeSections.every((section, index) => section.start === abaddon?.stations.indexOf(blackCrusadeStarts[index])),
+  "each Black Crusade section starts at its Eye-of-Terror origin",
+);
+const crusadeColors = crusadeSections.map((section) => section.color);
+check(crusadeColors.every((color) => /^#[0-9a-f]{6}$/i.test(color)), "Black Crusade colours are valid hex values");
+check(new Set(crusadeColors).size === 13, "Black Crusade colours are unique");
+const rgb = (hex: string) => [1, 3, 5].map((offset) => Number.parseInt(hex.slice(offset, offset + 2), 16));
+check(
+  crusadeColors.every((color, index) =>
+    crusadeColors.slice(index + 1).every((other) => {
+      const a = rgb(color);
+      const b = rgb(other);
+      return Math.hypot(a[0] - b[0], a[1] - b[1], a[2] - b[2]) > 20;
+    }),
+  ),
+  "Black Crusade colours remain visibly distinct",
+);
+
+const ghaz = VOYAGES.find((v) => v.id === "ghazghkull");
+check(ghaz !== undefined, "Ghazghkull journey exists");
+const ghazPoint = (name: string): VoyageChartPoint | undefined =>
+  ghaz?.stations.find((stop): stop is VoyageChartPoint => isChartPoint(stop) && stop.name === name);
+const haunted = ghazPoint("Haunted Gulf");
+const urgok = ghazPoint("Urgok's Realm");
+const fang = ghazPoint("Fang's World");
+const kongajaro = ghazPoint("Kongajaro");
+const kraken = ghazPoint("Black Kraken Nebula");
+check(!!haunted && !!urgok && !!fang && !!kongajaro && !!kraken, "Ghazghkull synthetic cluster exists");
+if (ghaz && haunted && urgok && fang && kongajaro && kraken) {
+  const hauntedIndex = ghaz.stations.indexOf(haunted);
+  const urgokIndex = ghaz.stations.indexOf(urgok);
+  check(urgokIndex === hauntedIndex + 1, "Urgok follows the Haunted Gulf in chronology");
+  check(urgok.breakBefore === true, "Kill Wrecka's uncontrolled Warp jump breaks the Haunted Gulf–Urgok route");
+  const tau = CURATED_ZONES.find((zone) => zone.name === "Tau Empire");
+  check(tau !== undefined, "charted T'au zone exists");
+  const pointInPolygon = (x: number, y: number, points: [number, number][]) => {
+    let inside = false;
+    for (let i = 0, j = points.length - 1; i < points.length; j = i++) {
+      const [xi, yi] = points[i];
+      const [xj, yj] = points[j];
+      if ((yi > y) !== (yj > y) && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) inside = !inside;
+    }
+    return inside;
+  };
+  const pointSegmentDistance = (x: number, y: number, a: [number, number], b: [number, number]) => {
+    const dx = b[0] - a[0];
+    const dy = b[1] - a[1];
+    const t = Math.max(0, Math.min(1, ((x - a[0]) * dx + (y - a[1]) * dy) / (dx * dx + dy * dy)));
+    return Math.hypot(x - (a[0] + dx * t), y - (a[1] + dy * t));
+  };
+  if (tau) {
+    const edgeDistance = Math.min(
+      ...tau.points.map((point, index) => pointSegmentDistance(urgok.gx, urgok.gy, point, tau.points[(index + 1) % tau.points.length])),
+    );
+    check(edgeDistance <= 18, "Urgok is plotted on the T'au-zone border");
+    check(pointInPolygon(fang.gx, fang.gy, tau.points), "Fang's World overlaps the T'au zone");
+  }
+  check(Math.hypot(kongajaro.gx - urgok.gx, kongajaro.gy - urgok.gy) <= 35, "Kongajaro remains a nearby system");
+  const octarius = worldById.get("octarius");
+  check(octarius !== undefined, "Octarius catalog anchor exists");
+  if (octarius) {
+    const dx = octarius.gx - urgok.gx;
+    const dy = octarius.gy - urgok.gy;
+    const t = ((kraken.gx - urgok.gx) * dx + (kraken.gy - urgok.gy) * dy) / (dx * dx + dy * dy);
+    const corridorDistance = Math.abs((kraken.gx - urgok.gx) * dy - (kraken.gy - urgok.gy) * dx) / Math.hypot(dx, dy);
+    check(t > 0.2 && t < 0.85 && corridorDistance < 40, "Black Kraken is a schematic corridor before Octarius");
+    const octariusStop = ghaz.stations.find((stop) => !isWaypoint(stop) && !isChartPoint(stop) && stop.world === "octarius");
+    check(octariusStop !== undefined, "Ghazghkull route terminates the recruitment run at catalog Octarius");
+  }
+}
 
 for (const v of VOYAGES) {
   check(v.name.trim().length > 0, `${v.id}: name`);
@@ -111,10 +190,12 @@ for (const v of VOYAGES) {
         `${v.id}/${st.name}: chart point on the grid`,
       );
       check(st.placement.note.trim().length > 0, `${v.id}/${st.name}: placement note`);
+      check(st.placement.note.trim().length >= 48, `${v.id}/${st.name}: placement rationale is substantive`);
       check(
         /^https:\/\//.test(st.placement.source),
         `${v.id}/${st.name}: placement source URL`,
       );
+      check(/^https:\/\//.test(st.source ?? ""), `${v.id}/${st.name}: event source URL`);
       if (st.leg?.d !== undefined) {
         check(/^M[\s\d.-]/.test(st.leg.d), `${v.id}/${st.name}: leg.d parses as a path`);
       }
@@ -139,6 +220,7 @@ for (const v of VOYAGES) {
   );
   const expectedLegs = anchors.slice(1).filter((s) => !s.breakBefore).length;
   check(resolved.legs.length === expectedLegs, `${v.id}: one leg per connected anchor transition`);
+  check(resolved.legColors.length === resolved.legs.length, `${v.id}: every leg has a shared renderer colour`);
   for (const d of resolved.legs) {
     check(/^M -?[\d.]+ -?[\d.]+ (Q|L|C)/.test(d), `${v.id}: generated leg is a path (${d.slice(0, 24)}…)`);
   }

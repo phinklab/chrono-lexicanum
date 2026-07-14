@@ -47,6 +47,15 @@ export interface VoyagePlacement {
   source: string;
 }
 
+/** Editorial section inside a long voyage. The start index is an authored
+ * stop index; the colour is shared by SVG, Canvas and cards. */
+export interface VoyageSection {
+  id: string;
+  label: string;
+  color: `#${string}`;
+  start: number;
+}
+
 export interface VoyageStation {
   /** Catalog world id from map-worlds.json (e.g. "terra", "istvaan-iii"). */
   world: string;
@@ -126,6 +135,8 @@ export interface Voyage {
     label: string;
     note: string;
   };
+  /** Optional chronology sections with a shared visual identity. */
+  sections?: VoyageSection[];
   /** ≥ 2 anchors plus optional waypoints, in narrative order. Repeat station
    *  visits and disconnected route segments are allowed. */
   stations: VoyageStop[];
