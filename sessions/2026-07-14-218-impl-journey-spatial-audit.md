@@ -8,26 +8,28 @@ parent: 2026-07-14-217
 links:
   - https://github.com/BigPhil92/chrono-lexicanum/pull/264
   - sessions/2026-07-14-217-impl-journey-lore-prototypes.md
-commits: []
+commits:
+  - c5e8315
 ---
 
 # Great Journeys spatial audit and Black Crusade identities
 
 ## Summary
 
-All eleven journeys and all 61 synthetic chart points were re-audited against chronology, named map entities, broad regions, faction overlays and direct lore sources. Ghazghkull's Urgok cluster now sits at the western T'au-zone border after an explicit Warp route break, unsupported realspace connections across the roster were removed, and Black Crusades I–XIII now share thirteen restrained colours and Roman-number playback labels across SVG and Canvas.
+All eleven journeys and all 64 authored synthetic chart-point stops were re-audited against chronology, named map entities, broad regions, faction overlays and direct lore sources. Ghazghkull's Urgok cluster now sits at the western T'au-zone border after an explicit Warp route break, unsupported realspace connections across the roster were removed, Black Crusades I–XIII share thirteen restrained colours, and the Indomitus Crusade now reads as a three-colour fleet network with sixteen movement legs and a visible Primus/Tertius convergence in the Pariah Nexus.
 
 ## What I did
 
 - `src/lib/map/voyages/data/ghazghkull.ts` — broke the uncontrolled Haunted Gulf Warp jump, moved Urgok/Fang/Kongajaro to the T'au-zone border, made Black Kraken a corridor to catalog Octarius, and broke the unknown Icaria approach plus the mega-tellyshokka jump to Armageddon.
-- `src/lib/map/voyages/data/{great-crusade,lion,horus,guilliman,garro,abaddon,yvraine,indomitus}.ts` — removed lines where the sources support chronology, parallel operations, Webway/Warp transit or only a broad region, not a realspace connection.
+- `src/lib/map/voyages/data/{great-crusade,lion,horus,guilliman,garro,abaddon,yvraine}.ts` — removed lines where the sources support chronology, parallel operations, Webway/Warp transit or only a broad region, not a realspace connection.
+- `src/lib/map/voyages/data/indomitus.ts` — replaced isolated campaign markers with documented Tertius, Secundus and Primus axes, repeated Sol/Vorlese branch origins, one muted colour per fleet, and separate Primus/Tertius arrivals at the Pariah Nexus.
 - `src/lib/map/voyages/data/lion.ts` — moved Wyrmwood to the fringe of the charted Somnium Stars and removed Kronus because the source reports only a rumour of the Lion's interest, not a personally attested visit.
 - `src/lib/map/voyages/data/yvraine.ts` — removed the false Saim-Hann proximity inference for Agarimethea and isolated the non-ordinal Webway/Warp beats.
 - `src/lib/map/voyages/{types,resolve}.ts` — added authored voyage sections and resolved one shared section colour per station and leg.
 - `src/lib/map/voyages/data/abaddon.ts` — added prologue/epilogue-neutral sections plus thirteen muted, unique Crusade sections labelled `BLACK CRUSADE I / XIII` through `XIII / XIII`.
 - `src/components/cartographer/{RoutesLayer,RouteMotionCanvas,canvas-renderer}.tsx` / `.ts` — use the same resolved colours in desktop SVG, narrow motion Canvas and full Canvas, with one active halo rather than thirteen stacked numerals at the Eye.
 - `src/components/cartographer/{VoyageTour,CourseCards,CartographerRoot}.tsx` and `src/app/styles/55-map.css` — expose the current section in the tour card and journey HUD.
-- `scripts/test-voyages.ts` — added Ghazghkull order/break/zone/corridor invariants, exact Eye-origin and Roman-label checks, colour format/uniqueness/distance checks, substantive placement/source checks and renderer-colour alignment.
+- `scripts/test-voyages.ts` — added Ghazghkull order/break/zone/corridor invariants, exact Eye-origin and Roman-label checks, colour format/uniqueness/distance checks, Indomitus fleet-colour/leg/convergence invariants, substantive placement/source checks and renderer-colour alignment.
 - `sessions/2026-07-14-218-impl-journey-spatial-audit.md` — recorded the complete reviewed synthetic-point ledger below. No `brain/**` or `sessions/README.md` rollup was touched.
 
 ## Connection audit by journey
@@ -42,9 +44,9 @@ All eleven journeys and all 61 synthetic chart points were re-audited against ch
 - **Ibram Gaunt** — Blackshard is explicitly in the Sabbat Worlds and the remaining catalog route follows the regiment's campaign chronology. All stops and connections confirmed.
 - **Ghazghkull** — Armageddon to the Haunted Gulf remains; Kill Wrecka's uncontrolled disappearance breaks the route before the new Urgok/T'au-border cluster. Kongajaro is local, Black Kraken is schematic on the run to catalog Octarius, and the later unknown/teleport transitions are broken.
 - **Yvraine** — Gnosis, Commorragh, Webway, Warp, Zaisuthra and region-unknown beats are isolated. Agarimethea no longer borrows Saim-Hann's location; Saim-Hann remains a mobile Eastern Fringe regional point; Iathglas claims Ultima only.
-- **The Indomitus Crusade** — explicitly presented as a fleet-scale campaign, not one ship's journey. Fleet Tertius, Fleet Primus, delegated fronts and Guilliman's personal route are separated; the Raukos/Attilan pair remains tied to catalog Attila without asserting historical Sautekh control.
+- **The Indomitus Crusade** — explicitly presented as a multi-fleet campaign network, not one ship's journey. Tertius follows the Pacificus arc through Vorlese, Hydraphur, Olmec and Machorta; Secundus holds the Road of Martyrs with a separate Betaris branch; Primus carries Guilliman's long axis plus a separate eastern deployment. Primus and Tertius meet at the same Pariah-Nexus anchor in different colours, while the copy states that only elements converge.
 
-## Complete synthetic-point ledger (61/61)
+## Complete synthetic-point ledger (64/64)
 
 `changed` means coordinate, precision or rendered rationale changed in this pass. `confirmed` means the coordinate contract survived the audit; connection-only corrections are recorded in the journey audit above.
 
@@ -157,10 +159,13 @@ All eleven journeys and all 61 synthetic chart points were re-audited against ch
 | Saim-Hann | `890, 410` | `relative` | confirmed | Mobile craftworld currently in the Eastern Fringe; regional point, never a permanent ephemeris or control claim. | [Lexicanum](https://wh40k.lexicanum.com/wiki/Saim-Hann) |
 | Iathglas | `760, 360` | `schematic` | changed | Miaghu System in Ultima, but no sector/coordinate; downgraded and isolated to claim only that segmentum. | [Lexicanum](https://wh40k.lexicanum.com/wiki/Iathglas) |
 
-### The Indomitus Crusade (2)
+### The Indomitus Crusade (5)
 
 | Point | Final coordinate | Precision | Result | Spatial rationale | Source |
 |---|---:|---|---|---|---|
+| Vorlese · Tertius corridor | `305, 355` | `schematic` | added | One of eight major warp routes into Sol, but without a published coordinate; placed just beyond Terra on the outward corridor. | [Lexicanum](https://wh40k.lexicanum.com/wiki/Vorlese) |
+| Vorlese · Secundus main | `305, 355` | `schematic` | added | Repeats the same corridor anchor for Secundus before its battle groups fan out; not a second location. | [Lexicanum](https://wh40k.lexicanum.com/wiki/Vorlese) |
+| Vorlese · Betaris restart | `305, 355` | `schematic` | added | Repeated branch origin encoding a command split rather than a chronological return to Vorlese. | [Lexicanum](https://wh40k.lexicanum.com/wiki/Vorlese) |
 | The Pit of Raukos | `900, 440` | `relative` | changed | Beside the Attilan Gate near catalog Attila in Ultima; note now disclaims historical control from the broad modern Sautekh overlay. | [Lexicanum](https://wh40k.lexicanum.com/wiki/Pit_of_Raukos) |
 | The Attilan Gate | `922, 430` | `relative` | changed | Explicitly near Attila and beside Raukos; local offset only, not an exact aperture or Sautekh claim. | [Lexicanum](https://wh40k.lexicanum.com/wiki/Attilan_Gate) |
 
@@ -171,19 +176,24 @@ All eleven journeys and all 61 synthetic chart points were re-audited against ch
 - **Kept Kongajaro local and made Black Kraken the long corridor.** The indexed fallback gives the order and “nearby” relation but no bearing; the geometry therefore expresses only local cluster → corridor → catalog Octarius.
 - **Removed Kronus from the Lion journey.** The official trailer supports Dark Angels participation and a rumour of the Lion's interest, not a personal visit; retaining it would violate the journey's attestation standard.
 - **Used one shared section model instead of renderer-specific palettes.** The thirteen colours, labels and starts are authored once and resolved into both SVG and Canvas, preventing visual drift.
+- **Modelled Indomitus as operational axes, not a single chronology polyline.** Repeated Terra and Vorlese stops begin fleet/battle-group branches; they do not claim that formations returned to those systems between adjacent cards.
+- **Showed a localised convergence, not a total reunion.** Tertius steel-blue and Primus green both terminate at the Pariah Nexus because elements of both later operate there; Secundus red remains on the Road of Martyrs.
+- **Plotted only three of the ten numbered fleets.** These are the fleets with enough grounded anchors for useful movement. The other seven remain explicitly unplotted instead of receiving invented decorative courses.
+- **Removed Ophelia VII, Fenris and Vigilus from this campaign network.** Those events remain valid lore beats, but the current sources do not assign them cleanly to one of the plotted fleet axes; retaining them as isolated stops obscured the movement model the journey is meant to explain.
 - **Kept Harmony and Vigilus neutral.** They are prologue/epilogue, not numbered Crusades. At the shared Eye origin the map renders one active coloured halo instead of thirteen overlapping labels.
 - **Accepted three Ghazghkull Fandom placement fallbacks.** Lexicanum establishes the broad Great Waaagh chronology but does not index the T'au-colony/local-system wording needed for Urgok, Fang, Kongajaro and Black Kraken. Each remains explicitly schematic/relative and source-linked.
 - **Did not update an Architect Brief.** This was a direct maintainer launch continuation of Session 217, so there is no open brief status to flip.
 
 ## Verification
 
-- `npm run test:voyages` — pass, 1,309 checks across eleven journeys.
+- `npm run test:voyages` — pass, 1,374 checks across eleven journeys after the Indomitus follow-up.
 - `npm run typecheck` — pass.
 - `npm run lint` — pass.
-- `npm test` — pass, all 40 DB-free suites; one live-Supabase suite auto-skipped as designed.
-- `npm run build` — pass, 1,293 static pages generated; the pre-existing Turbopack NFT trace warning from `next.config.ts` / sitemap remains non-blocking.
+- `npm test` — pass, all 40 DB-free suites; one live-Supabase suite auto-skipped as designed (run before the later data-only Indomitus follow-up).
+- `npm run build` — pass, 1,293 static pages generated; the pre-existing Turbopack NFT trace warning from `next.config.ts` / sitemap remains non-blocking (run before the later data-only Indomitus follow-up).
 - `npm run brain:lint -- --no-write` — pass, zero blocking findings and 20 existing repository warnings.
 - Localhost visual QA at `/map?mapRenderer=svg` and `/map?mapRenderer=canvas` — pass at desktop and 390×844: shared Crusade colour, one active Eye halo, full `BLACK CRUSADE I / XIII` card/HUD label, readable narrow dock, no browser errors, dialogs or Next error overlays.
+- Localhost Indomitus follow-up QA at `/map` — pass: full network view shows gold muster, steel-blue Tertius, oxblood Secundus and verdigris Primus; both coloured Pariah arrivals remain visible, all 22 tour cards play through, and the browser console reports no errors. The completed full-route view was left open for the maintainer.
 
 ## Open issues / blockers
 
@@ -199,3 +209,4 @@ None.
 - Ghazghkull route discontinuity and chronology: [Battle of Haunted Gulf](https://wh40k.lexicanum.com/wiki/Battle_of_Haunted_Gulf), [Great Waaagh!](https://wh40k.lexicanum.com/wiki/Great_Waaagh%21), [Games Workshop — Icaria/Yarrick](https://www.warhammer-community.com/en-gb/articles/z9key2tp/lore-where-has-commissar-yarrick-been-lately/), [Games Workshop — mega-tellyshokka to Armageddon](https://www.warhammer-community.com/en-gb/articles/0gmcnp9x/lore-of-armageddon-part-3-ghazghkulls-grand-plan/).
 - Key route-break evidence: [63-19](https://wh40k.lexicanum.com/wiki/Battle_of_63-19), [Eisenstein rescue](https://wh40k.lexicanum.com/wiki/Eisenstein), [Eighth Black Crusade](https://wh40k.lexicanum.com/wiki/8th_Black_Crusade), [Eleventh Black Crusade](https://wh40k.lexicanum.com/wiki/11th_Black_Crusade), [Webway](https://wh40k.lexicanum.com/wiki/Webway), [Fleet Primus](https://wh40k.lexicanum.com/wiki/Fleet_Primus).
 - Key regional evidence: [Idolatros System](https://wh40k.lexicanum.com/wiki/Idolatros_System), [Agarimethea](https://wh40k.lexicanum.com/wiki/Agarimethea), [Saim-Hann](https://wh40k.lexicanum.com/wiki/Saim-Hann), [Iathglas](https://wh40k.lexicanum.com/wiki/Iathglas), [Attilan Gate](https://wh40k.lexicanum.com/wiki/Attilan_Gate).
+- Indomitus fleet architecture: [Fleet Primus](https://wh40k.lexicanum.com/wiki/Fleet_Primus), [Fleet Secundus](https://wh40k.lexicanum.com/wiki/Indomitus_Crusade_Fleet_Secundus), [Fleet Tertius](https://wh40k.lexicanum.com/wiki/Indomitus_Crusade_Fleet_Tertius), [Indomitus battle groups](https://wh40k.lexicanum.com/wiki/Indomitus_Crusade_Battle_Group), [War in the Pariah Nexus](https://wh40k.lexicanum.com/wiki/War_in_the_Pariah_Nexus), [Vorlese](https://wh40k.lexicanum.com/wiki/Vorlese).

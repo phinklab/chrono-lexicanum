@@ -96,6 +96,23 @@ check(
   "Black Crusade colours remain visibly distinct",
 );
 
+const indomitus = VOYAGES.find((v) => v.id === "indomitus");
+check(indomitus !== undefined, "Indomitus journey exists");
+const indomitusFleetSections = indomitus?.sections?.filter((section) => section.id.startsWith("fleet-")) ?? [];
+check(indomitusFleetSections.length === 5, "Indomitus exposes its three fleet axes and two battle-group branches");
+check(
+  new Set(indomitusFleetSections.map((section) => section.color)).size === 3,
+  "Indomitus uses one distinct colour per numbered fleet",
+);
+const indomitusResolved = indomitus ? resolveVoyage(indomitus, chart) : undefined;
+check(indomitusResolved?.legs.length === 16, "Indomitus campaign network resolves sixteen movement legs");
+const pariahConvergence = indomitusResolved?.stations.filter((station) => station.id === "pariah-nexus") ?? [];
+check(pariahConvergence.length === 2, "Indomitus plots both fleet arrivals at the Pariah Nexus");
+check(
+  new Set(pariahConvergence.map((station) => station.section?.color)).size === 2,
+  "Primus and Tertius retain their fleet colours at the Pariah convergence",
+);
+
 const ghaz = VOYAGES.find((v) => v.id === "ghazghkull");
 check(ghaz !== undefined, "Ghazghkull journey exists");
 const ghazPoint = (name: string): VoyageChartPoint | undefined =>
