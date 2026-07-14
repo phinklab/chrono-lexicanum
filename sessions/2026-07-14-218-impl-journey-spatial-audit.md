@@ -10,6 +10,7 @@ links:
   - sessions/2026-07-14-217-impl-journey-lore-prototypes.md
 commits:
   - c5e8315
+  - c725d7b
 ---
 
 # Great Journeys spatial audit and Black Crusade identities
@@ -23,6 +24,7 @@ All eleven journeys and all 64 authored synthetic chart-point stops were re-audi
 - `src/lib/map/voyages/data/ghazghkull.ts` — broke the uncontrolled Haunted Gulf Warp jump, moved Urgok/Fang/Kongajaro to the T'au-zone border, made Black Kraken a corridor to catalog Octarius, and broke the unknown Icaria approach plus the mega-tellyshokka jump to Armageddon.
 - `src/lib/map/voyages/data/{great-crusade,lion,horus,guilliman,garro,abaddon,yvraine}.ts` — removed lines where the sources support chronology, parallel operations, Webway/Warp transit or only a broad region, not a realspace connection.
 - `src/lib/map/voyages/data/indomitus.ts` — replaced isolated campaign markers with documented Tertius, Secundus and Primus axes, repeated Sol/Vorlese branch origins, one muted colour per fleet, and separate Primus/Tertius arrivals at the Pariah Nexus.
+- `src/lib/map/payload.ts` — added a display-only decluttering rule for unrecorded fleet contacts placed exactly on a recorded world, separating `Helbrecht Crusade` from Armageddon without changing either catalog coordinate.
 - `src/lib/map/voyages/data/lion.ts` — moved Wyrmwood to the fringe of the charted Somnium Stars and removed Kronus because the source reports only a rumour of the Lion's interest, not a personally attested visit.
 - `src/lib/map/voyages/data/yvraine.ts` — removed the false Saim-Hann proximity inference for Agarimethea and isolated the non-ordinal Webway/Warp beats.
 - `src/lib/map/voyages/{types,resolve}.ts` — added authored voyage sections and resolved one shared section colour per station and leg.
@@ -30,6 +32,7 @@ All eleven journeys and all 64 authored synthetic chart-point stops were re-audi
 - `src/components/cartographer/{RoutesLayer,RouteMotionCanvas,canvas-renderer}.tsx` / `.ts` — use the same resolved colours in desktop SVG, narrow motion Canvas and full Canvas, with one active halo rather than thirteen stacked numerals at the Eye.
 - `src/components/cartographer/{VoyageTour,CourseCards,CartographerRoot}.tsx` and `src/app/styles/55-map.css` — expose the current section in the tour card and journey HUD.
 - `scripts/test-voyages.ts` — added Ghazghkull order/break/zone/corridor invariants, exact Eye-origin and Roman-label checks, colour format/uniqueness/distance checks, Indomitus fleet-colour/leg/convergence invariants, substantive placement/source checks and renderer-colour alignment.
+- `scripts/test-map-renderer.ts` — asserts that the compact client payload preserves distinct clickable display positions for Armageddon and the collocated Helbrecht Crusade fleet marker.
 - `sessions/2026-07-14-218-impl-journey-spatial-audit.md` — recorded the complete reviewed synthetic-point ledger below. No `brain/**` or `sessions/README.md` rollup was touched.
 
 ## Connection audit by journey
@@ -180,6 +183,7 @@ All eleven journeys and all 64 authored synthetic chart-point stops were re-audi
 - **Showed a localised convergence, not a total reunion.** Tertius steel-blue and Primus green both terminate at the Pariah Nexus because elements of both later operate there; Secundus red remains on the Road of Martyrs.
 - **Plotted only three of the ten numbered fleets.** These are the fleets with enough grounded anchors for useful movement. The other seven remain explicitly unplotted instead of receiving invented decorative courses.
 - **Removed Ophelia VII, Fenris and Vigilus from this campaign network.** Those events remain valid lore beats, but the current sources do not assign them cleanly to one of the plotted fleet axes; retaining them as isolated stops obscured the movement model the journey is meant to explain.
+- **Kept the Armageddon collision fix display-only.** `map-worlds.json` correctly records the source-map position and is generated from frozen spreadsheet input; the client payload now fans mobile fleet markers five grid units away only when they exactly coincide with a recorded world.
 - **Kept Harmony and Vigilus neutral.** They are prologue/epilogue, not numbered Crusades. At the shared Eye origin the map renders one active coloured halo instead of thirteen overlapping labels.
 - **Accepted three Ghazghkull Fandom placement fallbacks.** Lexicanum establishes the broad Great Waaagh chronology but does not index the T'au-colony/local-system wording needed for Urgok, Fang, Kongajaro and Black Kraken. Each remains explicitly schematic/relative and source-linked.
 - **Did not update an Architect Brief.** This was a direct maintainer launch continuation of Session 217, so there is no open brief status to flip.
@@ -187,6 +191,7 @@ All eleven journeys and all 64 authored synthetic chart-point stops were re-audi
 ## Verification
 
 - `npm run test:voyages` — pass, 1,374 checks across eleven journeys after the Indomitus follow-up.
+- `npx tsx scripts/test-map-renderer.ts` — pass, including the Armageddon/Helbrecht display-separation invariant.
 - `npm run typecheck` — pass.
 - `npm run lint` — pass.
 - `npm test` — pass, all 40 DB-free suites; one live-Supabase suite auto-skipped as designed (run before the later data-only Indomitus follow-up).
@@ -194,6 +199,7 @@ All eleven journeys and all 64 authored synthetic chart-point stops were re-audi
 - `npm run brain:lint -- --no-write` — pass, zero blocking findings and 20 existing repository warnings.
 - Localhost visual QA at `/map?mapRenderer=svg` and `/map?mapRenderer=canvas` — pass at desktop and 390×844: shared Crusade colour, one active Eye halo, full `BLACK CRUSADE I / XIII` card/HUD label, readable narrow dock, no browser errors, dialogs or Next error overlays.
 - Localhost Indomitus follow-up QA at `/map` — pass: full network view shows gold muster, steel-blue Tertius, oxblood Secundus and verdigris Primus; both coloured Pariah arrivals remain visible, all 22 tour cards play through, and the browser console reports no errors. The completed full-route view was left open for the maintainer.
+- Localhost Armageddon decluttering QA at `/map?mapRenderer=svg` and 6× magnification — pass: `Armageddon`, `Helbrecht Crusade` and `Battlefleet Armageddon` render as separate labels; clicking each of the first two opens the correct panel independently.
 
 ## Open issues / blockers
 

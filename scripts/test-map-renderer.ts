@@ -1,4 +1,6 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import path from "node:path";
 
 import {
   MAX_RELATIVE_SCALE,
@@ -18,6 +20,8 @@ import {
   pickCanvasTarget,
 } from "../src/components/cartographer/canvas-renderer";
 import { H, W } from "../src/components/cartographer/chart-geometry";
+import { validateMapWorlds, type MapWorldsFile } from "../src/lib/map/map-worlds-schema";
+import { buildMapPayload } from "../src/lib/map/payload";
 import { fitVoyageBounds, resolvedVoyageBounds } from "../src/lib/map/voyages";
 
 function close(actual: number, expected: number, message: string): void {
@@ -101,6 +105,19 @@ assert.equal(
   ),
   "tracked-label",
   "an actual label-rect hit beats a merely nearby equal-rank pin",
+);
+
+const rawMapWorlds: unknown = JSON.parse(
+  readFileSync(path.join(process.cwd(), "scripts", "seed-data", "map-worlds.json"), "utf8"),
+);
+assert.deepEqual(validateMapWorlds(rawMapWorlds), [], "map-worlds catalog validates for renderer checks");
+const mapPayload = buildMapPayload(rawMapWorlds as MapWorldsFile);
+const armageddon = mapPayload.featured.find((world) => world.id === "armageddon");
+const helbrecht = mapPayload.dust.find((world) => world[3] === "helbrecht-crusade");
+assert.ok(armageddon && helbrecht, "Armageddon and Helbrecht Crusade contacts exist");
+assert.ok(
+  armageddon && helbrecht && Math.hypot(armageddon.gx - helbrecht[0], armageddon.gy - helbrecht[1]) >= 4.9,
+  "a collocated fleet contact is display-offset from recorded Armageddon",
 );
 
 const routeBounds = resolvedVoyageBounds({
