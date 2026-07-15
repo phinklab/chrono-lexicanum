@@ -26,6 +26,7 @@ import {
   fitVoyageBounds,
   resolvedVoyageBounds,
   type ResolvedVoyage,
+  type ResolvedVoyageArm,
 } from "@/lib/map/voyages";
 import type { ChartBus } from "./chart-bus";
 
@@ -39,6 +40,7 @@ interface VoyageTourProps {
   muted?: boolean;
   /** −1 overture … n−1 last station. */
   step: number;
+  selectedArm?: ResolvedVoyageArm | null;
   onStep: (step: number) => void;
   /** Tour finished — free mode with the route fully drawn. */
   onFin: () => void;
@@ -53,6 +55,7 @@ export default function VoyageTour({
   suppressed,
   muted = false,
   step,
+  selectedArm = null,
   onStep,
   onFin,
   onExit,
@@ -61,7 +64,7 @@ export default function VoyageTour({
   const last = step >= n - 1;
   const cardRef = useRef<HTMLDivElement | null>(null);
 
-  const finishTour = useCallback(() => {
+  const showFullRoute = useCallback(() => {
     const driver = bus.driver;
     const bounds = resolvedVoyageBounds(resolved);
     if (driver && bounds) {
@@ -81,8 +84,12 @@ export default function VoyageTour({
       );
       bus.flyTo(fit.gx, fit.gy, fit.k, reduce ? 0 : 1100, fit.dy);
     }
+  }, [bus, reduce, resolved]);
+
+  const finishTour = useCallback(() => {
+    showFullRoute();
     onFin();
-  }, [bus, onFin, reduce, resolved]);
+  }, [onFin, showFullRoute]);
 
   /* Camera: overture surveys the whole chart, each station flies in at a
      zoom fitted to the arriving leg (short hops magnify, long hauls pull
@@ -99,6 +106,10 @@ export default function VoyageTour({
     }
     const st = resolved.stations[step];
     if (!st) return;
+    if (st.armCount) {
+      showFullRoute();
+      return;
+    }
     const ref = resolved.stations[step > 0 ? step - 1 : Math.min(1, n - 1)];
     const legDist = Math.max(1, Math.hypot(st.gx - ref.gx, st.gy - ref.gy));
     const kr = Math.min(8, Math.max(2.4, 200 / legDist));
@@ -107,7 +118,7 @@ export default function VoyageTour({
     const cardTop = cardRef.current?.getBoundingClientRect().top ?? 0;
     const dy = cardTop > 0 && cardTop < window.innerHeight ? (cardTop - window.innerHeight) / 2 : 0;
     bus.flyTo(st.gx, st.gy, driver.getK0() * kr, reduce ? 0 : 1000, dy);
-  }, [bus, resolved, step, n, reduce]);
+  }, [bus, resolved, step, n, reduce, showFullRoute]);
 
   /* Arrow keys page the tour — with the S9 target guard: a focused field,
      slider or listbox (seek combobox, census rows, the media player's
@@ -200,6 +211,16 @@ export default function VoyageTour({
       <p className="cg-tour-name">{st.heading}</p>
       {st.date && <p className="cg-tour-date">{st.date}</p>}
       <p className="ct">{st.text}</p>
+      {st.armCount && selectedArm && (
+        <p
+          className="cg-tour-arm"
+          style={{ borderColor: resolved.legColors[selectedArm.legIndex] }}
+          aria-live="polite"
+        >
+          <span>Legion {selectedArm.legion} · {selectedArm.name}</span>
+          <span>→ {selectedArm.targetName}</span>
+        </p>
+      )}
       {st.placement && (
         <p className="cg-tour-placement">
           {st.placement.precision === "relative" ? "INFERRED PLACEMENT" : "SCHEMATIC PLACEMENT"}

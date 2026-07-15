@@ -15,7 +15,7 @@
 
 import { useState } from "react";
 
-import type { ResolvedVoyage } from "@/lib/map/voyages";
+import type { ResolvedVoyage, ResolvedVoyageArm } from "@/lib/map/voyages";
 
 interface CourseCardsProps {
   resolved: ResolvedVoyage;
@@ -23,6 +23,7 @@ interface CourseCardsProps {
   suppressed: boolean;
   /** Mobile sheet open (modal) — the card leaves the AT tree meanwhile. */
   muted?: boolean;
+  selectedArm?: ResolvedVoyageArm | null;
   /** Return to the tour at its last station. */
   onBack: () => void;
   /** Fly the tour again from the first station. */
@@ -33,6 +34,7 @@ export default function CourseCards({
   resolved,
   suppressed,
   muted = false,
+  selectedArm = null,
   onBack,
   onRestart,
 }: CourseCardsProps) {
@@ -61,6 +63,16 @@ export default function CourseCards({
       <p className="cg-tour-name">{st.heading}</p>
       {st.date && <p className="cg-tour-date">{st.date}</p>}
       <p className="ct">{st.text}</p>
+      {st.armCount && selectedArm && (
+        <p
+          className="cg-tour-arm"
+          style={{ borderColor: resolved.legColors[selectedArm.legIndex] }}
+          aria-live="polite"
+        >
+          <span>Legion {selectedArm.legion} · {selectedArm.name}</span>
+          <span>→ {selectedArm.targetName}</span>
+        </p>
+      )}
       {st.placement && (
         <p className="cg-tour-placement">
           {st.placement.precision === "relative" ? "INFERRED PLACEMENT" : "SCHEMATIC PLACEMENT"}

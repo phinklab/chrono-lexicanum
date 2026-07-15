@@ -62,6 +62,16 @@ export interface ResolvedStation {
   legIndex: number;
   placement?: VoyagePlacement;
   section?: VoyageSection;
+  /** Number of strategic epilogue arms revealed with this act. */
+  armCount?: number;
+}
+
+/** Clickable identity attached to a map-only strategic arm. */
+export interface ResolvedVoyageArm {
+  legIndex: number;
+  legion: string;
+  name: string;
+  targetName: string;
 }
 
 export interface ResolvedVoyage {
@@ -72,10 +82,17 @@ export interface ResolvedVoyage {
   cartography?: Voyage["cartography"];
   lbl: { x: number; y: number; t: string };
   stations: ResolvedStation[];
-  /** One SVG path `d` per STATION transition (worldCount − 1). */
+  /** One SVG path `d` per connected transition, plus map-only strategic arms. */
   legs: string[];
   /** Section colour for each leg, aligned with `legs`. */
   legColors: string[];
+  /** Renderer opacity for each leg, aligned with `legs`. */
+  legOpacities: number[];
+  /** First tour step at which each leg is revealed, aligned with `legs`.
+   *  Several strategic arms may intentionally share one reveal step. */
+  legRevealAt: number[];
+  /** Strategic-arm identities; normal journey legs are deliberately absent. */
+  strategicArms: ResolvedVoyageArm[];
 }
 
 const r1 = (n: number) => Math.round(n * 10) / 10;
@@ -183,6 +200,8 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
   });
   const legs: string[] = [];
   const legColors: string[] = [];
+  const legOpacities: number[] = [];
+  const strategicArms: ResolvedVoyageArm[] = [];
   const incomingLeg: number[] = anchors.map(() => -1);
   const outgoingLeg: number[] = anchors.map(() => -1);
   anchors.slice(1).forEach((a, offset) => {
@@ -190,7 +209,8 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
     if (a.stop.breakBefore) return;
     const legIndex = legs.length;
     legs.push(a.stop.leg?.d ?? legPath(anchors[previousAnchor].w, a.w, a.stop.leg?.bow));
-    legColors.push(sectionAt(a.stopIdx)?.color ?? "#b89b63");
+    legColors.push(a.stop.leg?.color ?? sectionAt(a.stopIdx)?.color ?? "#b89b63");
+    legOpacities.push(a.stop.leg?.opacity ?? 0.9);
     incomingLeg[previousAnchor + 1] = legIndex;
     outgoingLeg[previousAnchor] = legIndex;
   });
@@ -198,6 +218,7 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
   // Pass 2 — assemble the act sequence; waypoints ride the leg between the
   // anchors around them.
   const stations: ResolvedStation[] = [];
+  const stationByStop = new Map<number, number>();
   let lastAnchor = -1;
   voyage.stations.forEach((stop, stopIdx) => {
     if (!isWaypoint(stop)) {
@@ -219,8 +240,9 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
         gy: w.gy,
         legIndex: incomingLeg[k],
       };
+      stationByStop.set(stopIdx, st.i);
       if (stop.date) st.date = stop.date;
-      if (point) st.placement = stop.placement;
+      if (stop.placement) st.placement = stop.placement;
       const section = sectionAt(stopIdx);
       if (section) st.section = section;
       stations.push(st);
@@ -251,6 +273,41 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
     stations.push(st);
   });
 
+  // Normal movement legs reveal on the first act that rides or arrives on
+  // them. Strategic arms append map-only geometry and all reveal together
+  // with their source act, without creating synthetic tour stations.
+  const legRevealAt = legs.map((_, legIndex) => {
+    const first = stations.find((station) => station.legIndex === legIndex);
+    return first?.i ?? stations.length;
+  });
+  anchors.forEach(({ stop, w, stopIdx }) => {
+    if (!stop.arms?.length) return;
+    const revealAt = stationByStop.get(stopIdx);
+    if (revealAt === undefined) return;
+    let resolvedArms = 0;
+    for (const arm of stop.arms) {
+      const target = "world" in arm.target ? byId.get(arm.target.world) : arm.target;
+      if (!target) {
+        const targetName = "world" in arm.target ? arm.target.world : arm.target.name;
+        devWarn(`${voyage.id}: arm ${arm.legion} target "${targetName}" not on the chart — dropped`);
+        continue;
+      }
+      const legIndex = legs.length;
+      legs.push(legPath(w, target, arm.bow));
+      legColors.push(arm.color);
+      legOpacities.push(arm.opacity ?? 0.9);
+      legRevealAt.push(revealAt);
+      strategicArms.push({
+        legIndex,
+        legion: arm.legion,
+        name: arm.name,
+        targetName: target.name,
+      });
+      resolvedArms += 1;
+    }
+    if (resolvedArms > 0) stations[revealAt].armCount = resolvedArms;
+  });
+
   return {
     id: voyage.id,
     name: voyage.name,
@@ -261,5 +318,8 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
     stations,
     legs,
     legColors,
+    legOpacities,
+    legRevealAt,
+    strategicArms,
   };
 }

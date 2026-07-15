@@ -23,6 +23,7 @@ import {
   isChartPoint,
   isWaypoint,
   resolveVoyage,
+  type VoyageArm,
   type VoyageChart,
   type VoyageChartPoint,
   type VoyageStation,
@@ -51,12 +52,96 @@ const check = (cond: boolean, msg: string) => {
   cases += 1;
   assert.ok(cond, msg);
 };
+const checkPlacement = (placement: { note: string; source: string }, label: string) => {
+  check(placement.note.trim().length >= 48, `${label}: placement rationale is substantive`);
+  check(/^https:\/\//.test(placement.source), `${label}: placement source URL`);
+};
 
 check(VOYAGES.length >= 2, "at least two journeys exist");
 check(new Set(VOYAGES.map((v) => v.id)).size === VOYAGES.length, "voyage ids are unique");
 check(
   !VOYAGES.some((v) => v.stations.some(isWaypoint)),
   "authored journeys use sourced chart points instead of leg-riding waypoints",
+);
+
+const greatCrusade = VOYAGES.find((v) => v.id === "great-crusade");
+check(greatCrusade !== undefined, "Great Crusade journey exists");
+const rediscoveryHeadings = [
+  "Cthonia · Horus",
+  "Fenris · Leman Russ",
+  "Expunged Primarch Found",
+  "Medusa · Ferrus Manus",
+  "Chemos · Fulgrim",
+  "Nocturne · Vulkan",
+  "Inwit · Rogal Dorn",
+  "Macragge · Roboute Guilliman",
+  "Prospero · Magnus the Red",
+  "Baal · Sanguinius",
+  "Caliban · Lion El'Jonson",
+  "Olympia · Perturabo",
+  "Barbarus · Mortarion",
+  "Colchis · Lorgar",
+  "Chogoris · Jaghatai Khan",
+  "Nostramo · Konrad Curze",
+  "Nuceria · Angron",
+  "Deliverance · Corvus Corax",
+  "Expunged Primarch Found",
+  "Uncharted Space · Alpharius",
+];
+const authoredRediscoveries =
+  greatCrusade?.stations
+    .map((stop) => stop.heading)
+    .filter((heading): heading is string => !!heading && rediscoveryHeadings.includes(heading)) ?? [];
+check(
+  authoredRediscoveries.join("|") === rediscoveryHeadings.join("|"),
+  "Great Crusade keeps the official twenty-place Primarch rediscovery roll",
+);
+const greatPoint = (name: string): VoyageChartPoint | undefined =>
+  greatCrusade?.stations.find(
+    (stop): stop is VoyageChartPoint => isChartPoint(stop) && stop.name === name,
+  );
+const primarchII = greatPoint("Primarch II");
+const primarchXI = greatPoint("Primarch XI");
+check(primarchII !== undefined && primarchXI !== undefined, "both expunged Primarch points exist");
+if (greatCrusade && primarchII && primarchXI) {
+  for (const point of [primarchII, primarchXI]) {
+    const index = greatCrusade.stations.indexOf(point);
+    const next = greatCrusade.stations[index + 1];
+    check(point.breakBefore !== true, `${point.name}: incoming chronology remains connected`);
+    check(!!next && !isWaypoint(next) && next.breakBefore !== true, `${point.name}: outgoing chronology remains connected`);
+    check(point.leg?.color === "#77746d", `${point.name}: incoming leg is archival grey`);
+    check(point.heading === "Expunged Primarch Found", `${point.name}: uses the neutral expunged heading`);
+    check(/purged from the Imperial archive/.test(point.text), `${point.name}: copy centres the purged record`);
+    check(
+      !!next && !isWaypoint(next) && next.leg?.color === "#77746d",
+      `${point.name}: outgoing leg is archival grey`,
+    );
+  }
+}
+const warmasterWeb = greatCrusade?.stations.at(-1);
+const webArms: VoyageArm[] = warmasterWeb && !isWaypoint(warmasterWeb) ? (warmasterWeb.arms ?? []) : [];
+check(warmasterWeb?.heading === "The Warmaster's Web", "Warmaster's Web is the final Great Crusade act");
+check(webArms.length === 18, "Warmaster's Web carries one arm for every active Legion");
+check(new Set(webArms.map((arm) => arm.legion)).size === 18, "Warmaster's Web Legion arms are unique");
+check(
+  webArms.every((arm) => /^#[0-9a-f]{6}$/i.test(arm.color)),
+  "Warmaster's Web uses valid Legion colours",
+);
+const istvaanArms = webArms.filter(
+  (arm) => "world" in arm.target && (arm.target.world === "istvaan-iii" || arm.target.world === "istvaan-v"),
+);
+check(istvaanArms.length === 10, "all ten Isstvan-bound Legions share the strategic bundle");
+check(
+  istvaanArms.every((arm) => Math.abs(arm.bow ?? Infinity) <= 36),
+  "Isstvan paths stay inside one tight visual bundle",
+);
+const greatResolved = greatCrusade ? resolveVoyage(greatCrusade, chart) : undefined;
+const webStep = (greatResolved?.stations.length ?? 0) - 1;
+check(greatResolved?.stations.at(-1)?.armCount === 18, "all eighteen Warmaster arms resolve");
+check(greatResolved?.strategicArms.length === 18, "all eighteen Warmaster arms remain individually interactive");
+check(
+  greatResolved?.legRevealAt.filter((step) => step === webStep).length === 18,
+  "all Warmaster arms reveal together on the final act",
 );
 
 const abaddon = VOYAGES.find((v) => v.id === "abaddon");
@@ -206,12 +291,7 @@ for (const v of VOYAGES) {
         st.gx >= 0 && st.gx <= GRID_W && st.gy >= 0 && st.gy <= GRID_H,
         `${v.id}/${st.name}: chart point on the grid`,
       );
-      check(st.placement.note.trim().length > 0, `${v.id}/${st.name}: placement note`);
-      check(st.placement.note.trim().length >= 48, `${v.id}/${st.name}: placement rationale is substantive`);
-      check(
-        /^https:\/\//.test(st.placement.source),
-        `${v.id}/${st.name}: placement source URL`,
-      );
+      checkPlacement(st.placement, `${v.id}/${st.name}`);
       check(/^https:\/\//.test(st.source ?? ""), `${v.id}/${st.name}: event source URL`);
       if (st.leg?.d !== undefined) {
         check(/^M[\s\d.-]/.test(st.leg.d), `${v.id}/${st.name}: leg.d parses as a path`);
@@ -221,11 +301,36 @@ for (const v of VOYAGES) {
       }
     } else {
       check(catalogIds.has(st.world), `${v.id}: station "${st.world}" exists in map-worlds.json`);
+      if (st.placement) checkPlacement(st.placement, `${v.id}/${st.world}`);
       if (st.leg?.d !== undefined) {
         check(/^M[\s\d.-]/.test(st.leg.d), `${v.id}/${st.world}: leg.d parses as a path`);
       }
       if (st.breakBefore) {
         check(si > 0, `${v.id}/${st.world}: route break is not first`);
+      }
+    }
+    if (!isWaypoint(st)) {
+      if (st.leg?.color !== undefined) {
+        check(/^#[0-9a-f]{6}$/i.test(st.leg.color), `${v.id}[${si}]: leg colour is valid hex`);
+      }
+      if (st.leg?.opacity !== undefined) {
+        check(st.leg.opacity >= 0 && st.leg.opacity <= 1, `${v.id}[${si}]: leg opacity in 0–1`);
+      }
+      for (const arm of st.arms ?? []) {
+        check(arm.legion.trim().length > 0, `${v.id}[${si}]: arm Legion identity`);
+        check(arm.name.trim().length > 0, `${v.id}/${arm.legion}: arm Legion name`);
+        check(/^#[0-9a-f]{6}$/i.test(arm.color), `${v.id}/${arm.legion}: arm colour is valid hex`);
+        check(arm.opacity === undefined || (arm.opacity >= 0 && arm.opacity <= 1), `${v.id}/${arm.legion}: arm opacity in 0–1`);
+        check(/^https:\/\//.test(arm.source), `${v.id}/${arm.legion}: arm source URL`);
+        if ("world" in arm.target) {
+          check(catalogIds.has(arm.target.world), `${v.id}/${arm.legion}: arm target exists on chart`);
+        } else {
+          check(
+            arm.target.gx >= 0 && arm.target.gx <= GRID_W && arm.target.gy >= 0 && arm.target.gy <= GRID_H,
+            `${v.id}/${arm.legion}: arm point target on the grid`,
+          );
+          checkPlacement(arm.target.placement, `${v.id}/${arm.legion}`);
+        }
       }
     }
   });
@@ -235,9 +340,12 @@ for (const v of VOYAGES) {
     resolved.stations.length === v.stations.length,
     `${v.id}: every stop resolves (no silent drops)`,
   );
-  const expectedLegs = anchors.slice(1).filter((s) => !s.breakBefore).length;
-  check(resolved.legs.length === expectedLegs, `${v.id}: one leg per connected anchor transition`);
+  const armCount = anchors.reduce((sum, anchor) => sum + (anchor.arms?.length ?? 0), 0);
+  const expectedLegs = anchors.slice(1).filter((s) => !s.breakBefore).length + armCount;
+  check(resolved.legs.length === expectedLegs, `${v.id}: one leg per connected transition or strategic arm`);
   check(resolved.legColors.length === resolved.legs.length, `${v.id}: every leg has a shared renderer colour`);
+  check(resolved.legOpacities.length === resolved.legs.length, `${v.id}: every leg has a shared renderer opacity`);
+  check(resolved.legRevealAt.length === resolved.legs.length, `${v.id}: every leg has a reveal step`);
   for (const d of resolved.legs) {
     check(/^M -?[\d.]+ -?[\d.]+ (Q|L|C)/.test(d), `${v.id}: generated leg is a path (${d.slice(0, 24)}…)`);
   }

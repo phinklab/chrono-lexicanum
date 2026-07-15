@@ -24,6 +24,8 @@ import type { Voyage } from "./types";
 export type {
   LegOverride,
   Voyage,
+  VoyageArm,
+  VoyageArmTarget,
   VoyageChartPoint,
   VoyagePlacement,
   VoyageSection,
@@ -33,7 +35,7 @@ export type {
 } from "./types";
 export { isChartPoint, isWaypoint } from "./types";
 export { pointOnLeg, resolveVoyage } from "./resolve";
-export type { ResolvedStation, ResolvedVoyage, VoyageChart } from "./resolve";
+export type { ResolvedStation, ResolvedVoyage, ResolvedVoyageArm, VoyageChart } from "./resolve";
 export { fitVoyageBounds, resolvedVoyageBounds } from "./fit";
 export type { VoyageBounds, VoyageFit } from "./fit";
 

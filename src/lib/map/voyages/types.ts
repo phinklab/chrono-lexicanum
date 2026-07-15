@@ -36,6 +36,12 @@ export interface LegOverride {
   /** Full hand-authored SVG path `d` in grid coordinates — the art-direction
    *  escape hatch. Wins over `bow`. */
   d?: string;
+  /** Optional authored colour for this transition. Used sparingly where the
+   *  archive itself changes how strongly a connection should read. */
+  color?: `#${string}`;
+  /** Optional renderer opacity for this transition, in the inclusive 0–1
+   *  range. Defaults to the normal route opacity. */
+  opacity?: number;
 }
 
 export interface VoyagePlacement {
@@ -44,6 +50,32 @@ export interface VoyagePlacement {
   /** Concise, user-facing account of what the source does and does not fix. */
   note: string;
   /** Provenance for the placement claim, rendered as the note's source link. */
+  source: string;
+}
+
+export type VoyageArmTarget =
+  | { world: string }
+  | {
+      name: string;
+      gx: number;
+      gy: number;
+      placement: VoyagePlacement;
+    };
+
+/** A sourced strategic disposition radiating from one authored anchor. Arms
+ *  are map-only epilogue geometry: they reveal with their source act but do
+ *  not become extra tour cards or pretend to be one traveller's itinerary. */
+export interface VoyageArm {
+  /** Roman Legion number, used as the stable authored identity. */
+  legion: string;
+  name: string;
+  color: `#${string}`;
+  /** Lower opacity distinguishes manipulated or answering movements from a
+   *  direct command while retaining the Legion colour. */
+  opacity?: number;
+  target: VoyageArmTarget;
+  /** Perpendicular bow in grid units; signed values separate shared targets. */
+  bow?: number;
   source: string;
 }
 
@@ -68,12 +100,17 @@ export interface VoyageStation {
   date?: string;
   /** Research provenance (Lexicanum/Fandom URL). Never rendered. */
   source?: string;
+  /** Optional disclosure when a catalog pin is an identity anchor rather
+   *  than a claim about the event's historical coordinate. */
+  placement?: VoyagePlacement;
   /** Styling of the leg ARRIVING at this station (from the previous
    *  station). Ignored on the first station. */
   leg?: LegOverride;
   /** Start a new route segment here. The tour chronology continues, but no
    *  line is drawn from the preceding anchor. */
   breakBefore?: boolean;
+  /** Strategic map-only arms revealed when this act is reached. */
+  arms?: VoyageArm[];
 }
 
 export interface VoyageWaypoint {
@@ -114,6 +151,8 @@ export interface VoyageChartPoint {
   /** Start a new route segment here without connecting it to the preceding
    *  anchor. */
   breakBefore?: boolean;
+  /** Strategic map-only arms revealed when this act is reached. */
+  arms?: VoyageArm[];
 }
 
 export type VoyageStop = VoyageStation | VoyageWaypoint | VoyageChartPoint;

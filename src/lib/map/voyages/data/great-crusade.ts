@@ -1,25 +1,24 @@
 /**
  * The Great Crusade (M30–M31) — the Imperium's two-hundred-year reconquest,
- * told in full: launch, first compliance, and the rediscovery of every lost
+ * told as a curated chronicle: Unification prelude, Sol, the rediscovery of
+ * every lost
  * primarch in the canonical Black Library order (Lexicanum "Primarch"
  * discovery table = Fandom "Primarchs" list, identical), framed by the
- * conquest of Sol and the Council of Nikaea epilogue.
+ * conquest of Sol, Monarchia and Nikaea, then a strategic epilogue showing
+ * how the eighteen active Legions were disposed as the Heresy opened.
  *
- * Ullanor rides the `armageddon` pin (the stripped world was later
- * recolonized as Armageddon); Alpharius' rediscovery world is canonically
- * unknown and rides `terra` as "The Final Son", the act text carrying both
- * accounts (revealed to Horus in deep space vs. found first on Terra, per
- * "Alpharius: Head of the Hydra"). The two Lost Primarchs (II at 821.M30,
- * XI at 927.M30 in the timeline) have no worlds or regions — they use
- * explicitly schematic chart points, two uncertain marks in the dark between
- * their brothers.
- * Luna and Mars predate the formal launch and are intentionally presented
- * as its Sol-system prologue. Sedna is placed beside Sol because its campaign
- * completed the liberation of that system. Gorro's sources agree on the
- * event but not a precise date, so
- * it sits late M30
- * before Ullanor without a false year. Magnus' 840.M30 is the official
- * timeline number; Lexicanum flags it may date first psychic contact.
+ * Ullanor rides the `armageddon` pin as a world-identity anchor, not an M31
+ * coordinate: Ullanor was teleported to the later Armageddon position long
+ * after the Crusade. Alpharius' official rediscovery world is unknown and is
+ * therefore a schematic point; the Terra account remains disclosed as the
+ * Hydra's explicitly unreliable alternative. The two Lost Primarchs (II at
+ * 821.M30, XI at 927.M30) also remain schematic, but muted lines now preserve
+ * their chronological place instead of making the record visually jump.
+ * Luna overlaps the unfinished Unification of Terra; Mars still predates the
+ * formal expedition-fleet launch. Sedna is placed beside Sol because its
+ * campaign completed the system's liberation while the outward Crusade was
+ * already under way. Gorro sits late M30 without a false exact year. Magnus'
+ * 840.M30 is the official timeline number and may mark psychic contact.
  * Sanguinius landed on Baal Secundus and rides
  * the `baal` pin. Sources per station in `source`.
  */
@@ -30,13 +29,24 @@ export const GREAT_CRUSADE: Voyage = {
   id: "great-crusade",
   name: "The Great Crusade",
   tag: "M30–M31",
-  blurb: "Two hundred years of reconquest: Sol reclaimed, eighteen sons regained, and the first great fracture at Nikaea.",
+  blurb: "From Terra's Unification to a Crusade spanning the stars: twenty rediscoveries, a triumph already cracking, and the Warmaster's final web.",
+  cartography: {
+    label: "curated chronicle",
+    note: "The rediscovery roll follows the official chronology. Schematic points preserve erased or unlocated events; the final coloured arms show opening-Heresy dispositions, not simultaneous fleet tracks or eighteen orders issued at Ullanor.",
+  },
   stations: [
+    {
+      world: "terra",
+      heading: "Terra · The Wars of Unification",
+      date: "late M29–c. 703.M30 · Prelude",
+      text: "Before the stars, the Emperor breaks the techno-barbarian kingdoms of Old Earth and forges the first armies of the Imperium. Terra is largely won when the assault on Luna begins, though the last Unification wars will grind on until about 712.M30.",
+      source: "https://wh40k.lexicanum.com/wiki/Unification_Wars",
+    },
     {
       world: "luna",
       heading: "Luna · The First Pacification",
-      date: "c. 703.M30 · Prologue",
-      text: "The Crusade's first battle is fought in Terra's own sky. The fanatical Selenar gene-cults submit, and Luna's ancient vats turn to a new work: the mass-raising of the Legiones Astartes.",
+      date: "c. 703.M30 · Unification overlap",
+      text: "The first great off-world campaign is fought in Terra's own sky while Unification still smoulders below. The Selenar gene-cults submit, and Luna's ancient vats turn to a new work: the mass-raising of the Legiones Astartes.",
       source: "https://wh40k.lexicanum.com/wiki/First_Pacification_of_Luna",
     },
     {
@@ -48,25 +58,25 @@ export const GREAT_CRUSADE: Voyage = {
     },
     {
       world: "terra",
-      heading: "Terra · The Crusade Begins",
+      heading: "Terra · The Expedition Fleets",
       date: "c. 798.M30",
-      text: "The Unification is won and the warp storms are lifting. Twenty sons lie scattered in the dark, and the Great Crusade sets out from Terra to reclaim the stars and to find them.",
+      text: "The Unification is won, Mars is bound by treaty and the warp storms are lifting. Numbered expedition fleets now leave Terra in force to reclaim the human worlds of Old Night and find the Emperor's scattered sons.",
       source: "https://wh40k.lexicanum.com/wiki/Great_Crusade",
     },
     {
       world: "cthonia",
       heading: "Cthonia · Horus",
       date: "801.M30",
-      text: "On the mined-out gang-world of Cthonia the Emperor finds his first son. Horus alone campaigns at his father's side until Russ is recovered, learning conquest as the Great Crusade breaks beyond Sol.",
+      text: "In the official roll, the Emperor finds his first son on the mined-out gang-world of Cthonia. Horus alone campaigns at his father's side until Russ is recovered, learning conquest as the Great Crusade breaks beyond Sol.",
       source: "https://wh40k.lexicanum.com/wiki/Horus",
     },
     {
       name: "Sedna",
       gx: 326,
       gy: 409,
-      heading: "Sedna · The Last Gate of Sol",
+      heading: "Sedna · The Last Front in Sol",
       date: "803.M30",
-      text: "At Sol's outer dark, eight Legions assault a false world ruled by xenos. The enemy is erased by psychic means and Sedna falls silent, the last gate before the expedition fleets break into the wider galaxy.",
+      text: "At Sol's outer dark, eight Legions assault a false world ruled by xenos. The enemy is erased by psychic means and Sedna falls silent: the last surviving front inside the Solar System, even as expedition fleets already push into the wider galaxy.",
       source: "https://wh40k.lexicanum.com/wiki/Sedna_Campaign",
       placement: {
         precision: "relative",
@@ -82,17 +92,17 @@ export const GREAT_CRUSADE: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/Leman_Russ_(Primarch)",
     },
     {
-      name: "The Second",
+      name: "Primarch II",
       gx: 288.1,
       gy: 228,
-      heading: "The Second · Expunged",
+      heading: "Expunged Primarch Found",
       date: "821.M30",
-      text: "Between the finding of the Wolf King and the Gorgon, a primarch is found whose name no record keeps. Of him and his Legion the Imperial archive says one thing only: expunged.",
+      text: "A rediscovery survives here only as a date. The primarch's name, homeworld, deeds and fate have all been purged from the Imperial archive.",
       source: "https://wh40k.lexicanum.com/wiki/Lost_Primarchs",
-      breakBefore: true,
+      leg: { color: "#77746d", opacity: 0.56 },
       placement: {
         precision: "schematic",
-        note: "The archive preserves a rediscovery date but no homeworld or region; this point only holds the Second's chronological place between Russ and Ferrus Manus.",
+        note: "The archive preserves a rediscovery date but no homeworld or region; this schematic point claims only a place in the surviving chronology.",
         source: "https://wh40k.lexicanum.com/wiki/Lost_Primarchs",
       },
     },
@@ -102,7 +112,7 @@ export const GREAT_CRUSADE: Voyage = {
       date: "824.M30",
       text: "The Gorgon, his hands sheathed in the living silver of the wyrm Asirnoth, tests the newcomer in a duel said to have laid waste to mountains. Finding his equal at last, Ferrus Manus takes up the Tenth.",
       source: "https://wh40k.lexicanum.com/wiki/Ferrus_Manus",
-      breakBefore: true,
+      leg: { color: "#77746d", opacity: 0.56 },
     },
     {
       world: "chemos",
@@ -135,8 +145,8 @@ export const GREAT_CRUSADE: Voyage = {
     {
       world: "prospero",
       heading: "Prospero · Magnus the Red",
-      date: "c. 840.M30",
-      text: "There is no trial and no wager on the sorcerers' world. The Emperor and the Crimson King embrace like old friends at first meeting, for in the warp their minds had known each other long before.",
+      date: "c. 840.M30 · contact date disputed",
+      text: "There is no trial and no wager on the sorcerers' world. The Emperor and the Crimson King embrace like old friends, for their minds had met in the warp long before; the traditional 840.M30 date may preserve that earlier contact rather than the physical reunion.",
       source: "https://wh40k.lexicanum.com/wiki/Magnus_the_Red",
     },
     {
@@ -210,27 +220,41 @@ export const GREAT_CRUSADE: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/Corvus_Corax",
     },
     {
-      name: "The Eleventh",
+      name: "Primarch XI",
       gx: 335.6,
       gy: 564.6,
-      heading: "The Eleventh · Expunged",
+      heading: "Expunged Primarch Found",
       date: "927.M30",
-      text: "A second gap in the roll of the returned. Whatever world gave him up, whatever his Legion did or failed to do, the record ends the same way: all mention deleted from the Imperial archive.",
+      text: "Another rediscovery survives only as a date. The primarch's name, homeworld, deeds and fate have all been purged from the Imperial archive.",
       source: "https://wh40k.lexicanum.com/wiki/Lost_Primarchs",
-      breakBefore: true,
+      leg: { color: "#77746d", opacity: 0.56 },
       placement: {
         precision: "schematic",
-        note: "Only the rediscovery date and its place in the sequence survive; the plotted position makes no claim about the Eleventh's erased homeworld.",
+        note: "The archive preserves a rediscovery date but no homeworld or region; this schematic point claims only a place in the surviving chronology.",
         source: "https://wh40k.lexicanum.com/wiki/Lost_Primarchs",
       },
     },
     {
-      world: "terra",
-      heading: "Terra · The Final Son",
+      world: "khur",
+      heading: "Khur · The Ashes of Monarchia",
+      date: "963.M30",
+      text: "The Emperor sends Malcador and Guilliman to raze Lorgar's perfect city. The Word Bearers are forced to kneel in Monarchia's ashes, and the Crusade's triumph becomes the humiliation from which its first deliberate treason grows.",
+      source: "https://assets.warhammer-community.com/eng_02-07_thehorusheresy_black_book_extract_war_at_calth-gbygwoxmir-udskkmgxjr.pdf",
+      leg: { color: "#77746d", opacity: 0.56 },
+    },
+    {
+      name: "Uncharted Space",
+      gx: 448,
+      gy: 332,
+      heading: "Uncharted Space · Alpharius",
       date: "981.M30",
-      text: "Officially the last: a nameless raider carves his way to the bridge of Horus' flagship and answers only \"I am Alpharius.\" Yet the Hydra whispers he was found first of all, on Terra itself, in secret.",
+      text: "In the official final rediscovery, a nameless raider carves his way to the bridge of the Vengeful Spirit and answers only \"I am Alpharius.\" The Hydra's own account instead places him first on Terra, then warns that every record lies.",
       source: "https://wh40k.lexicanum.com/wiki/Alpharius",
-      breakBefore: true,
+      placement: {
+        precision: "schematic",
+        note: "The public encounter occurs aboard Horus' flagship in an unnamed system; this point preserves the twentieth place in the roll and deliberately does not promote the disputed Terra account to a coordinate.",
+        source: "https://wh40k.lexicanum.com/wiki/Alpharius",
+      },
     },
     {
       name: "Gorro",
@@ -239,7 +263,7 @@ export const GREAT_CRUSADE: Voyage = {
       heading: "Gorro · The Emperor's Peril",
       date: "late M30",
       text: "The Emperor and Horus descend into an ork scrapworld built around a stolen planetary core. A warboss closes one hand around the Emperor's throat; Horus hews the arm away, and Gorro tears itself apart around them.",
-      source: "https://wh40k.lexicanum.com/wiki/Battle_of_Gorro",
+      source: "https://www.blacklibrary.com/the-horus-heresy/quick-reads/the-wolf-of-ash-and-fire.html",
       placement: {
         precision: "relative",
         note: "Gorro is placed close to Ullanor because the source identifies it as a mobile scrapworld in the Telon Reach and a satrapy of the Ullanor empire; no exact coordinates survive.",
@@ -252,13 +276,204 @@ export const GREAT_CRUSADE: Voyage = {
       date: "000.M31",
       text: "Urlakk Urg hurled from his own tower, the greenskin empire breaks. Down a granite road lined with Ork skulls the Legions parade in their millions; Horus is named Warmaster, and the Emperor turns for home.",
       source: "https://wh40k.lexicanum.com/wiki/Ullanor_Crusade",
+      placement: {
+        precision: "schematic",
+        note: "The Armageddon pin identifies Ullanor Prime itself, not its Great-Crusade-era coordinate: the Mechanicum teleported the world to Segmentum Solar long afterward, where it was renamed Armageddon.",
+        source: "https://wh40k.lexicanum.com/wiki/Ullanor",
+      },
     },
     {
       world: "nikaea",
       heading: "Nikaea · The Council",
       date: "001.M31",
-      text: "On a world still being born, the Emperor gathers the Legions' greatest voices to judge their Librarians. Magnus pleads for knowledge; Mortarion demands restraint. The decree falls: the Librarius must disband, and the son who knows the warp best swears an obedience he will break.",
+      text: "On a world still being born, the Emperor gathers the Legions' greatest voices to judge their Librarians. Magnus pleads for knowledge; Mortarion demands restraint. The Librarius is ordered to disband, opening another fault line even as the Crusade continues under its new Warmaster.",
       source: "https://wh40k.lexicanum.com/wiki/Council_of_Nikaea",
+    },
+    {
+      world: "armageddon",
+      heading: "The Warmaster's Web",
+      date: "004.M31 onward · Epilogue",
+      text: "After Davin, Horus turns the authority won at Ullanor into a trap drawn across the Imperium. Brighter arms mark his direct deployments; quieter arms mark the corrupted Prospero order and the answering musters at Terra and Isstvan V. Select any coloured path to identify its Legion and destination.",
+      source: "https://www.warhammer-community.com/en-gb/articles/w3jmtzfv/traitor-lore-how-the-trap-was-set/",
+      breakBefore: true,
+      placement: {
+        precision: "schematic",
+        note: "The arms radiate from Ullanor as the symbol of Horus' Warmaster authority. They summarise sourced dispositions from 004.M31 onward, not simultaneous departures, a headquarters coordinate or eighteen personal orders issued at the Triumph.",
+        source: "https://wh40k.lexicanum.com/wiki/Timeline_of_the_Horus_Heresy",
+      },
+      arms: [
+        {
+          legion: "I",
+          name: "Dark Angels",
+          color: "#66727a",
+          opacity: 0.92,
+          target: {
+            name: "Gordian League Shield Worlds",
+            gx: 955,
+            gy: 500,
+            placement: {
+              precision: "schematic",
+              note: "The sources place the Shield Worlds on the distant Eastern Fringe but publish no system coordinate; this endpoint claims only that broad theatre.",
+              source: "https://assets.warhammer-community.com/22-01_the_horus_heresy_black_book_extract_the_thramas_crusade-fwtcctcyvt-kspnxfwdz1.pdf",
+            },
+          },
+          bow: 42,
+          source: "https://assets.warhammer-community.com/22-01_the_horus_heresy_black_book_extract_the_thramas_crusade-fwtcctcyvt-kspnxfwdz1.pdf",
+        },
+        {
+          legion: "III",
+          name: "Emperor's Children",
+          color: "#9653a6",
+          opacity: 0.92,
+          target: { world: "istvaan-iii" },
+          bow: -36,
+          source: "https://wh40k.lexicanum.com/wiki/Battle_of_Isstvan_III",
+        },
+        {
+          legion: "IV",
+          name: "Iron Warriors",
+          color: "#929899",
+          opacity: 0.76,
+          target: { world: "istvaan-v" },
+          bow: -28,
+          source: "https://wh40k.lexicanum.com/wiki/Drop_Site_Massacre",
+        },
+        {
+          legion: "V",
+          name: "White Scars",
+          color: "#e6dfca",
+          opacity: 0.92,
+          target: { world: "chondax" },
+          bow: 18,
+          source: "https://wh40k.lexicanum.com/wiki/Chondax_Campaign",
+        },
+        {
+          legion: "VI",
+          name: "Space Wolves",
+          color: "#7890a2",
+          opacity: 0.66,
+          target: { world: "prospero" },
+          bow: -15,
+          source: "https://wh40k.lexicanum.com/wiki/Burning_of_Prospero",
+        },
+        {
+          legion: "VII",
+          name: "Imperial Fists",
+          color: "#d4a62d",
+          opacity: 0.58,
+          target: { world: "terra" },
+          bow: -20,
+          source: "https://wh40k.lexicanum.com/wiki/Rogal_Dorn",
+        },
+        {
+          legion: "VIII",
+          name: "Night Lords",
+          color: "#3d587f",
+          opacity: 0.76,
+          target: { world: "istvaan-v" },
+          bow: -20,
+          source: "https://wh40k.lexicanum.com/wiki/Drop_Site_Massacre",
+        },
+        {
+          legion: "IX",
+          name: "Blood Angels",
+          color: "#b82d35",
+          opacity: 0.92,
+          target: { world: "signus-prime" },
+          bow: 55,
+          source: "https://wh40k.lexicanum.com/wiki/Battle_of_Signus_Prime",
+        },
+        {
+          legion: "X",
+          name: "Iron Hands",
+          color: "#586768",
+          opacity: 0.58,
+          target: { world: "istvaan-v" },
+          bow: -12,
+          source: "https://wh40k.lexicanum.com/wiki/Drop_Site_Massacre",
+        },
+        {
+          legion: "XII",
+          name: "World Eaters",
+          color: "#4d7fa8",
+          opacity: 0.92,
+          target: { world: "istvaan-iii" },
+          bow: -4,
+          source: "https://wh40k.lexicanum.com/wiki/Battle_of_Isstvan_III",
+        },
+        {
+          legion: "XIII",
+          name: "Ultramarines",
+          color: "#3f6fc0",
+          opacity: 0.92,
+          target: { world: "calth" },
+          bow: -24,
+          source: "https://wh40k.lexicanum.com/wiki/Battle_of_Calth",
+        },
+        {
+          legion: "XIV",
+          name: "Death Guard",
+          color: "#879064",
+          opacity: 0.92,
+          target: { world: "istvaan-iii" },
+          bow: 4,
+          source: "https://wh40k.lexicanum.com/wiki/Battle_of_Isstvan_III",
+        },
+        {
+          legion: "XV",
+          name: "Thousand Sons",
+          color: "#bd4439",
+          opacity: 0.66,
+          target: { world: "prospero" },
+          bow: 15,
+          source: "https://wh40k.lexicanum.com/wiki/Burning_of_Prospero",
+        },
+        {
+          legion: "XVI",
+          name: "Sons of Horus",
+          color: "#47877d",
+          opacity: 0.92,
+          target: { world: "istvaan-iii" },
+          bow: 12,
+          source: "https://wh40k.lexicanum.com/wiki/Battle_of_Isstvan_III",
+        },
+        {
+          legion: "XVII",
+          name: "Word Bearers",
+          color: "#8b3342",
+          opacity: 0.92,
+          target: { world: "calth" },
+          bow: 24,
+          source: "https://wh40k.lexicanum.com/wiki/Battle_of_Calth",
+        },
+        {
+          legion: "XVIII",
+          name: "Salamanders",
+          color: "#438d5c",
+          opacity: 0.58,
+          target: { world: "istvaan-v" },
+          bow: 20,
+          source: "https://wh40k.lexicanum.com/wiki/Drop_Site_Massacre",
+        },
+        {
+          legion: "XIX",
+          name: "Raven Guard",
+          color: "#747b80",
+          opacity: 0.58,
+          target: { world: "istvaan-v" },
+          bow: 28,
+          source: "https://wh40k.lexicanum.com/wiki/Drop_Site_Massacre",
+        },
+        {
+          legion: "XX",
+          name: "Alpha Legion",
+          color: "#339a9c",
+          opacity: 0.76,
+          target: { world: "istvaan-v" },
+          bow: 36,
+          source: "https://wh40k.lexicanum.com/wiki/Drop_Site_Massacre",
+        },
+      ],
     },
   ],
   lbl: { x: 645, y: 565, t: "THE GREAT CRUSADE" },

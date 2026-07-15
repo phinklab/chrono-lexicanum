@@ -84,12 +84,7 @@ export default function RouteMotionCanvas({
       return;
     }
 
-    const firstEntry = new Map<number, number>();
-    for (const station of resolved.stations) {
-      if (station.legIndex >= 0 && !firstEntry.has(station.legIndex)) {
-        firstEntry.set(station.legIndex, station.i);
-      }
-    }
+    const firstEntry = new Map(resolved.legRevealAt.map((step, legIndex) => [legIndex, step]));
 
     const revealFraction = (legIndex: number, elapsed: number) => {
       if (progress === null) {
@@ -122,7 +117,6 @@ export default function RouteMotionCanvas({
       if (!driver) return false;
       const rect = sizeCanvas();
       ctx.clearRect(0, 0, rect.width, rect.height);
-      ctx.globalAlpha = 0.9;
       ctx.lineWidth = 1.7;
       ctx.lineCap = "round";
       // Static dash pattern — same voice as the desktop SVG line, but the
@@ -134,6 +128,7 @@ export default function RouteMotionCanvas({
       resolved.legs.forEach((leg, legIndex) => {
         const fraction = revealFraction(legIndex, elapsed);
         if (fraction <= 0) return;
+        ctx.globalAlpha = resolved.legOpacities[legIndex] ?? 0.9;
         ctx.strokeStyle = resolved.legColors[legIndex] ?? GOLD;
         const samples = Math.max(2, Math.ceil(PATH_SAMPLES * fraction));
         ctx.beginPath();

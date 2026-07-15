@@ -201,6 +201,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
   // Sheet expansion lives here (not in CartoucheSheet) so the phone
   // back-guard below can dismiss it.
   const [sheetOpen, setSheetOpen] = useState(false);
+  const [selectedArmLeg, setSelectedArmLeg] = useState<number | null>(null);
   const bus = useMemo(() => new ChartBus(), []);
   const magRef = useRef<HTMLSpanElement | null>(null);
 
@@ -211,6 +212,10 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
     const v = voyageId ? VOYAGES.find((c) => c.id === voyageId) : null;
     return v ? resolveVoyage(v, payload) : null;
   }, [voyageId, payload]);
+  const selectedArm =
+    selectedArmLeg === null
+      ? null
+      : (activeVoyage?.strategicArms.find((arm) => arm.legIndex === selectedArmLeg) ?? null);
   const hiIds = useMemo(
     () =>
       activeVoyage
@@ -355,6 +360,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
       // A journey is a new primary context. Close any world panel in the
       // same event so it cannot keep the tour card suppressed behind it.
       if (state.selectedId !== null) selectWorld(null, false);
+      setSelectedArmLeg(null);
       dispatch({ type: "voyageStart", id });
     },
     [selectWorld, state.selectedId],
@@ -502,7 +508,12 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
               onPick={pick}
               motionLayer={
                 <>
-                  <RoutesLayer resolved={activeVoyage} progress={voyageProgress} />
+                  <RoutesLayer
+                    resolved={activeVoyage}
+                    progress={voyageProgress}
+                    selectedArmLeg={selectedArm?.legIndex}
+                    onArmSelect={setSelectedArmLeg}
+                  />
                   <TerraInstrument />
                   {selectedWorld && <Selection key={selectedWorld.id} world={selectedWorld} />}
                 </>
@@ -599,6 +610,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           suppressed={state.selectedId !== null}
           muted={sheetOpen}
           step={state.voyage.step}
+          selectedArm={selectedArm}
           onStep={(step) => dispatch({ type: "voyageStep", step })}
           onFin={() => dispatch({ type: "voyageFree", step: activeVoyage.stations.length })}
           onExit={() => dispatch({ type: "voyageEnd" })}
@@ -611,6 +623,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           resolved={activeVoyage}
           suppressed={state.selectedId !== null}
           muted={sheetOpen}
+          selectedArm={selectedArm}
           onBack={() => dispatch({ type: "voyageStep", step: activeVoyage.stations.length - 1 })}
           onRestart={() => dispatch({ type: "voyageStep", step: 0 })}
         />

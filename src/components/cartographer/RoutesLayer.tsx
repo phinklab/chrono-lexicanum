@@ -8,9 +8,10 @@
  * Tour (`progress >= -1`, the guided playback): reveal is STEP-gated, not
  * time-gated, keyed off each stop's `legIndex`. A leg draws when the tour
  * FIRST enters it — arriving at a waypoint riding it, or directly at its end
- * station — and stands drawn thereafter (mask removed; at most ONE live
- * mask, cheaper than ambient). Later legs, rings and waypoint dots hold at
- * opacity 0 via `rt-pending`. `progress === stations.length` (the post-tour
+ * station — and stands drawn thereafter. Only the currently drawing leg or
+ * epilogue leg group keeps live masks. Later legs, rings and waypoint dots hold at
+ * opacity 0 via `rt-pending`. Several strategic epilogue arms may share the
+ * same reveal step and draw together. `progress === stations.length` (the post-tour
  * survey) shows everything statically.
  *
  * World stations render as rings (deduped by id — repeat visits share one
@@ -32,25 +33,30 @@ interface RoutesLayerProps {
   resolved: ResolvedVoyage | null;
   /** Tour step (−1 overture … stations.length survey), or null for ambient. */
   progress: number | null;
+  selectedArmLeg?: number | null;
+  onArmSelect?: (legIndex: number | null) => void;
 }
 
-export default function RoutesLayer({ resolved, progress }: RoutesLayerProps) {
+export default function RoutesLayer({
+  resolved,
+  progress,
+  selectedArmLeg = null,
+  onArmSelect,
+}: RoutesLayerProps) {
   // Phones skip the <mask> draw-in entirely. RouteMotionCanvas owns their
   // moving line; the SVG keeps only static station/label geometry.
   const narrow = useMediaQuery("(max-width: 900px)");
   if (!resolved || resolved.legs.length < 1) return null;
 
   const tour = progress !== null;
+  const armByLeg = new Map(resolved.strategicArms.map((arm) => [arm.legIndex, arm]));
 
   // First tour step at which each leg starts drawing: the step of the first
   // stop (waypoint or end station) that rides/arrives on it.
-  const firstEntry = new Map<number, number>();
-  for (const st of resolved.stations) {
-    if (st.legIndex >= 0 && !firstEntry.has(st.legIndex)) firstEntry.set(st.legIndex, st.i);
-  }
-  const drawingLeg = tour
-    ? ([...firstEntry.entries()].find(([, step]) => step === progress)?.[0] ?? null)
-    : null;
+  const firstEntry = new Map(resolved.legRevealAt.map((step, legIndex) => [legIndex, step]));
+  const drawingLegs = tour
+    ? new Set([...firstEntry.entries()].filter(([, step]) => step === progress).map(([legIndex]) => legIndex))
+    : new Set<number>();
   const legState = (li: number): string => {
     if (!tour) return "";
     const entry = firstEntry.get(li);
@@ -77,9 +83,9 @@ export default function RoutesLayer({ resolved, progress }: RoutesLayerProps) {
       {!narrow && (
         <defs>
           {resolved.legs.map((d, li) =>
-            // Tour mode keeps at most one mask alive (the drawing leg);
+            // Tour mode masks only the currently drawing leg or epilogue group;
             // ambient mode masks every leg for the staggered draw-in.
-            tour && li !== drawingLeg ? null : (
+            tour && !drawingLegs.has(li) ? null : (
               <mask id={`cg-m-${resolved.id}-${li}`} key={li}>
                 <path
                   d={d}
@@ -96,22 +102,58 @@ export default function RoutesLayer({ resolved, progress }: RoutesLayerProps) {
         </defs>
       )}
       {resolved.legs.map((d, li) => {
-        const masked = !narrow && (tour ? li === drawingLeg : true);
+        const masked = !narrow && (tour ? drawingLegs.has(li) : true);
+        const arm = armByLeg.get(li);
+        const armAvailable = !!arm && (!tour || (progress as number) >= resolved.legRevealAt[li]);
+        const armSelected = arm !== undefined && selectedArmLeg === li;
+        const armLabel = arm ? `Legion ${arm.legion} · ${arm.name} → ${arm.targetName}` : "";
+        const toggleArm = () => onArmSelect?.(armSelected ? null : li);
         return (
-          <path
-            key={li}
-            className={`cg-rtFly${legState(li)}`}
-            d={d}
-            fill="none"
-            stroke={resolved.legColors[li] ?? GOLD}
-            strokeOpacity={0.9}
-            strokeWidth={1.7}
-            strokeDasharray="1.6 4.6"
-            strokeLinecap="round"
-            vectorEffect="non-scaling-stroke"
-            style={{ "--i": tour ? 0 : li } as CSSProperties}
-            mask={masked ? `url(#cg-m-${resolved.id}-${li})` : undefined}
-          />
+          <g key={li}>
+            <path
+              className={`cg-rtFly${legState(li)}${armSelected ? " is-selected" : ""}`}
+              d={d}
+              fill="none"
+              stroke={resolved.legColors[li] ?? GOLD}
+              strokeOpacity={resolved.legOpacities[li] ?? 0.9}
+              strokeWidth={1.7}
+              strokeDasharray="1.6 4.6"
+              strokeLinecap="round"
+              vectorEffect="non-scaling-stroke"
+              style={{ "--i": tour ? 0 : li } as CSSProperties}
+              mask={masked ? `url(#cg-m-${resolved.id}-${li})` : undefined}
+            />
+            {arm && armAvailable && (
+              <path
+                className={`cg-rt-hit${armSelected ? " is-selected" : ""}`}
+                d={d}
+                fill="none"
+                stroke="transparent"
+                strokeWidth={arm.targetName.startsWith("Istvaan") ? 4 : 12}
+                strokeLinecap="round"
+                vectorEffect="non-scaling-stroke"
+                role="button"
+                tabIndex={0}
+                focusable="true"
+                aria-label={armLabel}
+                aria-pressed={armSelected}
+                style={{ "--arm-color": resolved.legColors[li] } as CSSProperties}
+                onPointerDown={(event) => event.stopPropagation()}
+                onClick={(event) => {
+                  event.stopPropagation();
+                  toggleArm();
+                }}
+                onKeyDown={(event) => {
+                  if (event.key !== "Enter" && event.key !== " ") return;
+                  event.preventDefault();
+                  event.stopPropagation();
+                  toggleArm();
+                }}
+              >
+                <title>{armLabel}</title>
+              </path>
+            )}
+          </g>
         );
       })}
       {rings.map(({ id, i, st }) => {

@@ -451,6 +451,19 @@ body.cg-canvas-renderer .cg-deg {
 .cg-rtFly {
   animation: cgRtFly 7s linear infinite;
 }
+.cg-rtFly.is-selected {
+  stroke-width: 2.8;
+  stroke-opacity: 1;
+}
+.cg-rt-hit {
+  pointer-events: stroke;
+  cursor: pointer;
+  outline: none;
+}
+.cg-rt-hit:is(:hover, :focus-visible, .is-selected) {
+  stroke: var(--arm-color);
+  stroke-opacity: 0.22;
+}
 @keyframes cgRtFly {
   to {
     stroke-dashoffset: -62;
@@ -492,7 +505,8 @@ body.cg-canvas-renderer .cg-deg {
    Reveal is STEP-gated by RoutesLayer classes instead of the time stagger:
    `rt-pending` holds later geometry at 0 (a plain class, not an animation —
    it survives reduced-motion, where the drawing leg lands fully drawn),
-   the single `rt-drawing` leg runs the draw-in with --i pinned to 0, and
+   the current `rt-drawing` leg or epilogue-leg group runs the draw-in with
+   --i pinned to 0, and
    `rt-drawn` legs stand mask-free. Ring blooms wait a beat so they land
    with the camera, not the tap. */
 .cg-course.tour .rt-pending {
@@ -1663,6 +1677,24 @@ body.cg-canvas-renderer .cg-deg {
 }
 .cg-tour .cg-tour-placement a:hover {
   color: var(--cl-bone);
+}
+.cg-tour .cg-tour-arm {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  margin: 9px 0 0;
+  padding: 7px 9px;
+  border-left: 2px solid;
+  background: color-mix(in srgb, var(--cl-ink) 82%, transparent);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-3xs);
+  line-height: 1.35;
+  letter-spacing: var(--track-10);
+  text-transform: uppercase;
+}
+.cg-tour .cg-tour-arm span:last-child {
+  color: var(--cl-gold);
+  text-align: right;
 }
 .cg-tour .cg-tour-row {
   display: flex;
