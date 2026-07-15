@@ -733,7 +733,10 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           onArmPreview={setPreviewArmLegion}
           onArmVisibilityAll={setAllArmRoutesVisible}
           onBack={() => stepVoyage(activeVoyage.stations.length - 1)}
-          onRestart={() => stepVoyage(0)}
+          onRestart={() => {
+            setHiddenArmLegions(new Set<string>());
+            stepVoyage(0);
+          }}
           onContinue={startVoyage}
         />
       )}
