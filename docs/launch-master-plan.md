@@ -30,6 +30,15 @@
 3. **Era-Wahrheit: Default übernommen** — Pauschalstempel entfernen, Bestand mechanisch aus Setting-Dates bucketen wo vorhanden, Rest `NULL` (Umsetzung S1a). Philipps Bedingung („darf die Chronicle-Seite nicht zerschießen") ist geprüft: die Chronicle liest ausschließlich die kuratierte `eras`/`events`/`event_works`-Spine (`src/lib/chronicle/loadTimeline.ts`) und nie `books.era_id` — der Era-Fix kann sie nicht beschädigen.
 4. **Error-only-Tracker: ja** — genau einer, strikt error-only (kein Replay, kein Tracing, keine personenbezogenen Metadaten); Paketwahl + Aktivierung in S5, CSP-Einträge kommen aus S3b, Datenschutztext im selben PR (E6).
 
+**Nachtrag — Werkstatt-Phase (Philipp, 2026-07-15 · Session 219).** Die Muss-Strecke S1a–S10a ist vollständig gemerged (PRs #240–#256); S10b ist durch die Geräteabnahme der Session 213 (Android-Canvas-Renderer, PR #260) faktisch erledigt. Für das verbleibende Programm gilt — bei Widerspruch gewinnt dieser Nachtrag gegenüber älteren Plan-Abschnitten:
+
+- **W1 — Kein Launch-Zeitdruck.** Released wird erst, wenn (i) das Artist-Artwork vollständig ist **und** (ii) die gesamte Feature-Wunschliste ([`docs/post-launch-feature-ideas.md`](./post-launch-feature-ideas.md)) **besucht** wurde. „Besucht" heißt: jede Idee bekommt eine Bewertungsrunde und ein Maintainer-Urteil **„bauen / Backlog / verwerfen"** — nicht zwingend eine Umsetzung.
+- **W2 — Werkstatt-Phase vor dem Gate.** Einstieg in der Reihenfolge **F2 → F1 → F3** (Idee 2 Doppelkauf-Warner → Idee 1 Status Imperialis → Idee 3c Statistiken), danach die übrigen Hauptideen (**4, 3a, 3b, 5, 6**) und der Anhang der Ideenliste als Kurz-Triage. Die „Perfektions-Kandidaten" aus der Worklist (Chronicle-Desktop-Restyle, BrandBeacon, Cartographer-Tails, Drukhari-Starter, Podcast-Aliasse, Galaspar/Myr, `arthas_moloch`, Charakter-Long-Tail) laufen durch dieselbe Triage mit demselben Urteils-Schema. Schema-Änderungen sind in dieser Phase zulässig; die Konvention „erst Ideas-Backlog (`brain/wiki/roadmap.md`), dann Brief" bleibt.
+- **W3 — Qualitätspässe VOR dem Launch.** **S7b** wird vorgezogen (hinter dem Gate messbar; **eine finale Live-Messung wiederholt sich nach Gate-off**) und der **S11-Code-PR** läuft nach der Feature-Welle, pixelgleich wie spezifiziert. Der S11-Doku-Rollup bleibt hinter dem Gate-off (W5).
+- **W4 — Preview-Gate bleibt an; Invite-Maschinerie ist tragende Infrastruktur.** Bis zum Launch laufen Artist-Previews über die preview-console mit einzeln widerrufbaren Codes. **PL1 (Preview-Abbau) läuft NICHT vor dem Launch.**
+- **W5 — Release-Endspiel fix:** Content-Freeze → Launch-Readiness (12 Punkte, unverändert) → Gate-off als minimaler Flag-Flip → **stilles Fenster** (unangekündigt öffentlich: PL1, finale S7b-Live-Messung, S11-Doku-Rollup) → erst dann der Reddit-Post.
+- **W6 — E8-Ausnahme verlängert** bis einschließlich Launch-Readiness (Single-Worktree-Betrieb im Koordinations-Worktree, PR-Inhalte bleiben strand-rein).
+
 ---
 
 ## Arbeitsmodus (gilt für jede Session)
@@ -202,9 +211,9 @@ Der v1-Plan lag untracked in einem via `.git/info/exclude` ignorierten Ephemeral
 
 **Fertig wenn:** Budgets im Lab erreicht oder Abweichung konkret begründet · keine Style-Regression auf Cross-Route-Navigationspfaden (Philipp verifiziert im Browser) · Fonts ohne toten Ballast.
 
-### Session 7b — MediaPlayer-Split, Chrome, Asset-Cleanup  — Größe S–M · Strang: Product · **nach Launch**
+### Session 7b — MediaPlayer-Split, Chrome, Asset-Cleanup  — Größe S–M · Strang: Product · **vor dem Launch (Nachtrag 2026-07-15, W3); finale Live-Messung nach Gate-off**
 
-**Umfang:** MediaPlayer in Transport-Shell + lazy Advanced-UI teilen; Chrome, das auf einer Route nichts rendert, dort nicht laden; RouteMotionCanvas bei verborgenem Dokument pausieren; Asset-Cache-Header explizit festlegen und **live nachmessen**; `hub.webp`/`aquila.png`/`.aquila`-Reste entfernen oder bewusst nutzen; Home-SVG-Deko-Anteil messen/begrenzen.
+**Umfang:** MediaPlayer in Transport-Shell + lazy Advanced-UI teilen; Chrome, das auf einer Route nichts rendert, dort nicht laden; RouteMotionCanvas bei verborgenem Dokument pausieren; Asset-Cache-Header explizit festlegen und **live nachmessen** (hinter dem Gate messbar; die Messung wiederholt sich einmal final nach Gate-off im stillen Fenster); `hub.webp`/`aquila.png`/`.aquila`-Reste entfernen oder bewusst nutzen; Home-SVG-Deko-Anteil messen/begrenzen.
 
 ### Session 8 — A11y- & Mobile-Fundament + Mini-Smoke-Set  — Größe M–L · Strang: Product · **Muss; das Set ist am Ende von S8 required**
 
@@ -251,7 +260,7 @@ Der v1-Plan lag untracked in einem via `.git/info/exclude` ignorierten Ephemeral
 
 **Fertig wenn:** initialer Map-Payload ohne Works/Blurbs (Transfergröße im Report) · Weltliste + Seek vollständig tastaturbedienbar · Fokus-Restore belegt · Player-/Input-Tasten kollisionsfrei.
 
-### Session 10b — Cartographer: Rendering/LOD  — Größe M · Strang: Product · **nur falls die Messung es erzwingt**
+### Session 10b — Cartographer: Rendering/LOD  — Größe M · Strang: Product · **nur falls die Messung es erzwingt** — ✅ **faktisch erledigt (Nachtrag 2026-07-15):** die Geräteabnahme der Session 213 (Android-Canvas-Renderer, PR #260 — Pinch/Pan flüssig, Flicker weg) hat den Messbefund geschlossen; ein LOD-System wird nicht gebaut.
 
 Erst nach S10a **auf dem Ziel-Pixel (reales Gerät) profilieren.** Reicht die Canvas-/Batching-Änderung aus S10a, entfällt S10b ersatzlos — es wird **kein LOD-System allein wegen einer Knotenzahl** gebaut (Leitplanken 1/4). Scheitert die physische Pixel-Verifikation weiterhin, dann: echtes LOD, Viewport-Culling oder progressive Batches — CSS-`display:none` zählt nicht.
 
@@ -278,15 +287,15 @@ Viele grüne Einzel-PRs beweisen nicht, dass die Produktionszustände **gleichze
 
 ---
 
-## Post-Launch
+## Nach Gate-off (stilles Fenster, W5)
 
-### Session PL1 — Preview-Abbau  — Größe M · Strang: Product (+ eine Migration)
+### Session PL1 — Preview-Abbau  — Größe M · Strang: Product (+ eine Migration) — **läuft NIE vor dem Launch (W4)**
 
-Nach dem öffentlichen Launch wird die Preview-Maschinerie laut bestehender Entscheidung **entfernt, nicht nur deaktiviert:** Preview-Proxy/Gate-Branching raus; Login-/Invite-Code + lokale Console/API raus; Aktivierungsdaten löschen; `preview_invite_activations` per Migration entfernen; Env-Dokumentation und Datenschutzerklärung an den neuen Zustand anpassen.
+Bis zum Launch ist die Invite-Maschinerie **tragende Infrastruktur** (Artist-Previews via preview-console, einzeln widerrufbare Codes — W4). Erst im stillen Fenster nach Gate-off wird sie laut bestehender Entscheidung **entfernt, nicht nur deaktiviert:** Preview-Proxy/Gate-Branching raus; Login-/Invite-Code + lokale Console/API raus; Aktivierungsdaten löschen; `preview_invite_activations` per Migration entfernen; Env-Dokumentation und Datenschutzerklärung an den neuen Zustand anpassen.
 
-### Session 7b — MediaPlayer/Chrome/Assets (s. o.)
+### Finale S7b-Live-Messung (s. § S7b — der Pass selbst läuft vor dem Launch)
 
-### Session 11 — Wartbarkeit & Statusbereinigung (verschlankt)  — Größe S–M · Strang: Koordination (Doku-PR) + Product (Code-PR) — **getrennte PRs**
+### Session 11 — Wartbarkeit & Statusbereinigung (verschlankt)  — Größe S–M · Strang: Koordination (Doku-PR) + Product (Code-PR) — **getrennte PRs; Code-PR vor dem Launch nach der Feature-Welle (W3), Doku-Rollup im stillen Fenster (W5)**
 
 **Behalten (belegte Duplikate/Fehler):**
 
@@ -311,15 +320,17 @@ Strukturelle Refactors, die stattfinden, bleiben **pixelgleich** und decken kano
 
 ## Reihenfolge & Launch-Gate (Reddit)
 
-**Sequenz:** S0 → S1a → S1a-Snapshot (Produktions-Sync + Initial-Artefakte, eigener PR) → S1b → S2 → S3a → S3b → S4 → S4b (Mini: Buch-Projektion in den Snapshot) → S5 → S6 → S7a → S8 → S9 → S10a (→ S10b nur bei Messbefund) → **Launch-Readiness** → Launch → PL1, S7b, S11.
+**Sequenz (aktualisiert per Nachtrag 2026-07-15):** S0 → S1a → S1a-Snapshot → S1b → S2 → S3a → S3b → S4 → S4b → S5 → S6 → S7a → S8 → S9 → S10a **(alles gemerged, PRs #240–#256; S10b per Session-213-Geräteabnahme erledigt)** → **Werkstatt-Phase** (F2 → F1 → F3, übrige Hauptideen, Anhang- + Perfektions-Triage; W1/W2) → **S7b** (vorgezogen, W3) → **S11-Code-PR** (pixelgleich, W3) → Content-Freeze → **Launch-Readiness** (12 Punkte) → Gate-off (Flag-Flip) → **stilles Fenster** (PL1, finale S7b-Live-Messung, S11-Doku-Rollup; W5) → Reddit-Post.
 
 | Stufe | Schritte |
 |---|---|
-| **Vor allem anderen** | S0 (Plan kanonisieren, Briefstatus, URL-/Domain-/Era-/Observability-Entscheidungen) |
-| **Muss vor Gate-off** | S1a (+ S1a-Snapshot), S1b, S2, S3a, S3b, S4 (+ S4b-Mini), S5, S6, S7a, S8, S9, S10a |
-| **Bedingt** | S10b — nur wenn die Ziel-Pixel-Messung nach S10a weiterhin scheitert |
-| **Finales Gate** | Launch-Readiness: Belegpaket → Gate-off → neuer Deploy → Live-Crawl → Rollback-Beleg |
-| **Nach Launch** | PL1 (Preview-Abbau), S7b, S11 (verschlankt) |
+| **Vor allem anderen** | S0 (Plan kanonisieren, Briefstatus, URL-/Domain-/Era-/Observability-Entscheidungen) — ✅ erledigt |
+| **Muss vor Gate-off** | S1a (+ S1a-Snapshot), S1b, S2, S3a, S3b, S4 (+ S4b-Mini), S5, S6, S7a, S8, S9, S10a — ✅ alle gemerged (PRs #240–#256) |
+| **Bedingt** | S10b — ✅ entfällt: die Session-213-Geräteabnahme (Android-Canvas-Renderer, PR #260) hat den Messbefund erledigt |
+| **Werkstatt-Phase (Nachtrag 2026-07-15)** | Feature-Wunschliste besuchen (F2 → F1 → F3, dann 4, 3a, 3b, 5, 6, Anhang-Triage) + Perfektions-Kandidaten-Triage; Urteil je Idee: bauen / Backlog / verwerfen |
+| **Qualitätspässe vor Launch** | S7b (vorgezogen; finale Live-Messung nach Gate-off) · S11-Code-PR (nach der Feature-Welle, pixelgleich) |
+| **Finales Gate** | Content-Freeze → Launch-Readiness: Belegpaket → Gate-off (Flag-Flip) → Live-Crawl → Rollback-Beleg |
+| **Stilles Fenster (nach Gate-off, vor dem Reddit-Post)** | PL1 (Preview-Abbau), finale S7b-Live-Messung, S11-Doku-Rollup |
 
 Das sind formal mehr, aber kleinere und eindeutig besitzbare PRs; die Codebasis wird dadurch nicht komplizierter. Die Erweiterung des Muss-Gates (E5) verschiebt den frühestmöglichen Launch bewusst nach hinten — Qualität der drei Kernwerkzeuge vor Launchdatum.
 

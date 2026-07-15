@@ -2,7 +2,7 @@
 title: Wiki index — master catalog
 type: reference
 created: 2026-05-09
-updated: 2026-07-11
+updated: 2026-07-15
 sources: []
 related:
   - ../CLAUDE.md
@@ -20,11 +20,11 @@ confidence: high
 
 | Page | Description | Updated |
 |---|---|---|
-| [project-state.md](./project-state.md) | Pre-launch state: 896 books, 1,114 podcast episodes, 1,055-world Cartographer with Great Journeys/mobile Canvas, preview gate, serial launch mode with canonical plan under `docs/` and closed S0 decisions. | 2026-07-11 |
-| [worklist.md](./worklist.md) | Canonical open-work queue: launch sequence (S0 closed), operator checks, product/data tails and long-range blockers. | 2026-07-11 |
-| [open-questions.md](./open-questions.md) | Next-session questions: make the launch release order internally consistent (OQ 19) before S1a. | 2026-07-11 |
+| [project-state.md](./project-state.md) | Workshop phase: mandatory stretch S1a–S10a merged (PRs #240–#256), EN routes, The Curator, dual-renderer Cartographer with 11 journeys/231 acts, feature triage before the gate. | 2026-07-15 |
+| [worklist.md](./worklist.md) | Canonical open-work queue: workshop-phase triage (feature ideas + perfection candidates, verdict build/backlog/drop), pre-launch quality passes, readiness checks. | 2026-07-15 |
+| [open-questions.md](./open-questions.md) | Queue empty; workshop-phase triage rounds may open new questions (ideas 3a/5/6 have schema implications). | 2026-07-15 |
 | [deferred-questions.md](./deferred-questions.md) | Post-launch/dormant work: preview removal, i18n, Atlas events, measured code splitting, secondary Eras, redirect and dependency triggers. | 2026-07-10 |
-| [roadmap.md](./roadmap.md) | Phase-level status and launch milestones; old crawler subphases pruned to history. | 2026-07-10 |
+| [roadmap.md](./roadmap.md) | Phase-level status, workshop-phase path to launch and the ideas backlog (schema-implicating feature ideas). | 2026-07-15 |
 
 ## System pages
 
@@ -35,8 +35,8 @@ confidence: high
 | [book-data-overview.md](./book-data-overview.md) | High-level corpus numbers and canonical shape; no per-book lore. | 2026-07-10 |
 | [glossary.md](./glossary.md) | Active project terminology: schema, per-book operations, Cartographer/Great Journeys, preview/snapshot and memory model. | 2026-07-10 |
 | [onboarding.md](./onboarding.md) | First-time local/Supabase/Vercel/Atlas setup, including full-corpus `db:sync`. | 2026-07-10 |
-| [log.md](./log.md) | Append-only Brain operation history. | 2026-07-11 |
-| (this file) | Complete wiki catalog. | 2026-07-11 |
+| [log.md](./log.md) | Append-only Brain operation history. | 2026-07-15 |
+| (this file) | Complete wiki catalog. | 2026-07-15 |
 
 ## Decisions
 
