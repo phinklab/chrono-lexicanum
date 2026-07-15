@@ -1732,17 +1732,59 @@ body.cg-canvas-renderer .cg-deg {
 .cg-tour .cg-strategic-actions .cpg {
   margin: 0;
 }
+.cg-legion-readout-empty {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+}
+.cg-legion-readout-empty .ct {
+  margin: 0;
+  color: var(--cl-faint);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-3xs);
+  font-style: normal;
+  letter-spacing: var(--track-16);
+  text-transform: uppercase;
+}
 .cg-legion-roster {
   margin-top: 12px;
   padding-top: 9px;
   border-top: 1px solid var(--cl-hair);
 }
+.cg-legion-roster-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 7px;
+}
 .cg-legion-roster-label {
-  margin: 0 0 7px;
+  margin: 0;
   font-family: var(--font-mono);
   font-size: var(--fs-label-3xs);
   letter-spacing: var(--track-18);
+  color: var(--cl-gold);
+}
+.cg-legion-roster-label span {
   color: var(--cl-faint);
+}
+.cg-legion-all {
+  padding: 2px 0;
+  border: 0;
+  background: transparent;
+  color: var(--cl-faint);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-3xs);
+  letter-spacing: var(--track-14);
+  cursor: pointer;
+  transition: color 0.2s var(--ease);
+}
+.cg-legion-all:is(:hover, :focus-visible) {
+  color: var(--cl-bone);
+}
+.cg-legion-all:focus-visible {
+  outline: 1px solid var(--cl-hair);
+  outline-offset: 3px;
 }
 .cg-legion-roster-grid {
   display: grid;
@@ -1764,6 +1806,11 @@ body.cg-canvas-renderer .cg-deg {
 .cg-legion-route:is(:hover, :focus-visible) {
   background: color-mix(in srgb, var(--legion-color) 16%, transparent);
 }
+.cg-legion-route.is-selected {
+  opacity: 1;
+  background: color-mix(in srgb, var(--legion-color) 20%, transparent);
+  color: color-mix(in srgb, var(--legion-color) 82%, var(--cl-bone));
+}
 .cg-legion-route:focus-visible {
   outline: 1px solid color-mix(in srgb, var(--legion-color) 70%, transparent);
   outline-offset: 2px;
@@ -1771,6 +1818,10 @@ body.cg-canvas-renderer .cg-deg {
 .cg-legion-route.is-hidden {
   opacity: 0.3;
   background: transparent;
+}
+.cg-legion-route.is-hidden:is(:hover, :focus-visible) {
+  opacity: 0.72;
+  background: color-mix(in srgb, var(--legion-color) 8%, transparent);
 }
 .cg-tour .cpg { margin-top: 0; }
 .cg-tour .cpg.lead {

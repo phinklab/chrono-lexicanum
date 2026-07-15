@@ -30,6 +30,7 @@ interface RouteMotionCanvasProps {
   /** Tour step, or null for the ambient full-route choreography. */
   progress: number | null;
   reduce: boolean;
+  selectedArmLegion?: string | null;
   hiddenArmLegions?: ReadonlySet<string>;
 }
 
@@ -48,6 +49,7 @@ export default function RouteMotionCanvas({
   resolved,
   progress,
   reduce,
+  selectedArmLegion = null,
   hiddenArmLegions = new Set<string>(),
 }: RouteMotionCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -155,9 +157,11 @@ export default function RouteMotionCanvas({
       resolved.legs.forEach((leg, legIndex) => {
         const arm = armByLeg.get(legIndex);
         if (arm && hiddenArmLegions.has(arm.legion)) return;
+        const selected = arm?.legion === selectedArmLegion;
         const fraction = revealFraction(legIndex, elapsed);
         if (fraction <= 0) return;
-        ctx.globalAlpha = resolved.legOpacities[legIndex] ?? 0.9;
+        ctx.globalAlpha = selected ? 1 : (resolved.legOpacities[legIndex] ?? 0.9);
+        ctx.lineWidth = selected ? 2.8 : 1.7;
         ctx.strokeStyle = resolved.legColors[legIndex] ?? GOLD;
         const samples = Math.max(2, Math.ceil(PATH_SAMPLES * fraction));
         ctx.beginPath();
@@ -215,7 +219,7 @@ export default function RouteMotionCanvas({
       unsubscribe();
       clear();
     };
-  }, [bus, hiddenArmLegions, narrow, progress, reduce, resolved]);
+  }, [bus, hiddenArmLegions, narrow, progress, reduce, resolved, selectedArmLegion]);
 
   return (
     <canvas

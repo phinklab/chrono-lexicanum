@@ -64,6 +64,7 @@ export interface CanvasScene {
   selectedWorld: FeaturedWorld | null;
   activeVoyage: ResolvedVoyage | null;
   voyageProgress: number | null;
+  selectedArmLegion: string | null;
   hiddenArmLegions: ReadonlySet<string>;
   hiIds: ReadonlySet<string> | null;
   routeDim: boolean;
@@ -1028,10 +1029,12 @@ function drawRoute(
   voyage.legs.forEach((leg, legIndex) => {
     const arm = geometry.armByLeg.get(legIndex);
     if (arm && scene.hiddenArmLegions.has(arm.legion)) return;
+    const selected = arm?.legion === scene.selectedArmLegion;
     const fraction = state.fraction(legIndex);
     if (fraction <= 0) return;
     ctx.strokeStyle = voyage.legColors[legIndex] ?? GOLD;
-    ctx.globalAlpha = voyage.legOpacities[legIndex] ?? 0.9;
+    ctx.globalAlpha = selected ? 1 : (voyage.legOpacities[legIndex] ?? 0.9);
+    ctx.lineWidth = (selected ? 2.8 : 1.7) / camera.k;
     if (fraction >= 1) {
       ctx.stroke(cachedPath(leg));
       return;

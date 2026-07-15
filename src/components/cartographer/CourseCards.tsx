@@ -31,10 +31,12 @@ interface CourseCardsProps {
   /** Mobile sheet open (modal) — the card leaves the AT tree meanwhile. */
   muted?: boolean;
   selectedArm?: ResolvedVoyageArm | null;
+  previewArm?: ResolvedVoyageArm | null;
   selectedTarget?: ResolvedVoyageArmTarget | null;
   hiddenArmLegions?: ReadonlySet<string>;
-  onArmToggle?: (legion: string) => void;
-  onArmSelect?: (legion: string) => void;
+  onArmActivate?: (legion: string) => void;
+  onArmPreview?: (legion: string | null) => void;
+  onArmVisibilityAll?: (visible: boolean) => void;
   /** Return to the tour at its last station. */
   onBack: () => void;
   /** Fly the tour again from the first station. */
@@ -48,10 +50,12 @@ export default function CourseCards({
   suppressed,
   muted = false,
   selectedArm = null,
+  previewArm = null,
   selectedTarget = null,
   hiddenArmLegions = new Set<string>(),
-  onArmToggle,
-  onArmSelect,
+  onArmActivate,
+  onArmPreview,
+  onArmVisibilityAll,
   onBack,
   onRestart,
   onContinue,
@@ -60,8 +64,7 @@ export default function CourseCards({
   const st = resolved.stations[resolved.stations.length - 1];
   const continuation = resolved.continuation;
   const legionSteps = resolved.strategic?.mode === "legion-steps";
-  const defaultArm = legionSteps ? (resolved.strategicArms.at(-1) ?? null) : null;
-  const readoutArm = selectedArm ?? defaultArm;
+  const readoutArm = previewArm ?? selectedArm;
   const strategicSelection = !!st?.armCount && (!!readoutArm || !!selectedTarget);
   if (!st || dismissed) return null;
   return (
@@ -89,6 +92,10 @@ export default function CourseCards({
                 : undefined
           }
         />
+      ) : legionSteps ? (
+        <div className="cg-legion-readout-empty" aria-live="polite">
+          <p className="ct">Hover or select a Legion to trace its path.</p>
+        </div>
       ) : (
         <>
           {/* Same hierarchy as the tour card: name + text lead, date recedes. */}
@@ -114,12 +121,14 @@ export default function CourseCards({
           )}
         </>
       )}
-      {legionSteps && onArmToggle && onArmSelect && (
+      {legionSteps && onArmActivate && onArmPreview && onArmVisibilityAll && (
         <LegionRouteRoster
           arms={resolved.strategicArms}
           hidden={hiddenArmLegions}
-          onToggle={onArmToggle}
-          onSelect={onArmSelect}
+          selectedLegion={selectedArm?.legion ?? null}
+          onActivate={onArmActivate}
+          onPreview={onArmPreview}
+          onVisibilityAll={onArmVisibilityAll}
         />
       )}
       <div className="cg-tour-row">
