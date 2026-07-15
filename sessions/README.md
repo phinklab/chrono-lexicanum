@@ -15,40 +15,35 @@ For naming, lifecycle and archiving, see [`brain/wiki/workflows/sessions-format.
 - **Cosmetic UI polish:** [`docs/ui-backlog.md`](../docs/ui-backlog.md)
 - **Archive:** closed sessions normally move to [`archive/YYYY-MM/`](./archive/); the July root cleanup stays deferred until the launch campaign wraps (the tracked prompt collection still references reports at their root paths).
 
-## Current head — 2026-07-11
+## Current head — 2026-07-15
 
-`main` is at `013c955` (S0 merged, PR #240). The product is in pre-launch hardening behind the preview gate.
+`main` is at `55a8ea7` (journey chart-point curation merged, PR #264). The product is in the **pre-launch workshop phase** behind the preview gate.
 
-- **Corpus/runtime:** 896 per-book SSOT books; W28 applied podcast state = 1,114 episodes; 30 DB-free test suites.
-- **Cartographer:** 1,055 worlds, 15 hand-curated zones, 923 lazy world blurbs and 8 Great Journeys / 101 acts. Mobile journey motion uses the Canvas path from Session 192; Session 191's isolated SVG-plane attempt is superseded.
-- **Product wave 185–190:** Brief 181 prune delivered; app `/lab` removed; mobile map/Chronicle/player and responsive catalogue work shipped; `/artwork` is public; redundant headings/copy cleaned; Great Journeys shipped. Static `public/lab/ofob` Ask prototypes were later reintroduced intentionally.
-- **Launch mode:** sessions run serially from the coordination worktree; the plan and kickoff prompts are canonical in-repo since S0 ([`docs/launch-master-plan.md`](../docs/launch-master-plan.md) + [`docs/launch-session-prompts.md`](../docs/launch-session-prompts.md)). PR contents remain strand-pure and `main` remains read-only.
-- **S0 closed (Session 194, 2026-07-11):** URL matrix = full EN migration incl. `/buch → /book` (`/person` stays; plan Appendix A); canonical host `https://www.chrono-lexicanum.com` (already wired); Era default (stamp removal + bucketing + `NULL`, S1a); error-only tracker yes (S5).
-- **OQ 19 closed (Session 195, 2026-07-11):** release order authoritative in the plan — S1a split into Code-PR + S1a-Snapshot release PR; revalidation is an explicit post-deploy command (S3a); `RUNTIME_DATABASE_URL` consumer switch is S3b with maintainer-gated cutover; snapshot PRs stay separate from coordination evidence.
-- **Next:** S1a (Code-PR) per `docs/launch-session-prompts.md`.
-- **Operator checks:** migration `0015`, optional production `db:drift`, and Philipps Pixel/Chrome verdict for Session 192.
+- **Mandatory launch stretch done:** S0 + S1a–S10a all merged (Sessions 194–209, PRs #240–#256) — snapshot/DB-free build, loader contract, runtime role + cutover, CSP/login/audio, EN canonical routes + book ISR, SEO/Sentry/analytics, payload passes, required smoke set, Chronicle + Cartographer A11y. S10b is moot after the Session-213 device acceptance.
+- **Map wave 210–218:** static-dash route rendering + compositing fix (210/211, PRs #257–#259); **Android Canvas renderer device-accepted** (213, PR #260); Great Journeys reworked to **11 journeys / 231 acts** with 64 sourced chart points and 13 Black-Crusade sorties (214/215/217/218, PRs #261/#264). Session 212's attempt failed on-device and was fully rolled back (see its tombstone); the fix landed as 213.
+- **Curator + legal (214/216, PRs #262/#263):** `Ask the Archive` → **The Curator** with a two-path threshold and a rebuilt faction path (stepper + always-visible register + chapters + one answer); Imprint/Privacy are English-first with `?lang=de`.
+- **Workshop phase (Session 219, 2026-07-15):** no launch date pressure — release waits for complete artist artwork and a fully *visited* feature wish list ([`docs/post-launch-feature-ideas.md`](../docs/post-launch-feature-ideas.md), verdict per idea: build / backlog / drop). Entry idea 2 → 1 → 3c; S7b + S11 code PR run pre-launch; preview gate + invite machinery stay load-bearing; release endgame fixed (freeze → readiness → flag flip → quiet window → Reddit). E8 single-worktree mode extended through launch-readiness. Durable record: plan addendum in [`docs/launch-master-plan.md`](../docs/launch-master-plan.md).
+- **Corpus/runtime:** 896 per-book SSOT books; 1,114 podcast episodes (W28); 40 DB-free test suites; DB-free build with 1,293 static pages; sitemap 2,277 URLs.
+- **Operator checks:** migration `0015` stays embedded as launch-readiness point 1; optional production `db:drift` alongside it.
+- **Next:** workshop phase, starting with idea 2 (double-purchase warner).
 
 ## Active / load-bearing threads
 
 | Session | Role | Status | Topic |
 |---|---|---|---|
-| [195-impl-launch-release-preflight](./2026-07-11-195-impl-launch-release-preflight.md) | implementer | complete | OQ-19-Preflight: release order canonized (S1a split, post-deploy revalidation, S3b runtime cutover, PR separation); OQ 19 closed. |
-| [194-impl-launch-s0](./2026-07-11-194-impl-launch-s0.md) | implementer | complete | Launch S0: plan + prompts canonicalized under `docs/`; URL matrix, host, Era and tracker decisions recorded (plan Appendix A). |
-| [193-impl-brain-launch-rollup](./2026-07-10-193-impl-brain-launch-rollup.md) | implementer | complete | Coordination ingest through 192 + W28; durable launch-mode/preflight record. |
-| [192-impl-mobile-cartographer-canvas](./2026-07-10-192-impl-mobile-cartographer-canvas.md) | implementer | complete | Canonical mobile route-motion fix: Canvas ≤900 px, 30 fps, DPR ≤2; SVG paint animation off on mobile; Pixel verdict pending. |
-| [191-impl-mobile-cartographer-motion](./2026-07-10-191-impl-mobile-cartographer-motion.md) | implementer | superseded | Isolated SVG motion plane; disproved on the Pixel and replaced by 192. |
-| [190-impl-ui-refinements-great-journeys](./2026-07-09-190-impl-ui-refinements-great-journeys.md) | implementer | complete | Great Journeys (8/101), Luna pin, Cameo prototype choice, targeted UI refinements. |
-| [185–189 Product/mobile wave](./2026-07-08-185-impl-website-review-mobile.md) | implementer | complete | Prune/token/mobile foundation, phone feedback, `/artwork`, copy/headline cleanup, map/Chronicle overlay and gesture fixes. Reports 185–189 remain in root for the current local workflow. |
-| [182-arch-launch-tech](./2026-07-02-182-arch-launch-tech.md) | architect | superseded | Replaced by the maintainer launch programme; its SEO/A11y/observability outcomes are not yet implemented. |
-| [181-arch-product-prune-pass](./2026-07-02-181-arch-product-prune-pass.md) | architect | implemented | Delivered by Session 185 / PR #226. Later `public/lab/ofob` prototypes are a new, explicit surface. |
+| [219-impl-werkstatt-verankerung](./2026-07-15-219-impl-werkstatt-verankerung.md) | implementer | complete | Workshop phase anchored: plan addendum W1–W6, idea list committed, brain reconcile through 218, artifact hygiene. |
+| [218-impl-journey-spatial-audit](./2026-07-14-218-impl-journey-spatial-audit.md) | implementer | complete | Full spatial audit of 64 synthetic chart points, Black Crusade colours/sections, Indomitus fleet network (PR #264). |
+| [217-impl-journey-lore-prototypes](./2026-07-14-217-impl-journey-lore-prototypes.md) | implementer | complete | Sourced chart points replace invisible waypoints; Abaddon as 13 Eye-origin sorties (PR #264 with 218). |
+| [216-impl-curator-spacing-polish](./2026-07-13-216-impl-curator-spacing-polish.md) | implementer | complete | Curator lower masthead composition, Cardo register typography, exact rail geometry (PR #263). |
+| [215-impl-great-journeys-five-route-expansion](./2026-07-13-215-impl-great-journeys-five-route-expansion.md) | implementer | complete | Gaunt, Lion, Abaddon, Yvraine, Ghazghkull added → eleven-journey roster (PR #261, with the 214 research pass). |
+| [214-impl-curator-rework-legal-i18n](./2026-07-13-214-impl-curator-rework-legal-i18n.md) | implementer | complete | The Curator rename + faction-path rebuild; English-first legal pages with `?lang=de` (PR #262). |
+| [214-impl-great-journeys-research-pass](./2026-07-13-214-impl-great-journeys-research-pass.md) | implementer | complete | Roster rework (Farsight/Khan out, four routes expanded) + five researched journey candidates (PR #261). |
+| [213-impl-map-mobile-rendering](./2026-07-13-213-impl-map-mobile-rendering.md) | implementer | complete | Canonical Android fix: bounded Canvas2D renderer, shared camera core, full-route fit — device-accepted; closes the 192 verdict, moots S10b (PR #260). |
+| [212-impl-map-render-pipeline](./2026-07-13-212-impl-map-render-pipeline.md) | implementer | superseded | On-device failure, fully rolled back; original report lost untracked — tombstone reconstructed in Session 219. Fix landed as 213. |
+| [210/211 map feedback + compositing](./2026-07-13-210-impl-map-feedback-pass.md) | implementer | complete | Static-dash route rendering, journey-flow cleanup, Espandor SSOT fix, iOS ghost-layer fix (PRs #257–#259). |
+| [196–209 launch wave S1a–S10a](./2026-07-11-196-impl-launch-s1a-snapshot-exporter.md) | implementer | complete | The mandatory hardening stretch, one session per plan step (PRs #242–#256). |
 | [129-arch-doorways-curation-layer](./2026-06-04-129-arch-doorways-curation-layer.md) | architect | open spec | Topic strands + character gallery wait on B8/B9 curation. |
-| [121 Product board](./2026-06-03-121-arch-product-board.md) | architect | open board | Historic status board; current launch ordering lives in the worklist. |
-| [122 Batches board](./2026-06-03-122-arch-batches-board.md) | architect | open board | Ongoing hand/data curation; current launch ordering lives in the worklist. |
-
-## Recent operations outside numbered sessions
-
-- Weekly Refresh W28 PR #230: two book candidates ignored; ten podcast episodes merged and applied live (Lorecast 155 / Adeptus 368 / Lorehammer 399; Luetin remains 192).
-- PR #231 advanced the reviewed book/show cursors. Weekly PR #200 is closed and no longer an open reminder.
-- Dependency PR #234 updated `read-excel-file` and `tsx`; no architecture change.
+| [121 Product board](./2026-06-03-121-arch-product-board.md) | architect | open board | Historic status board; current ordering lives in the worklist. |
+| [122 Batches board](./2026-06-03-122-arch-batches-board.md) | architect | open board | Ongoing hand/data curation; current ordering lives in the worklist. |
 
 Older status/history is in [`brain/wiki/log.md`](../brain/wiki/log.md), git and the monthly archive folders.

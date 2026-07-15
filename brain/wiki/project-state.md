@@ -2,22 +2,21 @@
 title: Project state
 type: overview
 created: 2026-05-09
-updated: 2026-07-11
+updated: 2026-07-15
 sources:
   - ../../sessions/README.md
-  - ../../sessions/2026-07-11-195-impl-launch-release-preflight.md
-  - ../../sessions/2026-07-11-194-impl-launch-s0.md
   - ../../docs/launch-master-plan.md
-  - ../../sessions/2026-07-10-193-impl-brain-launch-rollup.md
-  - ../../sessions/2026-07-06-178b-impl-map-polish.md
-  - ../../sessions/2026-07-08-185-impl-website-review-mobile.md
-  - ../../sessions/2026-07-08-186-impl-mobile-feedback-round-2.md
-  - ../../sessions/2026-07-09-190-impl-ui-refinements-great-journeys.md
-  - ../../sessions/2026-07-10-192-impl-mobile-cartographer-canvas.md
-  - ../../ingest/refresh/2026-W28/report.md
-  - ../../sessions/archive/2026-06/2026-06-28-170-impl-per-book-ssot.md
-  - ../../sessions/archive/2026-06/2026-06-30-171-impl-per-book-ssot-migration.md
-  - ../../sessions/2026-07-01-172-impl-podcast-weekly-maintenance.md
+  - ../../docs/post-launch-feature-ideas.md
+  - ../../sessions/2026-07-15-219-impl-werkstatt-verankerung.md
+  - ../../sessions/2026-07-14-218-impl-journey-spatial-audit.md
+  - ../../sessions/2026-07-14-217-impl-journey-lore-prototypes.md
+  - ../../sessions/2026-07-13-216-impl-curator-spacing-polish.md
+  - ../../sessions/2026-07-13-215-impl-great-journeys-five-route-expansion.md
+  - ../../sessions/2026-07-13-214-impl-curator-rework-legal-i18n.md
+  - ../../sessions/2026-07-13-214-impl-great-journeys-research-pass.md
+  - ../../sessions/2026-07-13-213-impl-map-mobile-rendering.md
+  - ../../sessions/2026-07-13-210-impl-map-feedback-pass.md
+  - ../../sessions/2026-07-12-204-impl-launch-s5-seo-observability.md
 related:
   - ./worklist.md
   - ./open-questions.md
@@ -28,75 +27,59 @@ related:
 confidence: high
 ---
 
-# Project state — 2026-07-11
+# Project state — 2026-07-15
 
 > Current-state anchor. History lives in [`log.md`](./log.md), git and the session reports.
 
 ## Phase
 
-Chrono · Lexicanum is in **pre-launch hardening**. The public product shape is complete: Chronicle, Cartographer, Ask the Archive, Archive/Podcasts, Compendium and entity/book detail surfaces are live behind the temporary preview gate. The old crawler/backfill phase is retired; content maintenance is the per-book SSOT plus additive podcast and weekly-refresh flows.
+Chrono · Lexicanum is in the **pre-launch workshop phase** (decided 2026-07-15, Session 219). The mandatory launch-hardening stretch is complete: **S0 and S1a–S10a are all merged (PRs #240–#256)**, and the conditional map-LOD session S10b became moot after the Session-213 device acceptance. The durable decision record is the addendum in [`docs/launch-master-plan.md`](../../docs/launch-master-plan.md) (§ Entscheidungen → "Nachtrag — Werkstatt-Phase", W1–W6):
 
-The active programme is a serial launch campaign. Since S0 (Session 194) its master plan and kickoff prompts are canonical in-repo documents: [`docs/launch-master-plan.md`](../../docs/launch-master-plan.md) (spec + decisions + URL matrix appendix) and [`docs/launch-session-prompts.md`](../../docs/launch-session-prompts.md) (kickoff prompts). Brain records decisions, order and current blockers; planned work is not described as shipped.
+- **No launch date pressure.** Release waits for (i) the complete artist artwork and (ii) the whole feature wish list being *visited* — every idea gets an evaluation round and a maintainer verdict **build / backlog / drop**, not necessarily an implementation.
+- **Workshop phase before the gate:** entry order idea 2 (double-purchase warner) → idea 1 (Status Imperialis) → idea 3c (statistics), then ideas 4, 3a, 3b, 5, 6 and a short triage of the appendix plus the worklist's perfection candidates. Schema changes are allowed; ideas-backlog-first convention stays. The list is canonical in-repo: [`docs/post-launch-feature-ideas.md`](../../docs/post-launch-feature-ideas.md).
+- **Pre-launch quality passes:** S7b (measurable behind the gate; one final live measurement repeats after gate-off) and the pixel-identical S11 code PR after the feature wave.
+- **Preview gate stays on; the invite machinery is load-bearing infrastructure until launch** (artist previews via the preview console, individually revocable codes). PL1 never runs before launch.
+- **Fixed release endgame:** content freeze → launch-readiness (12 points, unchanged) → gate-off as a minimal flag flip → quiet window (PL1, final S7b live measurement, S11 documentation rollup) → only then the Reddit post.
+- **E8 single-worktree exception extended** through launch-readiness inclusive.
 
 ## Working mode
 
-- `main` is read-only; every durable change still reaches it through a task branch and PR.
-- During the launch campaign only, sessions run serially from the **coordination worktree**. This is a temporary exception to worktree routing, not to strand-pure PR contents or Rollup Ownership.
-- `brain/**` and `sessions/README.md` remain coordination-only. The Product/Batches bootstrap worktrees stay available but are not used in parallel while the exception is active.
-- Session kickoff comes from `docs/launch-session-prompts.md`; implementer reports remain mandatory. Normal three-worktree routing resumes after the campaign.
+- `main` is read-only; every durable change reaches it through a task branch and PR.
+- Sessions run serially from the **coordination worktree** (E8, extended per W6). PR contents remain strand-pure; `brain/**` and `sessions/README.md` remain coordination-only.
+- Session kickoff during the workshop phase comes from maintainer prompts; implementer reports remain mandatory.
 
 ## Product now
 
-- **App:** <https://chrono-lexicanum.vercel.app/>. Anonymous visitors still hit `/login`; `PREVIEW_GATE=off` is the launch flip, followed post-launch by removal of the preview machinery.
-- **Routes:** `/`, `/archive`, `/archive/podcasts`, `/compendium`, `/timeline`, `/ask`, `/ask/fraktion`, `/map`, `/buch/[slug]`, entity/person detail routes, `/artwork`, `/imprint` and `/privacy`. `/artwork` is ungated like the legal pages and offers the maintainer's WebP plus public-storage high-resolution JPEGs.
-- **Design/mobile wave (185–190):** Brief 181's prune was delivered; app `/lab` routes and the old gate bypass are gone, typography tokens and shared search utilities are consolidated, and mobile now has a map sheet, Chronicle phone treatment, media-player stud, history-safe overlays and responsive Archive/Compendium surfaces. Static `public/lab/ofob/*` Ask studies were deliberately reintroduced in 190 and remain prototypes, not app routes.
-- **Ask:** four-question recommendation funnel with server-only ranking, curation overlay and hard boundaries. The Cameo hierarchy study was selected, but the live `/ask/fraktion` implementation is still pending.
+- **App:** preview-gated at <https://www.chrono-lexicanum.com/> (canonical host; `chrono-lexicanum.vercel.app` is secondary). `PREVIEW_GATE=off` is the launch flip; `noindex` is build-baked until then.
+- **Routes are fully English since S4 (Session 202):** `/book`, `/character`, `/faction`, `/world` (+ `/person`, which covers authors and narrators), EN Compendium categories, `/ask/faction`; all old German paths 308 with query strings preserved. The book page is SSG/ISR from the snapshot.
+- **The Curator** (Sessions 214/216, PRs #262/#263): `Ask the Archive` was renamed; `/ask` presents a two-path threshold (questionnaire vs. faction path) behind a compact switch. The faction path replaced the word cloud with a faction stepper, an always-visible 18-faction register, optional chapter choices and one answer; quiz rail geometry is exact down to 320 px; register and choices use Cardo display typography. URLs stayed `/ask` + `/ask/faction`.
+- **Legal:** Imprint/Privacy are English-first documents with a stateless `?lang=de` switch (Session 214) — no cookie, no locale layer. Deeper site i18n remains future roadmap work.
+- **SEO/observability (S5, Session 204):** server-only `SITE_URL` (prod build fails without it), snapshot-built `sitemap.xml` (2,277 URLs), canonicals + per-route OG, JSON-LD, Vercel Web Analytics + Speed Insights, and an error-only Sentry setup (client via same-origin tunnel, server envelope; both proven end-to-end). `public/lab/ofob/**` prototypes were **removed** (maintainer decision in S5).
+- **Hardening highlights:** DB-free production build from versioned snapshot artifacts (S1a/S1b, CI-gated), loader contract data/null/throw with tagged caches (S2), least-privilege `chrono_runtime` role + migration rehearsal + fail-loud post-deploy revalidation (S3a), CSP without prod `unsafe-eval`, timing-safe login, public-bucket audio, runtime-credential cutover (S3b), Archive server pagination + lazy search index (S6), route CSS split + font cleanup (S7a), required Playwright+axe smoke set in CI (S8), Chronicle keyboard/SR/mobile pass (S9).
 
 ## Cartographer
 
-- `/map` is statically prerendered from committed `map-worlds.json`: **1,055 worlds**, **1,352/1,710** placed work edges (79.1%), currently 155 worlds with linked works.
-- Map text coverage is complete for the intended fallback layer: 923 lazy-loaded world blurbs plus higher-priority location blurbs.
-- All zone graphics are hand-curated: 15 published zones; the editor is hard dev-only. Direction proofs, background photo, Rift-unrest and the old generated zone graphics are gone; the map sits on `--cl-void`.
-- Great Journeys replaced the old course model: **8 journeys / 101 acts** (90 stations + 11 leg waypoints), guided tour plus a single final-act card. Luna is its own chart pin.
-- Session 191's isolated SVG motion plane was disproved on the maintainer's Pixel and is superseded. Session 192 is canonical: mobile route motion uses Canvas at 30 fps with DPR capped at 2; mobile SVG paint animation is disabled; desktop retains the SVG choreography.
+- **Two renderers, one data/interaction model (Session 213, PR #260):** Android defaults to a bounded Canvas2D stage, desktop keeps SVG; shared camera core, `?mapRenderer=` override for parity testing. **Device-accepted by the maintainer on the real Android phone — pinch/pan fluid, flicker gone.** This closed the old Session-192 verdict and made S10b moot. Route lines render as static dashes; repaints only on camera frames plus a bounded draw-in window (Sessions 210/211, PRs #257–#259).
+- **Great Journeys: 11 journeys / 231 acts** (Sessions 214/215/217/218, PRs #261/#264). The 214 research pass removed Farsight and Jaghatai Khan and expanded four routes; 215 added Gaunt, Lion, Abaddon, Yvraine and Ghazghkull; 217/218 replaced every invisible waypoint with **64 sourced synthetic chart points** (relative/schematic precision disclosed in the UI with rationale + source link), rebuilt Abaddon as **13 Eye-origin Black Crusade sorties** (42 stations) with per-crusade colours, made Indomitus a three-fleet network, and re-audited all synthetic coordinates against zones/regions/Warp breaks. No invented coordinates; `test:voyages` covers the contracts (1,163+ checks).
+- **Payload/A11y (S10a, Session 209):** per-world details load lazily through the `PinSource.detail()` seam; world list + seek are fully keyboard operable; focus restore proven; the mobile sheet is deliberately modal.
+- Base data: 1,055 worlds from committed `map-worlds.json`, 15 hand-curated zones, 923 lazy world blurbs. Espandor is fixed **in the source Excel** since Session 210 — `import:map-worlds` reproduces it (the old revert hazard is gone).
 
 ## Data and operations
 
-- **Books:** 896 canonical per-book files under `scripts/seed-data/books/` (599 W40K + 297 HH), with 196 collection edges. `apply:book --all` is the primary corpus materializer; legacy rosters/batches remain only as frozen equivalence provenance or refusal stubs.
-- **Podcasts:** four shows, **1,114 podcast episodes** in the applied W28 state: The 40k Lorecast 155, Adeptus Ridiculous 368, Lorehammer 399 and Luetin09 192. W28 added ten episodes and advanced the review cursors; the old “apply four shows / Weekly PR #200” reminders are resolved.
-- **Apply contract:** `npm run db:sync` is the non-destructive nine-step default (preflight, per-book corpus, podcast, audiobook narrators + verify, timeline + verify, curation + verify). `db:rebuild` is confirm-gated disaster recovery. `db:drift` is read-only; full corpus equivalence remains the disposable-DB `equiv:diff` operator path.
-- **CI:** lint, typecheck, `brain:lint` and **30 DB-free test suites** are established gates. A DB-free production build is planned but not yet a required invariant.
-- **Database:** migrations through `0014` are known applied. Migration `0015` (indexes) has no durable execution evidence and remains a maintainer check; the same is true for a fresh production `db:drift`.
-
-## Launch programme
-
-Maintainer decisions already fixed for the programme:
-
-- Build-time public projections move to a versioned snapshot; Postgres remains the source of truth.
-- Content releases are two-stage: merge/apply content, generate and review the fresh snapshot on its own branch, deploy that snapshot, then revalidate and live-smoke.
-- A deliberately small Playwright + axe smoke set will become required; it is not the start of a broad browser-test suite.
-- The 92-vh ceremonial hero remains for organic visits; query/filter arrivals jump to results.
-- Payload, CSS/LCP, foundational A11y, Chronicle A11y and Cartographer payload/A11y are all pre-gate requirements. Map LOD is conditional on a real-device measurement after the payload/A11y pass.
-
-S0 decisions (Philipp, 2026-07-11, recorded in the plan and its Appendix A):
-
-- **URL matrix:** full English migration of the remaining German paths before launch — `/buch → /book`, `/charakter → /character`, `/fraktion → /faction`, `/welt → /world`, Compendium category slugs → EN, `/ask/fraktion → /ask/faction`; `/person` stays (covers authors *and* narrators). All old paths 308 with query strings forwarded verbatim; sitemap/canonical and `/api/revalidate` path assignments live in the plan's Appendix A. Implemented in S4/S5.
-- **Canonical host:** `https://www.chrono-lexicanum.com`. The Strato-registered domain is already wired: www serves the Vercel project (preview gate answers), the apex 308s to www preserving path + query.
-- **Era policy:** default variant — remove the blanket `time_ending` stamp, bucket mechanically from setting dates where present, else `NULL` (S1a). Verified: Chronicle reads only the curated `eras`/`events` spine, never `books.era_id`.
-- **Observability:** Vercel Web Analytics + Speed Insights, **plus one error-only tracker** (no replay, no tracing, no PII); package choice and activation in S5.
-
-Release-order preflight (Session 195, 2026-07-11, OQ 19 closed): S1a is split into a **Code-PR** (no production writes) and a separate **"S1a-Snapshot"** release PR (one `db:sync` after merge + freeze + explicit Go; the snapshot PR is the deploy). Revalidation is an explicit fail-loud **post-deploy** command — built in S3a, called exactly once by the E4 runbook after the snapshot deploy, never automatically from `db:sync`. The `RUNTIME_DATABASE_URL` consumer switch in `src/db/client.ts` belongs to **S3b** (Product) with a transitional fallback and a maintainer-gated Vercel cutover. Snapshot artifacts ship in Batches release PRs; launch evidence + rollups stay separate coordination PRs.
-
-Planned sequence, condensed: **S0 decisions/preflight → build snapshot + DB-free consumers → loader/cache semantics → DB/runtime hardening → canonical routes + book snapshot → SEO/observability → payload/CSS/A11y → Chronicle and Cartographer A11y → launch-readiness evidence → gate off → post-launch cleanup.** Exact task specs live in `docs/launch-master-plan.md`.
+- **Books:** 896 canonical per-book files (599 W40K + 297 HH), 196 collection edges; `apply:book --all` is the corpus materializer inside the nine-step `db:sync`.
+- **Podcasts:** four shows, 1,114 episodes (W28 state); maintenance via the weekly refresh.
+- **Era truth:** the blanket `time_ending` stamp is gone (S1a); `primary_era_id` is mechanically bucketed from setting dates, else `NULL` — data invariant verified in production.
+- **CI:** lint, typecheck, `brain:lint`, **40 DB-free test suites**, DB-free `next build` (1,293 static pages) and the S8 smoke set are required gates.
+- **Database:** runtime uses `RUNTIME_DATABASE_URL` (least-privilege role); migrations rehearsed in CI. Migration `0015` production evidence remains embedded as launch-readiness point 1.
 
 ## Open now
 
-The canonical queue is [`worklist.md`](./worklist.md). The immediate blockers are:
+The canonical queue is [`worklist.md`](./worklist.md). In workshop-phase order:
 
-1. Verify migration `0015` (also embedded as the read-only parity preflight of S1a-Snapshot), optional production `db:drift`, and the Pixel/Chrome verdict for Session 192.
-
-Smaller product/data follow-ups (Cameo live implementation, Legal i18n, Galaspar/Myr source gap, `arthas_moloch` mapping, episode anchors, survey-mode tracing and other polish) stay in `worklist.md`; they do not outrank the launch gate.
+1. **Feature triage wave:** idea 2 → 1 → 3c, then 4, 3a, 3b, 5, 6, appendix triage, perfection-candidate triage (verdict per idea: build / backlog / drop).
+2. **Pre-launch quality passes** after the feature wave: S7b, S11 code PR.
+3. **Launch-readiness** (12-point evidence, includes the migration-0015 check) once artwork is complete and the list is fully visited.
 
 ## Next action
 
-Merge the Session-195 preflight PR, then start **S1a (Code-PR)** (`codex/ingest-batches-snapshot-exporter`) from `docs/launch-session-prompts.md`. OQ 19 is closed; the release order is authoritative in the plan.
+Start the workshop phase with **idea 2 (double-purchase warner / containment explorer)** per the plan addendum's entry order.

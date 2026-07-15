@@ -2,7 +2,7 @@
 title: Open questions (next-brief queue)
 type: overview
 created: 2026-05-09
-updated: 2026-07-11
+updated: 2026-07-15
 sources:
   - ../../sessions/2026-07-11-195-impl-launch-release-preflight.md
   - ../../sessions/2026-07-11-194-impl-launch-s0.md
@@ -24,7 +24,7 @@ confidence: high
 
 > Questions the **next** coordination brief/session must close. Keep this queue small; dormant work belongs in [`deferred-questions.md`](./deferred-questions.md), operational work in [`worklist.md`](./worklist.md), and closed history in [`log.md`](./log.md).
 
-*No open architecture questions right now.* The launch programme's next step is **S1a (Code-PR)** per `docs/launch-session-prompts.md`; dormant items live in [`deferred-questions.md`](./deferred-questions.md).
+*No open architecture questions right now.* The mandatory launch stretch (S1a–S10a) is merged; the project is in the **workshop phase** (plan addendum 2026-07-15) and the next step is the feature triage starting with idea 2 per [`docs/post-launch-feature-ideas.md`](../../docs/post-launch-feature-ideas.md). Each triage round may open new questions here (ideas 3a, 5, 6 carry schema implications — see the roadmap's ideas backlog). Dormant items live in [`deferred-questions.md`](./deferred-questions.md).
 
 ---
 
