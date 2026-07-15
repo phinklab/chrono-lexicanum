@@ -22,6 +22,7 @@ import type {
 } from "@/lib/map/voyages";
 
 import StrategicReadout from "./StrategicReadout";
+import LegionRouteRoster from "./LegionRouteRoster";
 
 interface CourseCardsProps {
   resolved: ResolvedVoyage;
@@ -31,6 +32,9 @@ interface CourseCardsProps {
   muted?: boolean;
   selectedArm?: ResolvedVoyageArm | null;
   selectedTarget?: ResolvedVoyageArmTarget | null;
+  hiddenArmLegions?: ReadonlySet<string>;
+  onArmToggle?: (legion: string) => void;
+  onArmSelect?: (legion: string) => void;
   /** Return to the tour at its last station. */
   onBack: () => void;
   /** Fly the tour again from the first station. */
@@ -45,6 +49,9 @@ export default function CourseCards({
   muted = false,
   selectedArm = null,
   selectedTarget = null,
+  hiddenArmLegions = new Set<string>(),
+  onArmToggle,
+  onArmSelect,
   onBack,
   onRestart,
   onContinue,
@@ -52,7 +59,10 @@ export default function CourseCards({
   const [dismissed, setDismissed] = useState(false);
   const st = resolved.stations[resolved.stations.length - 1];
   const continuation = resolved.continuation;
-  const strategicSelection = !!st?.armCount && (!!selectedArm || !!selectedTarget);
+  const legionSteps = resolved.strategic?.mode === "legion-steps";
+  const defaultArm = legionSteps ? (resolved.strategicArms.at(-1) ?? null) : null;
+  const readoutArm = selectedArm ?? defaultArm;
+  const strategicSelection = !!st?.armCount && (!!readoutArm || !!selectedTarget);
   if (!st || dismissed) return null;
   return (
     <div
@@ -69,14 +79,20 @@ export default function CourseCards({
       </button>
       {strategicSelection ? (
         <StrategicReadout
-          arm={selectedArm}
+          arm={readoutArm}
           target={selectedTarget}
           color={
-            selectedArm
-              ? resolved.legColors[selectedArm.legIndices[0]]
+            readoutArm
+              ? resolved.legColors[readoutArm.legIndices[0]]
               : selectedTarget
                 ? "var(--cl-gold)"
                 : undefined
+          }
+          routeVisible={readoutArm ? !hiddenArmLegions.has(readoutArm.legion) : undefined}
+          onRouteToggle={
+            legionSteps && readoutArm && onArmToggle
+              ? () => onArmToggle(readoutArm.legion)
+              : undefined
           }
         />
       ) : (
@@ -103,6 +119,14 @@ export default function CourseCards({
             </p>
           )}
         </>
+      )}
+      {legionSteps && onArmToggle && onArmSelect && (
+        <LegionRouteRoster
+          arms={resolved.strategicArms}
+          hidden={hiddenArmLegions}
+          onToggle={onArmToggle}
+          onSelect={onArmSelect}
+        />
       )}
       <div className="cg-tour-row">
         <button className="cpg quiet" onClick={onBack}>

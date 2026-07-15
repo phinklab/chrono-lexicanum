@@ -63,6 +63,7 @@ export interface CanvasScene {
   selectedWorld: FeaturedWorld | null;
   activeVoyage: ResolvedVoyage | null;
   voyageProgress: number | null;
+  hiddenArmLegions: ReadonlySet<string>;
   hiIds: ReadonlySet<string> | null;
   routeDim: boolean;
   routeStartedAt: number;
@@ -947,10 +948,9 @@ const routeGeometryCache = new WeakMap<ResolvedVoyage, CachedRouteGeometry>();
 function routeGeometry(voyage: ResolvedVoyage): CachedRouteGeometry {
   let cached = routeGeometryCache.get(voyage);
   if (cached) return cached;
-  const firstEntry = new Map<number, number>();
+  const firstEntry = new Map(voyage.legRevealAt.map((step, legIndex) => [legIndex, step]));
   const firstVisit = new Map<string, number>();
   for (const station of voyage.stations) {
-    if (station.legIndex >= 0 && !firstEntry.has(station.legIndex)) firstEntry.set(station.legIndex, station.i);
     if (station.kind !== "way" && !firstVisit.has(station.id)) firstVisit.set(station.id, station.i);
   }
   const samples = voyage.legs.map((leg) =>
@@ -995,10 +995,18 @@ function drawRoute(
   ctx.lineWidth = 1.7 / camera.k;
   ctx.lineCap = "round";
   ctx.setLineDash([2.2 / camera.k, 5.4 / camera.k]);
+  const armByLeg = new Map(
+    voyage.strategicArms.flatMap((arm) =>
+      arm.legIndices.map((legIndex) => [legIndex, arm.legion] as const),
+    ),
+  );
   voyage.legs.forEach((leg, legIndex) => {
+    const armLegion = armByLeg.get(legIndex);
+    if (armLegion && scene.hiddenArmLegions.has(armLegion)) return;
     const fraction = state.fraction(legIndex);
     if (fraction <= 0) return;
     ctx.strokeStyle = voyage.legColors[legIndex] ?? GOLD;
+    ctx.globalAlpha = voyage.legOpacities[legIndex] ?? 0.9;
     if (fraction >= 1) {
       ctx.stroke(cachedPath(leg));
       return;
@@ -1035,6 +1043,15 @@ function drawRoute(
   for (const [, index] of geometry.firstVisit) {
     if (scene.voyageProgress !== null && scene.voyageProgress < index) continue;
     const station = voyage.stations[index];
+    const ringLegions = voyage.stations
+      .filter((candidate) => candidate.id === station.id)
+      .flatMap((candidate) => candidate.armLegions ?? []);
+    if (
+      ringLegions.length > 0 &&
+      ringLegions.every((legion) => scene.hiddenArmLegions.has(legion))
+    ) {
+      continue;
+    }
     const color = station.section?.color ?? GOLD;
     ctx.strokeStyle = color;
     ctx.fillStyle = color;

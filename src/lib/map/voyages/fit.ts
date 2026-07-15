@@ -60,6 +60,32 @@ export function resolvedVoyageBounds(
   return Number.isFinite(minX) ? { minX, minY, maxX, maxY } : null;
 }
 
+/** Bounds for one strategic arm, including its faint branch legs. */
+export function resolvedVoyageArmBounds(
+  voyage: { legs: ReadonlyArray<string> },
+  arm: { legIndices: ReadonlyArray<number> },
+  samplesPerLeg = 64,
+): VoyageBounds | null {
+  let minX = Infinity;
+  let minY = Infinity;
+  let maxX = -Infinity;
+  let maxY = -Infinity;
+  const steps = Math.max(2, Math.floor(samplesPerLeg));
+  for (const legIndex of arm.legIndices) {
+    const leg = voyage.legs[legIndex];
+    if (!leg) continue;
+    for (let index = 0; index <= steps; index += 1) {
+      const point = pointOnLeg(leg, index / steps);
+      if (!point) continue;
+      minX = Math.min(minX, point.x);
+      minY = Math.min(minY, point.y);
+      maxX = Math.max(maxX, point.x);
+      maxY = Math.max(maxY, point.y);
+    }
+  }
+  return Number.isFinite(minX) ? { minX, minY, maxX, maxY } : null;
+}
+
 /** Fit route bounds into the visible area above the docked journey card. */
 export function fitVoyageBounds(
   bounds: VoyageBounds,

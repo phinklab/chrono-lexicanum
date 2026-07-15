@@ -122,9 +122,8 @@ const greatCrusadeFinale = greatCrusade?.stations.at(-1);
 const finaleArms: VoyageArm[] =
   greatCrusadeFinale && !isWaypoint(greatCrusadeFinale) ? (greatCrusadeFinale.arms ?? []) : [];
 const warmasterWeb = VOYAGES.find((v) => v.id === "warmasters-web");
-const warmasterAnchor = warmasterWeb?.stations[0];
 const webArms: VoyageArm[] =
-  warmasterAnchor && !isWaypoint(warmasterAnchor) ? (warmasterAnchor.arms ?? []) : [];
+  warmasterWeb?.stations.flatMap((station) => (isWaypoint(station) ? [] : (station.arms ?? []))) ?? [];
 check(greatCrusadeFinale?.heading === "The Great Crusade Ends", "Great Crusade ends before the Heresy journey");
 check(greatCrusade?.continuation?.id === "warmasters-web", "Great Crusade hands off to Warmaster's Web");
 check(
@@ -134,9 +133,16 @@ check(
   "Great Crusade finale carries no schematic placement block",
 );
 check(warmasterWeb !== undefined, "Warmaster's Web is its own journey");
-check(warmasterWeb?.stations.length === 1, "Warmaster's Web is a network-only journey");
-check(warmasterAnchor?.heading === "The Warmaster's Web", "Warmaster's Web owns the Heresy hand-off act");
-check(finaleArms === webArms, "Great Crusade finale and Heresy journey reuse one arm dataset");
+check(warmasterWeb?.stations.length === 18, "Warmaster's Web has one guided step per active Legion");
+check(warmasterWeb?.strategic?.mode === "legion-steps", "Warmaster's Web declares the Legion-step presentation");
+check(
+  warmasterWeb?.stations.every((station) => !isWaypoint(station) && station.arms?.length === 1) === true,
+  "every Warmaster step owns exactly one Legion route",
+);
+check(
+  !webArms.some((arm) => finaleArms.includes(arm)),
+  "Warmaster's Web owns route data independent of the Great Crusade closing image",
+);
 check(finaleArms.length === 18, "Great Crusade keeps the eighteen-arm closing image");
 check(webArms.length === 18, "Warmaster's Web carries one arm for every active Legion");
 check(new Set(webArms.map((arm) => arm.legion)).size === 18, "Warmaster's Web Legion arms are unique");
@@ -148,36 +154,50 @@ check(
   webArms.every((arm) => arm.role.trim().length > 0 && arm.text.trim().length > 0),
   "every Warmaster arm carries a role and individual account",
 );
-const istvaanArms = webArms.filter(
-  (arm) => "world" in arm.target && (arm.target.world === "istvaan-iii" || arm.target.world === "istvaan-v"),
-);
-check(istvaanArms.length === 10, "all ten Isstvan-bound Legions share the strategic bundle");
 check(
-  istvaanArms.every((arm) => Math.abs(arm.bow ?? Infinity) <= 36),
-  "Isstvan paths stay inside one tight visual bundle",
+  webArms.map((arm) => arm.legion).join("|") ===
+    "I|III|IV|V|VI|VII|VIII|IX|X|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX",
+  "Warmaster steps follow Legion order and omit only the expunged II and XI",
 );
 const wordBearersArm = webArms.find((arm) => arm.legion === "XVII");
 check(
-  wordBearersArm?.via?.some(
-    (via) => "world" in via.target && via.target.world === "istvaan-v",
+  wordBearersArm?.branches?.some(
+    (branch) => "world" in branch.target && branch.target.world === "terra",
   ) === true,
-  "Word Bearers pass through Isstvan V before Calth",
+  "the Word Bearers main host ends before Terra while Layak's branch reaches it",
+);
+check(
+  webArms.reduce((sum, arm) => sum + (arm.branches?.length ?? 0), 0) >= 10,
+  "meaningful subordinate fleets are preserved as terminating branches",
 );
 const greatResolved = greatCrusade ? resolveVoyage(greatCrusade, chart) : undefined;
 const webResolved = warmasterWeb ? resolveVoyage(warmasterWeb, chart) : undefined;
 check(greatResolved?.stations.at(-1)?.armCount === 18, "Great Crusade still resolves its coloured finale");
-check(webResolved?.stations[0]?.armCount === 18, "all eighteen Warmaster arms resolve in their own journey");
-check(webResolved?.strategicArms.length === 18, "all eighteen Warmaster arms remain individually interactive");
-check(webResolved?.strategicTargets.length === 8, "Warmaster arms resolve to eight shared endpoints");
 check(
-  webResolved?.strategicTargets
-    .find((target) => target.id === "world:istvaan-v")
-    ?.legionIds.includes("XVII") === true,
-  "Isstvan V endpoint includes the Word Bearers waypoint",
+  webResolved?.stations.every((station) => station.armCount === 1) === true,
+  "all eighteen Warmaster steps resolve one route each",
+);
+check(webResolved?.strategicArms.length === 18, "all eighteen Warmaster arms remain individually interactive");
+check(
+  webResolved?.strategicTargets.length !== undefined && webResolved.strategicTargets.length > 30,
+  "the full web resolves its campaign destinations rather than eight opening dispositions",
 );
 check(
-  webResolved?.legRevealAt.filter((step) => step === 0).length === 19,
-  "all nineteen Warmaster arm segments reveal together on the final act",
+  webResolved?.strategicArms.every(
+    (arm, index) =>
+      arm.revealAt === index &&
+      arm.legIndices.every((legIndex) => webResolved.legRevealAt[legIndex] === index),
+  ) === true,
+  "each Legion's main route and branches reveal only on its own step",
+);
+check(
+  webResolved?.strategicArms.every(
+    (arm) =>
+      arm.mainLegIndices.length > 0 &&
+      arm.mainLegIndices.every((legIndex) => webResolved.legOpacities[legIndex] >= 0.9) &&
+      arm.branchLegIndices.every((legIndex) => webResolved.legOpacities[legIndex] <= 0.34),
+  ) === true,
+  "main routes stay vivid while subordinate branches remain recessive",
 );
 
 const abaddon = VOYAGES.find((v) => v.id === "abaddon");
@@ -368,7 +388,23 @@ for (const v of VOYAGES) {
         check(/^#[0-9a-f]{6}$/i.test(arm.color), `${v.id}/${arm.legion}: arm colour is valid hex`);
         check(arm.opacity === undefined || (arm.opacity >= 0 && arm.opacity <= 1), `${v.id}/${arm.legion}: arm opacity in 0–1`);
         check(/^https:\/\//.test(arm.source), `${v.id}/${arm.legion}: arm source URL`);
-        const armTargets = [...(arm.via ?? []).map((via) => via.target), arm.target];
+        for (const branch of arm.branches ?? []) {
+          check(branch.name.trim().length > 0, `${v.id}/${arm.legion}: branch name`);
+          check(/^https:\/\//.test(branch.source), `${v.id}/${arm.legion}/${branch.name}: branch source URL`);
+          check(
+            branch.opacity === undefined || (branch.opacity >= 0 && branch.opacity <= 0.45),
+            `${v.id}/${arm.legion}/${branch.name}: branch opacity stays recessive`,
+          );
+        }
+        const armTargets = [
+          ...(arm.via ?? []).map((routeVia) => routeVia.target),
+          arm.target,
+          ...(arm.branches ?? []).flatMap((branch) => [
+            branch.from,
+            ...(branch.via ?? []).map((routeVia) => routeVia.target),
+            branch.target,
+          ]),
+        ];
         for (const [targetIndex, target] of armTargets.entries()) {
           const targetLabel = `${v.id}/${arm.legion}/target-${targetIndex + 1}`;
           check(target.text.trim().length > 0, `${targetLabel}: shared destination account`);
@@ -396,7 +432,18 @@ for (const v of VOYAGES) {
   );
   const armSegmentCount = anchors.reduce(
     (sum, anchor) =>
-      sum + (anchor.arms ?? []).reduce((armSum, arm) => armSum + 1 + (arm.via?.length ?? 0), 0),
+      sum +
+      (anchor.arms ?? []).reduce(
+        (armSum, arm) =>
+          armSum +
+          1 +
+          (arm.via?.length ?? 0) +
+          (arm.branches ?? []).reduce(
+            (branchSum, branch) => branchSum + 1 + (branch.via?.length ?? 0),
+            0,
+          ),
+        0,
+      ),
     0,
   );
   const expectedLegs = anchors.slice(1).filter((s) => !s.breakBefore).length + armSegmentCount;

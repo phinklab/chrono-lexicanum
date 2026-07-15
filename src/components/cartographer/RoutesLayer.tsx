@@ -35,6 +35,7 @@ interface RoutesLayerProps {
   progress: number | null;
   selectedArmLegion?: string | null;
   selectedTargetId?: string | null;
+  hiddenArmLegions?: ReadonlySet<string>;
   onArmSelect?: (legion: string | null) => void;
   onTargetSelect?: (targetId: string | null) => void;
 }
@@ -44,6 +45,7 @@ export default function RoutesLayer({
   progress,
   selectedArmLegion = null,
   selectedTargetId = null,
+  hiddenArmLegions = new Set<string>(),
   onArmSelect,
   onTargetSelect,
 }: RoutesLayerProps) {
@@ -60,6 +62,11 @@ export default function RoutesLayer({
     selectedTargetId === null
       ? null
       : (resolved.strategicTargets.find((target) => target.id === selectedTargetId) ?? null);
+  const stepArm =
+    progress === null
+      ? null
+      : (resolved.strategicArms.find((arm) => arm.revealAt === progress) ?? null);
+  const focusLegion = selectedArmLegion ?? stepArm?.legion ?? null;
   const isIsstvanLeg = new Set(
     resolved.strategicTargets
       .filter((target) => target.name.startsWith("Istvaan"))
@@ -121,6 +128,7 @@ export default function RoutesLayer({
         const arm = armByLeg.get(li);
         const armAvailable = !!arm && (!tour || (progress as number) >= resolved.legRevealAt[li]);
         const armSelected = arm !== undefined && selectedArmLegion === arm.legion;
+        const armHidden = arm !== undefined && hiddenArmLegions.has(arm.legion);
         const targetSelected = selectedTarget?.legIndices.includes(li) ?? false;
         const highlighted = armSelected || targetSelected;
         const armLabel = arm
@@ -134,7 +142,7 @@ export default function RoutesLayer({
               d={d}
               fill="none"
               stroke={resolved.legColors[li] ?? GOLD}
-              strokeOpacity={resolved.legOpacities[li] ?? 0.9}
+              strokeOpacity={armHidden ? 0 : (resolved.legOpacities[li] ?? 0.9)}
               strokeWidth={1.7}
               strokeDasharray="1.6 4.6"
               strokeLinecap="round"
@@ -142,7 +150,7 @@ export default function RoutesLayer({
               style={{ "--i": tour ? 0 : li } as CSSProperties}
               mask={masked ? `url(#cg-m-${resolved.id}-${li})` : undefined}
             />
-            {arm && armAvailable && (
+            {arm && armAvailable && !armHidden && (
               <path
                 className={`cg-rt-hit${armSelected ? " is-selected" : ""}`}
                 d={d}
@@ -177,14 +185,18 @@ export default function RoutesLayer({
       })}
       {resolved.strategicTargets.map((target) => {
         const pending = tour && (progress as number) < target.revealAt;
+        const hidden = !target.legionIds.some((legion) => !hiddenArmLegions.has(legion));
         const selected = target.id === selectedTargetId;
+        const focused = focusLegion !== null && target.legionIds.includes(focusLegion);
+        const labelHidden = resolved.strategic?.mode === "legion-steps" && !focused && !selected;
         const targetLabel = `Strategic destination ${target.name} · Legions ${target.legionIds.join(", ")}`;
         const toggleTarget = () => onTargetSelect?.(selected ? null : target.id);
         return (
           <g
             key={target.id}
-            className={`cg-arm-target${selected ? " is-selected" : ""}${pending ? " rt-pending" : ""}`}
-            style={{ pointerEvents: pending ? "none" : undefined }}
+            className={`cg-arm-target${selected ? " is-selected" : ""}${labelHidden ? " is-muted" : ""}${pending || hidden ? " rt-pending" : ""}`}
+            style={{ pointerEvents: pending || hidden ? "none" : undefined }}
+            aria-hidden={pending || hidden}
           >
             <circle
               cx={target.gx}
@@ -211,8 +223,8 @@ export default function RoutesLayer({
               r={11}
               fill="transparent"
               role="button"
-              tabIndex={pending ? -1 : 0}
-              focusable={pending ? "false" : "true"}
+              tabIndex={pending || hidden ? -1 : 0}
+              focusable={pending || hidden ? "false" : "true"}
               aria-label={targetLabel}
               aria-pressed={selected}
               onPointerDown={(event) => event.stopPropagation()}
@@ -234,11 +246,16 @@ export default function RoutesLayer({
       })}
       {rings.map(({ id, i, st }) => {
         const pending = tour && (progress as number) < i;
+        const ringLegions = resolved.stations
+          .filter((station) => station.id === id)
+          .flatMap((station) => station.armLegions ?? []);
+        const hidden =
+          ringLegions.length > 0 && ringLegions.every((legion) => hiddenArmLegions.has(legion));
         const color = st.section?.color ?? GOLD;
         return (
           <g
             key={id}
-            className={`cg-rt-st${st.kind === "point" ? " cg-rt-point" : ""}${pending ? " rt-pending" : ""}`}
+            className={`cg-rt-st${st.kind === "point" ? " cg-rt-point" : ""}${pending || hidden ? " rt-pending" : ""}`}
             // Ambient cadence: a ring lands as its arriving leg finishes
             // (leg k draws at k·1.45s; the station 0 ring opens the show).
             style={{ "--i": tour ? 0 : st.legIndex + 1 } as CSSProperties}

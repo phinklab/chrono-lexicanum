@@ -485,6 +485,12 @@ body.cg-canvas-renderer .cg-deg {
 .cg-arm-target.is-selected .cg-arm-target-label {
   fill: var(--cl-bone);
 }
+.cg-arm-target.is-muted {
+  opacity: 0.26;
+}
+.cg-arm-target.is-muted .cg-arm-target-label {
+  opacity: 0;
+}
 .cg-arm-target-hit {
   pointer-events: all;
   cursor: pointer;
@@ -1716,6 +1722,66 @@ body.cg-canvas-renderer .cg-deg {
   gap: 14px;
   margin-top: 10px;
 }
+.cg-strategic-actions {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 8px;
+}
+.cg-tour .cg-strategic-actions .cpg {
+  margin: 0;
+}
+.cg-tour .cg-arm-visibility {
+  color: var(--cl-gold);
+}
+.cg-legion-roster {
+  margin-top: 12px;
+  padding-top: 9px;
+  border-top: 1px solid var(--cl-hair);
+}
+.cg-legion-roster-label {
+  margin: 0 0 7px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-3xs);
+  letter-spacing: var(--track-18);
+  color: var(--cl-faint);
+}
+.cg-legion-roster-grid {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  gap: 4px;
+}
+.cg-legion-route {
+  position: relative;
+  min-width: 0;
+  height: 28px;
+  padding: 0 2px;
+  border: 1px solid color-mix(in srgb, var(--legion-color) 72%, var(--cl-hair));
+  background: color-mix(in srgb, var(--legion-color) 12%, transparent);
+  color: var(--cl-bone);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  cursor: pointer;
+  transition: opacity 0.2s var(--ease), border-color 0.2s var(--ease), background 0.2s var(--ease);
+}
+.cg-legion-route::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 2px;
+  background: var(--legion-color);
+}
+.cg-legion-route:is(:hover, :focus-visible) {
+  outline: none;
+  border-color: var(--legion-color);
+  background: color-mix(in srgb, var(--legion-color) 23%, transparent);
+}
+.cg-legion-route.is-hidden {
+  opacity: 0.36;
+  background: transparent;
+  border-style: dashed;
+}
 .cg-tour .cpg { margin-top: 0; }
 .cg-tour .cpg.lead {
   color: var(--cl-gold);
@@ -2582,6 +2648,12 @@ body.cg-canvas-renderer .cg-deg {
        present. Keep a deliberate 12px interaction gap so its drag grip can
        never cover the tour actions, including on safe-area devices. */
     bottom: calc(126px + env(safe-area-inset-bottom, 0px));
+  }
+  .cg-legion-roster-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  .cg-legion-route {
+    height: 36px;
   }
   .cg-tour .cg-tour-x {
     top: 0;

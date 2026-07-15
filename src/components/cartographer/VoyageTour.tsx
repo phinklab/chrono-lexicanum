@@ -24,6 +24,7 @@ import { useCallback, useEffect, useRef } from "react";
 
 import {
   fitVoyageBounds,
+  resolvedVoyageArmBounds,
   resolvedVoyageBounds,
   type ResolvedVoyage,
   type ResolvedVoyageArm,
@@ -44,6 +45,8 @@ interface VoyageTourProps {
   step: number;
   selectedArm?: ResolvedVoyageArm | null;
   selectedTarget?: ResolvedVoyageArmTarget | null;
+  hiddenArmLegions?: ReadonlySet<string>;
+  onArmToggle?: (legion: string) => void;
   onStep: (step: number) => void;
   /** Tour finished — free mode with the route fully drawn. */
   onFin: () => void;
@@ -60,12 +63,15 @@ export default function VoyageTour({
   step,
   selectedArm = null,
   selectedTarget = null,
+  hiddenArmLegions = new Set<string>(),
+  onArmToggle,
   onStep,
   onFin,
   onExit,
 }: VoyageTourProps) {
   const n = resolved.stations.length;
-  const stationNoun = n === 1 ? "STATION" : "STATIONS";
+  const legionSteps = resolved.strategic?.mode === "legion-steps";
+  const stationNoun = legionSteps ? "LEGIONS" : n === 1 ? "STATION" : "STATIONS";
   const last = step >= n - 1;
   const cardRef = useRef<HTMLDivElement | null>(null);
 
@@ -96,6 +102,25 @@ export default function VoyageTour({
     onFin();
   }, [onFin, showFullRoute]);
 
+  const showArmRoute = useCallback(
+    (arm: ResolvedVoyageArm) => {
+      const driver = bus.driver;
+      const bounds = resolvedVoyageArmBounds(resolved, arm);
+      if (!driver || !bounds) return;
+      const { vw, vh } = driver.getViewport();
+      const compact = vw <= 900;
+      const cardTop = cardRef.current?.getBoundingClientRect().top ?? 0;
+      const bottom = cardTop > 120 && cardTop < vh ? vh - cardTop + 24 : compact ? 190 : 96;
+      const fit = fitVoyageBounds(
+        bounds,
+        { width: vw, height: vh },
+        { horizontal: compact ? 30 : 72, top: 76, bottom },
+      );
+      bus.flyTo(fit.gx, fit.gy, fit.k, reduce ? 0 : 1000, fit.dy);
+    },
+    [bus, reduce, resolved],
+  );
+
   /* Camera: overture surveys the whole chart, each station flies in at a
      zoom fitted to the arriving leg (short hops magnify, long hauls pull
      back so the transit reads). The station is centred in the FREE area
@@ -112,7 +137,9 @@ export default function VoyageTour({
     const st = resolved.stations[step];
     if (!st) return;
     if (st.armCount) {
-      showFullRoute();
+      const stepArm = resolved.strategicArms.find((arm) => arm.revealAt === step);
+      if (legionSteps && stepArm) showArmRoute(stepArm);
+      else showFullRoute();
       return;
     }
     const ref = resolved.stations[step > 0 ? step - 1 : Math.min(1, n - 1)];
@@ -123,7 +150,7 @@ export default function VoyageTour({
     const cardTop = cardRef.current?.getBoundingClientRect().top ?? 0;
     const dy = cardTop > 0 && cardTop < window.innerHeight ? (cardTop - window.innerHeight) / 2 : 0;
     bus.flyTo(st.gx, st.gy, driver.getK0() * kr, reduce ? 0 : 1000, dy);
-  }, [bus, resolved, step, n, reduce, showFullRoute]);
+  }, [bus, resolved, step, n, reduce, showFullRoute, showArmRoute, legionSteps]);
 
   /* Arrow keys page the tour — with the S9 target guard: a focused field,
      slider or listbox (seek combobox, census rows, the media player's
@@ -186,7 +213,11 @@ export default function VoyageTour({
 
   const st = resolved.stations[step];
   if (!st) return null;
-  const strategicSelection = !!st.armCount && (!!selectedArm || !!selectedTarget);
+  const stepArm = legionSteps
+    ? (resolved.strategicArms.find((arm) => arm.revealAt === step) ?? null)
+    : null;
+  const readoutArm = selectedArm ?? stepArm;
+  const strategicSelection = !!st.armCount && (!!readoutArm || !!selectedTarget);
   return (
     // Deliberately NOT keyed by step: one stable DOM node (and one stable
     // will-change compositor layer) carries the whole tour. The per-step
@@ -209,14 +240,20 @@ export default function VoyageTour({
       </button>
       {strategicSelection ? (
         <StrategicReadout
-          arm={selectedArm}
+          arm={readoutArm}
           target={selectedTarget}
           color={
-            selectedArm
-              ? resolved.legColors[selectedArm.legIndices[0]]
+            readoutArm
+              ? resolved.legColors[readoutArm.legIndices[0]]
               : selectedTarget
                 ? "var(--cl-gold)"
                 : undefined
+          }
+          routeVisible={readoutArm ? !hiddenArmLegions.has(readoutArm.legion) : undefined}
+          onRouteToggle={
+            legionSteps && readoutArm && onArmToggle
+              ? () => onArmToggle(readoutArm.legion)
+              : undefined
           }
         />
       ) : (
@@ -254,7 +291,11 @@ export default function VoyageTour({
           )}
         </span>
         <button className="cpg lead" onClick={() => (last ? finishTour() : onStep(step + 1))}>
-          {last ? "SHOW THE FULL ROUTE →" : `${step + 1} / ${n} · NEXT →`}
+          {last
+            ? legionSteps
+              ? "SHOW THE FULL WEB →"
+              : "SHOW THE FULL ROUTE →"
+            : `${step + 1} / ${n} · ${legionSteps ? "NEXT LEGION" : "NEXT"} →`}
         </button>
       </div>
     </div>

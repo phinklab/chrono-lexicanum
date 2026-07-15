@@ -83,6 +83,22 @@ export interface VoyageArmVia {
   bow?: number;
 }
 
+/** A subordinate fleet or splinter force leaving a documented point on the
+ *  main Legion route. Branches deliberately terminate: the strategic web
+ *  acknowledges the separation without turning a Legion step into several
+ *  competing itineraries. */
+export interface VoyageArmBranch {
+  name: string;
+  /** Documented point on the main route where the force separates. */
+  from: VoyageArmTarget;
+  via?: VoyageArmVia[];
+  target: VoyageArmTarget;
+  bow?: number;
+  /** Defaults to a deliberately recessive 0.28. */
+  opacity?: number;
+  source: string;
+}
+
 /** A sourced strategic disposition radiating from one authored anchor. Arms
  *  are map-only epilogue geometry: they reveal with their source act but do
  *  not become extra tour cards or pretend to be one traveller's itinerary. */
@@ -101,6 +117,8 @@ export interface VoyageArm {
   /** Optional historically ordered intermediate strategic destinations. */
   via?: VoyageArmVia[];
   target: VoyageArmTarget;
+  /** Sourced subordinate movements, rendered as faint terminating strands. */
+  branches?: VoyageArmBranch[];
   /** Perpendicular bow in grid units; signed values separate shared targets. */
   bow?: number;
   source: string;
@@ -200,6 +218,12 @@ export interface Voyage {
   cartography?: {
     label: string;
     note: string;
+  };
+  /** Strategic-network presentation. `legion-steps` makes each authored
+   *  station a guided Legion reveal while previously revealed routes remain
+   *  independently toggleable. */
+  strategic?: {
+    mode: "legion-steps";
   };
   /** Optional chronology sections with a shared visual identity. */
   sections?: VoyageSection[];

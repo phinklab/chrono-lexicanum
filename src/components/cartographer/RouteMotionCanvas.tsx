@@ -30,6 +30,7 @@ interface RouteMotionCanvasProps {
   /** Tour step, or null for the ambient full-route choreography. */
   progress: number | null;
   reduce: boolean;
+  hiddenArmLegions?: ReadonlySet<string>;
 }
 
 const MAX_DPR = 2;
@@ -46,6 +47,7 @@ export default function RouteMotionCanvas({
   resolved,
   progress,
   reduce,
+  hiddenArmLegions = new Set<string>(),
 }: RouteMotionCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const narrow = useMediaQuery("(max-width: 900px)");
@@ -85,6 +87,11 @@ export default function RouteMotionCanvas({
     }
 
     const firstEntry = new Map(resolved.legRevealAt.map((step, legIndex) => [legIndex, step]));
+    const armByLeg = new Map(
+      resolved.strategicArms.flatMap((arm) =>
+        arm.legIndices.map((legIndex) => [legIndex, arm.legion] as const),
+      ),
+    );
 
     const revealFraction = (legIndex: number, elapsed: number) => {
       if (progress === null) {
@@ -126,6 +133,8 @@ export default function RouteMotionCanvas({
 
       const elapsed = now - startedAt;
       resolved.legs.forEach((leg, legIndex) => {
+        const armLegion = armByLeg.get(legIndex);
+        if (armLegion && hiddenArmLegions.has(armLegion)) return;
         const fraction = revealFraction(legIndex, elapsed);
         if (fraction <= 0) return;
         ctx.globalAlpha = resolved.legOpacities[legIndex] ?? 0.9;
@@ -186,7 +195,7 @@ export default function RouteMotionCanvas({
       unsubscribe();
       clear();
     };
-  }, [bus, narrow, progress, reduce, resolved]);
+  }, [bus, hiddenArmLegions, narrow, progress, reduce, resolved]);
 
   return (
     <canvas

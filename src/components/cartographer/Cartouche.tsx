@@ -127,7 +127,12 @@ export function VoyageButtons({
           <span className="rt-tag">{voyage.tag}</span>
           <span className="rt-blurb">{voyage.blurb}</span>
           <span className="rt-meta">
-            {voyage.stations.length} {voyage.stations.length === 1 ? "station" : "stations"}
+            {voyage.stations.length}{" "}
+            {voyage.strategic?.mode === "legion-steps"
+              ? "legions"
+              : voyage.stations.length === 1
+                ? "station"
+                : "stations"}
             {voyage.cartography ? ` · ${voyage.cartography.label}` : ""}
           </span>
         </button>

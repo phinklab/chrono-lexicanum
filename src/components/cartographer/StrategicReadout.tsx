@@ -4,12 +4,16 @@ interface StrategicReadoutProps {
   arm?: ResolvedVoyageArm | null;
   target?: ResolvedVoyageArmTarget | null;
   color?: string;
+  routeVisible?: boolean;
+  onRouteToggle?: () => void;
 }
 
 export default function StrategicReadout({
   arm = null,
   target = null,
   color,
+  routeVisible,
+  onRouteToggle,
 }: StrategicReadoutProps) {
   if (!arm && !target) return null;
 
@@ -25,11 +29,23 @@ export default function StrategicReadout({
           : `${target?.name} · Legions ${target?.legionIds.join(" · ")}`}
       </p>
       <p className="ct">{arm?.text ?? target?.text}</p>
-      {source && (
-        <a className="cpg" href={source} target="_blank" rel="noreferrer">
-          SOURCE ↗
-        </a>
-      )}
+      <div className="cg-strategic-actions">
+        {source && (
+          <a className="cpg" href={source} target="_blank" rel="noreferrer">
+            SOURCE ↗
+          </a>
+        )}
+        {arm && onRouteToggle && routeVisible !== undefined && (
+          <button
+            type="button"
+            className="cpg cg-arm-visibility"
+            aria-pressed={routeVisible}
+            onClick={onRouteToggle}
+          >
+            {routeVisible ? "HIDE ROUTE" : "SHOW ROUTE"}
+          </button>
+        )}
+      </div>
     </div>
   );
 }

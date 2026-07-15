@@ -26,6 +26,7 @@ export type {
   LegOverride,
   Voyage,
   VoyageArm,
+  VoyageArmBranch,
   VoyageArmTarget,
   VoyageArmTargetLabel,
   VoyageArmVia,
@@ -45,7 +46,7 @@ export type {
   ResolvedVoyageArmTarget,
   VoyageChart,
 } from "./resolve";
-export { fitVoyageBounds, resolvedVoyageBounds } from "./fit";
+export { fitVoyageBounds, resolvedVoyageArmBounds, resolvedVoyageBounds } from "./fit";
 export type { VoyageBounds, VoyageFit } from "./fit";
 
 export const VOYAGES: readonly Voyage[] = [
