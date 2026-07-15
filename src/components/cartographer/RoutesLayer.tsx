@@ -31,7 +31,8 @@ import type { ResolvedVoyage } from "@/lib/map/voyages";
 import { useMediaQuery } from "@/lib/useMediaQuery";
 import { GOLD } from "./chart-geometry";
 
-const LEGION_SEGMENT_STAGGER = 0.18;
+const LEGION_SEGMENT_DRAW_SECONDS = 1.1;
+const ROUTE_DRAW_LEAD_SECONDS = 0.35;
 
 interface RoutesLayerProps {
   resolved: ResolvedVoyage | null;
@@ -139,11 +140,13 @@ export default function RoutesLayer({
                   className="cg-routeDraw"
                   style={
                     {
-                      "--i": tour
-                        ? legionStepTour
-                          ? (armOrderByLeg.get(li) ?? 0) * LEGION_SEGMENT_STAGGER
-                          : 0
-                        : li,
+                      "--i": tour ? 0 : li,
+                      animationDelay: legionStepTour
+                        ? `${(
+                            ROUTE_DRAW_LEAD_SECONDS +
+                            (armOrderByLeg.get(li) ?? 0) * LEGION_SEGMENT_DRAW_SECONDS
+                          ).toFixed(2)}s`
+                        : undefined,
                     } as CSSProperties
                   }
                 />
@@ -184,11 +187,7 @@ export default function RoutesLayer({
               vectorEffect="non-scaling-stroke"
               style={
                 {
-                  "--i": tour
-                    ? legionStepTour
-                      ? (armOrderByLeg.get(li) ?? 0) * LEGION_SEGMENT_STAGGER
-                      : 0
-                    : li,
+                  "--i": tour ? 0 : li,
                 } as CSSProperties
               }
               mask={masked ? `url(#cg-m-${resolved.id}-${li})` : undefined}

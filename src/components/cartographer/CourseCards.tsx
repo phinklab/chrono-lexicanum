@@ -88,12 +88,6 @@ export default function CourseCards({
                 ? "var(--cl-gold)"
                 : undefined
           }
-          routeVisible={readoutArm ? !hiddenArmLegions.has(readoutArm.legion) : undefined}
-          onRouteToggle={
-            legionSteps && readoutArm && onArmToggle
-              ? () => onArmToggle(readoutArm.legion)
-              : undefined
-          }
         />
       ) : (
         <>

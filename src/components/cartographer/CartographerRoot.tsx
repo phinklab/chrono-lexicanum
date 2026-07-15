@@ -652,8 +652,6 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           step={state.voyage.step}
           selectedArm={selectedArm}
           selectedTarget={selectedTarget}
-          hiddenArmLegions={hiddenArmLegions}
-          onArmToggle={toggleArmVisibility}
           onStep={stepVoyage}
           onFin={() => {
             setSelectedArmLegion(null);

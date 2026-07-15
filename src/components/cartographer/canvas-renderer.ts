@@ -43,7 +43,7 @@ const WARP_LIGHT = "#cbb3ee";
 const PICK_RADIUS = 22;
 const LABEL_OVERSCAN = 100;
 const ROUTE_REVEAL_MS = 900;
-const LEGION_SEGMENT_STAGGER_MS = 260;
+const LEGION_SEGMENT_STAGGER_MS = ROUTE_REVEAL_MS;
 const ROUTE_SAMPLES = 64;
 
 export interface CanvasFonts {

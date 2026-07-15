@@ -45,8 +45,6 @@ interface VoyageTourProps {
   step: number;
   selectedArm?: ResolvedVoyageArm | null;
   selectedTarget?: ResolvedVoyageArmTarget | null;
-  hiddenArmLegions?: ReadonlySet<string>;
-  onArmToggle?: (legion: string) => void;
   onStep: (step: number) => void;
   /** Tour finished — free mode with the route fully drawn. */
   onFin: () => void;
@@ -63,8 +61,6 @@ export default function VoyageTour({
   step,
   selectedArm = null,
   selectedTarget = null,
-  hiddenArmLegions = new Set<string>(),
-  onArmToggle,
   onStep,
   onFin,
   onExit,
@@ -248,12 +244,6 @@ export default function VoyageTour({
               : selectedTarget
                 ? "var(--cl-gold)"
                 : undefined
-          }
-          routeVisible={readoutArm ? !hiddenArmLegions.has(readoutArm.legion) : undefined}
-          onRouteToggle={
-            legionSteps && readoutArm && onArmToggle
-              ? () => onArmToggle(readoutArm.legion)
-              : undefined
           }
         />
       ) : (

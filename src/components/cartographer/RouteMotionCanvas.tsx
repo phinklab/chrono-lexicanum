@@ -38,7 +38,7 @@ const FRAME_MS = 1000 / 30;
 const REVEAL_MS = 900;
 const AMBIENT_STAGGER_MS = 1450;
 const AMBIENT_LEAD_MS = 350;
-const LEGION_SEGMENT_STAGGER_MS = 260;
+const LEGION_SEGMENT_STAGGER_MS = REVEAL_MS;
 const PATH_SAMPLES = 64;
 
 const clamp01 = (n: number) => Math.max(0, Math.min(1, n));
