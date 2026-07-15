@@ -241,7 +241,6 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
 
   const activateArmRoute = useCallback(
     (legion: string) => {
-      setPreviewArmLegion(null);
       setSelectedTargetId(null);
       if (hiddenArmLegions.has(legion)) {
         setHiddenArmLegions((current) => {
@@ -556,7 +555,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
             selectedWorld={selectedWorld}
             activeVoyage={activeVoyage}
             voyageProgress={voyageProgress}
-            selectedArmLegion={presentedArm?.legion ?? null}
+            highlightedArmLegion={previewArm?.legion ?? null}
             hiddenArmLegions={presentedHiddenArmLegions}
             hiIds={hiIds}
             routeDim={state.selectedId === null && activeVoyage !== null}
@@ -587,7 +586,8 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
                   <RoutesLayer
                     resolved={activeVoyage}
                     progress={voyageProgress}
-                    selectedArmLegion={presentedArm?.legion}
+                    selectedArmLegion={selectedArm?.legion}
+                    highlightedArmLegion={previewArm?.legion}
                     selectedTargetId={selectedTarget?.id}
                     hiddenArmLegions={presentedHiddenArmLegions}
                     onArmSelect={(legion) => {
@@ -631,7 +631,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
               resolved={activeVoyage}
               progress={voyageProgress}
               reduce={reduce}
-              selectedArmLegion={presentedArm?.legion ?? null}
+              highlightedArmLegion={previewArm?.legion ?? null}
               hiddenArmLegions={presentedHiddenArmLegions}
             />
           </>

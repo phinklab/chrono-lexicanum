@@ -39,6 +39,7 @@ interface RoutesLayerProps {
   /** Tour step (−1 overture … stations.length survey), or null for ambient. */
   progress: number | null;
   selectedArmLegion?: string | null;
+  highlightedArmLegion?: string | null;
   selectedTargetId?: string | null;
   hiddenArmLegions?: ReadonlySet<string>;
   onArmSelect?: (legion: string | null) => void;
@@ -49,6 +50,7 @@ export default function RoutesLayer({
   resolved,
   progress,
   selectedArmLegion = null,
+  highlightedArmLegion = null,
   selectedTargetId = null,
   hiddenArmLegions = new Set<string>(),
   onArmSelect,
@@ -163,12 +165,13 @@ export default function RoutesLayer({
           (!tour || (progress as number) >= resolved.legRevealAt[li]) &&
           (!legionStepTour || arm.revealAt === progress);
         const armSelected = arm !== undefined && selectedArmLegion === arm.legion;
+        const armHighlighted = arm !== undefined && highlightedArmLegion === arm.legion;
         const armHidden =
           arm !== undefined &&
           (hiddenArmLegions.has(arm.legion) ||
             (legionStepTour && arm.revealAt !== progress));
         const targetSelected = selectedTarget?.legIndices.includes(li) ?? false;
-        const highlighted = armSelected || targetSelected;
+        const highlighted = armHighlighted || targetSelected;
         const armLabel = arm
           ? `Legion ${arm.legion} · ${arm.name} · ${arm.role} → ${arm.targetName}`
           : "";
@@ -194,7 +197,7 @@ export default function RoutesLayer({
             />
             {arm && armAvailable && !armHidden && (
               <path
-                className={`cg-rt-hit${armSelected ? " is-selected" : ""}`}
+                className={`cg-rt-hit${armHighlighted ? " is-selected" : ""}`}
                 d={d}
                 fill="none"
                 stroke="transparent"
