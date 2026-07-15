@@ -127,6 +127,10 @@ check(
   webArms.every((arm) => /^#[0-9a-f]{6}$/i.test(arm.color)),
   "Warmaster's Web uses valid Legion colours",
 );
+check(
+  webArms.every((arm) => arm.role.trim().length > 0 && arm.text.trim().length > 0),
+  "every Warmaster arm carries a role and individual account",
+);
 const istvaanArms = webArms.filter(
   (arm) => "world" in arm.target && (arm.target.world === "istvaan-iii" || arm.target.world === "istvaan-v"),
 );
@@ -135,13 +139,27 @@ check(
   istvaanArms.every((arm) => Math.abs(arm.bow ?? Infinity) <= 36),
   "Isstvan paths stay inside one tight visual bundle",
 );
+const wordBearersArm = webArms.find((arm) => arm.legion === "XVII");
+check(
+  wordBearersArm?.via?.some(
+    (via) => "world" in via.target && via.target.world === "istvaan-v",
+  ) === true,
+  "Word Bearers pass through Isstvan V before Calth",
+);
 const greatResolved = greatCrusade ? resolveVoyage(greatCrusade, chart) : undefined;
 const webStep = (greatResolved?.stations.length ?? 0) - 1;
 check(greatResolved?.stations.at(-1)?.armCount === 18, "all eighteen Warmaster arms resolve");
 check(greatResolved?.strategicArms.length === 18, "all eighteen Warmaster arms remain individually interactive");
+check(greatResolved?.strategicTargets.length === 8, "Warmaster arms resolve to eight shared endpoints");
 check(
-  greatResolved?.legRevealAt.filter((step) => step === webStep).length === 18,
-  "all Warmaster arms reveal together on the final act",
+  greatResolved?.strategicTargets
+    .find((target) => target.id === "world:istvaan-v")
+    ?.legionIds.includes("XVII") === true,
+  "Isstvan V endpoint includes the Word Bearers waypoint",
+);
+check(
+  greatResolved?.legRevealAt.filter((step) => step === webStep).length === 19,
+  "all nineteen Warmaster arm segments reveal together on the final act",
 );
 
 const abaddon = VOYAGES.find((v) => v.id === "abaddon");
@@ -319,17 +337,27 @@ for (const v of VOYAGES) {
       for (const arm of st.arms ?? []) {
         check(arm.legion.trim().length > 0, `${v.id}[${si}]: arm Legion identity`);
         check(arm.name.trim().length > 0, `${v.id}/${arm.legion}: arm Legion name`);
+        check(arm.role.trim().length > 0, `${v.id}/${arm.legion}: arm role`);
+        check(arm.text.trim().length > 0, `${v.id}/${arm.legion}: arm account`);
         check(/^#[0-9a-f]{6}$/i.test(arm.color), `${v.id}/${arm.legion}: arm colour is valid hex`);
         check(arm.opacity === undefined || (arm.opacity >= 0 && arm.opacity <= 1), `${v.id}/${arm.legion}: arm opacity in 0–1`);
         check(/^https:\/\//.test(arm.source), `${v.id}/${arm.legion}: arm source URL`);
-        if ("world" in arm.target) {
-          check(catalogIds.has(arm.target.world), `${v.id}/${arm.legion}: arm target exists on chart`);
-        } else {
-          check(
-            arm.target.gx >= 0 && arm.target.gx <= GRID_W && arm.target.gy >= 0 && arm.target.gy <= GRID_H,
-            `${v.id}/${arm.legion}: arm point target on the grid`,
-          );
-          checkPlacement(arm.target.placement, `${v.id}/${arm.legion}`);
+        const armTargets = [...(arm.via ?? []).map((via) => via.target), arm.target];
+        for (const [targetIndex, target] of armTargets.entries()) {
+          const targetLabel = `${v.id}/${arm.legion}/target-${targetIndex + 1}`;
+          check(target.text.trim().length > 0, `${targetLabel}: shared destination account`);
+          check(/^https:\/\//.test(target.source), `${targetLabel}: destination source URL`);
+          check(Number.isFinite(target.label.dx) && Number.isFinite(target.label.dy), `${targetLabel}: label offset`);
+          if ("world" in target) {
+            check(catalogIds.has(target.world), `${targetLabel}: arm target exists on chart`);
+            if (target.placement) checkPlacement(target.placement, targetLabel);
+          } else {
+            check(
+              target.gx >= 0 && target.gx <= GRID_W && target.gy >= 0 && target.gy <= GRID_H,
+              `${targetLabel}: arm point target on the grid`,
+            );
+            checkPlacement(target.placement, targetLabel);
+          }
         }
       }
     }
@@ -340,9 +368,13 @@ for (const v of VOYAGES) {
     resolved.stations.length === v.stations.length,
     `${v.id}: every stop resolves (no silent drops)`,
   );
-  const armCount = anchors.reduce((sum, anchor) => sum + (anchor.arms?.length ?? 0), 0);
-  const expectedLegs = anchors.slice(1).filter((s) => !s.breakBefore).length + armCount;
-  check(resolved.legs.length === expectedLegs, `${v.id}: one leg per connected transition or strategic arm`);
+  const armSegmentCount = anchors.reduce(
+    (sum, anchor) =>
+      sum + (anchor.arms ?? []).reduce((armSum, arm) => armSum + 1 + (arm.via?.length ?? 0), 0),
+    0,
+  );
+  const expectedLegs = anchors.slice(1).filter((s) => !s.breakBefore).length + armSegmentCount;
+  check(resolved.legs.length === expectedLegs, `${v.id}: one leg per connected transition or strategic arm segment`);
   check(resolved.legColors.length === resolved.legs.length, `${v.id}: every leg has a shared renderer colour`);
   check(resolved.legOpacities.length === resolved.legs.length, `${v.id}: every leg has a shared renderer opacity`);
   check(resolved.legRevealAt.length === resolved.legs.length, `${v.id}: every leg has a reveal step`);

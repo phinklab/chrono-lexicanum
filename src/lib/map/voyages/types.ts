@@ -53,14 +53,35 @@ export interface VoyagePlacement {
   source: string;
 }
 
+export interface VoyageArmTargetLabel {
+  dx: number;
+  dy: number;
+  anchor?: "start" | "middle" | "end";
+}
+
+interface VoyageArmTargetContext {
+  /** Shared destination copy shown when the endpoint is selected. */
+  text: string;
+  source: string;
+  /** Catalog targets may still need an explicit cartographic disclosure. */
+  placement?: VoyagePlacement;
+  /** Small authored offset keeps neighbouring endpoint labels legible. */
+  label: VoyageArmTargetLabel;
+}
+
 export type VoyageArmTarget =
-  | { world: string }
-  | {
+  | (VoyageArmTargetContext & { world: string })
+  | (VoyageArmTargetContext & {
       name: string;
       gx: number;
       gy: number;
       placement: VoyagePlacement;
-    };
+    });
+
+export interface VoyageArmVia {
+  target: VoyageArmTarget;
+  bow?: number;
+}
 
 /** A sourced strategic disposition radiating from one authored anchor. Arms
  *  are map-only epilogue geometry: they reveal with their source act but do
@@ -73,6 +94,12 @@ export interface VoyageArm {
   /** Lower opacity distinguishes manipulated or answering movements from a
    *  direct command while retaining the Legion colour. */
   opacity?: number;
+  /** Short factual classification and Legion-specific account for the
+   *  existing final-card readout. */
+  role: string;
+  text: string;
+  /** Optional historically ordered intermediate strategic destinations. */
+  via?: VoyageArmVia[];
   target: VoyageArmTarget;
   /** Perpendicular bow in grid units; signed values separate shared targets. */
   bow?: number;

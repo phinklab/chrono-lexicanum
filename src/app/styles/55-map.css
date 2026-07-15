@@ -464,6 +464,37 @@ body.cg-canvas-renderer .cg-deg {
   stroke: var(--arm-color);
   stroke-opacity: 0.22;
 }
+.cg-arm-target {
+  opacity: 0.82;
+  transition: opacity 0.25s var(--ease);
+}
+.cg-arm-target:is(:hover, .is-selected) {
+  opacity: 1;
+}
+.cg-arm-target-label {
+  fill: var(--cl-gold);
+  stroke: color-mix(in srgb, var(--cl-ink) 92%, transparent);
+  stroke-width: 2.4px;
+  paint-order: stroke fill;
+  font-family: var(--font-mono);
+  font-size: 7.2px;
+  letter-spacing: var(--track-16);
+  text-transform: uppercase;
+  pointer-events: none;
+}
+.cg-arm-target.is-selected .cg-arm-target-label {
+  fill: var(--cl-bone);
+}
+.cg-arm-target-hit {
+  pointer-events: all;
+  cursor: pointer;
+  outline: none;
+}
+.cg-arm-target-hit:focus-visible {
+  stroke: var(--cl-gold);
+  stroke-width: 1.2;
+  stroke-opacity: 0.5;
+}
 @keyframes cgRtFly {
   to {
     stroke-dashoffset: -62;
@@ -1678,23 +1709,45 @@ body.cg-canvas-renderer .cg-deg {
 .cg-tour .cg-tour-placement a:hover {
   color: var(--cl-bone);
 }
-.cg-tour .cg-tour-arm {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 12px;
+.cg-tour .cg-tour-strategic {
   margin: 9px 0 0;
-  padding: 7px 9px;
+  padding: 8px 10px 9px;
   border-left: 2px solid;
   background: color-mix(in srgb, var(--cl-ink) 82%, transparent);
   font-family: var(--font-mono);
   font-size: var(--fs-label-3xs);
-  line-height: 1.35;
+  line-height: 1.45;
   letter-spacing: var(--track-10);
+}
+.cg-tour .cg-tour-strategic-head {
+  display: grid;
+  gap: 3px;
   text-transform: uppercase;
 }
-.cg-tour .cg-tour-arm span:last-child {
+.cg-tour .cg-tour-strategic-head span:first-child {
   color: var(--cl-gold);
-  text-align: right;
+}
+.cg-tour .cg-tour-strategic-head span:last-child {
+  color: var(--cl-bone);
+}
+.cg-tour .cg-tour-strategic > p {
+  margin: 7px 0 0;
+  color: var(--cl-dim);
+  letter-spacing: 0.04em;
+}
+.cg-tour .cg-tour-strategic .cg-tour-strategic-placement {
+  color: var(--cl-faint);
+  font-size: 9px;
+}
+.cg-tour .cg-tour-strategic > a {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--cl-gold);
+  text-decoration: none;
+  letter-spacing: var(--track-16);
+}
+.cg-tour .cg-tour-strategic > a:hover {
+  color: var(--cl-bone);
 }
 .cg-tour .cg-tour-row {
   display: flex;

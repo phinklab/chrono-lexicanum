@@ -201,7 +201,8 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
   // Sheet expansion lives here (not in CartoucheSheet) so the phone
   // back-guard below can dismiss it.
   const [sheetOpen, setSheetOpen] = useState(false);
-  const [selectedArmLeg, setSelectedArmLeg] = useState<number | null>(null);
+  const [selectedArmLegion, setSelectedArmLegion] = useState<string | null>(null);
+  const [selectedTargetId, setSelectedTargetId] = useState<string | null>(null);
   const bus = useMemo(() => new ChartBus(), []);
   const magRef = useRef<HTMLSpanElement | null>(null);
 
@@ -213,9 +214,13 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
     return v ? resolveVoyage(v, payload) : null;
   }, [voyageId, payload]);
   const selectedArm =
-    selectedArmLeg === null
+    selectedArmLegion === null
       ? null
-      : (activeVoyage?.strategicArms.find((arm) => arm.legIndex === selectedArmLeg) ?? null);
+      : (activeVoyage?.strategicArms.find((arm) => arm.legion === selectedArmLegion) ?? null);
+  const selectedTarget =
+    selectedTargetId === null
+      ? null
+      : (activeVoyage?.strategicTargets.find((target) => target.id === selectedTargetId) ?? null);
   const hiIds = useMemo(
     () =>
       activeVoyage
@@ -360,7 +365,8 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
       // A journey is a new primary context. Close any world panel in the
       // same event so it cannot keep the tour card suppressed behind it.
       if (state.selectedId !== null) selectWorld(null, false);
-      setSelectedArmLeg(null);
+      setSelectedArmLegion(null);
+      setSelectedTargetId(null);
       dispatch({ type: "voyageStart", id });
     },
     [selectWorld, state.selectedId],
@@ -511,8 +517,16 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
                   <RoutesLayer
                     resolved={activeVoyage}
                     progress={voyageProgress}
-                    selectedArmLeg={selectedArm?.legIndex}
-                    onArmSelect={setSelectedArmLeg}
+                    selectedArmLegion={selectedArm?.legion}
+                    selectedTargetId={selectedTarget?.id}
+                    onArmSelect={(legion) => {
+                      setSelectedTargetId(null);
+                      setSelectedArmLegion(legion);
+                    }}
+                    onTargetSelect={(targetId) => {
+                      setSelectedArmLegion(null);
+                      setSelectedTargetId(targetId);
+                    }}
                   />
                   <TerraInstrument />
                   {selectedWorld && <Selection key={selectedWorld.id} world={selectedWorld} />}
@@ -611,6 +625,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           muted={sheetOpen}
           step={state.voyage.step}
           selectedArm={selectedArm}
+          selectedTarget={selectedTarget}
           onStep={(step) => dispatch({ type: "voyageStep", step })}
           onFin={() => dispatch({ type: "voyageFree", step: activeVoyage.stations.length })}
           onExit={() => dispatch({ type: "voyageEnd" })}
@@ -624,6 +639,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           suppressed={state.selectedId !== null}
           muted={sheetOpen}
           selectedArm={selectedArm}
+          selectedTarget={selectedTarget}
           onBack={() => dispatch({ type: "voyageStep", step: activeVoyage.stations.length - 1 })}
           onRestart={() => dispatch({ type: "voyageStep", step: 0 })}
         />

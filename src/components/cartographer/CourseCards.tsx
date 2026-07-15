@@ -15,7 +15,13 @@
 
 import { useState } from "react";
 
-import type { ResolvedVoyage, ResolvedVoyageArm } from "@/lib/map/voyages";
+import type {
+  ResolvedVoyage,
+  ResolvedVoyageArm,
+  ResolvedVoyageArmTarget,
+} from "@/lib/map/voyages";
+
+import StrategicReadout from "./StrategicReadout";
 
 interface CourseCardsProps {
   resolved: ResolvedVoyage;
@@ -24,6 +30,7 @@ interface CourseCardsProps {
   /** Mobile sheet open (modal) — the card leaves the AT tree meanwhile. */
   muted?: boolean;
   selectedArm?: ResolvedVoyageArm | null;
+  selectedTarget?: ResolvedVoyageArmTarget | null;
   /** Return to the tour at its last station. */
   onBack: () => void;
   /** Fly the tour again from the first station. */
@@ -35,6 +42,7 @@ export default function CourseCards({
   suppressed,
   muted = false,
   selectedArm = null,
+  selectedTarget = null,
   onBack,
   onRestart,
 }: CourseCardsProps) {
@@ -63,15 +71,18 @@ export default function CourseCards({
       <p className="cg-tour-name">{st.heading}</p>
       {st.date && <p className="cg-tour-date">{st.date}</p>}
       <p className="ct">{st.text}</p>
-      {st.armCount && selectedArm && (
-        <p
-          className="cg-tour-arm"
-          style={{ borderColor: resolved.legColors[selectedArm.legIndex] }}
-          aria-live="polite"
-        >
-          <span>Legion {selectedArm.legion} · {selectedArm.name}</span>
-          <span>→ {selectedArm.targetName}</span>
-        </p>
+      {st.armCount && (
+        <StrategicReadout
+          arm={selectedArm}
+          target={selectedTarget}
+          color={
+            selectedArm
+              ? resolved.legColors[selectedArm.legIndices[0]]
+              : selectedTarget
+                ? "var(--cl-gold)"
+                : undefined
+          }
+        />
       )}
       {st.placement && (
         <p className="cg-tour-placement">

@@ -27,8 +27,10 @@ import {
   resolvedVoyageBounds,
   type ResolvedVoyage,
   type ResolvedVoyageArm,
+  type ResolvedVoyageArmTarget,
 } from "@/lib/map/voyages";
 import type { ChartBus } from "./chart-bus";
+import StrategicReadout from "./StrategicReadout";
 
 interface VoyageTourProps {
   resolved: ResolvedVoyage;
@@ -41,6 +43,7 @@ interface VoyageTourProps {
   /** −1 overture … n−1 last station. */
   step: number;
   selectedArm?: ResolvedVoyageArm | null;
+  selectedTarget?: ResolvedVoyageArmTarget | null;
   onStep: (step: number) => void;
   /** Tour finished — free mode with the route fully drawn. */
   onFin: () => void;
@@ -56,6 +59,7 @@ export default function VoyageTour({
   muted = false,
   step,
   selectedArm = null,
+  selectedTarget = null,
   onStep,
   onFin,
   onExit,
@@ -211,15 +215,18 @@ export default function VoyageTour({
       <p className="cg-tour-name">{st.heading}</p>
       {st.date && <p className="cg-tour-date">{st.date}</p>}
       <p className="ct">{st.text}</p>
-      {st.armCount && selectedArm && (
-        <p
-          className="cg-tour-arm"
-          style={{ borderColor: resolved.legColors[selectedArm.legIndex] }}
-          aria-live="polite"
-        >
-          <span>Legion {selectedArm.legion} · {selectedArm.name}</span>
-          <span>→ {selectedArm.targetName}</span>
-        </p>
+      {st.armCount && (
+        <StrategicReadout
+          arm={selectedArm}
+          target={selectedTarget}
+          color={
+            selectedArm
+              ? resolved.legColors[selectedArm.legIndices[0]]
+              : selectedTarget
+                ? "var(--cl-gold)"
+                : undefined
+          }
+        />
       )}
       {st.placement && (
         <p className="cg-tour-placement">

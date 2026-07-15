@@ -33,15 +33,19 @@ interface RoutesLayerProps {
   resolved: ResolvedVoyage | null;
   /** Tour step (−1 overture … stations.length survey), or null for ambient. */
   progress: number | null;
-  selectedArmLeg?: number | null;
-  onArmSelect?: (legIndex: number | null) => void;
+  selectedArmLegion?: string | null;
+  selectedTargetId?: string | null;
+  onArmSelect?: (legion: string | null) => void;
+  onTargetSelect?: (targetId: string | null) => void;
 }
 
 export default function RoutesLayer({
   resolved,
   progress,
-  selectedArmLeg = null,
+  selectedArmLegion = null,
+  selectedTargetId = null,
   onArmSelect,
+  onTargetSelect,
 }: RoutesLayerProps) {
   // Phones skip the <mask> draw-in entirely. RouteMotionCanvas owns their
   // moving line; the SVG keeps only static station/label geometry.
@@ -49,7 +53,18 @@ export default function RoutesLayer({
   if (!resolved || resolved.legs.length < 1) return null;
 
   const tour = progress !== null;
-  const armByLeg = new Map(resolved.strategicArms.map((arm) => [arm.legIndex, arm]));
+  const armByLeg = new Map(
+    resolved.strategicArms.flatMap((arm) => arm.legIndices.map((legIndex) => [legIndex, arm] as const)),
+  );
+  const selectedTarget =
+    selectedTargetId === null
+      ? null
+      : (resolved.strategicTargets.find((target) => target.id === selectedTargetId) ?? null);
+  const isIsstvanLeg = new Set(
+    resolved.strategicTargets
+      .filter((target) => target.name.startsWith("Istvaan"))
+      .flatMap((target) => target.legIndices),
+  );
 
   // First tour step at which each leg starts drawing: the step of the first
   // stop (waypoint or end station) that rides/arrives on it.
@@ -105,13 +120,17 @@ export default function RoutesLayer({
         const masked = !narrow && (tour ? drawingLegs.has(li) : true);
         const arm = armByLeg.get(li);
         const armAvailable = !!arm && (!tour || (progress as number) >= resolved.legRevealAt[li]);
-        const armSelected = arm !== undefined && selectedArmLeg === li;
-        const armLabel = arm ? `Legion ${arm.legion} · ${arm.name} → ${arm.targetName}` : "";
-        const toggleArm = () => onArmSelect?.(armSelected ? null : li);
+        const armSelected = arm !== undefined && selectedArmLegion === arm.legion;
+        const targetSelected = selectedTarget?.legIndices.includes(li) ?? false;
+        const highlighted = armSelected || targetSelected;
+        const armLabel = arm
+          ? `Legion ${arm.legion} · ${arm.name} · ${arm.role} → ${arm.targetName}`
+          : "";
+        const toggleArm = () => onArmSelect?.(armSelected ? null : (arm?.legion ?? null));
         return (
           <g key={li}>
             <path
-              className={`cg-rtFly${legState(li)}${armSelected ? " is-selected" : ""}`}
+              className={`cg-rtFly${legState(li)}${highlighted ? " is-selected" : ""}`}
               d={d}
               fill="none"
               stroke={resolved.legColors[li] ?? GOLD}
@@ -129,7 +148,7 @@ export default function RoutesLayer({
                 d={d}
                 fill="none"
                 stroke="transparent"
-                strokeWidth={arm.targetName.startsWith("Istvaan") ? 4 : 12}
+                strokeWidth={isIsstvanLeg.has(li) ? 4 : 12}
                 strokeLinecap="round"
                 vectorEffect="non-scaling-stroke"
                 role="button"
@@ -153,6 +172,63 @@ export default function RoutesLayer({
                 <title>{armLabel}</title>
               </path>
             )}
+          </g>
+        );
+      })}
+      {resolved.strategicTargets.map((target) => {
+        const pending = tour && (progress as number) < target.revealAt;
+        const selected = target.id === selectedTargetId;
+        const targetLabel = `Strategic destination ${target.name} · Legions ${target.legionIds.join(", ")}`;
+        const toggleTarget = () => onTargetSelect?.(selected ? null : target.id);
+        return (
+          <g
+            key={target.id}
+            className={`cg-arm-target${selected ? " is-selected" : ""}${pending ? " rt-pending" : ""}`}
+            style={{ pointerEvents: pending ? "none" : undefined }}
+          >
+            <circle
+              cx={target.gx}
+              cy={target.gy}
+              r={5.2}
+              fill="var(--cl-ink)"
+              stroke={GOLD}
+              strokeWidth={selected ? 1.5 : 0.9}
+              vectorEffect="non-scaling-stroke"
+            />
+            <circle cx={target.gx} cy={target.gy} r={1.25} fill={GOLD} stroke="none" />
+            <text
+              className="cg-arm-target-label"
+              x={target.gx + target.label.dx}
+              y={target.gy + target.label.dy}
+              textAnchor={target.label.anchor ?? "start"}
+            >
+              {target.name}
+            </text>
+            <circle
+              className="cg-arm-target-hit"
+              cx={target.gx}
+              cy={target.gy}
+              r={11}
+              fill="transparent"
+              role="button"
+              tabIndex={pending ? -1 : 0}
+              focusable={pending ? "false" : "true"}
+              aria-label={targetLabel}
+              aria-pressed={selected}
+              onPointerDown={(event) => event.stopPropagation()}
+              onClick={(event) => {
+                event.stopPropagation();
+                toggleTarget();
+              }}
+              onKeyDown={(event) => {
+                if (event.key !== "Enter" && event.key !== " ") return;
+                event.preventDefault();
+                event.stopPropagation();
+                toggleTarget();
+              }}
+            >
+              <title>{targetLabel}</title>
+            </circle>
           </g>
         );
       })}
