@@ -8,7 +8,7 @@
 
 import type { FeaturedWorld, MapPayload } from "@/lib/map/payload";
 import type { MapWorldKind } from "@/lib/map/map-worlds-schema";
-import type { ResolvedVoyage } from "@/lib/map/voyages";
+import type { ResolvedVoyage, ResolvedVoyageArm } from "@/lib/map/voyages";
 import { pointOnLeg } from "@/lib/map/voyages";
 import { CURATED_ZONES, zoneCentroid, zonePath, type ZoneDef, type ZonesMode } from "@/lib/map/zones";
 
@@ -43,6 +43,7 @@ const WARP_LIGHT = "#cbb3ee";
 const PICK_RADIUS = 22;
 const LABEL_OVERSCAN = 100;
 const ROUTE_REVEAL_MS = 900;
+const LEGION_SEGMENT_STAGGER_MS = 260;
 const ROUTE_SAMPLES = 64;
 
 export interface CanvasFonts {
@@ -940,6 +941,8 @@ function drawContacts(
 interface CachedRouteGeometry {
   firstEntry: Map<number, number>;
   firstVisit: Map<string, number>;
+  armByLeg: Map<number, ResolvedVoyageArm>;
+  armOrderByLeg: Map<number, number>;
   samples: ({ x: number; y: number } | null)[][];
 }
 
@@ -956,7 +959,17 @@ function routeGeometry(voyage: ResolvedVoyage): CachedRouteGeometry {
   const samples = voyage.legs.map((leg) =>
     Array.from({ length: ROUTE_SAMPLES + 1 }, (_, index) => pointOnLeg(leg, index / ROUTE_SAMPLES)),
   );
-  cached = { firstEntry, firstVisit, samples };
+  const armByLeg = new Map(
+    voyage.strategicArms.flatMap((arm) =>
+      arm.legIndices.map((legIndex) => [legIndex, arm] as const),
+    ),
+  );
+  const armOrderByLeg = new Map(
+    voyage.strategicArms.flatMap((arm) =>
+      arm.legIndices.map((legIndex, order) => [legIndex, order] as const),
+    ),
+  );
+  cached = { firstEntry, firstVisit, armByLeg, armOrderByLeg, samples };
   routeGeometryCache.set(voyage, cached);
   return cached;
 }
@@ -964,9 +977,26 @@ function routeGeometry(voyage: ResolvedVoyage): CachedRouteGeometry {
 function routeState(scene: CanvasScene, now: number, geometry: CachedRouteGeometry) {
   const voyage = scene.activeVoyage;
   if (!voyage) return { fraction: () => 0, animating: false };
+  const legionStepTour =
+    voyage.strategic?.mode === "legion-steps" &&
+    scene.voyageProgress !== null &&
+    scene.voyageProgress >= 0 &&
+    scene.voyageProgress < voyage.stations.length;
   let animating = false;
   const fraction = (legIndex: number) => {
     if (scene.voyageProgress === null) return 1;
+    if (legionStepTour) {
+      const arm = geometry.armByLeg.get(legIndex);
+      if (!arm || arm.revealAt !== scene.voyageProgress) return 0;
+      if (scene.reduce) return 1;
+      const delay = (geometry.armOrderByLeg.get(legIndex) ?? 0) * LEGION_SEGMENT_STAGGER_MS;
+      const value = Math.max(
+        0,
+        Math.min(1, (now - scene.routeStartedAt - delay) / ROUTE_REVEAL_MS),
+      );
+      if (value < 1) animating = true;
+      return value;
+    }
     const entry = geometry.firstEntry.get(legIndex);
     if (entry === undefined || scene.voyageProgress < entry) return 0;
     if (scene.reduce || scene.voyageProgress > entry) return 1;
@@ -995,14 +1025,9 @@ function drawRoute(
   ctx.lineWidth = 1.7 / camera.k;
   ctx.lineCap = "round";
   ctx.setLineDash([2.2 / camera.k, 5.4 / camera.k]);
-  const armByLeg = new Map(
-    voyage.strategicArms.flatMap((arm) =>
-      arm.legIndices.map((legIndex) => [legIndex, arm.legion] as const),
-    ),
-  );
   voyage.legs.forEach((leg, legIndex) => {
-    const armLegion = armByLeg.get(legIndex);
-    if (armLegion && scene.hiddenArmLegions.has(armLegion)) return;
+    const arm = geometry.armByLeg.get(legIndex);
+    if (arm && scene.hiddenArmLegions.has(arm.legion)) return;
     const fraction = state.fraction(legIndex);
     if (fraction <= 0) return;
     ctx.strokeStyle = voyage.legColors[legIndex] ?? GOLD;
@@ -1040,9 +1065,23 @@ function drawRoute(
 
   ctx.globalAlpha = 0.8;
   ctx.lineWidth = 0.8 / camera.k;
+  const legionStepTour =
+    voyage.strategic?.mode === "legion-steps" &&
+    scene.voyageProgress !== null &&
+    scene.voyageProgress >= 0 &&
+    scene.voyageProgress < voyage.stations.length;
+  const currentStationId = legionStepTour
+    ? voyage.stations[scene.voyageProgress as number]?.id
+    : null;
+  const currentArm = legionStepTour
+    ? voyage.strategicArms.find((arm) => arm.revealAt === scene.voyageProgress)
+    : null;
+  const currentRouteHidden = !!currentArm && scene.hiddenArmLegions.has(currentArm.legion);
   for (const [, index] of geometry.firstVisit) {
     if (scene.voyageProgress !== null && scene.voyageProgress < index) continue;
     const station = voyage.stations[index];
+    if (legionStepTour && station.id !== currentStationId) continue;
+    if (currentRouteHidden) continue;
     const ringLegions = voyage.stations
       .filter((candidate) => candidate.id === station.id)
       .flatMap((candidate) => candidate.armLegions ?? []);
@@ -1066,6 +1105,8 @@ function drawRoute(
   }
   for (const station of voyage.stations) {
     if (station.kind !== "way") continue;
+    if (legionStepTour && station.i !== scene.voyageProgress) continue;
+    if (currentRouteHidden) continue;
     if (scene.voyageProgress !== null && scene.voyageProgress < station.i) continue;
     const color = station.section?.color ?? GOLD;
     ctx.strokeStyle = color;
@@ -1082,7 +1123,8 @@ function drawRoute(
   if (
     scene.voyageProgress !== null &&
     scene.voyageProgress >= 0 &&
-    scene.voyageProgress < voyage.stations.length
+    scene.voyageProgress < voyage.stations.length &&
+    !currentRouteHidden
   ) {
     const active = voyage.stations[scene.voyageProgress];
     ctx.strokeStyle = active.section?.color ?? GOLD;
@@ -1094,7 +1136,11 @@ function drawRoute(
   }
   if (
     fontsReady &&
-    (scene.voyageProgress === null || scene.voyageProgress >= voyage.stations.length - 1)
+    (scene.voyageProgress === null ||
+      scene.voyageProgress >=
+        (voyage.strategic?.mode === "legion-steps"
+          ? voyage.stations.length
+          : voyage.stations.length - 1))
   ) {
     setFont(ctx, fonts.mono, 9, "normal", 2.16);
     ctx.fillStyle = GOLD;

@@ -38,6 +38,7 @@ const FRAME_MS = 1000 / 30;
 const REVEAL_MS = 900;
 const AMBIENT_STAGGER_MS = 1450;
 const AMBIENT_LEAD_MS = 350;
+const LEGION_SEGMENT_STAGGER_MS = 260;
 const PATH_SAMPLES = 64;
 
 const clamp01 = (n: number) => Math.max(0, Math.min(1, n));
@@ -89,14 +90,27 @@ export default function RouteMotionCanvas({
     const firstEntry = new Map(resolved.legRevealAt.map((step, legIndex) => [legIndex, step]));
     const armByLeg = new Map(
       resolved.strategicArms.flatMap((arm) =>
-        arm.legIndices.map((legIndex) => [legIndex, arm.legion] as const),
+        arm.legIndices.map((legIndex) => [legIndex, arm] as const),
       ),
     );
+    const legionStepTour =
+      resolved.strategic?.mode === "legion-steps" &&
+      progress !== null &&
+      progress >= 0 &&
+      progress < resolved.stations.length;
 
     const revealFraction = (legIndex: number, elapsed: number) => {
       if (progress === null) {
         if (reduce) return 1;
         const start = legIndex * AMBIENT_STAGGER_MS + AMBIENT_LEAD_MS;
+        return clamp01((elapsed - start) / REVEAL_MS);
+      }
+      const arm = armByLeg.get(legIndex);
+      if (legionStepTour) {
+        if (!arm || arm.revealAt !== progress) return 0;
+        if (reduce) return 1;
+        const order = arm.legIndices.indexOf(legIndex);
+        const start = Math.max(0, order) * LEGION_SEGMENT_STAGGER_MS;
         return clamp01((elapsed - start) / REVEAL_MS);
       }
       const entry = firstEntry.get(legIndex);
@@ -112,6 +126,12 @@ export default function RouteMotionCanvas({
       if (reduce) return 0;
       if (progress === null) {
         return (resolved.legs.length - 1) * AMBIENT_STAGGER_MS + AMBIENT_LEAD_MS + REVEAL_MS;
+      }
+      if (legionStepTour) {
+        const arm = resolved.strategicArms.find((candidate) => candidate.revealAt === progress);
+        return arm
+          ? Math.max(0, arm.legIndices.length - 1) * LEGION_SEGMENT_STAGGER_MS + REVEAL_MS
+          : 0;
       }
       for (const entry of firstEntry.values()) {
         if (entry === progress) return REVEAL_MS;
@@ -133,8 +153,8 @@ export default function RouteMotionCanvas({
 
       const elapsed = now - startedAt;
       resolved.legs.forEach((leg, legIndex) => {
-        const armLegion = armByLeg.get(legIndex);
-        if (armLegion && hiddenArmLegions.has(armLegion)) return;
+        const arm = armByLeg.get(legIndex);
+        if (arm && hiddenArmLegions.has(arm.legion)) return;
         const fraction = revealFraction(legIndex, elapsed);
         if (fraction <= 0) return;
         ctx.globalAlpha = resolved.legOpacities[legIndex] ?? 0.9;
