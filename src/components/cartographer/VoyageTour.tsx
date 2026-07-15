@@ -65,6 +65,7 @@ export default function VoyageTour({
   onExit,
 }: VoyageTourProps) {
   const n = resolved.stations.length;
+  const stationNoun = n === 1 ? "STATION" : "STATIONS";
   const last = step >= n - 1;
   const cardRef = useRef<HTMLDivElement | null>(null);
 
@@ -176,7 +177,7 @@ export default function VoyageTour({
         <div className="cg-tour-row">
           <span />
           <button className="cpg lead" onClick={() => onStep(0)}>
-            BEGIN JOURNEY · {n} STATIONS →
+            BEGIN JOURNEY · {n} {stationNoun} →
           </button>
         </div>
       </div>
@@ -185,6 +186,7 @@ export default function VoyageTour({
 
   const st = resolved.stations[step];
   if (!st) return null;
+  const strategicSelection = !!st.armCount && (!!selectedArm || !!selectedTarget);
   return (
     // Deliberately NOT keyed by step: one stable DOM node (and one stable
     // will-change compositor layer) carries the whole tour. The per-step
@@ -205,17 +207,7 @@ export default function VoyageTour({
       >
         ✕
       </button>
-      {/* Hierarchy: name + text carry the act; the date is a quiet footnote;
-          position lives in the pager button ("3 / 9"), no ACT numeral. */}
-      {st.section && (
-        <p className="cg-tour-section" style={{ color: st.section.color }}>
-          {st.section.label}
-        </p>
-      )}
-      <p className="cg-tour-name">{st.heading}</p>
-      {st.date && <p className="cg-tour-date">{st.date}</p>}
-      <p className="ct">{st.text}</p>
-      {st.armCount && (
+      {strategicSelection ? (
         <StrategicReadout
           arm={selectedArm}
           target={selectedTarget}
@@ -227,16 +219,31 @@ export default function VoyageTour({
                 : undefined
           }
         />
-      )}
-      {st.placement && (
-        <p className="cg-tour-placement">
-          {st.placement.precision === "relative" ? "INFERRED PLACEMENT" : "SCHEMATIC PLACEMENT"}
-          {" · "}
-          {st.placement.note}{" "}
-          <a href={st.placement.source} target="_blank" rel="noreferrer">
-            SOURCE ↗
-          </a>
-        </p>
+      ) : (
+        <>
+          {/* Hierarchy: name + text carry the act; the date is a quiet footnote;
+              position lives in the pager button ("3 / 9"), no ACT numeral. */}
+          {st.section && (
+            <p className="cg-tour-section" style={{ color: st.section.color }}>
+              {st.section.label}
+            </p>
+          )}
+          <p className="cg-tour-name">{st.heading}</p>
+          {st.date && <p className="cg-tour-date">{st.date}</p>}
+          <p className="ct">{st.text}</p>
+          {st.placement && (
+            <p className="cg-tour-placement">
+              {st.placement.precision === "relative"
+                ? "INFERRED PLACEMENT"
+                : "SCHEMATIC PLACEMENT"}
+              {" · "}
+              {st.placement.note}{" "}
+              <a href={st.placement.source} target="_blank" rel="noreferrer">
+                SOURCE ↗
+              </a>
+            </p>
+          )}
+        </>
       )}
       <div className="cg-tour-row">
         <span>

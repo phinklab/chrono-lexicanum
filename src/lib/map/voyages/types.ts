@@ -203,8 +203,13 @@ export interface Voyage {
   };
   /** Optional chronology sections with a shared visual identity. */
   sections?: VoyageSection[];
-  /** ≥ 2 anchors plus optional waypoints, in narrative order. Repeat station
-   *  visits and disconnected route segments are allowed. */
+  /** Optional authored hand-off shown after the full-route reveal. */
+  continuation?: {
+    id: string;
+    label: string;
+  };
+  /** ≥ 2 anchors plus optional waypoints, or one anchor carrying a strategic
+   *  network. Repeat station visits and disconnected segments are allowed. */
   stations: VoyageStop[];
   /** On-chart label (grid coordinates). */
   lbl: { x: number; y: number; t: string };

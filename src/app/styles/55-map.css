@@ -1709,46 +1709,6 @@ body.cg-canvas-renderer .cg-deg {
 .cg-tour .cg-tour-placement a:hover {
   color: var(--cl-bone);
 }
-.cg-tour .cg-tour-strategic {
-  margin: 9px 0 0;
-  padding: 8px 10px 9px;
-  border-left: 2px solid;
-  background: color-mix(in srgb, var(--cl-ink) 82%, transparent);
-  font-family: var(--font-mono);
-  font-size: var(--fs-label-3xs);
-  line-height: 1.45;
-  letter-spacing: var(--track-10);
-}
-.cg-tour .cg-tour-strategic-head {
-  display: grid;
-  gap: 3px;
-  text-transform: uppercase;
-}
-.cg-tour .cg-tour-strategic-head span:first-child {
-  color: var(--cl-gold);
-}
-.cg-tour .cg-tour-strategic-head span:last-child {
-  color: var(--cl-bone);
-}
-.cg-tour .cg-tour-strategic > p {
-  margin: 7px 0 0;
-  color: var(--cl-dim);
-  letter-spacing: 0.04em;
-}
-.cg-tour .cg-tour-strategic .cg-tour-strategic-placement {
-  color: var(--cl-faint);
-  font-size: 9px;
-}
-.cg-tour .cg-tour-strategic > a {
-  display: inline-block;
-  margin-top: 6px;
-  color: var(--cl-gold);
-  text-decoration: none;
-  letter-spacing: var(--track-16);
-}
-.cg-tour .cg-tour-strategic > a:hover {
-  color: var(--cl-bone);
-}
 .cg-tour .cg-tour-row {
   display: flex;
   justify-content: space-between;
@@ -1762,6 +1722,12 @@ body.cg-canvas-renderer .cg-deg {
 }
 .cg-tour .cpg.lead:hover {
   color: var(--cl-bone);
+}
+.cg-tour .cg-tour-continuation {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  text-align: right;
 }
 .cg-tour .cg-tour-x {
   position: absolute;

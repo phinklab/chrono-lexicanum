@@ -404,7 +404,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
       key = `tour:${activeVoyage.id}:${s}`;
       msg =
         s < 0 || !st
-          ? `${activeVoyage.name} — journey tour open — ${activeVoyage.stations.length} stations`
+          ? `${activeVoyage.name} — journey tour open — ${activeVoyage.stations.length} ${activeVoyage.stations.length === 1 ? "station" : "stations"}`
           : `Station ${s + 1} of ${activeVoyage.stations.length} — ${st.heading}`;
     } else {
       key = "idle";
@@ -642,6 +642,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           selectedTarget={selectedTarget}
           onBack={() => dispatch({ type: "voyageStep", step: activeVoyage.stations.length - 1 })}
           onRestart={() => dispatch({ type: "voyageStep", step: 0 })}
+          onContinue={startVoyage}
         />
       )}
 

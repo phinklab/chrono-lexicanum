@@ -15,31 +15,18 @@ export default function StrategicReadout({
 
   const source = arm?.source ?? target?.source;
   return (
-    <div
-      className="cg-tour-strategic"
-      style={{ borderColor: color ?? "var(--cl-gold)" }}
-      aria-live="polite"
-    >
-      <div className="cg-tour-strategic-head">
-        <span>{arm?.role ?? "STRATEGIC DESTINATION"}</span>
-        <span>
-          {arm
-            ? `LEGION ${arm.legion} · ${arm.name} → ${arm.targetName}`
-            : `${target?.name} · LEGIONS ${target?.legionIds.join(" · ")}`}
-        </span>
-      </div>
-      <p>{arm?.text ?? target?.text}</p>
-      {target?.placement && (
-        <p className="cg-tour-strategic-placement">
-          {target.placement.precision === "relative"
-            ? "INFERRED PLACEMENT"
-            : "SCHEMATIC PLACEMENT"}
-          {" · "}
-          {target.placement.note}
-        </p>
-      )}
+    <div aria-live="polite">
+      <p className="cg-tour-section" style={{ color: color ?? "var(--cl-gold)" }}>
+        {arm?.role ?? "STRATEGIC DESTINATION"}
+      </p>
+      <p className="cg-tour-name">
+        {arm
+          ? `Legion ${arm.legion} · ${arm.name} → ${arm.targetName}`
+          : `${target?.name} · Legions ${target?.legionIds.join(" · ")}`}
+      </p>
+      <p className="ct">{arm?.text ?? target?.text}</p>
       {source && (
-        <a href={source} target="_blank" rel="noreferrer">
+        <a className="cpg" href={source} target="_blank" rel="noreferrer">
           SOURCE ↗
         </a>
       )}

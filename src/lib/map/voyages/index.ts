@@ -18,6 +18,7 @@ import { GUILLIMAN } from "./data/guilliman";
 import { HORUS } from "./data/horus";
 import { INDOMITUS } from "./data/indomitus";
 import { LION } from "./data/lion";
+import { WARMASTER_WEB } from "./data/warmasters-web";
 import { YVRAINE } from "./data/yvraine";
 import type { Voyage } from "./types";
 
@@ -49,6 +50,7 @@ export type { VoyageBounds, VoyageFit } from "./fit";
 
 export const VOYAGES: readonly Voyage[] = [
   GREAT_CRUSADE,
+  WARMASTER_WEB,
   LION,
   HORUS,
   GUILLIMAN,

@@ -99,6 +99,7 @@ export interface ResolvedVoyage {
   name: string;
   tag: string;
   blurb: string;
+  continuation?: Voyage["continuation"];
   cartography?: Voyage["cartography"];
   lbl: { x: number; y: number; t: string };
   stations: ResolvedStation[];
@@ -386,6 +387,7 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
     name: voyage.name,
     tag: voyage.tag,
     blurb: voyage.blurb,
+    ...(voyage.continuation ? { continuation: voyage.continuation } : {}),
     ...(voyage.cartography ? { cartography: voyage.cartography } : {}),
     lbl: voyage.lbl,
     stations,

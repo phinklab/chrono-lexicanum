@@ -118,9 +118,26 @@ if (greatCrusade && primarchII && primarchXI) {
     );
   }
 }
-const warmasterWeb = greatCrusade?.stations.at(-1);
-const webArms: VoyageArm[] = warmasterWeb && !isWaypoint(warmasterWeb) ? (warmasterWeb.arms ?? []) : [];
-check(warmasterWeb?.heading === "The Warmaster's Web", "Warmaster's Web is the final Great Crusade act");
+const greatCrusadeFinale = greatCrusade?.stations.at(-1);
+const finaleArms: VoyageArm[] =
+  greatCrusadeFinale && !isWaypoint(greatCrusadeFinale) ? (greatCrusadeFinale.arms ?? []) : [];
+const warmasterWeb = VOYAGES.find((v) => v.id === "warmasters-web");
+const warmasterAnchor = warmasterWeb?.stations[0];
+const webArms: VoyageArm[] =
+  warmasterAnchor && !isWaypoint(warmasterAnchor) ? (warmasterAnchor.arms ?? []) : [];
+check(greatCrusadeFinale?.heading === "The Great Crusade Ends", "Great Crusade ends before the Heresy journey");
+check(greatCrusade?.continuation?.id === "warmasters-web", "Great Crusade hands off to Warmaster's Web");
+check(
+  !!greatCrusadeFinale &&
+    !isWaypoint(greatCrusadeFinale) &&
+    greatCrusadeFinale.placement === undefined,
+  "Great Crusade finale carries no schematic placement block",
+);
+check(warmasterWeb !== undefined, "Warmaster's Web is its own journey");
+check(warmasterWeb?.stations.length === 1, "Warmaster's Web is a network-only journey");
+check(warmasterAnchor?.heading === "The Warmaster's Web", "Warmaster's Web owns the Heresy hand-off act");
+check(finaleArms === webArms, "Great Crusade finale and Heresy journey reuse one arm dataset");
+check(finaleArms.length === 18, "Great Crusade keeps the eighteen-arm closing image");
 check(webArms.length === 18, "Warmaster's Web carries one arm for every active Legion");
 check(new Set(webArms.map((arm) => arm.legion)).size === 18, "Warmaster's Web Legion arms are unique");
 check(
@@ -147,18 +164,19 @@ check(
   "Word Bearers pass through Isstvan V before Calth",
 );
 const greatResolved = greatCrusade ? resolveVoyage(greatCrusade, chart) : undefined;
-const webStep = (greatResolved?.stations.length ?? 0) - 1;
-check(greatResolved?.stations.at(-1)?.armCount === 18, "all eighteen Warmaster arms resolve");
-check(greatResolved?.strategicArms.length === 18, "all eighteen Warmaster arms remain individually interactive");
-check(greatResolved?.strategicTargets.length === 8, "Warmaster arms resolve to eight shared endpoints");
+const webResolved = warmasterWeb ? resolveVoyage(warmasterWeb, chart) : undefined;
+check(greatResolved?.stations.at(-1)?.armCount === 18, "Great Crusade still resolves its coloured finale");
+check(webResolved?.stations[0]?.armCount === 18, "all eighteen Warmaster arms resolve in their own journey");
+check(webResolved?.strategicArms.length === 18, "all eighteen Warmaster arms remain individually interactive");
+check(webResolved?.strategicTargets.length === 8, "Warmaster arms resolve to eight shared endpoints");
 check(
-  greatResolved?.strategicTargets
+  webResolved?.strategicTargets
     .find((target) => target.id === "world:istvaan-v")
     ?.legionIds.includes("XVII") === true,
   "Isstvan V endpoint includes the Word Bearers waypoint",
 );
 check(
-  greatResolved?.legRevealAt.filter((step) => step === webStep).length === 19,
+  webResolved?.legRevealAt.filter((step) => step === 0).length === 19,
   "all nineteen Warmaster arm segments reveal together on the final act",
 );
 
@@ -273,6 +291,13 @@ for (const v of VOYAGES) {
   check(v.name.trim().length > 0, `${v.id}: name`);
   check(v.tag.trim().length > 0, `${v.id}: tag`);
   check(v.blurb.trim().length > 0, `${v.id}: blurb`);
+  if (v.continuation) {
+    check(
+      VOYAGES.some((candidate) => candidate.id === v.continuation?.id),
+      `${v.id}: continuation resolves to a journey`,
+    );
+    check(v.continuation.label.trim().length > 0, `${v.id}: continuation label`);
+  }
   check(
     v.lbl.x >= 0 && v.lbl.x <= GRID_W && v.lbl.y >= 0 && v.lbl.y <= GRID_H,
     `${v.id}: label on the grid`,
@@ -281,7 +306,8 @@ for (const v of VOYAGES) {
   const anchors = v.stations.filter(
     (s): s is VoyageStation | VoyageChartPoint => !isWaypoint(s),
   );
-  check(anchors.length >= 2, `${v.id}: >= 2 route anchors`);
+  const networkOnly = anchors.length === 1 && (anchors[0].arms?.length ?? 0) > 0;
+  check(anchors.length >= 2 || networkOnly, `${v.id}: route or single-anchor strategic network`);
   check(!isWaypoint(v.stations[0]), `${v.id}: first stop is a station`);
   check(!isWaypoint(v.stations[v.stations.length - 1]), `${v.id}: last stop is a station`);
 

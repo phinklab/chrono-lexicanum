@@ -35,6 +35,8 @@ interface CourseCardsProps {
   onBack: () => void;
   /** Fly the tour again from the first station. */
   onRestart: () => void;
+  /** Enter the authored journey that follows this one. */
+  onContinue: (id: string) => void;
 }
 
 export default function CourseCards({
@@ -45,9 +47,12 @@ export default function CourseCards({
   selectedTarget = null,
   onBack,
   onRestart,
+  onContinue,
 }: CourseCardsProps) {
   const [dismissed, setDismissed] = useState(false);
   const st = resolved.stations[resolved.stations.length - 1];
+  const continuation = resolved.continuation;
+  const strategicSelection = !!st?.armCount && (!!selectedArm || !!selectedTarget);
   if (!st || dismissed) return null;
   return (
     <div
@@ -62,16 +67,7 @@ export default function CourseCards({
       >
         ✕
       </button>
-      {/* Same hierarchy as the tour card: name + text lead, date recedes. */}
-      {st.section && (
-        <p className="cg-tour-section" style={{ color: st.section.color }}>
-          {st.section.label}
-        </p>
-      )}
-      <p className="cg-tour-name">{st.heading}</p>
-      {st.date && <p className="cg-tour-date">{st.date}</p>}
-      <p className="ct">{st.text}</p>
-      {st.armCount && (
+      {strategicSelection ? (
         <StrategicReadout
           arm={selectedArm}
           target={selectedTarget}
@@ -83,16 +79,30 @@ export default function CourseCards({
                 : undefined
           }
         />
-      )}
-      {st.placement && (
-        <p className="cg-tour-placement">
-          {st.placement.precision === "relative" ? "INFERRED PLACEMENT" : "SCHEMATIC PLACEMENT"}
-          {" · "}
-          {st.placement.note}{" "}
-          <a href={st.placement.source} target="_blank" rel="noreferrer">
-            SOURCE ↗
-          </a>
-        </p>
+      ) : (
+        <>
+          {/* Same hierarchy as the tour card: name + text lead, date recedes. */}
+          {st.section && (
+            <p className="cg-tour-section" style={{ color: st.section.color }}>
+              {st.section.label}
+            </p>
+          )}
+          <p className="cg-tour-name">{st.heading}</p>
+          {st.date && <p className="cg-tour-date">{st.date}</p>}
+          <p className="ct">{st.text}</p>
+          {st.placement && (
+            <p className="cg-tour-placement">
+              {st.placement.precision === "relative"
+                ? "INFERRED PLACEMENT"
+                : "SCHEMATIC PLACEMENT"}
+              {" · "}
+              {st.placement.note}{" "}
+              <a href={st.placement.source} target="_blank" rel="noreferrer">
+                SOURCE ↗
+              </a>
+            </p>
+          )}
+        </>
       )}
       <div className="cg-tour-row">
         <button className="cpg quiet" onClick={onBack}>
@@ -102,6 +112,14 @@ export default function CourseCards({
           RESTART JOURNEY
         </button>
       </div>
+      {continuation && (
+        <button
+          className="cpg lead cg-tour-continuation"
+          onClick={() => onContinue(continuation.id)}
+        >
+          {continuation.label} →
+        </button>
+      )}
     </div>
   );
 }

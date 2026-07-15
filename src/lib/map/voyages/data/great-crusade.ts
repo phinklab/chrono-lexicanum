@@ -4,8 +4,8 @@
  * every lost
  * primarch in the canonical Black Library order (Lexicanum "Primarch"
  * discovery table = Fandom "Primarchs" list, identical), framed by the
- * conquest of Sol, Monarchia and Nikaea, then a strategic epilogue showing
- * how the eighteen active Legions were disposed as the Heresy opened.
+ * conquest of Sol, Monarchia and Nikaea, then a closing image of the eighteen
+ * Legion paths whose detailed accounts continue in The Warmaster's Web.
  *
  * Ullanor rides the `armageddon` pin as a world-identity anchor, not an M31
  * coordinate: Ullanor was teleported to the later Armageddon position long
@@ -109,6 +109,10 @@ export const GREAT_CRUSADE: Voyage = {
   name: "The Great Crusade",
   tag: "M30–M31",
   blurb: "From Terra's Unification to a Crusade spanning the stars: twenty rediscoveries, a triumph already cracking, and the Warmaster's final web.",
+  continuation: {
+    id: "warmasters-web",
+    label: "THE WARMASTER'S WEB · HORUS HERESY",
+  },
   cartography: {
     label: "curated chronicle",
     note: "The rediscovery roll follows the official chronology. Schematic points preserve erased or unlocated events; the final coloured arms show opening-Heresy dispositions, not simultaneous fleet tracks or eighteen orders issued at Ullanor.",
@@ -370,16 +374,11 @@ export const GREAT_CRUSADE: Voyage = {
     },
     {
       world: "armageddon",
-      heading: "The Warmaster's Web",
-      date: "004.M31 onward · Epilogue",
-      text: "After Davin, Horus turns the authority won at Ullanor into a trap drawn across the Imperium. Brighter arms mark direct deployments; quieter arms mark manipulated orders, targeted Legions and loyal responses. Select a destination for the shared design, or any coloured path for its Legion's part.",
+      heading: "The Great Crusade Ends",
+      date: "004.M31 · Threshold",
+      text: "The routes of conquest fracture into eighteen Legion paths. The worlds at their ends no longer belong to the Great Crusade, but to the opening moves of the Horus Heresy.",
       source: "https://www.warhammer-community.com/en-gb/articles/w3jmtzfv/traitor-lore-how-the-trap-was-set/",
       breakBefore: true,
-      placement: {
-        precision: "schematic",
-        note: "The arms radiate from Ullanor as the symbol of Horus' Warmaster authority. They summarise sourced dispositions from 004.M31 onward, not simultaneous departures, a headquarters coordinate or eighteen personal orders issued at the Triumph. Endpoint labels identify real systems; disclosed schematic pins do not claim canonical coordinates.",
-        source: "https://wh40k.lexicanum.com/wiki/Timeline_of_the_Horus_Heresy",
-      },
       arms: [
         {
           legion: "I",
