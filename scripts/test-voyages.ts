@@ -281,6 +281,66 @@ check(
   "Black Crusade colours remain visibly distinct",
 );
 
+const eisenhorn = VOYAGES.find((v) => v.id === "eisenhorn");
+check(eisenhorn !== undefined, "Eisenhorn journey exists");
+check(eisenhorn?.tag === "240–392.M41", "Eisenhorn scope matches the core trilogy chronology");
+check(eisenhorn?.stations.length === 16, "Eisenhorn audit preserves a lean sixteen-act trilogy");
+check(
+  eisenhorn?.sections?.map((section) => `${section.id}:${section.start}`).join("|") ===
+    "xenos:0|malleus:5|hereticus:11",
+  "Eisenhorn sections follow Xenos, Malleus and Hereticus in order",
+);
+const eisenhornPoints = eisenhorn?.stations.filter(isChartPoint) ?? [];
+const eisenhornPoint = (name: string) => eisenhornPoints.find((point) => point.name === name);
+const cinchare = eisenhornPoint("Cinchare");
+const jeganda = eisenhornPoint("Jeganda");
+const ghul = eisenhornPoint("Ghül");
+check(
+  cinchare?.placement.precision === "schematic" && cinchare.breakBefore === true,
+  "Cinchare exposes its Halo Zone position without inventing an incoming route",
+);
+check(jeganda?.placement.precision === "relative", "Jeganda exposes only its sourced outer-Scarus context");
+check(
+  ghul?.placement.precision === "schematic" && ghul.breakBefore === true,
+  "Ghül remains an isolated schematic destination beyond Imperial space",
+);
+check(eisenhorn?.stations.at(-1) === ghul && ghul?.date === "392.M41", "Ghül is the dated trilogy ending");
+const uncertainEisenhornWorlds = new Set([
+  "hubris",
+  "gudrun",
+  "damask",
+  "thracian-primaris",
+  "eechan",
+  "durer",
+]);
+check(
+  eisenhorn?.stations.every(
+    (station) =>
+      isWaypoint(station) ||
+      isChartPoint(station) ||
+      !uncertainEisenhornWorlds.has(station.world) ||
+      station.placement?.precision === "relative",
+  ) === true,
+  "every editorial Eisenhorn catalog pin discloses its relative placement",
+);
+const thracian = eisenhorn?.stations.find(
+  (station): station is VoyageStation =>
+    !isWaypoint(station) && !isChartPoint(station) && station.world === "thracian-primaris",
+);
+const durer = eisenhorn?.stations.find(
+  (station): station is VoyageStation =>
+    !isWaypoint(station) && !isChartPoint(station) && station.world === "durer",
+);
+const farness = eisenhornPoint("Farness Beta");
+check(thracian?.breakBefore === true && durer?.breakBefore === true, "the trilogy's century jumps break the route line");
+check(farness?.breakBefore === true, "Farness Beta does not inherit a false route from schematic Cinchare");
+check(
+  !/Gershom|King in Yellow|Magos coda/i.test(JSON.stringify(eisenhorn)),
+  "The Magos and Bequin-era coda stay outside the core Eisenhorn trilogy",
+);
+const eisenhornResolved = eisenhorn ? resolveVoyage(eisenhorn, chart) : undefined;
+check(eisenhornResolved?.legs.length === 10, "Eisenhorn resolves only its ten defensible route transitions");
+
 const indomitus = VOYAGES.find((v) => v.id === "indomitus");
 check(indomitus !== undefined, "Indomitus journey exists");
 const indomitusFleetSections = indomitus?.sections?.filter((section) => section.id.startsWith("fleet-")) ?? [];
