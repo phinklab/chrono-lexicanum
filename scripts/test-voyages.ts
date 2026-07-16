@@ -202,6 +202,50 @@ check(
 
 const abaddon = VOYAGES.find((v) => v.id === "abaddon");
 check(abaddon !== undefined, "Abaddon journey exists");
+check(abaddon?.name === "Abaddon · The Black Crusades", "Abaddon journey names its thirteen-campaign focus");
+check(abaddon?.tag === "M31–M41", "Abaddon journey ends with Cadia rather than its post-Crusade campaigns");
+check(abaddon?.stations.length === 40, "Abaddon audit preserves a lean forty-act campaign chronicle");
+check(
+  abaddon?.sections?.some((section) => section.id === "long-war-epilogue") === false,
+  "Abaddon journey no longer presents Vigilus as a Black Crusades epilogue",
+);
+const abaddonWorldStops =
+  abaddon?.stations.filter((station): station is VoyageStation => !isWaypoint(station) && !isChartPoint(station)) ?? [];
+check(
+  abaddonWorldStops.some((station) => station.world === "ornsworld" && station.breakBefore === true),
+  "the Gothic War includes the separate Ornsworld relic raid without inventing a route from Purgatory",
+);
+check(
+  abaddonWorldStops.filter((station) => station.world === "cadia").length === 2,
+  "Cadia appears only for the sourced pylon reversal and destruction climax",
+);
+check(
+  abaddonWorldStops.every((station) => station.world !== "vigilus"),
+  "Vigilus stays outside the Black Crusades journey focus",
+);
+const abaddonChartPoints = abaddon?.stations.filter(isChartPoint) ?? [];
+check(
+  abaddonChartPoints.some(
+    (station) => station.name === "Cadian Gate" && station.placement.precision === "relative",
+  ),
+  "Sigismund's void duel uses a relative Cadian Gate point rather than the Cadia surface pin",
+);
+check(
+  abaddonChartPoints.some(
+    (station) =>
+      station.name === "Uralan" &&
+      station.placement.precision === "schematic" &&
+      station.date === "late First Black Crusade · M31",
+  ),
+  "Uralan exposes its disputed position and avoids dating a decades-late objective to the launch year",
+);
+check(
+  abaddonChartPoints.some(
+    (station) =>
+      station.name === "Mackan" && station.placement.precision === "schematic" && station.breakBefore === true,
+  ),
+  "Mackan remains an isolated schematic battle rather than an exact Solar route",
+);
 const blackCrusadeStarts =
   abaddon?.stations.filter(
     (s) =>
