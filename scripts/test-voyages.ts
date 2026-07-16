@@ -17,7 +17,6 @@ import process from "node:process";
 
 import { validateMapWorlds, type MapWorldsFile } from "@/lib/map/map-worlds-schema";
 import { GRID_H, GRID_W } from "@/lib/map/projection";
-import { CURATED_ZONES } from "@/lib/map/zones";
 import {
   VOYAGES,
   isChartPoint,
@@ -360,56 +359,98 @@ check(
 
 const ghaz = VOYAGES.find((v) => v.id === "ghazghkull");
 check(ghaz !== undefined, "Ghazghkull journey exists");
+check(ghaz?.stations.length === 14, "Ghazghkull audit carries fourteen distinct story acts");
 const ghazPoint = (name: string): VoyageChartPoint | undefined =>
   ghaz?.stations.find((stop): stop is VoyageChartPoint => isChartPoint(stop) && stop.name === name);
+const ghazWorld = (world: string): VoyageStation | undefined =>
+  ghaz?.stations.find(
+    (stop): stop is VoyageStation => !isWaypoint(stop) && !isChartPoint(stop) && stop.world === world,
+  );
 const haunted = ghazPoint("Haunted Gulf");
-const urgok = ghazPoint("Urgok's Realm");
+const ironfoot = ghazPoint("Da Ironfoot");
 const fang = ghazPoint("Fang's World");
 const kongajaro = ghazPoint("Kongajaro");
 const kraken = ghazPoint("Black Kraken Nebula");
-check(!!haunted && !!urgok && !!fang && !!kongajaro && !!kraken, "Ghazghkull synthetic cluster exists");
-if (ghaz && haunted && urgok && fang && kongajaro && kraken) {
+const krongar = ghazPoint("Krongar");
+const icaria = ghazPoint("Icaria");
+check(!!haunted && !!ironfoot && !!fang && !!kongajaro && !!kraken, "Ghazghkull synthetic cluster exists");
+if (ghaz && haunted && ironfoot && fang && kongajaro && kraken) {
   const hauntedIndex = ghaz.stations.indexOf(haunted);
-  const urgokIndex = ghaz.stations.indexOf(urgok);
-  check(urgokIndex === hauntedIndex + 1, "Urgok follows the Haunted Gulf in chronology");
-  check(urgok.breakBefore === true, "Kill Wrecka's uncontrolled Warp jump breaks the Haunted Gulf–Urgok route");
-  const tau = CURATED_ZONES.find((zone) => zone.name === "Tau Empire");
-  check(tau !== undefined, "charted T'au zone exists");
-  const pointInPolygon = (x: number, y: number, points: [number, number][]) => {
-    let inside = false;
-    for (let i = 0, j = points.length - 1; i < points.length; j = i++) {
-      const [xi, yi] = points[i];
-      const [xj, yj] = points[j];
-      if ((yi > y) !== (yj > y) && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) inside = !inside;
-    }
-    return inside;
-  };
-  const pointSegmentDistance = (x: number, y: number, a: [number, number], b: [number, number]) => {
-    const dx = b[0] - a[0];
-    const dy = b[1] - a[1];
-    const t = Math.max(0, Math.min(1, ((x - a[0]) * dx + (y - a[1]) * dy) / (dx * dx + dy * dy)));
-    return Math.hypot(x - (a[0] + dx * t), y - (a[1] + dy * t));
-  };
-  if (tau) {
-    const edgeDistance = Math.min(
-      ...tau.points.map((point, index) => pointSegmentDistance(urgok.gx, urgok.gy, point, tau.points[(index + 1) % tau.points.length])),
-    );
-    check(edgeDistance <= 18, "Urgok is plotted on the T'au-zone border");
-    check(pointInPolygon(fang.gx, fang.gy, tau.points), "Fang's World overlaps the T'au zone");
-  }
-  check(Math.hypot(kongajaro.gx - urgok.gx, kongajaro.gy - urgok.gy) <= 35, "Kongajaro remains a nearby system");
+  const ironfootIndex = ghaz.stations.indexOf(ironfoot);
+  check(ironfootIndex === hauntedIndex + 1, "Da Ironfoot follows the Haunted Gulf in chronology");
+  check(
+    ironfoot.breakBefore !== true && ironfoot.leg?.effect === "jump",
+    "Kill Wrecka's uncontrolled Warp jump keeps chronology through a distinct dotted trace",
+  );
+  check(ironfoot.placement.precision === "schematic", "Da Ironfoot remains visibly schematic rather than a fixed planet");
+  check(fang.placement.precision === "relative", "Fang's World exposes only its relative place inside Urgok's realm");
+  check(Math.hypot(fang.gx - ironfoot.gx, fang.gy - ironfoot.gy) <= 25, "Fang's World stays close to Da Ironfoot");
+  check(Math.hypot(kongajaro.gx - ironfoot.gx, kongajaro.gy - ironfoot.gy) <= 35, "Kongajaro remains a nearby system");
   const octarius = worldById.get("octarius");
   check(octarius !== undefined, "Octarius catalog anchor exists");
   if (octarius) {
-    const dx = octarius.gx - urgok.gx;
-    const dy = octarius.gy - urgok.gy;
-    const t = ((kraken.gx - urgok.gx) * dx + (kraken.gy - urgok.gy) * dy) / (dx * dx + dy * dy);
-    const corridorDistance = Math.abs((kraken.gx - urgok.gx) * dy - (kraken.gy - urgok.gy) * dx) / Math.hypot(dx, dy);
+    const dx = octarius.gx - ironfoot.gx;
+    const dy = octarius.gy - ironfoot.gy;
+    const t = ((kraken.gx - ironfoot.gx) * dx + (kraken.gy - ironfoot.gy) * dy) / (dx * dx + dy * dy);
+    const corridorDistance = Math.abs((kraken.gx - ironfoot.gx) * dy - (kraken.gy - ironfoot.gy) * dx) / Math.hypot(dx, dy);
     check(t > 0.2 && t < 0.85 && corridorDistance < 40, "Black Kraken is a schematic corridor before Octarius");
-    const octariusStop = ghaz.stations.find((stop) => !isWaypoint(stop) && !isChartPoint(stop) && stop.world === "octarius");
-    check(octariusStop !== undefined, "Ghazghkull route terminates the recruitment run at catalog Octarius");
   }
 }
+check(
+  ghazWorld("golgotha")?.placement?.precision === "schematic",
+  "Golgotha exposes its conflicting Ultima and Armageddon Sector positions",
+);
+const octariaStops =
+  ghaz?.stations.filter(
+    (stop): stop is VoyageStation => !isWaypoint(stop) && !isChartPoint(stop) && stop.world === "octarius",
+  ) ?? [];
+check(octariaStops.length === 2, "Octaria separates the planetstrike from the Galactic Green Wave");
+check(
+  octariaStops[0]?.date === "836–851.999.M41" && octariaStops[1]?.date === "852.999.M41",
+  "Octaria chronology ends the Mawloc act before the 852.999.M41 psychic culmination",
+);
+check(
+  octariaStops[1]?.heading === "Octaria · The Galactic Green Wave",
+  "the Great Waaagh receives its named Galactic Green Wave turning point",
+);
+check(krongar?.placement.precision === "schematic", "Krongar replaces the catalog's incorrect Obscurus pin");
+check(
+  krongar?.breakBefore !== true && krongar?.leg?.effect === "jump",
+  "Krongar keeps chronology without presenting the Octaria bridge as an attested course",
+);
+check(
+  icaria?.breakBefore !== true && icaria?.leg?.effect === "jump",
+  "Icaria keeps chronology without presenting the post-Krongar bridge as an attested course",
+);
+check(ghazWorld("krongar") === undefined, "Ghazghkull journey no longer uses the incorrect catalog Krongar coordinate");
+check(
+  !JSON.stringify(ghaz).includes("warhammer40k.fandom.com"),
+  "Ghazghkull placements rely on official or Lexicanum provenance rather than Fandom",
+);
+const ghazLast = ghaz?.stations.at(-1);
+check(
+  !!ghazLast && !isWaypoint(ghazLast) && !isChartPoint(ghazLast) && ghazLast.world === "armageddon",
+  "Ghazghkull journey ends on Armageddon",
+);
+check(ghazLast?.date === "Era Indomitus · ongoing", "Armageddon ending is visibly current and ongoing");
+check(
+  !!ghazLast && !isWaypoint(ghazLast) && ghazLast.leg?.effect === "jump",
+  "the final return to Armageddon retains a distinct chronology bridge",
+);
+const ghazResolved = ghaz ? resolveVoyage(ghaz, chart) : undefined;
+check(ghazResolved?.legs.length === 13, "Ghazghkull connects every consecutive act");
+check(
+  ghazResolved?.legColors.every((color) => color === "#79b84a") === true,
+  "Ghazghkull's complete route carries the Ork-green visual identity",
+);
+check(
+  ghazResolved?.legEffects.filter((effect) => effect === "jump").length === 4,
+  "Ghazghkull distinguishes all four formerly disconnected chronology jumps",
+);
+check(
+  ghazResolved?.legs.every((leg, index) => ghazResolved.legEffects[index] !== "jump" || leg.includes(" L ")) === true,
+  "Ghazghkull jump traces travel directly rather than bowing like realspace courses",
+);
 
 for (const v of VOYAGES) {
   check(v.name.trim().length > 0, `${v.id}: name`);
@@ -484,6 +525,9 @@ for (const v of VOYAGES) {
       if (st.leg?.opacity !== undefined) {
         check(st.leg.opacity >= 0 && st.leg.opacity <= 1, `${v.id}[${si}]: leg opacity in 0–1`);
       }
+      if (st.leg?.effect !== undefined) {
+        check(st.leg.effect === "jump", `${v.id}[${si}]: leg effect is supported`);
+      }
       for (const arm of st.arms ?? []) {
         check(arm.legion.trim().length > 0, `${v.id}[${si}]: arm Legion identity`);
         check(arm.name.trim().length > 0, `${v.id}/${arm.legion}: arm Legion name`);
@@ -554,6 +598,7 @@ for (const v of VOYAGES) {
   check(resolved.legs.length === expectedLegs, `${v.id}: one leg per connected transition or strategic arm segment`);
   check(resolved.legColors.length === resolved.legs.length, `${v.id}: every leg has a shared renderer colour`);
   check(resolved.legOpacities.length === resolved.legs.length, `${v.id}: every leg has a shared renderer opacity`);
+  check(resolved.legEffects.length === resolved.legs.length, `${v.id}: every leg has a shared renderer effect`);
   check(resolved.legRevealAt.length === resolved.legs.length, `${v.id}: every leg has a reveal step`);
   for (const d of resolved.legs) {
     check(/^M -?[\d.]+ -?[\d.]+ (Q|L|C)/.test(d), `${v.id}: generated leg is a path (${d.slice(0, 24)}…)`);

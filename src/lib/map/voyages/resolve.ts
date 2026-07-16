@@ -116,6 +116,8 @@ export interface ResolvedVoyage {
   legColors: string[];
   /** Renderer opacity for each leg, aligned with `legs`. */
   legOpacities: number[];
+  /** Optional transition effect for each leg, aligned with `legs`. */
+  legEffects: Array<"course" | "jump">;
   /** First tour step at which each leg is revealed, aligned with `legs`.
    *  Several strategic arms may intentionally share one reveal step. */
   legRevealAt: number[];
@@ -236,6 +238,7 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
   const legs: string[] = [];
   const legColors: string[] = [];
   const legOpacities: number[] = [];
+  const legEffects: Array<"course" | "jump"> = [];
   const strategicArms: ResolvedVoyageArm[] = [];
   const strategicTargetById = new Map<string, ResolvedVoyageArmTarget>();
   const incomingLeg: number[] = anchors.map(() => -1);
@@ -247,6 +250,7 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
     legs.push(a.stop.leg?.d ?? legPath(anchors[previousAnchor].w, a.w, a.stop.leg?.bow));
     legColors.push(a.stop.leg?.color ?? sectionAt(a.stopIdx)?.color ?? "#b89b63");
     legOpacities.push(a.stop.leg?.opacity ?? 0.9);
+    legEffects.push(a.stop.leg?.effect ?? "course");
     incomingLeg[previousAnchor + 1] = legIndex;
     outgoingLeg[previousAnchor] = legIndex;
   });
@@ -355,6 +359,7 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
           legs.push(legPath(from, routeTarget, bow));
           legColors.push(arm.color);
           legOpacities.push(opacity);
+          legEffects.push("course");
           legRevealAt.push(revealAt);
           armLegIndices.push(legIndex);
           (branch ? branchLegIndices : mainLegIndices).push(legIndex);
@@ -451,6 +456,7 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
     legs,
     legColors,
     legOpacities,
+    legEffects,
     legRevealAt,
     strategicArms,
     strategicTargets: [...strategicTargetById.values()],

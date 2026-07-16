@@ -1025,13 +1025,14 @@ function drawRoute(
   ctx.globalAlpha = 0.9;
   ctx.lineWidth = 1.7 / camera.k;
   ctx.lineCap = "round";
-  ctx.setLineDash([2.2 / camera.k, 5.4 / camera.k]);
   voyage.legs.forEach((leg, legIndex) => {
     const arm = geometry.armByLeg.get(legIndex);
     if (arm && scene.hiddenArmLegions.has(arm.legion)) return;
     const selected = arm?.legion === scene.highlightedArmLegion;
+    const jump = voyage.legEffects[legIndex] === "jump";
     const fraction = state.fraction(legIndex);
     if (fraction <= 0) return;
+    ctx.setLineDash(jump ? [0.35 / camera.k, 4.2 / camera.k] : [2.2 / camera.k, 5.4 / camera.k]);
     ctx.strokeStyle = voyage.legColors[legIndex] ?? GOLD;
     ctx.globalAlpha = selected ? 1 : (voyage.legOpacities[legIndex] ?? 0.9);
     ctx.lineWidth = (selected ? 2.8 : 1.7) / camera.k;

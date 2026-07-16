@@ -158,6 +158,7 @@ export default function RoutesLayer({
         </defs>
       )}
       {resolved.legs.map((d, li) => {
+        const jump = resolved.legEffects[li] === "jump";
         const masked = !narrow && (tour ? drawingLegs.has(li) : true);
         const arm = armByLeg.get(li);
         const armAvailable =
@@ -179,13 +180,13 @@ export default function RoutesLayer({
         return (
           <g key={li}>
             <path
-              className={`cg-rtFly${legState(li)}${highlighted ? " is-selected" : ""}`}
+              className={`cg-rtFly${jump ? " cg-rtFly--jump" : ""}${legState(li)}${highlighted ? " is-selected" : ""}`}
               d={d}
               fill="none"
               stroke={resolved.legColors[li] ?? GOLD}
               strokeOpacity={armHidden ? 0 : (resolved.legOpacities[li] ?? 0.9)}
               strokeWidth={1.7}
-              strokeDasharray="1.6 4.6"
+              strokeDasharray={jump ? "0.2 3.4" : "1.6 4.6"}
               strokeLinecap="round"
               vectorEffect="non-scaling-stroke"
               style={

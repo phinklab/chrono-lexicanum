@@ -42,6 +42,9 @@ export interface LegOverride {
   /** Optional renderer opacity for this transition, in the inclusive 0–1
    *  range. Defaults to the normal route opacity. */
   opacity?: number;
+  /** A chronology-preserving jump whose realspace course is not asserted.
+   *  Renderers show it as a dotted trace rather than a normal flight path. */
+  effect?: "jump";
 }
 
 export interface VoyagePlacement {

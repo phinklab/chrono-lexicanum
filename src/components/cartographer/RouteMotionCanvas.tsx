@@ -7,13 +7,13 @@
  * on a transformed map that can flash the SVG backing store. The route stays
  * vector-authored, but its line is sampled into this small Canvas surface.
  *
- * Since 2026-07-13 the standing line is STATIC — a plain dashed line, no
- * dash drift (the maintainer tried direction chevrons and preferred the
- * dashes). The old perpetual 30 fps drift kept invalidating a fullscreen
- * layer and the entity flicker on drag came back with it. Now the canvas
- * repaints only (a) on camera frames (the route must track the chart) and
- * (b) during the bounded draw-in window when the tour enters a new leg.
- * Idle = zero repaints. Static SVG rings/labels remain in RoutesLayer.
+ * Since 2026-07-13 the standing line is STATIC — normal course legs use the
+ * preferred plain dashes while chronology-preserving jumps use compact dots.
+ * The old perpetual 30 fps drift kept invalidating a fullscreen layer
+ * and the entity flicker on drag came back with it. Now the canvas repaints
+ * only (a) on camera frames (the route must track the chart) and (b) during
+ * the bounded draw-in window when the tour enters a new leg. Idle = zero
+ * repaints. Static SVG rings/labels remain in RoutesLayer.
  */
 
 import { useEffect, useRef } from "react";
@@ -148,9 +148,6 @@ export default function RouteMotionCanvas({
       ctx.clearRect(0, 0, rect.width, rect.height);
       ctx.lineWidth = 1.7;
       ctx.lineCap = "round";
-      // Static dash pattern — same voice as the desktop SVG line, but the
-      // offset never moves (the drift was the flicker driver).
-      ctx.setLineDash([2.2, 5.4]);
       ctx.lineDashOffset = 0;
 
       const elapsed = now - startedAt;
@@ -158,8 +155,10 @@ export default function RouteMotionCanvas({
         const arm = armByLeg.get(legIndex);
         if (arm && hiddenArmLegions.has(arm.legion)) return;
         const selected = arm?.legion === highlightedArmLegion;
+        const jump = resolved.legEffects[legIndex] === "jump";
         const fraction = revealFraction(legIndex, elapsed);
         if (fraction <= 0) return;
+        ctx.setLineDash(jump ? [0.35, 4.2] : [2.2, 5.4]);
         ctx.globalAlpha = selected ? 1 : (resolved.legOpacities[legIndex] ?? 0.9);
         ctx.lineWidth = selected ? 2.8 : 1.7;
         ctx.strokeStyle = resolved.legColors[legIndex] ?? GOLD;
