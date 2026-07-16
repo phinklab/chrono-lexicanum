@@ -452,6 +452,77 @@ check(
   "Ghazghkull jump traces travel directly rather than bowing like realspace courses",
 );
 
+const yvraine = VOYAGES.find((v) => v.id === "yvraine");
+check(yvraine !== undefined, "Yvraine journey exists");
+check(yvraine?.stations.length === 22, "Yvraine carries twenty-one audited acts plus Threccia");
+check(
+  yvraine?.sections?.map((section) => `${section.id}:${section.start}`).join("|") ===
+    "many-paths:0|seventh-path:2|cronesword-quest:11|the-hunter:18",
+  "Yvraine's sections preserve the four-part chronology",
+);
+check(
+  /pale-cyan dotted traces/.test(yvraine?.cartography?.note ?? ""),
+  "Yvraine discloses the Webway line language",
+);
+const yvrainePoint = (name: string): VoyageChartPoint | undefined =>
+  yvraine?.stations.find(
+    (stop): stop is VoyageChartPoint => isChartPoint(stop) && stop.name === name,
+  );
+const gnosis = yvrainePoint("Gnosis Prime");
+const psychedelta = yvrainePoint("Psychedelta");
+const threccia = yvrainePoint("Threccia");
+const iathglas = yvrainePoint("Iathglas");
+check(gnosis?.date === "838.M41", "Gnosis Prime carries its sourced date");
+check(
+  psychedelta?.heading === "Psychedelta · The Rubric Reversed",
+  "Psychedelta no longer asserts an unsupported count",
+);
+check(
+  threccia?.date === "early M42" && threccia.placement.precision === "schematic",
+  "Threccia is present as the sourced, schematically placed Shalaxi turning point",
+);
+check(
+  iathglas !== undefined && iathglas.gx < 244 && /Segmentum Pacificus/.test(iathglas.placement.note),
+  "Iathglas follows the Phoenix Rising Pacificus placement rather than the conflicting Ultima infobox",
+);
+const webwayArrivals = new Set([
+  "Ursulia · The Obsidian Gate",
+  "Biel-Tan · The Fracture",
+  "Iyanden · The Prince Reborn",
+  "Psychedelta · The Rubric Reversed",
+  "Klaisus · The Fractured Road",
+  "Macragge · The Avenging Son Returns",
+  "Black Library · The Rose of Isha",
+  "Garden of Nurgle · The Hand of Darkness",
+  "Einerash · The Dead City",
+  "Ulthwé · The Gate of Malice",
+  "Zaisuthra · The Well of the Dead",
+  "Threccia · The Hunter in the Paths",
+  "Zandros · Death and Rebirth",
+]);
+const authoredWebwayArrivals =
+  yvraine?.stations.filter(
+    (stop): stop is VoyageStation | VoyageChartPoint =>
+      !isWaypoint(stop) && webwayArrivals.has(stop.heading ?? ""),
+  ) ?? [];
+check(authoredWebwayArrivals.length === 13, "Yvraine identifies every sourced Webway transition");
+check(
+  authoredWebwayArrivals.every(
+    (stop) =>
+      stop.breakBefore !== true &&
+      stop.leg?.effect === "jump" &&
+      stop.leg.color === "#9ce6ff" &&
+      stop.leg.opacity === 0.82,
+  ),
+  "Yvraine's Webway journeys remain connected as pale-cyan dotted traces",
+);
+const yvraineResolved = yvraine ? resolveVoyage(yvraine, chart) : undefined;
+check(yvraineResolved?.legs.length === 14, "Yvraine draws thirteen Webway passages and one grounded course");
+check(
+  yvraineResolved?.legEffects.filter((effect) => effect === "jump").length === 13,
+  "Yvraine's resolved route preserves all thirteen Webway passages",
+);
+
 for (const v of VOYAGES) {
   check(v.name.trim().length > 0, `${v.id}: name`);
   check(v.tag.trim().length > 0, `${v.id}: tag`);
