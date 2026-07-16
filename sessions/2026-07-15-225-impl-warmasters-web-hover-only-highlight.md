@@ -1,12 +1,12 @@
 ---
-session: 2026-07-15-224
+session: 2026-07-15-225
 role: implementer
 date: 2026-07-15
 status: complete
 slug: warmasters-web-hover-only-highlight
-parent: 2026-07-15-223
+parent: 2026-07-15-224
 links:
-  - sessions/2026-07-15-223-impl-warmasters-web-legion-route-controls.md
+  - sessions/2026-07-15-224-impl-warmasters-web-legion-route-controls.md
 commits:
   - 98bb562
 ---
@@ -50,4 +50,4 @@ None.
 
 ## References
 
-- `sessions/2026-07-15-223-impl-warmasters-web-legion-route-controls.md`
+- `sessions/2026-07-15-224-impl-warmasters-web-legion-route-controls.md`

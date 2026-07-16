@@ -1,12 +1,12 @@
 ---
-session: 2026-07-15-221
+session: 2026-07-15-222
 role: implementer
 date: 2026-07-15
 status: complete
 slug: warmasters-web-single-route-tour
-parent: 2026-07-15-220
+parent: 2026-07-15-221
 links:
-  - sessions/2026-07-15-220-impl-warmasters-web-legion-steps.md
+  - sessions/2026-07-15-221-impl-warmasters-web-legion-steps.md
 commits:
   - 9ed3f54
 ---
@@ -53,4 +53,4 @@ None.
 
 ## References
 
-- `sessions/2026-07-15-220-impl-warmasters-web-legion-steps.md`
+- `sessions/2026-07-15-221-impl-warmasters-web-legion-steps.md`

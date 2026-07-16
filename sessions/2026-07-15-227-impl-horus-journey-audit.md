@@ -1,12 +1,12 @@
 ---
-session: 2026-07-15-226
+session: 2026-07-15-227
 role: implementer
 date: 2026-07-15
 status: complete
 slug: horus-journey-audit
-parent: 2026-07-15-219
+parent: 2026-07-15-220
 links:
-  - sessions/2026-07-15-219-impl-great-crusade-journey-audit.md
+  - sessions/2026-07-15-220-impl-great-crusade-journey-audit.md
 commits: []
 ---
 
