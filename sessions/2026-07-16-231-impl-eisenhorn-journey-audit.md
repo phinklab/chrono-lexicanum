@@ -1,18 +1,18 @@
 ---
-session: 2026-07-16-230
+session: 2026-07-16-231
 role: implementer
 date: 2026-07-16
 status: complete
 slug: eisenhorn-journey-audit
-parent: 2026-07-15-219
+parent: 2026-07-15-220
 links:
   - sessions/2026-07-14-217-impl-journey-lore-prototypes.md
   - sessions/2026-07-14-218-impl-journey-spatial-audit.md
-  - sessions/2026-07-15-219-impl-great-crusade-journey-audit.md
-  - sessions/2026-07-15-226-impl-horus-journey-audit.md
-  - sessions/2026-07-16-227-impl-guilliman-journey-audit.md
-  - sessions/2026-07-16-228-impl-garro-journey-audit.md
-  - sessions/2026-07-16-229-impl-abaddon-black-crusades-journey-audit.md
+  - sessions/2026-07-15-220-impl-great-crusade-journey-audit.md
+  - sessions/2026-07-15-227-impl-horus-journey-audit.md
+  - sessions/2026-07-16-228-impl-guilliman-journey-audit.md
+  - sessions/2026-07-16-229-impl-garro-journey-audit.md
+  - sessions/2026-07-16-230-impl-abaddon-black-crusades-journey-audit.md
 commits: []
 ---
 

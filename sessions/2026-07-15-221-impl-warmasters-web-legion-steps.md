@@ -1,12 +1,12 @@
 ---
-session: 2026-07-15-220
+session: 2026-07-15-221
 role: implementer
 date: 2026-07-15
 status: complete
 slug: warmasters-web-legion-steps
-parent: 2026-07-15-219
+parent: 2026-07-15-220
 links:
-  - sessions/2026-07-15-219-impl-great-crusade-journey-audit.md
+  - sessions/2026-07-15-220-impl-great-crusade-journey-audit.md
 commits:
   - 9ff57fa
 ---

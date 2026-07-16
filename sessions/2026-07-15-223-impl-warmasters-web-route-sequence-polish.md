@@ -1,12 +1,12 @@
 ---
-session: 2026-07-15-222
+session: 2026-07-15-223
 role: implementer
 date: 2026-07-15
 status: complete
 slug: warmasters-web-route-sequence-polish
-parent: 2026-07-15-221
+parent: 2026-07-15-222
 links:
-  - sessions/2026-07-15-221-impl-warmasters-web-single-route-tour.md
+  - sessions/2026-07-15-222-impl-warmasters-web-single-route-tour.md
 commits:
   - 20bae45
 ---
@@ -54,4 +54,4 @@ None.
 
 ## References
 
-- `sessions/2026-07-15-221-impl-warmasters-web-single-route-tour.md`
+- `sessions/2026-07-15-222-impl-warmasters-web-single-route-tour.md`

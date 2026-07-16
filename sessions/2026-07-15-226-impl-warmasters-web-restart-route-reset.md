@@ -1,12 +1,12 @@
 ---
-session: 2026-07-15-225
+session: 2026-07-15-226
 role: implementer
 date: 2026-07-15
 status: complete
 slug: warmasters-web-restart-route-reset
-parent: 2026-07-15-224
+parent: 2026-07-15-225
 links:
-  - sessions/2026-07-15-224-impl-warmasters-web-hover-only-highlight.md
+  - sessions/2026-07-15-225-impl-warmasters-web-hover-only-highlight.md
 commits:
   - 6e5f824
 ---
@@ -47,4 +47,4 @@ None.
 
 ## References
 
-- `sessions/2026-07-15-224-impl-warmasters-web-hover-only-highlight.md`
+- `sessions/2026-07-15-225-impl-warmasters-web-hover-only-highlight.md`

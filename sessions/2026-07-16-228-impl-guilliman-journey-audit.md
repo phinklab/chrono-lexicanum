@@ -1,13 +1,13 @@
 ---
-session: 2026-07-16-227
+session: 2026-07-16-228
 role: implementer
 date: 2026-07-16
 status: complete
 slug: guilliman-journey-audit
-parent: 2026-07-15-219
+parent: 2026-07-15-220
 links:
-  - sessions/2026-07-15-219-impl-great-crusade-journey-audit.md
-  - sessions/2026-07-15-226-impl-horus-journey-audit.md
+  - sessions/2026-07-15-220-impl-great-crusade-journey-audit.md
+  - sessions/2026-07-15-227-impl-horus-journey-audit.md
 commits: []
 ---
 

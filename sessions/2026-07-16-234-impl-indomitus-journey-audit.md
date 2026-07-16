@@ -1,16 +1,16 @@
 ---
-session: 2026-07-16-233
+session: 2026-07-16-234
 role: implementer
 date: 2026-07-16
 status: complete
 slug: indomitus-journey-audit
-parent: 2026-07-15-219
+parent: 2026-07-15-220
 links:
   - sessions/2026-07-13-215-impl-great-journeys-five-route-expansion.md
   - sessions/2026-07-14-217-impl-journey-lore-prototypes.md
   - sessions/2026-07-14-218-impl-journey-spatial-audit.md
-  - sessions/2026-07-15-219-impl-great-crusade-journey-audit.md
-  - sessions/2026-07-16-232-impl-yvraine-journey-audit.md
+  - sessions/2026-07-15-220-impl-great-crusade-journey-audit.md
+  - sessions/2026-07-16-233-impl-yvraine-journey-audit.md
 commits: []
 ---
 

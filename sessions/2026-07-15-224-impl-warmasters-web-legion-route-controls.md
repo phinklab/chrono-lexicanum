@@ -1,12 +1,12 @@
 ---
-session: 2026-07-15-223
+session: 2026-07-15-224
 role: implementer
 date: 2026-07-15
 status: complete
 slug: warmasters-web-legion-route-controls
-parent: 2026-07-15-222
+parent: 2026-07-15-223
 links:
-  - sessions/2026-07-15-222-impl-warmasters-web-route-sequence-polish.md
+  - sessions/2026-07-15-223-impl-warmasters-web-route-sequence-polish.md
 commits:
   - 4da8505
 ---
@@ -55,4 +55,4 @@ None.
 
 ## References
 
-- `sessions/2026-07-15-222-impl-warmasters-web-route-sequence-polish.md`
+- `sessions/2026-07-15-223-impl-warmasters-web-route-sequence-polish.md`
