@@ -343,18 +343,33 @@ check(eisenhornResolved?.legs.length === 10, "Eisenhorn resolves only its ten de
 const indomitus = VOYAGES.find((v) => v.id === "indomitus");
 check(indomitus !== undefined, "Indomitus journey exists");
 const indomitusFleetSections = indomitus?.sections?.filter((section) => section.id.startsWith("fleet-")) ?? [];
-check(indomitusFleetSections.length === 5, "Indomitus exposes its three fleet axes and two battle-group branches");
+check(indomitusFleetSections.length === 6, "Indomitus exposes its three fleet axes and three grounded branch phases");
 check(
   new Set(indomitusFleetSections.map((section) => section.color)).size === 3,
   "Indomitus uses one distinct colour per numbered fleet",
 );
-const indomitusResolved = indomitus ? resolveVoyage(indomitus, chart) : undefined;
-check(indomitusResolved?.legs.length === 16, "Indomitus campaign network resolves sixteen movement legs");
-const pariahConvergence = indomitusResolved?.stations.filter((station) => station.id === "pariah-nexus") ?? [];
-check(pariahConvergence.length === 2, "Indomitus plots both fleet arrivals at the Pariah Nexus");
+check(indomitus?.stations.length === 22, "Indomitus audit retains a lean twenty-two-act campaign network");
 check(
-  new Set(pariahConvergence.map((station) => station.section?.color)).size === 2,
-  "Primus and Tertius retain their fleet colours at the Pariah convergence",
+  indomitus?.stations.some((station) => "world" in station && station.world === "fenris") === true,
+  "Indomitus includes the missing Fleet Primus turn at Fenris",
+);
+const indomitusResolved = indomitus ? resolveVoyage(indomitus, chart) : undefined;
+check(indomitusResolved?.legs.length === 13, "Indomitus resolves only its thirteen defensible movement legs");
+const pariahConvergence = indomitusResolved?.stations.filter((station) => station.id === "pariah-nexus") ?? [];
+check(pariahConvergence.length === 1, "Indomitus uses one shared Pariah theatre instead of duplicate fleet endpoints");
+check(
+  indomitus?.stations.some(
+    (station) =>
+      "world" in station &&
+      station.world === "pariah-nexus" &&
+      station.breakBefore === true &&
+      station.placement?.precision === "schematic",
+  ) === true,
+  "Indomitus disconnects the unsupported Pariah transit and discloses the region-scale pin",
+);
+check(
+  !indomitus?.stations.some((station) => station.date?.includes("M42") || station.date?.includes("M41")),
+  "Indomitus uses relative chronology instead of disputed absolute M41/M42 dates",
 );
 
 const ghaz = VOYAGES.find((v) => v.id === "ghazghkull");
