@@ -1,5 +1,5 @@
 /**
- * Abaddon's Long War as thirteen disconnected campaign sorties. Every
+ * Abaddon's Black Crusades as thirteen disconnected campaign sorties. Every
  * numbered Black Crusade restarts at the Eye of Terror; `breakBefore`
  * prevents the chronology from drawing false travel between one crusade's
  * endpoint and the next one's muster. Within a sortie, the route follows
@@ -29,7 +29,7 @@ export const BLACK_CRUSADE_PALETTE = [
 ] as const;
 
 const roman = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII"] as const;
-const starts = [2, 5, 8, 11, 14, 16, 18, 20, 23, 26, 29, 31, 38] as const;
+const starts = [2, 5, 8, 10, 12, 14, 16, 18, 21, 24, 27, 29, 37] as const;
 
 export const BLACK_CRUSADE_SECTIONS = roman.map((numeral, index) => ({
   id: `black-crusade-${index + 1}`,
@@ -40,25 +40,29 @@ export const BLACK_CRUSADE_SECTIONS = roman.map((numeral, index) => ({
 
 export const ABADDON: Voyage = {
   id: "abaddon",
-  name: "Abaddon · The Long War",
-  tag: "M31–M42",
-  blurb: "Thirteen separate sorties from the Eye of Terror, each ending at the objective its apparent defeat concealed.",
+  name: "Abaddon · The Black Crusades",
+  tag: "M31–M41",
+  blurb: "Thirteen invasions from the Eye of Terror, each with a distinct objective, culminating in the fall of Cadia.",
   cartography: {
-    label: "13 campaign sorties",
-    note: "Each numbered route restarts at the Eye of Terror. Lines connect only theatres within that Crusade; launch cards summarise concurrent fleet actions that cannot honestly be drawn as one itinerary.",
+    label: "13 Black Crusades",
+    note: "Each numbered route restarts at the Eye of Terror. Lines connect only documented movements within that Crusade; breaks and placement notes mark concurrent actions or locations the sources do not fix precisely.",
   },
   sections: [
-    { id: "long-war-prologue", label: "LONG WAR · PROLOGUE", color: "#b89b63", start: 0 },
+    { id: "black-crusades-prologue", label: "THE BLACK CRUSADES · PROLOGUE", color: "#b89b63", start: 0 },
     ...BLACK_CRUSADE_SECTIONS,
-    { id: "long-war-epilogue", label: "LONG WAR · EPILOGUE", color: "#b89b63", start: 41 },
   ],
   stations: [
     {
       world: "eye-of-terror",
       heading: "Eleusinian Veil · The Exile",
       date: "late M31 · Prologue",
-      text: "Deep within the Eye at the Eleusinian Veil, the Vengeful Spirit drifts in silence while its captain searches the Warp for meaning. Falkus Kibre and Iskandar Khayon find Abaddon there and bring him the summons that will end his exile.",
+      text: "Deep within the Eye at the Eleusinian Veil, the Vengeful Spirit drifts in silence while its captain searches the Warp for meaning. Sargon leads Iskandar Khayon, Falkus Kibre and their allies to Abaddon, ending his long exile.",
       source: "https://wh40k.lexicanum.com/wiki/Battle_of_Harmony",
+      placement: {
+        precision: "relative",
+        note: "The Eleusinian Veil lies inside the Eye of Terror, but no stable internal coordinate is published; the Eye marker anchors the scene rather than fixing the Vengeful Spirit's position.",
+        source: "https://wh40k.lexicanum.com/wiki/Battle_of_Harmony",
+      },
     },
     {
       name: "Harmony",
@@ -66,7 +70,7 @@ export const ABADDON: Voyage = {
       gy: 220,
       heading: "Harmony · A Legion Reborn",
       date: "late M31 · Prologue",
-      text: "Canticle City burns, the Emperor's Children break and Abaddon destroys Fabius Bile's clone of Horus with the Talon of Horus. Above Harmony, the victors cast their old Legion names aside and raise the black standard.",
+      text: "Before the assault, Abaddon names the new Black Legion and raises its standard above Harmony. Canticle City burns, the Emperor's Children break and Abaddon destroys Fabius Bile's clone of Horus with the Talon of Horus.",
       source: "https://wh40k.lexicanum.com/wiki/Battle_of_Harmony",
       placement: {
         precision: "relative",
@@ -84,18 +88,32 @@ export const ABADDON: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/1st_Black_Crusade",
     },
     {
-      world: "cadia",
-      heading: "Cadia · We Are Returned",
+      name: "Cadian Gate",
+      gx: 271,
+      gy: 228,
+      heading: "Cadian Gate · We Are Returned",
       date: "781.M31",
-      text: "Abaddon boards the Eternal Crusader and meets Sigismund blade to blade. He kills the ancient champion only after taking a wound that nearly ends the Long War at its beginning.",
+      text: "In the void of the Cadian Gate, Abaddon boards the Eternal Crusader and meets Sigismund blade to blade. He kills the ancient champion only after taking a wound that nearly ends his war at its beginning.",
       source: "https://wh40k.lexicanum.com/wiki/1st_Black_Crusade",
+      placement: {
+        precision: "relative",
+        note: "The duel occurs aboard the Eternal Crusader within the Cadian Gate, not on Cadia; the point is placed between the Eye and the fortress world without claiming a battle coordinate.",
+        source: "https://wh40k.lexicanum.com/wiki/1st_Black_Crusade",
+      },
     },
     {
-      world: "uralan",
+      name: "Uralan",
+      gx: 302,
+      gy: 251,
       heading: "Uralan · The First Sword",
-      date: "781.M31",
+      date: "late First Black Crusade · M31",
       text: "Beneath Uralan, the Despoiler enters the Tower of Silence and faces the thing bound within. He emerges carrying Drach'nyen, the daemon blade that will open the Imperium for him.",
       source: "https://wh40k.lexicanum.com/wiki/1st_Black_Crusade",
+      placement: {
+        precision: "schematic",
+        note: "Sources place Uralan inconsistently inside or beyond the Eye of Terror. Its point preserves the documented journey from the Cadian Gate without asserting which location tradition is exact.",
+        source: "https://wh40k.lexicanum.com/wiki/Uralan",
+      },
     },
 
     {
@@ -108,10 +126,15 @@ export const ABADDON: Voyage = {
     },
     {
       world: "belis-corona",
-      heading: "Belis Corona · The Sleeping Curse",
+      heading: "Belis Corona System · The Outer Moon",
       date: "597.M32",
       text: "While Black Legion fleets destroy the naval yards, Abaddon lands upon the system's outermost moon. His ritual buries a mutagenic curse that will wake centuries after the fleet has gone.",
       source: "https://wh40k.lexicanum.com/wiki/2nd_Black_Crusade",
+      placement: {
+        precision: "relative",
+        note: "The ritual occurs on the system's outermost moon rather than Belis Corona itself; the catalog world is used only as the system anchor.",
+        source: "https://wh40k.lexicanum.com/wiki/2nd_Black_Crusade",
+      },
     },
     {
       name: "Nemesis Tessera",
@@ -137,13 +160,6 @@ export const ABADDON: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/3rd_Black_Crusade",
     },
     {
-      world: "cadia",
-      heading: "Cadia · The Daemon's Diversion",
-      date: "909.M32",
-      text: "At the Cadian Gate, Tallomin's daemonic host kills millions before the Space Wolves drive it back into the Warp. By then the defenders have looked exactly where Abaddon wanted.",
-      source: "https://wh40k.lexicanum.com/wiki/3rd_Black_Crusade",
-    },
-    {
       name: "Gerstahl",
       gx: 310,
       gy: 255,
@@ -152,8 +168,8 @@ export const ABADDON: Voyage = {
       text: "On Gerstahl, Abaddon destroys the shrine and remains of the Imperial saint, forestalling the prophecy attached to them. Tactical defeat at Cadia conceals the Crusade's intended victory.",
       source: "https://wh40k.lexicanum.com/wiki/3rd_Black_Crusade",
       placement: {
-        precision: "relative",
-        note: "The Third Crusade is fixed to the Cadian Gate and Gerstahl is its concealed objective; no independent system coordinate survives, so the shrine world is placed near Cadia.",
+        precision: "schematic",
+        note: "The Third Crusade identifies Gerstahl as Abaddon's concealed objective but supplies no sector or system coordinate; its point marks the Cadian Gate theatre only in broad terms.",
         source: "https://wh40k.lexicanum.com/wiki/3rd_Black_Crusade",
       },
     },
@@ -164,13 +180,6 @@ export const ABADDON: Voyage = {
       heading: "IV · The Devastation of El'Phanor",
       date: "001.M34",
       text: "The Fourth Crusade besieges Cadia while the bulk of Abaddon's force drives into Segmentum Obscurus. The march ends at El'Phanor, where the Grand Citadel of Kromarch anchors the Gate's deeper defence.",
-      source: "https://wh40k.lexicanum.com/wiki/4th_Black_Crusade",
-    },
-    {
-      world: "cadia",
-      heading: "Cadia · The Holding Siege",
-      date: "001.M34",
-      text: "Cadia is pinned beneath another siege while Abaddon takes the bulk of his strength beyond the Gate. It is the campaign's hinge rather than its final target.",
       source: "https://wh40k.lexicanum.com/wiki/4th_Black_Crusade",
     },
     {
@@ -236,11 +245,19 @@ export const ABADDON: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/7th_Black_Crusade",
     },
     {
-      world: "mackan",
+      name: "Mackan",
+      gx: 335,
+      gy: 205,
       heading: "Mackan · The Gene-Seed Harvest",
-      date: "811.M37",
-      text: "Abaddon kills Captain Acrion and nearly destroys the Blood Angels before the Death Company drives his warriors back. The Black Legion leaves with the gene-seed the Ghost War came to claim.",
+      date: "during VII · from 811.M37",
+      text: "Abaddon kills Captain Acrion and nearly destroys the Blood Angels. Captain Jorus and the Death Company later tear through much of Abaddon's honour guard before they too are slain; the Black Legion leaves with the gene-seed the Ghost War came to claim.",
       source: "https://wh40k.lexicanum.com/wiki/7th_Black_Crusade",
+      breakBefore: true,
+      placement: {
+        precision: "schematic",
+        note: "Mackan's segmentum, sector and system are not established consistently. The isolated point records the battle without turning its unknown location into a route from the Eye.",
+        source: "https://wh40k.lexicanum.com/wiki/Mackan",
+      },
     },
 
     {
@@ -286,7 +303,7 @@ export const ABADDON: Voyage = {
       world: "eye-of-terror",
       breakBefore: true,
       heading: "IX · The Starving of Cancephalus",
-      date: "537.M38",
+      date: "M37 or 537.M38 · disputed",
       text: "The Ninth Crusade launches from the Eye to draw the fortress of Cancephalus dry. Antecanis is the massacre that pulls relief forces away; seventeen years of war then leave the sector open to Abaddon's fleets.",
       source: "https://wh40k.lexicanum.com/wiki/9th_Black_Crusade",
     },
@@ -295,8 +312,8 @@ export const ABADDON: Voyage = {
       gx: 340,
       gy: 160,
       heading: "Antecanis · Monarchive",
-      date: "537.M38",
-      text: "Abaddon storms Monarchive's innermost sanctuaries in person, then returns to orbit. Cyclonic torpedoes erase Antecanis behind him and make the diversion impossible to ignore.",
+      date: "Ninth Black Crusade · disputed",
+      text: "Abaddon storms Monarchive's innermost sanctuaries in person, then returns to orbit. His fleet bombards and devastates Antecanis, making the diversion impossible to ignore.",
       source: "https://wh40k.lexicanum.com/wiki/9th_Black_Crusade",
       placement: {
         precision: "schematic",
@@ -309,7 +326,7 @@ export const ABADDON: Voyage = {
       gx: 360,
       gy: 145,
       heading: "Cancephalus · Starved, Not Stormed",
-      date: "537–554.M38",
+      date: "17-year aftermath · disputed date",
       text: "The naval fortress is the campaign's objective rather than a claimed planetfall. Its fleets are pulled into seventeen years of fighting until Abaddon can ravage the surrounding sector at will.",
       source: "https://wh40k.lexicanum.com/wiki/9th_Black_Crusade",
       placement: {
@@ -331,7 +348,7 @@ export const ABADDON: Voyage = {
       world: "thracian-primaris",
       heading: "Thracian Primaris · The Helican Feint",
       date: "001.M39",
-      text: "The Black Legion fleet attacks the sector capital while Abaddon's warlords scatter across scores of worlds. The feint masks the debt of vengeance being paid elsewhere.",
+      text: "A Black Legion fleet attacks the sector capital while Abaddon's warlords scatter across scores of worlds. The fleet-wide feint masks the debt of vengeance being paid elsewhere at Medusa.",
       source: "https://wh40k.lexicanum.com/wiki/10th_Black_Crusade",
       breakBefore: true,
     },
@@ -372,8 +389,8 @@ export const ABADDON: Voyage = {
       world: "eye-of-terror",
       breakBefore: true,
       heading: "XII · The Gothic War",
-      date: "139–160.M41",
-      text: "Relics stolen at the edge of the Eye awaken the Blackstone Fortresses, and the Twelfth Crusade becomes a twenty-year void war across the Gothic Sector. Unlike the sparse sorties, its major objectives form a documented campaign chain.",
+      date: "prelude 139 · war 142–160.M41",
+      text: "Relics stolen at the edge of the Eye prepare the Blackstone Fortresses for war, and the Twelfth Crusade becomes a decades-long void campaign across the Gothic Sector. Its major objectives form a documented campaign chain.",
       source: "https://wh40k.lexicanum.com/wiki/12th_Black_Crusade",
     },
     {
@@ -384,17 +401,31 @@ export const ABADDON: Voyage = {
       source: "https://wh40k.lexicanum.com/wiki/12th_Black_Crusade",
     },
     {
+      world: "ornsworld",
+      heading: "Ornsworld · The Eye of Night",
+      date: "c. 139.M41 · Prelude",
+      text: "A second raid claims the Eye of Night from Ornsworld. Together with the Hand of Darkness, the relic gives Abaddon the means to awaken and command the Gothic Sector's Blackstone Fortresses.",
+      source: "https://wh40k.lexicanum.com/wiki/12th_Black_Crusade",
+      breakBefore: true,
+      placement: {
+        precision: "schematic",
+        note: "Ornsworld is a documented but separately conducted relic raid. Its catalog pin identifies the world; the break avoids inventing an order or direct course from Purgatory.",
+        source: "https://wh40k.lexicanum.com/wiki/Ornsworld",
+      },
+    },
+    {
       world: "gothic-sector",
       heading: "Gothic Sector · The War Opens",
-      date: "142.M41",
+      date: "142–143.M41",
       text: "Warp storms isolate the sector as Chaos fleets strike across its systems and the Planet Killer forces worlds to surrender. The war's true purpose is control of the six Blackstone Fortresses.",
       source: "https://wh40k.lexicanum.com/wiki/12th_Black_Crusade",
+      breakBefore: true,
     },
     {
       name: "Brinaga",
       gx: 440,
       gy: 165,
-      heading: "Brinaga · The Second Blackstone",
+      heading: "Brinaga · A Blackstone Captured",
       date: "144.M41",
       text: "Chaos forces destroy the Imperial fleet at Brinaga and capture another Blackstone Fortress, turning scattered raids into a weapon system under Abaddon's hand.",
       source: "https://wh40k.lexicanum.com/wiki/12th_Black_Crusade",
@@ -408,7 +439,7 @@ export const ABADDON: Voyage = {
       name: "Fularis II",
       gx: 450,
       gy: 172,
-      heading: "Fularis II · Three Fortresses",
+      heading: "Fularis II · The Fortresses Linked",
       date: "144.M41",
       text: "Fularis II falls and a third Blackstone joins the fleet. Abaddon demonstrates that linked fortresses can strip an entire world of life in a single combined blast.",
       source: "https://wh40k.lexicanum.com/wiki/12th_Black_Crusade",
@@ -451,40 +482,24 @@ export const ABADDON: Voyage = {
       world: "eye-of-terror",
       breakBefore: true,
       heading: "XIII · The Fall of Cadia",
-      date: "999.M41",
-      text: "A fleet of hundreds of warships, Space Hulks and two Blackstone Fortresses pours from the Eye. Ormantep's picket fleet buys Cadia moments, but the Thirteenth Crusade is the concentrated blow the first twelve prepared.",
+      date: "995–999.M41",
+      text: "A fleet of hundreds of warships, Space Hulks and two Blackstone Fortresses pours from the Eye. The Thirteenth Crusade is the concentrated blow the first twelve prepared, aimed directly at Cadia and its pylon network.",
       source: "https://wh40k.lexicanum.com/wiki/13th_Black_Crusade",
     },
     {
-      name: "Ormantep System",
-      gx: 290,
-      gy: 230,
-      heading: "Ormantep · The Road Cleared",
+      world: "cadia",
+      heading: "Cadia · The Pylons Awaken",
       date: "999.M41",
-      text: "Admiral Pulaski musters a sacrificial defence in the Ormantep System. The armada annihilates it, clears the approach to Cadia and frees splinter fleets to ravage Agripinaa.",
+      text: "Cawl and Trazyn awaken Cadia's pylon network. The Eye recoils, daemons fade and Saint Celestine weakens with them; wounded and denied victory on the ground, Abaddon teleports from the field.",
       source: "https://wh40k.lexicanum.com/wiki/13th_Black_Crusade",
-      placement: {
-        precision: "relative",
-        note: "Ormantep is the picket system immediately preceding the assault on Cadia; it is plotted on the Eye–Cadia approach because no independent coordinate is published.",
-        source: "https://wh40k.lexicanum.com/wiki/13th_Black_Crusade",
-      },
     },
     {
       world: "cadia",
       heading: "Cadia · The World Breaks",
       date: "999.M41",
-      text: "Abaddon fights through Cadia's last defence, duels Saint Celestine and refuses to let a crippled Blackstone become merely a defeat. He hurls the Will of Eternity down upon the planet; Cadia breaks and the Great Rift opens.",
+      text: "Abaddon refuses to let a crippled Blackstone become merely a defeat. He hurls the Will of Eternity down upon the planet; Cadia breaks, its pylon network collapses and the catastrophe helps unleash the Great Rift.",
       source: "https://wh40k.lexicanum.com/wiki/13th_Black_Crusade",
     },
-
-    {
-      world: "vigilus",
-      breakBefore: true,
-      heading: "After the Crusades · Vigilus",
-      date: "001–025.M42",
-      text: "The Warmaster descends into the Citadel Vigilant and meets Marneus Calgar at the heart of the War of Beasts. Calgar survives their duel, and only the Vengeful Spirit's peril draws Abaddon away from a world he has nearly strangled.",
-      source: "https://wh40k.lexicanum.com/wiki/War_of_Beasts",
-    },
   ],
-  lbl: { x: 286, y: 526, t: "THE LONG WAR" },
+  lbl: { x: 286, y: 526, t: "THE BLACK CRUSADES" },
 };

@@ -15,7 +15,14 @@
 
 import { useState } from "react";
 
-import type { ResolvedVoyage } from "@/lib/map/voyages";
+import type {
+  ResolvedVoyage,
+  ResolvedVoyageArm,
+  ResolvedVoyageArmTarget,
+} from "@/lib/map/voyages";
+
+import StrategicReadout from "./StrategicReadout";
+import LegionRouteRoster from "./LegionRouteRoster";
 
 interface CourseCardsProps {
   resolved: ResolvedVoyage;
@@ -23,21 +30,42 @@ interface CourseCardsProps {
   suppressed: boolean;
   /** Mobile sheet open (modal) — the card leaves the AT tree meanwhile. */
   muted?: boolean;
+  selectedArm?: ResolvedVoyageArm | null;
+  previewArm?: ResolvedVoyageArm | null;
+  selectedTarget?: ResolvedVoyageArmTarget | null;
+  hiddenArmLegions?: ReadonlySet<string>;
+  onArmActivate?: (legion: string) => void;
+  onArmPreview?: (legion: string | null) => void;
+  onArmVisibilityAll?: (visible: boolean) => void;
   /** Return to the tour at its last station. */
   onBack: () => void;
   /** Fly the tour again from the first station. */
   onRestart: () => void;
+  /** Enter the authored journey that follows this one. */
+  onContinue: (id: string) => void;
 }
 
 export default function CourseCards({
   resolved,
   suppressed,
   muted = false,
+  selectedArm = null,
+  previewArm = null,
+  selectedTarget = null,
+  hiddenArmLegions = new Set<string>(),
+  onArmActivate,
+  onArmPreview,
+  onArmVisibilityAll,
   onBack,
   onRestart,
+  onContinue,
 }: CourseCardsProps) {
   const [dismissed, setDismissed] = useState(false);
   const st = resolved.stations[resolved.stations.length - 1];
+  const continuation = resolved.continuation;
+  const legionSteps = resolved.strategic?.mode === "legion-steps";
+  const readoutArm = previewArm ?? selectedArm;
+  const strategicSelection = !!st?.armCount && (!!readoutArm || !!selectedTarget);
   if (!st || dismissed) return null;
   return (
     <div
@@ -52,24 +80,56 @@ export default function CourseCards({
       >
         ✕
       </button>
-      {/* Same hierarchy as the tour card: name + text lead, date recedes. */}
-      {st.section && (
-        <p className="cg-tour-section" style={{ color: st.section.color }}>
-          {st.section.label}
-        </p>
+      {strategicSelection ? (
+        <StrategicReadout
+          arm={readoutArm}
+          target={selectedTarget}
+          color={
+            readoutArm
+              ? resolved.legColors[readoutArm.legIndices[0]]
+              : selectedTarget
+                ? "var(--cl-gold)"
+                : undefined
+          }
+        />
+      ) : legionSteps ? (
+        <div className="cg-legion-readout-empty" aria-live="polite">
+          <p className="ct">Hover or select a Legion to trace its path.</p>
+        </div>
+      ) : (
+        <>
+          {/* Same hierarchy as the tour card: name + text lead, date recedes. */}
+          {st.section && (
+            <p className="cg-tour-section" style={{ color: st.section.color }}>
+              {st.section.label}
+            </p>
+          )}
+          <p className="cg-tour-name">{st.heading}</p>
+          {st.date && <p className="cg-tour-date">{st.date}</p>}
+          <p className="ct">{st.text}</p>
+          {st.placement && (
+            <p className="cg-tour-placement">
+              {st.placement.precision === "relative"
+                ? "INFERRED PLACEMENT"
+                : "SCHEMATIC PLACEMENT"}
+              {" · "}
+              {st.placement.note}{" "}
+              <a href={st.placement.source} target="_blank" rel="noreferrer">
+                SOURCE ↗
+              </a>
+            </p>
+          )}
+        </>
       )}
-      <p className="cg-tour-name">{st.heading}</p>
-      {st.date && <p className="cg-tour-date">{st.date}</p>}
-      <p className="ct">{st.text}</p>
-      {st.placement && (
-        <p className="cg-tour-placement">
-          {st.placement.precision === "relative" ? "INFERRED PLACEMENT" : "SCHEMATIC PLACEMENT"}
-          {" · "}
-          {st.placement.note}{" "}
-          <a href={st.placement.source} target="_blank" rel="noreferrer">
-            SOURCE ↗
-          </a>
-        </p>
+      {legionSteps && onArmActivate && onArmPreview && onArmVisibilityAll && (
+        <LegionRouteRoster
+          arms={resolved.strategicArms}
+          hidden={hiddenArmLegions}
+          selectedLegion={selectedArm?.legion ?? null}
+          onActivate={onArmActivate}
+          onPreview={onArmPreview}
+          onVisibilityAll={onArmVisibilityAll}
+        />
       )}
       <div className="cg-tour-row">
         <button className="cpg quiet" onClick={onBack}>
@@ -79,6 +139,14 @@ export default function CourseCards({
           RESTART JOURNEY
         </button>
       </div>
+      {continuation && (
+        <button
+          className="cpg lead cg-tour-continuation"
+          onClick={() => onContinue(continuation.id)}
+        >
+          {continuation.label} →
+        </button>
+      )}
     </div>
   );
 }

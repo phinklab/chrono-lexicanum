@@ -36,6 +36,15 @@ export interface LegOverride {
   /** Full hand-authored SVG path `d` in grid coordinates — the art-direction
    *  escape hatch. Wins over `bow`. */
   d?: string;
+  /** Optional authored colour for this transition. Used sparingly where the
+   *  archive itself changes how strongly a connection should read. */
+  color?: `#${string}`;
+  /** Optional renderer opacity for this transition, in the inclusive 0–1
+   *  range. Defaults to the normal route opacity. */
+  opacity?: number;
+  /** A chronology-preserving jump whose realspace course is not asserted.
+   *  Renderers show it as a dotted trace rather than a normal flight path. */
+  effect?: "jump";
 }
 
 export interface VoyagePlacement {
@@ -44,6 +53,77 @@ export interface VoyagePlacement {
   /** Concise, user-facing account of what the source does and does not fix. */
   note: string;
   /** Provenance for the placement claim, rendered as the note's source link. */
+  source: string;
+}
+
+export interface VoyageArmTargetLabel {
+  dx: number;
+  dy: number;
+  anchor?: "start" | "middle" | "end";
+}
+
+interface VoyageArmTargetContext {
+  /** Shared destination copy shown when the endpoint is selected. */
+  text: string;
+  source: string;
+  /** Catalog targets may still need an explicit cartographic disclosure. */
+  placement?: VoyagePlacement;
+  /** Small authored offset keeps neighbouring endpoint labels legible. */
+  label: VoyageArmTargetLabel;
+}
+
+export type VoyageArmTarget =
+  | (VoyageArmTargetContext & { world: string })
+  | (VoyageArmTargetContext & {
+      name: string;
+      gx: number;
+      gy: number;
+      placement: VoyagePlacement;
+    });
+
+export interface VoyageArmVia {
+  target: VoyageArmTarget;
+  bow?: number;
+}
+
+/** A subordinate fleet or splinter force leaving a documented point on the
+ *  main Legion route. Branches deliberately terminate: the strategic web
+ *  acknowledges the separation without turning a Legion step into several
+ *  competing itineraries. */
+export interface VoyageArmBranch {
+  name: string;
+  /** Documented point on the main route where the force separates. */
+  from: VoyageArmTarget;
+  via?: VoyageArmVia[];
+  target: VoyageArmTarget;
+  bow?: number;
+  /** Defaults to a deliberately recessive 0.28. */
+  opacity?: number;
+  source: string;
+}
+
+/** A sourced strategic disposition radiating from one authored anchor. Arms
+ *  are map-only epilogue geometry: they reveal with their source act but do
+ *  not become extra tour cards or pretend to be one traveller's itinerary. */
+export interface VoyageArm {
+  /** Roman Legion number, used as the stable authored identity. */
+  legion: string;
+  name: string;
+  color: `#${string}`;
+  /** Lower opacity distinguishes manipulated or answering movements from a
+   *  direct command while retaining the Legion colour. */
+  opacity?: number;
+  /** Short factual classification and Legion-specific account for the
+   *  existing final-card readout. */
+  role: string;
+  text: string;
+  /** Optional historically ordered intermediate strategic destinations. */
+  via?: VoyageArmVia[];
+  target: VoyageArmTarget;
+  /** Sourced subordinate movements, rendered as faint terminating strands. */
+  branches?: VoyageArmBranch[];
+  /** Perpendicular bow in grid units; signed values separate shared targets. */
+  bow?: number;
   source: string;
 }
 
@@ -68,12 +148,17 @@ export interface VoyageStation {
   date?: string;
   /** Research provenance (Lexicanum/Fandom URL). Never rendered. */
   source?: string;
+  /** Optional disclosure when a catalog pin is an identity anchor rather
+   *  than a claim about the event's historical coordinate. */
+  placement?: VoyagePlacement;
   /** Styling of the leg ARRIVING at this station (from the previous
    *  station). Ignored on the first station. */
   leg?: LegOverride;
   /** Start a new route segment here. The tour chronology continues, but no
    *  line is drawn from the preceding anchor. */
   breakBefore?: boolean;
+  /** Strategic map-only arms revealed when this act is reached. */
+  arms?: VoyageArm[];
 }
 
 export interface VoyageWaypoint {
@@ -114,6 +199,8 @@ export interface VoyageChartPoint {
   /** Start a new route segment here without connecting it to the preceding
    *  anchor. */
   breakBefore?: boolean;
+  /** Strategic map-only arms revealed when this act is reached. */
+  arms?: VoyageArm[];
 }
 
 export type VoyageStop = VoyageStation | VoyageWaypoint | VoyageChartPoint;
@@ -135,10 +222,21 @@ export interface Voyage {
     label: string;
     note: string;
   };
+  /** Strategic-network presentation. `legion-steps` makes each authored
+   *  station a guided Legion reveal while previously revealed routes remain
+   *  independently toggleable. */
+  strategic?: {
+    mode: "legion-steps";
+  };
   /** Optional chronology sections with a shared visual identity. */
   sections?: VoyageSection[];
-  /** ≥ 2 anchors plus optional waypoints, in narrative order. Repeat station
-   *  visits and disconnected route segments are allowed. */
+  /** Optional authored hand-off shown after the full-route reveal. */
+  continuation?: {
+    id: string;
+    label: string;
+  };
+  /** ≥ 2 anchors plus optional waypoints, or one anchor carrying a strategic
+   *  network. Repeat station visits and disconnected segments are allowed. */
   stations: VoyageStop[];
   /** On-chart label (grid coordinates). */
   lbl: { x: number; y: number; t: string };

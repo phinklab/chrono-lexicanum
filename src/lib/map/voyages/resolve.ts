@@ -28,6 +28,8 @@ import {
   isWaypoint,
   type Voyage,
   type VoyageChartPoint,
+  type VoyageArmTarget,
+  type VoyageArmTargetLabel,
   type VoyagePlacement,
   type VoyageSection,
   type VoyageStation,
@@ -62,6 +64,40 @@ export interface ResolvedStation {
   legIndex: number;
   placement?: VoyagePlacement;
   section?: VoyageSection;
+  /** Number of strategic epilogue arms revealed with this act. */
+  armCount?: number;
+  /** Authored identities of the strategic arms revealed with this act. */
+  armLegions?: string[];
+}
+
+/** Clickable identity attached to a map-only strategic arm. */
+export interface ResolvedVoyageArm {
+  legIndices: number[];
+  mainLegIndices: number[];
+  branchLegIndices: number[];
+  color: `#${string}`;
+  legion: string;
+  name: string;
+  role: string;
+  text: string;
+  source: string;
+  targetName: string;
+  revealAt: number;
+}
+
+/** Dedupe of every final or intermediate strategic destination. */
+export interface ResolvedVoyageArmTarget {
+  id: string;
+  name: string;
+  gx: number;
+  gy: number;
+  text: string;
+  source: string;
+  placement?: VoyagePlacement;
+  label: VoyageArmTargetLabel;
+  legionIds: string[];
+  legIndices: number[];
+  revealAt: number;
 }
 
 export interface ResolvedVoyage {
@@ -69,13 +105,26 @@ export interface ResolvedVoyage {
   name: string;
   tag: string;
   blurb: string;
+  continuation?: Voyage["continuation"];
   cartography?: Voyage["cartography"];
+  strategic?: Voyage["strategic"];
   lbl: { x: number; y: number; t: string };
   stations: ResolvedStation[];
-  /** One SVG path `d` per STATION transition (worldCount − 1). */
+  /** One SVG path `d` per connected transition, plus map-only strategic arms. */
   legs: string[];
   /** Section colour for each leg, aligned with `legs`. */
   legColors: string[];
+  /** Renderer opacity for each leg, aligned with `legs`. */
+  legOpacities: number[];
+  /** Optional transition effect for each leg, aligned with `legs`. */
+  legEffects: Array<"course" | "jump">;
+  /** First tour step at which each leg is revealed, aligned with `legs`.
+   *  Several strategic arms may intentionally share one reveal step. */
+  legRevealAt: number[];
+  /** Strategic-arm identities; normal journey legs are deliberately absent. */
+  strategicArms: ResolvedVoyageArm[];
+  /** Shared, clickable endpoints for the strategic epilogue. */
+  strategicTargets: ResolvedVoyageArmTarget[];
 }
 
 const r1 = (n: number) => Math.round(n * 10) / 10;
@@ -144,6 +193,11 @@ const devWarn = (msg: string) => {
   if (process.env.NODE_ENV === "development") console.warn(`[voyages] ${msg}`);
 };
 
+const armTargetId = (target: VoyageArmTarget): string =>
+  "world" in target
+    ? `world:${target.world}`
+    : `point:${target.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+
 export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyage {
   const byId = new Map<string, { name: string; gx: number; gy: number }>();
   for (const f of chart.featured) byId.set(f.id, { name: f.name, gx: f.gx, gy: f.gy });
@@ -183,6 +237,10 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
   });
   const legs: string[] = [];
   const legColors: string[] = [];
+  const legOpacities: number[] = [];
+  const legEffects: Array<"course" | "jump"> = [];
+  const strategicArms: ResolvedVoyageArm[] = [];
+  const strategicTargetById = new Map<string, ResolvedVoyageArmTarget>();
   const incomingLeg: number[] = anchors.map(() => -1);
   const outgoingLeg: number[] = anchors.map(() => -1);
   anchors.slice(1).forEach((a, offset) => {
@@ -190,7 +248,9 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
     if (a.stop.breakBefore) return;
     const legIndex = legs.length;
     legs.push(a.stop.leg?.d ?? legPath(anchors[previousAnchor].w, a.w, a.stop.leg?.bow));
-    legColors.push(sectionAt(a.stopIdx)?.color ?? "#b89b63");
+    legColors.push(a.stop.leg?.color ?? sectionAt(a.stopIdx)?.color ?? "#b89b63");
+    legOpacities.push(a.stop.leg?.opacity ?? 0.9);
+    legEffects.push(a.stop.leg?.effect ?? "course");
     incomingLeg[previousAnchor + 1] = legIndex;
     outgoingLeg[previousAnchor] = legIndex;
   });
@@ -198,6 +258,7 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
   // Pass 2 — assemble the act sequence; waypoints ride the leg between the
   // anchors around them.
   const stations: ResolvedStation[] = [];
+  const stationByStop = new Map<number, number>();
   let lastAnchor = -1;
   voyage.stations.forEach((stop, stopIdx) => {
     if (!isWaypoint(stop)) {
@@ -219,8 +280,9 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
         gy: w.gy,
         legIndex: incomingLeg[k],
       };
+      stationByStop.set(stopIdx, st.i);
       if (stop.date) st.date = stop.date;
-      if (point) st.placement = stop.placement;
+      if (stop.placement) st.placement = stop.placement;
       const section = sectionAt(stopIdx);
       if (section) st.section = section;
       stations.push(st);
@@ -251,15 +313,152 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
     stations.push(st);
   });
 
+  // Normal movement legs reveal on the first act that rides or arrives on
+  // them. Strategic arms append map-only geometry and all reveal together
+  // with their source act, without creating synthetic tour stations.
+  const legRevealAt = legs.map((_, legIndex) => {
+    const first = stations.find((station) => station.legIndex === legIndex);
+    return first?.i ?? stations.length;
+  });
+  anchors.forEach(({ stop, w, stopIdx }) => {
+    if (!stop.arms?.length) return;
+    const revealAt = stationByStop.get(stopIdx);
+    if (revealAt === undefined) return;
+    let resolvedArms = 0;
+    for (const arm of stop.arms) {
+      const authoredRoute = [
+        ...(arm.via ?? []).map((via) => ({ target: via.target, bow: via.bow })),
+        { target: arm.target, bow: arm.bow },
+      ];
+      const route = authoredRoute.map(({ target, bow }) => ({
+        authored: target,
+        bow,
+        resolved: "world" in target ? byId.get(target.world) : target,
+      }));
+      const missing = route.find(({ resolved }) => !resolved);
+      if (missing) {
+        const targetName =
+          "world" in missing.authored ? missing.authored.world : missing.authored.name;
+        devWarn(`${voyage.id}: arm ${arm.legion} target "${targetName}" not on the chart — dropped`);
+        continue;
+      }
+
+      const armLegIndices: number[] = [];
+      const mainLegIndices: number[] = [];
+      const branchLegIndices: number[] = [];
+      const appendRoute = (
+        start: { name: string; gx: number; gy: number },
+        destinations: typeof route,
+        opacity: number,
+        branch: boolean,
+      ) => {
+        let from = start;
+        for (const { authored, bow, resolved: routeTarget } of destinations) {
+          if (!routeTarget) continue;
+          const legIndex = legs.length;
+          legs.push(legPath(from, routeTarget, bow));
+          legColors.push(arm.color);
+          legOpacities.push(opacity);
+          legEffects.push("course");
+          legRevealAt.push(revealAt);
+          armLegIndices.push(legIndex);
+          (branch ? branchLegIndices : mainLegIndices).push(legIndex);
+
+          const id = armTargetId(authored);
+          let sharedTarget = strategicTargetById.get(id);
+          if (!sharedTarget) {
+            sharedTarget = {
+              id,
+              name: routeTarget.name,
+              gx: routeTarget.gx,
+              gy: routeTarget.gy,
+              text: authored.text,
+              source: authored.source,
+              ...(authored.placement ? { placement: authored.placement } : {}),
+              label: authored.label,
+              legionIds: [],
+              legIndices: [],
+              revealAt,
+            };
+            strategicTargetById.set(id, sharedTarget);
+          }
+          if (!sharedTarget.legionIds.includes(arm.legion)) {
+            sharedTarget.legionIds.push(arm.legion);
+          }
+          sharedTarget.legIndices.push(legIndex);
+          sharedTarget.revealAt = Math.min(sharedTarget.revealAt, revealAt);
+          from = routeTarget;
+        }
+      };
+
+      appendRoute(w, route, arm.opacity ?? 0.9, false);
+
+      for (const branch of arm.branches ?? []) {
+        const branchStart = "world" in branch.from ? byId.get(branch.from.world) : branch.from;
+        const branchRouteAuthored = [
+          ...(branch.via ?? []).map((via) => ({ target: via.target, bow: via.bow })),
+          { target: branch.target, bow: branch.bow },
+        ];
+        const branchRoute = branchRouteAuthored.map(({ target, bow }) => ({
+          authored: target,
+          bow,
+          resolved: "world" in target ? byId.get(target.world) : target,
+        }));
+        const missingBranchTarget = !branchStart
+          ? branch.from
+          : branchRoute.find(({ resolved }) => !resolved)?.authored;
+        if (missingBranchTarget) {
+          const targetName =
+            "world" in missingBranchTarget ? missingBranchTarget.world : missingBranchTarget.name;
+          devWarn(
+            `${voyage.id}: arm ${arm.legion} branch "${branch.name}" target "${targetName}" not on the chart — dropped`,
+          );
+          continue;
+        }
+        if (branchStart) appendRoute(branchStart, branchRoute, branch.opacity ?? 0.28, true);
+      }
+
+      const finalTarget = route.at(-1)?.resolved;
+      if (!finalTarget || armLegIndices.length < 1) continue;
+      strategicArms.push({
+        legIndices: armLegIndices,
+        mainLegIndices,
+        branchLegIndices,
+        color: arm.color,
+        legion: arm.legion,
+        name: arm.name,
+        role: arm.role,
+        text: arm.text,
+        source: arm.source,
+        targetName: finalTarget.name,
+        revealAt,
+      });
+      resolvedArms += 1;
+    }
+    if (resolvedArms > 0) {
+      stations[revealAt].armCount = resolvedArms;
+      stations[revealAt].armLegions = strategicArms
+        .filter((arm) => arm.revealAt === revealAt)
+        .map((arm) => arm.legion);
+    }
+  });
+
   return {
     id: voyage.id,
     name: voyage.name,
     tag: voyage.tag,
     blurb: voyage.blurb,
+    ...(voyage.continuation ? { continuation: voyage.continuation } : {}),
     ...(voyage.cartography ? { cartography: voyage.cartography } : {}),
+    ...(voyage.strategic ? { strategic: voyage.strategic } : {}),
     lbl: voyage.lbl,
     stations,
     legs,
     legColors,
+    legOpacities,
+    legEffects,
+    legRevealAt,
+    strategicArms,
+    strategicTargets: [...strategicTargetById.values()],
   };
 }

@@ -75,6 +75,8 @@ interface CanvasStageProps {
   selectedWorld: FeaturedWorld | null;
   activeVoyage: ResolvedVoyage | null;
   voyageProgress: number | null;
+  highlightedArmLegion: string | null;
+  hiddenArmLegions: ReadonlySet<string>;
   hiIds: ReadonlySet<string> | null;
   routeDim: boolean;
   condensed: boolean;
@@ -98,6 +100,8 @@ export default function CanvasStage(props: CanvasStageProps) {
     selectedWorld,
     activeVoyage,
     voyageProgress,
+    highlightedArmLegion,
+    hiddenArmLegions,
     hiIds,
     routeDim,
     condensed,
@@ -140,6 +144,8 @@ export default function CanvasStage(props: CanvasStageProps) {
     selectedWorld,
     activeVoyage,
     voyageProgress,
+    highlightedArmLegion,
+    hiddenArmLegions,
     hiIds,
     routeDim,
     routeStartedAt: 0,
@@ -181,6 +187,8 @@ export default function CanvasStage(props: CanvasStageProps) {
       selectedWorld,
       activeVoyage,
       voyageProgress,
+      highlightedArmLegion,
+      hiddenArmLegions,
       hiIds,
       routeDim,
       routeStartedAt: routeStartedAt.current,
@@ -192,12 +200,14 @@ export default function CanvasStage(props: CanvasStageProps) {
     dustOff,
     hiddenCls,
     hiIds,
+    hiddenArmLegions,
     lumen,
     names,
     nihilus,
     payload,
     reduce,
     routeDim,
+    highlightedArmLegion,
     selectedWorld,
     voyageProgress,
     worksOnly,

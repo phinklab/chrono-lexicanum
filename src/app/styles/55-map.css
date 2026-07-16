@@ -451,6 +451,56 @@ body.cg-canvas-renderer .cg-deg {
 .cg-rtFly {
   animation: cgRtFly 7s linear infinite;
 }
+.cg-rtFly.is-selected {
+  stroke-width: 2.8;
+  stroke-opacity: 1;
+}
+.cg-rt-hit {
+  pointer-events: stroke;
+  cursor: pointer;
+  outline: none;
+}
+.cg-rt-hit:is(:hover, :focus-visible, .is-selected) {
+  stroke: var(--arm-color);
+  stroke-opacity: 0.22;
+}
+.cg-arm-target {
+  opacity: 0.82;
+  transition: opacity 0.25s var(--ease);
+}
+.cg-arm-target:is(:hover, .is-selected) {
+  opacity: 1;
+}
+.cg-arm-target-label {
+  fill: var(--cl-gold);
+  stroke: color-mix(in srgb, var(--cl-ink) 92%, transparent);
+  stroke-width: 2.4px;
+  paint-order: stroke fill;
+  font-family: var(--font-mono);
+  font-size: 7.2px;
+  letter-spacing: var(--track-16);
+  text-transform: uppercase;
+  pointer-events: none;
+}
+.cg-arm-target.is-selected .cg-arm-target-label {
+  fill: var(--cl-bone);
+}
+.cg-arm-target.is-muted {
+  opacity: 0.26;
+}
+.cg-arm-target.is-muted .cg-arm-target-label {
+  opacity: 0;
+}
+.cg-arm-target-hit {
+  pointer-events: all;
+  cursor: pointer;
+  outline: none;
+}
+.cg-arm-target-hit:focus-visible {
+  stroke: var(--cl-gold);
+  stroke-width: 1.2;
+  stroke-opacity: 0.5;
+}
 @keyframes cgRtFly {
   to {
     stroke-dashoffset: -62;
@@ -492,7 +542,8 @@ body.cg-canvas-renderer .cg-deg {
    Reveal is STEP-gated by RoutesLayer classes instead of the time stagger:
    `rt-pending` holds later geometry at 0 (a plain class, not an animation —
    it survives reduced-motion, where the drawing leg lands fully drawn),
-   the single `rt-drawing` leg runs the draw-in with --i pinned to 0, and
+   the current `rt-drawing` leg or epilogue-leg group runs the draw-in with
+   --i pinned to 0, and
    `rt-drawn` legs stand mask-free. Ring blooms wait a beat so they land
    with the camera, not the tap. */
 .cg-course.tour .rt-pending {
@@ -1671,12 +1722,119 @@ body.cg-canvas-renderer .cg-deg {
   gap: 14px;
   margin-top: 10px;
 }
+.cg-strategic-actions {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 8px;
+}
+.cg-tour .cg-strategic-actions .cpg {
+  margin: 0;
+}
+.cg-legion-readout-empty {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+}
+.cg-legion-readout-empty .ct {
+  margin: 0;
+  color: var(--cl-faint);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-3xs);
+  font-style: normal;
+  letter-spacing: var(--track-16);
+  text-transform: uppercase;
+}
+.cg-legion-roster {
+  margin-top: 12px;
+  padding-top: 9px;
+  border-top: 1px solid var(--cl-hair);
+}
+.cg-legion-roster-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 7px;
+}
+.cg-legion-roster-label {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-3xs);
+  letter-spacing: var(--track-18);
+  color: var(--cl-gold);
+}
+.cg-legion-roster-label span {
+  color: var(--cl-faint);
+}
+.cg-legion-all {
+  padding: 2px 0;
+  border: 0;
+  background: transparent;
+  color: var(--cl-faint);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-3xs);
+  letter-spacing: var(--track-14);
+  cursor: pointer;
+  transition: color 0.2s var(--ease);
+}
+.cg-legion-all:is(:hover, :focus-visible) {
+  color: var(--cl-bone);
+}
+.cg-legion-all:focus-visible {
+  outline: 1px solid var(--cl-hair);
+  outline-offset: 3px;
+}
+.cg-legion-roster-grid {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  gap: 6px;
+}
+.cg-legion-route {
+  min-width: 0;
+  height: 28px;
+  padding: 0 3px;
+  border: 0;
+  background: color-mix(in srgb, var(--legion-color) 8%, transparent);
+  color: var(--legion-color);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  cursor: pointer;
+  transition: opacity 0.2s var(--ease), background 0.2s var(--ease);
+}
+.cg-legion-route:is(:hover, :focus-visible) {
+  background: color-mix(in srgb, var(--legion-color) 16%, transparent);
+}
+.cg-legion-route.is-selected {
+  opacity: 1;
+  background: color-mix(in srgb, var(--legion-color) 20%, transparent);
+  color: color-mix(in srgb, var(--legion-color) 82%, var(--cl-bone));
+}
+.cg-legion-route:focus-visible {
+  outline: 1px solid color-mix(in srgb, var(--legion-color) 70%, transparent);
+  outline-offset: 2px;
+}
+.cg-legion-route.is-hidden {
+  opacity: 0.3;
+  background: transparent;
+}
+.cg-legion-route.is-hidden:is(:hover, :focus-visible) {
+  opacity: 0.72;
+  background: color-mix(in srgb, var(--legion-color) 8%, transparent);
+}
 .cg-tour .cpg { margin-top: 0; }
 .cg-tour .cpg.lead {
   color: var(--cl-gold);
 }
 .cg-tour .cpg.lead:hover {
   color: var(--cl-bone);
+}
+.cg-tour .cg-tour-continuation {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  text-align: right;
 }
 .cg-tour .cg-tour-x {
   position: absolute;
@@ -2531,6 +2689,12 @@ body.cg-canvas-renderer .cg-deg {
        present. Keep a deliberate 12px interaction gap so its drag grip can
        never cover the tour actions, including on safe-area devices. */
     bottom: calc(126px + env(safe-area-inset-bottom, 0px));
+  }
+  .cg-legion-roster-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  .cg-legion-route {
+    height: 36px;
   }
   .cg-tour .cg-tour-x {
     top: 0;

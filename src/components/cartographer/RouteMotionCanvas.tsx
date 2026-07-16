@@ -7,13 +7,13 @@
  * on a transformed map that can flash the SVG backing store. The route stays
  * vector-authored, but its line is sampled into this small Canvas surface.
  *
- * Since 2026-07-13 the standing line is STATIC — a plain dashed line, no
- * dash drift (the maintainer tried direction chevrons and preferred the
- * dashes). The old perpetual 30 fps drift kept invalidating a fullscreen
- * layer and the entity flicker on drag came back with it. Now the canvas
- * repaints only (a) on camera frames (the route must track the chart) and
- * (b) during the bounded draw-in window when the tour enters a new leg.
- * Idle = zero repaints. Static SVG rings/labels remain in RoutesLayer.
+ * Since 2026-07-13 the standing line is STATIC — normal course legs use the
+ * preferred plain dashes while chronology-preserving jumps use compact dots.
+ * The old perpetual 30 fps drift kept invalidating a fullscreen layer
+ * and the entity flicker on drag came back with it. Now the canvas repaints
+ * only (a) on camera frames (the route must track the chart) and (b) during
+ * the bounded draw-in window when the tour enters a new leg. Idle = zero
+ * repaints. Static SVG rings/labels remain in RoutesLayer.
  */
 
 import { useEffect, useRef } from "react";
@@ -30,6 +30,8 @@ interface RouteMotionCanvasProps {
   /** Tour step, or null for the ambient full-route choreography. */
   progress: number | null;
   reduce: boolean;
+  highlightedArmLegion?: string | null;
+  hiddenArmLegions?: ReadonlySet<string>;
 }
 
 const MAX_DPR = 2;
@@ -37,6 +39,7 @@ const FRAME_MS = 1000 / 30;
 const REVEAL_MS = 900;
 const AMBIENT_STAGGER_MS = 1450;
 const AMBIENT_LEAD_MS = 350;
+const LEGION_SEGMENT_STAGGER_MS = REVEAL_MS;
 const PATH_SAMPLES = 64;
 
 const clamp01 = (n: number) => Math.max(0, Math.min(1, n));
@@ -46,6 +49,8 @@ export default function RouteMotionCanvas({
   resolved,
   progress,
   reduce,
+  highlightedArmLegion = null,
+  hiddenArmLegions = new Set<string>(),
 }: RouteMotionCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const narrow = useMediaQuery("(max-width: 900px)");
@@ -84,17 +89,30 @@ export default function RouteMotionCanvas({
       return;
     }
 
-    const firstEntry = new Map<number, number>();
-    for (const station of resolved.stations) {
-      if (station.legIndex >= 0 && !firstEntry.has(station.legIndex)) {
-        firstEntry.set(station.legIndex, station.i);
-      }
-    }
+    const firstEntry = new Map(resolved.legRevealAt.map((step, legIndex) => [legIndex, step]));
+    const armByLeg = new Map(
+      resolved.strategicArms.flatMap((arm) =>
+        arm.legIndices.map((legIndex) => [legIndex, arm] as const),
+      ),
+    );
+    const legionStepTour =
+      resolved.strategic?.mode === "legion-steps" &&
+      progress !== null &&
+      progress >= 0 &&
+      progress < resolved.stations.length;
 
     const revealFraction = (legIndex: number, elapsed: number) => {
       if (progress === null) {
         if (reduce) return 1;
         const start = legIndex * AMBIENT_STAGGER_MS + AMBIENT_LEAD_MS;
+        return clamp01((elapsed - start) / REVEAL_MS);
+      }
+      const arm = armByLeg.get(legIndex);
+      if (legionStepTour) {
+        if (!arm || arm.revealAt !== progress) return 0;
+        if (reduce) return 1;
+        const order = arm.legIndices.indexOf(legIndex);
+        const start = Math.max(0, order) * LEGION_SEGMENT_STAGGER_MS;
         return clamp01((elapsed - start) / REVEAL_MS);
       }
       const entry = firstEntry.get(legIndex);
@@ -111,6 +129,12 @@ export default function RouteMotionCanvas({
       if (progress === null) {
         return (resolved.legs.length - 1) * AMBIENT_STAGGER_MS + AMBIENT_LEAD_MS + REVEAL_MS;
       }
+      if (legionStepTour) {
+        const arm = resolved.strategicArms.find((candidate) => candidate.revealAt === progress);
+        return arm
+          ? Math.max(0, arm.legIndices.length - 1) * LEGION_SEGMENT_STAGGER_MS + REVEAL_MS
+          : 0;
+      }
       for (const entry of firstEntry.values()) {
         if (entry === progress) return REVEAL_MS;
       }
@@ -122,18 +146,21 @@ export default function RouteMotionCanvas({
       if (!driver) return false;
       const rect = sizeCanvas();
       ctx.clearRect(0, 0, rect.width, rect.height);
-      ctx.globalAlpha = 0.9;
       ctx.lineWidth = 1.7;
       ctx.lineCap = "round";
-      // Static dash pattern — same voice as the desktop SVG line, but the
-      // offset never moves (the drift was the flicker driver).
-      ctx.setLineDash([2.2, 5.4]);
       ctx.lineDashOffset = 0;
 
       const elapsed = now - startedAt;
       resolved.legs.forEach((leg, legIndex) => {
+        const arm = armByLeg.get(legIndex);
+        if (arm && hiddenArmLegions.has(arm.legion)) return;
+        const selected = arm?.legion === highlightedArmLegion;
+        const jump = resolved.legEffects[legIndex] === "jump";
         const fraction = revealFraction(legIndex, elapsed);
         if (fraction <= 0) return;
+        ctx.setLineDash(jump ? [0.35, 4.2] : [2.2, 5.4]);
+        ctx.globalAlpha = selected ? 1 : (resolved.legOpacities[legIndex] ?? 0.9);
+        ctx.lineWidth = selected ? 2.8 : 1.7;
         ctx.strokeStyle = resolved.legColors[legIndex] ?? GOLD;
         const samples = Math.max(2, Math.ceil(PATH_SAMPLES * fraction));
         ctx.beginPath();
@@ -191,7 +218,7 @@ export default function RouteMotionCanvas({
       unsubscribe();
       clear();
     };
-  }, [bus, narrow, progress, reduce, resolved]);
+  }, [bus, hiddenArmLegions, highlightedArmLegion, narrow, progress, reduce, resolved]);
 
   return (
     <canvas

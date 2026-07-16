@@ -201,6 +201,12 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
   // Sheet expansion lives here (not in CartoucheSheet) so the phone
   // back-guard below can dismiss it.
   const [sheetOpen, setSheetOpen] = useState(false);
+  const [selectedArmLegion, setSelectedArmLegion] = useState<string | null>(null);
+  const [previewArmLegion, setPreviewArmLegion] = useState<string | null>(null);
+  const [selectedTargetId, setSelectedTargetId] = useState<string | null>(null);
+  const [hiddenArmLegions, setHiddenArmLegions] = useState<ReadonlySet<string>>(
+    () => new Set<string>(),
+  );
   const bus = useMemo(() => new ChartBus(), []);
   const magRef = useRef<HTMLSpanElement | null>(null);
 
@@ -211,6 +217,63 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
     const v = voyageId ? VOYAGES.find((c) => c.id === voyageId) : null;
     return v ? resolveVoyage(v, payload) : null;
   }, [voyageId, payload]);
+  const selectedArm =
+    selectedArmLegion === null
+      ? null
+      : (activeVoyage?.strategicArms.find((arm) => arm.legion === selectedArmLegion) ?? null);
+  const previewArm =
+    previewArmLegion === null
+      ? null
+      : (activeVoyage?.strategicArms.find((arm) => arm.legion === previewArmLegion) ?? null);
+  const presentedArm = previewArm ?? selectedArm;
+  const selectedTarget =
+    selectedTargetId === null
+      ? null
+      : (activeVoyage?.strategicTargets.find((target) => target.id === selectedTargetId) ?? null);
+  const presentedHiddenArmLegions = useMemo(() => {
+    if (previewArmLegion === null || !hiddenArmLegions.has(previewArmLegion)) {
+      return hiddenArmLegions;
+    }
+    const next = new Set(hiddenArmLegions);
+    next.delete(previewArmLegion);
+    return next;
+  }, [hiddenArmLegions, previewArmLegion]);
+
+  const activateArmRoute = useCallback(
+    (legion: string) => {
+      setSelectedTargetId(null);
+      if (hiddenArmLegions.has(legion)) {
+        setHiddenArmLegions((current) => {
+          const next = new Set(current);
+          next.delete(legion);
+          return next;
+        });
+        setSelectedArmLegion(legion);
+        return;
+      }
+      if (selectedArmLegion === legion) {
+        setHiddenArmLegions((current) => new Set(current).add(legion));
+        setSelectedArmLegion(null);
+        return;
+      }
+      setSelectedArmLegion(legion);
+    },
+    [hiddenArmLegions, selectedArmLegion],
+  );
+
+  const setAllArmRoutesVisible = useCallback(
+    (visible: boolean) => {
+      setPreviewArmLegion(null);
+      setSelectedArmLegion(null);
+      setSelectedTargetId(null);
+      setHiddenArmLegions(
+        visible
+          ? new Set<string>()
+          : new Set(activeVoyage?.strategicArms.map((arm) => arm.legion) ?? []),
+      );
+    },
+    [activeVoyage],
+  );
   const hiIds = useMemo(
     () =>
       activeVoyage
@@ -355,10 +418,20 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
       // A journey is a new primary context. Close any world panel in the
       // same event so it cannot keep the tour card suppressed behind it.
       if (state.selectedId !== null) selectWorld(null, false);
+      setSelectedArmLegion(null);
+      setPreviewArmLegion(null);
+      setSelectedTargetId(null);
+      setHiddenArmLegions(new Set<string>());
       dispatch({ type: "voyageStart", id });
     },
     [selectWorld, state.selectedId],
   );
+  const stepVoyage = useCallback((step: number) => {
+    setSelectedArmLegion(null);
+    setPreviewArmLegion(null);
+    setSelectedTargetId(null);
+    dispatch({ type: "voyageStep", step });
+  }, []);
 
   /* Keyboard entry: the overture's ENTER button lifts the veil and parks
      focus on #main — the next Tab lands on the first live control (desktop:
@@ -389,11 +462,17 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
     } else if (state.voyage?.mode === "tour" && activeVoyage) {
       const s = state.voyage.step;
       const st = activeVoyage.stations[s];
+      const legionSteps = activeVoyage.strategic?.mode === "legion-steps";
+      const stopNoun = legionSteps
+        ? "legions"
+        : activeVoyage.stations.length === 1
+          ? "station"
+          : "stations";
       key = `tour:${activeVoyage.id}:${s}`;
       msg =
         s < 0 || !st
-          ? `${activeVoyage.name} — journey tour open — ${activeVoyage.stations.length} stations`
-          : `Station ${s + 1} of ${activeVoyage.stations.length} — ${st.heading}`;
+          ? `${activeVoyage.name} — journey tour open — ${activeVoyage.stations.length} ${stopNoun}`
+          : `${legionSteps ? "Legion" : "Station"} ${s + 1} of ${activeVoyage.stations.length} — ${st.heading}`;
     } else {
       key = "idle";
       // Announce the close only after a panel actually spoke (never on load).
@@ -476,6 +555,8 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
             selectedWorld={selectedWorld}
             activeVoyage={activeVoyage}
             voyageProgress={voyageProgress}
+            highlightedArmLegion={previewArm?.legion ?? null}
+            hiddenArmLegions={presentedHiddenArmLegions}
             hiIds={hiIds}
             routeDim={state.selectedId === null && activeVoyage !== null}
             condensed={state.condensed}
@@ -502,7 +583,24 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
               onPick={pick}
               motionLayer={
                 <>
-                  <RoutesLayer resolved={activeVoyage} progress={voyageProgress} />
+                  <RoutesLayer
+                    resolved={activeVoyage}
+                    progress={voyageProgress}
+                    selectedArmLegion={selectedArm?.legion}
+                    highlightedArmLegion={previewArm?.legion}
+                    selectedTargetId={selectedTarget?.id}
+                    hiddenArmLegions={presentedHiddenArmLegions}
+                    onArmSelect={(legion) => {
+                      setPreviewArmLegion(null);
+                      setSelectedTargetId(null);
+                      setSelectedArmLegion(legion);
+                    }}
+                    onTargetSelect={(targetId) => {
+                      setPreviewArmLegion(null);
+                      setSelectedArmLegion(null);
+                      setSelectedTargetId(targetId);
+                    }}
+                  />
                   <TerraInstrument />
                   {selectedWorld && <Selection key={selectedWorld.id} world={selectedWorld} />}
                 </>
@@ -533,6 +631,8 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
               resolved={activeVoyage}
               progress={voyageProgress}
               reduce={reduce}
+              highlightedArmLegion={previewArm?.legion ?? null}
+              hiddenArmLegions={presentedHiddenArmLegions}
             />
           </>
         )
@@ -599,9 +699,23 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           suppressed={state.selectedId !== null}
           muted={sheetOpen}
           step={state.voyage.step}
-          onStep={(step) => dispatch({ type: "voyageStep", step })}
-          onFin={() => dispatch({ type: "voyageFree", step: activeVoyage.stations.length })}
-          onExit={() => dispatch({ type: "voyageEnd" })}
+          selectedArm={selectedArm}
+          selectedTarget={selectedTarget}
+          onStep={stepVoyage}
+          onFin={() => {
+            setPreviewArmLegion(null);
+            setSelectedArmLegion(
+              activeVoyage.strategic?.mode === "legion-steps"
+                ? (activeVoyage.strategicArms.at(-1)?.legion ?? null)
+                : null,
+            );
+            setSelectedTargetId(null);
+            dispatch({ type: "voyageFree", step: activeVoyage.stations.length });
+          }}
+          onExit={() => {
+            setPreviewArmLegion(null);
+            dispatch({ type: "voyageEnd" });
+          }}
         />
       )}
 
@@ -611,8 +725,19 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
           resolved={activeVoyage}
           suppressed={state.selectedId !== null}
           muted={sheetOpen}
-          onBack={() => dispatch({ type: "voyageStep", step: activeVoyage.stations.length - 1 })}
-          onRestart={() => dispatch({ type: "voyageStep", step: 0 })}
+          selectedArm={selectedArm}
+          previewArm={previewArm}
+          selectedTarget={selectedTarget}
+          hiddenArmLegions={hiddenArmLegions}
+          onArmActivate={activateArmRoute}
+          onArmPreview={setPreviewArmLegion}
+          onArmVisibilityAll={setAllArmRoutesVisible}
+          onBack={() => stepVoyage(activeVoyage.stations.length - 1)}
+          onRestart={() => {
+            setHiddenArmLegions(new Set<string>());
+            stepVoyage(0);
+          }}
+          onContinue={startVoyage}
         />
       )}
 

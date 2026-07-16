@@ -18,12 +18,18 @@ import { GUILLIMAN } from "./data/guilliman";
 import { HORUS } from "./data/horus";
 import { INDOMITUS } from "./data/indomitus";
 import { LION } from "./data/lion";
+import { WARMASTER_WEB } from "./data/warmasters-web";
 import { YVRAINE } from "./data/yvraine";
 import type { Voyage } from "./types";
 
 export type {
   LegOverride,
   Voyage,
+  VoyageArm,
+  VoyageArmBranch,
+  VoyageArmTarget,
+  VoyageArmTargetLabel,
+  VoyageArmVia,
   VoyageChartPoint,
   VoyagePlacement,
   VoyageSection,
@@ -33,12 +39,19 @@ export type {
 } from "./types";
 export { isChartPoint, isWaypoint } from "./types";
 export { pointOnLeg, resolveVoyage } from "./resolve";
-export type { ResolvedStation, ResolvedVoyage, VoyageChart } from "./resolve";
-export { fitVoyageBounds, resolvedVoyageBounds } from "./fit";
+export type {
+  ResolvedStation,
+  ResolvedVoyage,
+  ResolvedVoyageArm,
+  ResolvedVoyageArmTarget,
+  VoyageChart,
+} from "./resolve";
+export { fitVoyageBounds, resolvedVoyageArmBounds, resolvedVoyageBounds } from "./fit";
 export type { VoyageBounds, VoyageFit } from "./fit";
 
 export const VOYAGES: readonly Voyage[] = [
   GREAT_CRUSADE,
+  WARMASTER_WEB,
   LION,
   HORUS,
   GUILLIMAN,

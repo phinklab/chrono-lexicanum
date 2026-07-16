@@ -8,10 +8,13 @@
  * Tour (`progress >= -1`, the guided playback): reveal is STEP-gated, not
  * time-gated, keyed off each stop's `legIndex`. A leg draws when the tour
  * FIRST enters it — arriving at a waypoint riding it, or directly at its end
- * station — and stands drawn thereafter (mask removed; at most ONE live
- * mask, cheaper than ambient). Later legs, rings and waypoint dots hold at
- * opacity 0 via `rt-pending`. `progress === stations.length` (the post-tour
- * survey) shows everything statically.
+ * station — and stands drawn thereafter. Only the currently drawing leg or
+ * epilogue leg group keeps live masks. Later legs, rings and waypoint dots hold at
+ * opacity 0 via `rt-pending`. Several strategic epilogue arms may share the
+ * same reveal step and draw together. A `legion-steps` journey is the focused
+ * exception: each step replaces the prior Legion route, and its own segments
+ * draw in travel order. `progress === stations.length` (the post-tour survey)
+ * shows everything statically.
  *
  * World stations render as rings (deduped by id — repeat visits share one
  * ring at the FIRST visit's step); waypoints render as small dashed dots ON
@@ -28,32 +31,81 @@ import type { ResolvedVoyage } from "@/lib/map/voyages";
 import { useMediaQuery } from "@/lib/useMediaQuery";
 import { GOLD } from "./chart-geometry";
 
+const LEGION_SEGMENT_DRAW_SECONDS = 1.1;
+const ROUTE_DRAW_LEAD_SECONDS = 0.35;
+
 interface RoutesLayerProps {
   resolved: ResolvedVoyage | null;
   /** Tour step (−1 overture … stations.length survey), or null for ambient. */
   progress: number | null;
+  selectedArmLegion?: string | null;
+  highlightedArmLegion?: string | null;
+  selectedTargetId?: string | null;
+  hiddenArmLegions?: ReadonlySet<string>;
+  onArmSelect?: (legion: string | null) => void;
+  onTargetSelect?: (targetId: string | null) => void;
 }
 
-export default function RoutesLayer({ resolved, progress }: RoutesLayerProps) {
+export default function RoutesLayer({
+  resolved,
+  progress,
+  selectedArmLegion = null,
+  highlightedArmLegion = null,
+  selectedTargetId = null,
+  hiddenArmLegions = new Set<string>(),
+  onArmSelect,
+  onTargetSelect,
+}: RoutesLayerProps) {
   // Phones skip the <mask> draw-in entirely. RouteMotionCanvas owns their
   // moving line; the SVG keeps only static station/label geometry.
   const narrow = useMediaQuery("(max-width: 900px)");
   if (!resolved || resolved.legs.length < 1) return null;
 
   const tour = progress !== null;
+  const armByLeg = new Map(
+    resolved.strategicArms.flatMap((arm) => arm.legIndices.map((legIndex) => [legIndex, arm] as const)),
+  );
+  const selectedTarget =
+    selectedTargetId === null
+      ? null
+      : (resolved.strategicTargets.find((target) => target.id === selectedTargetId) ?? null);
+  const stepArm =
+    progress === null
+      ? null
+      : (resolved.strategicArms.find((arm) => arm.revealAt === progress) ?? null);
+  const focusLegion = selectedArmLegion ?? stepArm?.legion ?? null;
+  const legionStepTour =
+    resolved.strategic?.mode === "legion-steps" &&
+    progress !== null &&
+    progress >= 0 &&
+    progress < resolved.stations.length;
+  const currentStationId = legionStepTour ? resolved.stations[progress]?.id : null;
+  const currentRouteHidden =
+    legionStepTour && !!stepArm && hiddenArmLegions.has(stepArm.legion);
+  const armOrderByLeg = new Map(
+    resolved.strategicArms.flatMap((arm) =>
+      arm.legIndices.map((legIndex, order) => [legIndex, order] as const),
+    ),
+  );
+  const isIsstvanLeg = new Set(
+    resolved.strategicTargets
+      .filter((target) => target.name.startsWith("Istvaan"))
+      .flatMap((target) => target.legIndices),
+  );
 
   // First tour step at which each leg starts drawing: the step of the first
   // stop (waypoint or end station) that rides/arrives on it.
-  const firstEntry = new Map<number, number>();
-  for (const st of resolved.stations) {
-    if (st.legIndex >= 0 && !firstEntry.has(st.legIndex)) firstEntry.set(st.legIndex, st.i);
-  }
-  const drawingLeg = tour
-    ? ([...firstEntry.entries()].find(([, step]) => step === progress)?.[0] ?? null)
-    : null;
+  const firstEntry = new Map(resolved.legRevealAt.map((step, legIndex) => [legIndex, step]));
+  const drawingLegs = tour
+    ? new Set([...firstEntry.entries()].filter(([, step]) => step === progress).map(([legIndex]) => legIndex))
+    : new Set<number>();
   const legState = (li: number): string => {
     if (!tour) return "";
     const entry = firstEntry.get(li);
+    const arm = armByLeg.get(li);
+    if (legionStepTour && arm) {
+      return arm.revealAt === progress ? " rt-drawing" : " rt-pending";
+    }
     if (entry === undefined || (progress as number) < entry) return " rt-pending";
     return entry === progress ? " rt-drawing" : " rt-drawn";
   };
@@ -77,9 +129,9 @@ export default function RoutesLayer({ resolved, progress }: RoutesLayerProps) {
       {!narrow && (
         <defs>
           {resolved.legs.map((d, li) =>
-            // Tour mode keeps at most one mask alive (the drawing leg);
+            // Tour mode masks only the currently drawing leg or epilogue group;
             // ambient mode masks every leg for the staggered draw-in.
-            tour && li !== drawingLeg ? null : (
+            tour && !drawingLegs.has(li) ? null : (
               <mask id={`cg-m-${resolved.id}-${li}`} key={li}>
                 <path
                   d={d}
@@ -88,7 +140,17 @@ export default function RoutesLayer({ resolved, progress }: RoutesLayerProps) {
                   strokeWidth={8}
                   pathLength={1}
                   className="cg-routeDraw"
-                  style={{ "--i": tour ? 0 : li } as CSSProperties}
+                  style={
+                    {
+                      "--i": tour ? 0 : li,
+                      animationDelay: legionStepTour
+                        ? `${(
+                            ROUTE_DRAW_LEAD_SECONDS +
+                            (armOrderByLeg.get(li) ?? 0) * LEGION_SEGMENT_DRAW_SECONDS
+                          ).toFixed(2)}s`
+                        : undefined,
+                    } as CSSProperties
+                  }
                 />
               </mask>
             ),
@@ -96,31 +158,157 @@ export default function RoutesLayer({ resolved, progress }: RoutesLayerProps) {
         </defs>
       )}
       {resolved.legs.map((d, li) => {
-        const masked = !narrow && (tour ? li === drawingLeg : true);
+        const jump = resolved.legEffects[li] === "jump";
+        const masked = !narrow && (tour ? drawingLegs.has(li) : true);
+        const arm = armByLeg.get(li);
+        const armAvailable =
+          !!arm &&
+          (!tour || (progress as number) >= resolved.legRevealAt[li]) &&
+          (!legionStepTour || arm.revealAt === progress);
+        const armSelected = arm !== undefined && selectedArmLegion === arm.legion;
+        const armHighlighted = arm !== undefined && highlightedArmLegion === arm.legion;
+        const armHidden =
+          arm !== undefined &&
+          (hiddenArmLegions.has(arm.legion) ||
+            (legionStepTour && arm.revealAt !== progress));
+        const targetSelected = selectedTarget?.legIndices.includes(li) ?? false;
+        const highlighted = armHighlighted || targetSelected;
+        const armLabel = arm
+          ? `Legion ${arm.legion} · ${arm.name} · ${arm.role} → ${arm.targetName}`
+          : "";
+        const toggleArm = () => onArmSelect?.(armSelected ? null : (arm?.legion ?? null));
         return (
-          <path
-            key={li}
-            className={`cg-rtFly${legState(li)}`}
-            d={d}
-            fill="none"
-            stroke={resolved.legColors[li] ?? GOLD}
-            strokeOpacity={0.9}
-            strokeWidth={1.7}
-            strokeDasharray="1.6 4.6"
-            strokeLinecap="round"
-            vectorEffect="non-scaling-stroke"
-            style={{ "--i": tour ? 0 : li } as CSSProperties}
-            mask={masked ? `url(#cg-m-${resolved.id}-${li})` : undefined}
-          />
+          <g key={li}>
+            <path
+              className={`cg-rtFly${jump ? " cg-rtFly--jump" : ""}${legState(li)}${highlighted ? " is-selected" : ""}`}
+              d={d}
+              fill="none"
+              stroke={resolved.legColors[li] ?? GOLD}
+              strokeOpacity={armHidden ? 0 : (resolved.legOpacities[li] ?? 0.9)}
+              strokeWidth={1.7}
+              strokeDasharray={jump ? "0.2 3.4" : "1.6 4.6"}
+              strokeLinecap="round"
+              vectorEffect="non-scaling-stroke"
+              style={
+                {
+                  "--i": tour ? 0 : li,
+                } as CSSProperties
+              }
+              mask={masked ? `url(#cg-m-${resolved.id}-${li})` : undefined}
+            />
+            {arm && armAvailable && !armHidden && (
+              <path
+                className={`cg-rt-hit${armHighlighted ? " is-selected" : ""}`}
+                d={d}
+                fill="none"
+                stroke="transparent"
+                strokeWidth={isIsstvanLeg.has(li) ? 4 : 12}
+                strokeLinecap="round"
+                vectorEffect="non-scaling-stroke"
+                role="button"
+                tabIndex={0}
+                focusable="true"
+                aria-label={armLabel}
+                aria-pressed={armSelected}
+                style={{ "--arm-color": resolved.legColors[li] } as CSSProperties}
+                onPointerDown={(event) => event.stopPropagation()}
+                onClick={(event) => {
+                  event.stopPropagation();
+                  toggleArm();
+                }}
+                onKeyDown={(event) => {
+                  if (event.key !== "Enter" && event.key !== " ") return;
+                  event.preventDefault();
+                  event.stopPropagation();
+                  toggleArm();
+                }}
+              >
+                <title>{armLabel}</title>
+              </path>
+            )}
+          </g>
+        );
+      })}
+      {resolved.strategicTargets.map((target) => {
+        const pending = tour && (progress as number) < target.revealAt;
+        const outsideCurrentRoute =
+          legionStepTour &&
+          (!stepArm || !target.legionIds.includes(stepArm.legion));
+        const hidden =
+          currentRouteHidden ||
+          outsideCurrentRoute ||
+          !target.legionIds.some((legion) => !hiddenArmLegions.has(legion));
+        const selected = target.id === selectedTargetId;
+        const focused = focusLegion !== null && target.legionIds.includes(focusLegion);
+        const labelHidden = resolved.strategic?.mode === "legion-steps" && !focused && !selected;
+        const targetLabel = `Strategic destination ${target.name} · Legions ${target.legionIds.join(", ")}`;
+        const toggleTarget = () => onTargetSelect?.(selected ? null : target.id);
+        return (
+          <g
+            key={target.id}
+            className={`cg-arm-target${selected ? " is-selected" : ""}${labelHidden ? " is-muted" : ""}${pending || hidden ? " rt-pending" : ""}`}
+            style={{ pointerEvents: pending || hidden ? "none" : undefined }}
+            aria-hidden={pending || hidden}
+          >
+            <circle
+              cx={target.gx}
+              cy={target.gy}
+              r={5.2}
+              fill="var(--cl-ink)"
+              stroke={GOLD}
+              strokeWidth={selected ? 1.5 : 0.9}
+              vectorEffect="non-scaling-stroke"
+            />
+            <circle cx={target.gx} cy={target.gy} r={1.25} fill={GOLD} stroke="none" />
+            <text
+              className="cg-arm-target-label"
+              x={target.gx + target.label.dx}
+              y={target.gy + target.label.dy}
+              textAnchor={target.label.anchor ?? "start"}
+            >
+              {target.name}
+            </text>
+            <circle
+              className="cg-arm-target-hit"
+              cx={target.gx}
+              cy={target.gy}
+              r={11}
+              fill="transparent"
+              role="button"
+              tabIndex={pending || hidden ? -1 : 0}
+              focusable={pending || hidden ? "false" : "true"}
+              aria-label={targetLabel}
+              aria-pressed={selected}
+              onPointerDown={(event) => event.stopPropagation()}
+              onClick={(event) => {
+                event.stopPropagation();
+                toggleTarget();
+              }}
+              onKeyDown={(event) => {
+                if (event.key !== "Enter" && event.key !== " ") return;
+                event.preventDefault();
+                event.stopPropagation();
+                toggleTarget();
+              }}
+            >
+              <title>{targetLabel}</title>
+            </circle>
+          </g>
         );
       })}
       {rings.map(({ id, i, st }) => {
         const pending = tour && (progress as number) < i;
+        const ringLegions = resolved.stations
+          .filter((station) => station.id === id)
+          .flatMap((station) => station.armLegions ?? []);
+        const hidden =
+          ringLegions.length > 0 && ringLegions.every((legion) => hiddenArmLegions.has(legion));
+        const outsideCurrentRoute = legionStepTour && id !== currentStationId;
         const color = st.section?.color ?? GOLD;
         return (
           <g
             key={id}
-            className={`cg-rt-st${st.kind === "point" ? " cg-rt-point" : ""}${pending ? " rt-pending" : ""}`}
+            className={`cg-rt-st${st.kind === "point" ? " cg-rt-point" : ""}${pending || hidden || outsideCurrentRoute || currentRouteHidden ? " rt-pending" : ""}`}
             // Ambient cadence: a ring lands as its arriving leg finishes
             // (leg k draws at k·1.45s; the station 0 ring opens the show).
             style={{ "--i": tour ? 0 : st.legIndex + 1 } as CSSProperties}
@@ -140,7 +328,10 @@ export default function RoutesLayer({ resolved, progress }: RoutesLayerProps) {
         );
       })}
       {waypoints.map((st) => {
-        const pending = tour && (progress as number) < st.i;
+        const pending =
+          (tour && (progress as number) < st.i) ||
+          (legionStepTour && st.i !== progress) ||
+          currentRouteHidden;
         const color = st.section?.color ?? GOLD;
         return (
           <g
@@ -154,7 +345,11 @@ export default function RoutesLayer({ resolved, progress }: RoutesLayerProps) {
           </g>
         );
       })}
-      {tour && progress !== null && progress >= 0 && progress < resolved.stations.length && (
+      {tour &&
+        progress !== null &&
+        progress >= 0 &&
+        progress < resolved.stations.length &&
+        !currentRouteHidden && (
         <circle
           className="cg-rt-active"
           cx={resolved.stations[progress].gx}
@@ -167,7 +362,15 @@ export default function RoutesLayer({ resolved, progress }: RoutesLayerProps) {
         />
       )}
       <text
-        className={`cg-rt-lbl${tour && (progress as number) < resolved.stations.length - 1 ? " rt-pending" : ""}`}
+        className={`cg-rt-lbl${
+          tour &&
+          (progress as number) <
+            (resolved.strategic?.mode === "legion-steps"
+              ? resolved.stations.length
+              : resolved.stations.length - 1)
+            ? " rt-pending"
+            : ""
+        }`}
         x={resolved.lbl.x}
         y={resolved.lbl.y}
         fontSize={9}
