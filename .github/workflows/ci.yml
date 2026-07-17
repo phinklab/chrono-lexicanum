@@ -84,7 +84,7 @@ jobs:
       # decision, see the session report; it moves into CI once a read-only
       # SMOKE_DATABASE_URL secret (S3a runtime role) is provisioned.
       - name: Cache Playwright browsers
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ~/.cache/ms-playwright
           key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
