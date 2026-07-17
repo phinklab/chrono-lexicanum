@@ -5,7 +5,7 @@
 ## Spielregeln (jede Session)
 
 - **Eine Session pro Posten.** Frische CC-Session, Prompt aus dem passenden Block unten einfügen.
-- Koordinations-Worktree (`C:\Users\Phil\chrono-lexicanum`, E8), frischer Branch von `origin/main`; Branch-Name steht im Prompt (`NNN` = nächste freie Session-Nummer — vorher `sessions/` auf die höchste Nummer prüfen, Lehre aus der Kollision, die PR #268 auflösen musste; Stand 2026-07-17: nächste freie Nummer **244**).
+- Koordinations-Worktree (`C:\Users\Phil\chrono-lexicanum`, E8), frischer Branch von `origin/main`; Branch-Name steht im Prompt (`NNN` = nächste freie Session-Nummer — vorher `sessions/` auf die höchste Nummer prüfen, Lehre aus der Kollision, die PR #268 auflösen musste; Stand 2026-07-17: nächste freie Nummer **245**).
 - **Kein Commit/PR, bis Philipp „fertig" sagt.** Philipp merged selbst; „ist gemerged" → Standard-Cleanup (Merge verifizieren, `fetch --prune`, zurück auf `main`, Task-Branch löschen).
 - Bewertungsrunden fassen keinen Produktcode an. Bei Urteil **bauen** wird der Zuschnitt in der Runde besprochen; sehr kleine Posten dürfen nach Absprache direkt in derselben Session umgesetzt werden, wenn sie strang-rein bleiben.
 - UI-Abnahme durch Philipp im Browser, keine Headless-Loops. Gates pro PR: `typecheck`, `lint`, `test`, `next build`; `brain:lint` wenn `brain/**` berührt.
@@ -17,7 +17,7 @@
 | # | Posten | Art | Abhängigkeit | Status |
 |---|---|---|---|---|
 | 1 | **WP** — Perfektions-Kandidaten-Triage | Bewertung | — | ✔ 243 |
-| 2 | **WL** — Personal Library (local-first vs. spartanische Accounts) | Bewertung | — | ☐ |
+| 2 | **WL** — Personal Library (local-first vs. spartanische Accounts) | Bewertung | — | ✔ 244 |
 | 3 | **W3b-B1** — Drei Zeitkarten für den Cartographer | Bau (Product, S–M) | — | ☐ |
 | 4 | **W3b-B2** — Karten-Timeline + Journey-Kopplung | Bau (Product, S) | W3b-B1 | ☐ |
 | 5 | **WM** — Map-UI-Rework (Cartouche/Instrumente) | Bewertung | W3b-B1+B2 gebaut | ☐ |
@@ -35,7 +35,7 @@
 
 Posten 13–15 laufen über [`launch-session-prompts.md`](./launch-session-prompts.md) bzw. das Launch-Readiness-Kapitel des Plans — hier nur der Reihenfolge halber. Die Positionen 3/4 stehen bewusst früh, damit Runde 5 (WM) das echte UI beurteilen kann; die übrigen Bauten (7–11b) sind untereinander unabhängig und können bei Bedarf umsortiert werden.
 
-## Urteils-Kurzreferenz (Sessions 235–241 + WP 243)
+## Urteils-Kurzreferenz (Sessions 235–241 + WP 243 + WL 244)
 
 | Runde | Idee | Urteil | Kern |
 |---|---|---|---|
@@ -49,8 +49,9 @@ Posten 13–15 laufen über [`launch-session-prompts.md`](./launch-session-promp
 | W6 (240) | Size Comparison | **Backlog** | Post-launch; Schema-Neubau → zuerst Brief. |
 | WA (241) | Anhang, 7 Ideen | **7/7** | Facetten-Filter-UI **bauen** (896/896 Bücher facettiert, 17.403 Zuweisungen). Series-Status-Board, Verpasst-Generator, Charakter-Dossiers, Spoiler-Graph **Backlog**. Release-Radar **verworfen**. Personal Library → Runde **WL**. |
 | WP (243) | Perfektions-Kandidaten (Worklist §§ C/D, 8 Posten) | **11/11** | Chronicle-/Entity-Restyle **abgeschlossen** (Philipp meldet sich selbst, falls ihn etwas stört). BrandBeacon: echtes Logo liefert Philipp vor Rollout, Einbau dann XS. Cartographer-Tails: Journey-Ästhetik **erledigt** (PRs #264/#265), Vermesser-Modus **verworfen**, Episoden-Link-Revisit + teilbarer `voyage`-Hash → in **W3b-B2** eingezogen. Galaspar-Pin **Backlog** (Koordinaten fehlen), Myr **verworfen** (keine Werk-Kanten). Arthas Moloch = Chart-`moloch` (Identität von Philipp bestätigt) → **bauen** (11b, inkl. Pin-Umbenennung). Drukhari-Starter **verworfen** (Ask-Umbau macht den Punkt irrelevant). Podcast-Aliasse **Backlog** (post-launch). Charakter-Long-Tail kein eigener Posten — als Dichte-Kontext in W3a-B1 verankert. |
+| WL (244) | Personal Library („Meine Bibliothek") | **Backlog** | Komplett zurückgestellt (beide Schienen) — Maintainer-Entscheid: erst einrichten, wenn echte Nachfrage kommt. Bewertung liegt entscheidungsreif: local-first-Schiene ist die fahrbare (localStorage-Store slug-gekeyt mit Metadaten-Snapshot + Toggle-Island in BookDetailView (deckt Route + @modal ab) + `/library` mit Export/Import, ~M; Register-Badges +S optional; Archiv-Filter bewusst außen vor — kollidiert mit Server-Pagination/URL-Spiegel) und würde die F2-Ursprungs-Vision per Overlap-Island auf der Buchseite ohne Accounts lösen (+S–M, koppelt an die F2-Read-only-Variante). Accounts-Schiene ist auch im Minimum L + Dauerbetrieb (kein supabase-js im Code; Anon-Key öffnet die Data-API; Built-in-Mailer-Rate-Limits launch-untauglich; Privacy-Seite garantiert wörtlich „No user accounts"; `works.id` ist nicht rebuild-stabil → Server-Keying müsste über Slug laufen) — nie vor dem Launch. Vorbild heresytracker.app ist selbst accounts-basiert (Firebase) + JSON-Export; sein Feature-Modell (Owned→Read, Stats, Export) bleibt gültig. |
 
-**Backlog-Revisit-Trigger (Kurzform):** Series-Board erst nach `seriesHint`-Promotion (eigener Batches-Posten, 8/896 promotet bei 896/896 Hints); Verpasst-Generator als `/now`-Erweiterung, wenn `/now` live ist; Charakter-Dossiers nach W3a-Bau neu anschauen („Zuletzt gesehen" braucht mehr Datierungsdecke); Spoiler-Graph allenfalls fern mit Serien-Granularität. Aus WP (243): Galaspar-Pin, sobald Philipp Koordinaten von der neueren Redditor-Karte abgelesen hat (dann `pin`-Zeile in der Kurations-Excel + Regen, XS — Location/Blurb/Event/2 Buch-Kanten liegen komplett bereit); BrandBeacon-Tausch, sobald Philipps Logo vorliegt (XS, spätestens im S7b-Pass); Podcast-Aliasse als post-launch Kurationswelle (175 Formen entscheidungsreif vorsortiert in `scripts/seed-data/podcast-aliases.review.md` — A1/A2 ≈ 20 klare Entities zuerst, A3-Götter-Grundsatzfrage separat).
+**Backlog-Revisit-Trigger (Kurzform):** Series-Board erst nach `seriesHint`-Promotion (eigener Batches-Posten, 8/896 promotet bei 896/896 Hints); Verpasst-Generator als `/now`-Erweiterung, wenn `/now` live ist; Charakter-Dossiers nach W3a-Bau neu anschauen („Zuletzt gesehen" braucht mehr Datierungsdecke); Spoiler-Graph allenfalls fern mit Serien-Granularität. Aus WP (243): Galaspar-Pin, sobald Philipp Koordinaten von der neueren Redditor-Karte abgelesen hat (dann `pin`-Zeile in der Kurations-Excel + Regen, XS — Location/Blurb/Event/2 Buch-Kanten liegen komplett bereit); BrandBeacon-Tausch, sobald Philipps Logo vorliegt (XS, spätestens im S7b-Pass); Podcast-Aliasse als post-launch Kurationswelle (175 Formen entscheidungsreif vorsortiert in `scripts/seed-data/podcast-aliases.review.md` — A1/A2 ≈ 20 klare Entities zuerst, A3-Götter-Grundsatzfrage separat). Aus WL (244): Personal Library erst bei echter Nutzer-Nachfrage nach dem Launch revisiten — dann zuerst die local-first-M-v1 (Zuschnitt liegt entscheidungsreif in der Kurzreferenz-Zeile), Accounts allenfalls später als „Sign in & import"-Sync-Pfad obendrauf; der F2-Doppelkauf-Warner (Overlap gegen die eigene Sammlung) hängt mit an diesem Trigger.
 
 ---
 
