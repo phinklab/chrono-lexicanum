@@ -2,37 +2,33 @@
  * RoutesLayer — the active journey's chart geometry, in two modes.
  *
  * Ambient (`progress === null`, reached via "skip tour"): the pre-voyage
- * choreography — legs draw station by station on a CSS time-stagger (mask
- * reveal), rings bloom on the same cadence, dots march in travel direction.
+ * choreography — RouteMotionCanvas draws the legs in on a time-stagger; the
+ * SVG's rings/dots/label stand static from the first frame.
  *
  * Tour (`progress >= -1`, the guided playback): reveal is STEP-gated, not
- * time-gated, keyed off each stop's `legIndex`. A leg draws when the tour
- * FIRST enters it — arriving at a waypoint riding it, or directly at its end
- * station — and stands drawn thereafter. Only the currently drawing leg or
- * epilogue leg group keeps live masks. Later legs, rings and waypoint dots hold at
- * opacity 0 via `rt-pending`. Several strategic epilogue arms may share the
- * same reveal step and draw together. A `legion-steps` journey is the focused
- * exception: each step replaces the prior Legion route, and its own segments
- * draw in travel order. `progress === stations.length` (the post-tour survey)
- * shows everything statically.
+ * time-gated, keyed off each stop's `legIndex`. A leg draws (in canvas) when
+ * the tour FIRST enters it — arriving at a waypoint riding it, or directly
+ * at its end station — and stands drawn thereafter. Later legs, rings and
+ * waypoint dots hold at opacity 0 via `rt-pending`. Several strategic
+ * epilogue arms may share the same reveal step and draw together. A
+ * `legion-steps` journey is the focused exception: each step replaces the
+ * prior Legion route, and its own segments draw in travel order.
+ * `progress === stations.length` (the post-tour survey) shows everything
+ * statically.
  *
  * World stations render as rings (deduped by id — repeat visits share one
  * ring at the FIRST visit's step); waypoints render as small dashed dots ON
- * their leg. Below 900px masks are skipped and SVG paths stand static/hidden;
- * RouteMotionCanvas draws the route there (static dashed line + step
- * draw-in) without SVG paint animation.
- * Mounted only while a journey is active — mounting restarts the desktop CSS
- * choreography.
+ * their leg. The SVG never paints the route line itself: its `cg-rtFly`
+ * paths stand hidden on every viewport and RouteMotionCanvas draws the line
+ * (static dashes + step draw-in) — animated SVG stroke paint rasters on the
+ * main thread and intermittently flashed the whole chart on desktop Chromium
+ * just as it did on phones. Mounted only while a journey is active.
  */
 
 import type { CSSProperties } from "react";
 
 import type { ResolvedVoyage } from "@/lib/map/voyages";
-import { useMediaQuery } from "@/lib/useMediaQuery";
 import { GOLD } from "./chart-geometry";
-
-const LEGION_SEGMENT_DRAW_SECONDS = 1.1;
-const ROUTE_DRAW_LEAD_SECONDS = 0.35;
 
 interface RoutesLayerProps {
   resolved: ResolvedVoyage | null;
@@ -56,9 +52,6 @@ export default function RoutesLayer({
   onArmSelect,
   onTargetSelect,
 }: RoutesLayerProps) {
-  // Phones skip the <mask> draw-in entirely. RouteMotionCanvas owns their
-  // moving line; the SVG keeps only static station/label geometry.
-  const narrow = useMediaQuery("(max-width: 900px)");
   if (!resolved || resolved.legs.length < 1) return null;
 
   const tour = progress !== null;
@@ -82,11 +75,6 @@ export default function RoutesLayer({
   const currentStationId = legionStepTour ? resolved.stations[progress]?.id : null;
   const currentRouteHidden =
     legionStepTour && !!stepArm && hiddenArmLegions.has(stepArm.legion);
-  const armOrderByLeg = new Map(
-    resolved.strategicArms.flatMap((arm) =>
-      arm.legIndices.map((legIndex, order) => [legIndex, order] as const),
-    ),
-  );
   const isIsstvanLeg = new Set(
     resolved.strategicTargets
       .filter((target) => target.name.startsWith("Istvaan"))
@@ -96,9 +84,6 @@ export default function RoutesLayer({
   // First tour step at which each leg starts drawing: the step of the first
   // stop (waypoint or end station) that rides/arrives on it.
   const firstEntry = new Map(resolved.legRevealAt.map((step, legIndex) => [legIndex, step]));
-  const drawingLegs = tour
-    ? new Set([...firstEntry.entries()].filter(([, step]) => step === progress).map(([legIndex]) => legIndex))
-    : new Set<number>();
   const legState = (li: number): string => {
     if (!tour) return "";
     const entry = firstEntry.get(li);
@@ -125,41 +110,9 @@ export default function RoutesLayer({
   const waypoints = resolved.stations.filter((st) => st.kind === "way");
 
   return (
-    <g className={`${narrow ? "cg-course cg-course--lite" : "cg-course"}${tour ? " tour" : ""}`}>
-      {!narrow && (
-        <defs>
-          {resolved.legs.map((d, li) =>
-            // Tour mode masks only the currently drawing leg or epilogue group;
-            // ambient mode masks every leg for the staggered draw-in.
-            tour && !drawingLegs.has(li) ? null : (
-              <mask id={`cg-m-${resolved.id}-${li}`} key={li}>
-                <path
-                  d={d}
-                  fill="none"
-                  stroke="#fff"
-                  strokeWidth={8}
-                  pathLength={1}
-                  className="cg-routeDraw"
-                  style={
-                    {
-                      "--i": tour ? 0 : li,
-                      animationDelay: legionStepTour
-                        ? `${(
-                            ROUTE_DRAW_LEAD_SECONDS +
-                            (armOrderByLeg.get(li) ?? 0) * LEGION_SEGMENT_DRAW_SECONDS
-                          ).toFixed(2)}s`
-                        : undefined,
-                    } as CSSProperties
-                  }
-                />
-              </mask>
-            ),
-          )}
-        </defs>
-      )}
+    <g className={`cg-course${tour ? " tour" : ""}`}>
       {resolved.legs.map((d, li) => {
         const jump = resolved.legEffects[li] === "jump";
-        const masked = !narrow && (tour ? drawingLegs.has(li) : true);
         const arm = armByLeg.get(li);
         const armAvailable =
           !!arm &&
@@ -189,12 +142,6 @@ export default function RoutesLayer({
               strokeDasharray={jump ? "0.2 3.4" : "1.6 4.6"}
               strokeLinecap="round"
               vectorEffect="non-scaling-stroke"
-              style={
-                {
-                  "--i": tour ? 0 : li,
-                } as CSSProperties
-              }
-              mask={masked ? `url(#cg-m-${resolved.id}-${li})` : undefined}
             />
             {arm && armAvailable && !armHidden && (
               <path
@@ -309,9 +256,6 @@ export default function RoutesLayer({
           <g
             key={id}
             className={`cg-rt-st${st.kind === "point" ? " cg-rt-point" : ""}${pending || hidden || outsideCurrentRoute || currentRouteHidden ? " rt-pending" : ""}`}
-            // Ambient cadence: a ring lands as its arriving leg finishes
-            // (leg k draws at k·1.45s; the station 0 ring opens the show).
-            style={{ "--i": tour ? 0 : st.legIndex + 1 } as CSSProperties}
           >
             <circle
               cx={st.gx}
@@ -337,8 +281,6 @@ export default function RoutesLayer({
           <g
             key={st.id}
             className={`cg-rt-st cg-rt-wp${pending ? " rt-pending" : ""}`}
-            // Ambient: bloom mid-draw of the leg the dot rides.
-            style={{ "--i": tour ? 0 : st.legIndex + 0.6 } as CSSProperties}
           >
             <circle cx={st.gx} cy={st.gy} r={4} fill="none" stroke={color} strokeWidth={0.8} strokeDasharray="1.4 2" vectorEffect="non-scaling-stroke" />
             <circle cx={st.gx} cy={st.gy} r={1.2} fill={color} stroke="none" />
@@ -375,9 +317,6 @@ export default function RoutesLayer({
         y={resolved.lbl.y}
         fontSize={9}
         textAnchor="middle"
-        style={{
-          animationDelay: tour ? "0.3s" : `${(resolved.legs.length * 1.45 + 0.4).toFixed(2)}s`,
-        }}
       >
         {resolved.lbl.t}
       </text>

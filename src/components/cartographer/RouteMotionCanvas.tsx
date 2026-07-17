@@ -1,25 +1,28 @@
 "use client";
 
 /**
- * RouteMotionCanvas — mobile-only raster rendering for Great Journeys.
+ * RouteMotionCanvas — raster rendering for Great Journeys, all viewports.
  *
- * Mobile WebKit/Blink repaint SVG stroke-dashoffset animations in software;
- * on a transformed map that can flash the SVG backing store. The route stays
+ * WebKit/Blink repaint SVG stroke-dashoffset animations in software; on a
+ * transformed map that can flash the SVG backing store. Phones hit this
+ * first (cured 2026-07-13); the strategic journeys brought the same
+ * intermittent whole-chart flash to desktop Chromium, so since 2026-07-17
+ * the canvas draws the route line everywhere and the SVG journey layer
+ * carries no paint animation on any viewport. The route stays
  * vector-authored, but its line is sampled into this small Canvas surface.
  *
- * Since 2026-07-13 the standing line is STATIC — normal course legs use the
- * preferred plain dashes while chronology-preserving jumps use compact dots.
- * The old perpetual 30 fps drift kept invalidating a fullscreen layer
- * and the entity flicker on drag came back with it. Now the canvas repaints
- * only (a) on camera frames (the route must track the chart) and (b) during
- * the bounded draw-in window when the tour enters a new leg. Idle = zero
- * repaints. Static SVG rings/labels remain in RoutesLayer.
+ * The standing line is STATIC — normal course legs use the preferred plain
+ * dashes while chronology-preserving jumps use compact dots. A perpetual
+ * dash drift would keep invalidating a fullscreen layer (the drag flicker).
+ * The canvas repaints only (a) on camera frames (the route must track the
+ * chart) and (b) during the bounded draw-in window when the tour enters a
+ * new leg. Idle = zero repaints. Static SVG rings/labels remain in
+ * RoutesLayer.
  */
 
 import { useEffect, useRef } from "react";
 
 import { pointOnLeg, type ResolvedVoyage } from "@/lib/map/voyages";
-import { useMediaQuery } from "@/lib/useMediaQuery";
 
 import type { ChartBus } from "./chart-bus";
 import { GOLD } from "./chart-geometry";
@@ -53,7 +56,6 @@ export default function RouteMotionCanvas({
   hiddenArmLegions = new Set<string>(),
 }: RouteMotionCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const narrow = useMediaQuery("(max-width: 900px)");
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -84,7 +86,7 @@ export default function RouteMotionCanvas({
       ctx.clearRect(0, 0, rect.width, rect.height);
     };
 
-    if (!narrow || !resolved) {
+    if (!resolved) {
       clear();
       return;
     }
@@ -218,7 +220,7 @@ export default function RouteMotionCanvas({
       unsubscribe();
       clear();
     };
-  }, [bus, hiddenArmLegions, highlightedArmLegion, narrow, progress, reduce, resolved]);
+  }, [bus, hiddenArmLegions, highlightedArmLegion, progress, reduce, resolved]);
 
   return (
     <canvas

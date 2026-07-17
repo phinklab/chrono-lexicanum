@@ -137,10 +137,12 @@ body.cg-canvas-renderer .cg-deg {
   cursor: grabbing;
 }
 
-/* Desktop keeps animated linework in a separate SVG tree. Mobile does not
-   animate SVG paint properties at all; RouteMotionCanvas owns the journey
-   line there (static dashes, repaint on camera frames only). Do not force
-   this plane into a compositor backing store on either Blink or WebKit. */
+/* The motion SVG never paints the journey line on ANY viewport:
+   RouteMotionCanvas owns it (static dashes, repaint on camera frames only).
+   Animated SVG stroke paint rasters on the main thread and intermittently
+   flashed the whole chart — first on phones, then on desktop Chromium with
+   the strategic journeys. Do not force this plane into a compositor backing
+   store on either Blink or WebKit. */
 .cg-motion-plane {
   position: absolute;
   inset: 0;
@@ -151,7 +153,7 @@ body.cg-canvas-renderer .cg-deg {
   cursor: default;
 }
 .cg-route-canvas {
-  display: none;
+  display: block;
   position: fixed;
   inset: 0;
   z-index: 11;
@@ -437,23 +439,11 @@ body.cg-canvas-renderer .cg-deg {
 .cg-course {
   pointer-events: none;
 }
-.cg-routeDraw {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  animation: cgRouteDraw 1.1s linear both;
-  animation-delay: calc(var(--i) * 1.45s + 0.35s);
-}
-@keyframes cgRouteDraw {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
+/* The SVG route line is authoring geometry only — RouteMotionCanvas paints
+   the visible line on every viewport. The former mask draw-in + dash drift
+   (animated stroke paint) were the whole-chart flicker trigger. */
 .cg-rtFly {
-  animation: cgRtFly 7s linear infinite;
-}
-.cg-rtFly.is-selected {
-  stroke-width: 2.8;
-  stroke-opacity: 1;
+  visibility: hidden;
 }
 .cg-rt-hit {
   pointer-events: stroke;
@@ -501,57 +491,24 @@ body.cg-canvas-renderer .cg-deg {
   stroke-width: 1.2;
   stroke-opacity: 0.5;
 }
-@keyframes cgRtFly {
-  to {
-    stroke-dashoffset: -62;
-  }
-}
+/* Rings, waypoint dots and the course label stand static — no paint
+   animation on the motion plane. The step draw-in lives in the canvas. */
 .cg-rt-st {
-  transform-box: fill-box;
-  transform-origin: center;
-  opacity: 0;
-  animation: cgRtStation 0.7s var(--ease) both;
-  animation-delay: calc(var(--i) * 1.45s);
-}
-@keyframes cgRtStation {
-  from {
-    opacity: 0;
-    transform: scale(0.3);
-  }
-  60% {
-    opacity: 0.95;
-  }
-  to {
-    opacity: 0.8;
-    transform: scale(1);
-  }
+  opacity: 0.8;
 }
 .cg-rt-lbl {
   font-family: var(--font-mono);
   fill: var(--cl-gold);
   letter-spacing: var(--track-24);
-  opacity: 0;
-  animation: cgRtLbl 1s var(--ease) both;
-}
-@keyframes cgRtLbl {
-  to {
-    opacity: 0.85;
-  }
+  opacity: 0.85;
 }
 /* ── Tour mode (Great Journeys guided playback) ──────────────────────────
-   Reveal is STEP-gated by RoutesLayer classes instead of the time stagger:
-   `rt-pending` holds later geometry at 0 (a plain class, not an animation —
-   it survives reduced-motion, where the drawing leg lands fully drawn),
-   the current `rt-drawing` leg or epilogue-leg group runs the draw-in with
-   --i pinned to 0, and
-   `rt-drawn` legs stand mask-free. Ring blooms wait a beat so they land
-   with the camera, not the tap. */
+   Reveal is STEP-gated by RoutesLayer classes: `rt-pending` holds later
+   geometry at 0 (a plain class, not an animation — it survives
+   reduced-motion); the drawing leg's line runs its draw-in in the canvas. */
 .cg-course.tour .rt-pending {
   opacity: 0 !important;
   animation: none !important;
-}
-.cg-course.tour .cg-rt-st {
-  animation-delay: 0.55s;
 }
 
 /* Selection: ringwork blooms out of the dot (the BtnFx gesture) */
@@ -2287,10 +2244,6 @@ body.cg-canvas-renderer .cg-deg {
 
 /* Reduced motion: everything stands still */
 @media (prefers-reduced-motion: reduce) {
-  /* Extra specificity: must also beat the mobile lite-route fade-in
-     (.cg-course--lite .cg-rtFly), which is declared later in the file. */
-  .cg-chart .cg-course--lite .cg-rtFly,
-  .cg-rtFly,
   .cg-inst .i-ticks,
   .cg-inst .i-dash,
   .cg-inst .i-orbitA,
@@ -2306,18 +2259,6 @@ body.cg-canvas-renderer .cg-deg {
   }
   .cg-inst .i-blip {
     opacity: 0.5;
-  }
-  .cg-routeDraw {
-    animation: none;
-    stroke-dashoffset: 0;
-  }
-  .cg-rt-st {
-    animation: none;
-    opacity: 0.8;
-  }
-  .cg-rt-lbl {
-    animation: none;
-    opacity: 0.85;
   }
   .cg-sel .blm {
     animation: none;
@@ -2497,26 +2438,13 @@ body.cg-canvas-renderer .cg-deg {
     will-change: auto;
   }
 
-  /* WebKit/Blink rasterize animated SVG stroke paint on the CPU. On phones
-     the motion SVG is therefore fully static; Canvas carries the route
-     (static dashed line + the step draw-in) and repaints only on camera
-     frames — no standing animation invalidates a fullscreen layer. */
-  .cg-chart--motion *,
-  .cg-course--lite .cg-rtFly {
+  /* WebKit/Blink rasterize animated SVG stroke paint on the CPU. The journey
+     layer is already static everywhere (Canvas carries the route line); on
+     phones ALL remaining motion-plane animation (instruments, selection)
+     stands still too — no standing animation invalidates a fullscreen layer. */
+  .cg-chart--motion * {
     animation: none !important;
     transition: none !important;
-  }
-  .cg-route-canvas {
-    display: block;
-  }
-  .cg-course--lite .cg-rtFly {
-    visibility: hidden;
-  }
-  .cg-course--lite .cg-rt-st {
-    opacity: 0.8;
-  }
-  .cg-course--lite .cg-rt-lbl {
-    opacity: 0.85;
   }
   .cg-chart--motion .cg-inst .i-blip {
     opacity: 0.5;
