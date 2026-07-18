@@ -5,7 +5,7 @@
 ## Spielregeln (jede Session)
 
 - **Eine Session pro Posten.** Frische CC-Session, Prompt aus dem passenden Block unten einfügen.
-- Koordinations-Worktree (`C:\Users\Phil\chrono-lexicanum`, E8), frischer Branch von `origin/main`; Branch-Name steht im Prompt (`NNN` = nächste freie Session-Nummer — vorher `sessions/` auf die höchste Nummer prüfen, Lehre aus der Kollision, die PR #268 auflösen musste; Stand 2026-07-17: nächste freie Nummer **245**).
+- Koordinations-Worktree (`C:\Users\Phil\chrono-lexicanum`, E8), frischer Branch von `origin/main`; Branch-Name steht im Prompt (`NNN` = nächste freie Session-Nummer — vorher `sessions/` auf die höchste Nummer prüfen, Lehre aus der Kollision, die PR #268 auflösen musste; Stand 2026-07-18: nächste freie Nummer **249**).
 - **Kein Commit/PR, bis Philipp „fertig" sagt.** Philipp merged selbst; „ist gemerged" → Standard-Cleanup (Merge verifizieren, `fetch --prune`, zurück auf `main`, Task-Branch löschen).
 - Bewertungsrunden fassen keinen Produktcode an. Bei Urteil **bauen** wird der Zuschnitt in der Runde besprochen; sehr kleine Posten dürfen nach Absprache direkt in derselben Session umgesetzt werden, wenn sie strang-rein bleiben.
 - UI-Abnahme durch Philipp im Browser, keine Headless-Loops. Gates pro PR: `typecheck`, `lint`, `test`, `next build`; `brain:lint` wenn `brain/**` berührt.
@@ -20,9 +20,8 @@
 | 2 | **WL** — Personal Library (local-first vs. spartanische Accounts) | Bewertung | — | ✔ 244 |
 | 3 | **W3b-B1** — Drei Zeitkarten für den Cartographer | Bau (Product, S–M) | — | ✔ 246 |
 | 4 | **W3b-B2** — Karten-Timeline + Journey-Kopplung | Bau (Product, S) | W3b-B1 | ✔ 247 |
-| 4b | **W3b-B3** — Zeitstrahl-Feature (Play + laufende Timeline, Highlights, Kamera-Sprünge) | Bau (Product) | W3b-B2; Zuschnitt Philipp | ☐ |
-| 5 | **WM** — Map-UI-Rework (Cartouche/Instrumente) | Bewertung | W3b-B1+B2 gebaut | ☐ |
-| 6 | *(WM-Bau, falls Urteil „bauen" — Zuschnitt aus Runde 5)* | Bau | WM | ☐ |
+| 5 | **WM** — Map-UI-Rework (Cartouche/Instrumente) | Bewertung | W3b-B1+B2 gebaut | ✔ 248 |
+| 6 | **WM-B1** — Map-UI-Rework: Neuordnung nach Aufgaben | Bau (Product, M) | WM | ☐ |
 | 7 | **F1-B1** — M42-Nachdatierung | Bau (Batches, S–M) | — | ☐ |
 | 8 | **F1-B2** — `/now` Status Imperialis | Bau (Product, M) | F1-B1 empfohlen | ☐ |
 | 9 | **F3-B1** — `/statistics` Librarium-Statistiken | Bau (Product, M) | — | ☐ |
@@ -36,7 +35,7 @@
 
 Posten 13–15 laufen über [`launch-session-prompts.md`](./launch-session-prompts.md) bzw. das Launch-Readiness-Kapitel des Plans — hier nur der Reihenfolge halber. Die Positionen 3/4 stehen bewusst früh, damit Runde 5 (WM) das echte UI beurteilen kann; die übrigen Bauten (7–11b) sind untereinander unabhängig und können bei Bedarf umsortiert werden.
 
-## Urteils-Kurzreferenz (Sessions 235–241 + WP 243 + WL 244)
+## Urteils-Kurzreferenz (Sessions 235–241 + WP 243 + WL 244 + W3b-B3 247 + WM 248)
 
 | Runde | Idee | Urteil | Kern |
 |---|---|---|---|
@@ -51,8 +50,10 @@ Posten 13–15 laufen über [`launch-session-prompts.md`](./launch-session-promp
 | WA (241) | Anhang, 7 Ideen | **7/7** | Facetten-Filter-UI **bauen** (896/896 Bücher facettiert, 17.403 Zuweisungen). Series-Status-Board, Verpasst-Generator, Charakter-Dossiers, Spoiler-Graph **Backlog**. Release-Radar **verworfen**. Personal Library → Runde **WL**. |
 | WP (243) | Perfektions-Kandidaten (Worklist §§ C/D, 8 Posten) | **11/11** | Chronicle-/Entity-Restyle **abgeschlossen** (Philipp meldet sich selbst, falls ihn etwas stört). BrandBeacon: echtes Logo liefert Philipp vor Rollout, Einbau dann XS. Cartographer-Tails: Journey-Ästhetik **erledigt** (PRs #264/#265), Vermesser-Modus **verworfen**, Episoden-Link-Revisit + teilbarer `voyage`-Hash → in **W3b-B2** eingezogen. Galaspar-Pin **Backlog** (Koordinaten fehlen), Myr **verworfen** (keine Werk-Kanten). Arthas Moloch = Chart-`moloch` (Identität von Philipp bestätigt) → **bauen** (11b, inkl. Pin-Umbenennung). Drukhari-Starter **verworfen** (Ask-Umbau macht den Punkt irrelevant). Podcast-Aliasse **Backlog** (post-launch). Charakter-Long-Tail kein eigener Posten — als Dichte-Kontext in W3a-B1 verankert. |
 | WL (244) | Personal Library („Meine Bibliothek") | **Backlog** | Komplett zurückgestellt (beide Schienen) — Maintainer-Entscheid: erst einrichten, wenn echte Nachfrage kommt. Bewertung liegt entscheidungsreif: local-first-Schiene ist die fahrbare (localStorage-Store slug-gekeyt mit Metadaten-Snapshot + Toggle-Island in BookDetailView (deckt Route + @modal ab) + `/library` mit Export/Import, ~M; Register-Badges +S optional; Archiv-Filter bewusst außen vor — kollidiert mit Server-Pagination/URL-Spiegel) und würde die F2-Ursprungs-Vision per Overlap-Island auf der Buchseite ohne Accounts lösen (+S–M, koppelt an die F2-Read-only-Variante). Accounts-Schiene ist auch im Minimum L + Dauerbetrieb (kein supabase-js im Code; Anon-Key öffnet die Data-API; Built-in-Mailer-Rate-Limits launch-untauglich; Privacy-Seite garantiert wörtlich „No user accounts"; `works.id` ist nicht rebuild-stabil → Server-Keying müsste über Slug laufen) — nie vor dem Launch. Vorbild heresytracker.app ist selbst accounts-basiert (Firebase) + JSON-Export; sein Feature-Modell (Owned→Read, Stats, Export) bleibt gültig. |
+| W3b-B3 (247) | Zeitstrahl auf der Map | **Backlog** | Vision: Play verbunden mit sichtbarem laufendem Zeitstrahl — Beats werden gehighlighted, Zonen erscheinen an den richtigen Stellen, die Kamera springt an die relevanten Orte. Ein nackter Play-Button wurde in Session 247 gebaut und bewusst wieder entfernt (falsche Abstraktion ohne sichtbare Zeit/Inhalt/Kamera). Grundlagen liegen komplett (drei Zeitkarten, Journey-Ären-Kopplung mit `ResolvedStation.era`, `voyage`-Hash). Kickoff-Prompt mit Roast-Fragephase liegt fertig im Prompts-Abschnitt (§ „Backlog · W3b-B3"). |
+| WM (248) | Map-UI-Rework (Cartouche/Instrumente) | **bauen (Option B)** | Diagnose (Code-Inventur + Web-Research, 14 Quellen: NN/g, mapuipatterns.com, Google/Material-Doku): Cartouche ist ein „Kitchen Sink" — sechs Aufgabenarten als gleichrangige Sektionen, Hierarchie-Inversion (70-Klassen-Census default-offen, Journeys eingeklappt), zwei Layers-Eingänge (Instruments + Census), zu viel Erklär-/Flavor-Text, mobil drei Disclosure-Ebenen. Urteil: **Option B „Neuordnung nach Aufgaben"** (M, eine Product-Session, Posten 6): Cartouche wird Titel + Legende (Instruments + Census verschmolzen zur interaktiven Legende, ein Eingang, Badges bleiben), Journeys als eigener Content-Eingang (Name + Ären-Tag, Ären-gruppiert; Blurbs nur noch auf der Ouvertüren-Karte), World index raus aus der Sicht (A–Z-Pfad für Tastatur/AT bleibt — S10a-Parität), Textdiät nach Hitliste, Era-Platte unverändert (Zeitstrahl-Dock-Reserve). Option A (reine Textdiät, S) war Fallback; Option C (Konventions-Vollausbau: schwimmende Controls, Journey-Einstieg über Buchseiten, Snap-Sheet — L) **verworfen** für pre-launch, allenfalls post-launch neu denken. |
 
-**Backlog-Revisit-Trigger (Kurzform):** Series-Board erst nach `seriesHint`-Promotion (eigener Batches-Posten, 8/896 promotet bei 896/896 Hints); Verpasst-Generator als `/now`-Erweiterung, wenn `/now` live ist; Charakter-Dossiers nach W3a-Bau neu anschauen („Zuletzt gesehen" braucht mehr Datierungsdecke); Spoiler-Graph allenfalls fern mit Serien-Granularität. Aus WP (243): Galaspar-Pin, sobald Philipp Koordinaten von der neueren Redditor-Karte abgelesen hat (dann `pin`-Zeile in der Kurations-Excel + Regen, XS — Location/Blurb/Event/2 Buch-Kanten liegen komplett bereit); BrandBeacon-Tausch, sobald Philipps Logo vorliegt (XS, spätestens im S7b-Pass); Podcast-Aliasse als post-launch Kurationswelle (175 Formen entscheidungsreif vorsortiert in `scripts/seed-data/podcast-aliases.review.md` — A1/A2 ≈ 20 klare Entities zuerst, A3-Götter-Grundsatzfrage separat). Aus WL (244): Personal Library erst bei echter Nutzer-Nachfrage nach dem Launch revisiten — dann zuerst die local-first-M-v1 (Zuschnitt liegt entscheidungsreif in der Kurzreferenz-Zeile), Accounts allenfalls später als „Sign in & import"-Sync-Pfad obendrauf; der F2-Doppelkauf-Warner (Overlap gegen die eigene Sammlung) hängt mit an diesem Trigger.
+**Backlog-Revisit-Trigger (Kurzform):** Series-Board erst nach `seriesHint`-Promotion (eigener Batches-Posten, 8/896 promotet bei 896/896 Hints); Verpasst-Generator als `/now`-Erweiterung, wenn `/now` live ist; Charakter-Dossiers nach W3a-Bau neu anschauen („Zuletzt gesehen" braucht mehr Datierungsdecke); Spoiler-Graph allenfalls fern mit Serien-Granularität. Aus WP (243): Galaspar-Pin, sobald Philipp Koordinaten von der neueren Redditor-Karte abgelesen hat (dann `pin`-Zeile in der Kurations-Excel + Regen, XS — Location/Blurb/Event/2 Buch-Kanten liegen komplett bereit); BrandBeacon-Tausch, sobald Philipps Logo vorliegt (XS, spätestens im S7b-Pass); Podcast-Aliasse als post-launch Kurationswelle (175 Formen entscheidungsreif vorsortiert in `scripts/seed-data/podcast-aliases.review.md` — A1/A2 ≈ 20 klare Entities zuerst, A3-Götter-Grundsatzfrage separat). Aus WL (244): Personal Library erst bei echter Nutzer-Nachfrage nach dem Launch revisiten — dann zuerst die local-first-M-v1 (Zuschnitt liegt entscheidungsreif in der Kurzreferenz-Zeile), Accounts allenfalls später als „Sign in & import"-Sync-Pfad obendrauf; der F2-Doppelkauf-Warner (Overlap gegen die eigene Sammlung) hängt mit an diesem Trigger. Aus 247: Zeitstrahl (W3b-B3) auf Maintainer-Zuruf, frühestens nach dem WM-Bau (Posten 6 — das WM-Urteil 248 hat entschieden: *weniger* Chrome; Era-Platte + Unterkante bleiben als Zeitstrahl-Dock reserviert); Kickoff-Prompt liegt fertig im Prompts-Abschnitt.
 
 ---
 
@@ -116,6 +117,30 @@ Umfang:
 UI-Abnahme durch Philipp im Browser, keine Headless-Loops. Branch: codex/product-map-timeline. Kein Commit/PR, bis ich „fertig" sage. Danach Fahrplan-Haken in docs/werkstatt-roadmap.md.
 ```
 
+### Backlog · W3b-B3 — Zeitstrahl (Kickoff, Roast-Fragephase)
+
+> **Backlog, nicht in der Queue** (Urteil Session 247, Kurzreferenz oben). Revisit auf Maintainer-Zuruf, frühestens nach der WM-Runde.
+
+```text
+Werkstatt-Bau W3b-B3 — Zeitstrahl für den Cartographer (Product, Zuschnitt offen).
+
+Kontext: W3b-B2 ist gemerged (PR #277, Session 247). Die Grundlagen liegen: drei Zeitkarten pre/hh/now mit Era-Platte, visibleZones(era), Journey-Ären-Kopplung mit Akt-Umbrüchen (ResolvedStation.era), voyage=<id>-Hash. Ein nackter Play-Button wurde in 247 bewusst wieder entfernt — er lief ohne sichtbare Zeit, ohne Inhalte, ohne Kamera. W3b-B3 ist der richtige Bau: Play-Steuerung verbunden mit einem sichtbaren, laufenden Zeitstrahl — Punkte werden gehighlighted, Zonen „erscheinen" an den richtigen Stellen, die Karte springt an die relevanten Orte. Die Era-Platte ist die vorgesehene Dock-Stelle, aber auch das steht zur Debatte.
+
+WICHTIG — Fragephase zuerst, im Roast-Modus. Bevor du planst oder baust: stelle mir in mehreren Runden (AskUserQuestion) Fragen, bis das Feature zu Ende gedacht ist. Sei dabei unbequem — greif meine Annahmen an, halte mir die Datenlage vor (work_locations.atY leer, Buch-Datierungen 97/896 — das W3b-Urteil hat ein freies Jahr deshalb verworfen), rechne mir Kurationsaufwand und Kollisionskosten vor, benenne Widersprüche in meinen Antworten und frag nach, statt sie glattzubügeln. Keine Höflichkeitsrunde: wenn eine Antwort das Problem nur verschiebt, sag das und bohr nach. Die Fragephase endet, wenn EINES von beiden eintritt: (a) ich sage „durchgedacht", oder (b) du stellst selbst fest, dass du alles hast, was du brauchst, und keine Verständnisfragen mehr offen sind — dann sagst du das explizit und belegst es mit einer kompakten Zusammenfassung des ausgehandelten Designs (jede Design-Entscheidung mit Antwort-Herkunft). Stelle keine Alibi-Fragen, um die Phase künstlich zu verlängern. Danach: Plan (Plan-Mode; bei Bedarf Session-Teilung wie bei W3b-B1 vorschlagen) und auf meine Abnahme warten.
+
+Fragenfelder (mindestens, in sinnvoller Reihenfolge):
+- Die Achse selbst: Was läuft da? Nur die drei Stufen, eine kuratierte Ereignis-Kette (Beats mit In-Universe-Datum), oder eine echte Jahresachse (Datenlage!)? Lineare Zeit vs. Kapitel?
+- Inhaltsquelle: Woher kommen die Beats — bestehende Journey-Akte (haben date-Labels + Koordinaten + era), die Zonen-States, eine neue kuratierte Chronik-Liste? Wie viel neue Kuration bin ich bereit zu schreiben, und wer pflegt sie?
+- Verhältnis zu den Journeys: Ist der Zeitstrahl eine Meta-Journey der Galaxiegeschichte? Was passiert, wenn während des Abspielens eine Journey gestartet wird — und umgekehrt?
+- Interaktion: Play/Pause, Scrub per Drag, diskrete Sprünge, Geschwindigkeit? Was passiert bei manueller Karteninteraktion (Pan/Zoom/Pin-Klick) während des Laufs?
+- Kamera: Springt sie pro Beat (welches Ziel, welcher Zoom), oder fährt sie kontinuierlich? Was davon verträgt reduced-motion?
+- UI: Wo sitzt der Strahl (Era-Platte top-center vs. Bottom — Kollision mit Tour-Cards/Sheet), wie sieht er auf ≤640px aus, wie viel Chrome verträgt die Karte noch (WM-Runde steht an)?
+- Teilbarkeit: Gehört die Zeitstrahl-Position in den Hash? Zusammenspiel mit era= und voyage=?
+- Scope-Schnitt: Was ist v1, was fliegt explizit raus? Eine Session oder Dreiteilung (Mechanik / UI / Kuration) wie bei B1?
+
+UI-Abnahme durch mich im Browser, keine Headless-Loops. Branch: codex/product-map-zeitstrahl. Kein Commit/PR, bis ich „fertig" sage. Danach Kurzreferenz-Zeile W3b-B3 in docs/werkstatt-roadmap.md nachführen (Backlog → gebaut) und den Posten in den Fahrplan-Erledigt-Stand heben.
+```
+
 ### 5 · WM — Map-UI-Rework (Bewertung)
 
 ```text
@@ -124,6 +149,27 @@ Werkstatt-Runde WM — Bewertung Map-UI-Rework (Cartouche/Instrumente des Cartog
 Scope: Bewertungsrunde, keine Umsetzung. Anlass (Philipp, Session 240): Mit den Great Journeys, der Karten-Timeline und den Zeitkarten aus dem W3b-Bau trägt das heutige Instrumenten-UI (Cartouche/CartoucheSheet: Census, Voyage-Buttons, Overlay-Buttons, Seek, Zonen-Cycle) zu viele Ebenen — das UI soll als Ganzes revisitet werden. Erkunde den Ist-Stand nach dem W3b-Bau (welche Instrumente existieren, wie stapeln sie sich auf Desktop-Cartouche vs. Mobile-Sheet) und lege eine Rework-Richtung mit Optionen, Empfehlung und grober Größe vor. Design-Dauerurteile beachten (kein Glow, keine nackten Linien-Buttons, Buch-Titelblatt-Sprache).
 
 Danach warte auf mein Urteil (bauen / Backlog / verwerfen) und trage es in docs/werkstatt-roadmap.md ein (Kurzreferenz + Fahrplan; bei „bauen" den Bau-Prompt als Posten 6 ergänzen). Branch: codex/session-NNN-wm-bewertung. Kein Commit/PR, bis ich „fertig" sage.
+```
+
+### 6 · WM-B1 — Map-UI-Rework: Neuordnung nach Aufgaben (Product, M)
+
+```text
+Werkstatt-Bau WM-B1 — Map-UI-Rework: Cartouche/Sheet-Neuordnung nach Aufgaben (Product, M).
+
+Kontext: WM-Urteil „bauen, Option B" (Werkstatt-Runde Session 248; Kurzreferenz in docs/werkstatt-roadmap.md). Leitidee: Die Cartouche wird wieder, was eine Kartusche auf historischen Karten ist — Titel + Legende. Inhalte (Journeys) bekommen ihre eigene Tür; Zustand (Ära) hat sie schon (Era-Platte). Research-Anker aus der Runde: ein einziger Layers-Eingang statt mehrerer (Google/Windy-Konvention), Layer-Liste ist Opt-in (mapuipatterns.com/layer-list), max. zwei Disclosure-Ebenen (NN/g Progressive Disclosure), kein Instruktionstext für konventionelle Gesten (NN/g Onboarding), Bottom-Sheet ist transient, kein Dauer-Instrumentenpult (NN/g Bottom Sheets).
+
+Umfang (reine UI-Arbeit: Cartouche.tsx, CartoucheSheet.tsx, Census.tsx, CartographerRoot.tsx marginal, 55-map.css; kein Schema, keine Daten, keine Dependency):
+- Era-Platte unverändert lassen (Basis-Zustand; Era-Platte + Karten-Unterkante bleiben als Dock-Reserve für den Zeitstrahl W3b-B3 frei).
+- Seek bleibt der Kopf beider Flächen; Combobox-Contract und Seek-Fokusverhalten (S8-Smoke) unangetastet.
+- EIN Legenden-Panel statt der zwei Sektionen Instruments + Census: verschmolzen zur interaktiven Legende (der Legendeneintrag IST der Schalter). Oben die vier Overlay-Zeilen kompakt (Lumen, Nihilus, Zonen-Cycle, World names) — Zustands-Notiz nur bei Nicht-Default („hidden", „dimmed"), keine Flavor-Untertitel; darunter Population (works-only, Star-dust) + Typ-Gruppen mit Zählern und Aufklapp-Klassifikationen wie bisher. Badge-Logik eingeklappter Header erhalten: kein aktiver Nicht-Default-Zustand versteckt sich stumm.
+- Journeys werden Content mit eigenem, prominentem Eingang: eigener Block ganz oben unter dem Seek (Sheet: erster Block). Liste nur Name + Ären-Tag, gruppiert nach Ära (mapState-Tags aus W3b-B2 liegen als Datenbasis bereit — die 246-Vorschau); Blurb + Stationen-Meta fallen aus der Liste (stehen bereits auf der Ouvertüren-Karte der Tour).
+- World index als sichtbare Sektion streichen; der A–Z-Pfad bleibt für Tastatur/AT erreichbar (S10a-Parität ist Pflicht — z. B. Öffner am Seek). Die A11y-Verflechtung (Combobox, Index-Parallelpfad, Badges) ist neben dem CSS der Hauptaufwand.
+- Textdiät nach der Hitliste der Bewertung: beide c-hint-Zeilen raus; Voyage-Blurbs/-Meta aus der Liste; Flavor-Untertitel der Instrumente („the beacon's reach", „the dark half", „at every magnification") raus; „Drag for more" am Sheet-Grip raus (Grabber + Badges genügen); Overture-Bedien-Hint auf höchstens eine Zeile kürzen oder streichen; „Star-dust: worlds without records yet" → „Star-dust · no records yet". Bleibt bewusst: Nihilus-Sperrzeile („not yet charted — an M42 instrument"), Provenienz-Fußnoten der Tour (INFERRED/SCHEMATIC PLACEMENT · SOURCE), In-Universe-Namen.
+- Mobile: maximal zwei Disclosure-Ebenen im Sheet (Sheet öffnen → Legende/Journeys direkt sichtbar; nur die Typ-Gruppen klappen noch auf); Dock-Badges (FILTERED/JOURNEY/LVMEN/NIHILVS) bleiben.
+- Entscheidungspunkt im Bau: Zoomer-Presets 3×/6× (Namens-Schwellen, Insider-Wissen) entfernen oder verständlich machen — kurz im Report begründen.
+- Design-Dauerurteile: kein Glow, keine nackten Linien-Buttons, Buch-Titelblatt-Sprache; die bestehende Glas-/Zeilen-Grammatik weiterverwenden, nicht ersetzen.
+
+UI-Abnahme durch Philipp im Browser, keine Headless-Loops. Branch: codex/product-map-ui-rework. Kein Commit/PR, bis ich „fertig" sage. Danach Fahrplan-Haken in docs/werkstatt-roadmap.md.
 ```
 
 ### 7 · F1-B1 — M42-Nachdatierung (Batches, S–M)
