@@ -34,13 +34,16 @@ for (const name of ["Ultramar", "The Maelstrom"]) {
   assert.ok(zone, `${name} exists`);
   assert.deepEqual(zone?.states, ["pre", "hh", "now"], `${name} spans all three editions`);
 }
-// The Eye exists in every era but wears a different shape after the Fall of
-// Cadia — two curated zones share the name and together cover all editions.
-const eyes = CURATED_ZONES.filter((z) => z.name === "Eye of Terror");
-assert.ok(eyes.length >= 1, "Eye of Terror exists");
+// The Eye predates the Crusade (Fall of the Aeldari). On the pre/Heresy
+// charts it wears its era-correct label "Ocularis Malifica" (the Imperius
+// Dominatus map, ca. 005.M31); on the present chart it carries no zone of
+// its own — the Cicatrix Maledictum shape swallows its area (the rift
+// erupts from the Eye). Curation decisions from Session 246.
+const eyes = CURATED_ZONES.filter((z) => z.name === "Ocularis Malifica");
+assert.ok(eyes.length >= 1, "Ocularis Malifica exists");
 const eyeStates = new Set(eyes.flatMap((z) => z.states));
-for (const s of MAP_STATES) {
-  assert.ok(eyeStates.has(s), `Eye of Terror covers ${s}`);
+for (const s of ["pre", "hh"] as const) {
+  assert.ok(eyeStates.has(s), `Ocularis Malifica covers ${s}`);
 }
 assert.deepEqual(byName("Cicatrix Maledictum")?.states, ["now"], "the rift is a present-chart zone");
 assert.deepEqual(byName("Horus' Dark Empire")?.states, ["hh"], "the Dark Empire is a Heresy-chart zone");

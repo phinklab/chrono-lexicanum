@@ -2185,7 +2185,9 @@ body.cg-canvas-renderer .cg-deg {
   top: 100px;
   z-index: 40;
   width: 278px;
-  max-height: calc(100vh - 210px);
+  /* Ends above the fixed exit toggle (bottom: 150px) — a full zone list
+     must never cover the only way out of the editor. */
+  max-height: calc(100vh - 295px);
   overflow-y: auto;
   background: var(--cg-glass);
   box-shadow: var(--cg-glass-shadow);
@@ -2213,6 +2215,21 @@ body.cg-canvas-renderer .cg-deg {
   font-size: 9px;
   letter-spacing: var(--track-24);
   text-transform: uppercase;
+  color: var(--cl-gold);
+}
+.cg-zed .zed-head-r {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.cg-zed .zed-exit {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1;
+  color: var(--cl-faint);
+  text-decoration: none;
+}
+.cg-zed .zed-exit:hover {
   color: var(--cl-gold);
 }
 .cg-zed .zed-row {

@@ -407,7 +407,17 @@ export default function ZoneEditor({ bus, era }: { bus: ChartBus; era: MapState 
         <aside className="cg-zed" onPointerDown={(e) => e.stopPropagation()}>
           <p className="zed-head">
             Zone editor
-            {fromDraft && <span className="zed-draft">draft</span>}
+            <span className="zed-head-r">
+              {fromDraft && <span className="zed-draft">draft</span>}
+              {/* Second exit: the fixed bottom toggle can sit below the fold
+                  on short viewports — the panel head is always reachable.
+                  Full navigation on purpose (like the toggle): the
+                  ?zones=edit snapshot is read once per page load. */}
+              {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
+              <a className="zed-exit" href="/map" title="Exit zone editor">
+                ✕
+              </a>
+            </span>
           </p>
           <div className="zed-list">
             {zones.map((z, zi) => (

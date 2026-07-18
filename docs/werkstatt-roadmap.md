@@ -18,7 +18,7 @@
 |---|---|---|---|---|
 | 1 | **WP** — Perfektions-Kandidaten-Triage | Bewertung | — | ✔ 243 |
 | 2 | **WL** — Personal Library (local-first vs. spartanische Accounts) | Bewertung | — | ✔ 244 |
-| 3 | **W3b-B1** — Drei Zeitkarten für den Cartographer | Bau (Product, S–M) | — | ☐ |
+| 3 | **W3b-B1** — Drei Zeitkarten für den Cartographer | Bau (Product, S–M) | — | ✔ 246 |
 | 4 | **W3b-B2** — Karten-Timeline + Journey-Kopplung | Bau (Product, S) | W3b-B1 | ☐ |
 | 5 | **WM** — Map-UI-Rework (Cartouche/Instrumente) | Bewertung | W3b-B1+B2 gebaut | ☐ |
 | 6 | *(WM-Bau, falls Urteil „bauen" — Zuschnitt aus Runde 5)* | Bau | WM | ☐ |

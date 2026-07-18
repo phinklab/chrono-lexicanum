@@ -17,9 +17,15 @@ Differences from neighbouring docs:
 
 ## Open
 
-Keine rein kosmetischen Blocker mit eigener Priorität. Neue Kleinigkeiten nur
-hier aufnehmen, wenn sie nicht bereits Teil der Launch-Gates oder der
-kanonischen Worklist sind.
+- **Canvas-Renderer (Android-Pfad): Schrift + Linien auf HiDPI leicht
+  verschwommen** — der Karten-Canvas wird in CSS-Pixeln dimensioniert, kein
+  `devicePixelRatio`-Scaling in `canvas-renderer.ts`. Fix = Backing-Store
+  ×dpr (ggf. gedeckelt) + `ctx.scale`; Fill-Rate-Kosten vorher on-device
+  prüfen (der Pfad ist die Android-Perf-Schiene aus Session 213). Gefunden
+  bei der W3b-B1-Abnahme (Session 246, Desktop via `?mapRenderer=canvas`).
+
+Neue Kleinigkeiten nur hier aufnehmen, wenn sie nicht bereits Teil der
+Launch-Gates oder der kanonischen Worklist sind.
 
 ## Promoted / reconciled 2026-07-10
 

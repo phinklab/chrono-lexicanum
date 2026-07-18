@@ -293,3 +293,40 @@ Stepper dockt an der Era-Platte an, `mapState`-Tag pro Voyage +
   pre+hh+now); Ultramar/Maelstrom bleiben strikt all-era.
 - Gates Nachtrag: `test-map-zones` ✓ · `tsc --noEmit` ✓ · `eslint` ✓.
   UI-Abnahme des Gesamtstands macht Philipp nach dem Merge live.
+
+## Nachtrag II — geführte Abnahme + Kurations-Abschluss (gleiche Fortsetzung)
+
+- **Editor-Exit-Regression gefixt:** Das auf 34 Zonen gewachsene Panel
+  (`.cg-zed`, z-index 40, max-height bis 110px über Viewport-Boden) überdeckte
+  den fixed Exit-Toggle (bottom 150px, z-index 20) — bei 15 Zonen nie
+  erreicht. Panel-max-height endet jetzt oberhalb des Toggles
+  (`calc(100vh - 295px)`); zusätzlich zweiter Exit („✕") im Panel-Kopf
+  (volle Navigation wie der Toggle, begründetes
+  eslint-disable `no-html-link-for-pages`).
+- **Geführte UI-Abnahme durch Philipp komplett** (Frage-für-Frage-Parcours):
+  Editor-Exits, Era-Platte (Desktop + Mobile, Pfeiltasten), Karteninhalte
+  pro Ära, Instruments (Nihilus-Disable + „not yet charted" + Restore,
+  Lumen-Vollscheibe in pre/hh), Hash `era=hh`/`era=pre` + Reload-Restore +
+  now-nie-geschrieben, Desktop-Canvas via `?mapRenderer=canvas` — alles
+  abgenommen. On-Device-Android-Check folgt nach dem Merge.
+- **Finale Kurationsentscheide (Philipp):** now-Auge bleibt im Cicatrix
+  aufgegangen (zone-32 gelöscht; das Cicatrix-Westende umschließt die
+  Auge-Gegend), zone-34 Perditus now→hh, Imperium-Secundus-Ostkante
+  eingezogen; Xana/Mezoa nicht zeichnen (keine Anker-Pins); Aquilus-Grau
+  redundant zum Maelstrom; Ultramar⊂Imperium-Secundus-Schachtelung in hh
+  bleibt; die zehn probeweisen M30-Flächen endgültig verworfen — sie waren
+  via Draft-Merge in Philipps localStorage-Draft zurückgekehrt (Löschungen
+  propagieren nicht in den Draft; bereinigt via Editor-Reset nach Angleich
+  Datei = Draft).
+- **Renames (generische Kartensprache statt erfundener Eigennamen):**
+  zone-21 → „Ocularis Malifica" (belegtes Label der Imperius-Dominatus-
+  Karte, era-gerechter GC/HH-Name des Auges), zone-23 → „Traitor Space",
+  zone-24/25/26/27 → „Loyalist Space" (Spiegel zu „Traitor Space"/„Zone
+  Perditus"). `test-map-zones`-Invariante folgt dem Rename (Ocularis
+  Malifica deckt pre+hh; kein separates now-Auge).
+- **Canvas-Blur auf HiDPI** (kein `devicePixelRatio`-Scaling im
+  Android-Hot-Path) → `docs/ui-backlog.md`; bewusst nicht blind gefixt,
+  Fill-Rate-Kosten erst on-device prüfen.
+- **Fahrplan-Haken W3b-B1 gesetzt (✔ 246)** — Kuration abgeschlossen;
+  Philipp behält sich einen optischen Revisit vor. S3 als separate Session
+  entfällt (in dieser Fortsetzung aufgegangen); Anschluss bleibt W3b-B2.
