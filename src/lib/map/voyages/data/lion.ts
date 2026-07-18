@@ -11,6 +11,7 @@ export const LION: Voyage = {
   id: "lion",
   name: "Lion El'Jonson · Son of the Forest",
   tag: "M30–M42",
+  mapState: "pre",
   blurb: "The First hunts monsters across a dying age, loses Caliban, and walks its shadow ten thousand years later.",
   stations: [
     {
@@ -58,6 +59,7 @@ export const LION: Voyage = {
       gy: 169,
       heading: "Diamat · The Siege Engines",
       date: "006.M31",
+      mapState: "hh",
       text: "Breaking from the distant Shield Worlds with only sixteen ships, the Lion takes Diamat and its siege engines from Horus. He then gives the weapons to Perturabo, believing his brother loyal—and arms the massacre still to come.",
       source: "https://wh40k.lexicanum.com/wiki/Battle_of_Diamat",
       breakBefore: true,
@@ -211,6 +213,7 @@ export const LION: Voyage = {
       world: "the-rock",
       heading: "The Rock · The Secret Sleeper",
       date: "M31–M42",
+      mapState: "now",
       text: "Unknown to his sons, the grievously wounded Lion lies hidden in Caliban's surviving fortress, watched by the Watchers in the Dark. Beneath the mobile Rock he sleeps for ten thousand years.",
       source: "https://wh40k.lexicanum.com/wiki/The_Rock",
       breakBefore: true,

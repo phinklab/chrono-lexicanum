@@ -62,6 +62,10 @@ interface CgState {
   /** Chart edition (pre M30 / hh M31 / now M41-42) — the base state every
    *  zone and time-bound instrument keys off. */
   era: MapState;
+  /** Chart edition before a journey took over: a voyage switches the chart
+   *  to its own mapState and this remembers where to return on voyage end.
+   *  A manual era pick during the journey clears it — the user took over. */
+  eraStash: MapState | null;
   lumen: boolean;
   nihilus: boolean;
   /** Nihilus is an instrument of the present chart only: leaving "now"
@@ -82,6 +86,7 @@ const INITIAL: CgState = {
   worksOnly: false,
   voyage: null,
   era: "now",
+  eraStash: null,
   lumen: false,
   nihilus: false,
   nihilusStash: false,
@@ -101,10 +106,31 @@ type CgAction =
   | { type: "voyageFree"; step: number }
   | { type: "voyageEnd" }
   | { type: "setEra"; era: MapState }
+  | { type: "voyageEra"; era: MapState }
   | { type: "toggleLumen" }
   | { type: "toggleNihilus" }
   | { type: "toggleNames" }
   | { type: "cycleZones" };
+
+/** Chart edition each journey plays on — voyageStart/voyageEnd switch the
+ *  era through this. Data-owned (voyages declare their own mapState). */
+const VOYAGE_ERA = new Map(VOYAGES.map((v) => [v.id, v.mapState]));
+
+/** The one era transition. Nihilus is an instrument of the present chart
+ *  only: leaving "now" stashes an active shade, returning restores it. Every
+ *  path that moves the era — manual pick, playback tick, journey start/end —
+ *  must come through here so the stash never desyncs. */
+function applyEra(state: CgState, era: MapState): CgState {
+  if (era === state.era) return state;
+  const leavingNow = state.era === "now";
+  const enteringNow = era === "now";
+  return {
+    ...state,
+    era,
+    nihilus: enteringNow ? state.nihilusStash : false,
+    nihilusStash: leavingNow ? state.nihilus : state.nihilusStash,
+  };
+}
 
 function reducer(state: CgState, action: CgAction): CgState {
   switch (action.type) {
@@ -130,15 +156,27 @@ function reducer(state: CgState, action: CgAction): CgState {
       return { ...state, dustOff: !state.dustOff };
     case "toggleWorksOnly":
       return { ...state, worksOnly: !state.worksOnly };
-    case "voyageStart":
-      // Picking the active journey again toggles it off; a new one always
-      // opens at the tour's overture.
+    case "voyageStart": {
+      // Picking the active journey again toggles it off — that is a voyage
+      // end and restores the pre-journey edition like every other exit.
+      if (state.voyage?.id === action.id) {
+        const restored =
+          state.eraStash !== null ? applyEra(state, state.eraStash) : state;
+        return { ...restored, condensed: true, voyage: null, eraStash: null };
+      }
+      // A journey owns the chart edition: switch to its mapState and remember
+      // where we came from. Chaining journeys (continuation, legend pick)
+      // keeps the ORIGINAL stash — the end of the chain restores the state
+      // before the first journey.
+      const era = VOYAGE_ERA.get(action.id) ?? state.era;
+      const stashed = applyEra(state, era);
       return {
-        ...state,
+        ...stashed,
         condensed: true,
-        voyage:
-          state.voyage?.id === action.id ? null : { id: action.id, mode: "tour", step: -1 },
+        voyage: { id: action.id, mode: "tour", step: -1 },
+        eraStash: state.voyage === null ? state.era : state.eraStash,
       };
+    }
     case "voyageStep":
       return state.voyage
         ? { ...state, voyage: { ...state.voyage, mode: "tour", step: action.step } }
@@ -147,22 +185,24 @@ function reducer(state: CgState, action: CgAction): CgState {
       return state.voyage
         ? { ...state, voyage: { ...state.voyage, mode: "free", step: action.step } }
         : state;
-    case "voyageEnd":
-      return state.voyage ? { ...state, voyage: null } : state;
-    case "setEra": {
-      if (action.era === state.era) return state;
-      // Nihilus exists only on the present chart: stash an active shade on
-      // the way out, restore it on the way back.
-      const leavingNow = state.era === "now";
-      const enteringNow = action.era === "now";
-      return {
-        ...state,
-        condensed: true,
-        era: action.era,
-        nihilus: enteringNow ? state.nihilusStash : false,
-        nihilusStash: leavingNow ? state.nihilus : state.nihilusStash,
-      };
+    case "voyageEnd": {
+      if (!state.voyage) return state;
+      const restored =
+        state.eraStash !== null ? applyEra(state, state.eraStash) : state;
+      return { ...restored, voyage: null, eraStash: null };
     }
+    case "setEra": {
+      // The manual pick (Era plate, hash restore). During a journey it is
+      // transient — the next act re-imposes its own edition, and voyage end
+      // still restores the pre-journey chart (the stash stays).
+      if (action.era === state.era) return state;
+      return { ...applyEra(state, action.era), condensed: true };
+    }
+    case "voyageEra":
+      // Journey-driven edition change (a station crossed an era break):
+      // same transition, but the restore point stays — voyage end still
+      // returns to the pre-journey chart.
+      return applyEra(state, action.era);
     case "toggleLumen":
       return { ...state, condensed: true, lumen: !state.lumen };
     case "toggleNihilus":
@@ -400,7 +440,15 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
     if (restored.current || !mounted) return;
     restored.current = true;
     const h = parseMapHash();
-    if (h.era) dispatch({ type: "setEra", era: h.era });
+    // A voyage link restarts the journey at its overture card; the journey
+    // then owns the edition (its acts drive the era), so a hash era only
+    // applies to voyage-less links.
+    const voyage = h.voyage && VOYAGE_ERA.has(h.voyage) ? h.voyage : null;
+    if (voyage) {
+      dispatch({ type: "voyageStart", id: voyage });
+    } else if (h.era) {
+      dispatch({ type: "setEra", era: h.era });
+    }
     if (h.cam && bus.driver) bus.driver.setCamRel(h.cam.gx, h.cam.gy, h.cam.kr);
     if (h.world && source.peek(h.world)) {
       dispatch({ type: "condense" });
@@ -424,6 +472,27 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
   useEffect(() => {
     if (restored.current) writeMapHash({ era: state.era });
   }, [state.era]);
+
+  useEffect(() => {
+    if (restored.current) writeMapHash({ voyage: voyageId });
+  }, [voyageId]);
+
+  /* A journey's chart edition follows its acts: era breaks mid-journey
+     switch the chart at the right station, stepping back switches back, the
+     free tableau stands on the final act's edition. Voyage-driven (keeps
+     the pre-journey restore point); the reducer no-ops on a matching era,
+     and a manual plate pick holds exactly until the next act. */
+  useEffect(() => {
+    if (!activeVoyage || !state.voyage) return;
+    const s = state.voyage;
+    const era =
+      s.mode === "free" || s.step >= activeVoyage.stations.length
+        ? (activeVoyage.stations.at(-1)?.era ?? activeVoyage.mapState)
+        : s.step < 0
+          ? activeVoyage.mapState
+          : (activeVoyage.stations[s.step]?.era ?? activeVoyage.mapState);
+    dispatch({ type: "voyageEra", era });
+  }, [activeVoyage, state.voyage]);
 
   /* Escape closes the topmost layer: world popup, then the active journey.
      (The seek input and the mobile sheet intercept Escape earlier via

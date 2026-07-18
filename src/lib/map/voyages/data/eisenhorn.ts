@@ -57,6 +57,7 @@ export const EISENHORN: Voyage = {
   id: "eisenhorn",
   name: "Eisenhorn · The Ordo Dossiers",
   tag: "240–392.M41",
+  mapState: "now",
   blurb:
     "Across 152 years of inquest, Gregor Eisenhorn turns the enemy's weapons into chosen instruments—and falls from puritan to radical.",
   cartography: {

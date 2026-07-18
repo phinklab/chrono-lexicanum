@@ -59,6 +59,7 @@ export const HORUS: Voyage = {
   id: "horus",
   name: "Horus · Rise and Ruin",
   tag: "M30–M31",
+  mapState: "pre",
   blurb: "The first-found son rises beside the Emperor, chooses damnation and carries the Heresy from Cthonia to Terra.",
   cartography: {
     label: "biographical chronicle",
@@ -179,6 +180,7 @@ export const HORUS: Voyage = {
       world: "davin",
       heading: "Davin · The Fall",
       date: "c. 004.M31",
+      mapState: "hh",
       text: "Sixty years after compliance, Horus returns to Davin and Temba wounds him with the stolen anathame on its moon. Erebus deceives him with false visions inside the Serpent Lodge; Magnus warns him, but Horus chooses the road that binds him to Chaos.",
       source: DAVIN_SOURCE,
       breakBefore: true,

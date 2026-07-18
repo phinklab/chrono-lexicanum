@@ -206,99 +206,139 @@ export const SEGS: SegmentumMark[] = [
   { name: "Ultima Segmentum", x: 752, y: 500, fs: 46, jump: { x: 760, y: 480, k: 1.5 } },
 ];
 
-/* Great Rift spine.
-   Derived from the hand-drawn "Cicatrix Maledictum" zone (zones.json): the
-   band runs west→east across the chart, so a vertical-slice midline — at
-   each sample X the midpoint between the band's outermost boundary
-   crossings — gives its long axis; two smoothing passes iron out the slice
-   jitter where the band bulges (west bulb, southern spur). The spine is
-   ONLY the shadow boundary of the Lumen/Nihilus overlays (nihilusPath
-   below); the zone layer renders the drawn outline itself. Whenever the
-   zone editor moves the rift, the overlays follow on the next build.
-   Falls back to the retired hand-tuned curve should the zone ever be
-   renamed/unpublished — the chart must not lose its shadow to a curation
-   edit. */
+/* Storm-band spines.
+   Derived from hand-drawn zones (zones.json): a band zone has a long axis,
+   so a cross-slice midline — at each sample along the long axis the midpoint
+   between the band's outermost boundary crossings — gives its spine; two
+   smoothing passes iron out the slice jitter where the band bulges. The
+   Cicatrix Maledictum runs west→east (slices along X), the M31 Ruinstorm
+   wall runs north→south (slices along Y). A spine is ONLY the shadow
+   boundary of the Lumen/Nihilus overlays (shadowBeyond below); the zone
+   layer renders the drawn outline itself. Whenever the zone editor moves a
+   band, the overlays follow on the next build. */
 
 interface Pt {
   x: number;
   y: number;
 }
 
-const RIFT_FALLBACK = {
-  d: "M 262 228 C 350 200, 430 198, 516 232 S 596 330, 618 428 S 662 546, 716 588",
-  a: { x: 262, y: 228 } as Pt,
-  b: { x: 716, y: 588 } as Pt,
-};
+interface Spine {
+  d: string;
+  a: Pt;
+  b: Pt;
+}
 
-function riftSpine(): { d: string; a: Pt; b: Pt } {
-  const zone = CURATED_ZONES.find(
-    (z) => z.name === "Cicatrix Maledictum" && z.published,
-  );
-  if (!zone) return RIFT_FALLBACK;
+/** Cross-slice midline of a published band zone along `axis`, or null when
+ *  the zone is missing/degenerate. `a` is the low-coordinate end (west resp.
+ *  north), `b` the high end. */
+function bandSpine(zoneName: string, axis: "x" | "y"): Spine | null {
+  const zone = CURATED_ZONES.find((z) => z.name === zoneName && z.published);
+  if (!zone) return null;
   const pts = zone.points;
-  const xs = pts.map((p) => p[0]);
-  const xMin = Math.min(...xs);
-  const xMax = Math.max(...xs);
+  // (u, v): u runs along the band's long axis, v across it.
+  const U = axis === "x" ? 0 : 1;
+  const V = 1 - U;
+  const us = pts.map((p) => p[U]);
+  const uMin = Math.min(...us);
+  const uMax = Math.max(...us);
   // Sample just inside the tips — the exact extremes are tangent points
   // with no band width to bisect.
-  const inset = (xMax - xMin) * 0.012;
+  const inset = (uMax - uMin) * 0.012;
   const N = 30;
   const mid: Pt[] = [];
   for (let i = 0; i <= N; i++) {
-    const x = xMin + inset + (xMax - xMin - 2 * inset) * (i / N);
+    const u = uMin + inset + (uMax - uMin - 2 * inset) * (i / N);
     let lo = Infinity;
     let hi = -Infinity;
     for (let j = 0; j < pts.length; j++) {
-      const [ax, ay] = pts[j];
-      const [bx, by] = pts[(j + 1) % pts.length];
-      if (ax === bx) continue;
-      if ((ax <= x && x < bx) || (bx <= x && x < ax)) {
-        const y = ay + ((x - ax) / (bx - ax)) * (by - ay);
-        lo = Math.min(lo, y);
-        hi = Math.max(hi, y);
+      const pa = pts[j];
+      const pb = pts[(j + 1) % pts.length];
+      if (pa[U] === pb[U]) continue;
+      if ((pa[U] <= u && u < pb[U]) || (pb[U] <= u && u < pa[U])) {
+        const v = pa[V] + ((u - pa[U]) / (pb[U] - pa[U])) * (pb[V] - pa[V]);
+        lo = Math.min(lo, v);
+        hi = Math.max(hi, v);
       }
     }
     if (hi < lo) continue; // slice missed the band entirely
-    mid.push({ x, y: (lo + hi) / 2 });
+    const m = (lo + hi) / 2;
+    mid.push(axis === "x" ? { x: u, y: m } : { x: m, y: u });
   }
-  if (mid.length < 2) return RIFT_FALLBACK;
+  if (mid.length < 2) return null;
   for (let pass = 0; pass < 2; pass++)
     for (let i = 1; i < mid.length - 1; i++)
-      mid[i] = { x: mid[i].x, y: (mid[i - 1].y + 2 * mid[i].y + mid[i + 1].y) / 4 };
+      mid[i] =
+        axis === "x"
+          ? { x: mid[i].x, y: (mid[i - 1].y + 2 * mid[i].y + mid[i + 1].y) / 4 }
+          : { x: (mid[i - 1].x + 2 * mid[i].x + mid[i + 1].x) / 4, y: mid[i].y };
   const d = mid
     .map((p, i) => `${i === 0 ? "M" : "L"} ${p.x.toFixed(1)} ${p.y.toFixed(1)}`)
     .join(" ");
   return { d, a: mid[0], b: mid[mid.length - 1] };
 }
 
-const RIFT = riftSpine();
+/* The Cicatrix falls back to the retired hand-tuned curve should the zone
+   ever be renamed/unpublished — the present chart must not lose its shadow
+   to a curation edit. */
+const RIFT_FALLBACK: Spine = {
+  d: "M 262 228 C 350 200, 430 198, 516 232 S 596 330, 618 428 S 662 546, 716 588",
+  a: { x: 262, y: 228 },
+  b: { x: 716, y: 588 },
+};
+
+const RIFT = bandSpine("Cicatrix Maledictum", "x") ?? RIFT_FALLBACK;
 
 export const RIFT_D = RIFT.d;
 export const RIFT_A: Pt = RIFT.a;
 export const RIFT_B: Pt = RIFT.b;
 
-/* Nihilus shade / Lumen mask geometry: radial edges from Terra through
-   both rift ends, closing on a far circle r=2600 so no overlay edge ever
-   pans into view. */
+/* Shadow geometry: radial edges from Terra through both spine ends, closing
+   on a far circle r=2600 so no overlay edge ever pans into view. The
+   counterclockwise closure encloses the LEFT-hand side of the a→b walk —
+   north-east of the west→east Cicatrix, east of the north→south Ruinstorm. */
 
 export const NIHILUS_RFAR = 2600;
 
-let nihilusD: string | null = null;
-
-export function nihilusPath(): string {
-  if (nihilusD) return nihilusD;
+function shadowBeyond(spine: Spine): string {
   const far = (p: Pt): Pt => {
     const dx = p.x - TX;
     const dy = p.y - TY;
     const l = Math.hypot(dx, dy);
     return { x: TX + (dx / l) * NIHILUS_RFAR, y: TY + (dy / l) * NIHILUS_RFAR };
   };
-  const bf = far(RIFT_B);
-  const af = far(RIFT_A);
-  nihilusD =
-    `${RIFT_D} L ${bf.x.toFixed(1)} ${bf.y.toFixed(1)}` +
-    ` A ${NIHILUS_RFAR} ${NIHILUS_RFAR} 0 0 0 ${af.x.toFixed(1)} ${af.y.toFixed(1)} Z`;
+  const bf = far(spine.b);
+  const af = far(spine.a);
+  return (
+    `${spine.d} L ${bf.x.toFixed(1)} ${bf.y.toFixed(1)}` +
+    ` A ${NIHILUS_RFAR} ${NIHILUS_RFAR} 0 0 0 ${af.x.toFixed(1)} ${af.y.toFixed(1)} Z`
+  );
+}
+
+let nihilusD: string | null = null;
+
+export function nihilusPath(): string {
+  if (nihilusD) return nihilusD;
+  nihilusD = shadowBeyond(RIFT);
   return nihilusD;
+}
+
+/** M31 counterpart of the rift cut: the Ruinstorm wall (unleashed at Calth)
+ *  intercepts the Astronomican over the galactic east — the Imperium
+ *  Secundus premise. Derived from the published "The Ruinstorm" zone; null
+ *  (no cut, full light disc) when curation removes or renames it — the hh
+ *  chart degrades gracefully instead of losing its light. */
+export interface BandShadow {
+  spineD: string;
+  shadowD: string;
+}
+
+let ruinstormMemo: BandShadow | null | undefined;
+
+export function ruinstormShadow(): BandShadow | null {
+  if (ruinstormMemo !== undefined) return ruinstormMemo;
+  const spine = bandSpine("The Ruinstorm", "y");
+  ruinstormMemo = spine ? { spineD: spine.d, shadowD: shadowBeyond(spine) } : null;
+  return ruinstormMemo;
 }
 
 /* Dot graticule (star-chart texture) */

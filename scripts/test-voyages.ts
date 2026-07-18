@@ -17,6 +17,7 @@ import process from "node:process";
 
 import { validateMapWorlds, type MapWorldsFile } from "@/lib/map/map-worlds-schema";
 import { GRID_H, GRID_W } from "@/lib/map/projection";
+import { MAP_STATES } from "@/lib/map/zones";
 import {
   VOYAGES,
   isChartPoint,
@@ -538,9 +539,27 @@ check(
   "Yvraine's resolved route preserves all thirteen Webway passages",
 );
 
+// Era breaks (Session 247): the Lion's journey crosses all three chart
+// editions — Caliban rises on the Crusade chart, Diamat opens the war, the
+// Rock sleeps into the present.
+const lion = VOYAGES.find((v) => v.id === "lion");
+const lionResolved = lion ? resolveVoyage(lion, chart) : undefined;
+check(lionResolved?.stations[0]?.era === "pre", "the Lion begins on the Crusade chart");
+check(
+  lionResolved?.stations.some((s) => s.era === "hh") === true,
+  "the Lion's war acts stand on the Heresy chart",
+);
+check(lionResolved?.stations.at(-1)?.era === "now", "the risen Lion ends on the present chart");
+
 for (const v of VOYAGES) {
   check(v.name.trim().length > 0, `${v.id}: name`);
   check(v.tag.trim().length > 0, `${v.id}: tag`);
+  check(MAP_STATES.includes(v.mapState), `${v.id}: mapState is a chart edition`);
+  for (const stop of v.stations) {
+    if (stop.mapState !== undefined) {
+      check(MAP_STATES.includes(stop.mapState), `${v.id}: era break is a chart edition`);
+    }
+  }
   check(v.blurb.trim().length > 0, `${v.id}: blurb`);
   if (v.continuation) {
     check(

@@ -96,19 +96,21 @@ export default function PodcastEpisodeArchive({ episodes, showTitle }: Props) {
   // `/archive/podcasts/[show]#ep-<id>`. The id of the episode to highlight, or null.
   const [linkedId, setLinkedId] = useState<string | null>(null);
 
-  // Read the `#ep-<id>` hash on mount (and on later in-page hash changes):
-  // expand the episode's year so its row mounts, then flag it as linked. The
-  // scroll + highlight-clear is a second effect, after the row has rendered.
+  // Read the `#ep-<token>` hash on mount (and on later in-page hash changes):
+  // the token is a work id OR an episode slug (map WorldPanel links carry
+  // slugs) — expand the episode's year so its row mounts, then flag it as
+  // linked by ID (DOM ids stay `pod-ep-<id>`). The scroll + highlight-clear
+  // is a second effect, after the row has rendered.
   useEffect(() => {
     function applyHash() {
       const m = window.location.hash.match(/^#ep-(.+)$/);
       if (!m) return;
-      const id = decodeURIComponent(m[1]);
-      const ep = episodes.find((e) => e.id === id);
+      const token = decodeURIComponent(m[1]);
+      const ep = episodes.find((e) => e.id === token || e.slug === token);
       if (!ep) return;
       const year = yearOf(ep.pubDateMs);
       setOpenYears((cur) => (cur.has(year) ? cur : new Set(cur).add(year)));
-      setLinkedId(id);
+      setLinkedId(ep.id);
     }
     applyHash();
     window.addEventListener("hashchange", applyHash);

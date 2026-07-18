@@ -39,6 +39,7 @@ export const YVRAINE: Voyage = {
   id: "yvraine",
   name: "Yvraine · The Seventh Path",
   tag: "ancient–M42",
+  mapState: "now",
   blurb: "A Biel-Tan exile rises as Ynnead's prophet and hunts the Croneswords through the Webway and the Aeldari's divided worlds.",
   cartography: {
     label: "Webway chronicle",

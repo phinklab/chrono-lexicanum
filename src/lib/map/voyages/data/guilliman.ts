@@ -69,6 +69,7 @@ export const GUILLIMAN: Voyage = {
   id: "guilliman",
   name: "Guilliman · Lord of Ultramar",
   tag: "M30–M42",
+  mapState: "pre",
   blurb: "From Konor's Macragge through the Ruinstorm and the Great Rift to Baal: ten thousand years spent building, losing and reclaiming the realm of mankind.",
   stations: [
     {
@@ -113,6 +114,7 @@ export const GUILLIMAN: Voyage = {
       world: "calth",
       heading: "Calth · The Betrayal",
       date: "007.M31",
+      mapState: "hh",
       text: "The Word Bearers fall upon the muster at Calth. Blown into the void, Guilliman fights on without a helm, retakes his bridge and tears one heart from Kor Phaeron's chest, while survivors below begin the long Underworld War.",
       source: KNOW_NO_FEAR_SOURCE,
       breakBefore: true,
@@ -199,6 +201,7 @@ export const GUILLIMAN: Voyage = {
       world: "macragge",
       heading: "Macragge · The Resurrection",
       date: "121.M31 → 999.M41",
+      mapState: "now",
       text: "Carried home neither dead nor living, Guilliman lies ten thousand years in stasis within the Temple of Correction. In 999.M41 Cawl's Armour of Fate and Yvraine's rites call him back to a Macragge under Black Legion guns.",
       source: RESURRECTION_SOURCE,
       breakBefore: true,

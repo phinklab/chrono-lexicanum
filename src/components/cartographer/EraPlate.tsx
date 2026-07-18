@@ -8,7 +8,9 @@
  *
  * This is the map's BASE STATE — mutually exclusive, radio semantics, always
  * visible on every viewport (the collapsible cartouche/sheet carry only
- * overlays and filters). B2's timeline stepper docks onto this plate later.
+ * overlays and filters). The three segments + arrow keys are the discrete
+ * stepper; a played timeline (running Zeitstrahl with highlighted beats)
+ * is a planned separate feature and will dock here.
  *
  * A11y: one radiogroup, roving tabindex, arrow keys move AND select (ARIA
  * APG radio pattern). Inert behind the overture veil like the cartouche.

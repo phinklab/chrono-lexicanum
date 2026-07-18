@@ -42,6 +42,7 @@ export const ABADDON: Voyage = {
   id: "abaddon",
   name: "Abaddon · The Black Crusades",
   tag: "M31–M41",
+  mapState: "now",
   blurb: "Thirteen invasions from the Eye of Terror, each with a distinct objective, culminating in the fall of Cadia.",
   cartography: {
     label: "13 Black Crusades",

@@ -28,6 +28,8 @@
  * non-empty, every waypoint must have a leg to ride.
  */
 
+import type { MapState } from "../zones";
+
 export interface LegOverride {
   /** Perpendicular bow of the generated quadratic, in grid units. Positive
    *  bows away from Terra (the generator's default side); negative flips.
@@ -151,6 +153,9 @@ export interface VoyageStation {
   /** Optional disclosure when a catalog pin is an identity anchor rather
    *  than a claim about the event's historical coordinate. */
   placement?: VoyagePlacement;
+  /** Era break: the chart edition in force from this act onward (carries
+   *  forward until the next break; the voyage's `mapState` starts). */
+  mapState?: MapState;
   /** Styling of the leg ARRIVING at this station (from the previous
    *  station). Ignored on the first station. */
   leg?: LegOverride;
@@ -179,6 +184,8 @@ export interface VoyageWaypoint {
   source?: string;
   /** Optional disclosure where even the position along a leg needs context. */
   placement?: VoyagePlacement;
+  /** Era break: the chart edition in force from this act onward. */
+  mapState?: MapState;
 }
 
 export interface VoyageChartPoint {
@@ -194,6 +201,8 @@ export interface VoyageChartPoint {
   source?: string;
   /** Mandatory provenance and uncertainty disclosure for the coordinates. */
   placement: VoyagePlacement;
+  /** Era break: the chart edition in force from this act onward. */
+  mapState?: MapState;
   /** Styling of the leg arriving at this point. */
   leg?: LegOverride;
   /** Start a new route segment here without connecting it to the preceding
@@ -215,6 +224,12 @@ export interface Voyage {
   name: string;
   /** Era tag for the legend row, e.g. "M31", "M30–M31". */
   tag: string;
+  /** Chart edition this journey BEGINS on — starting it switches the map to
+   *  this state. Stops carrying their own `mapState` switch the chart from
+   *  that act onward (era breaks — the Lion sleeps through ten millennia,
+   *  the chart follows him). Ending the journey restores the edition from
+   *  before it started. */
+  mapState: MapState;
   /** One-line legend row description. */
   blurb: string;
   /** Optional prototype disclosure for how the route geometry should be read. */

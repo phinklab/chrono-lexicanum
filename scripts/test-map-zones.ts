@@ -45,6 +45,12 @@ const eyeStates = new Set(eyes.flatMap((z) => z.states));
 for (const s of ["pre", "hh"] as const) {
   assert.ok(eyeStates.has(s), `Ocularis Malifica covers ${s}`);
 }
+// On the Heresy chart the Eye is an interdiction zone (hatch + ✠ quarantine
+// vocabulary); the Great Crusade chart keeps the storm reading (Session 247).
+assert.ok(
+  eyes.some((z) => z.states.includes("hh") && z.kind === "interdiction"),
+  "the Heresy-chart Eye speaks interdiction",
+);
 assert.deepEqual(byName("Cicatrix Maledictum")?.states, ["now"], "the rift is a present-chart zone");
 assert.deepEqual(byName("Horus' Dark Empire")?.states, ["hh"], "the Dark Empire is a Heresy-chart zone");
 assert.deepEqual(byName("The Ruinstorm")?.states, ["hh"], "the Ruinstorm burns on the Heresy chart only");
@@ -92,7 +98,7 @@ assert.deepEqual(visibleZones("hh", fixture).map((z) => z.id), ["b"], "unpublish
 
 assert.deepEqual(
   parseMapHashString("#world=terra&era=hh&cam=500,400,2"),
-  { world: "terra", era: "hh", cam: { gx: 500, gy: 400, kr: 2 } },
+  { world: "terra", era: "hh", voyage: null, cam: { gx: 500, gy: 400, kr: 2 } },
   "full hash parses",
 );
 assert.equal(parseMapHashString("#era=pre").era, "pre", "era pre parses");
@@ -102,5 +108,28 @@ assert.equal(parseMapHashString("#world=terra").era, null, "absent era stays nul
 assert.equal(parseMapHashString("").world, null, "empty hash is empty state");
 assert.equal(parseMapHashString("#cam=1,2,0").cam, null, "non-positive kr rejected");
 assert.equal(parseMapHashString("#cam=1,2").cam, null, "two-part cam rejected");
+// voyage rides OPAQUE — the roster lives in the app, CartographerRoot
+// validates on restore; the parser must not drag voyage data in here.
+assert.equal(
+  parseMapHashString("#voyage=great-crusade").voyage,
+  "great-crusade",
+  "voyage token parses",
+);
+assert.equal(
+  parseMapHashString("#voyage=no-such-journey").voyage,
+  "no-such-journey",
+  "voyage rides opaque (validated by the app, not the parser)",
+);
+assert.equal(parseMapHashString("#world=terra").voyage, null, "absent voyage stays null");
+assert.deepEqual(
+  parseMapHashString("#world=terra&era=pre&voyage=great-crusade&cam=500,400,2"),
+  {
+    world: "terra",
+    era: "pre",
+    voyage: "great-crusade",
+    cam: { gx: 500, gy: 400, kr: 2 },
+  },
+  "voyage coexists with world, era and cam",
+);
 
 console.log("test-map-zones: all assertions passed");
