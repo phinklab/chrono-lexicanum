@@ -16,8 +16,6 @@ import { useMemo, useState } from "react";
 
 import type { MapPayload } from "@/lib/map/payload";
 import type { MapWorldKind } from "@/lib/map/map-worlds-schema";
-import { CURATED_ZONES } from "@/lib/map/zones";
-import type { ZonesMode } from "@/lib/map/zones";
 import { BONE, GOLD } from "./chart-geometry";
 import { Glyph } from "./layers";
 
@@ -40,16 +38,10 @@ interface CensusProps {
   hiddenCls: ReadonlySet<number>;
   worksOnly: boolean;
   dustOff: boolean;
-  /** Force labels in every zoom band. */
-  namesOn: boolean;
-  /** Curated zone fields: full → dimmed (no names) → hidden. */
-  zones: ZonesMode;
   onToggleCls: (ci: number) => void;
   onSetCls: (cis: number[], hidden: boolean) => void;
   onToggleWorksOnly: () => void;
   onToggleDust: () => void;
-  onToggleNames: () => void;
-  onCycleZones: () => void;
 }
 
 export default function Census({
@@ -57,16 +49,11 @@ export default function Census({
   hiddenCls,
   worksOnly,
   dustOff,
-  namesOn,
-  zones,
   onToggleCls,
   onSetCls,
   onToggleWorksOnly,
   onToggleDust,
-  onToggleNames,
-  onCycleZones,
 }: CensusProps) {
-  const zoneCount = CURATED_ZONES.filter((z) => z.published).length;
   const [open, setOpen] = useState<ReadonlySet<string>>(new Set());
 
   const { clsCount, clsFeat, featTotal } = useMemo(() => {
@@ -132,64 +119,9 @@ export default function Census({
           <span className="n">{payload.dust.length}</span>
         </button>
       )}
-      {/* Zone cycle: the hand-curated fields (storms, interdiction, regions,
-          dynasties) step full → dimmed (fills stay, names go) → hidden. */}
-      {zoneCount > 0 && (
-        <button
-          className={`cx${zones === "off" ? " off" : ""}${zones === "dim" ? " dim" : ""}`}
-          onClick={onCycleZones}
-          title="Cycle the marked zones: full → dimmed without names → hidden"
-          aria-label={`Zones & warp storms: ${
-            zones === "on" ? "shown" : zones === "dim" ? "dimmed" : "hidden"
-          } — cycle`}
-        >
-          <span className="pad" />
-          <span className="sym">
-            <svg viewBox="-8 -8 16 16" width={18} height={18}>
-              <rect
-                x={-5.5}
-                y={-4.5}
-                width={11}
-                height={9}
-                fill="none"
-                stroke="currentColor"
-                strokeOpacity={0.65}
-                strokeWidth={0.9}
-                strokeDasharray="2.4 1.8"
-              />
-              <line x1={-3.2} y1={4.5} x2={1.8} y2={-4.5} stroke="currentColor" strokeOpacity={0.55} strokeWidth={0.9} />
-              <line x1={0.2} y1={4.5} x2={5.2} y2={-4.5} stroke="currentColor" strokeOpacity={0.55} strokeWidth={0.9} />
-            </svg>
-          </span>
-          <span className="lab">Zones &amp; warp storms</span>
-          <span className="n">{zones === "dim" ? "dim" : zoneCount}</span>
-        </button>
-      )}
-      {/* Force names: a lifeline for thin filters — showing only fleets,
-          say, leaves the overview nearly empty otherwise. */}
-      <button
-        className={`cx${namesOn ? " on" : ""}`}
-        aria-pressed={namesOn}
-        onClick={onToggleNames}
-        title="Show the name of every visible world, no matter how far the chart is zoomed out"
-      >
-        <span className="pad" />
-        <span className="sym">
-          <svg viewBox="-8 -8 16 16" width={18} height={18}>
-            <text
-              x={0}
-              y={4.5}
-              textAnchor="middle"
-              fontSize={11.5}
-              fontStyle="italic"
-              fill="currentColor"
-            >
-              N
-            </text>
-          </svg>
-        </span>
-        <span className="lab">World names at every magnification</span>
-      </button>
+      {/* Zone fields + forced names moved to the Instruments section
+          (Session 246): they change what the chart DRAWS, not which worlds
+          populate it — the census is population + classification only. */}
       <p className="chead groups">
         <span>By world type</span>
         <button

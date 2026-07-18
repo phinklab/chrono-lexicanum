@@ -10,7 +10,7 @@ import type { FeaturedWorld, MapPayload } from "@/lib/map/payload";
 import type { MapWorldKind } from "@/lib/map/map-worlds-schema";
 import type { ResolvedVoyage, ResolvedVoyageArm } from "@/lib/map/voyages";
 import { pointOnLeg } from "@/lib/map/voyages";
-import { CURATED_ZONES, zoneCentroid, zonePath, type ZoneDef, type ZonesMode } from "@/lib/map/zones";
+import { CURATED_ZONES, visibleZones, zoneCentroid, zonePath, type MapState, type ZoneDef, type ZonesMode } from "@/lib/map/zones";
 
 import {
   BLOOD,
@@ -59,6 +59,7 @@ export interface CanvasScene {
   worksOnly: boolean;
   names: boolean;
   zones: ZonesMode;
+  era: MapState;
   lumen: boolean;
   nihilus: boolean;
   selectedWorld: FeaturedWorld | null;
@@ -236,7 +237,6 @@ export function resolveCanvasFonts(): CanvasFonts {
 const dustCache = new WeakMap<MapPayload, ReturnType<typeof dustScatter>>();
 const pathCache = new Map<string, Path2D>();
 const textWidthCache = new Map<string, number>();
-const PUBLISHED_ZONES = CURATED_ZONES.filter((zone) => zone.published);
 let cachedGridPaths: { faint: Path2D; strong: Path2D } | null = null;
 let cachedLumenClip: Path2D | null = null;
 let cachedPolarPaths: {
@@ -439,6 +439,9 @@ function drawLumenNihilus(
   fontsReady: boolean,
 ): void {
   if (!scene.lumen && !scene.nihilus) return;
+  // The rift and everything derived from it (shadow cut, devoured-light
+  // blackness, the Nihilus shade itself) exist only on the present chart.
+  const rift = scene.era === "now";
   const bounds = mapBounds(camera, viewport, 0);
   const nihilus = cachedPath(nihilusPath());
 
@@ -454,7 +457,7 @@ function drawLumenNihilus(
     ctx.fillRect(bounds.left, bounds.top, bounds.right - bounds.left, bounds.bottom - bounds.top);
 
     ctx.save();
-    ctx.clip(lumenClipPath(), "evenodd");
+    if (rift) ctx.clip(lumenClipPath(), "evenodd");
     const light = ctx.createRadialGradient(TX, TY, 0, TX, TY, 618);
     light.addColorStop(0, "rgba(164,140,82,0.26)");
     light.addColorStop(0.45, "rgba(164,140,82,0.13)");
@@ -472,11 +475,13 @@ function drawLumenNihilus(
     ctx.setLineDash([]);
     ctx.restore();
 
-    ctx.fillStyle = "rgba(1,0,2,0.5)";
-    ctx.globalAlpha = 1;
-    ctx.fill(nihilus);
+    if (rift) {
+      ctx.fillStyle = "rgba(1,0,2,0.5)";
+      ctx.globalAlpha = 1;
+      ctx.fill(nihilus);
+    }
   }
-  if (scene.nihilus) {
+  if (scene.nihilus && rift) {
     const shade = ctx.createLinearGradient(300, 500, 900, 0);
     shade.addColorStop(0, "rgba(40,20,66,0.14)");
     shade.addColorStop(0.45, "rgba(40,20,66,0.30)");
@@ -494,15 +499,17 @@ function drawLumenNihilus(
     setFont(ctx, fonts.mono, 5.5, "normal", 1.43);
     ctx.globalAlpha = 0.35;
     ctx.fillText("BEYOND: THE BLIND VOID", 821.44, 748.77);
-    setFont(ctx, fonts.mono, 7, "normal", 1.82);
-    ctx.fillStyle = WARP_LIGHT;
-    ctx.globalAlpha = 0.5;
-    ctx.fillText("LUX DEVORATA", 690, 322);
-    setFont(ctx, fonts.mono, 5.5, "normal", 1.43);
-    ctx.globalAlpha = 0.35;
-    ctx.fillText("THE WARP DEVOURS THE LIGHT", 690, 332);
+    if (rift) {
+      setFont(ctx, fonts.mono, 7, "normal", 1.82);
+      ctx.fillStyle = WARP_LIGHT;
+      ctx.globalAlpha = 0.5;
+      ctx.fillText("LUX DEVORATA", 690, 322);
+      setFont(ctx, fonts.mono, 5.5, "normal", 1.43);
+      ctx.globalAlpha = 0.35;
+      ctx.fillText("THE WARP DEVOURS THE LIGHT", 690, 332);
+    }
   }
-  if (fontsReady && scene.nihilus) {
+  if (fontsReady && scene.nihilus && rift) {
     setFont(ctx, fonts.mono, 13, "normal", 5.2);
     ctx.fillStyle = WARP_LIGHT;
     ctx.globalAlpha = 0.42;
@@ -563,6 +570,13 @@ function zoneStyle(zone: ZoneDef): {
       return { fill: "transparent", stroke: PLAGUE, strokeAlpha: 0.4, width: 1, dash: [3, 3], label: PLAGUE, labelAlpha: 0.95 };
     case "region":
       return { fill: "rgba(164,140,82,0.05)", stroke: GOLD, strokeAlpha: 0.4, width: 0.8, dash: [1, 6], label: GOLD, labelAlpha: 0.8 };
+    case "traitoris":
+      // Region styling mirrored in blood — held space, not a storm front:
+      // no hatch, no ✠ (those stay the interdiction's voice).
+      return { fill: "rgba(142,59,50,0.06)", stroke: BLOOD, strokeAlpha: 0.45, width: 0.8, dash: [1, 6], label: BLOOD, labelAlpha: 0.85 };
+    case "perditus":
+      // Zone Perditus — lost/contested space, the reference map's grey in bone.
+      return { fill: "rgba(228,221,203,0.04)", stroke: BONE, strokeAlpha: 0.28, width: 0.8, dash: [2, 4], label: BONE, labelAlpha: 0.55 };
     case "hive-fleet":
       return { fill: "rgba(156,230,255,0.05)", stroke: ICE, strokeAlpha: 0.4, width: 0.8, dash: [1, 4], label: ICE, labelAlpha: 0.75 };
     case "necron-dynasty":
@@ -572,13 +586,20 @@ function zoneStyle(zone: ZoneDef): {
   }
 }
 
-const ZONE_RENDER_DATA = PUBLISHED_ZONES.map((zone) => ({
-  zone,
-  bounds: computeZoneBounds(zone),
-  center: zoneCentroid(zone),
-  pathD: zonePath(zone),
-  style: zoneStyle(zone),
-}));
+/** Per-zone geometry, computed once for the whole curation; which zones draw
+ *  on a given frame is decided by visibleZones(scene.era) — the same single
+ *  predicate the SVG renderer uses. */
+const ZONE_RENDER_DATA = new Map(
+  CURATED_ZONES.map((zone) => [
+    zone.id,
+    {
+      bounds: computeZoneBounds(zone),
+      center: zoneCentroid(zone),
+      pathD: zonePath(zone),
+      style: zoneStyle(zone),
+    },
+  ]),
+);
 
 function drawZones(
   ctx: CanvasRenderingContext2D,
@@ -591,10 +612,13 @@ function drawZones(
   if (scene.zones === "off") return;
   const fieldAlpha = scene.zones === "dim" ? 0.45 : scene.routeDim ? 0.22 : 1;
   const visible = mapBounds(camera, viewport);
+  const zones = visibleZones(scene.era);
   ctx.save();
   mapTransform(ctx, camera);
-  for (const entry of ZONE_RENDER_DATA) {
-    const { zone, bounds: b, style } = entry;
+  for (const zone of zones) {
+    const entry = ZONE_RENDER_DATA.get(zone.id);
+    if (!entry) continue;
+    const { bounds: b, style } = entry;
     if (b.right < visible.left || b.left > visible.right || b.bottom < visible.top || b.top > visible.bottom) continue;
     const path = cachedPath(entry.pathD);
     ctx.globalAlpha = fieldAlpha;
@@ -622,8 +646,10 @@ function drawZones(
   ctx.restore();
 
   if (!fontsReady || scene.zones === "dim") return;
-  for (const entry of ZONE_RENDER_DATA) {
-    const { zone, center, style } = entry;
+  for (const zone of zones) {
+    const entry = ZONE_RENDER_DATA.get(zone.id);
+    if (!entry) continue;
+    const { center, style } = entry;
     const point = worldToLocal(camera, center.x, center.y);
     if (!inViewport(point.x, point.y, viewport)) continue;
     const text = zone.kind === "interdiction" ? `✠ ${zone.name.toUpperCase()} ✠` : zone.name.toUpperCase();

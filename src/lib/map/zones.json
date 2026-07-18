@@ -6,6 +6,9 @@
       "kind": "interdiction",
       "smooth": true,
       "published": true,
+      "states": [
+        "now"
+      ],
       "points": [
         [
           437.44,
@@ -223,6 +226,11 @@
       "kind": "region",
       "smooth": true,
       "published": true,
+      "states": [
+        "pre",
+        "hh",
+        "now"
+      ],
       "points": [
         [
           913.61,
@@ -276,6 +284,9 @@
       "kind": "plague",
       "smooth": true,
       "published": true,
+      "states": [
+        "now"
+      ],
       "points": [
         [
           922.15,
@@ -313,6 +324,9 @@
       "kind": "interdiction",
       "smooth": true,
       "published": true,
+      "states": [
+        "now"
+      ],
       "points": [
         [
           963.75,
@@ -346,6 +360,11 @@
       "kind": "interdiction",
       "smooth": true,
       "published": true,
+      "states": [
+        "pre",
+        "hh",
+        "now"
+      ],
       "points": [
         [
           589.23,
@@ -387,6 +406,9 @@
       "kind": "interdiction",
       "smooth": true,
       "published": true,
+      "states": [
+        "now"
+      ],
       "points": [
         [
           510.63,
@@ -444,6 +466,9 @@
       "kind": "interdiction",
       "smooth": true,
       "published": true,
+      "states": [
+        "now"
+      ],
       "points": [
         [
           664.72,
@@ -485,6 +510,9 @@
       "kind": "interdiction",
       "smooth": true,
       "published": true,
+      "states": [
+        "now"
+      ],
       "points": [
         [
           508.28,
@@ -534,6 +562,9 @@
       "kind": "necron-dynasty",
       "smooth": false,
       "published": true,
+      "states": [
+        "now"
+      ],
       "points": [
         [
           797.01,
@@ -579,6 +610,9 @@
       "kind": "region",
       "smooth": true,
       "published": true,
+      "states": [
+        "now"
+      ],
       "points": [
         [
           897.88,
@@ -632,6 +666,9 @@
       "kind": "interdiction",
       "smooth": true,
       "published": true,
+      "states": [
+        "now"
+      ],
       "points": [
         [
           891.73,
@@ -701,6 +738,9 @@
       "kind": "interdiction",
       "smooth": true,
       "published": true,
+      "states": [
+        "now"
+      ],
       "points": [
         [
           989.75,
@@ -758,6 +798,9 @@
       "kind": "interdiction",
       "smooth": true,
       "published": true,
+      "states": [
+        "now"
+      ],
       "points": [
         [
           539.12,
@@ -779,6 +822,9 @@
       "kind": "necron-dynasty",
       "smooth": false,
       "published": true,
+      "states": [
+        "now"
+      ],
       "points": [
         [
           803.05,
@@ -976,6 +1022,9 @@
       "kind": "necron-dynasty",
       "smooth": false,
       "published": true,
+      "states": [
+        "now"
+      ],
       "points": [
         [
           670.95,
@@ -1008,6 +1057,680 @@
         [
           653.86,
           220.81
+        ]
+      ]
+    },
+    {
+      "id": "zone-17",
+      "name": "Horus' Dark Empire",
+      "kind": "traitoris",
+      "smooth": true,
+      "published": true,
+      "states": [
+        "hh"
+      ],
+      "points": [
+        [
+          447,
+          152
+        ],
+        [
+          452,
+          100
+        ],
+        [
+          487,
+          58
+        ],
+        [
+          545,
+          40
+        ],
+        [
+          610,
+          52
+        ],
+        [
+          668,
+          42
+        ],
+        [
+          714,
+          74
+        ],
+        [
+          698,
+          112
+        ],
+        [
+          649,
+          126
+        ],
+        [
+          610,
+          148
+        ],
+        [
+          592,
+          190
+        ],
+        [
+          560,
+          212
+        ],
+        [
+          532,
+          178
+        ],
+        [
+          476,
+          180
+        ]
+      ]
+    },
+    {
+      "id": "zone-18",
+      "name": "Domain of the Night Haunter",
+      "kind": "traitoris",
+      "smooth": true,
+      "published": true,
+      "states": [
+        "hh"
+      ],
+      "points": [
+        [
+          762,
+          148
+        ],
+        [
+          818,
+          120
+        ],
+        [
+          880,
+          150
+        ],
+        [
+          930,
+          208
+        ],
+        [
+          968,
+          278
+        ],
+        [
+          1005,
+          352
+        ],
+        [
+          1010,
+          420
+        ],
+        [
+          972,
+          470
+        ],
+        [
+          925,
+          478
+        ],
+        [
+          900,
+          420
+        ],
+        [
+          880,
+          330
+        ],
+        [
+          830,
+          240
+        ],
+        [
+          775,
+          190
+        ]
+      ]
+    },
+    {
+      "id": "zone-19",
+      "name": "The Realm of the Reaper",
+      "kind": "traitoris",
+      "smooth": true,
+      "published": true,
+      "states": [
+        "hh"
+      ],
+      "points": [
+        [
+          218,
+          690
+        ],
+        [
+          262,
+          662
+        ],
+        [
+          318,
+          668
+        ],
+        [
+          344,
+          706
+        ],
+        [
+          322,
+          748
+        ],
+        [
+          270,
+          762
+        ],
+        [
+          224,
+          738
+        ]
+      ]
+    },
+    {
+      "id": "zone-20",
+      "name": "The Imperial Core",
+      "kind": "region",
+      "smooth": true,
+      "published": true,
+      "states": [
+        "hh"
+      ],
+      "points": [
+        [
+          262,
+          392
+        ],
+        [
+          300,
+          352
+        ],
+        [
+          352,
+          346
+        ],
+        [
+          400,
+          368
+        ],
+        [
+          448,
+          396
+        ],
+        [
+          468,
+          460
+        ],
+        [
+          470,
+          530
+        ],
+        [
+          430,
+          576
+        ],
+        [
+          368,
+          600
+        ],
+        [
+          300,
+          592
+        ],
+        [
+          258,
+          548
+        ],
+        [
+          240,
+          470
+        ]
+      ]
+    },
+    {
+      "id": "zone-21",
+      "name": "Eye of Terror",
+      "kind": "storm",
+      "smooth": true,
+      "published": true,
+      "states": [
+        "pre",
+        "hh",
+        "now"
+      ],
+      "points": [
+        [
+          218,
+          214
+        ],
+        [
+          240,
+          186
+        ],
+        [
+          276,
+          182
+        ],
+        [
+          304,
+          204
+        ],
+        [
+          308,
+          238
+        ],
+        [
+          290,
+          266
+        ],
+        [
+          254,
+          276
+        ],
+        [
+          222,
+          258
+        ],
+        [
+          210,
+          236
+        ]
+      ]
+    },
+    {
+      "id": "zone-22",
+      "name": "The Ruinstorm",
+      "kind": "storm",
+      "smooth": true,
+      "published": true,
+      "states": [
+        "hh"
+      ],
+      "points": [
+        [
+          758,
+          84
+        ],
+        [
+          772,
+          160
+        ],
+        [
+          760,
+          250
+        ],
+        [
+          742,
+          340
+        ],
+        [
+          738,
+          430
+        ],
+        [
+          752,
+          520
+        ],
+        [
+          780,
+          600
+        ],
+        [
+          802,
+          664
+        ],
+        [
+          790,
+          730
+        ],
+        [
+          744,
+          772
+        ],
+        [
+          674,
+          778
+        ],
+        [
+          608,
+          750
+        ],
+        [
+          570,
+          692
+        ],
+        [
+          586,
+          622
+        ],
+        [
+          620,
+          556
+        ],
+        [
+          640,
+          478
+        ],
+        [
+          644,
+          398
+        ],
+        [
+          664,
+          310
+        ],
+        [
+          706,
+          226
+        ],
+        [
+          702,
+          142
+        ],
+        [
+          726,
+          90
+        ]
+      ]
+    },
+    {
+      "id": "zone-23",
+      "name": "The Colchis Reach",
+      "kind": "traitoris",
+      "smooth": true,
+      "published": true,
+      "states": [
+        "hh"
+      ],
+      "points": [
+        [
+          112,
+          246
+        ],
+        [
+          168,
+          232
+        ],
+        [
+          204,
+          266
+        ],
+        [
+          194,
+          316
+        ],
+        [
+          156,
+          342
+        ],
+        [
+          114,
+          320
+        ],
+        [
+          98,
+          282
+        ]
+      ]
+    },
+    {
+      "id": "zone-24",
+      "name": "The Northern Bastions",
+      "kind": "region",
+      "smooth": true,
+      "published": true,
+      "states": [
+        "hh"
+      ],
+      "points": [
+        [
+          136,
+          196
+        ],
+        [
+          196,
+          156
+        ],
+        [
+          262,
+          140
+        ],
+        [
+          318,
+          158
+        ],
+        [
+          322,
+          190
+        ],
+        [
+          284,
+          200
+        ],
+        [
+          224,
+          208
+        ],
+        [
+          156,
+          238
+        ],
+        [
+          124,
+          220
+        ]
+      ]
+    },
+    {
+      "id": "zone-25",
+      "name": "The Southern Bastions",
+      "kind": "region",
+      "smooth": true,
+      "published": true,
+      "states": [
+        "hh"
+      ],
+      "points": [
+        [
+          348,
+          694
+        ],
+        [
+          402,
+          686
+        ],
+        [
+          444,
+          712
+        ],
+        [
+          438,
+          750
+        ],
+        [
+          396,
+          766
+        ],
+        [
+          350,
+          754
+        ],
+        [
+          332,
+          722
+        ]
+      ]
+    },
+    {
+      "id": "zone-26",
+      "name": "The Orpheus Salient",
+      "kind": "region",
+      "smooth": true,
+      "published": true,
+      "states": [
+        "hh"
+      ],
+      "points": [
+        [
+          852,
+          478
+        ],
+        [
+          908,
+          470
+        ],
+        [
+          964,
+          488
+        ],
+        [
+          1004,
+          508
+        ],
+        [
+          998,
+          536
+        ],
+        [
+          942,
+          530
+        ],
+        [
+          886,
+          514
+        ],
+        [
+          850,
+          500
+        ]
+      ]
+    },
+    {
+      "id": "zone-27",
+      "name": "The Baal Refuge",
+      "kind": "region",
+      "smooth": true,
+      "published": true,
+      "states": [
+        "hh"
+      ],
+      "points": [
+        [
+          652,
+          210
+        ],
+        [
+          684,
+          202
+        ],
+        [
+          702,
+          222
+        ],
+        [
+          694,
+          248
+        ],
+        [
+          664,
+          250
+        ],
+        [
+          644,
+          232
+        ]
+      ]
+    },
+    {
+      "id": "zone-28",
+      "name": "The Prospero Waste",
+      "kind": "perditus",
+      "smooth": true,
+      "published": true,
+      "states": [
+        "hh"
+      ],
+      "points": [
+        [
+          462,
+          368
+        ],
+        [
+          496,
+          358
+        ],
+        [
+          514,
+          382
+        ],
+        [
+          500,
+          408
+        ],
+        [
+          468,
+          404
+        ],
+        [
+          452,
+          388
+        ]
+      ]
+    },
+    {
+      "id": "zone-29",
+      "name": "Imperium Secundus",
+      "kind": "region",
+      "smooth": true,
+      "published": true,
+      "states": [
+        "hh"
+      ],
+      "points": [
+        [
+          900,
+          585
+        ],
+        [
+          944,
+          602
+        ],
+        [
+          962,
+          640
+        ],
+        [
+          956,
+          684
+        ],
+        [
+          922,
+          718
+        ],
+        [
+          872,
+          734
+        ],
+        [
+          828,
+          716
+        ],
+        [
+          812,
+          674
+        ],
+        [
+          818,
+          630
+        ],
+        [
+          852,
+          598
         ]
       ]
     }

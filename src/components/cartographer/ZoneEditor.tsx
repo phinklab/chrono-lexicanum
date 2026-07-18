@@ -28,14 +28,17 @@ import { createPortal } from "react-dom";
 
 import {
   CURATED_ZONES,
+  MAP_STATES,
   ZONE_KINDS,
   ZONE_KIND_LABELS,
   parseZones,
   zoneCentroid,
+  type MapState,
   type ZoneDef,
   type ZoneKind,
 } from "@/lib/map/zones";
 import type { ChartBus } from "./chart-bus";
+import { ERA_LABELS } from "./EraPlate";
 import { ZoneShape } from "./ZonesLayer";
 
 const DRAFT_KEY = "cg-zones-draft-v1";
@@ -45,7 +48,7 @@ function round2(v: number): number {
 }
 
 function cloneZone(z: ZoneDef): ZoneDef {
-  return { ...z, points: z.points.map(([x, y]) => [x, y] as [number, number]) };
+  return { ...z, states: [...z.states], points: z.points.map(([x, y]) => [x, y] as [number, number]) };
 }
 
 function isZoneKind(v: string): v is ZoneKind {
@@ -57,14 +60,38 @@ interface EditorInit {
   fromDraft: boolean;
 }
 
+/** Drafts saved before the three-editions build (Session 246) carry no
+ *  `states` — the strict parser would reject them and silently drop the
+ *  curation work. Inject the pre-246 default before parsing. */
+function migrateDraft(data: unknown): unknown {
+  if (typeof data !== "object" || data === null) return data;
+  const zonesRaw = (data as { zones?: unknown }).zones;
+  if (!Array.isArray(zonesRaw)) return data;
+  return {
+    zones: zonesRaw.map((z) =>
+      typeof z === "object" && z !== null && !("states" in z)
+        ? { ...(z as Record<string, unknown>), states: ["now"] }
+        : z,
+    ),
+  };
+}
+
 /** Client-only (the editor mounts behind the chart's mount gate), so the
  *  localStorage draft can seed the initial state directly. */
 function loadInitial(): EditorInit {
   try {
     const raw = window.localStorage.getItem(DRAFT_KEY);
     if (raw) {
-      const parsed = parseZones(JSON.parse(raw));
-      if (parsed) return { zones: parsed, fromDraft: true };
+      const parsed = parseZones(migrateDraft(JSON.parse(raw)));
+      if (parsed) {
+        // A draft saved before newer zones were COMMITTED would silently
+        // hide them from the editor — append every committed zone the draft
+        // doesn't know. (Flip side: deleting a committed zone only sticks
+        // once the export lands in zones.json.)
+        const known = new Set(parsed.map((z) => z.id));
+        const merged = [...parsed, ...CURATED_ZONES.filter((z) => !known.has(z.id)).map(cloneZone)];
+        return { zones: merged, fromDraft: true };
+      }
     }
   } catch {
     /* unreadable draft — fall back to the committed file */
@@ -72,7 +99,7 @@ function loadInitial(): EditorInit {
   return { zones: CURATED_ZONES.map(cloneZone), fromDraft: false };
 }
 
-export default function ZoneEditor({ bus }: { bus: ChartBus }) {
+export default function ZoneEditor({ bus, era }: { bus: ChartBus; era: MapState }) {
   const [init] = useState(loadInitial);
   const [zones, setZones] = useState<ZoneDef[]>(init.zones);
   const [fromDraft, setFromDraft] = useState(init.fromDraft);
@@ -110,6 +137,21 @@ export default function ZoneEditor({ bus }: { bus: ChartBus }) {
 
   const patchZone = (zi: number, patch: Partial<ZoneDef>) => {
     setZones((zs) => zs.map((z, i) => (i === zi ? { ...z, ...patch } : z)));
+  };
+
+  /* Edition membership. The last remaining state cannot be unticked — the
+     parser (rightly) rejects a zone that exists in no edition. Rebuilt in
+     MAP_STATES order so exports stay canonical. */
+  const toggleZoneState = (zi: number, s: MapState) => {
+    setZones((zs) =>
+      zs.map((z, i) => {
+        if (i !== zi) return z;
+        const has = z.states.includes(s);
+        if (has && z.states.length === 1) return z;
+        const states = MAP_STATES.filter((m) => (m === s ? !has : z.states.includes(m)));
+        return { ...z, states };
+      }),
+    );
   };
 
   const movePoint = (zi: number, pi: number, gx: number, gy: number) => {
@@ -229,6 +271,7 @@ export default function ZoneEditor({ bus }: { bus: ChartBus }) {
       kind: "storm",
       smooth: true,
       published: false,
+      states: ["now"],
       points,
     };
     setZones((zs) => [...zs, zone]);
@@ -295,7 +338,10 @@ export default function ZoneEditor({ bus }: { bus: ChartBus }) {
             {zones.map((z) => (
               <g
                 key={z.id}
-                className={z.id === activeId ? "zactive" : "zidle"}
+                // zed-era-off: not part of the edition currently in force on
+                // the era plate — dimmed so curation per edition stays
+                // legible while every shape remains pickable.
+                className={`${z.id === activeId ? "zactive" : "zidle"}${z.states.includes(era) ? "" : " zed-era-off"}`}
                 onPointerDown={(e) => {
                   e.stopPropagation();
                   setActiveId(z.id);
@@ -369,6 +415,11 @@ export default function ZoneEditor({ bus }: { bus: ChartBus }) {
                 <button className="zed-pick" onClick={() => pickZone(z)}>
                   <span className={`pub${z.published ? " on" : ""}`} />
                   <span className="nm">{z.name || z.id}</span>
+                  <i className="zst">
+                    {z.states.length === MAP_STATES.length
+                      ? "all"
+                      : z.states.map((s) => ERA_LABELS[s].m).join("·")}
+                  </i>
                   <i>{z.points.length} pts</i>
                 </button>
                 <button className="zed-x" title="Delete zone" onClick={() => removeZone(zi)}>
@@ -405,6 +456,28 @@ export default function ZoneEditor({ bus }: { bus: ChartBus }) {
                   ))}
                 </select>
               </label>
+              <div className="zed-f zed-states">
+                <span>Eras</span>
+                <div className="zed-states-row">
+                  {MAP_STATES.map((s) => {
+                    const checked = active.states.includes(s);
+                    const last = checked && active.states.length === 1;
+                    return (
+                      <label key={s} className="zed-c" title={ERA_LABELS[s].name}>
+                        <input
+                          type="checkbox"
+                          checked={checked}
+                          // The parser rejects a zone with no edition — the
+                          // last tick cannot be removed.
+                          disabled={last}
+                          onChange={() => toggleZoneState(activeIdx, s)}
+                        />
+                        {ERA_LABELS[s].m}
+                      </label>
+                    );
+                  })}
+                </div>
+              </div>
               <label className="zed-c">
                 <input
                   type="checkbox"
@@ -432,7 +505,8 @@ export default function ZoneEditor({ bus }: { bus: ChartBus }) {
             Drag a point to shape the zone. The <b>⊕ handles</b> on each edge insert a new point
             (press and drag them straight away); double-click (or Delete) removes one. Only{" "}
             <b>published</b> zones render on the chart — the export replaces{" "}
-            <code>src/lib/map/zones.json</code>.
+            <code>src/lib/map/zones.json</code>. The <b>era checkboxes</b> pick which chart
+            editions carry the zone; shapes outside the edition on the era plate render dimmed.
           </p>
         </aside>,
         document.body,

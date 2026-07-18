@@ -1139,6 +1139,121 @@ body.cg-canvas-renderer .cg-deg {
   color: var(--cl-gold);
   padding-top: 2px;
 }
+/* Disabled instrument (Nihilus off the present chart): stays in place —
+   layout-stable, discoverable — muted, no hover life; the reason sits on
+   the tag line as visible text, not a tooltip. */
+:is(.cg-cartouche, .cg-sheet) .rt.na {
+  color: var(--cl-faint);
+  cursor: default;
+}
+:is(.cg-cartouche, .cg-sheet) .rt.na:hover {
+  color: var(--cl-faint);
+}
+:is(.cg-cartouche, .cg-sheet) .rt.na:hover::before {
+  background: var(--cl-faint-deco);
+  transform: none;
+}
+
+/* ——— Era plate — the chart's edition line ————————————————————————————
+   Top-center under the site brand on EVERY viewport: the brand is the
+   title, this is the edition (M30 / M31 / M42), the map's exclusive base
+   state. Same glass language as cartouche and sheet; active segment speaks
+   the gold dot of the .rt rows. */
+.cg-eraplate {
+  position: fixed;
+  left: 50%;
+  top: 54px;
+  z-index: 20;
+  transform: translateX(-50%) translateY(-10px);
+  background: var(--cg-glass);
+  box-shadow: var(--cg-glass-shadow);
+  border-radius: 4px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 5px 12px 6px;
+  text-align: center;
+  opacity: 0;
+  transition:
+    opacity 0.9s var(--ease) 0.25s,
+    transform 0.9s var(--ease) 0.25s;
+}
+.cg-eraplate.on {
+  opacity: 1;
+  transform: translateX(-50%);
+}
+.cg-eraplate .ep-row {
+  display: flex;
+  justify-content: center;
+}
+.cg-eraplate .ep-seg {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-xs);
+  letter-spacing: var(--track-18);
+  text-transform: uppercase;
+  color: var(--cl-dim);
+  padding: 3px 12px 3px 22px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.cg-eraplate .ep-seg + .ep-seg {
+  border-left: 1px solid var(--cl-hair-soft);
+}
+.cg-eraplate .ep-seg::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  margin: -2px 0 0 -2px;
+  background: var(--cl-faint-deco);
+  border-radius: 50%;
+  transition:
+    background 0.4s,
+    transform 0.5s var(--ease);
+}
+.cg-eraplate .ep-seg:hover {
+  color: var(--cl-bone);
+}
+.cg-eraplate .ep-seg:hover::before {
+  background: var(--cl-gold);
+  transform: scale(1.6);
+}
+.cg-eraplate .ep-seg[aria-checked="true"] {
+  color: var(--cl-gold);
+}
+.cg-eraplate .ep-seg[aria-checked="true"]::before {
+  background: var(--cl-gold);
+  transform: scale(1.7);
+}
+/* The edition line: names the active chart beneath the segments. */
+.cg-eraplate .ep-name {
+  font-family: var(--font-body);
+  font-size: var(--fs-label-xs);
+  font-style: italic;
+  color: var(--cl-dim);
+  padding-top: 2px;
+}
+@media (max-width: 640px) {
+  .cg-eraplate {
+    top: calc(44px + env(safe-area-inset-top, 0px));
+    padding: 3px 8px 4px;
+  }
+  .cg-eraplate .ep-seg {
+    font-size: var(--fs-label-2xs);
+    padding: 3px 9px 3px 18px;
+  }
+  .cg-eraplate .ep-seg::before {
+    left: 9px;
+  }
+  .cg-eraplate .ep-name {
+    font-size: var(--fs-label-2xs);
+    padding-top: 1px;
+  }
+}
 /* Census filters */
 .cg-census .chead {
   font-family: var(--font-mono);
@@ -1906,6 +2021,25 @@ body.cg-canvas-renderer .cg-deg {
   stroke-width: 0.8;
   stroke-dasharray: 1 6;
 }
+/* Traitor-held space (the Heresy chart): region styling mirrored in blood —
+   held territory, not a storm front. No hatch, no ✠; those stay the
+   interdiction's voice. */
+.cg-zone.traitoris .zshape {
+  fill: rgba(142, 59, 50, 0.06);
+  stroke: var(--cl-blood);
+  stroke-opacity: 0.45;
+  stroke-width: 0.8;
+  stroke-dasharray: 1 6;
+}
+/* Zone Perditus (the Heresy chart): lost/contested space — the reference
+   map's grey, spoken in bone. */
+.cg-zone.perditus .zshape {
+  fill: rgba(228, 221, 203, 0.04);
+  stroke: var(--cl-bone);
+  stroke-opacity: 0.28;
+  stroke-width: 0.8;
+  stroke-dasharray: 2 4;
+}
 .cg-zone-lbl {
   font-family: var(--font-mono);
   font-size: calc(10px * var(--cg-ik, 1));
@@ -1928,6 +2062,14 @@ body.cg-canvas-renderer .cg-deg {
 .cg-zone.region .cg-zone-lbl {
   fill: var(--cl-gold);
   fill-opacity: 0.8;
+}
+.cg-zone.traitoris .cg-zone-lbl {
+  fill: var(--cl-blood);
+  fill-opacity: 0.85;
+}
+.cg-zone.perditus .cg-zone-lbl {
+  fill: var(--cl-bone);
+  fill-opacity: 0.55;
 }
 /* Hive fleets + Necron dynasties speak the xenos palette:
    ice cyan, differing stroke language. */
@@ -2216,6 +2358,37 @@ body.cg-canvas-renderer .cg-deg {
   accent-color: var(--cl-gold);
   cursor: pointer;
 }
+/* Edition checkboxes (M30/M31/M42) — a .zed-f row whose inputs are plain
+   checkboxes, not the bordered text-field boxes. Disabled = the last
+   remaining edition (the parser forbids a zone with none). */
+.cg-zed .zed-states-row {
+  flex: 1;
+  display: flex;
+  gap: 10px;
+}
+.cg-zed .zed-states-row .zed-c {
+  padding: 0;
+}
+.cg-zed .zed-states-row input {
+  flex: none;
+  accent-color: var(--cl-gold);
+  cursor: pointer;
+}
+.cg-zed .zed-states-row input:disabled {
+  cursor: default;
+}
+/* Zone-list edition flags ("M31", "M30·M31", "all"). */
+.cg-zed .zed-pick .zst {
+  color: var(--cl-gold-dim);
+}
+/* Editor shapes outside the edition currently on the era plate: dimmed to a
+   trace so per-edition curation stays legible; still pickable. */
+.cg-zed-shapes .zed-era-off {
+  opacity: 0.18;
+}
+.cg-zed-shapes .zed-era-off.zactive {
+  opacity: 0.45;
+}
 .cg-zed .zed-actions {
   display: flex;
   gap: 5px;
@@ -2293,6 +2466,7 @@ body.cg-canvas-renderer .cg-deg {
   }
   .cg-overture,
   .cg-cartouche,
+  .cg-eraplate,
   .cg-pop,
   .cg-ccard {
     transition: none;
@@ -2337,6 +2511,9 @@ body.cg-canvas-renderer .cg-deg {
   :is(.cg-cartouche, .cg-sheet) .c-sec {
     min-height: 44px;
     align-items: center;
+  }
+  .cg-eraplate .ep-seg {
+    min-height: 44px;
   }
   :is(.cg-cartouche, .cg-sheet) .skitem,
   :is(.cg-cartouche, .cg-sheet) .cg-windex button {
@@ -2414,7 +2591,8 @@ body.cg-canvas-renderer .cg-deg {
      costs real GPU under transform-animated sheets. */
   .cg-pop,
   .cg-ccard,
-  .cg-sheet {
+  .cg-sheet,
+  .cg-eraplate {
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
   }
