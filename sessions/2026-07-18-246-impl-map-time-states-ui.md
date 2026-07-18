@@ -248,3 +248,48 @@ Anschluss danach: **W3b-B2** (Karten-Timeline + Journey-Kopplung — Play/
 Stepper dockt an der Era-Platte an, `mapState`-Tag pro Voyage +
 Ära-Gruppierung der Journey-Liste, `voyage=`-Hash) und **WM-Restentscheid**
 (Philipp: was von der WM-Runde nach diesem UI-Umbau übrig bleibt).
+
+## Nachtrag — Fortsetzung derselben Session (Browser-Kuration + M30-Recherche)
+
+- **Dev-Server-Vorfall:** Der session-gebundene Hintergrund-Dev-Server starb
+  mit dem Session-Ende, während Philipp im Zone-Editor zeichnete. Kein
+  Datenverlust — der Editor autosavet jede Änderung in den
+  Browser-localStorage. Der Server läuft jetzt **detached** in einem eigenen
+  Konsolenfenster („chrono-dev", `cmd /k npm.cmd run dev`), unabhängig von
+  CC-Sessions; er endet erst, wenn Philipp das Fenster schließt.
+- **Draft-Sicherung:** Philipps Editor-Stand zweimal per Copy-JSON gesichert
+  nach `zones-draft-backup-2026-07-18.json` (untracked, lokal, bleibt aus dem
+  PR; mechanisch gegen die Pastes verifiziert).
+- **M30-Recherche (zwei Web-Agenten):** Verdikt — die pre-Karte ist mit
+  genau Ultramar + Maelstrom + Eye of Terror korrekt. Keiner der sieben
+  M42-Stürme/Anomalien ist M30/M31-belegt (Emperor's Wrath M36, Hadex
+  656.M40, Siren's Storm 001.M42; Vortex of Despair/Tendrils/Malfactus/
+  Somnium undatiert, erst auf M41/M42-Karten; Malfactus + Somnium im
+  Imperium Nihilus). Eye entstand beim Fall der Aeldari (frühes M30,
+  Fandom; Lexicanum-Ausreißer M31); era-gerechter GC-Name laut
+  Imperius-Dominatus-Karte: „Ocularis Malifica" (Namensoption für den
+  Eye-Split, S3). Ultramar erst ab Mitte/Ende des Crusade — all-era-Tag
+  bleibt vertretbar. Quellen: Lexicanum (Eye of Terror, Ultramar, List of
+  Warp Storms, Storm of the Emperor's Wrath, Hadex, Siren's Storm,
+  Rangdan Xenocides), Fandom (Fall of the Aeldari, Scourge Stars, T'au),
+  Imperius-Dominatus-Scan (40k-Wiki).
+- **Verworfenes Experiment:** Zehn GC-Flächen (Ghoul Stars, Halo Stars,
+  Dominion of Storms, Death of Reason, Thirteen Realms, Golgotha Wastes,
+  Veiled Region, Hungering Gyre, 2× Prohibited Zone) von der
+  Imperius-Dominatus-Karte anker-basiert vorgezeichnet; auf Philipps
+  Einwand (die Karte führt sie als Titel ohne feste Ausdehnung — Polygone
+  wären Interpretation) wieder entfernt, nie committet. Die
+  Ablese-Ergebnisse (Label ↔ Nachbarwelten) stehen im Chat-Protokoll,
+  falls S3 sie doch braucht.
+- **Editor-Draft als Folge-Commit übernommen** (Philipps Zuruf „committen
+  und live anschauen"): zone-30 Traitor Space (traitoris, hh), zone-31 +
+  zone-34 Zone Perditus (hh bzw. now), zone-33 Bastion Omega (region, hh),
+  **Eye-Split** (zone-21 „Eye of Terror" pre+hh mit eigener Form, zone-32
+  „Eye of Terror" now — das M42-Auge nach dem Fall von Cadia), zone-28
+  Rename „The Prospero Waste" → „Zone Perditus", Reshapes u. a. am
+  Cicatrix-Westende um Terra/Auge und an zone-29 Imperium Secundus.
+- **Test-Invariante nachgezogen:** `test-map-zones` prüft das Auge jetzt
+  als Namens-Summe (alle Zonen namens „Eye of Terror" decken zusammen
+  pre+hh+now); Ultramar/Maelstrom bleiben strikt all-era.
+- Gates Nachtrag: `test-map-zones` ✓ · `tsc --noEmit` ✓ · `eslint` ✓.
+  UI-Abnahme des Gesamtstands macht Philipp nach dem Merge live.

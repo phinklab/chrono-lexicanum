@@ -28,11 +28,19 @@ for (const z of CURATED_ZONES) {
 
 const byName = (name: string) => CURATED_ZONES.find((z) => z.name === name);
 // The Maelstrom predates Mankind (Purgatus since the Great Crusade) — like
-// Ultramar and the Eye it stands on every chart edition.
-for (const name of ["Ultramar", "The Maelstrom", "Eye of Terror"]) {
+// Ultramar it stands on every chart edition.
+for (const name of ["Ultramar", "The Maelstrom"]) {
   const zone = byName(name);
   assert.ok(zone, `${name} exists`);
   assert.deepEqual(zone?.states, ["pre", "hh", "now"], `${name} spans all three editions`);
+}
+// The Eye exists in every era but wears a different shape after the Fall of
+// Cadia — two curated zones share the name and together cover all editions.
+const eyes = CURATED_ZONES.filter((z) => z.name === "Eye of Terror");
+assert.ok(eyes.length >= 1, "Eye of Terror exists");
+const eyeStates = new Set(eyes.flatMap((z) => z.states));
+for (const s of MAP_STATES) {
+  assert.ok(eyeStates.has(s), `Eye of Terror covers ${s}`);
 }
 assert.deepEqual(byName("Cicatrix Maledictum")?.states, ["now"], "the rift is a present-chart zone");
 assert.deepEqual(byName("Horus' Dark Empire")?.states, ["hh"], "the Dark Empire is a Heresy-chart zone");
