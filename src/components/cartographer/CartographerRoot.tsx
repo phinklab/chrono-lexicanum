@@ -16,7 +16,7 @@ import type { MapPayload } from "@/lib/map/payload";
 import { catalogSource } from "@/lib/map/pin-source";
 import { VOYAGES, resolveVoyage } from "@/lib/map/voyages";
 import { useOverlayBackGuard } from "@/lib/map/useOverlayBackGuard";
-import type { ZonesMode } from "@/lib/map/zones";
+import type { MapState, ZonesMode } from "@/lib/map/zones";
 import { useMediaQuery } from "@/lib/useMediaQuery";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 
@@ -24,6 +24,7 @@ import { Cartouche, Overture } from "./Cartouche";
 import CartoucheSheet from "./CartoucheSheet";
 import CanvasStage from "./CanvasStage";
 import Census from "./Census";
+import EraPlate from "./EraPlate";
 import ChartStage from "./ChartStage";
 import CourseCards from "./CourseCards";
 import RouteMotionCanvas from "./RouteMotionCanvas";
@@ -58,8 +59,14 @@ interface CgState {
   dustOff: boolean;
   worksOnly: boolean;
   voyage: VoyageState | null;
+  /** Chart edition (pre M30 / hh M31 / now M41-42) — the base state every
+   *  zone and time-bound instrument keys off. */
+  era: MapState;
   lumen: boolean;
   nihilus: boolean;
+  /** Nihilus is an instrument of the present chart only: leaving "now"
+   *  stashes an active shade here and restores it on return. */
+  nihilusStash: boolean;
   /** Force names: every visible world shows its name at every zoom — a
    *  lifeline for thin filters (e.g. fleets only). */
   names: boolean;
@@ -74,8 +81,10 @@ const INITIAL: CgState = {
   dustOff: false,
   worksOnly: false,
   voyage: null,
+  era: "now",
   lumen: false,
   nihilus: false,
+  nihilusStash: false,
   names: false,
   zones: "on",
 };
@@ -91,6 +100,7 @@ type CgAction =
   | { type: "voyageStep"; step: number }
   | { type: "voyageFree"; step: number }
   | { type: "voyageEnd" }
+  | { type: "setEra"; era: MapState }
   | { type: "toggleLumen" }
   | { type: "toggleNihilus" }
   | { type: "toggleNames" }
@@ -139,10 +149,28 @@ function reducer(state: CgState, action: CgAction): CgState {
         : state;
     case "voyageEnd":
       return state.voyage ? { ...state, voyage: null } : state;
+    case "setEra": {
+      if (action.era === state.era) return state;
+      // Nihilus exists only on the present chart: stash an active shade on
+      // the way out, restore it on the way back.
+      const leavingNow = state.era === "now";
+      const enteringNow = action.era === "now";
+      return {
+        ...state,
+        condensed: true,
+        era: action.era,
+        nihilus: enteringNow ? state.nihilusStash : false,
+        nihilusStash: leavingNow ? state.nihilus : state.nihilusStash,
+      };
+    }
     case "toggleLumen":
       return { ...state, condensed: true, lumen: !state.lumen };
     case "toggleNihilus":
-      return { ...state, condensed: true, nihilus: !state.nihilus };
+      // Guarded here too — the button is disabled off-"now", but no dispatch
+      // path may ever raise the shade on a chart that predates the rift.
+      return state.era === "now"
+        ? { ...state, condensed: true, nihilus: !state.nihilus }
+        : state;
     case "toggleNames":
       return { ...state, names: !state.names };
     case "cycleZones":
@@ -372,6 +400,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
     if (restored.current || !mounted) return;
     restored.current = true;
     const h = parseMapHash();
+    if (h.era) dispatch({ type: "setEra", era: h.era });
     if (h.cam && bus.driver) bus.driver.setCamRel(h.cam.gx, h.cam.gy, h.cam.kr);
     if (h.world && source.peek(h.world)) {
       dispatch({ type: "condense" });
@@ -391,6 +420,10 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
   useEffect(() => {
     if (restored.current) writeMapHash({ world: state.selectedId });
   }, [state.selectedId]);
+
+  useEffect(() => {
+    if (restored.current) writeMapHash({ era: state.era });
+  }, [state.era]);
 
   /* Escape closes the topmost layer: world popup, then the active journey.
      (The seek input and the mobile sheet intercept Escape earlier via
@@ -513,14 +546,10 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
       hiddenCls={state.hiddenCls}
       worksOnly={state.worksOnly}
       dustOff={state.dustOff}
-      namesOn={state.names}
-      zones={state.zones}
       onToggleCls={(ci) => dispatch({ type: "toggleCls", ci })}
       onSetCls={(cis, hidden) => dispatch({ type: "setCls", cis, hidden })}
       onToggleWorksOnly={() => dispatch({ type: "toggleWorksOnly" })}
       onToggleDust={() => dispatch({ type: "toggleDust" })}
-      onToggleNames={() => dispatch({ type: "toggleNames" })}
-      onCycleZones={() => dispatch({ type: "cycleZones" })}
     />
   );
 
@@ -550,6 +579,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
             worksOnly={state.worksOnly}
             names={state.names}
             zones={state.zones}
+            era={state.era}
             lumen={state.lumen}
             nihilus={state.nihilus}
             selectedWorld={selectedWorld}
@@ -611,11 +641,11 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
               {/* Background instruments belong below every world, label and
                   route. They previously lived in the later motion SVG, which
                   made the huge Lumen/Nihilus shades cover the planets. */}
-              <LumenNihilus />
+              <LumenNihilus era={state.era} />
               <PolarFrame />
               <SegmentumWatermarks />
               {/* Zone fields come exclusively from the hand-curated zones.json. */}
-              <g id="cg-fields">{!zoneEdit && <ZonesLayer />}</g>
+              <g id="cg-fields">{!zoneEdit && <ZonesLayer era={state.era} />}</g>
               <DustLayer
                 payload={payload}
                 hiddenCls={state.hiddenCls}
@@ -624,7 +654,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
               />
               <PinLayer featured={payload.featured} hiddenCls={state.hiddenCls} hiIds={hiIds} />
               <RegionLabels regions={payload.regions} featured={payload.featured} />
-              {zoneEdit && <ZoneEditor bus={bus} />}
+              {zoneEdit && <ZoneEditor bus={bus} era={state.era} />}
             </ChartStage>
             <RouteMotionCanvas
               bus={bus}
@@ -640,6 +670,14 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
 
       <Overture condensed={state.condensed} payload={payload} onEnter={enterChart} />
 
+      {/* The chart's edition line — the three-era base state, top-center
+          under the brand on every viewport. */}
+      <EraPlate
+        era={state.era}
+        condensed={state.condensed}
+        onSetEra={(era) => dispatch({ type: "setEra", era })}
+      />
+
       {/* The one SR status region — world panel + tour steps. */}
       <div className="cg-sr" role="status">
         {liveMsg}
@@ -650,13 +688,18 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
         condensed={state.condensed}
         voyageId={state.voyage?.id ?? null}
         voyageNote={voyageNote}
+        era={state.era}
         lumen={state.lumen}
         nihilus={state.nihilus}
+        names={state.names}
+        zones={state.zones}
         filtered={anyFiltered}
         onPick={pick}
         onVoyage={startVoyage}
         onToggleLumen={() => dispatch({ type: "toggleLumen" })}
         onToggleNihilus={() => dispatch({ type: "toggleNihilus" })}
+        onToggleNames={() => dispatch({ type: "toggleNames" })}
+        onCycleZones={() => dispatch({ type: "cycleZones" })}
       >
         {census}
       </Cartouche>
@@ -666,8 +709,11 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
         payload={payload}
         voyageId={state.voyage?.id ?? null}
         voyageNote={voyageNote}
+        era={state.era}
         lumen={state.lumen}
         nihilus={state.nihilus}
+        names={state.names}
+        zones={state.zones}
         filtered={anyFiltered}
         suppressed={state.selectedId !== null}
         veiled={!state.condensed}
@@ -677,6 +723,8 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
         onVoyage={startVoyage}
         onToggleLumen={() => dispatch({ type: "toggleLumen" })}
         onToggleNihilus={() => dispatch({ type: "toggleNihilus" })}
+        onToggleNames={() => dispatch({ type: "toggleNames" })}
+        onCycleZones={() => dispatch({ type: "cycleZones" })}
       >
         {census}
       </CartoucheSheet>

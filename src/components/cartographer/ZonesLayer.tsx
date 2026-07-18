@@ -6,7 +6,7 @@
 
 import { memo } from "react";
 
-import { CURATED_ZONES, zoneCentroid, zonePath, type ZoneDef } from "@/lib/map/zones";
+import { visibleZones, zoneCentroid, zonePath, type MapState, type ZoneDef } from "@/lib/map/zones";
 
 /** One zone in chart styling — shared with the editor so the shape being
  *  formed looks exactly like what ships. */
@@ -22,12 +22,12 @@ export function ZoneShape({ zone }: { zone: ZoneDef }) {
   );
 }
 
-export const ZonesLayer = memo(function ZonesLayer() {
-  const published = CURATED_ZONES.filter((z) => z.published);
-  if (published.length === 0) return null;
+export const ZonesLayer = memo(function ZonesLayer({ era }: { era: MapState }) {
+  const zones = visibleZones(era);
+  if (zones.length === 0) return null;
   return (
     <g className="cg-zones">
-      {published.map((z) => (
+      {zones.map((z) => (
         <ZoneShape key={z.id} zone={z} />
       ))}
     </g>

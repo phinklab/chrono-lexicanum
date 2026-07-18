@@ -26,16 +26,14 @@ import type { ReactNode } from "react";
 
 import type { MapPayload } from "@/lib/map/payload";
 
-import { OverlayButtons, SectionHead, SeekPanel, VoyageButtons, WorldIndex } from "./Cartouche";
-import type { SectionId } from "./Cartouche";
+import { InstrumentButtons, SectionHead, SeekPanel, VoyageButtons, WorldIndex, instrumentsNote } from "./Cartouche";
+import type { InstrumentProps, SectionId } from "./Cartouche";
 
-interface CartoucheSheetProps {
+interface CartoucheSheetProps extends InstrumentProps {
   payload: MapPayload;
   voyageId: string | null;
   /** Journeys-section badge — "touring 3/9" during a tour, "active" after. */
   voyageNote: string | null;
-  lumen: boolean;
-  nihilus: boolean;
   filtered: boolean;
   /** World popup open — the dock steps aside and returns when it closes. */
   suppressed: boolean;
@@ -47,8 +45,6 @@ interface CartoucheSheetProps {
   onOpenChange: (open: boolean) => void;
   onPick: (id: string) => void;
   onVoyage: (id: string) => void;
-  onToggleLumen: () => void;
-  onToggleNihilus: () => void;
   /** The census filter block (a second instance of the desktop's Census). */
   children: ReactNode;
 }
@@ -57,23 +53,22 @@ interface CartoucheSheetProps {
 const DRAG_CLOSE = 80;
 const DRAG_OPEN = -40;
 
-export default function CartoucheSheet({
-  payload,
-  voyageId,
-  voyageNote,
-  lumen,
-  nihilus,
-  filtered,
-  suppressed,
-  veiled,
-  open,
-  onOpenChange,
-  onPick,
-  onVoyage,
-  onToggleLumen,
-  onToggleNihilus,
-  children,
-}: CartoucheSheetProps) {
+export default function CartoucheSheet(props: CartoucheSheetProps) {
+  const {
+    payload,
+    voyageId,
+    voyageNote,
+    lumen,
+    nihilus,
+    filtered,
+    suppressed,
+    veiled,
+    open,
+    onOpenChange,
+    onPick,
+    onVoyage,
+    children,
+  } = props;
   // Phones open on the four-section overview; the desktop cartouche keeps
   // its primary census section open by default.
   const [openSecs, setOpenSecs] = useState<ReadonlySet<SectionId>>(new Set());
@@ -188,8 +183,6 @@ export default function CartoucheSheet({
     else if (!open && dy < DRAG_OPEN) onOpenChange(true);
   };
 
-  const instrumentsNote = [lumen && "Lumen", nihilus && "Nihilus"].filter(Boolean).join(" · ");
-
   return (
     <>
       {open && <div className="cg-sheet-backdrop" onPointerDown={() => onOpenChange(false)} />}
@@ -262,18 +255,13 @@ export default function CartoucheSheet({
 
           <SectionHead
             open={openSecs.has("instruments")}
-            label="Overlays"
-            note={instrumentsNote || null}
+            label="Instruments"
+            note={instrumentsNote(props)}
             onToggle={() => toggleSec("instruments")}
           />
           {openSecs.has("instruments") && (
             <div className="c-body">
-              <OverlayButtons
-                lumen={lumen}
-                nihilus={nihilus}
-                onToggleLumen={onToggleLumen}
-                onToggleNihilus={onToggleNihilus}
-              />
+              <InstrumentButtons {...props} />
             </div>
           )}
 

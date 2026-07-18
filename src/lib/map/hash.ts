@@ -1,12 +1,15 @@
 /**
  * hash.ts — shareable URL state for the Cartographer.
- * Format: `#world=<worldId>&cam=<gx>,<gy>,<kr>` — camera as grid-space center
- * plus zoom RELATIVE to the fit scale (`kr = k / k0`), so a link restores the
- * same framing on a different viewport.
+ * Format: `#world=<worldId>&era=<pre|hh>&cam=<gx>,<gy>,<kr>` — camera as
+ * grid-space center plus zoom RELATIVE to the fit scale (`kr = k / k0`), so a
+ * link restores the same framing on a different viewport. The chart edition
+ * (`era`) is only written off-default — plain links stay the present chart.
  *
  * Merge-patch semantics, `history.replaceState` (no history spam), one
  * trailing write per 80 ms.
  */
+
+import { MAP_STATES, type MapState } from "./zones";
 
 export interface MapCam {
   gx: number;
@@ -16,17 +19,23 @@ export interface MapCam {
 
 export interface MapHashState {
   world: string | null;
+  era: MapState | null;
   cam: MapCam | null;
 }
 
-export function parseMapHash(): MapHashState {
-  const out: MapHashState = { world: null, cam: null };
-  if (typeof window === "undefined") return out;
-  const hash = window.location.hash.replace(/^#/, "");
-  if (!hash) return out;
-  const params = new URLSearchParams(hash);
+/** Pure parse of a hash string (leading `#` optional) — the one parse logic
+ *  for the app wrapper below and the node test suite. */
+export function parseMapHashString(hash: string): MapHashState {
+  const out: MapHashState = { world: null, era: null, cam: null };
+  const raw = hash.replace(/^#/, "");
+  if (!raw) return out;
+  const params = new URLSearchParams(raw);
   const world = params.get("world");
   if (world) out.world = world;
+  const era = params.get("era");
+  if (era && (MAP_STATES as readonly string[]).includes(era)) {
+    out.era = era as MapState;
+  }
   const cam = params.get("cam");
   if (cam) {
     const parts = cam.split(",").map(Number);
@@ -37,8 +46,14 @@ export function parseMapHash(): MapHashState {
   return out;
 }
 
+export function parseMapHash(): MapHashState {
+  if (typeof window === "undefined") return { world: null, era: null, cam: null };
+  return parseMapHashString(window.location.hash);
+}
+
 export interface MapHashPatch {
   world?: string | null;
+  era?: MapState | null;
   cam?: MapCam | null;
 }
 
@@ -49,6 +64,7 @@ export function writeMapHash(patch: MapHashPatch): void {
   if (typeof window === "undefined") return;
   const base = pending ?? parseMapHash();
   if (patch.world !== undefined) base.world = patch.world;
+  if (patch.era !== undefined) base.era = patch.era;
   if (patch.cam !== undefined) base.cam = patch.cam;
   pending = base;
 
@@ -60,6 +76,8 @@ export function writeMapHash(patch: MapHashPatch): void {
     if (!state) return;
     const params = new URLSearchParams();
     if (state.world) params.set("world", state.world);
+    // "now" is the default edition — a plain link must stay a plain link.
+    if (state.era && state.era !== "now") params.set("era", state.era);
     if (state.cam) {
       params.set(
         "cam",

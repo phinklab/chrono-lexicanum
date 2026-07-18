@@ -19,10 +19,18 @@ export const ZONE_KINDS = [
   "interdiction",
   "plague",
   "region",
+  "traitoris",
+  "perditus",
   "hive-fleet",
   "necron-dynasty",
 ] as const;
 export type ZoneKind = (typeof ZONE_KINDS)[number];
+
+/** The three chart editions: pre-Heresy (M30), Horus Heresy (M31), the
+ *  present chart (M41/42). Pins are identical in every state — only zones
+ *  and the time-bound instruments switch. */
+export const MAP_STATES = ["pre", "hh", "now"] as const;
+export type MapState = (typeof MAP_STATES)[number];
 
 /** Census display mode for the zone layer: full → dimmed (fills at reduced
  *  opacity, names hidden) → hidden. */
@@ -34,6 +42,8 @@ export const ZONE_KIND_LABELS: Record<ZoneKind, string> = {
   interdiction: "Interdiction zone",
   plague: "Plague zone",
   region: "Named region",
+  traitoris: "Traitor-held space",
+  perditus: "Lost zone (perditus)",
   "hive-fleet": "Hive fleet",
   "necron-dynasty": "Necron dynasty",
 };
@@ -46,12 +56,18 @@ export interface ZoneDef {
   smooth: boolean;
   /** Only published zones render on the chart; drafts live in the editor. */
   published: boolean;
+  /** Chart editions this zone exists in — non-empty, no duplicates. */
+  states: MapState[];
   /** Grid-space vertices (same 0–1000 grid as every pin), ≥ 3. */
   points: [number, number][];
 }
 
 function isZoneKind(v: unknown): v is ZoneKind {
   return typeof v === "string" && (ZONE_KINDS as readonly string[]).includes(v);
+}
+
+function isMapState(v: unknown): v is MapState {
+  return typeof v === "string" && (MAP_STATES as readonly string[]).includes(v);
 }
 
 /** Strict parse of a `{ zones: [...] }` payload; null when anything is off. */
@@ -66,6 +82,12 @@ export function parseZones(data: unknown): ZoneDef[] | null {
     if (typeof o.id !== "string" || typeof o.name !== "string") return null;
     if (!isZoneKind(o.kind)) return null;
     if (typeof o.smooth !== "boolean" || typeof o.published !== "boolean") return null;
+    if (!Array.isArray(o.states) || o.states.length === 0) return null;
+    const states: MapState[] = [];
+    for (const s of o.states) {
+      if (!isMapState(s) || states.includes(s)) return null;
+      states.push(s);
+    }
     if (!Array.isArray(o.points) || o.points.length < 3) return null;
     const points: [number, number][] = [];
     for (const p of o.points) {
@@ -74,13 +96,30 @@ export function parseZones(data: unknown): ZoneDef[] | null {
       if (typeof x !== "number" || typeof y !== "number") return null;
       points.push([x, y]);
     }
-    out.push({ id: o.id, name: o.name, kind: o.kind, smooth: o.smooth, published: o.published, points });
+    out.push({ id: o.id, name: o.name, kind: o.kind, smooth: o.smooth, published: o.published, states, points });
   }
   return out;
 }
 
 /** The committed curation (repo-reviewed; a broken file degrades to none). */
 export const CURATED_ZONES: ZoneDef[] = parseZones(zonesJson) ?? [];
+
+/** THE zone-visibility truth: published zones of one chart edition. Both
+ *  renderers, the census count and the editor dimming key off this single
+ *  predicate — no second filter chain anywhere. Results for the immutable
+ *  committed curation are memoized per era: the canvas renderer calls this
+ *  on every repaint frame. */
+const visibleCache = new Map<MapState, ZoneDef[]>();
+
+export function visibleZones(era: MapState, zones: ZoneDef[] = CURATED_ZONES): ZoneDef[] {
+  if (zones !== CURATED_ZONES) return zones.filter((z) => z.published && z.states.includes(era));
+  let hit = visibleCache.get(era);
+  if (!hit) {
+    hit = CURATED_ZONES.filter((z) => z.published && z.states.includes(era));
+    visibleCache.set(era, hit);
+  }
+  return hit;
+}
 
 /** Closed outline path — Catmull-Rom → cubic Béziers when smooth. */
 export function zonePath(zone: ZoneDef): string {

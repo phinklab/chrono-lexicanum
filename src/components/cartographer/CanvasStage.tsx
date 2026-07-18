@@ -13,7 +13,7 @@ import type { PointerEvent as ReactPointerEvent, RefObject } from "react";
 
 import type { FeaturedWorld, MapPayload } from "@/lib/map/payload";
 import type { ResolvedVoyage } from "@/lib/map/voyages";
-import type { ZonesMode } from "@/lib/map/zones";
+import type { MapState, ZonesMode } from "@/lib/map/zones";
 
 import type { CameraDriver, ChartBus } from "./chart-bus";
 import { H, W } from "./chart-geometry";
@@ -70,6 +70,7 @@ interface CanvasStageProps {
   worksOnly: boolean;
   names: boolean;
   zones: ZonesMode;
+  era: MapState;
   lumen: boolean;
   nihilus: boolean;
   selectedWorld: FeaturedWorld | null;
@@ -95,6 +96,7 @@ export default function CanvasStage(props: CanvasStageProps) {
     worksOnly,
     names,
     zones,
+    era,
     lumen,
     nihilus,
     selectedWorld,
@@ -139,6 +141,7 @@ export default function CanvasStage(props: CanvasStageProps) {
     worksOnly,
     names,
     zones,
+    era,
     lumen,
     nihilus,
     selectedWorld,
@@ -182,6 +185,7 @@ export default function CanvasStage(props: CanvasStageProps) {
       worksOnly,
       names,
       zones,
+      era,
       lumen,
       nihilus,
       selectedWorld,
@@ -198,6 +202,7 @@ export default function CanvasStage(props: CanvasStageProps) {
   }, [
     activeVoyage,
     dustOff,
+    era,
     hiddenCls,
     hiIds,
     hiddenArmLegions,

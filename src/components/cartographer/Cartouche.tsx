@@ -27,6 +27,7 @@ import type { ReactNode, Ref } from "react";
 import BtnFx from "@/components/shared/BtnFx";
 import type { MapPayload } from "@/lib/map/payload";
 import { VOYAGES } from "@/lib/map/voyages";
+import { visibleZones, type MapState, type ZonesMode } from "@/lib/map/zones";
 
 /** 1054 → "1 054" — space-grouped chart figures. */
 export function fmt(n: number): string {
@@ -141,27 +142,79 @@ export function VoyageButtons({
   );
 }
 
-/** The two chart overlays — Lumen reach and the dark half. */
-export function OverlayButtons({
-  lumen,
-  nihilus,
-  onToggleLumen,
-  onToggleNihilus,
-}: {
+/** Shared props of the instruments section — everything that changes what
+ *  the chart DRAWS (the census keeps what it POPULATES). */
+export interface InstrumentProps {
+  era: MapState;
   lumen: boolean;
   nihilus: boolean;
+  names: boolean;
+  zones: ZonesMode;
   onToggleLumen: () => void;
   onToggleNihilus: () => void;
-}) {
+  onToggleNames: () => void;
+  onCycleZones: () => void;
+}
+
+/** Collapsed-section badge: no active non-default instrument state may hide
+ *  silently behind a closed header. One wording for cartouche AND sheet. */
+export function instrumentsNote({ lumen, nihilus, names, zones }: InstrumentProps): string | null {
+  const parts = [
+    lumen && "Lumen",
+    nihilus && "Nihilus",
+    zones === "dim" && "zones dim",
+    zones === "off" && "zones off",
+    names && "names",
+  ].filter(Boolean);
+  return parts.length > 0 ? parts.join(" · ") : null;
+}
+
+/** The chart instruments — the two overlays plus the two display toggles
+ *  (zone fields, forced names). Nihilus is an instrument of the present
+ *  chart only: off-"now" it stays in place but disabled, with the reason on
+ *  its own tag line (visible, not a tooltip). */
+export function InstrumentButtons(props: InstrumentProps) {
+  const { era, lumen, nihilus, names, zones, onToggleLumen, onToggleNihilus, onToggleNames, onCycleZones } = props;
+  const zoneCount = visibleZones(era).length;
+  const nihilusLocked = era !== "now";
   return (
     <div className="routes">
       <button className={`rt${lumen ? " on" : ""}`} aria-pressed={lumen} onClick={onToggleLumen}>
         Lumen Astronomican
         <span className="rt-tag">the beacon&rsquo;s reach</span>
       </button>
-      <button className={`rt${nihilus ? " on" : ""}`} aria-pressed={nihilus} onClick={onToggleNihilus}>
+      <button
+        className={`rt${nihilus ? " on" : ""}${nihilusLocked ? " na" : ""}`}
+        aria-pressed={nihilus}
+        aria-disabled={nihilusLocked || undefined}
+        onClick={nihilusLocked ? undefined : onToggleNihilus}
+      >
         Imperium Nihilus
-        <span className="rt-tag">the dark half</span>
+        <span className="rt-tag">
+          {nihilusLocked ? "not yet charted — an M42 instrument" : "the dark half"}
+        </span>
+      </button>
+      {zoneCount > 0 && (
+        <button
+          className={`rt${zones !== "off" ? " on" : ""}`}
+          onClick={onCycleZones}
+          aria-label={`Zones & warp storms: ${
+            zones === "on" ? "shown" : zones === "dim" ? "dimmed" : "hidden"
+          } — cycle`}
+        >
+          Zones &amp; warp storms
+          <span className="rt-tag">
+            {zones === "on"
+              ? `${zoneCount} ${zoneCount === 1 ? "field" : "fields"} charted`
+              : zones === "dim"
+                ? "dimmed — names retired"
+                : "hidden"}
+          </span>
+        </button>
+      )}
+      <button className={`rt${names ? " on" : ""}`} aria-pressed={names} onClick={onToggleNames}>
+        World names
+        <span className="rt-tag">at every magnification</span>
       </button>
     </div>
   );
@@ -326,39 +379,23 @@ export function WorldIndex({
   );
 }
 
-interface CartoucheProps {
+interface CartoucheProps extends InstrumentProps {
   payload: MapPayload;
   condensed: boolean;
   voyageId: string | null;
   /** Journeys-section badge — "touring 3/9" during a tour, "active" after. */
   voyageNote: string | null;
-  lumen: boolean;
-  nihilus: boolean;
   /** Any census filter off default — the collapsed section shows a badge. */
   filtered: boolean;
   /** Select a world by id (flies there) — seek list click/RET. */
   onPick: (id: string) => void;
   onVoyage: (id: string) => void;
-  onToggleLumen: () => void;
-  onToggleNihilus: () => void;
   /** The census filter block. */
   children: ReactNode;
 }
 
-export function Cartouche({
-  payload,
-  condensed,
-  voyageId,
-  voyageNote,
-  lumen,
-  nihilus,
-  filtered,
-  onPick,
-  onVoyage,
-  onToggleLumen,
-  onToggleNihilus,
-  children,
-}: CartoucheProps) {
+export function Cartouche(props: CartoucheProps) {
+  const { payload, condensed, voyageId, voyageNote, filtered, onPick, onVoyage, children } = props;
   const [openSecs, setOpenSecs] = useState<ReadonlySet<SectionId>>(new Set(["census"]));
 
   const toggleSec = (id: SectionId) =>
@@ -368,8 +405,6 @@ export function Cartouche({
       else next.add(id);
       return next;
     });
-
-  const instrumentsNote = [lumen && "Lumen", nihilus && "Nihilus"].filter(Boolean).join(" · ");
 
   return (
     // inert while the overture veil is up: the legend is invisible then
@@ -394,18 +429,13 @@ export function Cartouche({
 
       <SectionHead
         open={openSecs.has("instruments")}
-        label="Overlays"
-        note={instrumentsNote || null}
+        label="Instruments"
+        note={instrumentsNote(props)}
         onToggle={() => toggleSec("instruments")}
       />
       {openSecs.has("instruments") && (
         <div className="c-body">
-          <OverlayButtons
-            lumen={lumen}
-            nihilus={nihilus}
-            onToggleLumen={onToggleLumen}
-            onToggleNihilus={onToggleNihilus}
-          />
+          <InstrumentButtons {...props} />
         </div>
       )}
 
