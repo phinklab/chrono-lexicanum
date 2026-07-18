@@ -23,6 +23,7 @@
  */
 
 import { TERRA } from "../projection";
+import type { MapState } from "../zones";
 import {
   isChartPoint,
   isWaypoint,
@@ -62,6 +63,9 @@ export interface ResolvedStation {
   /** The leg this stop arrives on (world) or rides (way); −1 for the first
    *  station. Drives the tour's step→draw gating in RoutesLayer. */
   legIndex: number;
+  /** Chart edition in force at this act (authored era breaks carried
+   *  forward from the voyage's starting `mapState`). */
+  era: MapState;
   placement?: VoyagePlacement;
   section?: VoyageSection;
   /** Number of strategic epilogue arms revealed with this act. */
@@ -104,6 +108,8 @@ export interface ResolvedVoyage {
   id: string;
   name: string;
   tag: string;
+  /** Starting chart edition (stations carry the edition per act). */
+  mapState: MapState;
   blurb: string;
   continuation?: Voyage["continuation"];
   cartography?: Voyage["cartography"];
@@ -256,11 +262,15 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
   });
 
   // Pass 2 — assemble the act sequence; waypoints ride the leg between the
-  // anchors around them.
+  // anchors around them. Era breaks carry forward from the voyage's starting
+  // edition — tracked on the AUTHORED sequence, so a dropped stop's break
+  // still reaches the acts behind it.
   const stations: ResolvedStation[] = [];
   const stationByStop = new Map<number, number>();
   let lastAnchor = -1;
+  let era: MapState = voyage.mapState;
   voyage.stations.forEach((stop, stopIdx) => {
+    if (stop.mapState) era = stop.mapState;
     if (!isWaypoint(stop)) {
       const k = anchorByStop.get(stopIdx);
       if (k === undefined) return; // dropped above
@@ -279,6 +289,7 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
         gx: w.gx,
         gy: w.gy,
         legIndex: incomingLeg[k],
+        era,
       };
       stationByStop.set(stopIdx, st.i);
       if (stop.date) st.date = stop.date;
@@ -305,6 +316,7 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
       gx: r1(pt.x),
       gy: r1(pt.y),
       legIndex: legIdx,
+      era,
     };
     if (stop.date) st.date = stop.date;
     if (stop.placement) st.placement = stop.placement;
@@ -447,6 +459,7 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
     id: voyage.id,
     name: voyage.name,
     tag: voyage.tag,
+    mapState: voyage.mapState,
     blurb: voyage.blurb,
     ...(voyage.continuation ? { continuation: voyage.continuation } : {}),
     ...(voyage.cartography ? { cartography: voyage.cartography } : {}),

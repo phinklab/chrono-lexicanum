@@ -108,6 +108,7 @@ export const GREAT_CRUSADE: Voyage = {
   id: "great-crusade",
   name: "The Great Crusade",
   tag: "M30–M31",
+  mapState: "pre",
   blurb: "From Terra's Unification to a Crusade spanning the stars: twenty rediscoveries, a triumph already cracking, and the Warmaster's final web.",
   continuation: {
     id: "warmasters-web",

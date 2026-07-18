@@ -12,6 +12,7 @@ export const GAUNT: Voyage = {
   id: "gaunt",
   name: "Ibram Gaunt · The First and Only",
   tag: "M41",
+  mapState: "now",
   blurb: "One commissar carries a dead world's last regiment through the long victory of the Sabbat Worlds.",
   stations: [
     {

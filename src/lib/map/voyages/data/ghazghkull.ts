@@ -20,6 +20,7 @@ export const GHAZGHKULL: Voyage = {
   id: "ghazghkull",
   name: "Ghazghkull · Da Great Waaagh!",
   tag: "M41–M42",
+  mapState: "now",
   blurb: "The Prophet of Gork and Mork hunts worthy enemies until one world becomes a galaxy at war.",
   stations: [
     {

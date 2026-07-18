@@ -22,6 +22,7 @@ export const INDOMITUS: Voyage = {
   id: "indomitus",
   name: "The Indomitus Crusade",
   tag: "Era Indomitus · ongoing",
+  mapState: "now",
   blurb: "Ten fleets fracture into battle groups, fight along separate axes and converge on fronts no single itinerary can contain.",
   cartography: {
     label: "multi-fleet campaign network",

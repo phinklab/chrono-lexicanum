@@ -37,6 +37,7 @@ export const GARRO: Voyage = {
   id: "garro",
   name: "Garro · Knight of Grey",
   tag: "005–014.M31",
+  mapState: "hh",
   blurb:
     "Seventy loyal sons carry the first warning of the Heresy; their captain becomes Malcador's Agentia Primus and walks the grey road to martyrdom.",
   cartography: {

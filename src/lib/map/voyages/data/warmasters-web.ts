@@ -183,6 +183,7 @@ export const WARMASTER_WEB: Voyage = {
   id: "warmasters-web",
   name: "The Warmaster's Web",
   tag: "M31 · Horus Heresy",
+  mapState: "hh",
   blurb: "Eighteen Legions, eighteen roads: follow each main force from Horus' opening disposition to Terra—or to the point where its road to the Siege ended.",
   cartography: {
     label: "Legion movements",

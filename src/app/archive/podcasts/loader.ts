@@ -76,6 +76,9 @@ export interface PodcastIndexShow {
 /** One fully-serialized episode for the client archive island. */
 export interface PodcastEpisode {
   id: string;
+  /** `works.slug` — the second accepted `#ep-` deep-link token next to the
+   *  id (map WorldPanel links carry slugs; DOM ids stay id-based). */
+  slug: string;
   title: string;
   pubDateMs: number | null;
   durationSec: number | null;

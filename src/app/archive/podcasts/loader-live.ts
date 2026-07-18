@@ -192,7 +192,7 @@ export async function loadPodcastShowLive(
   const epRows = ids.length
     ? await db.query.works.findMany({
         where: (w) => inArray(w.id, ids),
-        columns: { id: true, title: true },
+        columns: { id: true, slug: true, title: true },
         with: {
           podcastEpisodeDetails: {
             columns: {
@@ -224,6 +224,7 @@ export async function loadPodcastShowLive(
         )?.url ?? null;
       return {
         id: w.id,
+        slug: w.slug,
         title: w.title,
         pubDateMs: toMs(d?.pubDate),
         durationSec: d?.durationSec ?? null,

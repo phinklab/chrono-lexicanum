@@ -10,7 +10,8 @@
  * "no records" line instead of the works toggle.
  *
  * Links: books soft-navigate to /book/{slug} — the @modal Kapelle intercept
- * opens over the chart; episodes go to the show's archive hall; the footer
+ * opens over the chart; episodes deep-link into the show's archive hall
+ * (`#ep-<slug>` — the island scrolls to and highlights the row); the footer
  * opens /world/{locationId} when the world is linked.
  *
  * Layout: under the header sits the curated one-sentence blurb
@@ -61,7 +62,11 @@ const KIND_LABEL: Record<MapWorldKind, string> = {
 const ROLE_RANK: Record<string, number> = { primary: 0, subject: 1, secondary: 2, mentioned: 3 };
 
 function workHref(w: MapWorldWork): string {
-  return w.type === "book" ? `/book/${w.slug}` : `/archive/podcasts/${w.show}`;
+  // Episodes deep-link into the show's archive hall by slug — the island
+  // accepts `#ep-<id|slug>` and expands/scrolls/highlights the row.
+  return w.type === "book"
+    ? `/book/${w.slug}`
+    : `/archive/podcasts/${w.show}#ep-${w.slug}`;
 }
 
 function viaLabel(via: string): string {

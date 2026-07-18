@@ -19,7 +19,8 @@
 | 1 | **WP** — Perfektions-Kandidaten-Triage | Bewertung | — | ✔ 243 |
 | 2 | **WL** — Personal Library (local-first vs. spartanische Accounts) | Bewertung | — | ✔ 244 |
 | 3 | **W3b-B1** — Drei Zeitkarten für den Cartographer | Bau (Product, S–M) | — | ✔ 246 |
-| 4 | **W3b-B2** — Karten-Timeline + Journey-Kopplung | Bau (Product, S) | W3b-B1 | ☐ |
+| 4 | **W3b-B2** — Karten-Timeline + Journey-Kopplung | Bau (Product, S) | W3b-B1 | ✔ 247 |
+| 4b | **W3b-B3** — Zeitstrahl-Feature (Play + laufende Timeline, Highlights, Kamera-Sprünge) | Bau (Product) | W3b-B2; Zuschnitt Philipp | ☐ |
 | 5 | **WM** — Map-UI-Rework (Cartouche/Instrumente) | Bewertung | W3b-B1+B2 gebaut | ☐ |
 | 6 | *(WM-Bau, falls Urteil „bauen" — Zuschnitt aus Runde 5)* | Bau | WM | ☐ |
 | 7 | **F1-B1** — M42-Nachdatierung | Bau (Batches, S–M) | — | ☐ |

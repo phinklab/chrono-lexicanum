@@ -31,6 +31,7 @@ import {
   outerR,
   pp,
   ringArcs,
+  ruinstormShadow,
   wedgePath,
 } from "./chart-geometry";
 import type { CameraBand, CameraPose } from "./camera-core";
@@ -238,7 +239,7 @@ const dustCache = new WeakMap<MapPayload, ReturnType<typeof dustScatter>>();
 const pathCache = new Map<string, Path2D>();
 const textWidthCache = new Map<string, number>();
 let cachedGridPaths: { faint: Path2D; strong: Path2D } | null = null;
-let cachedLumenClip: Path2D | null = null;
+const cachedLumenClips = new Map<MapState, Path2D | null>();
 let cachedPolarPaths: {
   rings: Path2D;
   solar: Path2D;
@@ -421,13 +422,27 @@ function drawSegmentumNames(
   ctx.restore();
 }
 
-function lumenClipPath(): Path2D {
-  if (cachedLumenClip) return cachedLumenClip;
-  const path = new Path2D();
-  path.rect(-2400, -2350, 5600, 5500);
-  path.addPath(cachedPath(nihilusPath()));
-  cachedLumenClip = path;
-  return cachedLumenClip;
+/** The shadow region devouring the light on this edition: the Cicatrix cut
+ *  on "now", the Ruinstorm wall on "hh" (null when its zone is unpublished
+ *  — the chart degrades to the whole disc), nothing on "pre". */
+function lumenShadowD(era: MapState): string | null {
+  if (era === "now") return nihilusPath();
+  if (era === "hh") return ruinstormShadow()?.shadowD ?? null;
+  return null;
+}
+
+function lumenClipPath(era: MapState): Path2D | null {
+  const hit = cachedLumenClips.get(era);
+  if (hit !== undefined) return hit;
+  const shadowD = lumenShadowD(era);
+  let path: Path2D | null = null;
+  if (shadowD) {
+    path = new Path2D();
+    path.rect(-2400, -2350, 5600, 5500);
+    path.addPath(cachedPath(shadowD));
+  }
+  cachedLumenClips.set(era, path);
+  return path;
 }
 
 function drawLumenNihilus(
@@ -439,11 +454,13 @@ function drawLumenNihilus(
   fontsReady: boolean,
 ): void {
   if (!scene.lumen && !scene.nihilus) return;
-  // The rift and everything derived from it (shadow cut, devoured-light
-  // blackness, the Nihilus shade itself) exist only on the present chart.
+  // The rift, its labels and the Nihilus shade itself exist only on the
+  // present chart; the light-devouring band is edition-driven ("now": the
+  // Cicatrix, "hh": the Ruinstorm wall, "pre": none — whole disc).
   const rift = scene.era === "now";
   const bounds = mapBounds(camera, viewport, 0);
-  const nihilus = cachedPath(nihilusPath());
+  const shadowD = lumenShadowD(scene.era);
+  const shadow = shadowD ? cachedPath(shadowD) : null;
 
   ctx.save();
   mapTransform(ctx, camera);
@@ -457,7 +474,8 @@ function drawLumenNihilus(
     ctx.fillRect(bounds.left, bounds.top, bounds.right - bounds.left, bounds.bottom - bounds.top);
 
     ctx.save();
-    if (rift) ctx.clip(lumenClipPath(), "evenodd");
+    const clip = lumenClipPath(scene.era);
+    if (clip) ctx.clip(clip, "evenodd");
     const light = ctx.createRadialGradient(TX, TY, 0, TX, TY, 618);
     light.addColorStop(0, "rgba(164,140,82,0.26)");
     light.addColorStop(0.45, "rgba(164,140,82,0.13)");
@@ -475,20 +493,24 @@ function drawLumenNihilus(
     ctx.setLineDash([]);
     ctx.restore();
 
-    if (rift) {
+    if (shadow) {
       ctx.fillStyle = "rgba(1,0,2,0.5)";
       ctx.globalAlpha = 1;
-      ctx.fill(nihilus);
+      ctx.fill(shadow);
     }
   }
-  if (scene.nihilus && rift) {
-    const shade = ctx.createLinearGradient(300, 500, 900, 0);
-    shade.addColorStop(0, "rgba(40,20,66,0.14)");
-    shade.addColorStop(0.45, "rgba(40,20,66,0.30)");
-    shade.addColorStop(1, "rgba(40,20,66,0.44)");
+  if (scene.nihilus && rift && shadow) {
+    // Terra-centred falloff — mirror of the SVG cg-nhG gradient: plateau
+    // over the charted dark half, gone shortly past the segmentum
+    // silhouette (the shade must not run to the far circle).
+    const shade = ctx.createRadialGradient(TX, TY, 0, TX, TY, 820);
+    shade.addColorStop(0, "rgba(40,20,66,0.34)");
+    shade.addColorStop(0.62, "rgba(40,20,66,0.34)");
+    shade.addColorStop(0.8, "rgba(40,20,66,0.22)");
+    shade.addColorStop(1, "rgba(40,20,66,0)");
     ctx.fillStyle = shade;
     ctx.globalAlpha = 1;
-    ctx.fill(nihilus);
+    ctx.fill(shadow);
   }
 
   if (fontsReady && scene.lumen) {
