@@ -23,6 +23,7 @@ import { H, W } from "../src/components/cartographer/chart-geometry";
 import { validateMapWorlds, type MapWorldsFile } from "../src/lib/map/map-worlds-schema";
 import { buildMapPayload } from "../src/lib/map/payload";
 import { fitVoyageBounds, resolvedVoyageBounds } from "../src/lib/map/voyages";
+import { CURATED_ZONES, zoneEdgeBands, zoneLabelLayout, zoneLabelVisible } from "../src/lib/map/zones";
 
 function close(actual: number, expected: number, message: string): void {
   assert.ok(Math.abs(actual - expected) < 1e-9, `${message}: ${actual} !== ${expected}`);
@@ -75,15 +76,19 @@ assert.ok(
   "pixel budget also holds for oversized CSS viewports",
 );
 
-assert.equal(mobileLabelVisible(0, "0", false, false), false);
-assert.equal(mobileLabelVisible(0, "1", false, false), true);
-assert.equal(mobileLabelVisible(1, "1", false, false), false);
-assert.equal(mobileLabelVisible(1, "2", false, false), true);
-assert.equal(mobileLabelVisible(3, "3", false, false), true);
-assert.equal(mobileLabelVisible(3, "0", true, false), true);
-assert.equal(mobileLabelVisible(3, "0", false, true), true);
-assert.equal(mobileLabelVisible(0, "0", false, false, false), true);
-assert.equal(mobileLabelVisible(1, "0", false, false, false), false);
+assert.equal(mobileLabelVisible(0, "0", "auto", false), false);
+assert.equal(mobileLabelVisible(0, "1", "auto", false), true);
+assert.equal(mobileLabelVisible(1, "1", "auto", false), false);
+assert.equal(mobileLabelVisible(1, "2", "auto", false), true);
+assert.equal(mobileLabelVisible(3, "3", "auto", false), true);
+assert.equal(mobileLabelVisible(3, "0", "all", false), true);
+assert.equal(mobileLabelVisible(3, "0", "auto", true), true);
+assert.equal(mobileLabelVisible(0, "0", "auto", false, false), true);
+assert.equal(mobileLabelVisible(1, "0", "auto", false, false), false);
+// "off" hides every tier in every band — except the emphasized (selected /
+// journey) worlds, which keep their name like the SVG chart's overrides.
+assert.equal(mobileLabelVisible(0, "3", "off", false), false);
+assert.equal(mobileLabelVisible(0, "3", "off", true), true);
 
 const targets = [
   { id: "dust", x: 100, y: 100, radius: 22, rank: 1, order: 0 },
@@ -151,4 +156,28 @@ close(routeFit.gy, 200, "route fit centers the grid bounds vertically");
 close(routeFit.k, 0.9, "route fit uses the limiting visible dimension");
 close(routeFit.dy, -120, "route fit centers above the docked card");
 
-console.log("map renderer: camera, backing budget, labels, picking and voyage fit green");
+// Zone label handwork (WM-B1): angles stay inside Imhof's clamp, Sperrung
+// inside its ladder, edge-tint bands ascend and stay capped.
+for (const zone of CURATED_ZONES) {
+  const layout = zoneLabelLayout(zone);
+  assert.ok(Math.abs(layout.angle) <= 30, `${zone.id} label angle clamped: ${layout.angle}`);
+  assert.ok(layout.spacing >= 3 && layout.spacing <= 7.5, `${zone.id} spacing in ladder`);
+  const [w1, w2, w3] = zoneEdgeBands(zone);
+  assert.ok(w1 < w2 && w2 < w3, `${zone.id} edge bands ascend`);
+  assert.ok(w3 <= 44, `${zone.id} widest band capped`);
+}
+const cicatrix = CURATED_ZONES.find((zone) => zone.id === "zone-2");
+const ruinstorm = CURATED_ZONES.find((zone) => zone.id === "zone-22");
+const scourge = CURATED_ZONES.find((zone) => zone.id === "zone-4");
+assert.ok(cicatrix && ruinstorm && scourge, "reference zones exist in the curation");
+if (cicatrix && ruinstorm && scourge) {
+  assert.ok(zoneLabelLayout(cicatrix).arc, "the Cicatrix corridor gets an arced label");
+  assert.equal(zoneLabelLayout(ruinstorm).angle, 0, "the near-vertical Ruinstorm reads horizontal");
+  assert.equal(zoneLabelLayout(ruinstorm).arc, null, "no arc on a near-vertical band");
+  const small = zoneLabelLayout(scourge);
+  assert.ok(small.small, "the Scourge Stars count as a small zone");
+  assert.equal(zoneLabelVisible("0", small), false, "small zones stay unlabelled at overview");
+  assert.equal(zoneLabelVisible("1", small), true, "small zones label from band 1");
+}
+
+console.log("map renderer: camera, backing budget, labels, picking, voyage fit and zone layout green");

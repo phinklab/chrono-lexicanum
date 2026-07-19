@@ -61,11 +61,17 @@ const ROUTES: {
 
         await page.getByRole("button", { name: "Enter the chart" }).click();
         await page.getByRole("button", { name: "Open chart instruments" }).click();
-        const mobileSections = page.locator(".cg-sheet.open .c-sec");
-        await expect(mobileSections).toHaveCount(4);
-        for (let index = 0; index < 4; index += 1) {
-          await expect(mobileSections.nth(index)).toHaveAttribute("aria-expanded", "false");
-        }
+        // WM-B1 sheet: journeys + legend stand directly visible under two
+        // static captions; only the census's type groups still fold.
+        const caps = page.locator(".cg-sheet.open .c-cap");
+        await expect(caps).toHaveCount(2);
+        await expect(caps.nth(0)).toHaveText("Great Journeys");
+        await expect(caps.nth(1)).toHaveText("Legend");
+        await expect(page.locator(".cg-sheet .jr").first()).toBeVisible();
+        await expect(page.locator(".cg-sheet .cg-overlays .cx")).toHaveCount(4);
+        await expect(
+          page.locator(".cg-sheet .cg-census .cgrp-h .car").first(),
+        ).toHaveAttribute("aria-expanded", "false");
       } else {
         const stage = page.locator('[data-map-renderer="svg"]');
         await expect(stage.locator("svg.cg-chart--base")).toBeAttached();
@@ -78,7 +84,10 @@ const ROUTES: {
         await page.getByRole("option", { name: /^Terra\b/ }).click();
         await expect(page.locator(".cg-pop.open")).toHaveAttribute("aria-label", "Terra");
 
-        await page.getByRole("button", { name: /Great Journeys/ }).click();
+        // WM-B1: the journeys section stands open by default, but its era
+        // groups fold — the chart opens on M42, so unfold M30 to reach the
+        // Great Crusade row (era-group headers are buttons, "M30 · …").
+        await page.getByRole("button", { name: /^M30/ }).click();
         const journey = page.getByRole("button", { name: /^The Great Crusade/ });
         await journey.focus();
         await journey.press("Enter");

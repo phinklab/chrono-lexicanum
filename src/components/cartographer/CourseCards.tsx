@@ -80,6 +80,8 @@ export default function CourseCards({
       >
         ✕
       </button>
+      {/* Stable window title — the journey's name, matching the tour card. */}
+      <p className="ck">{resolved.name}</p>
       {strategicSelection ? (
         <StrategicReadout
           arm={readoutArm}

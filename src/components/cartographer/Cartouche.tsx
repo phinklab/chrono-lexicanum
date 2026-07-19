@@ -2,32 +2,37 @@
 
 /**
  * Cartouche + Overture: "The Cartographer" opens as a large cartouche over
- * the chart and condenses into the corner legend on first interaction. The
- * corner cartouche carries seek, courses, instruments and the census filter
- * (passed in as children).
+ * the chart and condenses into the corner cartouche on first interaction.
  * Both surfaces speak the live-site glass language — no border strokes.
  *
  * Seek: live list while typing — every one of the 1054 contacts is in the
  * payload (featured + dust), ranked prefix > substring and recorded > dust.
- * Click or RET selects and flies; arrows move the cursor.
+ * Click or RET selects and flies; arrows move the cursor. The small "A–Z"
+ * opener at the seek's edge unfolds the recorded-worlds index — the
+ * keyboard/AT parallel path to the pointer-only pins (S10a).
  *
- * Legend: it sits TOP-left (bottom-left is the media player's dock) and
- * folds into three sections — Courses, Instruments, Census — behind
- * full-width headers; only the census (the primary filter) is open by
- * default. Collapsed sections carry a gold state badge ("active",
- * "filtered", the lit instruments), so nothing active can hide silently.
+ * The corner cartouche is what a cartouche is on a historical chart: title
+ * + legend. It sits TOP-left (bottom-left is the media player's dock) and
+ * carries two sections under the seek: the Great Journeys (content, the
+ * chart's own door, open by default) and ONE interactive legend — overlays
+ * + census merged into the single layers entrance, opt-in behind its
+ * header. Collapsed sections carry a gold state badge ("active",
+ * "filtered", the lit overlays), so nothing active can hide silently.
  *
- * SeekPanel / SectionHead / CourseButtons / OverlayButtons are shared with
+ * SeekHead / SectionHead / VoyageButtons / LegendOverlays are shared with
  * the mobile drawer (CartoucheSheet) so both surfaces render one vocabulary.
  */
 
-import { useId, useMemo, useState } from "react";
+import { Fragment, useId, useMemo, useState } from "react";
 import type { ReactNode, Ref } from "react";
 
 import BtnFx from "@/components/shared/BtnFx";
 import type { MapPayload } from "@/lib/map/payload";
 import { VOYAGES } from "@/lib/map/voyages";
-import { visibleZones, type MapState, type ZonesMode } from "@/lib/map/zones";
+import { MAP_STATES, visibleZones, type MapState, type NamesMode, type ZonesMode } from "@/lib/map/zones";
+
+import { BONE, GOLD } from "./chart-geometry";
+import { ERA_LABELS } from "./EraPlate";
 
 /** 1054 → "1 054" — space-grouped chart figures. */
 export function fmt(n: number): string {
@@ -57,11 +62,8 @@ export function Overture({
         <b>{fmt(payload.contacts)} worlds</b> upon the chart · {fmt(payload.coverage.placed)} of{" "}
         {fmt(payload.coverage.total)} records placed
       </p>
-      <p className="hint">
-        <span className="dot">●</span>&ensp;
-        <span className="hint-fine">drag to survey · scroll to magnify · click a world</span>
-        <span className="hint-coarse">drag to survey · pinch to magnify · tap a world</span>
-      </p>
+      {/* No gesture hint line: drag/scroll/pinch/tap are conventional map
+          gestures and need no instruction text (NN/g onboarding; WM-B1). */}
       {/* Site-wide Sternwarte button: origin dot blooms into rings + survey
           stars on hover (BtnFx). */}
       <button type="button" className="lx-btn cg-enter" onClick={onEnter}>
@@ -82,7 +84,7 @@ interface SeekHit {
  *  is a "keep typing" line. */
 const SEEK_CAP = 160;
 
-export type SectionId = "courses" | "instruments" | "census" | "index";
+export type SectionId = "courses" | "legend";
 
 /** Collapsible-section header — car glyph + label + optional gold state note. */
 export function SectionHead({
@@ -105,39 +107,130 @@ export function SectionHead({
   );
 }
 
-/** The Great Journeys list — one row per journey: name + era tag on the
- *  first line, the blurb and station count beneath. Picking one opens the
- *  guided tour (VoyageTour); picking it again closes the journey. */
+/** The Great Journeys list — the chart's content door, laid out as a
+ *  numbered atlas index: one intro line says what a journey IS, then the
+ *  rows sit behind three unfoldable era groups (the chart editions the
+ *  journeys BEGIN on — each voyage's `mapState`, W3b-B2), each group led
+ *  by a one-line account of its era. Each entry stays a teaser — numeral,
+ *  name in the display face, era tag, blurb clamped to two lines (the full
+ *  account lives on the tour's overture card; the Esri story-map tour
+ *  convention). Picking one opens the guided tour (VoyageTour); picking it
+ *  again closes the journey. The chart's current edition stands open by
+ *  default; a group holding the active journey opens itself, and shows a
+ *  gold "active" note while closed — nothing active hides silently. */
+/** Era-grouped roster + continuous atlas numbering ("01"…"12"), precomputed
+ *  once — the roster is a module constant. */
+const VOYAGE_GROUPS = MAP_STATES.map((era) => ({
+  era,
+  voyages: VOYAGES.filter((voyage) => voyage.mapState === era),
+})).filter((group) => group.voyages.length > 0);
+const VOYAGE_NUM = new Map(
+  VOYAGE_GROUPS.flatMap((group) => group.voyages).map((voyage, i) => [
+    voyage.id,
+    String(i + 1).padStart(2, "0"),
+  ]),
+);
+
+/** One line of era context under each unfolded group header. */
+const ERA_BLURBS: Record<MapState, string> = {
+  pre: "The Legions spread out from Terra to reunite mankind's scattered worlds.",
+  hh: "Half the Legions turn with the Warmaster; the war runs from Isstvan to Terra.",
+  now: "The Great Rift splits the galaxy; the Imperium fights on in a darkened age.",
+};
+
 export function VoyageButtons({
+  era,
   voyageId,
   onVoyage,
 }: {
+  /** The chart's current edition — its group stands open by default. */
+  era: MapState;
   voyageId: string | null;
   onVoyage: (id: string) => void;
 }) {
+  const [open, setOpen] = useState<ReadonlySet<MapState>>(() => new Set([era]));
+  const activeEra = voyageId
+    ? (VOYAGES.find((v) => v.id === voyageId)?.mapState ?? null)
+    : null;
+  // Follow the chart: switching the edition (era plate) or starting a
+  // journey unfolds the matching group; manual folds elsewhere survive.
+  // State-adjust during render off the last seen era/journey pair — not an
+  // effect (react-hooks/set-state-in-effect).
+  const [seen, setSeen] = useState({ era, activeEra });
+  if (seen.era !== era || seen.activeEra !== activeEra) {
+    setSeen({ era, activeEra });
+    const next = new Set(open);
+    if (seen.era !== era) next.add(era);
+    if (activeEra && seen.activeEra !== activeEra) next.add(activeEra);
+    setOpen(next);
+  }
+
+  const toggle = (groupEra: MapState) =>
+    setOpen((prev) => {
+      const next = new Set(prev);
+      if (next.has(groupEra)) next.delete(groupEra);
+      else next.add(groupEra);
+      return next;
+    });
+
   return (
     <div className="routes">
-      {VOYAGES.map((voyage) => (
-        <button
-          key={voyage.id}
-          className={`rt${voyageId === voyage.id ? " on" : ""}`}
-          aria-pressed={voyageId === voyage.id}
-          onClick={() => onVoyage(voyage.id)}
-        >
-          {voyage.name}
-          <span className="rt-tag">{voyage.tag}</span>
-          <span className="rt-blurb">{voyage.blurb}</span>
-          <span className="rt-meta">
-            {voyage.stations.length}{" "}
-            {voyage.strategic?.mode === "legion-steps"
-              ? "legions"
-              : voyage.stations.length === 1
-                ? "station"
-                : "stations"}
-            {voyage.cartography ? ` · ${voyage.cartography.label}` : ""}
-          </span>
-        </button>
-      ))}
+      <p className="rt-intro">
+        Guided voyages over the chart — choose one and follow its story across
+        the stars, station by station.
+      </p>
+      {VOYAGE_GROUPS.map(({ era: groupEra, voyages }) => {
+        const unfolded = open.has(groupEra);
+        const holdsActive = voyageId !== null && voyages.some((v) => v.id === voyageId);
+        return (
+          <Fragment key={groupEra}>
+            <button
+              type="button"
+              className={`rt-era${unfolded ? " open" : ""}`}
+              aria-expanded={unfolded}
+              onClick={() => toggle(groupEra)}
+            >
+              <span className="car" aria-hidden>
+                ▸
+              </span>
+              <span className="lab">
+                {ERA_LABELS[groupEra].m} · {ERA_LABELS[groupEra].name}
+              </span>
+              <span className={`tag${holdsActive && !unfolded ? " on" : ""}`}>
+                {holdsActive && !unfolded
+                  ? "active"
+                  : `${voyages.length} ${voyages.length === 1 ? "journey" : "journeys"}`}
+              </span>
+            </button>
+            {unfolded && (
+              <>
+                <p className="rt-era-blurb">{ERA_BLURBS[groupEra]}</p>
+                {voyages.map((voyage) => (
+                  <button
+                    key={voyage.id}
+                    className={`jr${voyageId === voyage.id ? " on" : ""}`}
+                    aria-pressed={voyageId === voyage.id}
+                    onClick={() => onVoyage(voyage.id)}
+                  >
+                    {/* aria-hidden: the accessible name must start with the
+                        journey's name, not a decorative numeral. */}
+                    <span className="jr-num" aria-hidden>
+                      {VOYAGE_NUM.get(voyage.id)}
+                    </span>
+                    <span className="jr-main">
+                      <span className="jr-head">
+                        <span className="jr-name">{voyage.name}</span>
+                        <span className="jr-tag">{voyage.tag}</span>
+                      </span>
+                      <span className="jr-blurb">{voyage.blurb}</span>
+                    </span>
+                  </button>
+                ))}
+              </>
+            )}
+          </Fragment>
+        );
+      })}
     </div>
   );
 }
@@ -148,73 +241,138 @@ export interface InstrumentProps {
   era: MapState;
   lumen: boolean;
   nihilus: boolean;
-  names: boolean;
+  names: NamesMode;
   zones: ZonesMode;
   onToggleLumen: () => void;
   onToggleNihilus: () => void;
-  onToggleNames: () => void;
+  onCycleNames: () => void;
   onCycleZones: () => void;
 }
 
-/** Collapsed-section badge: no active non-default instrument state may hide
- *  silently behind a closed header. One wording for cartouche AND sheet. */
-export function instrumentsNote({ lumen, nihilus, names, zones }: InstrumentProps): string | null {
+/** Collapsed-legend badge: no active non-default state may hide silently
+ *  behind the closed header — lit overlays, retired zones, forced names and
+ *  the census filter all surface here. */
+export function legendNote(
+  { lumen, nihilus, names, zones }: InstrumentProps,
+  filtered: boolean,
+): string | null {
   const parts = [
     lumen && "Lumen",
     nihilus && "Nihilus",
     zones === "dim" && "zones dim",
     zones === "off" && "zones off",
-    names && "names",
+    names === "all" && "names all",
+    names === "off" && "names off",
+    filtered && "filtered",
   ].filter(Boolean);
   return parts.length > 0 ? parts.join(" · ") : null;
 }
 
-/** The chart instruments — the two overlays plus the two display toggles
- *  (zone fields, forced names). Nihilus is an instrument of the present
- *  chart only: off-"now" it stays in place but disabled, with the reason on
- *  its own tag line (visible, not a tooltip). */
-export function InstrumentButtons(props: InstrumentProps) {
-  const { era, lumen, nihilus, names, zones, onToggleLumen, onToggleNihilus, onToggleNames, onCycleZones } = props;
+/** Legend symbols — each overlay row shows a miniature of what its layer
+ *  paints on the chart, in the census's 18px symbol slot. */
+const SYM_LUMEN = (
+  <svg viewBox="-8 -8 16 16" width={18} height={18} aria-hidden>
+    <circle r={4.2} fill="none" stroke={GOLD} strokeOpacity={0.6} strokeWidth={1} />
+    <circle r={1.2} fill={GOLD} />
+    <g stroke={GOLD} strokeOpacity={0.8} strokeWidth={0.9}>
+      <line y1={-5.7} y2={-7.3} />
+      <line y1={5.7} y2={7.3} />
+      <line x1={-5.7} x2={-7.3} />
+      <line x1={5.7} x2={7.3} />
+    </g>
+  </svg>
+);
+const SYM_NIHILUS = (
+  <svg viewBox="-8 -8 16 16" width={18} height={18} aria-hidden>
+    <circle r={4.6} fill="none" stroke="var(--cg-warp-l)" strokeOpacity={0.55} strokeWidth={1} />
+    <path d="M 0 -4.6 A 4.6 4.6 0 0 1 0 4.6 Z" fill="var(--cg-warp-v)" fillOpacity={0.6} />
+  </svg>
+);
+const SYM_ZONES = (
+  <svg viewBox="-8 -8 16 16" width={18} height={18} aria-hidden>
+    <path
+      d="M -5.2 -1.6 L -1.4 -5.4 L 4.8 -3.2 L 4 3.6 L -2.2 5.2 Z"
+      fill="var(--cg-warp-v)"
+      fillOpacity={0.14}
+      stroke="var(--cg-warp-m)"
+      strokeOpacity={0.7}
+      strokeWidth={1}
+      strokeDasharray="2 2.4"
+    />
+  </svg>
+);
+const SYM_NAMES = (
+  <svg viewBox="-8 -8 16 16" width={18} height={18} aria-hidden>
+    <text
+      y={3.6}
+      textAnchor="middle"
+      fontFamily="var(--font-body)"
+      fontStyle="italic"
+      fontSize={10}
+      fill={BONE}
+      fillOpacity={0.85}
+    >
+      Aa
+    </text>
+  </svg>
+);
+
+/** The overlay rows of the interactive legend — the legend entry IS the
+ *  switch: each row pairs a miniature of its layer with the toggle, in the
+ *  census's row grammar so the whole legend reads as one column. State
+ *  notes appear only off-default ("dimmed", "hidden") — a lit row already
+ *  says "on". Nihilus is an instrument of the present chart only: off-"now"
+ *  it stays in place but disabled, the reason on a visible line, not a
+ *  tooltip. */
+export function LegendOverlays(props: InstrumentProps) {
+  const { era, lumen, nihilus, names, zones, onToggleLumen, onToggleNihilus, onCycleNames, onCycleZones } = props;
   const zoneCount = visibleZones(era).length;
   const nihilusLocked = era !== "now";
   return (
-    <div className="routes">
-      <button className={`rt${lumen ? " on" : ""}`} aria-pressed={lumen} onClick={onToggleLumen}>
-        Lumen Astronomican
-        <span className="rt-tag">the beacon&rsquo;s reach</span>
+    <div className="cg-overlays">
+      <button className={`cx${lumen ? " on" : ""}`} aria-pressed={lumen} onClick={onToggleLumen}>
+        <span className="pad" />
+        <span className="sym">{SYM_LUMEN}</span>
+        <span className="lab">Lumen Astronomican</span>
       </button>
       <button
-        className={`rt${nihilus ? " on" : ""}${nihilusLocked ? " na" : ""}`}
+        className={`cx${nihilus ? " on" : ""}${nihilusLocked ? " na" : ""}`}
         aria-pressed={nihilus}
         aria-disabled={nihilusLocked || undefined}
         onClick={nihilusLocked ? undefined : onToggleNihilus}
       >
-        Imperium Nihilus
-        <span className="rt-tag">
-          {nihilusLocked ? "not yet charted — an M42 instrument" : "the dark half"}
+        <span className="pad" />
+        <span className="sym">{SYM_NIHILUS}</span>
+        <span className="lab">
+          Imperium Nihilus
+          {nihilusLocked && <i className="hint">not yet charted — an M42 instrument</i>}
         </span>
       </button>
       {zoneCount > 0 && (
         <button
-          className={`rt${zones !== "off" ? " on" : ""}`}
+          className={`cx${zones === "on" ? " on" : ""}${zones === "dim" ? " dim" : ""}`}
           onClick={onCycleZones}
           aria-label={`Zones & warp storms: ${
             zones === "on" ? "shown" : zones === "dim" ? "dimmed" : "hidden"
           } — cycle`}
         >
-          Zones &amp; warp storms
-          <span className="rt-tag">
-            {zones === "on"
-              ? `${zoneCount} ${zoneCount === 1 ? "field" : "fields"} charted`
-              : zones === "dim"
-                ? "dimmed — names retired"
-                : "hidden"}
-          </span>
+          <span className="pad" />
+          <span className="sym">{SYM_ZONES}</span>
+          <span className="lab">Zones &amp; warp storms</span>
+          {zones !== "on" && <span className="st">{zones === "dim" ? "dimmed" : "hidden"}</span>}
         </button>
       )}
-      <button className={`rt${names ? " on" : ""}`} aria-pressed={names} onClick={onToggleNames}>
-        World names
-        <span className="rt-tag">at every magnification</span>
+      <button
+        className={`cx${names === "all" ? " on" : ""}`}
+        onClick={onCycleNames}
+        aria-label={`World names: ${
+          names === "auto" ? "by magnification" : names === "all" ? "all shown" : "hidden"
+        } — cycle`}
+      >
+        <span className="pad" />
+        <span className="sym">{SYM_NAMES}</span>
+        <span className="lab">World names</span>
+        {names !== "auto" && <span className="st">{names === "all" ? "all" : "hidden"}</span>}
       </button>
     </div>
   );
@@ -230,10 +388,13 @@ export function SeekPanel({
   payload,
   onPick,
   inputRef,
+  trailing,
 }: {
   payload: MapPayload;
   onPick: (id: string) => void;
   inputRef?: Ref<HTMLInputElement>;
+  /** Extra control at the seek row's edge (the A–Z index opener). */
+  trailing?: ReactNode;
 }) {
   const [query, setQuery] = useState("");
   const [cursor, setCursor] = useState(0);
@@ -312,6 +473,7 @@ export function SeekPanel({
             }
           }}
         />
+        {trailing}
       </div>
       {open && (
         // preventDefault keeps the input focused so the click lands before
@@ -348,7 +510,7 @@ export function SeekPanel({
 /** The recorded-worlds index — the keyboard/AT parallel path to the 1 000+
  *  pointer-only pins: every world that carries records, A–Z, as real
  *  buttons. Dust contacts stay reachable through the seek (it indexes all
- *  contacts). Rendered only while its section is open — zero cost closed. */
+ *  contacts). Rendered only while unfolded — zero cost closed. */
 export function WorldIndex({
   payload,
   onPick,
@@ -361,20 +523,59 @@ export function WorldIndex({
     [payload],
   );
   return (
+    <ul className="cg-windex">
+      {rows.map((f) => (
+        <li key={f.id}>
+          <button onClick={() => onPick(f.id)}>
+            <span className="nm">{f.name}</span>
+            <span className="tag">{f.n === 1 ? "1 work" : `${f.n} works`}</span>
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+/** Seek + the A–Z opener: the head of both surfaces. The quiet "A–Z" button
+ *  at the seek's edge unfolds the WorldIndex — the index keeps S10a parity
+ *  (one tab stop after the seek) without spending a visible section on it. */
+export function SeekHead({
+  payload,
+  onPick,
+  inputRef,
+}: {
+  payload: MapPayload;
+  onPick: (id: string) => void;
+  inputRef?: Ref<HTMLInputElement>;
+}) {
+  const [indexOpen, setIndexOpen] = useState(false);
+  const indexId = useId();
+  return (
     <>
-      <p className="c-hint">
-        every recorded world, A–Z — the seek reaches all {fmt(payload.contacts)} contacts
-      </p>
-      <ul className="cg-windex">
-        {rows.map((f) => (
-          <li key={f.id}>
-            <button onClick={() => onPick(f.id)}>
-              <span className="nm">{f.name}</span>
-              <span className="tag">{f.n === 1 ? "1 work" : `${f.n} works`}</span>
-            </button>
-          </li>
-        ))}
-      </ul>
+      <SeekPanel
+        payload={payload}
+        onPick={onPick}
+        inputRef={inputRef}
+        trailing={
+          <button
+            type="button"
+            className={`sk-az${indexOpen ? " open" : ""}`}
+            aria-expanded={indexOpen}
+            // Only while the index exists — a dangling id reference is an
+            // axe violation (aria-valid-attr-value).
+            aria-controls={indexOpen ? indexId : undefined}
+            aria-label="World index — every recorded world, A to Z"
+            onClick={() => setIndexOpen((o) => !o)}
+          >
+            A–Z
+          </button>
+        }
+      />
+      {indexOpen && (
+        <div className="c-body" id={indexId}>
+          <WorldIndex payload={payload} onPick={onPick} />
+        </div>
+      )}
     </>
   );
 }
@@ -396,7 +597,10 @@ interface CartoucheProps extends InstrumentProps {
 
 export function Cartouche(props: CartoucheProps) {
   const { payload, condensed, voyageId, voyageNote, filtered, onPick, onVoyage, children } = props;
-  const [openSecs, setOpenSecs] = useState<ReadonlySet<SectionId>>(new Set(["census"]));
+  // The journeys are the content door and stand open; the legend — the
+  // single layers entrance — is opt-in behind its header (its badge keeps
+  // active states visible while closed).
+  const [openSecs, setOpenSecs] = useState<ReadonlySet<SectionId>>(new Set(["courses"]));
 
   const toggleSec = (id: SectionId) =>
     setOpenSecs((prev) => {
@@ -407,13 +611,13 @@ export function Cartouche(props: CartoucheProps) {
     });
 
   return (
-    // inert while the overture veil is up: the legend is invisible then
+    // inert while the overture veil is up: the cartouche is invisible then
     // (opacity 0 until `.on`) and must not be a hidden tab stop.
     <aside className={`cg-cartouche${condensed ? " on" : ""}`} inert={!condensed}>
       <div className="c-head">
         <h2 className="c-title">The Cartographer</h2>
       </div>
-      <SeekPanel payload={payload} onPick={onPick} />
+      <SeekHead payload={payload} onPick={onPick} />
       <SectionHead
         open={openSecs.has("courses")}
         label="Great Journeys"
@@ -422,40 +626,20 @@ export function Cartouche(props: CartoucheProps) {
       />
       {openSecs.has("courses") && (
         <div className="c-body">
-          <p className="c-hint">charted routes and curated chronologies across the galaxy</p>
-          <VoyageButtons voyageId={voyageId} onVoyage={onVoyage} />
+          <VoyageButtons era={props.era} voyageId={voyageId} onVoyage={onVoyage} />
         </div>
       )}
 
       <SectionHead
-        open={openSecs.has("instruments")}
-        label="Instruments"
-        note={instrumentsNote(props)}
-        onToggle={() => toggleSec("instruments")}
+        open={openSecs.has("legend")}
+        label="Legend"
+        note={legendNote(props, filtered)}
+        onToggle={() => toggleSec("legend")}
       />
-      {openSecs.has("instruments") && (
+      {openSecs.has("legend") && (
         <div className="c-body">
-          <InstrumentButtons {...props} />
-        </div>
-      )}
-
-      <SectionHead
-        open={openSecs.has("census")}
-        label="Filter worlds"
-        note={filtered ? "filtered" : null}
-        onToggle={() => toggleSec("census")}
-      />
-      {openSecs.has("census") && <div className="c-body">{children}</div>}
-
-      <SectionHead
-        open={openSecs.has("index")}
-        label="World index"
-        note={null}
-        onToggle={() => toggleSec("index")}
-      />
-      {openSecs.has("index") && (
-        <div className="c-body">
-          <WorldIndex payload={payload} onPick={onPick} />
+          <LegendOverlays {...props} />
+          {children}
         </div>
       )}
     </aside>

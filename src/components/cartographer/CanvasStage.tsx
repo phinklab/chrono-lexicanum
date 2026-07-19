@@ -13,7 +13,7 @@ import type { PointerEvent as ReactPointerEvent, RefObject } from "react";
 
 import type { FeaturedWorld, MapPayload } from "@/lib/map/payload";
 import type { ResolvedVoyage } from "@/lib/map/voyages";
-import type { MapState, ZonesMode } from "@/lib/map/zones";
+import type { MapState, NamesMode, ZonesMode } from "@/lib/map/zones";
 
 import type { CameraDriver, ChartBus } from "./chart-bus";
 import { H, W } from "./chart-geometry";
@@ -68,7 +68,7 @@ interface CanvasStageProps {
   hiddenCls: ReadonlySet<number>;
   dustOff: boolean;
   worksOnly: boolean;
-  names: boolean;
+  names: NamesMode;
   zones: ZonesMode;
   era: MapState;
   lumen: boolean;
