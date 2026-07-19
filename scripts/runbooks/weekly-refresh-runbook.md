@@ -308,7 +308,13 @@ batch / slot / `loop:next` / `book-roster.extension.json` dance:
    the reference/facet **prolog runs first**, so a brand-new faction/location/facet resolves
    without a full `db:sync`. (`--all` re-applies every per-book file — it is also the
    `db:sync` step-3 tail.)
-5. `npm run refresh:mark-reviewed -- --books` — stamp everything you've now looked at as
+5. **Status-Imperialis check (F1-B1)** — if a promoted book carries a setting date beyond
+   the current state of the `/now` Status Imperialis page (later than the latest dated
+   works its curated prose leans on), or ties into a new galaxy-scale event, review the
+   curated status prose (route `src/app/now/`, built in F1-B2) and the Indomitus chapter
+   of the timeline seeds (`events.json` / `event-works.json`). The prose is code, not DB —
+   it only moves when this check moves it.
+6. `npm run refresh:mark-reviewed -- --books` — stamp everything you've now looked at as
    seen, so next week's report/PR only shows what is genuinely new. Run this EVEN IF you
    promote/ignore nothing (you've reviewed the list and chosen to defer); the deferred
    books move to the pending backlog instead of re-leading the report (§ Book backlog
