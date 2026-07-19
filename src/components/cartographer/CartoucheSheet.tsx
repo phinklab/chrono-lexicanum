@@ -3,9 +3,14 @@
 /**
  * CartoucheSheet — the chart drawer, the cartouche's mobile counterpart.
  * Rendered alongside the desktop cartouche and CSS-gated to ≤900px, where the
- * corner legend has no room: a slim dock pinned to the bottom edge (grip,
+ * corner cartouche has no room: a slim dock pinned to the bottom edge (grip,
  * seek pill, state badges) that expands into a bottom sheet carrying the same
- * vocabulary — SeekPanel, Courses, Overlays and the census filter (children).
+ * vocabulary — SeekHead, the Great Journeys and the interactive legend
+ * (overlays + census, the children). Opening the sheet is the ONE disclosure
+ * level; journeys and legend stand under static captions, and only the
+ * journeys' era groups, the census's type groups and the seek's A–Z index
+ * still unfold — never more than two levels deep (NN/g progressive
+ * disclosure, WM-B1).
  *
  * State flows through the same reducer dispatches as the desktop cartouche;
  * "is the sheet open" lives in the root (the phone back-guard needs to close
@@ -21,19 +26,17 @@
  * touch-action:none.
  */
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import type { ReactNode } from "react";
 
 import type { MapPayload } from "@/lib/map/payload";
 
-import { InstrumentButtons, SectionHead, SeekPanel, VoyageButtons, WorldIndex, instrumentsNote } from "./Cartouche";
-import type { InstrumentProps, SectionId } from "./Cartouche";
+import { LegendOverlays, SeekHead, VoyageButtons } from "./Cartouche";
+import type { InstrumentProps } from "./Cartouche";
 
 interface CartoucheSheetProps extends InstrumentProps {
   payload: MapPayload;
   voyageId: string | null;
-  /** Journeys-section badge — "touring 3/9" during a tour, "active" after. */
-  voyageNote: string | null;
   filtered: boolean;
   /** World popup open — the dock steps aside and returns when it closes. */
   suppressed: boolean;
@@ -57,7 +60,6 @@ export default function CartoucheSheet(props: CartoucheSheetProps) {
   const {
     payload,
     voyageId,
-    voyageNote,
     lumen,
     nihilus,
     filtered,
@@ -69,9 +71,6 @@ export default function CartoucheSheet(props: CartoucheSheetProps) {
     onVoyage,
     children,
   } = props;
-  // Phones open on the four-section overview; the desktop cartouche keeps
-  // its primary census section open by default.
-  const [openSecs, setOpenSecs] = useState<ReadonlySet<SectionId>>(new Set());
   const sheetRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const gripRef = useRef<HTMLButtonElement | null>(null);
@@ -82,14 +81,6 @@ export default function CartoucheSheet(props: CartoucheSheetProps) {
     closedH: number;
     maxH: number;
   } | null>(null);
-
-  const toggleSec = (id: SectionId) =>
-    setOpenSecs((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) next.delete(id);
-      else next.add(id);
-      return next;
-    });
 
   // Escape closes the sheet before the root's Escape closes the world popup.
   useEffect(() => {
@@ -211,17 +202,14 @@ export default function CartoucheSheet(props: CartoucheSheetProps) {
           onPointerUp={onGripUp}
           onPointerCancel={onGripUp}
         >
+          {/* Grabber + the dock's state badges carry the affordance — no
+              "Drag for more" instruction line (WM-B1 text diet). */}
           <span className="bar" aria-hidden />
-          {/* Closed-dock affordance: the bare bar alone doesn't read as
-              "pull me up" — the label disappears once the sheet is open. */}
-          <span className="glab" aria-hidden>
-            Drag for more
-          </span>
         </button>
 
         <div className="cg-sheet-head">
           {open ? (
-            <SeekPanel payload={payload} onPick={pick} inputRef={inputRef} />
+            <SeekHead payload={payload} onPick={pick} inputRef={inputRef} />
           ) : (
             <button type="button" className="cg-sheet-pill" onClick={openWithSeek}>
               <span className="ph">Seek a world…</span>
@@ -238,52 +226,22 @@ export default function CartoucheSheet(props: CartoucheSheetProps) {
         </div>
 
         {/* Always in the DOM (CSS hides it while closed & not dragging) so a
-            grip drag can reveal it progressively; inert until actually open. */}
+            grip drag can reveal it progressively; inert until actually open.
+            Journeys and legend stand under static captions — the open sheet
+            IS the disclosure (only era/type groups unfold inside); state
+            lives in the rows, so the captions carry no badges (the closed
+            dock's badges do). */}
         <div className="cg-sheet-body" inert={!open}>
-          <SectionHead
-            open={openSecs.has("courses")}
-            label="Great Journeys"
-            note={voyageNote}
-            onToggle={() => toggleSec("courses")}
-          />
-          {openSecs.has("courses") && (
-            <div className="c-body">
-              <p className="c-hint">charted routes and curated chronologies across the galaxy</p>
-              <VoyageButtons voyageId={voyageId} onVoyage={pickVoyage} />
-            </div>
-          )}
+          <p className="c-cap">Great Journeys</p>
+          <div className="c-body">
+            <VoyageButtons era={props.era} voyageId={voyageId} onVoyage={pickVoyage} />
+          </div>
 
-          <SectionHead
-            open={openSecs.has("instruments")}
-            label="Instruments"
-            note={instrumentsNote(props)}
-            onToggle={() => toggleSec("instruments")}
-          />
-          {openSecs.has("instruments") && (
-            <div className="c-body">
-              <InstrumentButtons {...props} />
-            </div>
-          )}
-
-          <SectionHead
-            open={openSecs.has("census")}
-            label="Filter worlds"
-            note={filtered ? "filtered" : null}
-            onToggle={() => toggleSec("census")}
-          />
-          {openSecs.has("census") && <div className="c-body">{children}</div>}
-
-          <SectionHead
-            open={openSecs.has("index")}
-            label="World index"
-            note={null}
-            onToggle={() => toggleSec("index")}
-          />
-          {openSecs.has("index") && (
-            <div className="c-body">
-              <WorldIndex payload={payload} onPick={pick} />
-            </div>
-          )}
+          <p className="c-cap">Legend</p>
+          <div className="c-body">
+            <LegendOverlays {...props} />
+            {children}
+          </div>
         </div>
       </div>
     </>

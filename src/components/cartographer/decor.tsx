@@ -53,6 +53,15 @@ export const HatchDefs = memo(function HatchDefs() {
       >
         <line x1={0} y1={0} x2={0} y2={5} stroke={PLAGUE} strokeWidth={0.8} strokeOpacity={0.5} />
       </pattern>
+      {/* #cg-stormStipple — staggered dot field in warp ink for the storm
+          zones' interiors (the chart's ground language: grid dots / star
+          dust). Hatch stays the exclusive voice of interdiction/plague. */}
+      {/* 0.28 dot ink: at Ruinstorm scale the 0.4 field read as a solid
+          purple wall (maintainer review 2026-07-19). */}
+      <pattern id="cg-stormStipple" width={9} height={9} patternUnits="userSpaceOnUse">
+        <circle cx={2.25} cy={2.25} r={0.7} fill="#8a68c4" fillOpacity={0.28} />
+        <circle cx={6.75} cy={6.75} r={0.7} fill="#8a68c4" fillOpacity={0.28} />
+      </pattern>
     </defs>
   );
 });

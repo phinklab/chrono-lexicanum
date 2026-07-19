@@ -19,9 +19,11 @@ export default function StrategicReadout({
       <p className="cg-tour-section" style={{ color: color ?? "var(--cl-gold)" }}>
         {arm?.role ?? "STRATEGIC DESTINATION"}
       </p>
+      {/* No "Legion XX" prefix: the chapter heading above the readout
+          already carries the numeral (WM-B1 review). */}
       <p className="cg-tour-name">
         {arm
-          ? `Legion ${arm.legion} · ${arm.name} → ${arm.targetName}`
+          ? `${arm.name} → ${arm.targetName}`
           : `${target?.name} · Legions ${target?.legionIds.join(" · ")}`}
       </p>
       <p className="ct">{arm?.text ?? target?.text}</p>

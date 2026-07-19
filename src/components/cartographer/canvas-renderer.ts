@@ -10,7 +10,21 @@ import type { FeaturedWorld, MapPayload } from "@/lib/map/payload";
 import type { MapWorldKind } from "@/lib/map/map-worlds-schema";
 import type { ResolvedVoyage, ResolvedVoyageArm } from "@/lib/map/voyages";
 import { pointOnLeg } from "@/lib/map/voyages";
-import { CURATED_ZONES, visibleZones, zoneCentroid, zonePath, type MapState, type ZoneDef, type ZonesMode } from "@/lib/map/zones";
+import {
+  CURATED_ZONES,
+  visibleZones,
+  zoneCentroid,
+  zoneEdgeBands,
+  zoneLabelLayout,
+  zoneLabelVisible,
+  zonePath,
+  type MapState,
+  type NamesMode,
+  type ZoneDef,
+  type ZoneLabelArc,
+  type ZoneLabelLayout,
+  type ZonesMode,
+} from "@/lib/map/zones";
 
 import {
   BLOOD,
@@ -58,7 +72,7 @@ export interface CanvasScene {
   hiddenCls: ReadonlySet<number>;
   dustOff: boolean;
   worksOnly: boolean;
-  names: boolean;
+  names: NamesMode;
   zones: ZonesMode;
   era: MapState;
   lumen: boolean;
@@ -108,11 +122,15 @@ export function canvasBackingScale(
 export function mobileLabelVisible(
   tier: 0 | 1 | 2 | 3,
   band: CameraBand,
-  names: boolean,
+  names: NamesMode,
   emphasized: boolean,
   compact = true,
 ): boolean {
-  if (names || emphasized) return true;
+  // Selected/journey worlds keep their name in every mode — mirrors the SVG
+  // chart's `.sel-on`/`.rt-hi` overrides.
+  if (emphasized) return true;
+  if (names === "off") return false;
+  if (names === "all") return true;
   if (tier === 3) return band === "3";
   return compact ? Number(band) > tier : Number(band) >= tier;
 }
@@ -576,56 +594,169 @@ function drawHatch(
   ctx.restore();
 }
 
-function zoneStyle(zone: ZoneDef): {
-  fill: string;
+/** Edge-tint band alphas, narrow → wide — mirrors 55-map.css .ze1/.ze2/.ze3;
+ *  quiet kinds (perditus, necron) scale them down via style.edgeAlpha. */
+const EDGE_BAND_ALPHAS = [0.11, 0.075, 0.045] as const;
+const STORM_STIPPLE = "#8a68c4";
+
+interface ZoneKindStyle {
+  /** Faint interior wash; null = textured interiors (stipple / hatch). */
+  wash: string | null;
+  /** Storm dot-field interior (mirrors #cg-stormStipple). */
+  stipple: boolean;
+  hatch: "rift" | "plague" | null;
+  /** Edge-tint band ink + quiet-kind multiplier on EDGE_BAND_ALPHAS. */
+  edge: string;
+  edgeAlpha: number;
   stroke: string;
   strokeAlpha: number;
   width: number;
   dash: number[];
   label: string;
   labelAlpha: number;
-} {
+}
+
+/** Mirrors the 55-map.css zone block: edge tint instead of sticker, quiet
+ *  non-scaling outlines, one dash vocabulary per kind family (storm 2 5 ·
+ *  hazard 3 3 · territory 1 6 · tyranid 1 4 · necron 4 3). */
+function zoneStyle(zone: ZoneDef): ZoneKindStyle {
   switch (zone.kind) {
     case "interdiction":
-      return { fill: "transparent", stroke: BLOOD, strokeAlpha: 0.4, width: 1, dash: [3, 3], label: BLOOD, labelAlpha: 1 };
+      return { wash: null, stipple: false, hatch: "rift", edge: BLOOD, edgeAlpha: 1, stroke: BLOOD, strokeAlpha: 0.4, width: 1, dash: [3, 3], label: BLOOD, labelAlpha: 1 };
     case "plague":
-      return { fill: "transparent", stroke: PLAGUE, strokeAlpha: 0.4, width: 1, dash: [3, 3], label: PLAGUE, labelAlpha: 0.95 };
+      return { wash: null, stipple: false, hatch: "plague", edge: PLAGUE, edgeAlpha: 1, stroke: PLAGUE, strokeAlpha: 0.4, width: 1, dash: [3, 3], label: PLAGUE, labelAlpha: 0.95 };
     case "region":
-      return { fill: "rgba(164,140,82,0.05)", stroke: GOLD, strokeAlpha: 0.4, width: 0.8, dash: [1, 6], label: GOLD, labelAlpha: 0.8 };
+      return { wash: "rgba(164,140,82,0.035)", stipple: false, hatch: null, edge: GOLD, edgeAlpha: 1, stroke: GOLD, strokeAlpha: 0.32, width: 0.8, dash: [1, 6], label: GOLD, labelAlpha: 0.8 };
     case "traitoris":
       // Region styling mirrored in blood — held space, not a storm front:
       // no hatch, no ✠ (those stay the interdiction's voice).
-      return { fill: "rgba(142,59,50,0.06)", stroke: BLOOD, strokeAlpha: 0.45, width: 0.8, dash: [1, 6], label: BLOOD, labelAlpha: 0.85 };
+      return { wash: "rgba(142,59,50,0.045)", stipple: false, hatch: null, edge: BLOOD, edgeAlpha: 1, stroke: BLOOD, strokeAlpha: 0.35, width: 0.8, dash: [1, 6], label: BLOOD, labelAlpha: 0.85 };
     case "perditus":
       // Zone Perditus — lost/contested space, the reference map's grey in bone.
-      return { fill: "rgba(228,221,203,0.04)", stroke: BONE, strokeAlpha: 0.28, width: 0.8, dash: [2, 4], label: BONE, labelAlpha: 0.55 };
+      return { wash: "rgba(228,221,203,0.03)", stipple: false, hatch: null, edge: BONE, edgeAlpha: 0.6, stroke: BONE, strokeAlpha: 0.24, width: 0.8, dash: [1, 6], label: BONE, labelAlpha: 0.55 };
     case "hive-fleet":
-      return { fill: "rgba(156,230,255,0.05)", stroke: ICE, strokeAlpha: 0.4, width: 0.8, dash: [1, 4], label: ICE, labelAlpha: 0.75 };
+      return { wash: "rgba(156,230,255,0.035)", stipple: false, hatch: null, edge: ICE, edgeAlpha: 1, stroke: ICE, strokeAlpha: 0.32, width: 0.8, dash: [1, 4], label: ICE, labelAlpha: 0.75 };
     case "necron-dynasty":
-      return { fill: "rgba(156,230,255,0.03)", stroke: ICE, strokeAlpha: 0.35, width: 0.8, dash: [3, 3], label: ICE, labelAlpha: 0.6 };
+      return { wash: "rgba(156,230,255,0.02)", stipple: false, hatch: null, edge: ICE, edgeAlpha: 0.7, stroke: ICE, strokeAlpha: 0.3, width: 0.8, dash: [4, 3], label: ICE, labelAlpha: 0.6 };
     default:
-      return { fill: "rgba(138,104,196,0.10)", stroke: WARP_MID, strokeAlpha: 0.55, width: 1, dash: [2, 5], label: WARP_LIGHT, labelAlpha: 0.85 };
+      // Storms carry the necron 0.7 edge multiplier — at Ruinstorm scale the
+      // full edge ink walled off a third of the M31 east.
+      return { wash: null, stipple: true, hatch: null, edge: STORM_STIPPLE, edgeAlpha: 0.7, stroke: WARP_MID, strokeAlpha: 0.4, width: 1, dash: [2, 5], label: WARP_LIGHT, labelAlpha: 0.85 };
   }
+}
+
+/** Ray-cast against the raw control polygon — dots are drawn inside the
+ *  shape clip anyway, this only trims the per-frame list. */
+function pointInZone(x: number, y: number, pts: [number, number][]): boolean {
+  let inside = false;
+  for (let i = 0, j = pts.length - 1; i < pts.length; j = i, i += 1) {
+    const [xi, yi] = pts[i];
+    const [xj, yj] = pts[j];
+    if (yi > y !== yj > y && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) inside = !inside;
+  }
+  return inside;
+}
+
+/** Stipple dot centres for a storm zone: 9-unit staggered grid aligned to
+ *  the global grid origin (parity with the SVG #cg-stormStipple pattern). */
+function stippleDots(zone: ZoneDef): [number, number][] {
+  const b = computeZoneBounds(zone);
+  const dots: [number, number][] = [];
+  const step = 9;
+  for (let gy = Math.floor(b.top / step) * step; gy <= b.bottom; gy += step) {
+    for (let gx = Math.floor(b.left / step) * step; gx <= b.right; gx += step) {
+      for (const [ox, oy] of [
+        [2.25, 2.25],
+        [6.75, 6.75],
+      ]) {
+        const x = gx + ox;
+        const y = gy + oy;
+        if (pointInZone(x, y, zone.points)) dots.push([x, y]);
+      }
+    }
+  }
+  return dots;
 }
 
 /** Per-zone geometry, computed once for the whole curation; which zones draw
  *  on a given frame is decided by visibleZones(scene.era) — the same single
  *  predicate the SVG renderer uses. */
 const ZONE_RENDER_DATA = new Map(
-  CURATED_ZONES.map((zone) => [
-    zone.id,
-    {
-      bounds: computeZoneBounds(zone),
-      center: zoneCentroid(zone),
-      pathD: zonePath(zone),
-      style: zoneStyle(zone),
-    },
-  ]),
+  CURATED_ZONES.map((zone) => {
+    const style = zoneStyle(zone);
+    return [
+      zone.id,
+      {
+        bounds: computeZoneBounds(zone),
+        center: zoneCentroid(zone),
+        pathD: zonePath(zone),
+        style,
+        layout: zoneLabelLayout(zone),
+        bands: zoneEdgeBands(zone),
+        dots: style.stipple ? stippleDots(zone) : null,
+      },
+    ] as const;
+  }),
 );
+
+/** Glyph-by-glyph text along the label arc of a band shape — the canvas
+ *  twin of the SVG textPath (startOffset 50%, text-anchor middle). Screen
+ *  space; the arc is transformed per frame so labels stay constant size. */
+function drawZoneLabelArc(
+  ctx: CanvasRenderingContext2D,
+  camera: CameraPose,
+  arc: ZoneLabelArc,
+  text: string,
+  layout: ZoneLabelLayout,
+  fonts: CanvasFonts,
+): void {
+  const p1 = worldToLocal(camera, arc.x1, arc.y1);
+  const pc = worldToLocal(camera, arc.cx, arc.cy);
+  const p2 = worldToLocal(camera, arc.x2, arc.y2);
+  const samples = 48;
+  const xs: number[] = [];
+  const ys: number[] = [];
+  const cum: number[] = [0];
+  for (let i = 0; i <= samples; i += 1) {
+    const t = i / samples;
+    const mt = 1 - t;
+    xs.push(mt * mt * p1.x + 2 * mt * t * pc.x + t * t * p2.x);
+    ys.push(mt * mt * p1.y + 2 * mt * t * pc.y + t * t * p2.y);
+    if (i > 0) cum.push(cum[i - 1] + Math.hypot(xs[i] - xs[i - 1], ys[i] - ys[i - 1]));
+  }
+  const arcLen = cum[samples];
+  setFont(ctx, fonts.mono, layout.fontSize, "normal", 0);
+  const glyphs = [...text];
+  const widths = glyphs.map((g) => measuredTextWidth(ctx, g));
+  const total = widths.reduce((a, b) => a + b, 0) + layout.spacing * (glyphs.length - 1);
+  let dist = Math.max(0, (arcLen - total) / 2);
+  let seg = 1;
+  const at = (d: number) => {
+    while (seg < samples && cum[seg] < d) seg += 1;
+    const d0 = cum[seg - 1];
+    const span = cum[seg] - d0 || 1;
+    const f = Math.min(1, Math.max(0, (d - d0) / span));
+    return {
+      x: xs[seg - 1] + (xs[seg] - xs[seg - 1]) * f,
+      y: ys[seg - 1] + (ys[seg] - ys[seg - 1]) * f,
+      ang: Math.atan2(ys[seg] - ys[seg - 1], xs[seg] - xs[seg - 1]),
+    };
+  };
+  for (let i = 0; i < glyphs.length; i += 1) {
+    const p = at(Math.min(dist + widths[i] / 2, arcLen));
+    ctx.save();
+    ctx.translate(p.x, p.y);
+    ctx.rotate(p.ang);
+    ctx.fillText(glyphs[i], 0, 0);
+    ctx.restore();
+    dist += widths[i] + layout.spacing;
+  }
+}
 
 function drawZones(
   ctx: CanvasRenderingContext2D,
   camera: CameraPose,
+  band: CameraBand,
   scene: CanvasScene,
   viewport: CanvasViewport,
   fonts: CanvasFonts,
@@ -640,28 +771,48 @@ function drawZones(
   for (const zone of zones) {
     const entry = ZONE_RENDER_DATA.get(zone.id);
     if (!entry) continue;
-    const { bounds: b, style } = entry;
+    const { bounds: b, style, bands, dots } = entry;
     if (b.right < visible.left || b.left > visible.right || b.bottom < visible.top || b.top > visible.bottom) continue;
     const path = cachedPath(entry.pathD);
-    ctx.globalAlpha = fieldAlpha;
-    if (style.fill !== "transparent") {
-      ctx.fillStyle = style.fill;
+    // Interior + edge tint, clipped to the shape: faint wash (or stipple /
+    // hatch texture), then three concentric inner strokes running out toward
+    // the middle — ink toward the inside, never a glow outward.
+    ctx.save();
+    ctx.clip(path);
+    if (style.wash) {
+      ctx.globalAlpha = fieldAlpha;
+      ctx.fillStyle = style.wash;
       ctx.fill(path);
     }
-    if (zone.kind === "interdiction" || zone.kind === "plague") {
-      drawHatch(
-        ctx,
-        path,
-        b,
-        zone.kind === "plague" ? PLAGUE : BLOOD,
-        zone.kind === "interdiction",
-        fieldAlpha,
-      );
+    if (dots) {
+      // Mirrors #cg-stormStipple's 0.28 dot ink (decor.tsx).
+      ctx.globalAlpha = 0.28 * fieldAlpha;
+      ctx.fillStyle = STORM_STIPPLE;
+      ctx.beginPath();
+      for (const [x, y] of dots) {
+        if (x < visible.left || x > visible.right || y < visible.top || y > visible.bottom) continue;
+        ctx.moveTo(x + 0.7, y);
+        ctx.arc(x, y, 0.7, 0, Math.PI * 2);
+      }
+      ctx.fill();
     }
+    if (style.hatch) {
+      drawHatch(ctx, path, b, style.hatch === "plague" ? PLAGUE : BLOOD, style.hatch === "rift", fieldAlpha);
+    }
+    ctx.strokeStyle = style.edge;
+    ctx.lineJoin = "round";
+    for (let i = 2; i >= 0; i -= 1) {
+      ctx.globalAlpha = EDGE_BAND_ALPHAS[i] * style.edgeAlpha * fieldAlpha;
+      ctx.lineWidth = bands[i];
+      ctx.stroke(path);
+    }
+    ctx.restore();
+    // Outline: very quiet, non-scaling on every kind — constant dash rhythm
+    // at any magnification.
     ctx.strokeStyle = style.stroke;
     ctx.globalAlpha = style.strokeAlpha * fieldAlpha;
-    ctx.lineWidth = (zone.kind === "interdiction" || zone.kind === "plague" ? style.width / camera.k : style.width);
-    ctx.setLineDash(style.dash.map((value) => value / (zone.kind === "interdiction" || zone.kind === "plague" ? camera.k : 1)));
+    ctx.lineWidth = style.width / camera.k;
+    ctx.setLineDash(style.dash.map((value) => value / camera.k));
     ctx.stroke(path);
     ctx.setLineDash([]);
   }
@@ -671,14 +822,27 @@ function drawZones(
   for (const zone of zones) {
     const entry = ZONE_RENDER_DATA.get(zone.id);
     if (!entry) continue;
-    const { center, style } = entry;
+    const { center, style, layout } = entry;
+    if (!zoneLabelVisible(band, layout)) continue;
     const point = worldToLocal(camera, center.x, center.y);
     if (!inViewport(point.x, point.y, viewport)) continue;
     const text = zone.kind === "interdiction" ? `✠ ${zone.name.toUpperCase()} ✠` : zone.name.toUpperCase();
-    setFont(ctx, fonts.mono, 10, "normal", 3);
     ctx.fillStyle = style.label;
     ctx.globalAlpha = style.labelAlpha * fieldAlpha;
-    ctx.fillText(text, point.x, point.y);
+    if (layout.arc) {
+      drawZoneLabelArc(ctx, camera, layout.arc, text, layout, fonts);
+      continue;
+    }
+    setFont(ctx, fonts.mono, layout.fontSize, "normal", layout.spacing);
+    if (layout.angle !== 0) {
+      ctx.save();
+      ctx.translate(point.x, point.y);
+      ctx.rotate((layout.angle * Math.PI) / 180);
+      ctx.fillText(text, 0, 0);
+      ctx.restore();
+    } else {
+      ctx.fillText(text, point.x, point.y);
+    }
   }
 }
 
@@ -832,12 +996,15 @@ interface LabelSpec {
   rank: number;
   order: number;
   dust: boolean;
+  /** Station of the active journey (`rt-hi` parity): the label speaks the
+   *  display face like the tier-0 names, whatever its own tier. */
+  hi: boolean;
 }
 
-function labelOpacity(band: CameraBand, names: boolean, emphasized: boolean, dust: boolean): number {
+function labelOpacity(band: CameraBand, names: NamesMode, emphasized: boolean, dust: boolean): number {
   if (emphasized) return 1;
   if (dust) return 0.94;
-  return names || band === "2" || band === "3" ? 0.94 : 0.8;
+  return names === "all" || band === "2" || band === "3" ? 0.94 : 0.8;
 }
 
 function drawWorldLabels(
@@ -851,7 +1018,7 @@ function drawWorldLabels(
     else if (style === "big") setFont(ctx, fonts.display, 16, "normal", 1.28);
     else setFont(ctx, fonts.body, 14.5, "italic");
     for (const label of labels) {
-      const labelStyle = label.dust ? "dust" : label.tier === 0 ? "big" : "regular";
+      const labelStyle = label.hi || label.tier === 0 ? "big" : label.dust ? "dust" : "regular";
       if (labelStyle !== style) continue;
       const width = drawOutlinedText(ctx, label.text, label.x, label.y, BONE, label.alpha);
       hitTargets.push({
@@ -861,7 +1028,7 @@ function drawWorldLabels(
         rect: {
           left: label.x - width / 2 - 4,
           right: label.x + width / 2 + 4,
-          top: label.y - (label.dust ? 14 : 18),
+          top: label.y - (label.dust && !label.hi ? 14 : 18),
           bottom: label.y + 5,
         },
         rank: label.rank,
@@ -896,7 +1063,7 @@ function drawContacts(
       const selected = scene.selectedWorld?.id === id;
       const hi = scene.hiIds?.has(id) ?? false;
       const emphasized = selected || hi;
-      const parentAlpha = scene.names || band === "3" ? 1 : 0.6;
+      const parentAlpha = scene.names === "all" || band === "3" ? 1 : 0.6;
       const routeAlpha = scene.routeDim ? (hi ? 0.07 : 0.07 * 0.12) : 1;
       const alpha = parentAlpha * routeAlpha;
       const look = looks[index];
@@ -912,12 +1079,14 @@ function drawContacts(
           id,
           text: name,
           x,
-          y: y - 10,
+          // rt-hi parity: station labels sit at the featured −14 offset.
+          y: y - (hi ? 14 : 10),
           tier: 3,
           alpha: labelOpacity(band, scene.names, emphasized, true) * alpha,
           rank,
           order: order++,
           dust: true,
+          hi,
         });
       }
     });
@@ -948,6 +1117,7 @@ function drawContacts(
         rank,
         order: order++,
         dust: false,
+        hi,
       });
     }
   }
@@ -1338,7 +1508,7 @@ export function drawCanvasScene(
   drawLumenNihilus(ctx, camera, scene, viewport, fonts, fontsReady);
   drawPolar(ctx, camera);
   if (fontsReady) drawSegmentumNames(ctx, camera, fonts, scene.routeDim ? 0.22 : 1);
-  drawZones(ctx, camera, scene, viewport, fonts, fontsReady);
+  drawZones(ctx, camera, band, scene, viewport, fonts, fontsReady);
   const hitTargets = drawContacts(ctx, camera, band, scene, viewport, fonts, fontsReady);
   const routeAnimating = drawRoute(ctx, camera, scene, fonts, fontsReady, now);
   drawTerraInstrument(ctx, camera, viewport);

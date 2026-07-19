@@ -190,11 +190,13 @@ export default function VoyageTour({
         >
           ✕
         </button>
-        <p className="ck">
-          GREAT JOURNEY · {resolved.tag.toUpperCase()}
-          {resolved.cartography ? ` · ${resolved.cartography.label.toUpperCase()}` : ""}
+        {/* The window is titled by its journey — no generic "GREAT JOURNEY"
+            kicker (WM-B1 review); tag + cartography move to the quiet line. */}
+        <p className="ck">{resolved.name}</p>
+        <p className="cg-tour-date">
+          {resolved.tag}
+          {resolved.cartography ? ` · ${resolved.cartography.label}` : ""}
         </p>
-        <p className="cg-tour-name">{resolved.name}</p>
         <p className="ct">{resolved.blurb}</p>
         {resolved.cartography && <p className="cg-tour-method">{resolved.cartography.note}</p>}
         <div className="cg-tour-row">
@@ -234,6 +236,8 @@ export default function VoyageTour({
       >
         ✕
       </button>
+      {/* Stable window title — the journey's name on every act. */}
+      <p className="ck">{resolved.name}</p>
       {strategicSelection ? (
         <StrategicReadout
           arm={readoutArm}
@@ -283,7 +287,7 @@ export default function VoyageTour({
         <button className="cpg lead" onClick={() => (last ? finishTour() : onStep(step + 1))}>
           {last
             ? legionSteps
-              ? "SHOW THE FULL WEB →"
+              ? "SHOW ALL LEGIONS →"
               : "SHOW THE FULL ROUTE →"
             : `${step + 1} / ${n} · ${legionSteps ? "NEXT LEGION" : "NEXT"} →`}
         </button>

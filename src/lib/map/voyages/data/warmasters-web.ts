@@ -1,8 +1,9 @@
 /**
- * The Warmaster's Web — eighteen Legion-scale movements from Horus' opening
- * dispositions to Terra, or to the last evidenced point for forces that did
- * not reach the Siege. Each tour act owns one main route. Sourced subordinate
- * fleets appear only as faint, terminating branches.
+ * March of the Legions (id "warmasters-web") — eighteen Legion-scale
+ * movements from Horus' opening dispositions to Terra, or to the last
+ * evidenced point for forces that did not reach the Siege. Each tour act
+ * owns one main route. Sourced subordinate fleets appear only as faint,
+ * terminating branches.
  */
 
 import type { Voyage, VoyageArmTarget, VoyageArmVia } from "../types";
@@ -181,7 +182,10 @@ const MAELSTROM = worldTarget("the-maelstrom", "Kor Phaeron escaped the failed C
 
 export const WARMASTER_WEB: Voyage = {
   id: "warmasters-web",
-  name: "The Warmaster's Web",
+  // Display name renamed 2026-07-19 (WM-B1 review): "The Warmaster's Web"
+  // didn't say what the journey IS — Legion movements through the Heresy.
+  // The id stays: it is the stable hash/roster key (`voyage=warmasters-web`).
+  name: "March of the Legions",
   tag: "M31 · Horus Heresy",
   mapState: "hh",
   blurb: "Eighteen Legions, eighteen roads: follow each main force from Horus' opening disposition to Terra—or to the point where its road to the Siege ended.",
@@ -646,5 +650,5 @@ export const WARMASTER_WEB: Voyage = {
       ],
     },
   ],
-  lbl: { x: 645, y: 565, t: "THE WARMASTER'S WEB" },
+  lbl: { x: 645, y: 565, t: "MARCH OF THE LEGIONS" },
 };

@@ -16,7 +16,7 @@ import type { MapPayload } from "@/lib/map/payload";
 import { catalogSource } from "@/lib/map/pin-source";
 import { VOYAGES, resolveVoyage } from "@/lib/map/voyages";
 import { useOverlayBackGuard } from "@/lib/map/useOverlayBackGuard";
-import type { MapState, ZonesMode } from "@/lib/map/zones";
+import type { MapState, NamesMode, ZonesMode } from "@/lib/map/zones";
 import { useMediaQuery } from "@/lib/useMediaQuery";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 
@@ -71,9 +71,10 @@ interface CgState {
   /** Nihilus is an instrument of the present chart only: leaving "now"
    *  stashes an active shade here and restores it on return. */
   nihilusStash: boolean;
-  /** Force names: every visible world shows its name at every zoom — a
-   *  lifeline for thin filters (e.g. fleets only). */
-  names: boolean;
+  /** Name labels: auto = magnification ladder; all = every visible world
+   *  named at every zoom (a lifeline for thin filters, e.g. fleets only);
+   *  off = a nameless chart (the selected world keeps its own). */
+  names: NamesMode;
   /** Curated zone fields: full → dimmed (no names) → hidden. */
   zones: ZonesMode;
 }
@@ -90,7 +91,7 @@ const INITIAL: CgState = {
   lumen: false,
   nihilus: false,
   nihilusStash: false,
-  names: false,
+  names: "auto",
   zones: "on",
 };
 
@@ -109,7 +110,7 @@ type CgAction =
   | { type: "voyageEra"; era: MapState }
   | { type: "toggleLumen" }
   | { type: "toggleNihilus" }
-  | { type: "toggleNames" }
+  | { type: "cycleNames" }
   | { type: "cycleZones" };
 
 /** Chart edition each journey plays on — voyageStart/voyageEnd switch the
@@ -211,8 +212,12 @@ function reducer(state: CgState, action: CgAction): CgState {
       return state.era === "now"
         ? { ...state, condensed: true, nihilus: !state.nihilus }
         : state;
-    case "toggleNames":
-      return { ...state, names: !state.names };
+    case "cycleNames":
+      // auto (the ladder) → all → off → auto.
+      return {
+        ...state,
+        names: state.names === "auto" ? "all" : state.names === "all" ? "off" : "auto",
+      };
     case "cycleZones":
       return {
         ...state,
@@ -584,20 +589,6 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
   }
   const liveMsg = live.msg;
 
-  /* Zoom presets: fly — the center stays put — to exactly the magnification
-     at which the next name tier is loaded (band thresholds 3.1/5.6 in
-     ChartStage; 3.2/6.0 leave a hair's breadth of headroom). */
-  const zoomPreset = useCallback(
-    (kr: number) => {
-      dispatch({ type: "condense" });
-      const driver = bus.driver;
-      if (!driver) return;
-      const c = driver.getCenterRel();
-      bus.flyTo(c.gx, c.gy, driver.getK0() * kr, 650);
-    },
-    [bus],
-  );
-
   const anyFiltered = state.hiddenCls.size > 0 || state.dustOff || state.worksOnly;
 
   /* Legend badge for the journeys section: live tour progress, else "active". */
@@ -767,7 +758,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
         onVoyage={startVoyage}
         onToggleLumen={() => dispatch({ type: "toggleLumen" })}
         onToggleNihilus={() => dispatch({ type: "toggleNihilus" })}
-        onToggleNames={() => dispatch({ type: "toggleNames" })}
+        onCycleNames={() => dispatch({ type: "cycleNames" })}
         onCycleZones={() => dispatch({ type: "cycleZones" })}
       >
         {census}
@@ -777,7 +768,6 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
       <CartoucheSheet
         payload={payload}
         voyageId={state.voyage?.id ?? null}
-        voyageNote={voyageNote}
         era={state.era}
         lumen={state.lumen}
         nihilus={state.nihilus}
@@ -792,7 +782,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
         onVoyage={startVoyage}
         onToggleLumen={() => dispatch({ type: "toggleLumen" })}
         onToggleNihilus={() => dispatch({ type: "toggleNihilus" })}
-        onToggleNames={() => dispatch({ type: "toggleNames" })}
+        onCycleNames={() => dispatch({ type: "cycleNames" })}
         onCycleZones={() => dispatch({ type: "cycleZones" })}
       >
         {census}
@@ -879,22 +869,9 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
         >
           −
         </button>
-        <button
-          className="preset"
-          title="Magnify to 3.2×: the recorded worlds' names come on"
-          aria-label="Magnify to 3×: the recorded worlds' names come on"
-          onClick={() => zoomPreset(3.2)}
-        >
-          3×
-        </button>
-        <button
-          className="preset"
-          title="Magnify to 6.0×: every name on the chart comes on"
-          aria-label="Magnify to 6×: every name on the chart comes on"
-          onClick={() => zoomPreset(6.0)}
-        >
-          6×
-        </button>
+        {/* No 3×/6× name-tier presets: the thresholds are renderer internals
+            (insider knowledge), and "I want names" is a first-class legend
+            entry now — World names (WM-B1). */}
         <button
           title="Full sweep"
           aria-label="Full sweep: withdraw to the whole chart"

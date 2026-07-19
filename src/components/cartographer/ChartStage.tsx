@@ -14,7 +14,7 @@
 import { useEffect, useRef } from "react";
 import type { PointerEvent as ReactPointerEvent, ReactNode, RefObject } from "react";
 
-import type { ZonesMode } from "@/lib/map/zones";
+import type { NamesMode, ZonesMode } from "@/lib/map/zones";
 
 import type { ChartBus } from "./chart-bus";
 import { H, W } from "./chart-geometry";
@@ -64,8 +64,9 @@ interface ChartStageProps {
   bus: ChartBus;
   lumen: boolean;
   nihilus: boolean;
-  /** Force names: lifts the labels' band gates (CSS `svg.names`). */
-  names: boolean;
+  /** Name-label mode: "all" lifts the band gates (CSS `svg.names`), "off"
+   *  hides every label (CSS `svg.names-off`), "auto" is the zoom ladder. */
+  names: NamesMode;
   /** Zone layer mode: dim = fills at reduced opacity, names hidden (CSS
    *  `svg.zones-dim`); off = fades out #cg-fields (CSS `svg.nozones`). */
   zones: ZonesMode;
@@ -420,7 +421,7 @@ export default function ChartStage({
     }
   };
 
-  const chartClass = `cg-chart${lumen ? " lumen" : ""}${nihilus ? " nihilus" : ""}${names ? " names" : ""}${zones === "off" ? " nozones" : ""}${zones === "dim" ? " zones-dim" : ""}`;
+  const chartClass = `cg-chart${lumen ? " lumen" : ""}${nihilus ? " nihilus" : ""}${names === "all" ? " names" : ""}${names === "off" ? " names-off" : ""}${zones === "off" ? " nozones" : ""}${zones === "dim" ? " zones-dim" : ""}`;
 
   return (
     <div className="cg-stage" data-map-renderer="svg">

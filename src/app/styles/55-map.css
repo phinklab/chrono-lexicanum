@@ -249,10 +249,10 @@ body.cg-canvas-renderer .cg-deg {
    Name ladder by importance: t0 (≥15 works) always, t1 (≥4) from band 1,
    t2 (1–3) from band 2, dust names (t3) only at band 3 — a world with a
    book gets its name visible BEFORE one without. */
-/* `svg.names` (census toggle "World names at every magnification") lifts
-   the band gates entirely — a lifeline for thin filters (fleets only →
-   tiny dots, unfindable without names). The recalc price of ~1050 visible
-   labels is then a deliberate choice. */
+/* `svg.names` (legend cycle "World names" → all) lifts the band gates
+   entirely — a lifeline for thin filters (fleets only → tiny dots,
+   unfindable without names). The recalc price of ~1050 visible labels is
+   then a deliberate choice. */
 .cg-chart:not(.names)[data-band="0"] .cg-lbl.t1,
 .cg-chart:not(.names)[data-band="0"] .cg-lbl.t2,
 .cg-chart:not(.names)[data-band="0"] .cg-lbl.t3,
@@ -265,6 +265,14 @@ body.cg-canvas-renderer .cg-deg {
 }
 .cg-chart.names .cg-lbl {
   opacity: 0.94;
+}
+/* `svg.names-off` (legend cycle "hidden"): a nameless chart — every label
+   off. The selected world's `.sel-on` override (opacity/display !important)
+   still wins, so the picked world keeps its name. */
+.cg-chart.names-off .cg-lbl {
+  opacity: 0;
+  pointer-events: none;
+  display: none;
 }
 .cg-chart[data-band="2"] .cg-lbl,
 .cg-chart[data-band="3"] .cg-lbl {
@@ -431,6 +439,18 @@ body.cg-canvas-renderer .cg-deg {
 .cg-w.rt-hi .cg-lbl {
   opacity: 1 !important;
 }
+/* Journey stations speak the chart's title voice: a world pulled into the
+   active route carries its name in the display face exactly like the big
+   featured names (.cg-lbl.big) — the italic body labels of the lower tiers
+   read foreign inside a tour (WM-B1 review). Also normalizes the dust
+   offset (−10px → −14px) so station names sit at one height. */
+.cg-chart .cg-w.rt-hi .cg-lbl {
+  font-family: var(--font-display);
+  font-style: normal;
+  font-size: 16px;
+  letter-spacing: var(--track-08);
+  transform: scale(var(--cg-ik, 1)) translateY(-14px);
+}
 .cg-chart .cg-w.rt-hi,
 .cg-chart .cg-w.sel-on {
   opacity: 1 !important;
@@ -461,15 +481,17 @@ body.cg-canvas-renderer .cg-deg {
 .cg-arm-target:is(:hover, .is-selected) {
   opacity: 1;
 }
+/* Strategic destinations are station names — they carry the display face
+   like the chart's planet names (mixed case: Cormorant SC sets its own
+   small caps), gold keeps them apart from the bone world labels. */
 .cg-arm-target-label {
   fill: var(--cl-gold);
   stroke: color-mix(in srgb, var(--cl-ink) 92%, transparent);
   stroke-width: 2.4px;
   paint-order: stroke fill;
-  font-family: var(--font-mono);
-  font-size: 7.2px;
-  letter-spacing: var(--track-16);
-  text-transform: uppercase;
+  font-family: var(--font-display);
+  font-size: 9px;
+  letter-spacing: var(--track-08);
   pointer-events: none;
 }
 .cg-arm-target.is-selected .cg-arm-target-label {
@@ -763,31 +785,9 @@ body.cg-canvas-renderer .cg-deg {
   color: var(--cl-bone);
   font-weight: var(--fw-regular);
 }
-.cg-overture .hint {
-  margin-top: 24px;
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  letter-spacing: var(--track-30);
-  color: var(--cl-faint);
-  text-transform: uppercase;
-}
-.cg-overture .hint .dot {
-  color: var(--cl-gold);
-  animation: cgHintDot 2.4s ease-in-out infinite;
-}
-@keyframes cgHintDot {
-  0%,
-  100% {
-    opacity: 0.35;
-  }
-  50% {
-    opacity: 1;
-  }
-}
 .cg-overture .over,
 .cg-overture h1,
-.cg-overture .edition,
-.cg-overture .hint {
+.cg-overture .edition {
   opacity: 0;
   transform: translateY(12px);
   animation: cgEnter 1s var(--ease) forwards;
@@ -797,9 +797,6 @@ body.cg-canvas-renderer .cg-deg {
 }
 .cg-overture .edition {
   animation-delay: 0.28s;
-}
-.cg-overture .hint {
-  animation-delay: 0.5s;
 }
 @keyframes cgEnter {
   to {
@@ -817,7 +814,7 @@ body.cg-canvas-renderer .cg-deg {
   pointer-events: auto;
   opacity: 0;
   transform: translateY(12px);
-  animation: cgEnter 1s var(--ease) 0.62s forwards;
+  animation: cgEnter 1s var(--ease) 0.45s forwards;
 }
 
 /* The route's single SR status region (world panel + tour steps) — the
@@ -857,7 +854,7 @@ body.cg-canvas-renderer .cg-deg {
     opacity 0.9s var(--ease) 0.25s,
     transform 0.9s var(--ease) 0.25s;
   scrollbar-width: thin;
-  scrollbar-color: var(--cl-gold-dim) transparent;
+  scrollbar-color: var(--cl-hair) transparent;
 }
 .cg-cartouche.on {
   opacity: 1;
@@ -902,6 +899,25 @@ body.cg-canvas-renderer .cg-deg {
 :is(.cg-cartouche, .cg-sheet) .seek:focus-within {
   border-color: var(--cl-gold-dim);
 }
+/* The A–Z opener at the seek's edge: unfolds the recorded-worlds index —
+   the keyboard/AT parallel path to the pointer-only pins (S10a). */
+:is(.cg-cartouche, .cg-sheet) .sk-az {
+  flex: none;
+  background: none;
+  border: 0;
+  padding: 2px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-3xs);
+  letter-spacing: var(--track-18);
+  text-transform: uppercase;
+  color: var(--cl-faint);
+  transition: color 0.3s;
+}
+:is(.cg-cartouche, .cg-sheet) .sk-az:hover,
+:is(.cg-cartouche, .cg-sheet) .sk-az.open {
+  color: var(--cl-gold);
+}
 /* Live search: candidate list under the seek field (inline in the scrolling
    cartouche flow, its own internal scroll from ~8 rows). */
 :is(.cg-cartouche, .cg-sheet) .seeklist {
@@ -910,7 +926,7 @@ body.cg-canvas-renderer .cg-deg {
   overflow-y: auto;
   border-bottom: 1px solid var(--cl-hair-soft);
   scrollbar-width: thin;
-  scrollbar-color: var(--cl-gold-dim) transparent;
+  scrollbar-color: var(--cl-hair) transparent;
 }
 :is(.cg-cartouche, .cg-sheet) .skitem {
   display: flex;
@@ -967,7 +983,7 @@ body.cg-canvas-renderer .cg-deg {
   max-height: 288px;
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: var(--cl-gold-dim) transparent;
+  scrollbar-color: var(--cl-hair) transparent;
 }
 :is(.cg-cartouche, .cg-sheet) .cg-windex button {
   display: flex;
@@ -1055,103 +1071,166 @@ body.cg-canvas-renderer .cg-deg {
 :is(.cg-cartouche, .cg-sheet) .c-body .cgrp:last-child {
   border-bottom: 0;
 }
-/* Hint rows: reading text, not fine print. */
-:is(.cg-cartouche, .cg-sheet) .c-hint {
-  font-family: var(--font-body);
-  font-size: var(--fs-read-sm);
-  font-style: italic;
+/* Static block caption (the sheet's non-collapsing counterpart of .c-sec):
+   the open sheet IS the disclosure — journeys and legend stand directly
+   visible beneath these. */
+:is(.cg-cartouche, .cg-sheet) .c-cap {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  padding: 10px 0 9px;
+  border-bottom: 1px solid var(--cl-hair-soft);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-xs);
+  letter-spacing: var(--track-30);
+  text-transform: uppercase;
   color: var(--cl-dim);
-  line-height: 1.4;
-  margin-bottom: 6px;
 }
 :is(.cg-cartouche, .cg-sheet) .routes {
   display: flex;
   flex-direction: column;
-  gap: 1px;
 }
-:is(.cg-cartouche, .cg-sheet) .rt {
-  position: relative;
-  text-align: left;
+/* One quiet line says what a Great Journey IS before the era groups. */
+:is(.cg-cartouche, .cg-sheet) .rt-intro {
   font-family: var(--font-body);
   font-size: var(--fs-read-xs);
   font-style: italic;
+  line-height: 1.45;
   color: var(--cl-dim);
-  padding: 4px 2px 4px 20px;
+  padding: 2px 0 7px;
+  border-bottom: 1px solid var(--cl-hair-soft);
+}
+/* Great Journeys era groups: unfoldable headers over the three chart
+   editions — the c-sec grammar one level down (car glyph + label + a quiet
+   right-hand tag: journey count, or gold "active" while a closed group
+   holds the running journey). */
+:is(.cg-cartouche, .cg-sheet) .rt-era {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  width: 100%;
+  padding: 9px 2px 6px 0;
   background: none;
   border: 0;
   cursor: pointer;
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-xs);
+  letter-spacing: var(--track-26);
+  text-transform: uppercase;
+  color: var(--cl-gold);
+}
+:is(.cg-cartouche, .cg-sheet) .rt-era .car {
+  font-size: 8px;
+  color: var(--cl-faint);
+  transition:
+    transform 0.3s var(--ease),
+    color 0.3s;
+}
+:is(.cg-cartouche, .cg-sheet) .rt-era.open .car,
+:is(.cg-cartouche, .cg-sheet) .rt-era:hover .car {
+  color: var(--cl-gold);
+}
+:is(.cg-cartouche, .cg-sheet) .rt-era.open .car {
+  transform: rotate(90deg);
+}
+:is(.cg-cartouche, .cg-sheet) .rt-era .lab {
+  flex: 1;
+}
+:is(.cg-cartouche, .cg-sheet) .rt-era .tag {
+  font-size: var(--fs-label-3xs);
+  letter-spacing: var(--track-14);
+  color: var(--cl-faint);
+  white-space: nowrap;
+}
+:is(.cg-cartouche, .cg-sheet) .rt-era .tag.on {
+  color: var(--cl-gold);
+}
+/* The unfolded group opens on one line of era context. */
+:is(.cg-cartouche, .cg-sheet) .rt-era-blurb {
+  font-family: var(--font-body);
+  font-size: var(--fs-read-xs);
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--cl-dim);
+  padding: 0 0 5px 15px;
+}
+/* Journey rows: numbered atlas entries — numeral, name in the display face,
+   era tag, and a two-line teaser (the full account lives on the tour's
+   overture card). */
+:is(.cg-cartouche, .cg-sheet) .jr {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  width: 100%;
+  padding: 7px 2px 9px 0;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--cl-hair-soft);
+  cursor: pointer;
+  text-align: left;
+}
+:is(.cg-cartouche, .cg-sheet) .routes .jr:last-child {
+  border-bottom: 0;
+}
+:is(.cg-cartouche, .cg-sheet) .jr-num {
+  flex: none;
+  width: 17px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-3xs);
+  letter-spacing: var(--track-10);
+  color: var(--cl-gold-dim);
   transition: color 0.3s;
 }
-:is(.cg-cartouche, .cg-sheet) .rt::before {
-  content: "";
-  position: absolute;
-  left: 5px;
-  top: 50%;
-  width: 4px;
-  height: 4px;
-  margin: -2px 0 0 -2px;
-  background: var(--cl-faint-deco);
-  border-radius: 50%;
-  transition:
-    background 0.4s,
-    transform 0.5s var(--ease);
+:is(.cg-cartouche, .cg-sheet) .jr-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
-:is(.cg-cartouche, .cg-sheet) .rt:hover {
+:is(.cg-cartouche, .cg-sheet) .jr-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+/* Cormorant SC runs visually small — the journey name needs real size and
+   medium weight to hold its own on the glass (WM-B1 review). */
+:is(.cg-cartouche, .cg-sheet) .jr-name {
+  min-width: 0;
+  font-family: var(--font-display);
+  font-weight: var(--fw-medium);
+  font-size: 17px;
+  letter-spacing: var(--track-06);
   color: var(--cl-bone);
+  transition: color 0.3s;
 }
-:is(.cg-cartouche, .cg-sheet) .rt:hover::before {
-  background: var(--cl-gold);
-  transform: scale(1.6);
-}
-:is(.cg-cartouche, .cg-sheet) .rt.on {
-  color: var(--cl-gold);
-}
-:is(.cg-cartouche, .cg-sheet) .rt.on::before {
-  background: var(--cl-gold);
-  transform: scale(1.7);
-}
-:is(.cg-cartouche, .cg-sheet) .rt .rt-tag {
-  font-style: normal;
+:is(.cg-cartouche, .cg-sheet) .jr-tag {
+  flex: none;
   font-family: var(--font-mono);
-  font-size: var(--fs-label-3xs);
-  letter-spacing: var(--track-18);
+  font-size: var(--fs-label-2xs);
+  letter-spacing: var(--track-14);
   text-transform: uppercase;
   color: var(--cl-faint);
-  padding-left: 8px;
+  white-space: nowrap;
 }
-/* Great Journeys rows: blurb + station count beneath the name line. */
-:is(.cg-cartouche, .cg-sheet) .rt .rt-blurb {
-  display: block;
-  font-size: var(--fs-label-xs);
-  color: var(--cl-faint);
-  padding-top: 1px;
-}
-:is(.cg-cartouche, .cg-sheet) .rt.on .rt-blurb {
+:is(.cg-cartouche, .cg-sheet) .jr-blurb {
+  font-family: var(--font-body);
+  font-size: var(--fs-read-xs);
+  font-style: italic;
+  line-height: 1.45;
   color: var(--cl-dim);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
-:is(.cg-cartouche, .cg-sheet) .rt .rt-meta {
-  display: block;
-  font-style: normal;
-  font-family: var(--font-mono);
-  font-size: var(--fs-label-3xs);
-  letter-spacing: var(--track-18);
-  text-transform: uppercase;
+:is(.cg-cartouche, .cg-sheet) .jr:hover .jr-name,
+:is(.cg-cartouche, .cg-sheet) .jr:hover .jr-num,
+:is(.cg-cartouche, .cg-sheet) .jr.on .jr-name,
+:is(.cg-cartouche, .cg-sheet) .jr.on .jr-num {
   color: var(--cl-gold);
-  padding-top: 2px;
-}
-/* Disabled instrument (Nihilus off the present chart): stays in place —
-   layout-stable, discoverable — muted, no hover life; the reason sits on
-   the tag line as visible text, not a tooltip. */
-:is(.cg-cartouche, .cg-sheet) .rt.na {
-  color: var(--cl-faint);
-  cursor: default;
-}
-:is(.cg-cartouche, .cg-sheet) .rt.na:hover {
-  color: var(--cl-faint);
-}
-:is(.cg-cartouche, .cg-sheet) .rt.na:hover::before {
-  background: var(--cl-faint-deco);
-  transform: none;
 }
 
 /* ——— Era plate — the chart's edition line ————————————————————————————
@@ -1397,15 +1476,18 @@ body.cg-canvas-renderer .cg-deg {
   font-style: normal;
   color: var(--cl-faint);
 }
-.cg-census .cx {
+/* The .cx row grammar is shared by the census's population filters AND the
+   legend's overlay rows (LegendOverlays) — one legend, one column. Upright
+   bone like the census group names (the italic-dim voice drowned on the
+   glass; WM-B1 review) — italic stays the voice of sub-hints only. */
+:is(.cg-census, .cg-overlays) .cx {
   display: flex;
   width: 100%;
   align-items: center;
   gap: 7px;
   font-family: var(--font-body);
   font-size: var(--fs-read-xs);
-  font-style: italic;
-  color: var(--cl-dim);
+  color: var(--cl-bone);
   padding: 5px 0;
   border: 0;
   border-bottom: 1px solid var(--cl-hair-soft);
@@ -1414,41 +1496,73 @@ body.cg-canvas-renderer .cg-deg {
   cursor: pointer;
   transition: color 0.3s;
 }
-.cg-census .cx:hover {
+:is(.cg-census, .cg-overlays) .cx:hover {
   color: var(--cl-gold);
 }
-.cg-census .cx .pad {
+:is(.cg-census, .cg-overlays) .cx .pad {
   /* mirrors the .car width — the symbol columns of both row types align */
   width: 20px;
   flex: none;
 }
-.cg-census .cx .sym {
+:is(.cg-census, .cg-overlays) .cx .sym {
   width: 20px;
   flex: none;
   display: flex;
   align-items: center;
 }
-.cg-census .cx .lab {
+:is(.cg-census, .cg-overlays) .cx .lab {
   flex: 1;
 }
-.cg-census .cx .n {
+:is(.cg-census, .cg-overlays) .cx .n {
   font-family: var(--font-mono);
   font-size: var(--fs-label-xs);
   font-style: normal;
   color: var(--cl-faint);
 }
-.cg-census .cx.off {
+:is(.cg-census, .cg-overlays) .cx.off {
   opacity: 0.4;
 }
 /* Middle step of the zone cycle: present, but half-voiced. */
-.cg-census .cx.dim {
+:is(.cg-census, .cg-overlays) .cx.dim {
   opacity: 0.7;
 }
-.cg-census .cx.dim .sym {
+:is(.cg-census, .cg-overlays) .cx.dim .sym {
   opacity: 0.5;
 }
-.cg-census .cx.on {
+:is(.cg-census, .cg-overlays) .cx.on {
   color: var(--cl-gold);
+}
+/* Off-default state note ("dimmed" / "hidden") — gold so it cannot drown in
+   a muted row. */
+.cg-overlays .cx .st {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-3xs);
+  font-style: normal;
+  letter-spacing: var(--track-18);
+  text-transform: uppercase;
+  color: var(--cl-gold);
+  white-space: nowrap;
+}
+/* Disabled overlay (Nihilus off the present chart): stays in place —
+   layout-stable, discoverable — muted, no hover life; the reason sits on a
+   visible sub-line, not a tooltip. */
+.cg-overlays .cx.na {
+  color: var(--cl-faint);
+  cursor: default;
+}
+.cg-overlays .cx.na:hover {
+  color: var(--cl-faint);
+}
+.cg-overlays .cx.na .sym {
+  opacity: 0.55;
+}
+.cg-overlays .cx .lab .hint {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--fs-read-2xs);
+  font-style: italic;
+  color: var(--cl-faint);
+  line-height: 1.35;
 }
 
 /* World popup: glass surface, the works list scrolls internally */
@@ -1748,6 +1862,18 @@ body.cg-canvas-renderer .cg-deg {
   color: var(--cl-bone);
   margin: 2px 0 6px;
 }
+/* The window is titled by its journey — one stable .ck header across
+   overture, stations and epilogue; a step up from the base kicker so the
+   name actually reads (WM-B1 review). */
+.cg-tour .ck {
+  font-size: var(--fs-label-xl);
+  letter-spacing: var(--track-16);
+}
+/* Act text is the card's payload — near-bone instead of dim; the dim italic
+   drowned on the glass (WM-B1 review). */
+.cg-tour .ct {
+  color: color-mix(in srgb, var(--cl-bone) 78%, var(--cl-dim));
+}
 .cg-tour .cg-tour-section {
   font-family: var(--font-mono);
   font-size: var(--fs-label-3xs);
@@ -1947,11 +2073,6 @@ body.cg-canvas-renderer .cg-deg {
   color: var(--cl-gold);
   border-color: var(--cl-gold-dim);
 }
-/* Zoom presets "3×"/"6×": jump exactly to the name tiers (bands 2/3) */
-.cg-zoomer button.preset {
-  font-size: 11.5px;
-  letter-spacing: 0.05em;
-}
 .cg-readout {
   position: fixed;
   right: 72px;
@@ -1988,57 +2109,156 @@ body.cg-canvas-renderer .cg-deg {
 .cg-chart.zones-dim .cg-zone-lbl {
   opacity: 0;
 }
-.cg-zone .zshape {
-  fill: rgba(138, 104, 196, 0.1);
-  stroke: var(--cg-warp-m);
-  stroke-opacity: 0.55;
+/* Zone body (WM-B1): edge tint instead of sticker. --zc is the kind's line
+   ink (outline + label), --ze the area ink for the concentric inner bands
+   (`.zedge`, clipped to the shape in ZoneShape). Ink runs toward the
+   inside — never a glow outward. */
+.cg-zone {
+  --zc: var(--cg-warp-m);
+  --ze: #8a68c4;
+}
+.cg-zone.interdiction,
+.cg-zone.traitoris {
+  --zc: var(--cl-blood);
+  --ze: var(--cl-blood);
+}
+.cg-zone.plague {
+  --zc: #8fae4a;
+  --ze: #8fae4a;
+}
+.cg-zone.region {
+  --zc: var(--cl-gold);
+  --ze: var(--cl-gold);
+}
+.cg-zone.perditus {
+  --zc: var(--cl-bone);
+  --ze: var(--cl-bone);
+}
+.cg-zone.hive-fleet,
+.cg-zone.necron-dynasty {
+  --zc: var(--cl-cyan);
+  --ze: var(--cl-cyan);
+}
+/* Interior. Storm fields carry the chart's ground language as a dot stipple
+   (#cg-stormStipple, decor.tsx) instead of a flat fill; interdiction/plague
+   keep the portolan hatch as their exclusive voice (#cg-riftHatch /
+   #cg-plagueHatch); held/lost territory keeps only a faint wash. */
+.cg-zone .zfill {
+  fill: url(#cg-stormStipple);
+  stroke: none;
+}
+.cg-zone.interdiction .zfill {
+  fill: url(#cg-riftHatch);
+}
+.cg-zone.plague .zfill {
+  fill: url(#cg-plagueHatch);
+}
+.cg-zone.region .zfill {
+  fill: rgba(164, 140, 82, 0.035);
+}
+.cg-zone.traitoris .zfill {
+  fill: rgba(142, 59, 50, 0.045);
+}
+.cg-zone.perditus .zfill {
+  fill: rgba(228, 221, 203, 0.03);
+}
+.cg-zone.hive-fleet .zfill {
+  fill: rgba(156, 230, 255, 0.035);
+}
+.cg-zone.necron-dynasty .zfill {
+  fill: rgba(156, 230, 255, 0.02);
+}
+/* Edge tint: three concentric inner strokes (narrow ze1 = strongest at the
+   rim, wide ze3 = faintest reaching inward), widths from zoneEdgeBands(). */
+.cg-zone .zedge {
+  fill: none;
+  stroke: var(--ze);
+  stroke-linejoin: round;
+}
+.cg-zone .ze1 {
+  stroke-opacity: 0.11;
+}
+.cg-zone .ze2 {
+  stroke-opacity: 0.075;
+}
+.cg-zone .ze3 {
+  stroke-opacity: 0.045;
+}
+/* Quiet kinds: lost space and the necron dynasties tint at reduced ink;
+   warp storms join them — at Ruinstorm scale the full edge ink read as a
+   solid purple wall over the M31 east (maintainer review 2026-07-19). */
+.cg-zone.storm .ze1 {
+  stroke-opacity: 0.077;
+}
+.cg-zone.storm .ze2 {
+  stroke-opacity: 0.053;
+}
+.cg-zone.storm .ze3 {
+  stroke-opacity: 0.032;
+}
+.cg-zone.perditus .ze1 {
+  stroke-opacity: 0.066;
+}
+.cg-zone.perditus .ze2 {
+  stroke-opacity: 0.045;
+}
+.cg-zone.perditus .ze3 {
+  stroke-opacity: 0.027;
+}
+.cg-zone.necron-dynasty .ze1 {
+  stroke-opacity: 0.077;
+}
+.cg-zone.necron-dynasty .ze2 {
+  stroke-opacity: 0.053;
+}
+.cg-zone.necron-dynasty .ze3 {
+  stroke-opacity: 0.032;
+}
+/* Outline: very quiet, non-scaling on EVERY kind — one dash vocabulary per
+   kind family, constant rhythm at any magnification. Families: storm 2 5 ·
+   hazard (interdiction/plague) 3 3 · territory (region/traitoris/perditus)
+   1 6 · tyranid 1 4 · necron 4 3. */
+.cg-zone .zline {
+  fill: none;
+  stroke: var(--zc);
+  stroke-opacity: 0.4;
   stroke-width: 1;
   stroke-dasharray: 2 5;
-}
-/* Interdiction zones speak the red portolan language: 45° hatching
-   (#cg-riftHatch, defined in decor.tsx → HatchDefs, always mounted) plus a
-   dashed outline. */
-.cg-zone.interdiction .zshape {
-  fill: url(#cg-riftHatch);
-  stroke: var(--cl-blood);
-  stroke-opacity: 0.4;
-  stroke-dasharray: 3 3;
   vector-effect: non-scaling-stroke;
 }
-/* Plague zones (Scourge Stars): the same portolan hatching in Nurgle bile,
-   opposite direction (-45°, #cg-plagueHatch in decor.tsx). */
-.cg-zone.plague .zshape {
-  fill: url(#cg-plagueHatch);
-  stroke: #8fae4a;
-  stroke-opacity: 0.4;
+.cg-zone.interdiction .zline,
+.cg-zone.plague .zline {
   stroke-dasharray: 3 3;
-  vector-effect: non-scaling-stroke;
 }
-.cg-zone.region .zshape {
-  fill: rgba(164, 140, 82, 0.05);
-  stroke: var(--cl-gold);
-  stroke-opacity: 0.4;
+.cg-zone.region .zline,
+.cg-zone.traitoris .zline,
+.cg-zone.perditus .zline {
   stroke-width: 0.8;
   stroke-dasharray: 1 6;
 }
-/* Traitor-held space (the Heresy chart): region styling mirrored in blood —
-   held territory, not a storm front. No hatch, no ✠; those stay the
-   interdiction's voice. */
-.cg-zone.traitoris .zshape {
-  fill: rgba(142, 59, 50, 0.06);
-  stroke: var(--cl-blood);
-  stroke-opacity: 0.45;
-  stroke-width: 0.8;
-  stroke-dasharray: 1 6;
+.cg-zone.region .zline {
+  stroke-opacity: 0.32;
 }
-/* Zone Perditus (the Heresy chart): lost/contested space — the reference
-   map's grey, spoken in bone. */
-.cg-zone.perditus .zshape {
-  fill: rgba(228, 221, 203, 0.04);
-  stroke: var(--cl-bone);
-  stroke-opacity: 0.28;
+.cg-zone.traitoris .zline {
+  stroke-opacity: 0.35;
+}
+.cg-zone.perditus .zline {
+  stroke-opacity: 0.24;
+}
+.cg-zone.hive-fleet .zline {
   stroke-width: 0.8;
-  stroke-dasharray: 2 4;
+  stroke-dasharray: 1 4;
+  stroke-opacity: 0.32;
+}
+.cg-zone.necron-dynasty .zline {
+  stroke-width: 0.8;
+  stroke-dasharray: 4 3;
+  stroke-opacity: 0.3;
+}
+/* The invisible carrier path for arced band-shape labels (textPath). */
+.cg-zone .zarc {
+  fill: none;
+  stroke: none;
 }
 .cg-zone-lbl {
   font-family: var(--font-mono);
@@ -2050,6 +2270,10 @@ body.cg-canvas-renderer .cg-deg {
   fill: var(--cg-warp-l);
   fill-opacity: 0.85;
   transition: opacity 0.5s var(--ease);
+}
+/* Imhof: small zones earn their name only past the overview band. */
+.cg-chart[data-band="0"] .cg-zone.zsmall .cg-zone-lbl {
+  opacity: 0;
 }
 .cg-zone.interdiction .cg-zone-lbl {
   fill: var(--cl-blood);
@@ -2071,25 +2295,9 @@ body.cg-canvas-renderer .cg-deg {
   fill: var(--cl-bone);
   fill-opacity: 0.55;
 }
-/* Hive fleets + Necron dynasties speak the xenos palette:
-   ice cyan, differing stroke language. */
-.cg-zone.hive-fleet .zshape {
-  fill: rgba(156, 230, 255, 0.05);
-  stroke: var(--cl-cyan);
-  stroke-opacity: 0.4;
-  stroke-width: 0.8;
-  stroke-dasharray: 1 4;
-}
 .cg-zone.hive-fleet .cg-zone-lbl {
   fill: var(--cl-cyan);
   fill-opacity: 0.75;
-}
-.cg-zone.necron-dynasty .zshape {
-  fill: rgba(156, 230, 255, 0.03);
-  stroke: var(--cl-cyan);
-  stroke-opacity: 0.35;
-  stroke-width: 0.8;
-  stroke-dasharray: 3 3;
 }
 .cg-zone.necron-dynasty .cg-zone-lbl {
   fill: var(--cl-cyan);
@@ -2443,8 +2651,7 @@ body.cg-canvas-renderer .cg-deg {
   .cg-sel .r-dash,
   .cg-sel .r-tick,
   #cg-lumenG .lm-rim,
-  #cg-nihilusG .nh-shade,
-  .cg-overture .hint .dot {
+  #cg-nihilusG .nh-shade {
     animation: none;
   }
   .cg-inst .i-blip {
@@ -2475,7 +2682,6 @@ body.cg-canvas-renderer .cg-deg {
   .cg-overture .over,
   .cg-overture h1,
   .cg-overture .edition,
-  .cg-overture .hint,
   .cg-overture .cg-enter {
     animation: none;
     opacity: 1;
@@ -2494,18 +2700,7 @@ body.cg-canvas-renderer .cg-deg {
   }
 }
 
-/* Overture hint wording: mouse verbs by default, touch verbs on coarse
-   pointers. Both spans always render; CSS picks one. */
-.cg-overture .hint-coarse {
-  display: none;
-}
 @media (pointer: coarse) {
-  .cg-overture .hint-fine {
-    display: none;
-  }
-  .cg-overture .hint-coarse {
-    display: inline;
-  }
   /* Grown tap halos — SVG2 presentation attribute override. The visible dot
      stays its drawn size; only the invisible hit circle grows. */
   .cg-w .halo {
@@ -2540,11 +2735,12 @@ body.cg-canvas-renderer .cg-deg {
   :is(.cg-cartouche, .cg-sheet) .seek input {
     min-height: 44px;
   }
-  .cg-census .cx,
+  :is(.cg-census, .cg-overlays) .cx,
   .cg-census .crow,
   .cg-census .cgrp-h .car,
   .cg-census .cgrp-h .gname,
-  .cg-census .creset {
+  .cg-census .creset,
+  :is(.cg-cartouche, .cg-sheet) .sk-az {
     min-height: 44px;
   }
   .cg-pop .pp-works-toggle,
@@ -2679,7 +2875,6 @@ body.cg-canvas-renderer .cg-deg {
   .cg-sheet-grip {
     display: grid;
     place-items: center;
-    gap: 5px;
     min-height: 26px;
     margin: 0 -14px;
     padding: 8px 0 4px;
@@ -2688,27 +2883,16 @@ body.cg-canvas-renderer .cg-deg {
     cursor: grab;
     touch-action: none;
   }
+  /* Grabber + the dock badges carry the pull-up affordance — no label. */
   .cg-sheet-grip .bar {
     width: 30px;
     height: 3px;
     border-radius: 2px;
     background: var(--cl-gold-dim);
   }
-  /* Pull-up hint under the bar — gone once the sheet is up. */
-  .cg-sheet-grip .glab {
-    font-family: var(--font-mono);
-    font-size: var(--fs-label-3xs);
-    letter-spacing: var(--track-22);
-    text-transform: uppercase;
-    color: var(--cl-gold);
-  }
   .cg-sheet.open .cg-sheet-grip {
-    gap: 0;
     padding: 0;
     height: 26px;
-  }
-  .cg-sheet.open .cg-sheet-grip .glab {
-    display: none;
   }
   .cg-sheet-head {
     display: flex;
@@ -2762,7 +2946,7 @@ body.cg-canvas-renderer .cg-deg {
     overscroll-behavior: contain;
     min-height: 0;
     scrollbar-width: thin;
-    scrollbar-color: var(--cl-gold-dim) transparent;
+    scrollbar-color: var(--cl-hair) transparent;
     padding-top: 4px;
   }
   /* The body stays in the DOM so a grip drag can reveal it progressively:
@@ -2787,9 +2971,13 @@ body.cg-canvas-renderer .cg-deg {
     padding-top: 8px;
     padding-bottom: 8px;
   }
-  .cg-sheet .rt {
+  .cg-sheet .jr {
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 11px;
+  }
+  .cg-sheet .rt-era {
+    min-height: 44px;
+    align-items: center;
   }
   .cg-sheet .cg-census .cgrp-h {
     min-height: 44px;
@@ -2801,6 +2989,11 @@ body.cg-canvas-renderer .cg-deg {
     position: static;
     max-height: 32dvh;
   }
+  /* The A–Z index unfolds in the (non-scrolling) sheet head — cap it like
+     the seek list so the body keeps room beneath. */
+  .cg-sheet .cg-windex {
+    max-height: 32dvh;
+  }
 
   /* Course act card — one bottom-docked voyage card above the drawer dock. */
   .cg-ccard.cg-ccard--dock {
@@ -2808,10 +3001,11 @@ body.cg-canvas-renderer .cg-deg {
     right: 12px;
     width: auto;
     top: auto;
-    /* The collapsed drawer is 114px tall when its JOURNEY/FILTER badges are
-       present. Keep a deliberate 12px interaction gap so its drag grip can
-       never cover the tour actions, including on safe-area devices. */
-    bottom: calc(126px + env(safe-area-inset-bottom, 0px));
+    /* The collapsed drawer is ~98px tall when its JOURNEY/FILTER badges are
+       present (the grip lost its label line, WM-B1). Keep a deliberate 12px
+       interaction gap so its drag grip can never cover the tour actions,
+       including on safe-area devices. */
+    bottom: calc(110px + env(safe-area-inset-bottom, 0px));
   }
   .cg-legion-roster-grid {
     grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -2830,5 +3024,31 @@ body.cg-canvas-renderer .cg-deg {
   }
   .cg-tour .cg-tour-x + :is(.ck, .cg-tour-name) {
     padding-right: 44px;
+  }
+}
+
+/* ── Cartouche/sheet scrollbars: hairline, half the "thin" width ──────────
+   The gold scrollbar shouted over the legend (WM-B1 review). Standard
+   properties above carry Firefox (thin + hairline grey); where the
+   ::-webkit-scrollbar pseudo exists (Chromium/WebKit) the standard props
+   must step back to auto — Chromium ignores the pseudo styling once
+   scrollbar-width/color are set — so the 4px custom bar can apply. */
+@supports selector(::-webkit-scrollbar) {
+  .cg-cartouche,
+  .cg-sheet-body,
+  :is(.cg-cartouche, .cg-sheet) .seeklist,
+  :is(.cg-cartouche, .cg-sheet) .cg-windex {
+    scrollbar-width: auto;
+    scrollbar-color: auto;
+  }
+  :is(.cg-cartouche, .cg-sheet-body, .seeklist, .cg-windex)::-webkit-scrollbar {
+    width: 4px;
+  }
+  :is(.cg-cartouche, .cg-sheet-body, .seeklist, .cg-windex)::-webkit-scrollbar-thumb {
+    background: var(--cl-hair);
+    border-radius: 2px;
+  }
+  :is(.cg-cartouche, .cg-sheet-body, .seeklist, .cg-windex)::-webkit-scrollbar-track {
+    background: transparent;
   }
 }

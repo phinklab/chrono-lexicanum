@@ -6,10 +6,12 @@
  * counters + toggles; sub-rows fold out, every classification switches
  * individually.
  *
- * The display toggles sit together at the top ("Show on the chart"); the
+ * The population filters sit together at the top ("Population"); the
  * classification groups follow under their own caption ("By world type"),
  * ordered by population (largest first). Group order is computed from the
  * full catalog counts so it never jumps when the works-only filter flips.
+ * Together with the overlay rows above it (LegendOverlays) the census forms
+ * the chart's one interactive legend (WM-B1).
  */
 
 import { useMemo, useState } from "react";
@@ -95,7 +97,7 @@ export default function Census({
 
   return (
     <div className="cg-census">
-      <p className="chead">Show on the chart</p>
+      <p className="chead">Population</p>
       <button className={`cx${worksOnly ? " on" : ""}`} aria-pressed={worksOnly} onClick={onToggleWorksOnly}>
         <span className="pad" />
         <span className="sym">
@@ -115,13 +117,14 @@ export default function Census({
               <circle r={1.4} fill={BONE} fillOpacity={0.4} />
             </svg>
           </span>
-          <span className="lab">Star-dust: worlds without records yet</span>
+          <span className="lab">Star-dust · no records yet</span>
           <span className="n">{payload.dust.length}</span>
         </button>
       )}
-      {/* Zone fields + forced names moved to the Instruments section
-          (Session 246): they change what the chart DRAWS, not which worlds
-          populate it — the census is population + classification only. */}
+      {/* Zone fields + forced names live in the legend's overlay rows above
+          (LegendOverlays, WM-B1): they change what the chart DRAWS, not
+          which worlds populate it — the census is population +
+          classification only. */}
       <p className="chead groups">
         <span>By world type</span>
         <button

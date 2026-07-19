@@ -5,7 +5,7 @@
  * primarch in the canonical Black Library order (Lexicanum "Primarch"
  * discovery table = Fandom "Primarchs" list, identical), framed by the
  * conquest of Sol, Monarchia and Nikaea, then a closing image of the eighteen
- * Legion paths whose detailed accounts continue in The Warmaster's Web.
+ * Legion paths whose detailed accounts continue in March of the Legions.
  *
  * Ullanor rides the `armageddon` pin as a world-identity anchor, not an M31
  * coordinate: Ullanor was teleported to the later Armageddon position long
@@ -109,10 +109,10 @@ export const GREAT_CRUSADE: Voyage = {
   name: "The Great Crusade",
   tag: "M30–M31",
   mapState: "pre",
-  blurb: "From Terra's Unification to a Crusade spanning the stars: twenty rediscoveries, a triumph already cracking, and the Warmaster's final web.",
+  blurb: "From Terra's Unification to a Crusade spanning the stars: twenty rediscoveries, a triumph already cracking, and the road to civil war.",
   continuation: {
     id: "warmasters-web",
-    label: "THE WARMASTER'S WEB · HORUS HERESY",
+    label: "MARCH OF THE LEGIONS · HORUS HERESY",
   },
   cartography: {
     label: "curated chronicle",
