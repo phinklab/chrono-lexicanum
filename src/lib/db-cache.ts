@@ -79,6 +79,7 @@ export const CATALOGUE_TAGS = [
   "podcasts",
   "timeline",
   "now",
+  "statistics",
 ] as const;
 
 interface CachedReadOptions {

@@ -5,6 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { siteIndexable, siteOrigin } from "@/lib/site-url";
 import SiteMenu from "@/components/chrome/SiteMenu";
 import SiteNav from "@/components/chrome/SiteNav";
+import SkipLink from "@/components/chrome/SkipLink";
 import SiteBrand from "@/components/chrome/SiteBrand";
 import BrandBeacon from "@/components/chrome/BrandBeacon";
 import RevealObserver from "@/components/shared/RevealObserver";
@@ -101,12 +102,9 @@ export default function RootLayout({
       className={`${cormorantSC.variable} ${cardo.variable} ${fragmentMono.variable}`}
     >
       <body suppressHydrationWarning>
-        {/* Skip link: first tabbable element on every route. Visually parked
-            off-screen until keyboard-focused (10-base.css); targets the
-            per-route <main id="main" tabIndex={-1}>. */}
-        <a className="skip-link" href="#main">
-          Skip to content
-        </a>
+        {/* Skip link: first tabbable element on every route. A client island
+            (no native hash-history entry — see SkipLink.tsx). */}
+        <SkipLink />
         {/* Primary navigation: the left-edge SiteNav rail on hover-capable wide
             screens; the SiteMenu burger overlay takes over on touch / narrow
             viewports. The CSS breakpoint in 46-site-nav.css owns the hand-off,

@@ -30,6 +30,7 @@ const ENTRIES: readonly NavEntry[] = [
   { num: "IV", label: "Chronicle", href: "/timeline" },
   { num: "V", label: "Status Imperialis", href: "/now" },
   { num: "VI", label: "Cartographer", href: "/map" },
+  { num: "VII", label: "Librarium", href: "/statistics" },
 ];
 
 function isActive(pathname: string, href: string): boolean {

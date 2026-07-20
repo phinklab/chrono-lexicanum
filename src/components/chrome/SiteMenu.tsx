@@ -33,6 +33,7 @@ const ENTRIES = [
   { num: "V", label: "Chronicle", href: "/timeline" },
   { num: "VI", label: "Status Imperialis", href: "/now" },
   { num: "VII", label: "Cartographer", href: "/map" },
+  { num: "VIII", label: "Librarium", href: "/statistics" },
 ] as const;
 
 export default function SiteMenu() {
