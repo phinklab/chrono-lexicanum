@@ -19,12 +19,15 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import {
+  applyWorksFilters,
+  buildFacetPanel,
+  facetHitCounts,
   paginateWorks,
   pagerItems,
   parseWorksParams,
   WORKS_PAGE_SIZE,
 } from "../src/app/archive/filters";
-import type { BrowseBook, BrowseData } from "../src/app/archive/loader";
+import type { BrowseBook, BrowseData, BrowseFacet } from "../src/app/archive/loader";
 import { compactBrowse, inflateBrowse } from "../src/app/archive/browse-wire";
 import { DATA_ARTIFACTS, SNAPSHOT_DIR } from "./snapshot-shared";
 
@@ -117,6 +120,113 @@ test("a sub-page catalogue never paginates", () => {
   const small = paginateWorks(CATALOGUE.slice(0, 12), 1);
   assert.equal(small.totalPages, 1);
   assert.equal(small.items.length, 12);
+});
+
+// --- multi-facet contract (WA-B1) -------------------------------------------
+
+function facet(id: string, categoryId: string): BrowseFacet {
+  return { id, name: id, categoryId, categoryName: categoryId };
+}
+
+function facetBook(n: number, facets: BrowseFacet[]): BrowseBook {
+  return { ...stubBook(n), facets };
+}
+
+// tone: grimdark/hopepunk/satirical · plot_type: war_story/mystery
+const FACET_BOOKS: BrowseBook[] = [
+  facetBook(1, [facet("grimdark", "tone"), facet("war_story", "plot_type")]),
+  facetBook(2, [facet("grimdark", "tone"), facet("mystery", "plot_type")]),
+  facetBook(3, [facet("hopepunk", "tone"), facet("war_story", "plot_type")]),
+  facetBook(4, [facet("satirical", "tone")]),
+];
+
+function facetParams(facet: string | string[]) {
+  return parseWorksParams({ facet });
+}
+
+test("facet param: single, repeated, deduped and pattern-validated", () => {
+  assert.deepEqual(parseWorksParams({}).facets, []);
+  // Every pre-WA-B1 single-facet link keeps working unchanged.
+  assert.deepEqual(facetParams("grimdark").facets, ["grimdark"]);
+  assert.deepEqual(
+    facetParams(["grimdark", "war_story", "grimdark", "NOT AN ID!"]).facets,
+    ["grimdark", "war_story"],
+  );
+});
+
+test("facet semantics: OR within a category, AND across categories", () => {
+  const ids = (p: ReturnType<typeof facetParams>) =>
+    applyWorksFilters(FACET_BOOKS, p).map((b) => b.id);
+  assert.deepEqual(ids(facetParams("grimdark")), ["id-1", "id-2"]);
+  // Two tones widen (OR)…
+  assert.deepEqual(ids(facetParams(["grimdark", "hopepunk"])), ["id-1", "id-2", "id-3"]);
+  // …a tone plus a plot type narrows (AND).
+  assert.deepEqual(ids(facetParams(["grimdark", "war_story"])), ["id-1"]);
+  assert.deepEqual(ids(facetParams(["hopepunk", "mystery"])), []);
+  // A pattern-valid id no book carries filters to zero, like it always did.
+  assert.deepEqual(ids(facetParams("no_such_facet")), []);
+});
+
+test("facet hit counts ignore the chip's own category selection", () => {
+  const counts = facetHitCounts(FACET_BOOKS, facetParams("grimdark"));
+  // Tone chips stay counted over the un-throttled catalogue (OR group)…
+  assert.equal(counts.get("grimdark"), 2);
+  assert.equal(counts.get("hopepunk"), 1);
+  assert.equal(counts.get("satirical"), 1);
+  // …plot chips answer "under the tone selection".
+  assert.equal(counts.get("war_story"), 1);
+  assert.equal(counts.get("mystery"), 1);
+});
+
+test("facet hit counts mark cross-category dead ends with 0", () => {
+  const counts = facetHitCounts(FACET_BOOKS, facetParams(["grimdark", "war_story"]));
+  assert.equal(counts.get("grimdark"), 1);
+  assert.equal(counts.get("hopepunk"), 1);
+  assert.equal(counts.get("satirical") ?? 0, 0); // dead end → dimmed chip
+  assert.equal(counts.get("war_story"), 1);
+  assert.equal(counts.get("mystery"), 1);
+});
+
+test("facet panel: v1 categories only, curated exclusions, active flagged", () => {
+  const panel = buildFacetPanel(
+    [...FACET_BOOKS, facetBook(5, [facet("en", "language")])],
+    facetParams("grimdark"),
+  );
+  // `language` is not a panel category — reachable via search, not via chips.
+  assert.deepEqual(panel.map((g) => g.id), ["tone", "plot_type"]);
+  const tone = panel[0];
+  // hopepunk + satirical are curated OUT of the offered chips (review round 2)
+  // while remaining valid filter ids.
+  assert.deepEqual(tone.options.map((o) => o.id), ["grimdark"]);
+  assert.deepEqual(tone.options.map((o) => o.active), [true]);
+  assert.deepEqual(
+    applyWorksFilters(FACET_BOOKS, facetParams("satirical")).map((b) => b.id),
+    ["id-4"],
+  );
+});
+
+// --- sort directions (WA-B1 review round 2) ---------------------------------
+
+test("sort param: all four keys parse, junk falls back to title", () => {
+  assert.equal(parseWorksParams({}).sort, "title");
+  assert.equal(parseWorksParams({ sort: "release" }).sort, "release");
+  assert.equal(parseWorksParams({ sort: "release_asc" }).sort, "release_asc");
+  assert.equal(parseWorksParams({ sort: "title_desc" }).sort, "title_desc");
+  assert.equal(parseWorksParams({ sort: "sideways" }).sort, "title");
+});
+
+test("second-click sort directions invert, unknown years stay last", () => {
+  const years: Array<number | null> = [2010, null, 1999, 2020];
+  const books = years.map((y, i) => ({ ...stubBook(i + 1), releaseYear: y }));
+  const titles = (sort: string) =>
+    applyWorksFilters(books, parseWorksParams({ sort })).map((b) => b.releaseYear);
+  assert.deepEqual(titles("release"), [2020, 2010, 1999, null]);
+  assert.deepEqual(titles("release_asc"), [1999, 2010, 2020, null]);
+  const az = applyWorksFilters(books, parseWorksParams({})).map((b) => b.title);
+  const za = applyWorksFilters(books, parseWorksParams({ sort: "title_desc" })).map(
+    (b) => b.title,
+  );
+  assert.deepEqual(za, [...az].reverse());
 });
 
 // --- pagerItems --------------------------------------------------------------

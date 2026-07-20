@@ -7,12 +7,34 @@
 import { FORMAT_LABELS } from "@/lib/book-labels";
 import type { BrowseBook } from "./loader";
 
-export type SortKey = "title" | "release";
+export type SortKey = "title" | "title_desc" | "release" | "release_asc";
 
-export const SORT_OPTIONS: ReadonlyArray<{ id: SortKey; label: string }> = [
-  { id: "title", label: "Title A–Z" },
-  { id: "release", label: "Newest" },
+/** The two sort pills. A first click applies `id`; a second click on the
+ *  already-active pill flips the direction (`flip`, with its own label) and a
+ *  third flips back — `title`/`release` keep their pre-WA-B1 meaning (A–Z /
+ *  newest-first), so every existing sort link stays valid. */
+export const SORT_OPTIONS: ReadonlyArray<{
+  id: SortKey;
+  label: string;
+  flip: SortKey;
+  flipLabel: string;
+}> = [
+  { id: "title", label: "Title A–Z", flip: "title_desc", flipLabel: "Title Z–A" },
+  { id: "release", label: "Newest", flip: "release_asc", flipLabel: "Oldest" },
 ];
+
+const SORT_KEYS: ReadonlySet<string> = new Set([
+  "title",
+  "title_desc",
+  "release",
+  "release_asc",
+]);
+
+/** Shared by the server parse and the client island (which re-derives the
+ *  active sort from `useSearchParams`) — one validator, no drift. */
+export function parseSortKey(raw: string | null | undefined): SortKey {
+  return raw != null && SORT_KEYS.has(raw) ? (raw as SortKey) : "title";
+}
 
 /** Format-filter display order (mirrors the `book_format` enum intent). */
 export const FORMAT_ORDER: readonly string[] = [
@@ -31,7 +53,13 @@ export interface WorksParams {
   q: string;
   faction: string | null;
   format: string | null;
-  facet: string | null;
+  /** Multi-facet selection (WA-B1), URL-mirrored as repeated `facet` params —
+   *  `?facet=grimdark&facet=war_story` — so every combination is a shareable
+   *  link and every pre-WA-B1 single-facet link stays valid. Deduped, URL
+   *  order. Semantics: OR within one facet category, AND across categories
+   *  (standard faceted search); the category of each id is resolved from the
+   *  catalogue itself in `applyWorksFilters`. */
+  facets: string[];
   sort: SortKey;
   /** 1-based register page (server-side pagination, Launch S6). Anything
    *  unparsable normalises to 1; out-of-range is clamped in `paginateWorks`
@@ -50,11 +78,7 @@ function first(v: string | string[] | undefined): string | undefined {
   return Array.isArray(v) ? v[0] : v;
 }
 
-function parseSort(raw: string | undefined): SortKey {
-  return raw === "release" ? raw : "title";
-}
-
-/** Validators for the remaining URL params, analogous to `parseSort`.
+/** Validators for the remaining URL params, analogous to `parseSortKey`.
  *  No injection risk either way (pure in-memory filters, no SQL), but
  *  an unvalidated value would echo attacker-shaped text back into the filter
  *  links the page renders. `format` has a closed enum; faction/facet IDs are
@@ -71,6 +95,20 @@ function parseFormat(raw: string | undefined): string | null {
 function parseId(raw: string | undefined): string | null {
   const s = raw?.trim();
   return s && ID_PATTERN.test(s) ? s : null;
+}
+
+/** Every occurrence of a repeated param, validated like `parseId` and deduped
+ *  in URL order. An id that fails `ID_PATTERN` is dropped (filter off), one
+ *  that merely matches no catalogue row rides along and filters to zero —
+ *  same contract the single `facet` param always had. */
+function parseIdList(v: string | string[] | undefined): string[] {
+  const raw = v == null ? [] : Array.isArray(v) ? v : [v];
+  const out: string[] = [];
+  for (const entry of raw) {
+    const id = parseId(entry);
+    if (id && !out.includes(id)) out.push(id);
+  }
+  return out;
 }
 
 function parsePage(raw: string | undefined): number {
@@ -90,20 +128,22 @@ export function parseWorksParams(sp: {
     q: first(sp.q)?.trim() ?? "",
     faction: parseId(first(sp.faction)),
     format: parseFormat(first(sp.format)),
-    facet: parseId(first(sp.facet)),
-    sort: parseSort(first(sp.sort)),
+    facets: parseIdList(sp.facet),
+    sort: parseSortKey(first(sp.sort)),
     page: parsePage(first(sp.page)),
   };
 }
 
 export function isFiltered(p: WorksParams): boolean {
-  return Boolean(p.q || p.faction || p.format || p.facet);
+  return Boolean(p.q || p.faction || p.format || p.facets.length > 0);
 }
 
-function matches(book: BrowseBook, p: WorksParams): boolean {
+/** The non-facet filters (q / faction / format). Facet matching lives in
+ *  `applyWorksFilters` / `facetHitCounts`, which need the selection grouped by
+ *  category first. */
+function matchesBase(book: BrowseBook, p: WorksParams): boolean {
   if (p.format && book.format !== p.format) return false;
   if (p.faction && !book.factions.some((f) => f.id === p.faction)) return false;
-  if (p.facet && !book.facets.some((f) => f.id === p.facet)) return false;
   if (p.q) {
     const needle = p.q.toLowerCase();
     // Free-text search reaches across every field a visitor can also filter by
@@ -128,22 +168,244 @@ function matches(book: BrowseBook, p: WorksParams): boolean {
 }
 
 function compare(a: BrowseBook, b: BrowseBook, sort: SortKey): number {
-  if (sort === "release") {
+  if (sort === "release" || sort === "release_asc") {
+    // Unknown years sink to the end in BOTH directions — "oldest first" must
+    // not open the register with a wall of undated entries.
     if (a.releaseYear == null && b.releaseYear != null) return 1;
     if (a.releaseYear != null && b.releaseYear == null) return -1;
     if (a.releaseYear != null && b.releaseYear != null && a.releaseYear !== b.releaseYear) {
-      return b.releaseYear - a.releaseYear;
+      return sort === "release"
+        ? b.releaseYear - a.releaseYear
+        : a.releaseYear - b.releaseYear;
     }
     return a.title.localeCompare(b.title, "en");
   }
-  return a.title.localeCompare(b.title, "en");
+  const byTitle = a.title.localeCompare(b.title, "en");
+  return sort === "title_desc" ? -byTitle : byTitle;
+}
+
+/**
+ * The selected facet ids, grouped by the category each id belongs to —
+ * resolved from the catalogue itself, so the URL never needs to carry the
+ * category and the grouping cannot drift from the data. An id no catalogue
+ * row carries gets a pseudo-group of its own: it can never match, so a bogus
+ * (but pattern-valid) deep link filters to zero exactly like the single
+ * `facet` param always did.
+ */
+function groupFacetSelection(
+  books: readonly BrowseBook[],
+  ids: readonly string[],
+): Map<string, Set<string>> {
+  const groups = new Map<string, Set<string>>();
+  if (ids.length === 0) return groups;
+  const categoryByFacet = new Map<string, string>();
+  for (const b of books) {
+    for (const f of b.facets) categoryByFacet.set(f.id, f.categoryId);
+  }
+  for (const id of ids) {
+    const cat = categoryByFacet.get(id) ?? `__unknown:${id}`;
+    const set = groups.get(cat);
+    if (set) set.add(id);
+    else groups.set(cat, new Set([id]));
+  }
+  return groups;
+}
+
+function matchesFacetGroups(
+  book: BrowseBook,
+  groups: ReadonlyArray<ReadonlySet<string>>,
+): boolean {
+  return groups.every((set) => book.facets.some((f) => set.has(f.id)));
 }
 
 export function applyWorksFilters(
   books: readonly BrowseBook[],
   p: WorksParams,
 ): BrowseBook[] {
-  return books.filter((b) => matches(b, p)).sort((a, b) => compare(a, b, p.sort));
+  const groups = [...groupFacetSelection(books, p.facets).values()];
+  return books
+    .filter((b) => matchesBase(b, p) && matchesFacetGroups(b, groups))
+    .sort((a, b) => compare(a, b, p.sort));
+}
+
+/**
+ * Selection-aware hit count per facet value, always over the FULL catalogue
+ * (S6: counts never derive from the paged slice). For a chip in category C the
+ * count answers "how many register rows carry this facet under the current
+ * q/faction/format filters and every OTHER category's selection" — the
+ * standard faceted-search count: within C the semantics are OR, so C's own
+ * selection must not throttle C's chips (adding a second tone could otherwise
+ * show impossible numbers). Zero means the chip is a dead end from HERE; the
+ * rail dims it instead of hiding it.
+ *
+ * One pass over the catalogue: a book that fails the base filters counts
+ * nowhere; one that fails exactly one category's selection counts only toward
+ * that category's chips; one that fails none counts toward every visible facet
+ * it carries.
+ */
+export function facetHitCounts(
+  books: readonly BrowseBook[],
+  p: WorksParams,
+): Map<string, number> {
+  const groups = groupFacetSelection(books, p.facets);
+  const counts = new Map<string, number>();
+  for (const b of books) {
+    if (!matchesBase(b, p)) continue;
+    let failedCategory: string | null = null;
+    let failedMore = false;
+    for (const [cat, set] of groups) {
+      if (!b.facets.some((f) => set.has(f.id))) {
+        if (failedCategory !== null) {
+          failedMore = true;
+          break;
+        }
+        failedCategory = cat;
+      }
+    }
+    if (failedMore) continue;
+    for (const f of b.facets) {
+      if (failedCategory !== null && f.categoryId !== failedCategory) continue;
+      counts.set(f.id, (counts.get(f.id) ?? 0) + 1);
+    }
+  }
+  return counts;
+}
+
+/**
+ * The v1 panel categories (WA-B1), in display order. Chosen from the 11
+ * user-visible categories because they answer the questions a browsing reader
+ * (or a Reddit recommendation link) actually asks — what mood, what kind of
+ * story, whose side, where to start, how long, what it's about. Deliberately
+ * NOT in the panel: `format` (the Format dropdown already filters the richer
+ * `book_format` enum), `language` (one value — no filter power),
+ * `protagonist_class` (11 values would double the panel's height for a
+ * second-order question), `protagonist_gender` and `scope` (v2 candidates).
+ * All of them stay reachable through the search console's facet suggestions —
+ * the panel is a subset of ONE contract, not a second truth.
+ */
+export const PANEL_FACET_CATEGORIES: ReadonlyArray<{ id: string; label: string }> = [
+  { id: "tone", label: "Tone" },
+  { id: "plot_type", label: "Plot Type" },
+  { id: "pov_side", label: "POV Side" },
+  { id: "entry_point", label: "Entry Point" },
+  { id: "length_tier", label: "Length" },
+  { id: "theme", label: "Theme" },
+];
+
+/** Curated OUT of the filter panel (review round 2, Session 253): micro-niche
+ *  tones (12 + 42 of 896 books) whose chips read as noise beside the five big
+ *  ones. Still fully valid filter ids — a search pick or a shared link applies
+ *  them and shows a removable chip (`inPanel: false`); they are only never
+ *  OFFERED as panel chips. */
+export const PANEL_EXCLUDED_FACETS: ReadonlySet<string> = new Set([
+  "hopepunk",
+  "satirical",
+]);
+
+export interface FacetPanelOption {
+  id: string;
+  name: string;
+  /** Selection-aware count from `facetHitCounts` — 0 renders dimmed. */
+  count: number;
+  active: boolean;
+}
+
+export interface FacetPanelGroup {
+  id: string;
+  label: string;
+  options: FacetPanelOption[];
+}
+
+/**
+ * The facet half of the filter panel: one chip group per v1 category, options
+ * ordered by full-catalogue frequency (most common first — self-maintaining,
+ * and stable while filtering: only the displayed counts change with a
+ * selection, never the chip order). Categories the catalogue doesn't carry
+ * (or that the loader's visibility gate removed) simply don't appear.
+ */
+export function buildFacetPanel(
+  books: readonly BrowseBook[],
+  p: WorksParams,
+): FacetPanelGroup[] {
+  const catalogueCounts = new Map<string, number>();
+  const names = new Map<string, string>();
+  const categoryLabels = new Map<string, string>();
+  const byCategory = new Map<string, Set<string>>();
+  for (const b of books) {
+    for (const f of b.facets) {
+      catalogueCounts.set(f.id, (catalogueCounts.get(f.id) ?? 0) + 1);
+      names.set(f.id, f.name);
+      if (f.categoryName) categoryLabels.set(f.categoryId, f.categoryName);
+      const set = byCategory.get(f.categoryId);
+      if (set) set.add(f.id);
+      else byCategory.set(f.categoryId, new Set([f.id]));
+    }
+  }
+
+  const hitCounts = facetHitCounts(books, p);
+  const selected = new Set(p.facets);
+
+  const groups: FacetPanelGroup[] = [];
+  for (const cat of PANEL_FACET_CATEGORIES) {
+    const ids = byCategory.get(cat.id);
+    if (!ids || ids.size === 0) continue;
+    const options = [...ids]
+      .filter((id) => !PANEL_EXCLUDED_FACETS.has(id))
+      .map((id): FacetPanelOption => ({
+        id,
+        name: names.get(id) ?? id,
+        count: hitCounts.get(id) ?? 0,
+        active: selected.has(id),
+      }))
+      .sort(
+        (a, b) =>
+          (catalogueCounts.get(b.id) ?? 0) - (catalogueCounts.get(a.id) ?? 0) ||
+          a.name.localeCompare(b.name, "en"),
+      );
+    if (options.length === 0) continue;
+    groups.push({ id: cat.id, label: categoryLabels.get(cat.id) ?? cat.label, options });
+  }
+  return groups;
+}
+
+export interface ActiveFacetChip {
+  id: string;
+  name: string;
+  category: string | null;
+  /** True when a panel chip already shows this selection — the island then
+   *  skips the extra removable chip (one visible truth per selection). */
+  inPanel: boolean;
+}
+
+/** Resolve the selected facet ids to display chips (name + category), in
+ *  selection order. An id the catalogue doesn't know keeps its raw id as the
+ *  label — visible and removable, exactly like the old single-facet chip. */
+export function resolveActiveFacets(
+  books: readonly BrowseBook[],
+  ids: readonly string[],
+): ActiveFacetChip[] {
+  if (ids.length === 0) return [];
+  const panelCategories = new Set(PANEL_FACET_CATEGORIES.map((c) => c.id));
+  const byId = new Map<string, { name: string; categoryId: string; categoryName: string | null }>();
+  for (const b of books) {
+    for (const f of b.facets) {
+      if (!byId.has(f.id)) {
+        byId.set(f.id, { name: f.name, categoryId: f.categoryId, categoryName: f.categoryName });
+      }
+    }
+  }
+  return ids.map((id) => {
+    const hit = byId.get(id);
+    return hit
+      ? {
+          id,
+          name: hit.name,
+          category: hit.categoryName,
+          inPanel:
+            panelCategories.has(hit.categoryId) && !PANEL_EXCLUDED_FACETS.has(id),
+        }
+      : { id, name: id, category: null, inPanel: false };
+  });
 }
 
 export interface WorksPage {

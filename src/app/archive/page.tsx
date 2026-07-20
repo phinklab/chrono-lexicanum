@@ -18,11 +18,13 @@ import { bookSlugById, loadBrowseBooks, type BrowseBook } from "./loader";
 import { loadPodcastSearchIndex } from "./podcasts/loader";
 import {
   applyWorksFilters,
+  buildFacetPanel,
   FORMAT_ORDER,
   isFiltered,
   pagerItems,
   paginateWorks,
   parseWorksParams,
+  resolveActiveFacets,
   type WorksParams,
 } from "./filters";
 
@@ -96,19 +98,12 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
     (f) => ({ value: f, label: FORMAT_LABELS[f] ?? f }),
   );
 
-  // Resolve the active facet (if any) to a display chip.
-  let activeFacet: { id: string; name: string; category: string | null } | null =
-    null;
-  if (params.facet) {
-    for (const b of books) {
-      const hit = b.facets.find((f) => f.id === params.facet);
-      if (hit) {
-        activeFacet = { id: hit.id, name: hit.name, category: hit.categoryName };
-        break;
-      }
-    }
-    if (!activeFacet) activeFacet = { id: params.facet, name: params.facet, category: null };
-  }
+  // The filter ledger's facet half (WA-B1): chip groups for the v1 categories
+  // with selection-aware hit counts, always derived from the FULL catalogue;
+  // plus the selected ids resolved to display chips (the island renders
+  // removable chips for selections the panel can't show).
+  const facetPanel = buildFacetPanel(books, params);
+  const activeFacets = resolveActiveFacets(books, params.facets);
 
   return (
     <main id="main" tabIndex={-1} className="catalogue catalogue--werke">
@@ -153,10 +148,14 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
             <WerkeFilters
               factions={factionOptions}
               formats={formatOptions}
-              activeFacet={activeFacet}
+              facetPanel={facetPanel}
+              activeFacets={activeFacets}
             />
           )}
 
+          {/* "Clear all" lives HERE as a server link — the control line above
+              keeps a constant composition and stays centred; the census text
+              changes with every result set anyway. */}
           <p className="catalogue-census">
             <b>{filtered.length} · found</b> / {books.length} works
             {params.q && <> — for “{params.q}”</>}
@@ -164,6 +163,18 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
               <>
                 {" "}
                 · page {page} of {totalPages}
+              </>
+            )}
+            {filtering && (
+              <>
+                {" · "}
+                <Link
+                  className="catalogue-census__clear"
+                  href={`/archive${params.sort !== "title" ? `?sort=${params.sort}` : ""}`}
+                  scroll={false}
+                >
+                  Clear all
+                </Link>
               </>
             )}
           </p>
@@ -248,7 +259,7 @@ function CataloguePager({
     if (params.q) qs.set("q", params.q);
     if (params.faction) qs.set("faction", params.faction);
     if (params.format) qs.set("format", params.format);
-    if (params.facet) qs.set("facet", params.facet);
+    for (const f of params.facets) qs.append("facet", f);
     if (params.sort !== "title") qs.set("sort", params.sort);
     if (n > 1) qs.set("page", String(n));
     const s = qs.toString();

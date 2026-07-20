@@ -26,7 +26,7 @@
 | 8 | **F1-B2** — `/now` Status Imperialis | Bau (Product, M) | F1-B1 empfohlen | ✔ 251 |
 | 9 | **F3-B1** — `/statistics` Librarium-Statistiken | Bau (Product, M) | — | ✔ 252 |
 | 10 | **W3a-B1** — Charakter-Verbindungen (Ko-Okkurrenz) | Bau (Product, S–M) | — | ☐ |
-| 11 | **WA-B1** — Archiv-Facetten-Filter | Bau (Product, M) | — | ☐ |
+| 11 | **WA-B1** — Archiv-Facetten-Filter | Bau (Product, M) | — | ✔ 253 |
 | 11b | **WP-B1** — Arthas-Moloch-Kartenlink (+ Pin-Name) | Bau (Batches, XS–S) | Excel-Zeile Philipp | ☐ |
 | 12 | **Koordinations-Rollup** — Brain + sessions/README | Doku | jederzeit möglich, spätestens vor 13 | ☐ |
 | 13 | **S7b** — Player/Chrome/Assets | Qualitätspass | 1–11b abgeschlossen | ☐ |
