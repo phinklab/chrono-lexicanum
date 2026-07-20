@@ -53,7 +53,7 @@ export async function fetchBrowseBooksLive(): Promise<BrowseData> {
           with: {
             facetValue: {
               columns: { id: true, name: true, categoryId: true },
-              with: { category: { columns: { name: true } } },
+              with: { category: { columns: { name: true, visibleToUsers: true } } },
             },
           },
         },
@@ -90,7 +90,15 @@ export async function fetchBrowseBooksLive(): Promise<BrowseData> {
       .sort((a, b) => a.name.localeCompare(b.name, "en"));
 
     const facets: BrowseFacet[] = w.facets
-      .filter((wf) => isVisibleFacetCategory(wf.facetValue.categoryId))
+      // Both visibility gates (WA-B1): the central content-warning retirement
+      // (`isVisibleFacetCategory`) AND the per-category DB switch
+      // (`facet_categories.visible_to_users`) — flipping the column now
+      // actually removes a category from every browse surface.
+      .filter(
+        (wf) =>
+          isVisibleFacetCategory(wf.facetValue.categoryId) &&
+          wf.facetValue.category?.visibleToUsers !== false,
+      )
       .map((wf) => ({
         id: wf.facetValue.id,
         name: wf.facetValue.name,

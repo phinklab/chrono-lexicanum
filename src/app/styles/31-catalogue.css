@@ -203,6 +203,18 @@ main.catalogue {
   color: var(--cl-dim);
   font-weight: var(--fw-regular);
 }
+/* Census "Clear all" (/archive, WA-B1) — server link in the browse-clear
+   idiom; sits at the line's end only while a filter is active. */
+.catalogue-census__clear {
+  color: var(--cl-dim);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--cl-hair);
+  transition: color 180ms;
+}
+.catalogue-census__clear:hover {
+  color: var(--cl-gold);
+}
 
 /* The register — flat list, no column header, no era interleaves. */
 .catalogue-list {

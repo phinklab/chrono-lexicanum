@@ -7,10 +7,12 @@ import FilterSelect from "@/components/browse/FilterSelect";
 import {
   characterFocusHref,
   factionFocusHref,
+  parseSortKey,
   primarchFocusHref,
   SORT_OPTIONS,
   worldFocusHref,
-  type SortKey,
+  type ActiveFacetChip,
+  type FacetPanelGroup,
   type Suggestion,
 } from "./filters";
 
@@ -31,28 +33,46 @@ type Option = { value: string; label: string };
  * (Home renders the same console in navigate-mode.) The console owns the
  * combobox mechanics; this island owns the routing semantics.
  *
- * Two rows by design: the prominent query console over a quieter row of facet
- * controls (Faction / Format / Sort). The dropdowns are the on-brand
- * `FilterSelect` (ARIA listbox), not native `<select>`.
+ * Under the console sits ONE constant control line — the sort pills (a second
+ * click on the active pill flips its direction) and a "Filters" disclosure.
+ * Its composition never changes with state ("Clear all" is a server link in
+ * the census line, the trigger's count numeral has a reserved slot), so
+ * toggling a filter never shifts the layout above the register and the line
+ * stays exactly centred. The disclosure opens the filter ledger (WA-B1):
+ * hairline rows in
+ * the register's own language — Faction, Format, then the v1 facet categories
+ * as chip rows (`buildFacetPanel`; OR within a row, AND across rows; active
+ * chips carry × and a re-click deselects). Selections made elsewhere (search
+ * picks from off-panel categories, old links) get a removable chip row of
+ * their own inside the ledger; the closed trigger sums everything as a gold
+ * count, so no active filter is ever invisible.
  */
 export default function WerkeFilters({
   factions,
   formats,
-  activeFacet,
+  facetPanel,
+  activeFacets,
 }: {
   factions: Option[];
   formats: Option[];
-  activeFacet: { id: string; name: string; category: string | null } | null;
+  facetPanel: FacetPanelGroup[];
+  activeFacets: ActiveFacetChip[];
 }) {
   const router = useRouter();
   const pathname = usePathname();
   const params = useSearchParams();
 
-  const sort: SortKey = params.get("sort") === "release" ? "release" : "title";
+  const sort = parseSortKey(params.get("sort"));
   const faction = params.get("faction") ?? "";
   const format = params.get("format") ?? "";
-  const facet = params.get("facet");
+  const facets = params.getAll("facet");
   const qParam = params.get("q") ?? "";
+
+  // Whether the filter ledger is unfolded. Starts closed — the register opens
+  // tidy — and deliberately NOT URL state: how the console is folded is
+  // browsing ergonomics, not part of the shareable view. The trigger's gold
+  // count keeps deep-linked selections visible while closed.
+  const [panelOpen, setPanelOpen] = useState(false);
 
   // Local mirror of the search box so typing doesn't replace the URL on every
   // keystroke; the URL updates on submit (Enter) or on picking a suggestion.
@@ -66,7 +86,7 @@ export default function WerkeFilters({
     setQ(qParam);
   }
 
-  const anyFilter = Boolean(qParam || faction || format || facet);
+  const filterCount = facets.length + (faction ? 1 : 0) + (format ? 1 : 0);
 
   function commit(next: URLSearchParams) {
     const qs = next.toString();
@@ -79,6 +99,19 @@ export default function WerkeFilters({
     else next.delete(key);
     // Any filter/sort/query change re-derives the result set — a page number
     // held over from the previous view would point into the void (S6 pager).
+    next.delete("page");
+    commit(next);
+  }
+
+  /** Rewrite the repeated `facet` params: toggle flips `id`, add-only keeps an
+   *  already-selected id selected (a search pick must never REMOVE a filter). */
+  function writeFacets(id: string, mode: "toggle" | "add") {
+    const has = facets.includes(id);
+    if (mode === "add" && has) return;
+    const next = new URLSearchParams(params.toString());
+    next.delete("facet");
+    for (const f of facets) if (f !== id) next.append("facet", f);
+    if (!has) next.append("facet", id);
     next.delete("page");
     commit(next);
   }
@@ -106,7 +139,7 @@ export default function WerkeFilters({
       case "faction":
         // A faction picked in the SEARCH jumps to the faction hub (popup over the
         // Compendium directory, books AND podcasts) — consistent with Home and
-        // /podcasts. The "Faction" dropdown below stays the in-place list filter.
+        // /podcasts. The "Faction" row in the ledger stays the in-place filter.
         setQ("");
         router.push(factionFocusHref(s.value));
         break;
@@ -125,8 +158,10 @@ export default function WerkeFilters({
         router.push(worldFocusHref(s.value));
         break;
       case "facet":
+        // ADDS to the multi-facet selection (WA-B1) — a pick narrows, it never
+        // silently replaces what the visitor already combined.
         setQ("");
-        setParam("facet", s.value);
+        writeFacets(s.value, "add");
         break;
       case "format":
         setQ("");
@@ -148,11 +183,11 @@ export default function WerkeFilters({
     setParam("q", null);
   }
 
-  function clearAll() {
-    const next = new URLSearchParams();
-    if (sort !== "title") next.set("sort", sort);
-    commit(next);
-  }
+  // Selections the ledger's chip rows can't show (a search pick from an
+  // off-panel category, a curated-out id, a stale deep link) — they get a
+  // removable chip row of their own. Panel selections stay visible ON their
+  // panel chip: one visible truth per selection.
+  const offPanelFacets = activeFacets.filter((c) => !c.inPanel);
 
   return (
     <div className="browse-filters" role="group" aria-label="Browse the archive">
@@ -165,64 +200,124 @@ export default function WerkeFilters({
       />
 
       <div className="browse-controls">
-        <FilterSelect
-          label="Faction"
-          value={faction}
-          allLabel="All factions"
-          options={factions}
-          onChange={(v) => setParam("faction", v)}
-        />
-        <FilterSelect
-          label="Format"
-          value={format}
-          allLabel="All formats"
-          options={formats}
-          onChange={(v) => setParam("format", v)}
-        />
-
         <div className="browse-sort" role="group" aria-label="Sort">
-          <span className="browse-sort__label" aria-hidden>
-            Sort
-          </span>
           {SORT_OPTIONS.map((o) => {
-            const isActive = sort === o.id;
+            const isActive = sort === o.id || sort === o.flip;
+            const flipped = sort === o.flip;
             return (
               <button
                 key={o.id}
                 type="button"
                 className={`browse-pill${isActive ? " active" : ""}`}
                 aria-pressed={isActive}
-                onClick={() => setParam("sort", o.id === "title" ? null : o.id)}
+                onClick={() => {
+                  // Second click on the active pill flips the direction.
+                  const next = isActive ? (flipped ? o.id : o.flip) : o.id;
+                  setParam("sort", next === "title" ? null : next);
+                }}
               >
-                {o.label}
+                {flipped ? o.flipLabel : o.label}
               </button>
             );
           })}
         </div>
 
-        {activeFacet && (
-          <button
-            type="button"
-            className="browse-facet-chip"
-            onClick={() => setParam("facet", null)}
-            title="Clear facet filter"
-          >
-            <span className="browse-facet-chip__key">
-              {activeFacet.category ?? "Facet"}:
-            </span>{" "}
-            {activeFacet.name}
-            <span className="browse-facet-chip__x" aria-hidden>
-              ×
-            </span>
-          </button>
-        )}
+        <span className="browse-controls__sep" aria-hidden />
 
-        {anyFilter && (
-          <button type="button" className="browse-clear" onClick={clearAll}>
-            Clear all
-          </button>
-        )}
+        {/* The line's composition never changes with filter state (the count
+            is a fixed-width numeral slot in the trigger; "Clear all" lives in
+            the census line as a server link) — it stays perfectly centred
+            under the console and never shifts. */}
+        <button
+          type="button"
+          className="browse-filters-toggle"
+          aria-expanded={panelOpen}
+          onClick={() => setPanelOpen((o) => !o)}
+        >
+          Filters
+          <span className="browse-filters-toggle__count">
+            {filterCount > 0 ? filterCount : ""}
+          </span>
+          <span className="browse-filters-toggle__caret" aria-hidden>
+            ▾
+          </span>
+        </button>
       </div>
+
+      {panelOpen && (
+        <div className="filter-ledger" role="group" aria-label="Filter the register">
+          <div className="filter-ledger__row">
+            <FilterSelect
+              label="Faction"
+              value={faction}
+              allLabel="All factions"
+              options={factions}
+              onChange={(v) => setParam("faction", v)}
+            />
+          </div>
+          <div className="filter-ledger__row">
+            <FilterSelect
+              label="Format"
+              value={format}
+              allLabel="All formats"
+              options={formats}
+              onChange={(v) => setParam("format", v)}
+            />
+          </div>
+
+          {facetPanel.map((g) => (
+            <div key={g.id} className="filter-ledger__row" role="group" aria-label={g.label}>
+              <span className="filter-ledger__label">{g.label}</span>
+              <span className="filter-ledger__chips">
+                {g.options.map((o) => (
+                  <button
+                    key={o.id}
+                    type="button"
+                    className={`facet-chip${o.active ? " is-active" : ""}${
+                      o.count === 0 && !o.active ? " is-void" : ""
+                    }`}
+                    aria-pressed={o.active}
+                    onClick={() => writeFacets(o.id, "toggle")}
+                  >
+                    {o.name}
+                    <span className="facet-chip__count">{o.count}</span>
+                    {o.active && (
+                      <span className="facet-chip__x" aria-hidden>
+                        ×
+                      </span>
+                    )}
+                  </button>
+                ))}
+              </span>
+            </div>
+          ))}
+
+          {offPanelFacets.length > 0 && (
+            <div className="filter-ledger__row" role="group" aria-label="Other active filters">
+              <span className="filter-ledger__label">Other</span>
+              <span className="filter-ledger__chips">
+                {offPanelFacets.map((c) => (
+                  <button
+                    key={c.id}
+                    type="button"
+                    className="browse-facet-chip"
+                    onClick={() => writeFacets(c.id, "toggle")}
+                    title="Clear facet filter"
+                  >
+                    <span className="browse-facet-chip__key">
+                      {c.category ?? "Facet"}:
+                    </span>{" "}
+                    {c.name}
+                    <span className="browse-facet-chip__x" aria-hidden>
+                      ×
+                    </span>
+                  </button>
+                ))}
+              </span>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

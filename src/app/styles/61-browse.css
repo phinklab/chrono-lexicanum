@@ -378,6 +378,152 @@
   color: var(--cl-gold);
 }
 
+/* /archive control line (WA-B1): sort pills · hairline sep · Filters trigger —
+   one symmetric composition whose parts never come or go with filter state
+   ("Clear all" lives in the census line), so it sits exactly centred under
+   the console. Scoped: the compendium keeps the wider shared gap. */
+.catalogue--werke .browse-controls {
+  gap: 16px 18px;
+}
+.browse-controls__sep {
+  align-self: center;
+  width: 1px;
+  height: 15px;
+  background: var(--cl-hair);
+}
+
+/* Filters disclosure (WA-B1) — the whole refinement block folds behind this
+   one trigger in the FilterSelect idiom (hairline underline + caret); a gold
+   numeral sums the active filters while the ledger is closed. */
+.browse-filters-toggle {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--cl-hair);
+  color: var(--cl-dim);
+  font-family: var(--font-body);
+  font-size: 14px;
+  letter-spacing: var(--track-24);
+  text-transform: uppercase;
+  padding: 4px 4px 5px;
+  cursor: pointer;
+  transition: border-color 0.3s, color 0.3s;
+}
+.browse-filters-toggle:hover,
+.browse-filters-toggle[aria-expanded="true"] {
+  color: var(--cl-bone);
+  border-bottom-color: var(--cl-gold);
+}
+/* Always-rendered 1ch slot: the numeral appearing must not nudge the centred
+   control line sideways. */
+.browse-filters-toggle__count {
+  display: inline-block;
+  min-width: 1ch;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-xs);
+  color: var(--cl-gold);
+}
+.browse-filters-toggle__caret {
+  font-size: var(--fs-label);
+  line-height: var(--lh-solid);
+  color: var(--cl-gold);
+  transition: transform 180ms;
+}
+.browse-filters-toggle[aria-expanded="true"] .browse-filters-toggle__caret {
+  transform: rotate(180deg);
+}
+
+/* Filter ledger (WA-B1) — the unfolded refinement block in the register's own
+   language: quiet hairline rows, a mono label column, then the control or the
+   chip set. Gold only on state — no glow, no naked text buttons. */
+.filter-ledger {
+  width: min(760px, 94vw);
+  border-top: 1px solid var(--cl-hair);
+}
+.filter-ledger__row {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 9px 2px;
+  border-bottom: 1px solid var(--cl-hair-soft);
+}
+.filter-ledger__label {
+  flex: none;
+  width: 104px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-xs);
+  letter-spacing: var(--track-24);
+  text-transform: uppercase;
+  color: var(--cl-faint);
+}
+/* The Faction/Format rows reuse FilterSelect untouched; inside the ledger its
+   label joins the mono label column so all rows align. */
+.filter-ledger .filter-select__label {
+  flex: none;
+  width: 104px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-xs);
+  letter-spacing: var(--track-24);
+  color: var(--cl-faint);
+}
+.filter-ledger .filter-select {
+  flex: 1;
+  min-width: 0;
+  gap: 16px;
+}
+.filter-ledger__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  min-width: 0;
+}
+.facet-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--cl-hair);
+  color: var(--cl-dim);
+  padding: 3px 8px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: var(--track-14);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 180ms, border-color 180ms, opacity 180ms;
+}
+.facet-chip:hover {
+  color: var(--cl-bone);
+  border-color: color-mix(in srgb, var(--cl-gold) 45%, transparent);
+}
+.facet-chip.is-active {
+  color: var(--cl-gold);
+  border-color: color-mix(in srgb, var(--cl-gold) 55%, transparent);
+}
+/* Zero hits from HERE: dimmed, never hidden — the register's answer to a
+   dead-end click is the honest empty state, not a vanished option. */
+.facet-chip.is-void {
+  opacity: 0.35;
+}
+.facet-chip__count {
+  font-size: var(--fs-label-xs);
+  color: var(--cl-faint);
+}
+.facet-chip.is-active .facet-chip__count {
+  color: inherit;
+}
+/* The deselect affordance: an active chip announces that the next click
+   removes it, mirroring the summary chip's ×. */
+.facet-chip__x {
+  font-size: var(--fs-label-md);
+  line-height: var(--lh-solid);
+}
+
 @media (max-width: 720px) {
   .browse-search {
     width: 100%;
@@ -427,6 +573,35 @@
   .browse-pill {
     padding: 10px 6px;
   }
+  /* Archive-only (the grid above still lays out the compendium controls):
+     the /archive control line is sort + Filters trigger + Clear all — a
+     centred wrapping line, no grid. */
+  .catalogue--werke .browse-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 16px;
+  }
+  /* When the line wraps on a narrow phone the sep would strand at a row end. */
+  .browse-controls__sep {
+    display: none;
+  }
+  /* Ledger rows stack on phones: mono label above a full-width control or a
+     wrapping chip set (the global .filter-select column rules above already
+     stretch the dropdowns). */
+  .filter-ledger__row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    padding: 10px 2px;
+  }
+  .filter-ledger .filter-select {
+    gap: 6px;
+  }
+  .filter-ledger__label,
+  .filter-ledger .filter-select__label {
+    width: auto;
+  }
 }
 
 /* S8 touch targets: >=44px controls on coarse pointers only (plan S8 P6) —
@@ -447,5 +622,14 @@
   .browse-clear {
     min-height: 44px;
     padding: 0 8px;
+  }
+  .facet-chip {
+    min-height: 44px;
+    align-items: center;
+    padding: 4px 12px;
+  }
+  .browse-filters-toggle {
+    min-height: 44px;
+    align-items: center;
   }
 }

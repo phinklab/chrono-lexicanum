@@ -2,7 +2,7 @@
  * Public book-browse data layer — DB-FREE façade (Launch S1b Loader-Weiche).
  *
  * This is the lean, visitor-facing book-browse loader: it loads exactly what
- * the public filters (`q`, `faction`, `format`, `facet`, `sort`), the row
+ * the public filters (`q`, `faction`, `format`, repeated `facet`, `sort`), the row
  * rendering and the typeahead index need — no drift / alias / junction-gap /
  * SSOT audit machinery, and (since Launch S6) none of the fields the browse
  * surface never renders (synopsis, cover, setting dates, page count, era id,
