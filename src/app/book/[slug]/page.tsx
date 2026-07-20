@@ -120,7 +120,9 @@ export default async function BookPage({
             : {}),
         }}
       />
-      <SiteBackground variant="vista" position="50% 22%" />
+      {/* No photo backdrop on the full-page book view (Philipp, Session 251)
+          — "none" keeps the vignette + grain over the plain void. */}
+      <SiteBackground variant="none" />
       <BookDetailView book={book} />
     </main>
   );

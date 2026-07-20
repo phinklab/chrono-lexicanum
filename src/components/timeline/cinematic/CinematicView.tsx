@@ -28,6 +28,7 @@ import {
   useRef,
   useState,
 } from "react";
+import Link from "next/link";
 import type { ChronicleChip, ChronicleEraData } from "@/lib/chronicle/loadTimeline";
 import { ERA_ART_CREDITS } from "@/lib/chronicle/eraArtCredits";
 import { EVENT_ART } from "@/lib/chronicle/eventArt";
@@ -770,10 +771,20 @@ export default function CinematicView({
           <p className="t-tagline">
             {next ? next.tagline : "The chronicle ends here — for now."}
           </p>
+          {/* After the final era the chronicle hands over to the archive's
+              present: Status Imperialis is the primary continuation, the
+              return-to-start loop drops to a minor action beneath it. */}
+          {!next && (
+            <Link className="terminus-btn" href="/now">
+              <span className="tb-lab">CONTINUE TO</span>
+              <span className="tb-name">STATUS IMPERIALIS — THE PRESENT</span>
+              <span className="tb-arrow">→</span>
+            </Link>
+          )}
           <button
             ref={terminusBtnRef}
             type="button"
-            className="terminus-btn"
+            className={`terminus-btn${next ? "" : " terminus-btn--minor"}`}
             onClick={() => onGotoEra(nextIdx, 0)}
           >
             <span className="tb-lab">{next ? "NEXT ERA" : "RETURN TO"}</span>

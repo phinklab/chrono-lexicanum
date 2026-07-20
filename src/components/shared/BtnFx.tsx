@@ -5,6 +5,10 @@ import SternwarteRings from "./SternwarteRings";
  * blooming out of the origin dot on hover, plus three survey stars that
  * radiate forward. Pure decoration, CSS-driven (42-lex-primitives.css);
  * render as the last child of the button/link.
+ *
+ * HOUSE RULE (Philipp, Session 251): every `.lx-btn` built anywhere on the
+ * site ships WITH this component — the dot-bloom hover is part of the button,
+ * not an optional garnish. A bare `.lx-btn` without `<BtnFx />` is a bug.
  */
 export default function BtnFx() {
   return (

@@ -71,7 +71,7 @@ function abbrevAuthor(name: string): string {
   return `${parts[0][0]}. ${last}`;
 }
 
-type HookRow = {
+export type HookRow = {
   role: string;
   displayLabel: string | null;
   work: {
@@ -85,7 +85,7 @@ type HookRow = {
   series: { id: string; name: string } | null;
 };
 
-function buildChip(
+export function buildChip(
   hook: HookRow,
   shows: Map<string, { slug: string; title: string }>,
 ): ChronicleChip | null {

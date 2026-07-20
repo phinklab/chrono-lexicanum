@@ -17,12 +17,18 @@ type NavEntry = {
   href: string;
 };
 
+/**
+ * The rail lists the tools only — no "Home" (Philipp, Session 251): the
+ * scrolled-in BrandBeacon (top-left dot) is the way back, and the burger
+ * overlay still carries Home for touch. Status Imperialis sits between
+ * Chronicle and Cartographer — time, now, space.
+ */
 const ENTRIES: readonly NavEntry[] = [
-  { num: "I", label: "Home", href: "/" },
-  { num: "II", label: "Archive", href: "/archive" },
-  { num: "III", label: "Compendium", href: "/compendium" },
-  { num: "IV", label: "Curator", href: "/ask" },
-  { num: "V", label: "Chronicle", href: "/timeline" },
+  { num: "I", label: "Archive", href: "/archive" },
+  { num: "II", label: "Compendium", href: "/compendium" },
+  { num: "III", label: "Curator", href: "/ask" },
+  { num: "IV", label: "Chronicle", href: "/timeline" },
+  { num: "V", label: "Status Imperialis", href: "/now" },
   { num: "VI", label: "Cartographer", href: "/map" },
 ];
 
