@@ -18,13 +18,21 @@ import { useEffect, useRef, useState } from "react";
  * (covers the same-route click, where the pathname effect would never fire).
  */
 
+/**
+ * The overlay keeps "Home" deliberately: the top-left wordmark was retired
+ * 2026-07-08 with exactly this menu as the designated Home carrier, and the
+ * BrandBeacon only fades in after scrolling. Otherwise the set matches the
+ * desktop rail (SiteNav) — Status Imperialis between Chronicle and
+ * Cartographer: time, now, space (Philipp, Session 251).
+ */
 const ENTRIES = [
   { num: "I", label: "Home", href: "/" },
   { num: "II", label: "Archive", href: "/archive" },
   { num: "III", label: "Compendium", href: "/compendium" },
   { num: "IV", label: "Curator", href: "/ask" },
   { num: "V", label: "Chronicle", href: "/timeline" },
-  { num: "VI", label: "Cartographer", href: "/map" },
+  { num: "VI", label: "Status Imperialis", href: "/now" },
+  { num: "VII", label: "Cartographer", href: "/map" },
 ] as const;
 
 export default function SiteMenu() {

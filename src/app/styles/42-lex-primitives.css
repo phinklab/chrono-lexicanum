@@ -4,6 +4,18 @@
    prose with a versal opening line, honest mono status lines, the cogitator
    interstitial and the Imprimatur foot. Tokens from 00-tokens.css. */
 
+/* HOUSE RULE — masthead fold (Philipp, Session 251).
+   Every route landing that opens over the fixed SiteBackground art uses ONE
+   masthead geometry: a ~92vh flex act with the copy DOCKED AT THE FOLD
+   (justify-content: flex-end; ~8vh bottom padding) — the art breathes in the
+   blank space above, the title becomes readable at the fold, and a
+   route-cue hands off into the first content act. Voice stack: gold
+   over-line (0.4em caps + `enter`), display heading (`enterTitle`), italic
+   edition line, cue at margin-top 5vh; all with the dark text-shadows.
+   Implementations to copy: .catalogue-hero (31), .cmp-hero (66),
+   .hub-act--splash (50), .now-hero (57). A new page does NOT invent its own
+   top spacing. */
+
 /* Entry stagger (stilled by the global reduced-motion kill in 10-base.css). */
 @keyframes lxRise {
   from {
@@ -140,7 +152,10 @@
 /* Button — the Sternwarte. No frame; the dot before the label is the
    origin. On hover the dot expands, hairline rings bloom out of it (BtnFx.tsx
    supplies the SVG; two planets ride the turning rings) and three survey
-   stars radiate forward, then glimmer. Works without BtnFx too. */
+   stars radiate forward, then glimmer. HOUSE RULE (Philipp, Session 251):
+   every .lx-btn anywhere on the site renders <BtnFx /> as its last child —
+   the graceful degradation without it exists for robustness, not as a
+   licence to omit it. */
 .lx-btn {
   position: relative;
   z-index: 0;

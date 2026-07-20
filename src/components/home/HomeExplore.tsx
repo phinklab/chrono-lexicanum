@@ -109,6 +109,13 @@ const BANDS: Band[] = [
       },
       {
         n: "X",
+        title: "Status Imperialis",
+        desc: "When is now? Where the story stands in M42.",
+        gloss: "STATVS · IMPERIALIS",
+        href: "/now",
+      },
+      {
+        n: "XI",
         title: "Cartographer",
         desc: "Every novel pinned to the world it haunts.",
         gloss: "CARTOGRAPHIA",

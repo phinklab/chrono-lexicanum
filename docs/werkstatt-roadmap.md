@@ -5,7 +5,7 @@
 ## Spielregeln (jede Session)
 
 - **Eine Session pro Posten.** Frische CC-Session, Prompt aus dem passenden Block unten einfügen.
-- Koordinations-Worktree (`C:\Users\Phil\chrono-lexicanum`, E8), frischer Branch von `origin/main`; Branch-Name steht im Prompt (`NNN` = nächste freie Session-Nummer — vorher `sessions/` auf die höchste Nummer prüfen, Lehre aus der Kollision, die PR #268 auflösen musste; Stand 2026-07-20: nächste freie Nummer **251**).
+- Koordinations-Worktree (`C:\Users\Phil\chrono-lexicanum`, E8), frischer Branch von `origin/main`; Branch-Name steht im Prompt (`NNN` = nächste freie Session-Nummer — vorher `sessions/` auf die höchste Nummer prüfen, Lehre aus der Kollision, die PR #268 auflösen musste; Stand 2026-07-20: nächste freie Nummer **252**).
 - **Kein Commit/PR, bis Philipp „fertig" sagt.** Philipp merged selbst; „ist gemerged" → Standard-Cleanup (Merge verifizieren, `fetch --prune`, zurück auf `main`, Task-Branch löschen).
 - Bewertungsrunden fassen keinen Produktcode an. Bei Urteil **bauen** wird der Zuschnitt in der Runde besprochen; sehr kleine Posten dürfen nach Absprache direkt in derselben Session umgesetzt werden, wenn sie strang-rein bleiben.
 - UI-Abnahme durch Philipp im Browser, keine Headless-Loops. Gates pro PR: `typecheck`, `lint`, `test`, `next build`; `brain:lint` wenn `brain/**` berührt.
@@ -23,7 +23,7 @@
 | 5 | **WM** — Map-UI-Rework (Cartouche/Instrumente) | Bewertung | W3b-B1+B2 gebaut | ✔ 248 |
 | 6 | **WM-B1** — Map-UI-Rework: Neuordnung nach Aufgaben | Bau (Product, M) | WM | ✔ 249 |
 | 7 | **F1-B1** — M42-Nachdatierung | Bau (Batches, S–M) | — | ✔ 250 |
-| 8 | **F1-B2** — `/now` Status Imperialis | Bau (Product, M) | F1-B1 empfohlen | ☐ |
+| 8 | **F1-B2** — `/now` Status Imperialis | Bau (Product, M) | F1-B1 empfohlen | ✔ 251 |
 | 9 | **F3-B1** — `/statistics` Librarium-Statistiken | Bau (Product, M) | — | ☐ |
 | 10 | **W3a-B1** — Charakter-Verbindungen (Ko-Okkurrenz) | Bau (Product, S–M) | — | ☐ |
 | 11 | **WA-B1** — Archiv-Facetten-Filter | Bau (Product, M) | — | ☐ |
@@ -216,7 +216,7 @@ Umfang:
 - Kopf: Stat-Tiles (Bücher, Autoren, Podcast-Episoden + Gesamtstunden, Welten, Events — Zahlen live aus der DB, nichts hartkodieren).
 - 7 Charts: Publikationskurve pro Erscheinungsjahr gestapelt nach Format; Autoren-Liga (Top 15 mit Karriere-Spanne); Fraktions-Präsenz (Top-Fraktionen nach Buchzahl); Charakter-Leaderboard (Abdeckungs-Caveat dezent); meistbeschriebene Welten; Rating-Verteilung (Quelle Goodreads + Abdeckung ehrlich ausweisen); Setting-vs.-Erscheinung-Scatter (kuratierte Teilmenge, Confidence-Farben H/M/L — Wording lokal definieren, s. W4-Backlog; Punktzahl aus den Daten).
 - Nicht im Scope: Seiten-/Serien-Auswertungen (pageCount 0/896, series_id 8/896), Availability, Chart-Library.
-- Anbindung: Burger-Eintrag (nächste freie Ziffer; VII ist durch /now verplant), Sitemap, OG-Metadaten mit Blick auf Reddit-Teilbarkeit.
+- Anbindung: Nav-Eintrag (nächste freie Ziffer — Stand nach 251: Rail hat 6 Punkte ohne Home, Burger 7 mit Home; /now sitzt zwischen Chronicle und Cartographer), Sitemap, OG-Metadaten mit Blick auf Reddit-Teilbarkeit.
 
 UI-Abnahme durch Philipp im Browser, keine Headless-Loops. Branch: codex/product-librarium-statistics. Kein Commit/PR, bis ich „fertig" sage. Danach Fahrplan-Haken in docs/werkstatt-roadmap.md.
 ```

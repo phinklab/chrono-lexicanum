@@ -454,6 +454,11 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
     } else if (h.era) {
       dispatch({ type: "setEra", era: h.era });
     }
+    // Overlay deep-links (/now's divided-galaxy CTA): both instruments start
+    // known-off (initialState), so a toggle raises them. The nihilus guard
+    // stays with the reducer — a link onto a pre-rift chart keeps no shade.
+    if (h.lumen) dispatch({ type: "toggleLumen" });
+    if (h.nihilus) dispatch({ type: "toggleNihilus" });
     if (h.cam && bus.driver) bus.driver.setCamRel(h.cam.gx, h.cam.gy, h.cam.kr);
     if (h.world && source.peek(h.world)) {
       dispatch({ type: "condense" });
@@ -477,6 +482,11 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
   useEffect(() => {
     if (restored.current) writeMapHash({ era: state.era });
   }, [state.era]);
+
+  useEffect(() => {
+    if (restored.current)
+      writeMapHash({ lumen: state.lumen, nihilus: state.nihilus });
+  }, [state.lumen, state.nihilus]);
 
   useEffect(() => {
     if (restored.current) writeMapHash({ voyage: voyageId });

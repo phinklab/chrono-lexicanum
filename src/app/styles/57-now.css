@@ -1,0 +1,464 @@
+/* 57-now.css — Status Imperialis (/now).
+   Route-scoped (imported by src/app/now/page.tsx only). Speaks the site's
+   Sternwarte grammar: warm void, hairlines, mono rubrics, matte gold — no
+   glow, no framed buttons. Tokens from 00-tokens.css; shared primitives
+   (lx-sect, lx-prose, lx-stat, lx-btn, lx-rise, reveal) from
+   42-lex-primitives.css. */
+
+.now-shell {
+  position: relative;
+  min-height: 100vh;
+  padding: 0 24px;
+}
+
+/* ---- Masthead — the house fold rule ------------------------------------ */
+/* Same idiom as .catalogue-hero (31) / .cmp-hero (66): a ~92vh act with the
+   copy DOCKED AT THE FOLD, so the fixed art breathes above the title.
+   See 42-lex-primitives.css § "Masthead fold" for the rule itself. */
+
+.now-hero {
+  position: relative;
+  overflow-x: clip;
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  padding: 0 20px 8vh;
+}
+.now-hero__over,
+.now-hero__heading,
+.now-hero__edition,
+.now-hero .route-cue--flow {
+  position: relative;
+  z-index: 3;
+}
+.now-hero__over {
+  margin: 0;
+  font-size: var(--fs-label-xl);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--cl-gold);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
+  animation: enter 1s 0.15s var(--ease) both;
+}
+.now-hero__heading {
+  margin: 18px 0 0;
+  font-family: var(--font-display);
+  font-weight: var(--font-display-wght-hero);
+  /* Optical tuning only — "Status Imperialis" runs longer than the sibling
+     mastheads' one-worders; the act geometry above is the invariant. */
+  font-size: clamp(42px, 6.4vw, 92px);
+  line-height: var(--lh-solid);
+  letter-spacing: var(--font-display-track);
+  color: var(--cl-bone);
+  text-shadow: 0 2px 26px rgba(0, 0, 0, 0.85);
+  animation: enterTitle 1.35s 0.4s var(--ease) both;
+}
+.now-hero__edition {
+  margin: 20px 0 0;
+  font-style: italic;
+  font-size: 19.5px;
+  max-width: 58ch;
+  color: var(--cl-dim);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
+  animation: enter 1s 0.85s var(--ease) both;
+}
+.now-hero__edition em {
+  color: var(--cl-bone);
+}
+/* The question stands on its own line beneath the sentence. */
+.now-hero__edition-q {
+  display: block;
+  margin-top: 8px;
+}
+.now-hero .route-cue--flow {
+  margin-top: 5vh;
+  animation: enter 1s 1.2s var(--ease) both;
+}
+
+/* ---- Answer act — readable first, Imperial stamp beneath --------------- */
+
+.now-answer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.now-answer__line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+}
+.now-answer__plain {
+  max-width: 22ch;
+  font-family: var(--font-display);
+  font-weight: var(--font-display-wght);
+  font-size: clamp(30px, 5vw, 54px);
+  line-height: var(--lh-title);
+  letter-spacing: var(--font-display-track);
+  color: var(--cl-bone);
+}
+.now-answer__kicker {
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-xs);
+  letter-spacing: var(--track-30);
+  text-transform: uppercase;
+  color: var(--cl-faint);
+}
+/* The Imperial stamp — deliberately prominent beneath the plain year. */
+.now-answer__date {
+  font-family: var(--font-display);
+  font-weight: var(--font-display-wght);
+  font-size: clamp(36px, 5.4vw, 64px);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: var(--cl-gold);
+}
+
+.now-answer__frame {
+  margin: clamp(26px, 4.5vh, 40px) 0 0;
+  max-width: 62ch;
+  font-family: var(--font-body);
+  font-size: var(--fs-read);
+  line-height: var(--lh-read);
+  color: var(--cl-dim);
+}
+
+/* The honesty box — borderless plate, blood-tinted rubric. */
+.now-incertum {
+  margin: clamp(36px, 6vh, 60px) auto 0;
+  max-width: 560px;
+  padding: 20px 26px 22px;
+  text-align: center;
+  background: var(--cl-plate);
+}
+.now-incertum__kicker {
+  margin: 0 0 10px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-xs);
+  letter-spacing: var(--track-30);
+  text-transform: uppercase;
+  color: var(--cl-blood-text);
+}
+.now-incertum__text {
+  margin: 0;
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: var(--fs-read-sm);
+  line-height: var(--lh-read);
+  color: var(--cl-dim);
+}
+
+/* ---- Acts (shared section shell) -------------------------------------- */
+
+.now-act {
+  position: relative;
+  max-width: 940px;
+  margin: 0 auto;
+  padding: clamp(56px, 9vh, 96px) 0 0;
+}
+
+.now-act__lede {
+  max-width: 62ch;
+  margin: 0 auto 34px;
+  text-align: center;
+}
+.now-act__lede em {
+  color: var(--cl-bone);
+}
+
+/* ---- Era context ------------------------------------------------------- */
+
+.now-era {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.now-era__m {
+  margin: 0 0 4px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-md);
+  letter-spacing: var(--track-34);
+  text-transform: uppercase;
+  color: var(--cl-gold-dim);
+}
+.now-era__name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: var(--font-display-wght);
+  font-size: clamp(28px, 4.4vw, 44px);
+  letter-spacing: var(--font-display-track);
+  color: var(--cl-bone);
+}
+.now-era__intro {
+  max-width: 58ch;
+  margin: 18px 0 0;
+}
+.now-era__link {
+  margin: 20px 0 0;
+}
+
+/* ---- The divided Imperium (curated prose) ------------------------------ */
+
+.now-twin {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(28px, 5vw, 56px);
+}
+.now-twin__half {
+  min-width: 0;
+}
+.now-twin__name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: var(--font-display-wght);
+  font-size: clamp(21px, 2.6vw, 27px);
+  letter-spacing: var(--font-display-track);
+  color: var(--cl-gold);
+}
+.now-twin__tag {
+  margin: 6px 0 14px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-xs);
+  letter-spacing: var(--track-20);
+  text-transform: uppercase;
+  color: var(--cl-faint);
+}
+.now-twin__text {
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* Centered act-level CTA (the map deep-link under the twin prose). */
+.now-act__cta {
+  margin: clamp(26px, 4.5vh, 40px) 0 0;
+  text-align: center;
+}
+
+/* ---- Event spine ------------------------------------------------------- */
+
+.now-events {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.now-event {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: clamp(20px, 3.5vw, 36px);
+  padding: clamp(24px, 4vh, 36px) 0;
+  border-top: 1px solid var(--cl-hair-soft);
+}
+.now-event:last-child {
+  border-bottom: 1px solid var(--cl-hair-soft);
+}
+
+.now-event__plate {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 1px solid var(--cl-hair);
+  background: var(--cl-void-2);
+}
+.now-event__plate img {
+  object-fit: cover;
+  /* Muted plate — the artwork is a marginal illustration here, not the
+     Chronicle's full-bleed stage. */
+  filter: saturate(0.82) brightness(0.88);
+}
+.now-event__plate--void {
+  background:
+    linear-gradient(135deg, transparent 48%, var(--cl-hair-soft) 49%, transparent 52%),
+    var(--cl-void-2);
+}
+
+.now-event__body {
+  min-width: 0;
+}
+.now-event__date {
+  margin: 0 0 6px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: var(--track-18);
+  text-transform: uppercase;
+  color: var(--cl-gold-dim);
+}
+.now-event__tier {
+  margin-right: 8px;
+  color: var(--cl-gold);
+}
+.now-event__title {
+  margin: 0 0 10px;
+  font-family: var(--font-display);
+  font-weight: var(--font-display-wght);
+  font-size: clamp(21px, 2.8vw, 27px);
+  letter-spacing: var(--font-display-track);
+  color: var(--cl-bone);
+}
+.now-event__blurb {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-read-sm);
+  line-height: var(--lh-read);
+  color: var(--cl-dim);
+}
+
+.now-event__media {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  margin: 14px 0 0;
+  padding: 0;
+}
+.now-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 5px 11px;
+  border: 1px solid var(--cl-hair);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-2xs);
+  letter-spacing: var(--track-10);
+  transition: border-color 180ms, color 180ms;
+}
+.now-chip__kind {
+  color: var(--cl-gold-dim);
+  letter-spacing: var(--track-18);
+}
+.now-chip__title {
+  color: var(--cl-dim);
+  transition: color 180ms;
+}
+.now-chip__meta {
+  color: var(--cl-faint);
+}
+a.now-chip:hover,
+a.now-chip:focus-visible {
+  border-color: var(--cl-gold-dim);
+}
+a.now-chip:hover .now-chip__title,
+a.now-chip:focus-visible .now-chip__title {
+  color: var(--cl-bone);
+}
+.now-chip--inert {
+  opacity: 0.75;
+}
+
+/* ---- Book registry ----------------------------------------------------- */
+
+.now-books {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.now-books li + li .now-book {
+  border-top: 1px solid var(--cl-hair-soft);
+}
+
+.now-book {
+  display: grid;
+  /* Wide enough for the curated approximate labels ("the road to
+     Armageddon's fourth war"), which WRAP inside their column — they must
+     never run into the title (see .now-book__date). */
+  grid-template-columns: 168px 1fr auto;
+  align-items: baseline;
+  gap: 10px 22px;
+  padding: 13px 10px;
+  text-decoration: none;
+  transition: background 200ms;
+}
+.now-book:hover,
+.now-book:focus-visible {
+  background: var(--cl-plate);
+}
+.now-book__date {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-2xs);
+  letter-spacing: var(--track-10);
+  text-transform: uppercase;
+  color: var(--cl-gold-dim);
+  line-height: 1.5;
+}
+.now-book__main {
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+}
+.now-book__title {
+  font-family: var(--font-body);
+  font-size: var(--fs-read-sm);
+  color: var(--cl-bone);
+  transition: color 200ms;
+}
+.now-book:hover .now-book__title,
+.now-book:focus-visible .now-book__title {
+  color: var(--cl-gold);
+}
+.now-book__author {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: var(--fs-read-xs);
+  color: var(--cl-faint);
+}
+.now-book__conf {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-3xs);
+  letter-spacing: var(--track-18);
+  text-transform: uppercase;
+  color: var(--cl-faint);
+}
+
+/* ---- Phone ------------------------------------------------------------- */
+
+@media (max-width: 720px) {
+  .now-shell {
+    padding: 0 18px;
+  }
+  .now-twin {
+    grid-template-columns: 1fr;
+  }
+  .now-twin__text {
+    text-align: left;
+    hyphens: none;
+  }
+  .now-event {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .now-event__plate {
+    aspect-ratio: 21 / 9;
+  }
+  .now-book {
+    grid-template-columns: 1fr auto;
+    padding: 13px 4px;
+  }
+  .now-book__date {
+    order: 1;
+  }
+  .now-book__conf {
+    order: 2;
+  }
+  .now-book__main {
+    order: 0;
+    grid-column: 1 / -1;
+  }
+}
+
+/* S8 touch targets: registry rows stay ≥44px through their padding. */
+@media (pointer: coarse) {
+  .now-book {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}

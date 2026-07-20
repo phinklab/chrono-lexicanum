@@ -636,6 +636,20 @@
   border: none;
   padding: 14px 32px;
   cursor: pointer;
+  /* The final era renders this as a <Link> (→ /now) too. */
+  text-decoration: none;
+}
+/* Final-era hand-off: the /now link is the primary continuation, the
+   return-to-start loop drops to a quiet second line beneath it. */
+.chron .terminus-btn--minor .tb-lab {
+  color: var(--steel);
+}
+.chron .terminus-btn--minor .tb-name {
+  font-size: clamp(14px, 1.4vw, 17px);
+  color: var(--parchment-dim);
+}
+.chron .terminus-btn--minor .tb-arrow {
+  display: none;
 }
 .chron .terminus-btn .tb-lab {
   font-family: var(--font-mono);

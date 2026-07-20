@@ -98,7 +98,14 @@ assert.deepEqual(visibleZones("hh", fixture).map((z) => z.id), ["b"], "unpublish
 
 assert.deepEqual(
   parseMapHashString("#world=terra&era=hh&cam=500,400,2"),
-  { world: "terra", era: "hh", voyage: null, cam: { gx: 500, gy: 400, kr: 2 } },
+  {
+    world: "terra",
+    era: "hh",
+    voyage: null,
+    cam: { gx: 500, gy: 400, kr: 2 },
+    lumen: false,
+    nihilus: false,
+  },
   "full hash parses",
 );
 assert.equal(parseMapHashString("#era=pre").era, "pre", "era pre parses");
@@ -128,8 +135,23 @@ assert.deepEqual(
     era: "pre",
     voyage: "great-crusade",
     cam: { gx: 500, gy: 400, kr: 2 },
+    lumen: false,
+    nihilus: false,
   },
   "voyage coexists with world, era and cam",
 );
+
+/* --- hash: overlay flags (Session 251, /now divided-galaxy link) ---------- */
+
+assert.equal(parseMapHashString("#lumen=1").lumen, true, "lumen=1 raises");
+assert.equal(parseMapHashString("#nihilus=1").nihilus, true, "nihilus=1 raises");
+assert.equal(
+  parseMapHashString("#lumen=1&nihilus=1").nihilus,
+  true,
+  "both overlays coexist",
+);
+assert.equal(parseMapHashString("#lumen=true").lumen, false, "only =1 counts");
+assert.equal(parseMapHashString("#nihilus=0").nihilus, false, "=0 stays off");
+assert.equal(parseMapHashString("#world=terra").lumen, false, "absent lumen stays off");
 
 console.log("test-map-zones: all assertions passed");

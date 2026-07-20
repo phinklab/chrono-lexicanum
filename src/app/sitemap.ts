@@ -42,6 +42,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/archive",
     "/archive/podcasts",
     "/timeline",
+    "/now",
     "/map",
     "/ask",
     "/artwork",
