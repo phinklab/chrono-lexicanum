@@ -1,0 +1,1014 @@
+/* 60-statistics.css — Librarium (/statistics).
+   Route-scoped (imported by src/app/statistics/page.tsx only). Speaks the
+   site grammar: warm void, hairlines, mono rubrics, matte gold — no glow, no
+   framed buttons. Tokens from 00-tokens.css; shared primitives (lx-sect,
+   lx-prose, reveal) from 42-lex-primitives.css.
+
+   Chart palette: the site tokens are deliberately desaturated and fail as
+   chart categoricals, so the marks below are chart-grade OKLCH steps derived
+   IN the house hues (gold 85°, blood 25°, lumen 210°, plus olive/blue) and
+   machine-validated 2026-07-20 with the dataviz palette validator against
+   the bg-0 surface (#06080c):
+     · stack five  #ae8935 #3f7234 #2a98af #a34945 #526fb2 — all checks PASS
+       (doubles as the podcast show stack, same fixed order)
+     · allegiance  #ae8935 #a34945 #2a98af (all pairs)     — all checks PASS
+   Identity is never color-alone: every chart carries a legend and full text
+   tooltips/labels. */
+
+.libr-shell {
+  position: relative;
+  min-height: 100vh;
+  padding: 0 24px;
+
+  /* Publication stack, in FORMAT_GROUPS order (fixed, never cycled). */
+  --libr-c-novel: #ae8935;
+  --libr-c-novella: #3f7234;
+  --libr-c-short: #2a98af;
+  --libr-c-audio: #a34945;
+  --libr-c-collected: #526fb2;
+
+  /* Faction allegiance. */
+  --libr-c-imperium: #ae8935;
+  --libr-c-chaos: #a34945;
+  --libr-c-xenos: #2a98af;
+
+  /* Single-series marks + the part-to-whole tint (pov vs. appears). */
+  --libr-c-gold: #ae8935;
+  --libr-c-gold-faint: color-mix(in oklch, #ae8935 32%, transparent);
+}
+
+/* ---- Masthead — the house fold rule ------------------------------------ */
+
+.libr-hero {
+  position: relative;
+  overflow-x: clip;
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  padding: 0 20px 8vh;
+}
+.libr-hero__over,
+.libr-hero__heading,
+.libr-hero__edition,
+.libr-hero .route-cue--flow {
+  position: relative;
+  z-index: 3;
+}
+.libr-hero__over {
+  margin: 0;
+  font-size: var(--fs-label-xl);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--cl-gold);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
+  animation: enter 1s 0.15s var(--ease) both;
+}
+.libr-hero__heading {
+  margin: 18px 0 0;
+  font-family: var(--font-display);
+  font-weight: var(--font-display-wght-hero);
+  font-size: clamp(48px, 7.2vw, 104px);
+  line-height: var(--lh-solid);
+  letter-spacing: var(--font-display-track);
+  color: var(--cl-bone);
+  text-shadow: 0 2px 26px rgba(0, 0, 0, 0.85);
+  animation: enterTitle 1.35s 0.4s var(--ease) both;
+}
+.libr-hero__edition {
+  margin: 20px 0 0;
+  font-style: italic;
+  font-size: 19.5px;
+  max-width: 58ch;
+  color: var(--cl-dim);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
+  animation: enter 1s 0.85s var(--ease) both;
+}
+.libr-hero__edition em {
+  color: var(--cl-bone);
+}
+.libr-hero__edition-q {
+  display: block;
+  margin-top: 8px;
+}
+.libr-hero .route-cue--flow {
+  margin-top: 5vh;
+  animation: enter 1s 1.2s var(--ease) both;
+}
+
+/* ---- Acts (shared section shell) --------------------------------------- */
+
+.libr-act {
+  position: relative;
+  max-width: 940px;
+  margin: 0 auto;
+  padding: clamp(56px, 9vh, 96px) 0 0;
+  /* Chapter jumps land clear of the sticky running head, with air. */
+  scroll-margin-top: 76px;
+}
+
+/* Sub-chart kicker inside two-column acts. */
+.libr-kicker {
+  margin: 0 0 12px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-xs);
+  letter-spacing: var(--track-24);
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--cl-gold-dim);
+}
+/* Small hairline chip in front of a kicker — marks the vox sub-blocks as
+   podcast material at a glance. */
+.libr-kicker__tag {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 2px 7px 1px;
+  border: 1px solid var(--cl-hair);
+  letter-spacing: var(--track-18);
+  color: var(--cl-faint);
+}
+.libr-kicker--roster {
+  margin: 34px 0 2px;
+}
+
+/* Two boards side by side (plot/protagonist, vox banners/figures). */
+.libr-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 4vw, 48px);
+  align-items: start;
+}
+.libr-duo > div {
+  min-width: 0;
+}
+.libr-duo--pushed {
+  margin-top: clamp(36px, 6vh, 56px);
+}
+
+/* ---- Chapter navigation (LibrariumNav) ---------------------------------- */
+
+/* Two garments, one nav. ≥1180px: the chapter MARGINALIA — the mirror of the
+   site rail (46-site-nav.css): the site's rooms stand to the left of the
+   page, this book's chapters to its right, in the same hand (numeral +
+   running title, gold rubric plumb on the current chapter — scroll-spy).
+   Below 1180px: a RUNNING HEAD — a slim sticky glass line naming the current
+   chapter, unfolding into the full table of contents (dotted leaders, the
+   title-page idiom). */
+
+/* The nav element itself carries the sticky (the head alone could never
+   stick — a sticky child can only travel within its parent's box, and the
+   nav is exactly head-tall). On desktop it collapses to a static, zero-
+   height shell around the fixed rail. */
+.libr-nav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  margin: 24px -24px 0;
+}
+
+.libr-nav__num {
+  font-family: var(--font-mono);
+  letter-spacing: var(--track-10);
+  color: var(--cl-faint-deco);
+  transition: color 0.3s;
+}
+
+/* The marginalia rail — hidden until the site rail's own breakpoint. */
+.libr-nav__rail {
+  display: none;
+}
+
+@media (min-width: 1180px) {
+  .libr-nav {
+    position: static;
+    z-index: auto;
+    margin: 0;
+  }
+  .libr-nav__rail {
+    position: fixed;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 13px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .libr-nav__head {
+    display: none;
+  }
+}
+
+.libr-nav__link {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 11px;
+  text-decoration: none;
+}
+/* Rubric stroke — the site rail's gold plumb, mirrored into the right margin. */
+.libr-nav__link::after {
+  content: "";
+  position: absolute;
+  right: -13px;
+  top: 50%;
+  width: 1px;
+  height: 0;
+  background: var(--cl-gold);
+  transform: translateY(-50%);
+  transition:
+    height 0.5s var(--ease),
+    background 0.3s;
+}
+.libr-nav__link:hover::after,
+.libr-nav__link:focus-visible::after {
+  height: 10px;
+  background: var(--cl-hair);
+}
+.libr-nav__link.is-current::after {
+  height: 20px;
+  background: var(--cl-gold);
+}
+.libr-nav__title {
+  font-family: var(--font-body);
+  font-size: var(--fs-label-md);
+  letter-spacing: var(--track-18);
+  text-transform: uppercase;
+  color: var(--cl-faint);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
+  white-space: nowrap;
+  transition:
+    color 0.3s,
+    letter-spacing 0.5s var(--ease);
+}
+.libr-nav__link:hover .libr-nav__title,
+.libr-nav__link:focus-visible .libr-nav__title {
+  color: var(--cl-bone);
+}
+.libr-nav__link.is-current .libr-nav__title {
+  color: var(--cl-gold);
+  letter-spacing: var(--track-24);
+}
+.libr-nav__rail .libr-nav__num {
+  width: 26px;
+  flex: none;
+  font-size: var(--fs-label-xs);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
+}
+.libr-nav__link.is-current .libr-nav__num {
+  color: var(--cl-gold);
+}
+
+/* The running head — glass line, full-bleed against the shell padding
+   (the sticky itself sits on .libr-nav above). */
+.libr-nav__head {
+  position: relative;
+  background: color-mix(in srgb, #06080c 86%, transparent);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--cl-hair-soft);
+}
+/* A fixed 64px band with centered content: the fixed corner chrome (brand
+   beacon left, burger right) lives in the top ~60px — the head aligns to
+   that band instead of floating above it, and the side paddings keep both
+   corners clear (beacon ends x≈66, the burger icon starts ≈54 from the
+   right edge). */
+.libr-nav__summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  height: 64px;
+  padding: 0 calc(72px + env(safe-area-inset-right, 0px)) 0
+    calc(76px + env(safe-area-inset-left, 0px));
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.libr-nav__summary::-webkit-details-marker {
+  display: none;
+}
+.libr-nav__word {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-2xs);
+  letter-spacing: var(--track-24);
+  text-transform: uppercase;
+  color: var(--cl-gold-dim);
+}
+.libr-nav__caret {
+  width: 5px;
+  height: 5px;
+  border-right: 1px solid var(--cl-gold-dim);
+  border-bottom: 1px solid var(--cl-gold-dim);
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.35s var(--ease);
+}
+.libr-nav__head[open] .libr-nav__caret {
+  transform: rotate(-135deg) translateY(-1px);
+}
+.libr-nav__current {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 9px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-2xs);
+  letter-spacing: var(--track-14);
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--cl-dim);
+}
+.libr-nav__current .libr-nav__num {
+  color: var(--cl-gold);
+}
+
+/* The unfolded table of contents — near-solid glass sheet under the head. */
+.libr-nav__sheet {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 8px calc(24px + env(safe-area-inset-right, 0px)) 14px
+    calc(24px + env(safe-area-inset-left, 0px));
+  background: rgba(6, 8, 12, 0.97);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--cl-hair);
+  max-height: calc(100vh - 110px);
+  overflow-y: auto;
+  animation: librSheet 0.35s var(--ease) both;
+}
+@keyframes librSheet {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.libr-nav__row {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 10px 2px;
+  text-decoration: none;
+}
+.libr-nav__row-title {
+  font-family: var(--font-body);
+  font-size: var(--fs-read-sm);
+  color: var(--cl-dim);
+  transition: color 0.2s;
+}
+/* Dotted leader between title and numeral — the title-page idiom. */
+.libr-nav__leader {
+  flex: 1;
+  border-bottom: 1px dotted var(--cl-faint-deco);
+  transform: translateY(-4px);
+  opacity: 0.7;
+}
+.libr-nav__row .libr-nav__num {
+  font-size: var(--fs-label-2xs);
+  color: var(--cl-gold-dim);
+}
+.libr-nav__row:hover .libr-nav__row-title,
+.libr-nav__row:focus-visible .libr-nav__row-title,
+.libr-nav__row.is-current .libr-nav__row-title {
+  color: var(--cl-gold);
+}
+.libr-nav__row.is-current .libr-nav__num {
+  color: var(--cl-gold);
+}
+
+.libr-lede {
+  max-width: 62ch;
+  margin: 0 auto 30px;
+  text-align: center;
+}
+.libr-lede em {
+  color: var(--cl-bone);
+}
+
+/* Coverage footnotes — telemetry voice, honest and quiet. */
+.libr-foot {
+  margin: 14px 0 0;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-2xs);
+  letter-spacing: var(--track-10);
+  color: var(--cl-faint);
+}
+.libr-foot--center {
+  text-align: center;
+}
+
+/* ---- The Holdings — linked tiles --------------------------------------- */
+
+.libr-tiles {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+.libr-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  height: 100%;
+  padding: 22px 12px 20px;
+  text-align: center;
+  text-decoration: none;
+  background: var(--cl-plate);
+  transition: background 200ms;
+}
+.libr-tile:hover,
+.libr-tile:focus-visible {
+  background: var(--panel-hover);
+}
+.libr-tile__value {
+  font-family: var(--font-display);
+  font-weight: var(--font-display-wght);
+  font-size: clamp(32px, 4vw, 44px);
+  line-height: var(--lh-solid);
+  color: var(--cl-bone);
+  transition: color 200ms;
+}
+.libr-tile:hover .libr-tile__value,
+.libr-tile:focus-visible .libr-tile__value {
+  color: var(--cl-gold);
+}
+.libr-tile__label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-2xs);
+  letter-spacing: var(--track-18);
+  text-transform: uppercase;
+  color: var(--cl-gold-dim);
+}
+.libr-tile__sub {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: var(--fs-read-2xs);
+  color: var(--cl-faint);
+}
+
+/* ---- Chart shell + SVG vocabulary -------------------------------------- */
+
+.libr-figure {
+  margin: 0;
+}
+/* Phones scroll the plot sideways instead of shrinking its type. */
+.libr-scroll {
+  overflow-x: auto;
+}
+.libr-svg {
+  display: block;
+  width: 100%;
+  min-width: 680px;
+  height: auto;
+}
+
+.libr-grid {
+  stroke: var(--cl-hair-soft);
+}
+.libr-axis {
+  stroke: var(--cl-hair);
+}
+.libr-tick {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  fill: var(--cl-faint);
+}
+.libr-note {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  fill: var(--cl-dim);
+}
+/* Slice hover — exactly the slice under the cursor brightens; its native
+   <title> names year, count and medium. The transparent stroke widens each
+   slice's hit area so one-book slivers stay hoverable. */
+.libr-slice {
+  stroke: transparent;
+  stroke-width: 3;
+  paint-order: stroke;
+  transition: filter 150ms;
+}
+.libr-slice:hover {
+  filter: brightness(1.32);
+}
+
+/* Trend line ("Better with Age?") — gold line, ringed dots, hover brighten. */
+.libr-trend__line {
+  fill: none;
+  stroke: var(--libr-c-gold);
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+.libr-trend__dot {
+  fill: var(--libr-c-gold);
+  stroke: #06080c;
+  stroke-width: 2;
+  transition: filter 150ms;
+}
+.libr-trend__hit {
+  fill: transparent;
+}
+.libr-pt:hover .libr-trend__dot {
+  filter: brightness(1.3);
+}
+
+/* Median / mean rules on the histogram. */
+.libr-rule line {
+  stroke: var(--cl-bone);
+  stroke-dasharray: 2 3;
+  opacity: 0.65;
+}
+.libr-rule text {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  fill: var(--cl-bone);
+}
+.libr-rule--dim line {
+  stroke: var(--cl-faint);
+}
+.libr-rule--dim text {
+  fill: var(--cl-faint);
+}
+
+/* ---- Legend ------------------------------------------------------------- */
+
+.libr-legend {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 22px;
+  margin: 0 0 18px;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-2xs);
+  letter-spacing: var(--track-14);
+  text-transform: uppercase;
+  color: var(--cl-dim);
+}
+.libr-legend__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.libr-legend__swatch {
+  width: 10px;
+  height: 10px;
+  flex: none;
+}
+.libr-legend__swatch--hollow {
+  background: transparent;
+  border: 1.5px solid;
+}
+
+/* ---- Leaderboards ------------------------------------------------------- */
+
+.libr-board {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.libr-board li + li .libr-board__row {
+  border-top: 1px solid var(--cl-hair-soft);
+}
+.libr-board__row {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) 52px 96px;
+  align-items: center;
+  gap: 4px 18px;
+  padding: 11px 10px;
+  text-decoration: none;
+  transition: background 200ms;
+}
+a.libr-board__row:hover,
+a.libr-board__row:focus-visible {
+  background: var(--cl-plate);
+}
+/* Inert rows (facet distributions without a link target) keep the layout
+   but drop the hover affordance. */
+.libr-board__row--inert {
+  cursor: default;
+}
+/* Unranked boards render no rank cell — without their own template the name
+   would inherit the 34px rank column and truncate to its first letter (the
+   "G…" bug, F3 round 3). */
+.libr-board--plain .libr-board__row {
+  grid-template-columns: minmax(0, 1fr) 52px 96px;
+}
+.libr-board__rank {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-2xs);
+  letter-spacing: var(--track-10);
+  color: var(--cl-faint-deco);
+}
+.libr-board__main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.libr-board__name {
+  font-family: var(--font-body);
+  font-size: var(--fs-read-sm);
+  line-height: 1.25;
+  color: var(--cl-bone);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 200ms;
+}
+a.libr-board__row:hover .libr-board__name,
+a.libr-board__row:focus-visible .libr-board__name {
+  color: var(--cl-gold);
+}
+.libr-board__track {
+  display: flex;
+  height: 9px;
+}
+.libr-board__seg {
+  height: 100%;
+  flex: none;
+}
+/* 2px surface gap between adjacent segments (stacked-mark rule). */
+.libr-board__seg + .libr-board__seg {
+  margin-left: 2px;
+}
+.libr-board__value {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-md);
+  letter-spacing: var(--track-06);
+  text-align: right;
+  color: var(--cl-dim);
+}
+.libr-board__anno {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-2xs);
+  letter-spacing: var(--track-10);
+  text-transform: uppercase;
+  text-align: right;
+  color: var(--cl-faint);
+}
+
+/* ---- Banner ledger — one board, two modes ------------------------------- */
+
+/* CSS-only mode toggle in the map era-plate's segment language (55-map.css
+   .ep-seg): mono segments over a hairline divider, a small dot that goes
+   gold at the active mode. The visually-hidden radios stay focusable —
+   arrow keys switch modes from the keyboard. */
+.libr-ledger {
+  position: relative;
+}
+.libr-ledger__radio {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+.libr-ledger__modes {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 16px;
+}
+.libr-ledger__mode {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-xs);
+  letter-spacing: var(--track-18);
+  text-transform: uppercase;
+  color: var(--cl-dim);
+  padding: 4px 16px 4px 28px;
+  cursor: pointer;
+  transition: color 0.25s;
+  -webkit-tap-highlight-color: transparent;
+}
+.libr-ledger__mode + .libr-ledger__mode {
+  border-left: 1px solid var(--cl-hair-soft);
+}
+.libr-ledger__mode::before {
+  content: "";
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  margin: -2px 0 0 -2px;
+  background: var(--cl-faint-deco);
+  border-radius: 50%;
+  transition:
+    background 0.25s,
+    transform 0.25s var(--ease);
+}
+.libr-ledger__mode:hover {
+  color: var(--cl-bone);
+}
+.libr-ledger__mode:hover::before {
+  background: var(--cl-gold);
+  transform: scale(1.6);
+}
+.libr-ledger__radio--lead:checked ~ .libr-ledger__modes label[for="banners-lead"],
+.libr-ledger__radio--foe:checked ~ .libr-ledger__modes label[for="banners-foe"] {
+  color: var(--cl-gold);
+}
+.libr-ledger__radio--lead:checked
+  ~ .libr-ledger__modes
+  label[for="banners-lead"]::before,
+.libr-ledger__radio--foe:checked
+  ~ .libr-ledger__modes
+  label[for="banners-foe"]::before {
+  background: var(--cl-gold);
+  transform: scale(1.7);
+}
+.libr-ledger__radio--lead:focus-visible
+  ~ .libr-ledger__modes
+  label[for="banners-lead"],
+.libr-ledger__radio--foe:focus-visible
+  ~ .libr-ledger__modes
+  label[for="banners-foe"] {
+  outline: 1px solid var(--cl-gold-dim);
+  outline-offset: 3px;
+}
+/* The checked radio decides which reading of the ledger is open; the
+   arriving view rises in briefly. */
+.libr-ledger__view--foe {
+  display: none;
+}
+.libr-ledger__radio--foe:checked ~ .libr-ledger__view--lead {
+  display: none;
+}
+.libr-ledger__radio--foe:checked ~ .libr-ledger__view--foe {
+  display: block;
+  animation: librView 0.4s var(--ease) both;
+}
+.libr-ledger__radio--lead:checked ~ .libr-ledger__view--lead {
+  animation: librView 0.4s var(--ease) both;
+}
+@keyframes librView {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---- Vox gap — diverging bars ("Talked About, Written About") ----------- */
+
+.libr-gap {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.libr-gap li + li .libr-gap__row {
+  border-top: 1px solid var(--cl-hair-soft);
+}
+.libr-gap__row {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr) 52px 110px;
+  align-items: center;
+  gap: 4px 18px;
+  padding: 11px 10px;
+  text-decoration: none;
+  transition: background 200ms;
+}
+.libr-gap__row:hover,
+.libr-gap__row:focus-visible {
+  background: var(--cl-plate);
+}
+.libr-gap__name {
+  font-family: var(--font-body);
+  font-size: var(--fs-read-sm);
+  line-height: 1.25;
+  color: var(--cl-bone);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 200ms;
+}
+.libr-gap__row:hover .libr-gap__name,
+.libr-gap__row:focus-visible .libr-gap__name {
+  color: var(--cl-gold);
+}
+/* Two halves around a center hairline; the bar grows outward from it. */
+.libr-gap__track {
+  display: flex;
+  height: 9px;
+  position: relative;
+}
+.libr-gap__track::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -3px;
+  bottom: -3px;
+  width: 1px;
+  background: var(--cl-hair);
+}
+.libr-gap__half {
+  flex: 1;
+  display: flex;
+  min-width: 0;
+}
+.libr-gap__half--shelf {
+  justify-content: flex-end;
+}
+.libr-gap__bar {
+  height: 100%;
+}
+.libr-gap__bar--shelf {
+  background: var(--libr-c-gold);
+}
+.libr-gap__bar--vox {
+  background: var(--libr-c-xenos);
+}
+.libr-gap__value {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-md);
+  letter-spacing: var(--track-06);
+  text-align: right;
+  color: var(--cl-dim);
+}
+.libr-gap__anno {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-2xs);
+  letter-spacing: var(--track-10);
+  text-transform: uppercase;
+  text-align: right;
+  color: var(--cl-faint);
+}
+
+/* ---- Rating extremes ---------------------------------------------------- */
+
+.libr-extremes {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+}
+.libr-extremes li + li .libr-extreme {
+  border-top: 1px solid var(--cl-hair-soft);
+}
+.libr-extreme {
+  display: grid;
+  grid-template-columns: 128px minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 6px 22px;
+  padding: 12px 10px;
+  text-decoration: none;
+  transition: background 200ms;
+}
+.libr-extreme:hover,
+.libr-extreme:focus-visible {
+  background: var(--cl-plate);
+}
+.libr-extreme__kind {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-2xs);
+  letter-spacing: var(--track-14);
+  text-transform: uppercase;
+  color: var(--cl-gold-dim);
+}
+.libr-extreme__title {
+  font-family: var(--font-body);
+  font-size: var(--fs-read-sm);
+  color: var(--cl-bone);
+  transition: color 200ms;
+}
+.libr-extreme:hover .libr-extreme__title,
+.libr-extreme:focus-visible .libr-extreme__title {
+  color: var(--cl-gold);
+}
+.libr-extreme__meta {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-2xs);
+  letter-spacing: var(--track-06);
+  color: var(--cl-faint);
+}
+
+/* ---- Phone ------------------------------------------------------------- */
+
+@media (max-width: 720px) {
+  .libr-shell {
+    padding: 0 18px;
+  }
+  /* The running head follows the narrower shell padding. */
+  .libr-nav {
+    margin: 20px -18px 0;
+  }
+  .libr-nav__sheet {
+    padding-left: calc(18px + env(safe-area-inset-left, 0px));
+    padding-right: calc(18px + env(safe-area-inset-right, 0px));
+  }
+  .libr-duo {
+    grid-template-columns: 1fr;
+  }
+  .libr-board__row {
+    grid-template-columns: 28px minmax(0, 1fr) auto;
+    grid-template-areas:
+      "rank main value"
+      "rank anno anno";
+  }
+  .libr-board--plain .libr-board__row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "main value"
+      "anno anno";
+  }
+  .libr-gap__row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "name value"
+      "track track"
+      "anno anno";
+    row-gap: 7px;
+  }
+  .libr-gap__name {
+    grid-area: name;
+  }
+  .libr-gap__track {
+    grid-area: track;
+  }
+  .libr-gap__value {
+    grid-area: value;
+  }
+  .libr-gap__anno {
+    grid-area: anno;
+    text-align: left;
+  }
+  .libr-board__rank {
+    grid-area: rank;
+  }
+  .libr-board__main {
+    grid-area: main;
+  }
+  .libr-board__value {
+    grid-area: value;
+  }
+  .libr-board__anno {
+    grid-area: anno;
+    text-align: left;
+  }
+  .libr-extreme {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .libr-extreme__kind {
+    grid-column: 1 / -1;
+  }
+}
+
+/* The brand beacon shrinks below 640px (46-site-nav.css) — the head's left
+   clearance follows it down. */
+@media (max-width: 640px) {
+  .libr-nav__summary {
+    padding-left: calc(64px + env(safe-area-inset-left, 0px));
+    padding-right: calc(68px + env(safe-area-inset-right, 0px));
+  }
+}
+
+/* S8 touch targets: linked rows stay ≥44px through their padding. */
+@media (pointer: coarse) {
+  .libr-board__row {
+    padding-top: 13px;
+    padding-bottom: 13px;
+  }
+  .libr-extreme {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+  .libr-ledger__mode {
+    padding-top: 11px;
+    padding-bottom: 11px;
+  }
+  .libr-nav__row {
+    padding-top: 13px;
+    padding-bottom: 13px;
+  }
+  .libr-gap__row {
+    padding-top: 13px;
+    padding-bottom: 13px;
+  }
+}
