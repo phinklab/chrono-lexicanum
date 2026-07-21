@@ -53,13 +53,6 @@ const CONFIDENCE_WORD: Record<string, string> = {
   L: "conjectural",
 };
 
-/** Tier glyphs — verbatim the Chronicle's ranking marks (cinematic/shared). */
-const TIER_MARK: Record<NowEvent["tier"], string> = {
-  epoch: "◈",
-  major: "◆",
-  minor: "○",
-};
-
 function EventEntry({ event }: { event: NowEvent }) {
   return (
     <li className="now-event reveal">
@@ -76,12 +69,7 @@ function EventEntry({ event }: { event: NowEvent }) {
         <div className="now-event__plate now-event__plate--void" aria-hidden />
       )}
       <div className="now-event__body">
-        <p className="now-event__date">
-          <span className="now-event__tier" aria-hidden>
-            {TIER_MARK[event.tier]}
-          </span>
-          {event.dateLabel}
-        </p>
+        <p className="now-event__date">{event.dateLabel}</p>
         <h3 className="now-event__title">{event.title}</h3>
         <p className="now-event__blurb">{event.blurb}</p>
         {event.media.length > 0 && (
@@ -177,37 +165,14 @@ export default async function NowPage() {
           <span className="now-answer__kicker">in Imperial reckoning</span>
           <span className="now-answer__date">012.M42</span>
         </p>
-        <p className="now-answer__frame reveal">
-          The settled present of the setting sits about twelve years after
-          the Fall of Cadia and the opening of the Great Rift: the Indomitus
-          Crusade has formally ended, the Plague Wars have burned to a
-          poisoned stalemate in Ultramar, and the story currently runs
-          hottest at its leading edge — the return of Leviathan and the war
-          for the Nachmund Gauntlet, pushing the record out past ~025.M42.
-        </p>
-
-        {/* The honesty box every date on this page obeys. */}
-        <aside className="now-incertum reveal" aria-label="Why every date here is a guess">
-          <p className="now-incertum__kicker">Why every date here is a guess</p>
-          <p className="now-incertum__text">
-            Since the Rift, Imperial dating is broken in-universe: ships
-            arrive before they depart, worlds age decades in a year, and the
-            lore deliberately leaves open whether &ldquo;M42&rdquo; is even
-            the 42nd millennium. Every date on this page is a best guess
-            wearing a confident face — treat it as bearing, not fact.
-          </p>
-        </aside>
-      </section>
-
-      {/* Era context — the chapter this page hangs off. */}
-      {era && (
-        <section className="now-act" aria-label="The current era">
-          <h2 className="lx-sect reveal">The Current Era</h2>
-          <div className="now-era reveal">
-            <p className="now-era__m">{era.mLabel}</p>
-            <p className="now-era__name">{era.name}</p>
-            <p className="now-era__intro lx-prose">{era.intro}</p>
-            <p className="now-era__link">
+        {/* The era the present hangs in — merged from the former "Current
+            Era" act (Session 255): name, the era's own introduction, and the
+            Chronicle hand-off, directly under the answer. */}
+        {era && (
+          <div className="now-answer__era reveal">
+            <p className="now-answer__era-name">{era.name}</p>
+            <p className="now-answer__era-intro lx-prose">{era.intro}</p>
+            <p className="now-answer__era-link">
               <Link
                 className="lx-btn"
                 href="/timeline?era=indomitus"
@@ -222,8 +187,20 @@ export default async function NowPage() {
               </Link>
             </p>
           </div>
-        </section>
-      )}
+        )}
+
+        {/* The honesty box every date on this page obeys. */}
+        <aside className="now-incertum reveal" aria-label="Why every date here is a guess">
+          <p className="now-incertum__kicker">Why every date here is a guess</p>
+          <p className="now-incertum__text">
+            Since the Rift, Imperial dating is broken in-universe: ships
+            arrive before they depart, worlds age decades in a year, and the
+            lore deliberately leaves open whether &ldquo;M42&rdquo; is even
+            the 42nd millennium. Every date on this page is a best guess
+            wearing a confident face — treat it as bearing, not fact.
+          </p>
+        </aside>
+      </section>
 
       {/* Situation report — curated prose, kept honest by the stamp below. */}
       <section className="now-act" aria-label="The state of the Imperium">
