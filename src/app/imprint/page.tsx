@@ -31,13 +31,13 @@ export async function generateMetadata({
     ? {
         title: "Impressum",
         description:
-          "Impressum von Chrono · Lexicanum — Anbieterkennzeichnung nach § 5 DDG und urheber- und markenrechtliche Hinweise (Games Workshop).",
+          "Impressum von Chrono · Lexicanum: Anbieterkennzeichnung nach § 5 DDG und urheber- und markenrechtliche Hinweise (Games Workshop).",
         alternates: { canonical: "/imprint" },
       }
     : {
         title: "Imprint",
         description:
-          "Imprint for Chrono · Lexicanum — provider information under § 5 DDG and copyright and trademark notices concerning Games Workshop.",
+          "Imprint for Chrono · Lexicanum: provider information under § 5 DDG and copyright and trademark notices concerning Games Workshop.",
         alternates: { canonical: "/imprint" },
       };
 }
@@ -270,7 +270,7 @@ function ImprintGerman() {
           <a href="mailto:info@chrono-lexicanum.com">
             info@chrono-lexicanum.com
           </a>{" "}
-          — betroffene Inhalte werden umgehend entfernt.
+          – betroffene Inhalte werden umgehend entfernt.
         </p>
         <p className="legal__en" lang="en">
           This is an unofficial, non-commercial fan site. It is not endorsed
@@ -330,8 +330,8 @@ export default async function ImprintPage({ searchParams }: ImprintPageProps) {
       <header className="legal__head">
         <p className="legal__eyebrow">
           {german
-            ? "Chrono · Lexicanum — Rechtliches"
-            : "Chrono · Lexicanum — Legal"}
+            ? "Chrono · Lexicanum: Rechtliches"
+            : "Chrono · Lexicanum: Legal"}
         </p>
         <h1 className="legal__title">{german ? "Impressum" : "Imprint"}</h1>
         <div className="legal__rule" aria-hidden />

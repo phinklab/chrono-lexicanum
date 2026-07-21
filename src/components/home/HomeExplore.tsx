@@ -40,7 +40,7 @@ const BANDS: Band[] = [
       },
       {
         title: "Podcasts",
-        desc: "The second pillar — lore-casts, newest first.",
+        desc: "The second pillar: lore-casts, newest first.",
         gloss: "VOX · ARCHIVVM",
         href: "/archive/podcasts",
       },
@@ -118,7 +118,7 @@ const BANDS: Band[] = [
       },
       {
         title: "Librarium",
-        desc: "The archive counts itself — books, authors, ratings.",
+        desc: "The archive counts itself: books, authors, ratings.",
         gloss: "CENSVS · ARCHIVI",
         href: "/statistics",
       },
@@ -153,7 +153,7 @@ function RowInner({ row }: { row: Row }) {
 
 export default function HomeExplore() {
   return (
-    <nav className="hub-explore" aria-label="Explore the archive — grouped index">
+    <nav className="hub-explore" aria-label="Explore the archive: grouped index">
       {BANDS.map((band) => (
         <section className="hub-explore__band reveal" key={band.name}>
           <p className="hub-explore__divider" aria-hidden>

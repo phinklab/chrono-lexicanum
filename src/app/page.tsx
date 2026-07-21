@@ -82,7 +82,7 @@ export default async function HubPage() {
       {/* Act 1: Splash */}
       <section
         className="hub-act hub-act--splash"
-        aria-label="Chrono Lexicanum — the archive"
+        aria-label="Chrono Lexicanum, the archive"
       >
         <AuspexPair />
         <FloatingCoord x="9%" y="30%" label="Route · Segmentvm Vltima" delay={6} />

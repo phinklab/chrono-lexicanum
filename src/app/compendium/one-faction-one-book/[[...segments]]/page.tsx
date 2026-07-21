@@ -39,7 +39,7 @@ export async function generateMetadata({
   const { segments } = await params;
   const path = ["/compendium/one-faction-one-book", ...(segments ?? [])].join("/");
   return {
-    title: "One Faction, One Book — Compendium",
+    title: "One Faction, One Book · Compendium",
     description: OFOB_DESCRIPTION,
     alternates: { canonical: path },
     openGraph: routeOg({

@@ -237,7 +237,7 @@ export const YVRAINE: Voyage = {
       world: "ulthwe",
       heading: "Ulthwé · The Gate of Malice",
       date: "after Hand of Darkness",
-      text: "Back on Ulthwé, Yvraine hears of a living craftworld no Aeldari should have survived and of the Gate of Malice beneath it. Zaisuthra offers a path toward another Cronesword—and every sign of a trap.",
+      text: "Back on Ulthwé, Yvraine hears of a living craftworld no Aeldari should have survived and of the Gate of Malice beneath it. Zaisuthra offers a path toward another Cronesword, and every sign of a trap.",
       source: "https://wh40k.lexicanum.com/wiki/Yvraine",
       leg: WEBWAY,
       placement: ULTHWE_PLACEMENT,

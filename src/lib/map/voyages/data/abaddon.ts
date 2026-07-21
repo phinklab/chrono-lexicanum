@@ -143,7 +143,7 @@ export const ABADDON: Voyage = {
       gy: 242,
       heading: "Nemesis Tessera · The Eldritch Needles",
       date: "597.M32",
-      text: "Black Legion forces break the Inquisitorial fortress and release its captive daemons. Abaddon teleports to the surface and topples the Eldritch Needles—blackstone pylons holding back the Warp.",
+      text: "Black Legion forces break the Inquisitorial fortress and release its captive daemons. Abaddon teleports to the surface and topples the Eldritch Needles, the blackstone pylons holding back the Warp.",
       source: "https://wh40k.lexicanum.com/wiki/2nd_Black_Crusade",
       placement: {
         precision: "relative",
@@ -367,7 +367,7 @@ export const ABADDON: Voyage = {
       breakBefore: true,
       heading: "XI · The Doom of Relorria",
       date: "301.M39",
-      text: "Abaddon tries to force a path through the storms around the Eye with a bound daemon navigator. It fails spectacularly, scattering the fleet thousands of light years off course—so he makes the nearest world the objective.",
+      text: "Abaddon tries to force a path through the storms around the Eye with a bound daemon navigator. It fails spectacularly, scattering the fleet thousands of light years off course, so he makes the nearest world the objective.",
       source: "https://wh40k.lexicanum.com/wiki/11th_Black_Crusade",
     },
     {
@@ -470,7 +470,7 @@ export const ABADDON: Voyage = {
       gy: 190,
       heading: "Schindlegeist · The Ambush",
       date: "151.M41",
-      text: "Imperial and Aeldari fleets anticipate Abaddon's attempt to seize the remaining fortress and trap him at Schindlegeist. He escapes toward the Eye with two Blackstones—the Crusade's real prize.",
+      text: "Imperial and Aeldari fleets anticipate Abaddon's attempt to seize the remaining fortress and trap him at Schindlegeist. He escapes toward the Eye with two Blackstones: the Crusade's real prize.",
       source: "https://wh40k.lexicanum.com/wiki/12th_Black_Crusade",
       placement: {
         precision: "relative",

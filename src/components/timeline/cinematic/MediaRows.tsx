@@ -11,7 +11,7 @@ import type { ChronicleChip } from "@/lib/chronicle/loadTimeline";
  */
 export default function MediaRows({ media }: { media: ChronicleChip[] }) {
   if (media.length === 0) {
-    return <span className="no-books">— NO RECORDS IN THE ARCHIVE —</span>;
+    return <span className="no-books">· NO RECORDS IN THE ARCHIVE ·</span>;
   }
   return (
     <>

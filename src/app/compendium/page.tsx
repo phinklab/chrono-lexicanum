@@ -18,7 +18,7 @@ import {
 import { loadCategoryItems } from "@/lib/compendium/loader";
 
 const COMPENDIUM_DESCRIPTION =
-  "The entity directory of the archive — factions, primarchs, characters, worlds and the authors behind the canon, each a doorway into its books and podcasts.";
+  "The entity directory of the archive: factions, primarchs, characters, worlds and the authors behind the canon, each a doorway into its books and podcasts.";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/compendium" },
@@ -94,7 +94,7 @@ function Door({
           info load) — holdings in gold, coverage behind it. */}
       <p className="cmp-door__stat">
         {c.pending && count === 0 ? (
-          "Curation in progress — this doorway opens soon"
+          "Curation in progress; this doorway opens soon"
         ) : (
           <>
             <b>{count}</b> {count === 1 ? c.noun : `${c.noun}s`}

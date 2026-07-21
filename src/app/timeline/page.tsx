@@ -10,16 +10,16 @@ import ChronicleStage, {
 import "@/app/styles/67-chronicle-cinematic.css";
 
 const TIMELINE_DESCRIPTION =
-  "The in-universe timeline of Warhammer 40,000 novels — every era, every event, every book placed on the Imperial calendar.";
+  "The in-universe timeline of Warhammer 40,000 novels: every era, every event, every book placed on the Imperial calendar.";
 
 // `?era` and `?view` are views of the one chronicle document — canonical
 // stays the bare /timeline (URL matrix A.3).
 export const metadata: Metadata = {
-  title: "Chronicle — Timeline",
+  title: "Chronicle · Timeline",
   description: TIMELINE_DESCRIPTION,
   alternates: { canonical: "/timeline" },
   openGraph: routeOg({
-    title: "Chronicle — Timeline",
+    title: "Chronicle · Timeline",
     description: TIMELINE_DESCRIPTION,
   }),
 };
@@ -106,7 +106,7 @@ export default async function TimelinePage({ searchParams }: TimelinePageProps) 
         <div className="chron-empty">
           <div className="ce-kicker">CHRONICA · TEMPORIS</div>
           <p className="ce-text">
-            The chronicle holds no entries yet — no eras have reached the
+            The chronicle holds no entries yet: no eras have reached the
             archive.
           </p>
         </div>

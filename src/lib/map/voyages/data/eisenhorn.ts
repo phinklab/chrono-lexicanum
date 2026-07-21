@@ -59,7 +59,7 @@ export const EISENHORN: Voyage = {
   tag: "240–392.M41",
   mapState: "now",
   blurb:
-    "Across 152 years of inquest, Gregor Eisenhorn turns the enemy's weapons into chosen instruments—and falls from puritan to radical.",
+    "Across 152 years of inquest, Gregor Eisenhorn turns the enemy's weapons into chosen instruments, and falls from puritan to radical.",
   cartography: {
     label: "inquisitorial reconstruction",
     note: "The dossier follows three cases across 152 years, not one surveyed flight path. Scarus catalog pins and off-chart locations use disclosed relative or schematic placements; broken legs mark century jumps and positions the record cannot connect.",
@@ -152,7 +152,7 @@ export const EISENHORN: Voyage = {
       gy: 44,
       heading: "Cinchare · The Bargain",
       date: "340.M41",
-      text: "Beyond Segmentum Obscurus, Eisenhorn recovers Pontius Glaw's mind from Proctor's prison. Glaw trades the means to fight Quixos for Geard Bure's promise of a mechanical body—the bargain that wins one war and resurrects the next.",
+      text: "Beyond Segmentum Obscurus, Eisenhorn recovers Pontius Glaw's mind from Proctor's prison. Glaw trades the means to fight Quixos for Geard Bure's promise of a mechanical body: the bargain that wins one war and resurrects the next.",
       source: "https://wh40k.lexicanum.com/wiki/Cinchare",
       breakBefore: true,
       placement: {
@@ -167,7 +167,7 @@ export const EISENHORN: Voyage = {
       gy: 229,
       heading: "Farness Beta · Quixos Falls",
       date: "343.M41",
-      text: "At the mouth of the Cadian Gate, Eisenhorn kills Quixos in his own tower while Voke dies breaking the daemonhosts. Eisenhorn secretly takes the Malus Codicium from the field—the weapon he will soon choose to use.",
+      text: "At the mouth of the Cadian Gate, Eisenhorn kills Quixos in his own tower while Voke dies breaking the daemonhosts. Eisenhorn secretly takes the Malus Codicium from the field: the weapon he will soon choose to use.",
       source: "https://wh40k.lexicanum.com/wiki/Farness_Beta",
       breakBefore: true,
       placement: {
@@ -229,7 +229,7 @@ export const EISENHORN: Voyage = {
       gy: 64,
       heading: "Ghül · The Last Case",
       date: "392.M41",
-      text: "On the uncharted world 5213X, Pontius Glaw reaches for the vessel of the daemon-king Yssarile. Eisenhorn burns the Malus Codicium as a feint, kills Glaw with Barbarisater and leaves Ghül to Exterminatus—the trilogy closes with only Cherubael beside him.",
+      text: "On the uncharted world 5213X, Pontius Glaw reaches for the vessel of the daemon-king Yssarile. Eisenhorn burns the Malus Codicium as a feint, kills Glaw with Barbarisater and leaves Ghül to Exterminatus. The trilogy closes with only Cherubael beside him.",
       source: "https://wh40k.lexicanum.com/wiki/Gh%C3%BCl",
       breakBefore: true,
       placement: {

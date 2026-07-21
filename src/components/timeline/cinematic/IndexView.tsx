@@ -446,7 +446,7 @@ export default function IndexView({
                   {next ? "NEXT ERA" : "END OF THE CHRONICLE"}
                 </span>
                 <span className="an-name">
-                  {next ? `${next.m} — ${next.name}` : "RETURN TO DEEP HISTORY"}
+                  {next ? `${next.m} · ${next.name}` : "RETURN TO DEEP HISTORY"}
                 </span>
                 <span className="an-arrow">→</span>
               </button>

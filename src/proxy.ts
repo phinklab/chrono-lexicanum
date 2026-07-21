@@ -132,7 +132,7 @@ export async function proxy(req: NextRequest): Promise<NextResponse> {
       // server log instead of taking the whole public site down with a
       // boot-time throw over an admin-only secret.
       console.error(
-        "[proxy] ATLAS_PASS is not set in production — admin routes (/ingest, /book/*/audit) are locked out.",
+        "[proxy] ATLAS_PASS is not set in production; admin routes (/ingest, /book/*/audit) are locked out.",
       );
     }
     return new NextResponse("Authentication required", {

@@ -32,14 +32,14 @@ export function siteOrigin(): string {
       url = new URL(raw);
     } catch {
       throw new Error(
-        `[site-url] SITE_URL is not a valid absolute URL: "${raw}" — expected e.g. https://www.chrono-lexicanum.com`,
+        `[site-url] SITE_URL is not a valid absolute URL: "${raw}" (expected e.g. https://www.chrono-lexicanum.com)`,
       );
     }
     return url.origin;
   }
   if (process.env.NODE_ENV !== "production") return "http://localhost:3000";
   throw new Error(
-    "[site-url] SITE_URL must be set for a production build/runtime — canonicals, " +
+    "[site-url] SITE_URL must be set for a production build/runtime: canonicals, " +
       "OG URLs and the sitemap derive from it (production: https://www.chrono-lexicanum.com; " +
       "CI uses https://example.invalid).",
   );

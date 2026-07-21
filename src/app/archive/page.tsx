@@ -29,7 +29,7 @@ import {
 } from "./filters";
 
 const ARCHIVE_DESCRIPTION =
-  "Search the Chrono Lexicanum archive — books, podcasts, factions, characters and worlds.";
+  "Search the Chrono Lexicanum archive: books, podcasts, factions, characters and worlds.";
 
 // Canonical is the bare /archive for EVERY filter arrival (q, faction,
 // format, facet, sort, focus, page): the filters are views of one document,
@@ -112,7 +112,7 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
       <ArchiveArrival arrival={arrival} />
       <GhostReadout lines={VOX_LINES} />
 
-      <section className="catalogue-hero route-act" aria-label="Archive — the media archive">
+      <section className="catalogue-hero route-act" aria-label="Archive: the media archive">
         <ScrollScrim
           className="site-scrim"
           varName="--scrim-o"
@@ -158,7 +158,7 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
               changes with every result set anyway. */}
           <p className="catalogue-census">
             <b>{filtered.length} · found</b> / {books.length} works
-            {params.q && <> — for “{params.q}”</>}
+            {params.q && <> · for “{params.q}”</>}
             {totalPages > 1 && (
               <>
                 {" "}
@@ -181,7 +181,7 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
 
           {books.length === 0 ? (
             <div className="catalogue-empty">
-              The stacks stand empty — no records have reached the archive yet.
+              The stacks stand empty: no records have reached the archive yet.
             </div>
           ) : filtered.length === 0 ? (
             <div className="catalogue-empty">
@@ -229,11 +229,11 @@ function WorkRow({ book, index }: { book: BrowseBook; index: number }) {
           <span className="catalogue-row__byline">by {book.authors.join(", ")}</span>
         )}
       </span>
-      <span className="catalogue-row__faction">{rowFaction?.name ?? "—"}</span>
+      <span className="catalogue-row__faction">{rowFaction?.name ?? "–"}</span>
       <span className="catalogue-row__year">
-        {book.releaseYear != null ? book.releaseYear : "—"}
+        {book.releaseYear != null ? book.releaseYear : "–"}
       </span>
-      <span className="catalogue-row__format">{fmt ?? "—"}</span>
+      <span className="catalogue-row__format">{fmt ?? "–"}</span>
       <span className="catalogue-row__chevron" aria-hidden>
         ▾
       </span>

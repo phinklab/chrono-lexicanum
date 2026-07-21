@@ -204,13 +204,13 @@ export default function WorldPanel({
             <p className="pp-cls2">
               {shown.c2 && (
                 <>
-                  <b>{shown.c2}</b> — secondary
+                  <b>{shown.c2}</b>, secondary
                 </>
               )}
               {shown.c2 && shown.c3 && " · "}
               {shown.c3 && (
                 <>
-                  <b>{shown.c3}</b> — tertiary
+                  <b>{shown.c3}</b>, tertiary
                 </>
               )}
             </p>
@@ -250,7 +250,7 @@ export default function WorldPanel({
                       <span className="t">
                         {w.title}{" "}
                         <i>
-                          — {w.role}
+                          · {w.role}
                           {w.via ? ` · via ${viaLabel(w.via)}` : ""}
                         </i>
                       </span>

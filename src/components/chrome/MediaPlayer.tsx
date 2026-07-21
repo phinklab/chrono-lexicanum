@@ -76,7 +76,7 @@ export default function MediaPlayer() {
   const hasTracks = TRACKS.length > 0;
   const currentTrack: AudioTrack | undefined = TRACKS[trackIndex];
   const trackName = hasTracks
-    ? currentTrack?.title ?? "—"
+    ? currentTrack?.title ?? "–"
     : "no atmosphere loaded";
 
   useEffect(() => {
@@ -470,7 +470,7 @@ export default function MediaPlayer() {
           <div className="media-player__title">
             <span className="media-player__title-name">{trackName}</span>
             {hasTracks && currentTrack?.artist && (
-              <span className="media-player__title-artist"> — {currentTrack.artist}</span>
+              <span className="media-player__title-artist"> · {currentTrack.artist}</span>
             )}
           </div>
           <button
@@ -529,7 +529,7 @@ export default function MediaPlayer() {
                       onClick={() => playTrack(i)}
                       tabIndex={isOpen ? 0 : -1}
                       aria-current={active}
-                      aria-label={`${t.title} — ${active && isPlaying ? "pause" : "play"}`}
+                      aria-label={`${t.title}, ${active && isPlaying ? "pause" : "play"}`}
                     >
                       <span className="media-player__panel-track-mark" aria-hidden>
                         {active ? (isPlaying ? "❚❚" : "▶") : String(i + 1).padStart(2, "0")}

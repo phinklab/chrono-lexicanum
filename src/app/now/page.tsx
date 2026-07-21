@@ -22,14 +22,14 @@ import "@/app/styles/57-now.css";
 export const dynamic = "force-dynamic";
 
 const NOW_DESCRIPTION =
-  "The archive's present: where the Warhammer 40,000 story stands right now — the Era Indomitus, ~012.M42 — and which novels take place there.";
+  "The archive's present: where the Warhammer 40,000 story stands right now (the Era Indomitus, ~012.M42) and which novels take place there.";
 
 export const metadata: Metadata = {
-  title: "Status Imperialis — When Is Now?",
+  title: "Status Imperialis · When Is Now?",
   description: NOW_DESCRIPTION,
   alternates: { canonical: "/now" },
   openGraph: routeOg({
-    title: "Status Imperialis — When Is Now?",
+    title: "Status Imperialis · When Is Now?",
     description: NOW_DESCRIPTION,
   }),
 };
@@ -197,7 +197,7 @@ export default async function NowPage() {
             arrive before they depart, worlds age decades in a year, and the
             lore deliberately leaves open whether &ldquo;M42&rdquo; is even
             the 42nd millennium. Every date on this page is a best guess
-            wearing a confident face — treat it as bearing, not fact.
+            wearing a confident face: treat it as bearing, not fact.
           </p>
         </aside>
       </section>
@@ -211,7 +211,7 @@ export default async function NowPage() {
             <p className="now-twin__tag">The lit half, west of the Rift</p>
             <p className="lx-prose now-twin__text">
               Where the Astronomican still burns. Guilliman&rsquo;s reforms
-              hold the machine together — barely. The Indomitus Crusade has
+              hold the machine together. Barely. The Indomitus Crusade has
               formally ended at Raukos, the Plague Wars have been fought to a
               standstill in Ultramar, and now the Sanctus Line trades worlds
               for time against Leviathan&rsquo;s returning hive fleets. It is
@@ -227,7 +227,7 @@ export default async function NowPage() {
               fleet lanes, no census. Worlds fight on alone by candle-faith
               and stubbornness while Dante holds a regency from Baal, and most
               of what happens there never reaches a record at all. Nihilus is
-              where this archive&rsquo;s honesty matters most — half the
+              where this archive&rsquo;s honesty matters most: half the
               Imperium is currently living outside its own history.
             </p>
           </article>
@@ -257,8 +257,8 @@ export default async function NowPage() {
           <h2 className="lx-sect reveal">The Road to Now</h2>
           <p className="now-act__lede lx-prose reveal">
             The five freshest entries in the era&rsquo;s record, newest
-            first. The full road — from the 13th Black Crusade to the broken
-            calendar — lives in the Chronicle&rsquo;s final chapter.
+            first. The full road, from the 13th Black Crusade to the broken
+            calendar, lives in the Chronicle&rsquo;s final chapter.
           </p>
           <ol className="now-events">
             {events
@@ -280,9 +280,9 @@ export default async function NowPage() {
               The {books.length} newest releases set in the moving present,
               ordered by where they fall in the timeline. The very latest
               carry a curator&rsquo;s approximate placement instead of a
-              dated stamp; confidence rides each row — <em>firm</em>: stated
+              dated stamp; confidence rides each row (<em>firm</em>: stated
               in the text; <em>estimated</em>: anchored to a nearby event or
-              series; <em>conjectural</em>: placed by feel.
+              series; <em>conjectural</em>: placed by feel).
             </>
           ) : (
             <>No dated works have reached the now-window yet.</>

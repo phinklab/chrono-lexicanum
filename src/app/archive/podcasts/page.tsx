@@ -19,7 +19,7 @@ import { loadPodcastIndex, type PodcastIndexShow } from "./loader";
 import "@/app/styles/62-podcasts.css";
 
 const PODCASTS_DESCRIPTION =
-  "The lore-podcast pillar of the archive — every show and episode, newest first, with a direct line to play, download or open in your app.";
+  "The lore-podcast pillar of the archive: every show and episode, newest first, with a direct line to play, download or open in your app.";
 
 export const metadata: Metadata = {
   title: "Podcasts",
@@ -70,7 +70,7 @@ export default async function PodcastsPage() {
 
       <section
         className="catalogue-hero route-act"
-        aria-label="Podcasts — the lore-cast pillar"
+        aria-label="Podcasts: the lore-cast pillar"
       >
         <ScrollScrim
           className="site-scrim"
@@ -86,7 +86,7 @@ export default async function PodcastsPage() {
         <p className="lx-hero__edition">
           {shows.length === 0
             ? "No podcasts in the database yet."
-            : `${showWord} · ${totalEpisodes} episodes — play in place, download, or open in your app.`}
+            : `${showWord} · ${totalEpisodes} episodes. Play in place, download, or open in your app.`}
         </p>
         <RouteScrollCue
           className="route-cue--flow lx-hero__cue"
@@ -117,7 +117,7 @@ export default async function PodcastsPage() {
 
         {shows.length === 0 ? (
           <div className="catalogue-empty">
-            The vox archive is silent — no feeds have reached it yet.
+            The vox archive is silent: no feeds have reached it yet.
           </div>
         ) : (
           <div className="pod-hall">

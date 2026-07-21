@@ -120,7 +120,7 @@ export default function HomeSearch() {
         onSubmit={onSubmit}
         onClear={() => setQ("")}
         pending={pendingVisible}
-        placeholder="Search the archive — a title, author or faction…"
+        placeholder="Search the archive: a title, author or faction…"
         ariaLabel="Search the archive"
       />
     </div>

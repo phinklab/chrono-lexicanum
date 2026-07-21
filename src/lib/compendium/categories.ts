@@ -62,7 +62,7 @@ export const COMPENDIUM_CATEGORIES: ReadonlyArray<CompendiumCategory> = [
     sigil: "✠",
     noun: "faction",
     blurb:
-      "Every faction is a doorway — the books, podcasts and people that carry its story.",
+      "Every faction is a doorway: the books, podcasts and people that carry its story.",
     grouped: true,
     facets: ALIGNMENT_FACETS,
     facetParam: "alignment",
@@ -72,7 +72,7 @@ export const COMPENDIUM_CATEGORIES: ReadonlyArray<CompendiumCategory> = [
     label: "Primarchs",
     sigil: "❂",
     noun: "primarch",
-    blurb: "The twenty sons of the Emperor — the demigods who led the Legions.",
+    blurb: "The twenty sons of the Emperor: the demigods who led the Legions.",
     grouped: false,
   },
   {
@@ -81,7 +81,7 @@ export const COMPENDIUM_CATEGORIES: ReadonlyArray<CompendiumCategory> = [
     sigil: "✶",
     noun: "character",
     blurb:
-      "The named who recur across the archive — points of view, protagonists and foils.",
+      "The named who recur across the archive: points of view, protagonists and foils.",
     grouped: false,
   },
   {
@@ -98,7 +98,7 @@ export const COMPENDIUM_CATEGORIES: ReadonlyArray<CompendiumCategory> = [
     label: "Authors",
     sigil: "❡",
     noun: "author",
-    blurb: "The writers behind the canon — every novel and story traced to its hand.",
+    blurb: "The writers behind the canon: every novel and story traced to its hand.",
     grouped: false,
   },
 ];
@@ -136,7 +136,7 @@ export const COMPENDIUM_TOOLS: ReadonlyArray<CompendiumTool> = [
     slug: "one-faction-one-book",
     label: "One Faction, One Book",
     blurb:
-      "Choose an army. The Curator answers with one deliberate doorway — not another reading list.",
+      "Choose an army. The Curator answers with one deliberate doorway, not another reading list.",
     cta: "Choose a faction",
   },
 ];

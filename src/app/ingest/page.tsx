@@ -98,7 +98,7 @@ function ErrorCard({ entry }: { entry: Extract<DiffListEntry, { kind: "error" }>
         <code className="ingest-card-runid">{entry.error.runId}</code>
       </header>
       <p className="ingest-card-error-msg">
-        <span className="ingest-mono">{entry.error.filename}</span> — {entry.error.error}
+        <span className="ingest-mono">{entry.error.filename}</span>: {entry.error.error}
       </p>
     </article>
   );
@@ -188,7 +188,7 @@ function Counter({
 }
 
 function formatTimestamp(iso: string): string {
-  if (!iso) return "—";
+  if (!iso) return "–";
   const d = new Date(iso);
   if (Number.isNaN(d.getTime())) return iso;
   // dd.mm.yyyy HH:MM UTC; German site

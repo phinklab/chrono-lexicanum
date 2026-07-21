@@ -213,7 +213,7 @@ export const HORUS: Voyage = {
       world: "istvaan-v",
       heading: "Isstvan V · The Dropsite Massacre",
       date: "006.M31",
-      text: "Iron Hands, Salamanders and Raven Guard descend to bring Horus to justice; four Traitor Legions arrive behind them as the false second wave. A flare rises—the order to illuminate the loyalists—and the trap closes. Ferrus Manus's head is claimed by the Warmaster.",
+      text: "Iron Hands, Salamanders and Raven Guard descend to bring Horus to justice; four Traitor Legions arrive behind them as the false second wave. A flare rises with the order to illuminate the loyalists, and the trap closes. Ferrus Manus's head is claimed by the Warmaster.",
       source: DROPSITE_SOURCE,
       leg: { d: "M 496 161 L 490 155" },
     },

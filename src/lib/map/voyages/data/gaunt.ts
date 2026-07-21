@@ -33,7 +33,7 @@ export const GAUNT: Voyage = {
       world: "tanith",
       heading: "Tanith · The First and Only",
       date: "765.M41",
-      text: "The world burns before its founding can finish. Gaunt chooses the living over a doomed last stand, evacuating some thirty-five hundred soldiers and Brin Milo—the only regiment Tanith will ever raise.",
+      text: "The world burns before its founding can finish. Gaunt chooses the living over a doomed last stand, evacuating some thirty-five hundred soldiers and Brin Milo: the only regiment Tanith will ever raise.",
       source: "https://wh40k.lexicanum.com/wiki/Tanith",
     },
     {
@@ -89,7 +89,7 @@ export const GAUNT: Voyage = {
       world: "hagia",
       heading: "Hagia · The Honour Guard",
       date: "769.M41",
-      text: "Gaunt's capture of Doctrinopolis triggers a sorcerous beacon and earns him disgrace. Sent to recover Sabbat's remains, he refuses to abandon the shrine—and the honour guard becomes the force that saves Hagia.",
+      text: "Gaunt's capture of Doctrinopolis triggers a sorcerous beacon and earns him disgrace. Sent to recover Sabbat's remains, he refuses to abandon the shrine, and the honour guard becomes the force that saves Hagia.",
       source: "https://wh40k.lexicanum.com/wiki/Hagia",
     },
     {
@@ -124,7 +124,7 @@ export const GAUNT: Voyage = {
       world: "ancreon-sextus",
       heading: "Ancreon Sextus · His Last Command",
       date: "776.M41",
-      text: "The Gereon survivors return to cages and suspicion, and Gaunt is cleared only to be stripped of his regiment. At Sparshad Mons, Wilder's last stand gives him the 81st/1st—and his Ghosts—back.",
+      text: "The Gereon survivors return to cages and suspicion, and Gaunt is cleared only to be stripped of his regiment. At Sparshad Mons, Wilder's last stand gives him back the 81st/1st, and his Ghosts with it.",
       source: "https://wh40k.lexicanum.com/wiki/Ancreon_Sextus",
     },
     {
@@ -145,7 +145,7 @@ export const GAUNT: Voyage = {
       world: "balhaut",
       heading: "Balhaut · Blood in the Snow",
       date: "780.M41",
-      text: "Gaunt's convalescence is broken by killers hunting Mabbon Etogaur. Through a sorcerous snowstorm he keeps the defector alive—and wins the intelligence that points to Salvation's Reach.",
+      text: "Gaunt's convalescence is broken by killers hunting Mabbon Etogaur. Through a sorcerous snowstorm he keeps the defector alive, and wins the intelligence that points to Salvation's Reach.",
       source: "https://wh40k.lexicanum.com/wiki/Balhaut",
     },
     {

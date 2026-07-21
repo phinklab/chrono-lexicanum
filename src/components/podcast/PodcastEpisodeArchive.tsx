@@ -243,7 +243,7 @@ export default function PodcastEpisodeArchive({ episodes, showTitle }: Props) {
   const showFilter = episodes.length > 10 || presentKinds.length > 1;
 
   return (
-    <section className="pod-archive" aria-label={`${showTitle} — episodes`}>
+    <section className="pod-archive" aria-label={`${showTitle}: episodes`}>
       {showFilter && (
       <div className="pod-filter" role="search">
         <div className="pod-filter__search">
@@ -298,7 +298,7 @@ export default function PodcastEpisodeArchive({ episodes, showTitle }: Props) {
 
           <span className="pod-filter__status" role="status" aria-live="polite">
             {filtered.length} of {episodes.length} shown
-            {filtered.length === 0 ? " — no matches" : ""}
+            {filtered.length === 0 ? ", no matches" : ""}
             {/* Carry the active terms so two filters that coincidentally yield the
                 same count produce distinct text — otherwise an aria-live region
                 with unchanged text is not re-announced. */}
@@ -439,7 +439,7 @@ function EpisodeRow({
           </button>
         ) : (
           <span className="pod-ep__play pod-ep__play--off" aria-hidden>
-            —
+            –
           </span>
         )}
 
@@ -502,7 +502,7 @@ function EpisodeRow({
             autoPlay
             preload="none"
             src={ep.audioUrl}
-            aria-label={`${ep.title} — audio player`}
+            aria-label={`${ep.title}: audio player`}
             style={{ colorScheme: "dark", width: "100%" }}
           />
         </div>

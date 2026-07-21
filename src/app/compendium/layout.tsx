@@ -24,7 +24,7 @@ import "@/app/styles/66-compendium.css";
 export const metadata: Metadata = {
   title: "Compendium",
   description:
-    "The entity directory of the archive — factions, primarchs, characters, worlds and the authors behind the canon, each a doorway into its books and podcasts.",
+    "The entity directory of the archive: factions, primarchs, characters, worlds and the authors behind the canon, each a doorway into its books and podcasts.",
 };
 
 const VOX_LINES = [
@@ -58,7 +58,7 @@ export default function CompendiumLayout({
         <p className="lx-hero__over">The Registry</p>
         <h1 className="lx-hero__heading">The Compendium</h1>
         <p className="lx-hero__edition">
-          Five doorways into the archive — and two guided picks that lead
+          Five doorways into the archive, and two guided picks that lead
           straight to your next book.
         </p>
         <RouteScrollCue

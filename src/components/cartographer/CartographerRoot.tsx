@@ -575,7 +575,7 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
             ? "1 record"
             : `${selectedWorld.n} records`;
       key = `sel:${selectedWorld.id}`;
-      msg = `${selectedWorld.name} — ${records} — world panel open`;
+      msg = `${selectedWorld.name}, ${records}, world panel open`;
     } else if (state.voyage?.mode === "tour" && activeVoyage) {
       const s = state.voyage.step;
       const st = activeVoyage.stations[s];
@@ -588,8 +588,8 @@ export default function CartographerRoot({ payload }: { payload: MapPayload }) {
       key = `tour:${activeVoyage.id}:${s}`;
       msg =
         s < 0 || !st
-          ? `${activeVoyage.name} — journey tour open — ${activeVoyage.stations.length} ${stopNoun}`
-          : `${legionSteps ? "Legion" : "Station"} ${s + 1} of ${activeVoyage.stations.length} — ${st.heading}`;
+          ? `${activeVoyage.name}, journey tour open, ${activeVoyage.stations.length} ${stopNoun}`
+          : `${legionSteps ? "Legion" : "Station"} ${s + 1} of ${activeVoyage.stations.length}: ${st.heading}`;
     } else {
       key = "idle";
       // Announce the close only after a panel actually spoke (never on load).

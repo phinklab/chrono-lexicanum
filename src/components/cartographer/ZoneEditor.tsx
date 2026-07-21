@@ -514,7 +514,7 @@ export default function ZoneEditor({ bus, era }: { bus: ChartBus; era: MapState 
           <p className="zed-help">
             Drag a point to shape the zone. The <b>⊕ handles</b> on each edge insert a new point
             (press and drag them straight away); double-click (or Delete) removes one. Only{" "}
-            <b>published</b> zones render on the chart — the export replaces{" "}
+            <b>published</b> zones render on the chart; the export replaces{" "}
             <code>src/lib/map/zones.json</code>. The <b>era checkboxes</b> pick which chart
             editions carry the zone; shapes outside the edition on the era plate render dimmed.
           </p>

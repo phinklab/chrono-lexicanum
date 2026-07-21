@@ -194,7 +194,7 @@ export const loadPrimarchItems = cache(async (): Promise<CompendiumItem[]> => {
       if (!c) {
         // A curated id that no longer resolves is a data error, not a silent drop.
         console.error(
-          `[/compendium/primarchs] curated primarch id "${id}" not found in characters — dropping.`,
+          `[/compendium/primarchs] curated primarch id "${id}" not found in characters; dropping.`,
         );
         return null;
       }

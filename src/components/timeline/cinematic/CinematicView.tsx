@@ -769,7 +769,7 @@ export default function CinematicView({
           </div>
           <div className="t-rule" />
           <p className="t-tagline">
-            {next ? next.tagline : "The chronicle ends here — for now."}
+            {next ? next.tagline : "The chronicle ends here, for now."}
           </p>
           {/* After the final era the chronicle hands over to the archive's
               present: Status Imperialis is the primary continuation, the
@@ -777,7 +777,7 @@ export default function CinematicView({
           {!next && (
             <Link className="terminus-btn" href="/now">
               <span className="tb-lab">CONTINUE TO</span>
-              <span className="tb-name">STATUS IMPERIALIS — THE PRESENT</span>
+              <span className="tb-name">STATUS IMPERIALIS · THE PRESENT</span>
               <span className="tb-arrow">→</span>
             </Link>
           )}
@@ -789,7 +789,7 @@ export default function CinematicView({
           >
             <span className="tb-lab">{next ? "NEXT ERA" : "RETURN TO"}</span>
             <span className="tb-name">
-              {next ? `${next.m} — ${next.name}` : "THE BEGINNING — DEEP HISTORY"}
+              {next ? `${next.m} · ${next.name}` : "THE BEGINNING · DEEP HISTORY"}
             </span>
             <span className="tb-arrow">→</span>
           </button>
@@ -803,7 +803,7 @@ export default function CinematicView({
         <div className="back-pull" aria-hidden="true" ref={backPullRef}>
           <span className="bp-arrow">↑</span>
           <span className="bp-lab">PREVIOUS ERA</span>
-          <span className="bp-name">{prev ? `${prev.m} — ${prev.name}` : ""}</span>
+          <span className="bp-name">{prev ? `${prev.m} · ${prev.name}` : ""}</span>
         </div>
 
         {/* artist attribution — reserved bottom-right slot. Precedence: an
@@ -879,7 +879,7 @@ export default function CinematicView({
           type="button"
           className="ei-enter"
           ref={introBtnRef}
-          aria-label={`${era.m} — ${era.name}: click or scroll to enter`}
+          aria-label={`${era.m}, ${era.name}: click or scroll to enter`}
         >
           CLICK OR SCROLL TO ENTER
         </button>

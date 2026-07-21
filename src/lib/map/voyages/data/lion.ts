@@ -60,7 +60,7 @@ export const LION: Voyage = {
       heading: "Diamat · The Siege Engines",
       date: "006.M31",
       mapState: "hh",
-      text: "Breaking from the distant Shield Worlds with only sixteen ships, the Lion takes Diamat and its siege engines from Horus. He then gives the weapons to Perturabo, believing his brother loyal—and arms the massacre still to come.",
+      text: "Breaking from the distant Shield Worlds with only sixteen ships, the Lion takes Diamat and its siege engines from Horus. He then gives the weapons to Perturabo, believing his brother loyal, and arms the massacre still to come.",
       source: "https://wh40k.lexicanum.com/wiki/Battle_of_Diamat",
       breakBefore: true,
       placement: {

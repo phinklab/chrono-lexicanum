@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 type Params = { slug: string };
 type PrimitiveValue = string | number | Date | null | undefined;
 
-const FIELD_EMPTY = "—";
+const FIELD_EMPTY = "–";
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
   dateStyle: "medium",
   timeStyle: "short",
@@ -233,7 +233,7 @@ function DriftMarker({ cls }: { cls: DriftClass }) {
   if (cls === "drift") return <span className="entity-drift">drift</span>;
   if (cls === "known-alias") {
     return (
-      <span className="entity-alias" title="Registered edition-rename alias — expected, not drift">
+      <span className="entity-alias" title="Registered edition-rename alias: expected, not drift">
         known alias
       </span>
     );

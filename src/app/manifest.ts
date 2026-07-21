@@ -8,7 +8,7 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Chrono Lexicanum — The 41st Millennium Novel Archive",
+    name: "Chrono Lexicanum: The 41st Millennium Novel Archive",
     short_name: "Chrono Lexicanum",
     description:
       "An interactive timeline, galaxy map, and recommendation engine for Warhammer 40,000 novels.",
