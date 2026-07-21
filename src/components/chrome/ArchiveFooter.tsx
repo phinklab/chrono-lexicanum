@@ -1,19 +1,14 @@
 import Link from "next/link";
 
-/* Imprimatur foot — the closing seal of the design language: a plumb line
-   fading downward, the seal word, the italic subline, the triad (middle motto
-   per page), then the legal row: short-form Games Workshop IP disclaimer plus
-   the Imprint/Privacy/Artwork links (§ 5 DDG / Art. 13 GDPR — all
-   three pages sit outside the preview gate). */
+/* Archive foot — the closing colophon: the triad over its hairline (middle
+   motto per page), then the legal row: short-form Games Workshop IP
+   disclaimer plus the Imprint/Privacy/Artwork links (§ 5 DDG / Art. 13
+   GDPR — all three pages sit outside the preview gate). The former
+   Imprimatur seal (plumb line + seal word + subline) was retired S255. */
 
 export default function ArchiveFooter({ mid }: { mid: string }) {
   return (
     <footer className="lx-foot" lang="en">
-      <span className="lx-foot__line" aria-hidden />
-      <p className="lx-foot__l1">
-        Imprimatur
-        <span className="lx-foot__l2">Chrono Lexicanum — an unofficial fan archive</span>
-      </p>
       <p className="lx-foot__triad">
         <span>From darkness, knowledge</span>
         <span className="lx-foot__mid">{mid}</span>

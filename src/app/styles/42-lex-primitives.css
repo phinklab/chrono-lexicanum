@@ -497,46 +497,20 @@
   animation: cogitatorScan 2.6s ease-in-out infinite;
 }
 
-/* Imprimatur foot — the fading plumb line, the seal word, the italic
-   subline, the triad over a hairline, then the legal row. */
+/* Archive foot — the triad over its hairline, then the legal row. The
+   Imprimatur seal (plumb line + seal word + subline) was retired S255. */
 .lx-foot {
   max-width: 900px;
-  /* Generous clearance from the last content block — the imprimatur is a
+  /* Generous clearance from the last content block — the foot is a
      colophon, not a caption; it needs air above to read as one. */
   margin: clamp(130px, 22vh, 200px) auto 0;
   padding: 0 24px 40px;
   text-align: center;
 }
-.lx-foot__line {
-  display: block;
-  width: 1px;
-  height: 44px;
-  margin: 0 auto 18px;
-  background: linear-gradient(to bottom, var(--cl-gold) 0%, var(--cl-gold) 40%, transparent 100%);
-  opacity: 0.8;
-}
-.lx-foot__l1 {
-  font-family: var(--font-body);
-  font-size: var(--fs-label-lg);
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: var(--cl-gold);
-}
-.lx-foot__l2 {
-  display: block;
-  margin-top: 8px;
-  font-family: var(--font-body);
-  font-style: italic;
-  font-size: var(--fs-read-sm);
-  text-transform: none;
-  letter-spacing: 0.02em;
-  color: var(--cl-dim);
-}
 .lx-foot__triad {
   display: flex;
   justify-content: space-between;
   gap: 18px;
-  margin-top: 30px;
   border-top: 1px solid var(--cl-hair);
   padding-top: 16px;
   font-family: var(--font-body);
