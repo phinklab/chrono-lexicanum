@@ -12,6 +12,9 @@ commits:
   - b9cdb7b
   - 32ab09e
   - 4f03fd6
+  - 40ab31d
+  - f8bf787
+  - 5eefb96
 ---
 
 # Seitenweite UI: Nav-Rework, Popup-Dedup, /now-Entschlackung, Typografie-System
@@ -111,6 +114,22 @@ mit dokumentierter Rollen-Tabelle in `00-tokens.css`.
 - **Burger-Overlay scrollsicher** gemacht (margin-auto-Zentrierung): 8 Einträge
   + Desc-Zeilen + 3 Gruppenlabels können kleine Phones überlaufen; vorher
   hätte `place-items:center` oben abgeschnitten.
+
+## Nachträge (gleiche Session, nach dem Eyeballing)
+
+- **40ab31d** — ArchiveFooter: Imprimatur-Siegel (Lotlinie + Siegelwort +
+  Subline) überall entfernt; der Footer öffnet jetzt direkt mit der
+  Triad-Zeile über ihrer Hairline. Live verifiziert.
+- **f8bf787** — `SiteLegal` (die fixe Imprint/Privacy/Artwork-Leiste unter
+  dem Player) komplett ausgebaut: Komponente + `45-site-legal.css` gelöscht,
+  Layout-Mount + globals-Import raus. Legal-Erreichbarkeit: Footer auf
+  Content-Seiten, Burger auf Touch; footerlose Desktop-Flächen (Map/
+  Timeline/Entities) erreichen das Impressum in zwei Klicks über eine
+  beliebige Rail-Seite (Zwei-Klick-Auslegung § 5 DDG). Falls je eine
+  Ein-Klick-Lösung gewünscht ist: designter Slot wäre der Rail-Fuß.
+- **5eefb96** — Cartographer-Cartouche: Default beim Aufruf ist jetzt
+  Legend offen / Great Journeys zu (Badge am eingeklappten Header zeigt
+  laufende Touren weiterhin).
 
 ## Verification
 
