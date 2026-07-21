@@ -16,7 +16,7 @@
  *     the current context (e.g. the /werke table, the compendium). A hard nav /
  *     refresh / shared link skips the intercept and renders the canonical full
  *     page (SEO + deep links unaffected).
- *   - Close (Back button / × / Escape / backdrop) → `router.back()`, unwinding
+ *   - Close (Return button / Escape / backdrop) → `router.back()`, unwinding
  *     the push so it lands on the origin context.
  *   - Flat model: an in-modal click on another ENTITY detail link (a faction chip
  *     inside a book, a character inside a world, …) is rewritten to
@@ -230,15 +230,6 @@ export default function DetailModal({
             </span>
             Return
           </button>
-          <div className="detail-modal__bar-end">
-            <button
-              type="button"
-              className="detail-modal__close"
-              onClick={handleClose}
-            >
-              Close
-            </button>
-          </div>
         </div>
         {/* Visually-hidden accessible name (the visible <h1> lives inside the
             body view; this keeps the label stable + decoupled). */}
