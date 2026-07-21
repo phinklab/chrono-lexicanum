@@ -17,6 +17,10 @@
    See 42-lex-primitives.css § "Masthead fold" for the rule itself. */
 
 .now-hero {
+  /* Voice stack = the shared .lx-hero__* primitives (42); only the optical
+     heading tuning lives here — "Status Imperialis" runs longer than the
+     sibling mastheads' one-worders. */
+  --hero-size: clamp(42px, 6.4vw, 92px);
   position: relative;
   overflow-x: clip;
   min-height: 92vh;
@@ -27,55 +31,11 @@
   text-align: center;
   padding: 0 20px 8vh;
 }
-.now-hero__over,
-.now-hero__heading,
-.now-hero__edition,
-.now-hero .route-cue--flow {
-  position: relative;
-  z-index: 3;
-}
-.now-hero__over {
-  margin: 0;
-  font-size: var(--fs-label-xl);
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: var(--cl-gold);
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
-  animation: enter 1s 0.15s var(--ease) both;
-}
-.now-hero__heading {
-  margin: 18px 0 0;
-  font-family: var(--font-display);
-  font-weight: var(--font-display-wght-hero);
-  /* Optical tuning only — "Status Imperialis" runs longer than the sibling
-     mastheads' one-worders; the act geometry above is the invariant. */
-  font-size: clamp(42px, 6.4vw, 92px);
-  line-height: var(--lh-solid);
-  letter-spacing: var(--font-display-track);
-  color: var(--cl-bone);
-  text-shadow: 0 2px 26px rgba(0, 0, 0, 0.85);
-  animation: enterTitle 1.35s 0.4s var(--ease) both;
-}
-.now-hero__edition {
-  margin: 20px 0 0;
-  font-style: italic;
-  font-size: 19.5px;
-  max-width: 58ch;
-  color: var(--cl-dim);
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
-  animation: enter 1s 0.85s var(--ease) both;
-}
-.now-hero__edition em {
-  color: var(--cl-bone);
-}
 /* The question stands on its own line beneath the sentence. */
 .now-hero__edition-q {
   display: block;
   margin-top: 8px;
-}
-.now-hero .route-cue--flow {
-  margin-top: 5vh;
-  animation: enter 1s 1.2s var(--ease) both;
+  color: var(--cl-bone);
 }
 
 /* ---- Answer act — readable first, Imperial stamp beneath --------------- */

@@ -140,15 +140,15 @@ export default async function NowPage() {
           42-lex-primitives.css § masthead): ~92vh act, copy docked at the
           fold, the backdrop breathes in the blank space above. */}
       <header className="now-hero">
-        <p className="now-hero__over">When is now?</p>
-        <h1 className="now-hero__heading">Status Imperialis</h1>
-        <p className="now-hero__edition">
+        <p className="lx-hero__over">When is now?</p>
+        <h1 className="lx-hero__heading">Status Imperialis</h1>
+        <p className="lx-hero__edition">
           Every chronicle needs a last page. This one answers a single
           question:
           <em className="now-hero__edition-q">When is now?</em>
         </p>
         <RouteScrollCue
-          className="route-cue--flow now-hero__cue"
+          className="route-cue--flow lx-hero__cue"
           label="Take the reading"
           target=".now-answer"
         />

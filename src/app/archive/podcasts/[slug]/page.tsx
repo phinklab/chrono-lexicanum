@@ -128,13 +128,13 @@ export default async function PodcastShowPage({
         <AuspexPair quiet />
         <FloatingCoord x="10%" y="32%" label="Vox · decode lock" delay={9} />
 
-        <p className="catalogue-hero__over">Podcast</p>
-        <h1 className="catalogue-hero__heading catalogue-hero__heading--show">
+        <p className="lx-hero__over">Podcast</p>
+        <h1 className="lx-hero__heading catalogue-hero__heading--show">
           {show.title}
         </h1>
-        <p className="catalogue-hero__edition">{stats} · entity-tagged, newest first.</p>
+        <p className="lx-hero__edition">{stats} · entity-tagged, newest first.</p>
         <RouteScrollCue
-          className="route-cue--flow"
+          className="route-cue--flow lx-hero__cue"
           label="Browse the episodes"
           target=".pod-body"
         />

@@ -53,14 +53,14 @@ export default function CompendiumLayout({
         <AuspexPair />
         <FloatingCoord x="9%" y="30%" label="Archivvm · rervm omnivm" delay={7} />
 
-        <p className="cmp-hero__over">The Registry</p>
-        <h1 className="cmp-hero__heading">The Compendium</h1>
-        <p className="cmp-hero__edition">
+        <p className="lx-hero__over">The Registry</p>
+        <h1 className="lx-hero__heading">The Compendium</h1>
+        <p className="lx-hero__edition">
           Five doorways into the archive — each one leads to the books and
           voices that carry its story.
         </p>
         <RouteScrollCue
-          className="route-cue--flow"
+          className="route-cue--flow lx-hero__cue"
           label="Open the registers"
           target=".cmp-body"
         />

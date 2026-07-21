@@ -9,8 +9,11 @@ main.hub {
   overflow-x: clip;
 }
 
-/* Act 1: Splash */
+/* Act 1: Splash — voice stack = the shared .lx-hero__* primitives (42);
+   the wordmark heading carries its own generous clamp. */
 .hub-act--splash {
+  --hero-size: clamp(52px, 8.4vw, 128px);
+  --hero-lh: 1.02;
   position: relative;
   /* S8: clip survey-point overflow on the x-axis (see 31-catalogue.css). */
   overflow-x: clip;
@@ -22,49 +25,10 @@ main.hub {
   text-align: center;
   padding: 0 20px 7vh;
 }
-.hub-hero__over,
-.hub-hero__heading,
-.hub-hero__edition,
-.hub-hero__cue {
-  position: relative;
-  z-index: 3;
-}
-.hub-hero__over {
-  margin: 0;
-  font-size: var(--fs-label-xl);
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: var(--cl-gold);
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
-  animation: enter 1s 0.15s var(--ease) both;
-}
-.hub-hero__heading {
-  margin: 18px 0 0;
-  font-family: var(--font-display);
-  font-weight: var(--font-display-wght-hero);
-  font-size: clamp(52px, 8.4vw, 128px);
-  line-height: 1.02;
-  letter-spacing: var(--font-display-track);
-  color: var(--cl-bone);
-  text-shadow: 0 2px 26px rgba(0, 0, 0, 0.85);
-  animation: enterTitle 1.35s 0.4s var(--ease) both;
-}
-.hub-hero__edition {
-  margin: 22px 0 0;
-  font-style: italic;
-  font-size: 20px;
-  color: var(--cl-dim);
-  max-width: 58ch;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
-  animation: enter 1s 0.85s var(--ease) both;
-}
 .hub-hero__edition b {
   font-style: normal;
   font-weight: var(--fw-regular);
   color: var(--cl-bone);
-}
-.hub-hero__cue {
-  animation: enter 1s 1.15s var(--ease) both;
 }
 
 /* Act 2: Praefatio */

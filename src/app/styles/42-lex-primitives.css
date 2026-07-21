@@ -16,6 +16,59 @@
    .hub-act--splash (50), .now-hero (57). A new page does NOT invent its own
    top spacing. */
 
+/* Masthead voice stack (S255) — the SHARED implementation of the house fold
+   rule above. Every fold masthead uses these three voices + the cue instead
+   of restating them (pre-S255 they existed six times with drifting sizes).
+   The act GEOMETRY (~92vh flex, justify-end, 8vh pad) stays with each
+   surface's own hero class; per-surface tuning happens ONLY through the
+   custom properties, set on the surface container (or a heading modifier):
+
+     --hero-size  heading font-size clamp (optical, by title length)
+     --hero-lh    heading line-height (default --lh-solid)
+
+   Custom properties dodge the globals.css cascade contract — no route
+   partial ever restates a property of these selectors. */
+.lx-hero__over,
+.lx-hero__heading,
+.lx-hero__edition {
+  position: relative;
+  z-index: 3;
+}
+.lx-hero__over {
+  margin: 0;
+  font-size: var(--fs-label-xl);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--cl-gold);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
+  animation: enter 1s 0.15s var(--ease) both;
+}
+.lx-hero__heading {
+  margin: 18px 0 0;
+  font-family: var(--font-display);
+  font-weight: var(--font-display-wght-hero);
+  font-size: var(--hero-size, clamp(48px, 7.4vw, 96px));
+  line-height: var(--hero-lh, var(--lh-solid));
+  letter-spacing: var(--font-display-track);
+  color: var(--cl-bone);
+  text-shadow: 0 2px 26px rgba(0, 0, 0, 0.85);
+  animation: enterTitle 1.35s 0.4s var(--ease) both;
+}
+.lx-hero__edition {
+  margin: 20px 0 0;
+  font-style: italic;
+  font-size: var(--fs-edition);
+  max-width: 58ch;
+  color: var(--cl-dim);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
+  animation: enter 1s 0.85s var(--ease) both;
+}
+/* Rides on .route-cue--flow (41-site-bg.css) — the house 5vh gap + entrance. */
+.lx-hero__cue {
+  margin-top: 5vh;
+  animation: enter 1s 1.2s var(--ease) both;
+}
+
 /* Entry stagger (stilled by the global reduced-motion kill in 10-base.css). */
 @keyframes lxRise {
   from {

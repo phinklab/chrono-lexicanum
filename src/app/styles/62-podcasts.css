@@ -63,9 +63,9 @@ body:has(main.podcasts) .site-bg::after {
    specific tweak: a wrap-friendly heading size, since a show title is multi-word
    where the index headings are a single word. */
 .catalogue-hero__heading--show {
+  --hero-size: clamp(30px, 4vw, 50px);
   margin-inline: auto;
   max-width: 20ch;
-  font-size: clamp(30px, 4vw, 50px);
   letter-spacing: var(--track-14);
   text-transform: uppercase;
 }
@@ -831,7 +831,7 @@ body:has(main.podcasts) .site-bg::after {
      step from its desktop clamp (the shared .catalogue-hero mobile rules in
      31-catalogue.css size the single-word index headings). */
   .catalogue-hero__heading--show {
-    font-size: clamp(26px, 8vw, 42px);
+    --hero-size: clamp(26px, 8vw, 42px);
   }
   .pod-body {
     padding: calc(var(--top-nav-h, 48px) + 18px) 14px 80px;

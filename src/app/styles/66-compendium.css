@@ -5,6 +5,7 @@
 
 /* Masthead */
 .cmp-hero {
+  --hero-size: clamp(48px, 7.4vw, 112px);
   position: relative;
   /* S8: clip survey-point overflow on the x-axis (see 31-catalogue.css). */
   overflow-x: clip;
@@ -16,46 +17,8 @@
   text-align: center;
   padding: 0 20px 8vh;
 }
-.cmp-hero__over,
-.cmp-hero__heading,
-.cmp-hero__edition,
-.cmp-hero .route-cue--flow {
-  position: relative;
-  z-index: 3;
-}
-.cmp-hero__over {
-  margin: 0;
-  font-size: var(--fs-label-xl);
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: var(--cl-gold);
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
-  animation: enter 1s 0.15s var(--ease) both;
-}
-.cmp-hero__heading {
-  margin: 18px 0 0;
-  font-family: var(--font-display);
-  font-weight: var(--font-display-wght-hero);
-  font-size: clamp(48px, 7.4vw, 112px);
-  line-height: var(--lh-solid);
-  letter-spacing: var(--font-display-track);
-  color: var(--cl-bone);
-  text-shadow: 0 2px 26px rgba(0, 0, 0, 0.85);
-  animation: enterTitle 1.35s 0.4s var(--ease) both;
-}
-.cmp-hero__edition {
-  margin: 20px 0 0;
-  font-style: italic;
-  font-size: 19.5px;
-  max-width: 58ch;
-  color: var(--cl-dim);
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
-  animation: enter 1s 0.85s var(--ease) both;
-}
-.cmp-hero .route-cue--flow {
-  margin-top: 5vh;
-  animation: enter 1s 1.2s var(--ease) both;
-}
+/* Voice stack = the shared .lx-hero__* primitives (42); only the optical
+   heading clamp lives on .cmp-hero above. */
 
 /* Body */
 .cmp-body {

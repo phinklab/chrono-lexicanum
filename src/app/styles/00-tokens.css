@@ -296,6 +296,11 @@
   --fw-read:     var(--fw-regular);
   --lh-read:     1.6;
 
+  /* Role token (S255): the italic masthead edition line — one size for every
+   * surface (was 18/19.5/20px drift across six implementations). Consumed by
+   * .lx-hero__edition (42) and the Curator tool subs (53). */
+  --fs-edition:  20px;
+
   --fs-label-3xs: 10px;  /* micro tags / chrome telemetry — the floor        */
   --fs-label-2xs: 11px;  /* tags, media meta, fine mono                      */
   --fs-label-xs: 12px;   /* micro telemetry                                  */

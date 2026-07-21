@@ -162,14 +162,14 @@ export default async function StatisticsPage() {
 
       {/* Masthead — the house fold rule (~92vh act, copy docked at the fold). */}
       <header className="libr-hero">
-        <p className="libr-hero__over">The archive counts itself</p>
-        <h1 className="libr-hero__heading">Librarium</h1>
-        <p className="libr-hero__edition">
+        <p className="lx-hero__over">The archive counts itself</p>
+        <h1 className="lx-hero__heading">Librarium</h1>
+        <p className="lx-hero__edition">
           The whole record, from the first novel to the newest podcast,
           <em className="libr-hero__edition-q">drawn to scale.</em>
         </p>
         <RouteScrollCue
-          className="route-cue--flow libr-hero__cue"
+          className="route-cue--flow lx-hero__cue"
           label="Open the ledger"
           target=".libr-holdings"
         />

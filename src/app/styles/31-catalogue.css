@@ -10,7 +10,11 @@ main.catalogue {
 }
 
 /* Masthead */
+/* Voice stack = the shared .lx-hero__* primitives (42); the catalogue keeps
+   its own generous heading clamp, the podcast-show variant a compact one. */
 .catalogue-hero {
+  --hero-size: clamp(64px, 10vw, 150px);
+  --hero-lh: 0.98;
   position: relative;
   /* S8: the survey-point labels (FloatingCoord) anchor at %-offsets and can
      poke past the right edge on narrow phones - clip only the x-axis so the
@@ -24,48 +28,11 @@ main.catalogue {
   text-align: center;
   padding: 0 20px 8vh;
 }
-.catalogue-hero__over,
-.catalogue-hero__heading,
-.catalogue-hero__edition,
-.catalogue-hero .route-cue--flow {
-  position: relative;
-  z-index: 3;
-}
-.catalogue-hero__over {
-  margin: 0;
-  font-size: var(--fs-label-xl);
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: var(--cl-gold);
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
-  animation: enter 1s 0.15s var(--ease) both;
-}
-.catalogue-hero__heading {
-  margin: 18px 0 0;
-  font-family: var(--font-display);
-  font-weight: var(--font-display-wght-hero);
-  font-size: clamp(64px, 10vw, 150px);
-  line-height: 0.98;
-  letter-spacing: var(--font-display-track);
-  color: var(--cl-bone);
-  text-shadow: 0 2px 26px rgba(0, 0, 0, 0.85);
-  animation: enterTitle 1.35s 0.4s var(--ease) both;
-}
+/* Modifier on the heading itself — custom-property assignment only, so the
+   globals.css cascade contract stays untouched. */
 .catalogue-hero__heading--show {
-  font-size: clamp(40px, 6.4vw, 96px);
-  line-height: 1.02;
-}
-.catalogue-hero__edition {
-  margin: 22px 0 0;
-  font-style: italic;
-  font-size: 20px;
-  max-width: 58ch;
-  color: var(--cl-dim);
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
-  animation: enter 1s 0.85s var(--ease) both;
-}
-.catalogue-hero .route-cue--flow {
-  animation: enter 1s 1.15s var(--ease) both;
+  --hero-size: clamp(40px, 6.4vw, 96px);
+  --hero-lh: 1.02;
 }
 
 /* Nave */
@@ -389,8 +356,8 @@ main.catalogue {
   .catalogue-row__year {
     display: none;
   }
-  .catalogue-hero__heading {
-    font-size: clamp(48px, 14vw, 84px);
+  .catalogue-hero {
+    --hero-size: clamp(48px, 14vw, 84px);
   }
 }
 
