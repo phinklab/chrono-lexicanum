@@ -186,11 +186,24 @@ const nextConfig: NextConfig = {
         destination: "/compendium/factions",
         permanent: true,
       },
-      // Ask faction tool: `:path*` also matches the bare /ask/fraktion (zero
-      // segments); the static segment slugs underneath are unchanged.
+      // The Curator's two tools moved into the Compendium (Session 256). The
+      // verbatim query forwarding keeps sealed answer deep-links
+      // (/ask?experience=…) alive across the hop; `:path*` also matches the
+      // bare /ask/faction (zero segments). The old German /ask/fraktion rows
+      // point straight at the new home — a single 308, never a double hop.
+      {
+        source: "/ask",
+        destination: "/compendium/four-questions",
+        permanent: true,
+      },
+      {
+        source: "/ask/faction/:path*",
+        destination: "/compendium/one-faction-one-book/:path*",
+        permanent: true,
+      },
       {
         source: "/ask/fraktion/:path*",
-        destination: "/ask/faction/:path*",
+        destination: "/compendium/one-faction-one-book/:path*",
         permanent: true,
       },
     ];

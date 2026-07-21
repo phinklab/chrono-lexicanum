@@ -19,7 +19,7 @@
  * Selection rationale: the book pages a launch visitor opens first.
  *  - Every resolved pick of the "One faction, one book" curation
  *    (`FACTION_STARTER_NODES` — the committed, validated SSOT behind
- *    /ask/faction). These are literally the books the site itself recommends
+ *    /compendium/one-faction-one-book). These are literally the books the site itself recommends
  *    as entry points; deriving instead of copying keeps ONE editorial source.
  *  - A small marquee extension for the famous entry novels the 40k-focused
  *    starter curation does not carry: the Horus Heresy opening trilogy and the

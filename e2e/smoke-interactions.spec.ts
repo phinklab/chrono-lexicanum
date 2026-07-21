@@ -10,8 +10,9 @@
  *
  * (3: horizontal overflow lives in the per-route smokes; 4: timeline arrows
  * vs. player volume slider needs timeline content → smoke-live.spec.ts.)
- * Curator regressions below additionally pin its landing/tool hierarchy,
- * visible faction register, unsnapped route and dot-centred progress rail.
+ * The guided-pick regressions below additionally pin the two Compendium
+ * tools (Session 256: the /ask surface moved there): tool header + category
+ * nav, visible faction register and the dot-centred progress rail.
  */
 import { expect, test, type Page } from "@playwright/test";
 import { VIEWPORTS, calmMotion } from "./helpers";
@@ -191,7 +192,7 @@ test("legal documents: English default + URL-based German toggle", async ({ page
 });
 
 for (const viewport of VIEWPORTS) {
-  test(`curator: landing, compact switch + dot-centred progress (${viewport.name}px)`, async ({
+  test(`four questions: compendium tool header + dot-centred progress (${viewport.name}px)`, async ({
     page,
   }) => {
     await page.setViewportSize({
@@ -199,42 +200,20 @@ for (const viewport of VIEWPORTS) {
       height: viewport.height,
     });
     await calmMotion(page);
-    await page.goto("/ask");
+    await page.goto("/compendium/four-questions");
 
-    await expect(page.locator("h1#ask-title")).toHaveText("The Curator");
-    const landing = page.getByRole("navigation", {
-      name: "Choose a Curator path",
-    });
-    await expect(landing).toBeVisible();
-    await expect(landing.getByRole("link")).toHaveCount(2);
-    await expect(
-      landing.getByRole("link").filter({ hasText: "Four Questions" }),
-    ).toBeVisible();
-    await expect(
-      landing.getByRole("link").filter({ hasText: "By Faction" }),
-    ).toBeVisible();
-    await expect(
-      page.getByRole("navigation", { name: "Curator paths" }),
-    ).toHaveCount(0);
-
-    await landing
-      .getByRole("link")
-      .filter({ hasText: "Four Questions" })
-      .click();
-    await page.waitForURL(
-      (url) =>
-        url.pathname === "/ask" && url.searchParams.get("mode") === "profile",
+    await expect(page.locator("h2#four-questions-title")).toHaveText(
+      "Four Questions",
     );
-
-    await expect(landing).toHaveCount(0);
-    await expect(page.locator("h1#ask-title")).toHaveText("Four Questions");
-    const compact = page.getByRole("navigation", { name: "Curator paths" });
-    await expect(compact).toBeVisible();
+    // The category nav carries the two guided-pick tools after the five
+    // categories; the questionnaire's own tab is the active one.
+    const nav = page.getByRole("navigation", { name: "Compendium categories" });
+    await expect(nav).toBeVisible();
     await expect(
-      compact.getByRole("link", { name: "Four Questions", exact: true }),
+      nav.getByRole("link", { name: "Four Questions", exact: true }),
     ).toHaveAttribute("aria-current", "page");
     await expect(
-      compact.getByRole("link", { name: "By Faction", exact: true }),
+      nav.getByRole("link", { name: "One Faction, One Book", exact: true }),
     ).toBeVisible();
 
     const stops = page.locator(".ask-tl-stop");
@@ -256,7 +235,7 @@ for (const viewport of VIEWPORTS) {
     await expectProgressOnDotCentres(page, true);
   });
 
-  test(`curator: faction register is visible, unsnapped + keeps one pick (${viewport.name}px)`, async ({
+  test(`one faction, one book: faction register is visible + keeps one pick (${viewport.name}px)`, async ({
     page,
   }) => {
     await page.setViewportSize({
@@ -264,10 +243,10 @@ for (const viewport of VIEWPORTS) {
       height: viewport.height,
     });
     await calmMotion(page);
-    await page.goto("/ask/faction");
+    await page.goto("/compendium/one-faction-one-book");
 
     await expect(
-      page.getByRole("heading", { level: 1, name: "By Faction" }),
+      page.getByRole("heading", { level: 2, name: "One Faction, One Book" }),
     ).toBeVisible();
     const roster = page.locator("#ofob-faction-roster");
     await expect(page.locator(".ofob__all-label")).toHaveText("All factions");
@@ -293,12 +272,11 @@ for (const viewport of VIEWPORTS) {
       ),
     ).toBe("none");
 
-    await expect(page.locator("main#main.ask")).not.toHaveClass(/route-snap/);
-    expect(
-      await page.evaluate(
-        () => getComputedStyle(document.documentElement).scrollSnapType,
-      ),
-    ).toBe("none");
+    // Since Session 256 the tool lives under the Compendium shell and shares
+    // its route-snap contract (proximity — free scrolling inside the body).
+    await expect(page.locator("main#main.compendium")).toHaveClass(
+      /route-snap/,
+    );
 
     await rosterOptions.nth(1).click();
     await expect(roster).toBeVisible();

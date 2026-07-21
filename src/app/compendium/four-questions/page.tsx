@@ -1,33 +1,42 @@
 import type { Metadata } from "next";
 import { routeOg } from "@/lib/seo";
-import SiteBackground from "@/components/chrome/SiteBackground";
-import ScrollScrim from "@/components/chrome/ScrollScrim";
-import GhostReadout from "@/components/chrono/GhostReadout";
+import CompendiumNav from "@/components/compendium/CompendiumNav";
 import AskClient from "@/components/ask/AskClient";
-import ArchiveFooter from "@/components/chrome/ArchiveFooter";
 import { ASK_QUESTIONS } from "@/lib/ask/questions";
 import {
-  countAskAnswers,
   isAskAnswersComplete,
   parseAskAnswers,
 } from "@/lib/ask/params";
 import { getAskMatrixCell } from "@/lib/ask/matrix";
 import { buildAskProfile, recommend } from "@/lib/ask/recommend";
 import type { AskRecommendation, AskRecommendationResult } from "@/lib/ask/types";
+// Route-scoped stylesheet (S7a): the shared tool-body container.
+import "@/app/styles/53-ask.css";
 
-const ASK_DESCRIPTION =
-  "The Curator offers two ways into the archive: a four-question reading profile or one carefully chosen book for your faction.";
+/**
+ * Four Questions — the questionnaire, living inside the Compendium since
+ * Session 256 (the standalone Curator surface at /ask is gone; a 308 carries
+ * old links and sealed answer URLs here). The compendium layout owns art,
+ * masthead and foot; this page is a directory-sibling: category nav, intro,
+ * then the tool.
+ */
+
+const FOUR_QUESTIONS_DESCRIPTION =
+  "Answer a four-question reading profile and the archive returns a ranked path through the shelves.";
 
 // Answer/`deeper` queries are steps of the one questionnaire — canonical
-// stays the bare /ask (URL matrix A.3).
+// stays the bare route (URL matrix A.3).
 export const metadata: Metadata = {
-  title: "The Curator",
-  description: ASK_DESCRIPTION,
-  alternates: { canonical: "/ask" },
-  openGraph: routeOg({ title: "The Curator", description: ASK_DESCRIPTION }),
+  title: "Four Questions — Compendium",
+  description: FOUR_QUESTIONS_DESCRIPTION,
+  alternates: { canonical: "/compendium/four-questions" },
+  openGraph: routeOg({
+    title: "Four Questions",
+    description: FOUR_QUESTIONS_DESCRIPTION,
+  }),
 };
 
-interface AskPageProps {
+interface FourQuestionsPageProps {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }
 
@@ -37,18 +46,6 @@ interface AskPageProps {
  * what comes after, deduped against the six already on screen.
  */
 const DEEPER_LIMIT = 24;
-
-const ASK_VOX_LINES = [
-  "Cvrator · in attendance",
-  "IV qvaestiones · flat profile",
-  "Vna factio · vnvs liber",
-  "Two paths · one next book",
-  "Qvery is server-side",
-];
-
-function readSingleParam(value: string | string[] | undefined): string | undefined {
-  return Array.isArray(value) ? value[0] : value;
-}
 
 function readDeeperFlag(params: Record<string, string | string[] | undefined>): boolean {
   const value = params.deeper;
@@ -62,17 +59,13 @@ function recommendationErrorCopy(error: unknown): string {
   return "The archive returned an unknown recommendation error.";
 }
 
-export default async function AskPage({ searchParams }: AskPageProps) {
+export default async function FourQuestionsPage({
+  searchParams,
+}: FourQuestionsPageProps) {
   const rawParams = await searchParams;
   const answers = parseAskAnswers(rawParams);
-  const answeredCount = countAskAnswers(answers);
   const isComplete = isAskAnswersComplete(answers);
   const deeperRequested = isComplete && readDeeperFlag(rawParams);
-  // The bare route is The Curator's threshold. Existing answer deep-links
-  // continue to open the questionnaire directly; `mode=profile` is only the
-  // explicit zero-answer choice from the landing and never enters scoring.
-  const showLanding =
-    answeredCount === 0 && readSingleParam(rawParams.mode) !== "profile";
 
   let result: AskRecommendationResult | null = null;
   let deeper: AskRecommendation[] | null = null;
@@ -103,18 +96,22 @@ export default async function AskPage({ searchParams }: AskPageProps) {
   }
 
   return (
-    <main id="main" tabIndex={-1} className="ask curator">
-      <SiteBackground variant="main" position="right bottom" />
-      <ScrollScrim
-        className="site-scrim"
-        varName="--scrim-o"
-        heroSelector=".curator-landing__mast, .curator-toolhead"
-        maxOpacity={0.94}
-      />
-      <GhostReadout lines={ASK_VOX_LINES} />
+    <section
+      className="cmp-directory cmp-tool"
+      aria-labelledby="four-questions-title"
+    >
+      <CompendiumNav />
+      <header className="cmp-cat-intro">
+        <h2 id="four-questions-title" className="cmp-cat-intro__heading">
+          Four Questions
+        </h2>
+        <p className="cmp-cat-intro__blurb">
+          Tell the archive what kind of journey you want. It will weigh the
+          shelves and return a ranked reading path.
+        </p>
+      </header>
 
       <AskClient
-        showLanding={showLanding}
         questions={ASK_QUESTIONS}
         initialAnswers={answers}
         initialIsComplete={isComplete}
@@ -123,10 +120,6 @@ export default async function AskPage({ searchParams }: AskPageProps) {
         deeperRequested={deeperRequested}
         recommendationError={recommendationError}
       />
-
-      <div className="ask-foot">
-        <ArchiveFooter mid="The Curator · two paths" />
-      </div>
-    </main>
+    </section>
   );
 }

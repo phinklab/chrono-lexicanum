@@ -7,13 +7,14 @@
  * Route-specific partials are imported by their route segment or owning
  * component and load only there:
  *   30-ingest            → src/app/ingest/** pages
- *   31.. see below       (stays global: .arch-door* used by /archive AND /ask,
- *                         .catalogue-hero* by /archive AND podcast pages)
+ *   31.. see below       (stays global: .arch-door* used by /archive AND the
+ *                         guided-pick tools, .catalogue-hero* by /archive AND
+ *                         podcast pages)
  *   32-book-audit        → src/app/book/[slug]/audit/page.tsx
  *   50-hub               → src/app/page.tsx
  *   51-book-detail       → src/components/book/BookDetailView.tsx
- *   53-ask               → src/components/ask/AskToolTabs.tsx (/ask + /ask/faction)
- *   54-ask-faction       → src/app/ask/faction/[[...segments]]/page.tsx
+ *   53-ask               → the two /compendium guided-pick tool pages
+ *   54-ask-faction       → src/app/compendium/one-faction-one-book/[[...segments]]/page.tsx
  *   55-map               → src/app/map/page.tsx
  *   58-ask-booklist      → src/components/ask/AskClient.tsx
  *   59-entity            → src/components/entity/EntityView.tsx

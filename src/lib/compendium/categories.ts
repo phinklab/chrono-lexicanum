@@ -108,6 +108,40 @@ export function findCategory(slug: string): CompendiumCategory | undefined {
 }
 
 /**
+ * Guided-pick tools — the two Curator paths, folded into the Compendium as
+ * doorways of their own (Session 256; the standalone /ask surface is gone).
+ * They are NOT categories: no reference table, no counts, no loader — the nav
+ * and the overview render them after the five category doors, visibly as
+ * tools ("Begin" instead of "View all").
+ */
+export interface CompendiumTool {
+  /** URL segment under /compendium — stable, ASCII, lower-case. */
+  slug: string;
+  label: string;
+  /** One-line reader-language description. */
+  blurb: string;
+  /** Action line for the overview door (replaces "View all …"). */
+  cta: string;
+}
+
+export const COMPENDIUM_TOOLS: ReadonlyArray<CompendiumTool> = [
+  {
+    slug: "four-questions",
+    label: "Four Questions",
+    blurb:
+      "Answer a short reading profile and the archive returns a ranked path through the shelves.",
+    cta: "Begin the questionnaire",
+  },
+  {
+    slug: "one-faction-one-book",
+    label: "One Faction, One Book",
+    blurb:
+      "Choose an army. The Curator answers with one deliberate doorway — not another reading list.",
+    cta: "Choose a faction",
+  },
+];
+
+/**
  * One row in a category directory. Built server-side (`./loader`) so it carries
  * a resolved `href` and pre-computed display strings — the view just renders it.
  */

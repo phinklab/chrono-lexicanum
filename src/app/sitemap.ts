@@ -4,8 +4,8 @@
  * release model: every content release is a snapshot-PR deploy, so the
  * sitemap can never drift ahead of (or behind) the deployed catalogue.
  *
- * In the sitemap: the static tool/legal routes, the /ask/faction drilldown
- * nodes (curated "where to start with X" long tail), the podcast shows
+ * In the sitemap: the static tool/legal routes, the one-faction-one-book
+ * drilldown nodes (curated "where to start with X" long tail), the podcast shows
  * (episodes stay `#ep-…` fragments, never URLs), every book detail and every
  * entity detail. NOT in the sitemap: admin/auth/machine paths (noindex, A.3),
  * filter/query views (canonical points at their base document), modal
@@ -45,7 +45,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/now",
     "/map",
     "/statistics",
-    "/ask",
     "/artwork",
     "/imprint",
     "/privacy",
@@ -55,13 +54,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     paths.push(`/compendium/${c.slug}`);
   }
 
-  // /ask/faction drilldown — fully static committed JSON; same node walk as
-  // the route's generateStaticParams.
-  paths.push("/ask/faction");
+  // Guided-pick tools (Session 256: the /ask surface moved into the
+  // Compendium). The faction drilldown is fully static committed JSON; same
+  // node walk as the route's generateStaticParams.
+  paths.push("/compendium/four-questions");
+  paths.push("/compendium/one-faction-one-book");
   for (const node of FACTION_STARTER_NODES) {
-    paths.push(`/ask/faction/${node.slug}`);
+    paths.push(`/compendium/one-faction-one-book/${node.slug}`);
     for (const child of node.children ?? []) {
-      paths.push(`/ask/faction/${node.slug}/${child.slug}`);
+      paths.push(`/compendium/one-faction-one-book/${node.slug}/${child.slug}`);
     }
   }
 

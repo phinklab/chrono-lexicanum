@@ -54,7 +54,9 @@
   color: var(--cl-gold);
 }
 .cmp-nav__tab + .cmp-nav__tab::before {
-  content: "·";
+  /* Alt-text syntax: the decorative separator must not leak into the links'
+     accessible names ("·Factions"). */
+  content: "·" / "";
   color: var(--cl-faint);
   padding-right: 16px;
 }
@@ -139,6 +141,13 @@
   .cmp-doors-grid .cmp-door {
     border-right: 0;
   }
+}
+
+/* Guided picks — the two Curator tools under the category doors: same door
+   idiom, but a band of its own so recommenders and registers stay legible as
+   different things. */
+.cmp-sect-tools {
+  margin-top: 72px;
 }
 
 /* Category directory */

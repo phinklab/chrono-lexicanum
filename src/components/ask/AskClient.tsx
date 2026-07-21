@@ -2,15 +2,14 @@
 
 import { type CSSProperties, useMemo, useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import AuspexPair from "@/components/chrono/AuspexPair";
 import ProcessingPanel from "./ProcessingPanel";
 import QuestionCard from "./QuestionCard";
 import ResultCard from "./ResultCard";
-import AskToolTabs from "./AskToolTabs";
 // Component-scoped stylesheet (S7a): the questionnaire's card/ballot/result
-// styles ride with this island into /ask.
+// styles ride with this island into the Four Questions page.
 import "@/app/styles/58-ask-booklist.css";
 import {
+  FOUR_QUESTIONS_PATH,
   buildAskHref,
   buildAskSearchParams,
   firstUnansweredAskIndex,
@@ -27,7 +26,6 @@ import type {
 } from "@/lib/ask/types";
 
 type AskClientProps = {
-  showLanding: boolean;
   questions: readonly AskQuestion[];
   initialAnswers: AskAnswers;
   initialIsComplete: boolean;
@@ -57,7 +55,6 @@ function initialQuestionIndex(answers: AskAnswers): number {
 }
 
 export default function AskClient({
-  showLanding,
   questions,
   initialAnswers,
   initialIsComplete,
@@ -109,17 +106,13 @@ export default function AskClient({
   const deeperHref = useMemo(() => {
     const params = buildAskSearchParams(answers);
     params.set("deeper", "1");
-    return `/ask?${params.toString()}`;
+    return `${FOUR_QUESTIONS_PATH}?${params.toString()}`;
   }, [answers]);
 
   const navigateWithAnswers = (nextAnswers: AskAnswers) => {
     setOptimisticAnswers(nextAnswers);
     startTransition(() => {
-      const href =
-        Object.keys(nextAnswers).length === 0
-          ? "/ask?mode=profile"
-          : buildAskHref(nextAnswers);
-      router.push(href, { scroll: false });
+      router.push(buildAskHref(nextAnswers), { scroll: false });
     });
   };
 
@@ -170,174 +163,138 @@ export default function AskClient({
   };
 
   return (
-    <>
-      <section
-        className={`ask-console${showLanding ? " curator-landing" : " curator-tool"}`}
-        aria-labelledby="ask-title"
-      >
-        {showLanding ? (
-          <header className="curator-landing__mast">
-            <AuspexPair />
-            <p className="lx-hero__over">Find Your Way In</p>
-            <h1 id="ask-title" className="lx-hero__heading">
-              The Curator
-            </h1>
-            <p className="lx-hero__edition">
-              Choose how the archive should guide you. Each path leads to one
-              deliberate place to begin.
-            </p>
-            <AskToolTabs active={null} variant="landing" />
-          </header>
-        ) : (
-          <>
-            <header className="curator-toolhead">
-              <p className="curator-toolhead__brand">The Curator</p>
-              <AskToolTabs active="questionnaire" />
-              <h1 id="ask-title" className="curator-toolhead__title">
-                Four Questions
-              </h1>
-              <p className="curator-toolhead__sub">
-                Tell the archive what kind of journey you want. It will weigh
-                the shelves and return a ranked reading path.
-              </p>
-            </header>
-
-            <div className="ask-console__grid" ref={gridRef}>
-              <div className="ask-stage">
-                {/* Progress timeline — the chronicle era-band recast for the funnel.
-                    One rail with a gold fill that advances with the reader, four
-                    marks. Each mark is a button that revisits its question and names
-                    its topic; the dot state carries answered / here / coming. */}
-                <nav
-                  className="ask-timeline"
-                  aria-label="Curator progress"
-                  style={
-                    {
-                      "--atl-n": questions.length,
-                      "--atl-fill": `${fillFraction * 100}%`,
-                    } as CSSProperties
-                  }
-                >
-                  <span className="ask-timeline__rail" aria-hidden>
-                    <span className="ask-timeline__line" />
-                    <span className="ask-timeline__fill" />
-                  </span>
-                  <ol className="ask-timeline__stops">
-                    {selectedSummary.map((item, index) => {
-                      const sealed = Boolean(item.value);
-                      const state = item.isCurrent ? "on" : sealed ? "done" : "";
-                      return (
-                        <li key={item.id} className={`ask-tl-stop ${state}`}>
-                          <button
-                            type="button"
-                            className="ask-tl-stop__btn"
-                            onClick={() => revisitQuestion(index)}
-                            aria-current={item.isCurrent ? "step" : undefined}
-                            title={item.label}
-                          >
-                            <span className="ask-tl-stop__mark" aria-hidden />
-                            <span className="ask-tl-stop__label">{item.topic}</span>
-                            <span className="ask-sr-only">
-                              {item.label}
-                              {item.value ? `: ${item.value}` : ""}
-                            </span>
-                          </button>
-                        </li>
-                      );
-                    })}
-                  </ol>
-                </nav>
-
-                <div className="ask-stage__body" aria-live="polite">
-                  {showProcessing && (
-                    <ProcessingPanel
-                      title="Weighing the catalogue"
-                      detail="The answers are sealed in the URL; the ranking runs server-side."
-                    />
-                  )}
-
-                  {showResult && recommendationError && (
-                    <div className="ask-empty ask-card" role="alert">
-                      <p className="card-eyebrow">{"RECOMMENDATION ERROR"}</p>
-                      <h2>The cogitator lost its link.</h2>
-                      <p>
-                        {recommendationError} Your answers are still preserved in the URL.
-                      </p>
-                      <div className="ask-empty__actions">
-                        <button
-                          type="button"
-                          className="lx-btn"
-                          onClick={() => navigateWithAnswers(answers)}
-                        >
-                          Try again
-                        </button>
-                        <button type="button" className="ask-footlink" onClick={reset}>
-                          Reset
-                        </button>
-                      </div>
-                    </div>
-                  )}
-
-                  {showResult && !recommendationError && result && (
-                    <ResultCard
-                      key={resultKey}
-                      result={result}
-                      deeper={deeper}
-                      deeperRequested={deeperRequested}
-                      deeperHref={deeperHref}
-                      questions={questions}
-                      answers={answers}
-                      onBack={goBack}
-                      onReset={reset}
-                    />
-                  )}
-
-                  {showResult && !recommendationError && !result && (
-                    <div className="ask-empty ask-card">
-                      <p className="card-eyebrow">{"NO RESULT PAYLOAD"}</p>
-                      <h2>No recommendation payload arrived.</h2>
-                      <p>Try resetting the funnel or widening your answers.</p>
-                      <div className="ask-empty__actions">
-                        <button type="button" className="ask-footlink" onClick={goBack}>
-                          Back
-                        </button>
-                        <button type="button" className="ask-footlink" onClick={reset}>
-                          Reset
-                        </button>
-                      </div>
-                    </div>
-                  )}
-
-                  {!showResult && !showProcessing && currentQuestion && (
-                    <QuestionCard
-                      key={currentQuestion.id}
-                      question={currentQuestion}
-                      value={selectedValue}
-                      disabled={isPending}
-                      onPick={chooseOption}
-                    />
-                  )}
-                </div>
-
-                <div className="ask-stage__nav">
+    <div className="ask-console__grid" ref={gridRef}>
+      <div className="ask-stage">
+        {/* Progress timeline — the chronicle era-band recast for the funnel.
+            One rail with a gold fill that advances with the reader, four
+            marks. Each mark is a button that revisits its question and names
+            its topic; the dot state carries answered / here / coming. */}
+        <nav
+          className="ask-timeline"
+          aria-label="Questionnaire progress"
+          style={
+            {
+              "--atl-n": questions.length,
+              "--atl-fill": `${fillFraction * 100}%`,
+            } as CSSProperties
+          }
+        >
+          <span className="ask-timeline__rail" aria-hidden>
+            <span className="ask-timeline__line" />
+            <span className="ask-timeline__fill" />
+          </span>
+          <ol className="ask-timeline__stops">
+            {selectedSummary.map((item, index) => {
+              const sealed = Boolean(item.value);
+              const state = item.isCurrent ? "on" : sealed ? "done" : "";
+              return (
+                <li key={item.id} className={`ask-tl-stop ${state}`}>
                   <button
                     type="button"
-                    className="ask-footlink"
-                    onClick={goBack}
-                    disabled={!showResult && activeIndex === 0}
+                    className="ask-tl-stop__btn"
+                    onClick={() => revisitQuestion(index)}
+                    aria-current={item.isCurrent ? "step" : undefined}
+                    title={item.label}
                   >
-                    Back
+                    <span className="ask-tl-stop__mark" aria-hidden />
+                    <span className="ask-tl-stop__label">{item.topic}</span>
+                    <span className="ask-sr-only">
+                      {item.label}
+                      {item.value ? `: ${item.value}` : ""}
+                    </span>
                   </button>
-                  <span className="ask-stage__nav-status">{statusLabel}</span>
-                  <button type="button" className="ask-footlink" onClick={reset}>
-                    Reset
-                  </button>
-                </div>
+                </li>
+              );
+            })}
+          </ol>
+        </nav>
+
+        <div className="ask-stage__body" aria-live="polite">
+          {showProcessing && (
+            <ProcessingPanel
+              title="Weighing the catalogue"
+              detail="The answers are sealed in the URL; the ranking runs server-side."
+            />
+          )}
+
+          {showResult && recommendationError && (
+            <div className="ask-empty ask-card" role="alert">
+              <p className="card-eyebrow">{"RECOMMENDATION ERROR"}</p>
+              <h2>The cogitator lost its link.</h2>
+              <p>
+                {recommendationError} Your answers are still preserved in the URL.
+              </p>
+              <div className="ask-empty__actions">
+                <button
+                  type="button"
+                  className="lx-btn"
+                  onClick={() => navigateWithAnswers(answers)}
+                >
+                  Try again
+                </button>
+                <button type="button" className="ask-footlink" onClick={reset}>
+                  Reset
+                </button>
               </div>
             </div>
-          </>
-        )}
-      </section>
-    </>
+          )}
+
+          {showResult && !recommendationError && result && (
+            <ResultCard
+              key={resultKey}
+              result={result}
+              deeper={deeper}
+              deeperRequested={deeperRequested}
+              deeperHref={deeperHref}
+              questions={questions}
+              answers={answers}
+              onBack={goBack}
+              onReset={reset}
+            />
+          )}
+
+          {showResult && !recommendationError && !result && (
+            <div className="ask-empty ask-card">
+              <p className="card-eyebrow">{"NO RESULT PAYLOAD"}</p>
+              <h2>No recommendation payload arrived.</h2>
+              <p>Try resetting the funnel or widening your answers.</p>
+              <div className="ask-empty__actions">
+                <button type="button" className="ask-footlink" onClick={goBack}>
+                  Back
+                </button>
+                <button type="button" className="ask-footlink" onClick={reset}>
+                  Reset
+                </button>
+              </div>
+            </div>
+          )}
+
+          {!showResult && !showProcessing && currentQuestion && (
+            <QuestionCard
+              key={currentQuestion.id}
+              question={currentQuestion}
+              value={selectedValue}
+              disabled={isPending}
+              onPick={chooseOption}
+            />
+          )}
+        </div>
+
+        <div className="ask-stage__nav">
+          <button
+            type="button"
+            className="ask-footlink"
+            onClick={goBack}
+            disabled={!showResult && activeIndex === 0}
+          >
+            Back
+          </button>
+          <span className="ask-stage__nav-status">{statusLabel}</span>
+          <button type="button" className="ask-footlink" onClick={reset}>
+            Reset
+          </button>
+        </div>
+      </div>
+    </div>
   );
 }
