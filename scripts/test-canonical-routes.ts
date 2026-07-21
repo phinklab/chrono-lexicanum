@@ -9,7 +9,8 @@
  *     redirect source (no double hops, e.g. /fraktionen must land directly on
  *     /compendium/factions).
  *  2. Canonical route structure: the English route folders exist (detail +
- *     audit + ask/faction), the German ones are gone, and the compendium
+ *     audit + the two compendium guided-pick tools), the German ones AND the
+ *     retired /ask surface (Session 256) are gone, and the compendium
  *     category slugs are the five English ones.
  *  3. Modal intercepts follow 1:1: `@modal/(.)book|character|faction|world|
  *     person/[slug]/page.tsx` all exist, and the pure URL contract
@@ -72,7 +73,11 @@ const EXPECTED_REDIRECTS: ReadonlyArray<[source: string, destination: string]> =
   ["/compendium/welten", "/compendium/worlds"],
   ["/compendium/autoren", "/compendium/authors"],
   ["/fraktionen", "/compendium/factions"],
-  ["/ask/fraktion/:path*", "/ask/faction/:path*"],
+  // Session 256: the Curator's two tools moved into the Compendium; both the
+  // English and the old German ask paths land directly on the new homes.
+  ["/ask", "/compendium/four-questions"],
+  ["/ask/faction/:path*", "/compendium/one-faction-one-book/:path*"],
+  ["/ask/fraktion/:path*", "/compendium/one-faction-one-book/:path*"],
 ];
 
 /** Old-path literals that must not survive anywhere in src (acceptance grep).
@@ -91,6 +96,13 @@ const FORBIDDEN_LITERALS = [
   "/compendium/welten",
   "/compendium/autoren",
   "/ask/fraktion",
+  // Session 256: no internal link may still target the retired /ask surface.
+  // NOT the bare "/ask/faction" — that is a substring of the legit
+  // `@/lib/ask/faction-starters` module path; the quoted/slash-terminated
+  // forms below only match href literals.
+  '"/ask"',
+  "/ask/faction/",
+  "/ask?",
   "(.)buch",
   "(.)charakter",
   "(.)fraktion",
@@ -154,7 +166,8 @@ async function main(): Promise<void> {
       "faction/[slug]/page.tsx",
       "world/[slug]/page.tsx",
       "person/[slug]/page.tsx",
-      "ask/faction/[[...segments]]/page.tsx",
+      "compendium/four-questions/page.tsx",
+      "compendium/one-faction-one-book/[[...segments]]/page.tsx",
       "compendium/[category]/page.tsx",
     ];
     for (const rel of mustExist) {
@@ -165,7 +178,8 @@ async function main(): Promise<void> {
       "charakter",
       "fraktion",
       "welt",
-      "ask/fraktion",
+      // Session 256: the whole /ask surface moved into the Compendium.
+      "ask",
       // the folder stays as the faction guide's module home, but it must not
       // be routable — the /fraktionen URL is a next.config 308 now
       "fraktionen/page.tsx",
