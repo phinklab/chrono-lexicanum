@@ -9,7 +9,6 @@ import SkipLink from "@/components/chrome/SkipLink";
 import SiteBrand from "@/components/chrome/SiteBrand";
 import BrandBeacon from "@/components/chrome/BrandBeacon";
 import RevealObserver from "@/components/shared/RevealObserver";
-import SiteLegal from "@/components/chrome/SiteLegal";
 import MediaPlayer from "@/components/chrome/MediaPlayer";
 import { NavProgressProvider } from "@/components/chrono/RouteProgress";
 import "./globals.css";
@@ -132,10 +131,10 @@ export default function RootLayout({
           {modal}
         </NavProgressProvider>
         <MediaPlayer />
-        {/* Fixed Imprint/Privacy links under the player:
-            the legal-reachability guarantee for footerless desktop surfaces.
-            Hidden on /login and ≤760px via 71-legal.css. */}
-        <SiteLegal />
+        {/* The fixed Imprint/Privacy corner row (SiteLegal) was retired S255:
+            the links live in the ArchiveFooter on content pages and in the
+            burger overlay on touch/narrow viewports; footerless desktop
+            surfaces reach them via any rail destination (two clicks). */}
         {/* E6 observability: cookieless Web Analytics + Speed Insights. In
             production both load same-origin (v2 "resilient intake" unique
             paths under our own host) — covered by the S3b CSP ('self'); dev
