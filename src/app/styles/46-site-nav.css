@@ -16,13 +16,25 @@
   font-family: var(--font-body);
 }
 
-.site-nav__list {
+.site-nav__list,
+.site-nav__group-list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 22px;
+}
+.site-nav__group-list {
+  gap: 16px;
+}
+/* Groups meet at a bare hairline, aligned with the title column — the
+   labelled version of the grouping lives in the burger overlay. */
+.site-nav__sep {
+  display: block;
+  width: 26px;
+  height: 1px;
+  margin: 15px 0 15px 38px;
+  background: var(--cl-hair);
 }
 
 .site-nav__link {
@@ -65,6 +77,12 @@
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
   transition: color 0.3s;
 }
+.site-nav__text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
 .site-nav__title {
   font-size: var(--fs-label-lg);
   letter-spacing: var(--track-24);
@@ -73,6 +91,25 @@
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
   white-space: nowrap;
   transition: color 0.3s, letter-spacing 0.5s var(--ease);
+}
+/* Descriptive sublabel — the quiet gloss under each branded name (NN/g
+   mitigation, Session 255). Deliberately near-silent: mono micro caps. */
+.site-nav__sub {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-3xs);
+  letter-spacing: var(--track-14);
+  text-transform: uppercase;
+  color: var(--cl-faint);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
+  white-space: nowrap;
+  transition: color 0.3s;
+}
+.site-nav__link:hover .site-nav__sub,
+.site-nav__link:focus-visible .site-nav__sub {
+  color: var(--cl-dim);
+}
+.site-nav__link.is-current .site-nav__sub {
+  color: var(--cl-gold-dim);
 }
 .site-nav__link:hover .site-nav__title,
 .site-nav__link:focus-visible .site-nav__title {
