@@ -76,8 +76,12 @@ export function buildAskSearchParams(answers: AskAnswers): URLSearchParams {
   return params;
 }
 
+/** Canonical route of the questionnaire since it moved into the Compendium
+ *  (Session 256; the old /ask redirects here). */
+export const FOUR_QUESTIONS_PATH = "/compendium/four-questions";
+
 export function buildAskHref(answers: AskAnswers): string {
   const params = buildAskSearchParams(answers);
   const query = params.toString();
-  return query ? `/ask?${query}` : "/ask";
+  return query ? `${FOUR_QUESTIONS_PATH}?${query}` : FOUR_QUESTIONS_PATH;
 }

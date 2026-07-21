@@ -98,7 +98,7 @@ main.hub {
 }
 .hub-explore__row {
   display: grid;
-  grid-template-columns: 54px minmax(0, 1.35fr) minmax(0, 1fr) 22px;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr) 22px;
   gap: 0 18px;
   align-items: baseline;
   padding: 17px 14px;
@@ -110,12 +110,6 @@ main.hub {
 .hub-explore__row--link:hover,
 .hub-explore__row--link:focus-visible {
   background: rgba(228, 221, 203, 0.03);
-}
-.hub-explore__index {
-  font-family: var(--font-mono);
-  font-size: var(--fs-label-md);
-  color: var(--cl-faint);
-  text-align: right;
 }
 .hub-explore__main {
   display: flex;
@@ -175,7 +169,7 @@ main.hub {
 
 @media (max-width: 720px) {
   .hub-explore__row {
-    grid-template-columns: 40px minmax(0, 1fr) 22px;
+    grid-template-columns: minmax(0, 1fr) 22px;
   }
   .hub-explore__gloss {
     display: none;

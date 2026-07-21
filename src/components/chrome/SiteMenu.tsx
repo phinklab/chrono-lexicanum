@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
-import { NAV_GROUPS, ROMAN } from "./navEntries";
+import { NAV_GROUPS } from "./navEntries";
 
 /**
  * SiteMenu — global burger button + full-screen navigation overlay, mounted in
@@ -25,7 +25,7 @@ import { NAV_GROUPS, ROMAN } from "./navEntries";
  * BrandBeacon only fades in after scrolling. The tool set + grouping come
  * from navEntries.ts (shared with the desktop rail, Session 255); here the
  * groups wear their quiet labels and every entry carries its descriptive
- * gloss. Numbering runs I (Home) through the groups.
+ * gloss.
  */
 const HOME_ENTRY = { label: "Home", sub: "The front door", href: "/" } as const;
 
@@ -163,7 +163,6 @@ export default function SiteMenu() {
           <ul className="site-menu__list" aria-label="Home">
             <li className="site-menu__item" style={indexVar(0)}>
               <Link href={HOME_ENTRY.href} onClick={() => setOpen(false)}>
-                <span className="site-menu__num">{ROMAN[0]}</span>
                 <span className="site-menu__text">
                   <span className="site-menu__name">{HOME_ENTRY.label}</span>
                   <span className="site-menu__desc">{HOME_ENTRY.sub}</span>
@@ -188,7 +187,6 @@ export default function SiteMenu() {
                         style={indexVar(i)}
                       >
                         <Link href={e.href} onClick={() => setOpen(false)}>
-                          <span className="site-menu__num">{ROMAN[i]}</span>
                           <span className="site-menu__text">
                             <span className="site-menu__name">{e.label}</span>
                             <span className="site-menu__desc">{e.sub}</span>

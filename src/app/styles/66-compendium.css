@@ -141,6 +141,13 @@
   }
 }
 
+/* Guided picks — the two Curator tools under the category doors: same door
+   idiom, but a band of its own so recommenders and registers stay legible as
+   different things. */
+.cmp-sect-tools {
+  margin-top: 72px;
+}
+
 /* Category directory */
 .cmp-directory {
   max-width: 900px;

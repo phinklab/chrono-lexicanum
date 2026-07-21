@@ -14,7 +14,7 @@
  * Lane-scoped anchors come along for free — they live in their concrete cell,
  * which the merge includes.
  *
- * The hot path (`/ask` page) reads cells from the cache: no per-request DB. Only
+ * The hot path (the Four Questions page) reads cells from the cache: no per-request DB. Only
  * "Browse deeper" goes live. The cache is cleared via the same revalidate path
  * as `cachedAskBooks`.
  */

@@ -1,9 +1,10 @@
 /**
- * Compendium shell — wraps the overview (`/compendium`) and every category
- * directory (`/compendium/[category]`): the fixed art, the masthead ("The
- * Registry / The Compendium") and the Imprimatur foot. The category nav lives
- * on the directory pages, not here — the overview leads straight into the
- * doorways.
+ * Compendium shell — wraps the overview (`/compendium`), every category
+ * directory (`/compendium/[category]`) and the two guided-pick tools
+ * (`/compendium/four-questions`, `/compendium/one-faction-one-book`): the
+ * fixed art, the masthead ("The Registry / The Compendium") and the
+ * Imprimatur foot. The category nav lives on the directory/tool pages, not
+ * here — the overview leads straight into the doorways.
  */
 import type { Metadata } from "next";
 import { type ReactNode } from "react";
@@ -29,6 +30,7 @@ export const metadata: Metadata = {
 const VOX_LINES = [
   "Compendivm · quinque portae",
   "Fractio / Persona / Mvndvs",
+  "IV qvaestiones · vna factio",
   "Doorway · librorvm / vox",
   "Cognitio link stable",
 ];
@@ -56,8 +58,8 @@ export default function CompendiumLayout({
         <p className="lx-hero__over">The Registry</p>
         <h1 className="lx-hero__heading">The Compendium</h1>
         <p className="lx-hero__edition">
-          Five doorways into the archive — each one leads to the books and
-          voices that carry its story.
+          Five doorways into the archive — and two guided picks that lead
+          straight to your next book.
         </p>
         <RouteScrollCue
           className="route-cue--flow lx-hero__cue"
@@ -68,7 +70,7 @@ export default function CompendiumLayout({
 
       <div className="cmp-body route-body-snap">
         {children}
-        <ArchiveFooter mid="Five doorways into the archive" />
+        <ArchiveFooter mid="Doorways & guided picks" />
       </div>
     </main>
   );

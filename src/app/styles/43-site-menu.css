@@ -136,12 +136,21 @@ body:has([data-detail-modal]) .site-burger {
      list with glosses runs taller than one viewport). */
   display: grid;
   overflow-y: auto;
+  /* Ground: the shared library-nave photo (SiteBackground variant "main" —
+     Hub/Archive/Compendium/Ask) under a near-solid void wash, matching those
+     pages' scrolled-down state (ScrollScrim peaks at 0.94). Same desktop crop
+     (right bottom); phones re-center on the nave below, mirroring
+     MOBILE_POSITIONS. Default background-attachment keeps the photo pinned
+     while the list scrolls on small phones. */
+  --sm-bg-pos: right bottom;
   background:
-    radial-gradient(
-      ellipse 90% 75% at 50% 24%,
-      rgba(13, 19, 32, 0.96) 0%,
-      transparent 70%
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--cl-void) 88%, transparent) 0%,
+      color-mix(in srgb, var(--cl-void) 93%, transparent) 55%,
+      color-mix(in srgb, var(--cl-void) 97%, transparent) 100%
     ),
+    url("/img/main-bg.webp") var(--sm-bg-pos) / cover no-repeat,
     var(--cl-void);
   opacity: 0;
   visibility: hidden;
@@ -154,6 +163,13 @@ body:has([data-detail-modal]) .site-burger {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+}
+/* Phone portrait: the desktop crop (right bottom) shows only the nave's right
+   wall on a 9:19 slice — re-center, mirroring MOBILE_POSITIONS.main. */
+@media (max-width: 760px) {
+  .site-menu {
+    --sm-bg-pos: center bottom;
+  }
 }
 .site-menu__grain {
   /* Fixed, not absolute: the overlay scrolls on small phones (see above) and
@@ -240,7 +256,6 @@ body:has([data-detail-modal]) .site-burger {
   display: flex;
   align-items: baseline;
   justify-content: center;
-  gap: 26px;
   padding: clamp(10px, 2.3vh, 21px) 0;
   text-decoration: none;
   opacity: 0;
@@ -248,15 +263,6 @@ body:has([data-detail-modal]) .site-burger {
 }
 .site-menu.is-open .site-menu__item a {
   opacity: 1;
-}
-.site-menu__num {
-  font-family: var(--sm-mono);
-  font-size: var(--fs-label-xs);
-  letter-spacing: var(--track-30);
-  color: var(--sm-steel-dim);
-  min-width: 2.4em;
-  text-align: right;
-  transition: color 0.35s ease;
 }
 .site-menu__text {
   display: flex;
@@ -307,18 +313,10 @@ body:has([data-detail-modal]) .site-burger {
 .site-menu.is-open .site-menu__group {
   opacity: 1;
 }
-.site-menu__item a::after {
-  /* balances the numeral so the name stays optically centred */
-  content: "";
-  min-width: 2.4em;
-}
 .site-menu__item a:hover .site-menu__name,
 .site-menu__item a:focus-visible .site-menu__name {
   color: var(--cl-gold);
   text-shadow: 0 0 28px rgba(164, 140, 82, 0.35);
-}
-.site-menu__item a:hover .site-menu__num {
-  color: var(--cl-gold);
 }
 
 /* Staggered reveal — motion only when the visitor allows it. Each item
@@ -350,12 +348,8 @@ body:has([data-detail-modal]) .site-burger {
   .site-burger__label { display: none; }
   .site-burger::before { display: none; } /* no corner scrim on mobile */
 
-  /* Entry list: the desktop clamp (up to 60px) lets a long single word
-     ("CARTOGRAPHER") outgrow the row — the centered flex then clips the
-     roman numeral off the left edge. Smaller type + tighter gutters keep
-     numeral · name · spacer inside every phone width. */
-  .site-menu__item a { gap: 14px; }
-  .site-menu__num,
-  .site-menu__item a::after { min-width: 1.8em; }
+  /* Entry list: the desktop clamp lets a long single word ("CARTOGRAPHER")
+     outgrow the row width. Smaller type keeps every name inside every
+     phone width. */
   .site-menu__name { font-size: clamp(24px, 4vh, 32px); }
 }

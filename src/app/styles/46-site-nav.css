@@ -1,7 +1,7 @@
 /* 46-site-nav.css
    Fixed page chrome: the left-edge navigation rail (SiteNav.tsx), the wordmark
    top-left (SiteBrand.tsx) and the vox readout top-right (GhostReadout inside
-   .site-vox). Rail entries show numeral + title permanently; the active route
+   .site-vox). Rail entries show title + sublabel permanently; the active route
    carries the gold rubric stroke in the margin. Below the breakpoint the rail
    is hidden and the SiteMenu burger overlay (43-site-menu.css) takes over. */
 
@@ -33,7 +33,7 @@
   display: block;
   width: 26px;
   height: 1px;
-  margin: 15px 0 15px 38px;
+  margin: 15px 0;
   background: var(--cl-hair);
 }
 
@@ -66,17 +66,6 @@
   background: var(--cl-gold);
 }
 
-.site-nav__num {
-  width: 26px;
-  flex: none;
-  text-align: right;
-  font-family: var(--font-mono);
-  font-size: var(--fs-label-md);
-  letter-spacing: var(--track-10);
-  color: var(--cl-faint);
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
-  transition: color 0.3s;
-}
 .site-nav__text {
   display: flex;
   flex-direction: column;
@@ -114,9 +103,6 @@
 .site-nav__link:hover .site-nav__title,
 .site-nav__link:focus-visible .site-nav__title {
   color: var(--cl-bone);
-}
-.site-nav__link.is-current .site-nav__num {
-  color: var(--cl-gold);
 }
 .site-nav__link.is-current .site-nav__title {
   color: var(--cl-gold);

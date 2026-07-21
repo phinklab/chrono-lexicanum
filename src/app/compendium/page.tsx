@@ -1,16 +1,20 @@
 /**
  * Compendium overview. The orientation surface: five
  * category segments — Factions featured full-width on top, the other four in a
- * 2×2 below. Each is a frameless washed panel (the /ask "segment" treatment)
- * carrying its count, a short intro and one quiet coverage stat, plus a
- * "view all" into the full directory. Progressive disclosure — every faction is
- * reachable, but the start view is a hall of doorways (no longer a peek list).
- * The shared hero + nav come from the layout.
+ * 2×2 below — plus the "Guided Picks" band with the two Curator tools
+ * (Session 256). Each category door is a frameless washed panel carrying its
+ * count, a short intro and one quiet coverage stat, plus a "view all" into the
+ * full directory; the tool doors carry a "begin" action instead. Progressive
+ * disclosure — every faction is reachable, but the start view is a hall of
+ * doorways (no longer a peek list). The shared hero + nav come from the layout.
  */
 import type { Metadata } from "next";
 import Link from "next/link";
 import { routeOg } from "@/lib/seo";
-import { COMPENDIUM_CATEGORIES } from "@/lib/compendium/categories";
+import {
+  COMPENDIUM_CATEGORIES,
+  COMPENDIUM_TOOLS,
+} from "@/lib/compendium/categories";
 import { loadCategoryItems } from "@/lib/compendium/loader";
 
 const COMPENDIUM_DESCRIPTION =
@@ -132,6 +136,25 @@ export default async function CompendiumOverview() {
             <Door key={d.category.slug} {...d} />
           ))}
         </div>
+      </div>
+
+      {/* Guided picks — the two Curator tools folded in from the retired /ask
+          surface (Session 256). Deliberately a band of their own: they are
+          recommenders, not registers, so the doors carry a "begin" action
+          instead of counts and "View all". */}
+      <h2 className="lx-sect cmp-sect-tools reveal">Guided Picks</h2>
+      <div className="cmp-doors-grid reveal">
+        {COMPENDIUM_TOOLS.map((t) => (
+          <Link
+            key={t.slug}
+            href={`/compendium/${t.slug}`}
+            className="cmp-door cmp-door--tool"
+          >
+            <h3 className="cmp-door__label">{t.label}</h3>
+            <p className="cmp-door__blurb">{t.blurb}</p>
+            <span className="cmp-door__all">{t.cta} →</span>
+          </Link>
+        ))}
       </div>
     </section>
   );
