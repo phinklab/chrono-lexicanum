@@ -101,7 +101,7 @@ main.book-detail {
 .book-detail__synopsis::first-line {
   letter-spacing: var(--track-14);
   text-transform: uppercase;
-  font-size: 17px;
+  font-size: var(--fs-read-xs);
 }
 
 /* Appendix â dramatis personae / factions / locations with roles. */
@@ -115,7 +115,7 @@ main.book-detail {
 .book-detail__appendix-head {
   margin: 0 0 10px;
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: var(--fs-label-md);
   font-weight: var(--fw-regular);
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -170,7 +170,7 @@ main.book-detail {
 .book-detail__audio-credit {
   margin: 20px 0 0;
   font-style: italic;
-  font-size: 17px;
+  font-size: var(--fs-read-xs);
   color: var(--cl-dim);
 }
 .book-detail__audio-credit-label {

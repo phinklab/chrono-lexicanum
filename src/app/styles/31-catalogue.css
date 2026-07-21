@@ -247,7 +247,7 @@ main.catalogue {
 }
 .catalogue-row__year {
   font-family: var(--font-mono);
-  font-size: 14.5px;
+  font-size: var(--fs-label-xl);
   color: var(--cl-dim);
   font-variant-numeric: tabular-nums;
   text-align: right;

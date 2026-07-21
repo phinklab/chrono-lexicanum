@@ -124,7 +124,7 @@
   gap: 26px;
   margin: 0 0 30px;
   font-family: var(--font-body);
-  font-size: 14.5px;
+  font-size: var(--fs-label-xl);
   font-weight: var(--fw-regular);
   letter-spacing: var(--track-34);
   text-transform: uppercase;
@@ -427,7 +427,7 @@
 .lx-initial::first-line {
   letter-spacing: var(--track-14);
   text-transform: uppercase;
-  font-size: 16.5px;
+  font-size: var(--fs-read-xs);
 }
 
 /* Cogitator interstitial — the compact Sternwarte loop (shared keyframes:
@@ -540,7 +540,7 @@
   border-top: 1px solid var(--cl-hair);
   padding-top: 16px;
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: var(--fs-label-md);
   letter-spacing: var(--track-24);
   text-transform: uppercase;
   color: var(--cl-faint);

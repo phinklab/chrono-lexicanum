@@ -16,7 +16,8 @@
   align-items: baseline;
   gap: 8px;
   font-family: var(--font-mono);
-  font-size: 9px;
+  /* S255: was 9px — below the documented 10px mono floor. */
+  font-size: var(--fs-label-3xs);
   letter-spacing: var(--track-22);
   text-transform: uppercase;
   color: var(--cl-faint);

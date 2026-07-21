@@ -449,13 +449,13 @@
 }
 .libr-tick {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--fs-label-2xs);
   letter-spacing: 0.04em;
   fill: var(--cl-faint);
 }
 .libr-note {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--fs-label-2xs);
   letter-spacing: 0.08em;
   fill: var(--cl-dim);
 }
@@ -500,7 +500,7 @@
 }
 .libr-rule text {
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: var(--fs-label-2xs);
   letter-spacing: 0.08em;
   fill: var(--cl-bone);
 }

@@ -136,7 +136,7 @@ main.hub {
 }
 .hub-explore__desc {
   font-style: italic;
-  font-size: 17px;
+  font-size: var(--fs-read-xs);
   color: var(--cl-dim);
 }
 /* Marginalia gloss: hover-only — the machine register's one Latin licence. */

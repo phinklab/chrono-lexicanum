@@ -132,7 +132,7 @@
   z-index: 25;
   font-family: var(--font-display);
   font-weight: var(--font-display-wght);
-  font-size: 14px;
+  font-size: 14px; /* optical — display-face wordmark, outside the ladders */
   letter-spacing: var(--track-30);
   text-transform: uppercase;
   color: var(--cl-bone);
@@ -297,7 +297,7 @@ body:has([data-detail-modal]) .brand-beacon {
 }
 .site-vox__line {
   font-family: var(--font-mono);
-  font-size: 11.5px;
+  font-size: var(--fs-label-2xs);
   letter-spacing: var(--track-16);
   text-transform: uppercase;
   color: var(--cl-bone);
@@ -334,7 +334,7 @@ body:has([data-detail-modal]) .brand-beacon {
     right: 16px;
   }
   .site-vox__line {
-    font-size: 10px;
+    font-size: var(--fs-label-3xs);
     line-height: 2;
   }
 }
