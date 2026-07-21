@@ -36,6 +36,7 @@ import {
   KIND_BY_CLASSIFICATION,
   SOURCE_EXTENT,
   WELTEN_HEADERS,
+  WELTEN_HEADERS_LEGACY,
   buildCatalog,
   buildLocationMatcher,
   deriveBookEdges,
@@ -431,28 +432,54 @@ check("parseCurationSheet: non-numeric x throws", () => {
   );
 });
 
-check("parseWeltenSheet: happy path ('-'/'null' → force-unmatch)", () => {
+check("parseWeltenSheet: happy path ('-'/'null' → force-unmatch, Name-Override opt-in)", () => {
   const rows = parseWeltenSheet([
     WELTEN_HEADER_ROW,
-    ["gramarye-2", "-", "Dublette entkoppelt"],
-    ["commorragh-3", "NULL", null],
+    ["gramarye-2", "-", null, "Dublette entkoppelt"],
+    ["commorragh-3", "NULL", null, null],
+    ["sarum", "terra", null, null],
+    ["moloch", null, "Arthas Moloch", "WP-B1"],
+    ["zeta", "terra", "Zeta Prime", null],
+  ]);
+  assert.deepEqual(rows.map((r) => [r.worldId, r.locationIdOverride, r.nameOverride]), [
+    ["gramarye-2", null, null],
+    ["commorragh-3", null, null],
     ["sarum", "terra", null],
+    ["moloch", undefined, "Arthas Moloch"],
+    ["zeta", "terra", "Zeta Prime"],
   ]);
-  assert.deepEqual(rows.map((r) => [r.worldId, r.locationIdOverride]), [
-    ["gramarye-2", null],
-    ["commorragh-3", null],
-    ["sarum", "terra"],
-  ]);
+  assert.equal(rows[0]?.note, "Dublette entkoppelt");
+  assert.equal(rows[3]?.note, "WP-B1");
 });
 
-check("parseWeltenSheet: duplicate / empty override / header mismatch throw", () => {
+check("parseWeltenSheet: legacy three-column layout still parses (nameOverride null)", () => {
+  const rows = parseWeltenSheet([
+    [...WELTEN_HEADERS_LEGACY],
+    ["gramarye-2", "-", "Dublette entkoppelt"],
+    ["sarum", "terra", null],
+  ]);
+  assert.deepEqual(
+    rows.map((r) => [r.worldId, r.locationIdOverride, r.nameOverride, r.note]),
+    [
+      ["gramarye-2", null, null, "Dublette entkoppelt"],
+      ["sarum", "terra", null, null],
+    ],
+  );
+  // legacy layout has no Name-Override cell → empty override is still an error
   assert.throws(
-    () => parseWeltenSheet([WELTEN_HEADER_ROW, ["a", "-", null], ["a", "-", null]]),
+    () => parseWeltenSheet([[...WELTEN_HEADERS_LEGACY], ["a", null, "kaputt"]]),
+    /neither locationId-Override .* nor Name-Override/,
+  );
+});
+
+check("parseWeltenSheet: duplicate / empty row / header mismatch throw", () => {
+  assert.throws(
+    () => parseWeltenSheet([WELTEN_HEADER_ROW, ["a", "-", null, null], ["a", "-", null, null]]),
     /duplicate Welt-ID "a"/,
   );
   assert.throws(
-    () => parseWeltenSheet([WELTEN_HEADER_ROW, ["a", null, "kaputt"]]),
-    /locationId-Override is empty/,
+    () => parseWeltenSheet([WELTEN_HEADER_ROW, ["a", null, null, "kaputt"]]),
+    /neither locationId-Override .* nor Name-Override/,
   );
   assert.throws(() => parseWeltenSheet([["Welt", "Override", "Notiz"]]), /header mismatch/);
 });
@@ -571,8 +598,8 @@ check("welten override: force-unmatch clears works, force-match attaches; review
       curation: {
         rows: [],
         worldRows: [
-          { sheetRow: 2, worldId: "terra", locationIdOverride: null, note: null },
-          { sheetRow: 3, worldId: "sarum", locationIdOverride: "terra", note: null },
+          { sheetRow: 2, worldId: "terra", locationIdOverride: null, nameOverride: null, note: null },
+          { sheetRow: 3, worldId: "sarum", locationIdOverride: "terra", nameOverride: null, note: null },
         ],
       },
       matcher: new Map([["terra", "terra"]]),
@@ -587,8 +614,8 @@ check("welten override: force-unmatch clears works, force-match attaches; review
   assert.equal(sarum?.locationId, "terra");
   assert.equal(sarum?.works.length, 1);
   assert.deepEqual(review.applied.worldOverrides, [
-    { worldId: "terra", locationId: null },
-    { worldId: "sarum", locationId: "terra" },
+    { worldId: "terra", locationId: null, nameOverride: null },
+    { worldId: "sarum", locationId: "terra", nameOverride: null },
   ]);
 });
 
@@ -598,7 +625,7 @@ check("welten override: unknown world id / unknown locationId throw", () => {
       buildCatalog(
         makeInputs({
           excelRows: [makeRow({ sourceRow: 2, name: "Zeta", x: X0 + 10, y: Y0 + 10 })],
-          curation: { rows: [], worldRows: [{ sheetRow: 2, worldId: "nope", locationIdOverride: null, note: null }] },
+          curation: { rows: [], worldRows: [{ sheetRow: 2, worldId: "nope", locationIdOverride: null, nameOverride: null, note: null }] },
         }),
       ),
     /no catalog world with this id/,
@@ -608,11 +635,75 @@ check("welten override: unknown world id / unknown locationId throw", () => {
       buildCatalog(
         makeInputs({
           excelRows: [makeRow({ sourceRow: 2, name: "Zeta", x: X0 + 10, y: Y0 + 10 })],
-          curation: { rows: [], worldRows: [{ sheetRow: 2, worldId: "zeta", locationIdOverride: "ghost", note: null }] },
+          curation: { rows: [], worldRows: [{ sheetRow: 2, worldId: "zeta", locationIdOverride: "ghost", nameOverride: null, note: null }] },
         }),
       ),
     /not a locations\.json id/,
   );
+});
+
+check("welten override: name-only rename is display-only (id, matching, link targeting unchanged)", () => {
+  // Mirrors WP-B1: Excel world "Moloch" IS location arthas_moloch ("Arthas
+  // Moloch" — a name the matcher knows). Rename + link must coexist: the
+  // rename may not flip the auto-matcher (else the link guard would fire) and
+  // may not touch the world id (the link's Ziel).
+  const { file, review } = buildCatalog(
+    makeInputs({
+      excelRows: [makeRow({ sourceRow: 2, name: "Moloch", x: X0 + 10, y: Y0 + 10 })],
+      curation: {
+        rows: [
+          makeCurationRow({
+            sheetRow: 2, locationId: "arthas_moloch", name: "Arthas Moloch",
+            action: "link", actionRaw: "link", target: "moloch",
+          }),
+        ],
+        worldRows: [
+          { sheetRow: 2, worldId: "moloch", locationIdOverride: undefined, nameOverride: "Arthas Moloch", note: null },
+        ],
+      },
+      matcher: new Map([["arthas moloch", "arthas_moloch"]]),
+      locationNames: new Map([["arthas_moloch", "Arthas Moloch"]]),
+      worksByLocation: new Map([
+        ["arthas_moloch", [{ type: "book", slug: "farsight-empire-of-lies", title: "Farsight: Empire of Lies", role: "primary" }]],
+      ]),
+    }),
+  );
+  const moloch = file.worlds.find((w) => w.id === "moloch");
+  assert.equal(moloch?.name, "Arthas Moloch");
+  assert.equal(moloch?.locationId, "arthas_moloch");
+  assert.equal(moloch?.works.length, 1);
+  assert.deepEqual(review.applied.worldOverrides, [
+    { worldId: "moloch", locationId: undefined, nameOverride: "Arthas Moloch" },
+  ]);
+  assert.deepEqual(review.applied.links.map((l) => l.worldIds), [["moloch"]]);
+  assert.equal(review.unplacedLocations.length, 0);
+  assert.equal(review.matchedWorlds[0]?.name, "Arthas Moloch");
+  const md = renderReview(review);
+  assert.ok(md.includes("| Welt-ID | locationId | Name-Override |"));
+  assert.ok(md.includes("| `moloch` | (unverändert) | Arthas Moloch |"));
+});
+
+check("welten override: locationId-Override + Name-Override combine on one row", () => {
+  const { file, review } = buildCatalog(
+    makeInputs({
+      excelRows: [makeRow({ sourceRow: 2, name: "Sarum", x: X0 + 10, y: Y0 + 10 })],
+      curation: {
+        rows: [],
+        worldRows: [
+          { sheetRow: 2, worldId: "sarum", locationIdOverride: "terra", nameOverride: "Sarum Prime", note: null },
+        ],
+      },
+      locationNames: new Map([["terra", "Terra"]]),
+      worksByLocation: new Map([["terra", [{ type: "book", slug: "b", title: "B", role: "primary" }]]]),
+    }),
+  );
+  const sarum = file.worlds.find((w) => w.id === "sarum");
+  assert.equal(sarum?.name, "Sarum Prime");
+  assert.equal(sarum?.locationId, "terra");
+  assert.equal(sarum?.works.length, 1);
+  assert.deepEqual(review.applied.worldOverrides, [
+    { worldId: "sarum", locationId: "terra", nameOverride: "Sarum Prime" },
+  ]);
 });
 
 // =============================================================================
@@ -707,7 +798,7 @@ check("link: unknown Ziel / already-matched target / double-forced target throw"
           excelRows: [makeRow({ sourceRow: 2, name: "Zeta", x: X0 + 10, y: Y0 + 10 })],
           curation: {
             rows: [makeCurationRow({ sheetRow: 2, locationId: "loc_a", action: "link", actionRaw: "link", target: "zeta" })],
-            worldRows: [{ sheetRow: 2, worldId: "zeta", locationIdOverride: "terra", note: null }],
+            worldRows: [{ sheetRow: 2, worldId: "zeta", locationIdOverride: "terra", nameOverride: null, note: null }],
           },
         }),
       ),

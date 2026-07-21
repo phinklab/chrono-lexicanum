@@ -260,7 +260,11 @@ async function syncCuration(
 
   const weltenRows: Cell[][] = [WELTEN_HEADERS.map(header)];
   for (const w of curation.worldRows) {
-    weltenRows.push([str(w.worldId), str(w.locationIdOverride ?? "-"), str(w.note)]);
+    // undefined = name-only row: the cell must stay EMPTY (a "-" would turn it
+    // into a force-unmatch on the next parse).
+    const locationCell =
+      w.locationIdOverride === undefined ? null : (w.locationIdOverride ?? "-");
+    weltenRows.push([str(w.worldId), str(locationCell), str(w.nameOverride), str(w.note)]);
   }
 
   await writeXlsxFile([
@@ -275,7 +279,7 @@ async function syncCuration(
     {
       sheet: WELTEN_SHEET,
       data: weltenRows,
-      columns: [{ width: 26 }, { width: 20 }, { width: 60 }],
+      columns: [{ width: 26 }, { width: 20 }, { width: 22 }, { width: 60 }],
     },
   ]).toFile(resolve(process.cwd(), CURATION_FILE));
   return missing.length;

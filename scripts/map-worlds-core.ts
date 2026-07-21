@@ -228,11 +228,20 @@ export interface CurationRow {
 }
 
 /** One parsed row of sheet "Welten": force a world's locationId (a
- *  locations.json id) or force-unmatch it (cell "null" or "-"). */
+ *  locations.json id), force-unmatch it (cell "null" or "-"), and/or rename
+ *  the pin via the opt-in Name-Override column. At least one of the two
+ *  override cells must be filled. */
 export interface CurationWorldRow {
   sheetRow: number;
   worldId: string;
-  locationIdOverride: string | null;
+  /** undefined = cell empty, the row does not touch the locationId path
+   *  (name-only row); null = force-unmatch; string = forced locations.json id. */
+  locationIdOverride: string | null | undefined;
+  /** Opt-in display rename. Does NOT change the world id, and does NOT
+   *  participate in name matching or curation targeting — both stay on the
+   *  frozen Excel name (otherwise renaming a pin to a canonical location name
+   *  would flip the auto-matcher and trip the link guards). */
+  nameOverride: string | null;
   note: string | null;
 }
 
@@ -246,7 +255,11 @@ export const CURATION_HEADERS = [
   "x", "y", "Segmentum", "Klassifikation", "Notiz",
 ] as const;
 
-export const WELTEN_HEADERS = ["Welt-ID", "locationId-Override", "Notiz"] as const;
+export const WELTEN_HEADERS = ["Welt-ID", "locationId-Override", "Name-Override", "Notiz"] as const;
+/** Pre-Name-Override layout (Brief 183) — still accepted on read so a not-yet
+ *  rewritten committed Excel keeps parsing; `--sync-curation` writes the new
+ *  four-column layout. */
+export const WELTEN_HEADERS_LEGACY = ["Welt-ID", "locationId-Override", "Notiz"] as const;
 
 function cellText(v: SheetCell): string {
   if (v === null || v === undefined) return "";
@@ -361,9 +374,18 @@ export function parseCurationSheet(raw: ReadonlyArray<ReadonlyArray<SheetCell>>)
   return rows;
 }
 
-/** Parse + shape-validate sheet "Welten". Throws listing ALL problems. */
+/** Parse + shape-validate sheet "Welten". Accepts the current four-column
+ *  layout and the legacy three-column layout (no Name-Override). Throws
+ *  listing ALL problems. */
 export function parseWeltenSheet(raw: ReadonlyArray<ReadonlyArray<SheetCell>>): CurationWorldRow[] {
-  checkHeader(raw[0] ?? [], WELTEN_HEADERS, "Welten");
+  const headerRow = raw[0] ?? [];
+  const isModern = WELTEN_HEADERS.every((h, i) => cellText(headerRow[i]) === h);
+  const isLegacy =
+    !isModern &&
+    WELTEN_HEADERS_LEGACY.every((h, i) => cellText(headerRow[i]) === h) &&
+    cellText(headerRow[3]) === "";
+  if (!isModern && !isLegacy) checkHeader(headerRow, WELTEN_HEADERS, "Welten");
+  const noteCol = isModern ? 3 : 2;
   const issues: string[] = [];
   const rows: CurationWorldRow[] = [];
   const seenWorldIds = new Map<string, number>();
@@ -384,13 +406,21 @@ export function parseWeltenSheet(raw: ReadonlyArray<ReadonlyArray<SheetCell>>): 
     }
     seenWorldIds.set(worldId, sheetRow);
     const overrideRaw = cellText(row[1]);
-    if (overrideRaw === "") {
-      issues.push(`${at} ("${worldId}"): locationId-Override is empty — use a locations.json id, or "null" / "-" to force-unmatch`);
+    const nameOverride = isModern ? cellTextOrNull(row[2]) : null;
+    if (overrideRaw === "" && nameOverride === null) {
+      issues.push(
+        `${at} ("${worldId}"): row carries neither locationId-Override (a locations.json id, ` +
+          `or "null" / "-" to force-unmatch) nor Name-Override`,
+      );
       continue;
     }
     const locationIdOverride =
-      overrideRaw === "-" || overrideRaw.toLowerCase() === "null" ? null : overrideRaw;
-    rows.push({ sheetRow, worldId, locationIdOverride, note: cellTextOrNull(row[2]) });
+      overrideRaw === ""
+        ? undefined
+        : overrideRaw === "-" || overrideRaw.toLowerCase() === "null"
+          ? null
+          : overrideRaw;
+    rows.push({ sheetRow, worldId, locationIdOverride, nameOverride, note: cellTextOrNull(row[noteCol]) });
   }
   if (issues.length > 0) {
     throw new Error(`map-worlds-curation.xlsx sheet "Welten" invalid:\n  - ${issues.join("\n  - ")}`);
@@ -622,7 +652,12 @@ function roleStrength(work: MapWorldWork): number {
 
 interface WorldDraft {
   id: string;
+  /** Frozen Excel name — the basis for id assignment, name matching, and
+   *  same-name curation targeting, even when a Name-Override renames the pin. */
   name: string;
+  /** Display rename from sheet "Welten" (null = keep the Excel name). Applied
+   *  only when composing the output world — never fed into the matcher. */
+  nameOverride: string | null;
   kind: MapWorldKind;
   classification: string | null;
   classification2: string | null;
@@ -675,7 +710,9 @@ export interface AppliedPin {
 
 export interface AppliedWorldOverride {
   worldId: string;
-  locationId: string | null;
+  /** undefined = the row did not touch the locationId path (name-only row). */
+  locationId: string | null | undefined;
+  nameOverride: string | null;
 }
 
 export interface AppliedCuration {
@@ -775,6 +812,7 @@ export function buildCatalog(inputs: CatalogInputs): { file: MapWorldsFile; revi
     const draft: WorldDraft = {
       id,
       name: row.name,
+      nameOverride: null,
       kind: kindFor(row.primary, `Excel row ${row.sourceRow} ("${row.name}")`),
       classification: row.primary,
       classification2: row.secondary,
@@ -801,12 +839,19 @@ export function buildCatalog(inputs: CatalogInputs): { file: MapWorldsFile; revi
       errors.push(`${at}: no catalog world with this id`);
       continue;
     }
-    if (wr.locationIdOverride !== null && !inputs.locationNames.has(wr.locationIdOverride)) {
-      errors.push(`${at}: locationId-Override "${wr.locationIdOverride}" is not a locations.json id`);
-      continue;
+    if (wr.locationIdOverride !== undefined) {
+      if (wr.locationIdOverride !== null && !inputs.locationNames.has(wr.locationIdOverride)) {
+        errors.push(`${at}: locationId-Override "${wr.locationIdOverride}" is not a locations.json id`);
+        continue;
+      }
+      draft.forcedLocationId = wr.locationIdOverride;
     }
-    draft.forcedLocationId = wr.locationIdOverride;
-    applied.worldOverrides.push({ worldId: wr.worldId, locationId: wr.locationIdOverride });
+    if (wr.nameOverride !== null) draft.nameOverride = wr.nameOverride;
+    applied.worldOverrides.push({
+      worldId: wr.worldId,
+      locationId: wr.locationIdOverride,
+      nameOverride: wr.nameOverride,
+    });
   }
 
   // ---- 3. Pre-curation match state (guard base) -------------------------------
@@ -882,6 +927,7 @@ export function buildCatalog(inputs: CatalogInputs): { file: MapWorldsFile; revi
     const draft: WorldDraft = {
       id,
       name: row.name,
+      nameOverride: null,
       kind,
       classification: row.classification,
       classification2: null,
@@ -958,7 +1004,7 @@ export function buildCatalog(inputs: CatalogInputs): { file: MapWorldsFile; revi
     const works = locationId !== null ? [...(inputs.worksByLocation.get(locationId) ?? [])] : [];
     const world: MapWorld = {
       id: draft.id,
-      name: draft.name,
+      name: draft.nameOverride ?? draft.name,
       kind: draft.kind,
       classification: draft.classification,
       classification2: draft.classification2,
@@ -1145,7 +1191,9 @@ export function renderReview(review: ReviewData): string {
       "`Klassifikation` Pflicht — `x`/`y` im SSOT-Pixelraum der Redditor-Excel, der Convert " +
       "projiziert sie aufs Grid; Klassifikation „Region“ → `kind: region`) oder leer/`später` " +
       "(offen). Sheet „Welten“ erzwingt pro Welt-ID ein `locationId` (oder `-`/`null` = bewusst " +
-      "ohne Match, z. B. Dubletten-Entkopplung). Danach Convert neu laufen lassen.",
+      "ohne Match, z. B. Dubletten-Entkopplung) und/oder benennt die Welt per `Name-Override` um " +
+      "(nur Anzeigename; Welt-ID, Namens-Matching und Kurations-Ziele bleiben auf dem " +
+      "Excel-Namen). Danach Convert neu laufen lassen.",
   );
   lines.push("");
   lines.push(`**Abdeckung: ${c.placedWorkEdges} von ${c.totalWorkEdges} Werk-Kanten (${pct} %) platziert** (matched/link/pin/rollup).`);
@@ -1228,10 +1276,16 @@ export function renderReview(review: ReviewData): string {
     if (a.worldOverrides.length > 0) {
       lines.push(`### Welten-Overrides (${a.worldOverrides.length})`);
       lines.push("");
-      lines.push("| Welt-ID | locationId |");
-      lines.push("|---|---|");
+      lines.push("| Welt-ID | locationId | Name-Override |");
+      lines.push("|---|---|---|");
       for (const o of a.worldOverrides) {
-        lines.push(`| \`${o.worldId}\` | ${o.locationId === null ? "— (entkoppelt)" : `\`${o.locationId}\``} |`);
+        const loc =
+          o.locationId === undefined
+            ? "(unverändert)"
+            : o.locationId === null
+              ? "— (entkoppelt)"
+              : `\`${o.locationId}\``;
+        lines.push(`| \`${o.worldId}\` | ${loc} | ${o.nameOverride ?? "—"} |`);
       }
       lines.push("");
     }
