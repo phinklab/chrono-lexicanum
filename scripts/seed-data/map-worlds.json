@@ -7,7 +7,7 @@
     "transform": "gx = (x - 2.794) * 1000/7028.206, gy = (y - 515) * 1000/7028.206 (gleicher Skalierungsfaktor für beide Achsen = seitenverhältnis-treu; y wächst wie im Quellbild nach unten; gerundet auf 2 Nachkommastellen). Quelle: Warhammer_map_SSOT.xlsx, Pixel-Raum x ∈ [2.794, 7031], y ∈ [515, 6198]."
   },
   "coverage": {
-    "placedWorkEdges": 1352,
+    "placedWorkEdges": 1354,
     "totalWorkEdges": 1710
   },
   "worlds": [
@@ -13154,15 +13154,29 @@
     },
     {
       "id": "moloch",
-      "name": "Moloch",
+      "name": "Arthas Moloch",
       "kind": "dead",
       "classification": "Dead World",
       "classification2": null,
       "segmentum": "Ultima",
       "gx": 861.84,
       "gy": 539.26,
-      "locationId": null,
-      "works": [],
+      "locationId": "arthas_moloch",
+      "works": [
+        {
+          "type": "book",
+          "slug": "empire-of-lies",
+          "title": "Empire of Lies",
+          "role": "primary"
+        },
+        {
+          "type": "podcast_episode",
+          "slug": "adeptus-ridiculous-buzzsprout-12593086",
+          "show": "adeptus-ridiculous",
+          "title": "ARKS OF OMEN: FARSIGHT, FALL SEVEN TIMES AND STAND UP EIGHT | Warhammer 40k Lore",
+          "role": "subject"
+        }
+      ],
       "origin": "excel"
     },
     {

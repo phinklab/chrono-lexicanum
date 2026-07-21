@@ -1,14 +1,14 @@
 # map-worlds — Review-Report (Brief 174 + 183)
 
-> Generiert von `npm run import:map-worlds` — nicht von Hand editieren. Der Hand-Pfad ist `scripts/seed-data/source/map-worlds-curation.xlsx`: Sheet „Kuration“ hat eine Zeile pro Medien-Location ohne Match — `Aktion` = `link` (Excel-Welt existiert unter anderem Namen; `Ziel` = Welt-ID, deren `locationId` gesetzt wird), `rollup` (Werke an die Ziel-Welt anhängen, Herkunft via `via`), `pin` (neue Welt; `x`/`y`/`Segmentum`/`Klassifikation` Pflicht — `x`/`y` im SSOT-Pixelraum der Redditor-Excel, der Convert projiziert sie aufs Grid; Klassifikation „Region“ → `kind: region`) oder leer/`später` (offen). Sheet „Welten“ erzwingt pro Welt-ID ein `locationId` (oder `-`/`null` = bewusst ohne Match, z. B. Dubletten-Entkopplung). Danach Convert neu laufen lassen.
+> Generiert von `npm run import:map-worlds` — nicht von Hand editieren. Der Hand-Pfad ist `scripts/seed-data/source/map-worlds-curation.xlsx`: Sheet „Kuration“ hat eine Zeile pro Medien-Location ohne Match — `Aktion` = `link` (Excel-Welt existiert unter anderem Namen; `Ziel` = Welt-ID, deren `locationId` gesetzt wird), `rollup` (Werke an die Ziel-Welt anhängen, Herkunft via `via`), `pin` (neue Welt; `x`/`y`/`Segmentum`/`Klassifikation` Pflicht — `x`/`y` im SSOT-Pixelraum der Redditor-Excel, der Convert projiziert sie aufs Grid; Klassifikation „Region“ → `kind: region`) oder leer/`später` (offen). Sheet „Welten“ erzwingt pro Welt-ID ein `locationId` (oder `-`/`null` = bewusst ohne Match, z. B. Dubletten-Entkopplung) und/oder benennt die Welt per `Name-Override` um (nur Anzeigename; Welt-ID, Namens-Matching und Kurations-Ziele bleiben auf dem Excel-Namen). Danach Convert neu laufen lassen.
 
-**Abdeckung: 1352 von 1710 Werk-Kanten (79.1 %) platziert** (matched/link/pin/rollup).
+**Abdeckung: 1354 von 1710 Werk-Kanten (79.2 %) platziert** (matched/link/pin/rollup).
 
 ## 1. Match-Übersicht Excel ↔ Bestand
 
 - Katalog-Welten gesamt: **1055** (992 aus der Excel, 63 Kurations-Pins)
-- Verknüpft mit einer `locations.json`-Row: **155** Welten (148 verschiedene Locations)
-- Davon mit ≥1 eigenem Werk (Buch/Podcast, ohne Rollup): **153**
+- Verknüpft mit einer `locations.json`-Row: **156** Welten (149 verschiedene Locations)
+- Davon mit ≥1 eigenem Werk (Buch/Podcast, ohne Rollup): **154**
 
 | Welt-ID | Name | locationId | Bücher | Episoden |
 |---|---|---|---:|---:|
@@ -106,6 +106,7 @@
 | `miral` | Miral | `miral` | 1 | 0 |
 | `mistral` | Mistral | `mistral` | 3 | 0 |
 | `molech` | Molech | `molech` | 3 | 2 |
+| `moloch` | Arthas Moloch | `arthas_moloch` | 1 | 1 |
 | `monthax` | Monthax | `monthax` | 2 | 0 |
 | `necromunda` | Necromunda | `necromunda` | 21 | 9 |
 | `nikaea` | Nikaea | `nikaea` | 2 | 0 |
@@ -170,7 +171,7 @@
 
 ## 2. Nachplatzierungs-Worklist — offene Medien-Locations
 
-**238** `locations.json`-Rows tragen ≥1 Werk und sind weder verknüpft noch gerollt — absteigend nach Werk-Zahl. Zum Abarbeiten: Zeile in der Kurations-Excel mit einer `Aktion` versehen (s. Kopf), Convert neu laufen lassen.
+**237** `locations.json`-Rows tragen ≥1 Werk und sind weder verknüpft noch gerollt — absteigend nach Werk-Zahl. Zum Abarbeiten: Zeile in der Kurations-Excel mit einer `Aktion` versehen (s. Kopf), Convert neu laufen lassen.
 
 | locationId | Name | Bücher | Episoden |
 |---|---|---:|---:|
@@ -187,7 +188,6 @@
 | `velchanos_magna` | Velchanos Magna | 3 | 0 |
 | `aerius` | Aerius | 2 | 0 |
 | `anaxian_line` | Anaxian Line | 2 | 0 |
-| `arthas_moloch` | Arthas Moloch | 1 | 1 |
 | `astagar` | Astagar | 2 | 0 |
 | `boros_gate` | Boros Gate | 2 | 0 |
 | `broucheroc` | Broucheroc | 2 | 0 |
@@ -415,7 +415,7 @@
 
 ## 3. Angewandte Kuration
 
-### Links (5)
+### Links (6)
 
 | locationId | Name | → Welt-ID(s) | Werke |
 |---|---|---|---:|
@@ -424,6 +424,7 @@
 | `beta_garmon` | Beta-Garmon | `beta-garmon-iv` | 3 |
 | `dalyth` | Dal'yth | `dalyth` | 3 |
 | `piscina_iv` | Piscina IV | `piscina` | 2 |
+| `arthas_moloch` | Arthas Moloch | `moloch` | 2 |
 
 ### Rollups (57)
 
@@ -554,6 +555,12 @@
 | `saltire_vex` | `saltire-vex` | Saltire Vex | `unclassified` | 6000 | 4600 | 853.31 | 581.23 | 1 |
 | `thramas_sector` | `thramas-sector` | Thramas Sector | `region` | 6450 | 3750 | 917.33 | 460.29 | 1 |
 | `vraks_prime` | `vraks-prime` | Vraks Prime | `unclassified` | 1580 | 1240 | 224.41 | 103.16 | 11 |
+
+### Welten-Overrides (1)
+
+| Welt-ID | locationId | Name-Override |
+|---|---|---|
+| `moloch` | (unverändert) | Arthas Moloch |
 
 ## 4. Excel-Namensdubletten + angewandte Regel
 
