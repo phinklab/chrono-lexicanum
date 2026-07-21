@@ -1,8 +1,9 @@
 /**
  * DB-free route smokes (project `static`, no-DB server): the prerendered/
  * snapshot core routes — hub, map, podcasts index, the hot book subset —
- * plus /ask (its Curator landing renders from static config; verified against
- * /healthz 503) must serve their REAL content with NO database. Per route ×
+ * plus /compendium/four-questions (the questionnaire renders from static
+ * config; verified against /healthz 503) must serve their REAL content with
+ * NO database. Per route ×
  * (320/1280): one SPECIFIC landmark assert (green tests can never all be
  * /login), no pageerror / console.error / unexpected same-origin 4xx-5xx,
  * no horizontal overflow, no serious/critical axe findings.
@@ -107,12 +108,12 @@ const ROUTES: {
     },
   },
   {
-    name: "ask",
-    path: () => "/ask",
+    name: "four-questions",
+    path: () => "/compendium/four-questions",
     landmark: async (page) => {
-      await expect(page.locator("main#main.ask")).toBeVisible();
-      await expect(page.locator("h1#ask-title")).toHaveText(
-        "The Curator",
+      await expect(page.locator("main#main.compendium")).toBeVisible();
+      await expect(page.locator("h2#four-questions-title")).toHaveText(
+        "Four Questions",
       );
     },
   },
