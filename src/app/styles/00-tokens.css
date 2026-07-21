@@ -282,12 +282,34 @@
   --scrollbar-thumb-hover: rgba(232, 228, 216, 0.34);
 
   /* Type scale — two role ladders: Cardo (body — a large x-height, so the px
-   * values run small) and Fragment Mono (naturally wide; 12px uppercase is
+   * values run small) and the LABEL voice (naturally small caps; 10px is
    * the floor).
    *
    *   --fs-read-*   → Cardo reading text
-   *   --fs-label-*  → mono labels / rubrics / telemetry
-   */
+   *   --fs-label-*  → uppercase label voices: Fragment Mono telemetry AND
+   *                   Cardo body-caps rubrics/controls (S255 — one ladder,
+   *                   two faces; the tracking differs per voice, not the size)
+   *
+   * ROLE TABLE (S255) — where a text role gets its size. A new surface picks
+   * from here; it does NOT invent a px value:
+   *
+   *   masthead over-line     .lx-hero__over (42)          label-xl
+   *   masthead heading       .lx-hero__heading (42)       --hero-size clamp,
+   *                            set on the surface container (optical)
+   *   masthead edition line  .lx-hero__edition (42)       --fs-edition
+   *   section rubric         .lx-sect (42)                label-xl
+   *   body prose             .lx-prose (42) / body        read
+   *   row desc / caption     (italic, --cl-dim)           read-xs
+   *   quiet action link      (italic underline)           read-sm
+   *   body-caps control      (uppercase Cardo button)     label-lg
+   *   body-caps micro rubric (appendix heads, triad)      label-md
+   *   mono telemetry         (vox, ticks, credits)        label-3xs…label-xl
+   *
+   * Deliberately OUTSIDE the ladders (optical, keep literal px + comment):
+   *   display-face register titles (catalogue 27 / hub 24 / cmp 23 / runner
+   *   22 / prompt 28 / door 40 / pod-ep 16) — density-tuned per register;
+   *   glyph sizing (chevrons, arrows, play marks); the map + Chronicle
+   *   instrument HUDs (55/67) and internal tools (30/32) own their scales. */
   --fs-read-2xs: 15px;   /* fine print — nested notes, sub-hints, dense rows */
   --fs-read-xs:  16.5px; /* dense / secondary prose (roles, hints, captions) */
   --fs-read-sm:  18px;   /* compact body                                     */
@@ -295,6 +317,11 @@
   --fs-read-lg:  21px;   /* lead body — one step above                       */
   --fw-read:     var(--fw-regular);
   --lh-read:     1.6;
+
+  /* Role token (S255): the italic masthead edition line — one size for every
+   * surface (was 18/19.5/20px drift across six implementations). Consumed by
+   * .lx-hero__edition (42) and the Curator tool subs (53). */
+  --fs-edition:  20px;
 
   --fs-label-3xs: 10px;  /* micro tags / chrome telemetry — the floor        */
   --fs-label-2xs: 11px;  /* tags, media meta, fine mono                      */

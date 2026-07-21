@@ -131,8 +131,11 @@ body:has([data-detail-modal]) .site-burger {
   position: fixed;
   inset: 0;
   z-index: 80;
+  /* Grid + inner margin:auto (not place-items:center): centres when the list
+     fits, top-aligns + scrolls when it doesn't (small phones — the grouped
+     list with glosses runs taller than one viewport). */
   display: grid;
-  place-items: center;
+  overflow-y: auto;
   background:
     radial-gradient(
       ellipse 90% 75% at 50% 24%,
@@ -153,7 +156,9 @@ body:has([data-detail-modal]) .site-burger {
   pointer-events: auto;
 }
 .site-menu__grain {
-  position: absolute;
+  /* Fixed, not absolute: the overlay scrolls on small phones (see above) and
+     the grain should stay pinned to the viewport, not ride the list. */
+  position: fixed;
   inset: 0;
   pointer-events: none;
   opacity: 0.05;
@@ -163,6 +168,8 @@ body:has([data-detail-modal]) .site-burger {
 
 .site-menu__inner {
   width: min(920px, 90vw);
+  margin: auto;
+  padding: clamp(20px, 5vh, 48px) 0;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -251,10 +258,17 @@ body:has([data-detail-modal]) .site-burger {
   text-align: right;
   transition: color 0.35s ease;
 }
+.site-menu__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
 .site-menu__name {
   font-family: var(--sm-serif);
   font-weight: var(--fw-medium);
-  font-size: clamp(30px, 6.4vh, 60px);
+  font-size: clamp(28px, 5.4vh, 52px);
   line-height: 1.04;
   color: var(--cl-bone);
   letter-spacing: 0.01em;
@@ -263,6 +277,35 @@ body:has([data-detail-modal]) .site-burger {
     text-shadow 0.35s ease;
   text-wrap: balance;
   text-align: center;
+}
+/* Descriptive gloss under each branded name (NN/g mitigation, Session 255). */
+.site-menu__desc {
+  font-family: var(--sm-mono);
+  font-size: var(--fs-label-2xs);
+  letter-spacing: var(--track-20);
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--sm-steel-dim);
+  transition: color 0.35s ease;
+}
+.site-menu__item a:hover .site-menu__desc,
+.site-menu__item a:focus-visible .site-menu__desc {
+  color: var(--sm-steel);
+}
+/* Group label — the quiet rubric over each band of entries. */
+.site-menu__group {
+  margin: clamp(16px, 3.4vh, 30px) 0 2px;
+  text-align: center;
+  font-family: var(--sm-mono);
+  font-size: var(--fs-label-3xs);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--cl-gold-dim);
+  opacity: 0;
+  transition: opacity 0.6s ease 0.3s;
+}
+.site-menu.is-open .site-menu__group {
+  opacity: 1;
 }
 .site-menu__item a::after {
   /* balances the numeral so the name stays optically centred */
@@ -278,7 +321,9 @@ body:has([data-detail-modal]) .site-burger {
   color: var(--cl-gold);
 }
 
-/* Staggered reveal — motion only when the visitor allows it. */
+/* Staggered reveal — motion only when the visitor allows it. Each item
+   carries its running index as an inline `--sm-i` (SiteMenu.tsx), so the
+   ladder scales with the entry count instead of a hardcoded nth-child run. */
 @media (prefers-reduced-motion: no-preference) {
   .site-menu__item a {
     transform: translateY(22px);
@@ -288,18 +333,11 @@ body:has([data-detail-modal]) .site-burger {
   }
   .site-menu.is-open .site-menu__item a {
     transform: none;
+    transition-delay: calc(0.08s + var(--sm-i, 0) * 0.06s);
   }
-  .site-menu.is-open .site-menu__item:nth-child(1) a { transition-delay: 0.08s; }
-  .site-menu.is-open .site-menu__item:nth-child(2) a { transition-delay: 0.15s; }
-  .site-menu.is-open .site-menu__item:nth-child(3) a { transition-delay: 0.22s; }
-  .site-menu.is-open .site-menu__item:nth-child(4) a { transition-delay: 0.29s; }
-  .site-menu.is-open .site-menu__item:nth-child(5) a { transition-delay: 0.36s; }
-  .site-menu.is-open .site-menu__item:nth-child(6) a { transition-delay: 0.43s; }
-  .site-menu.is-open .site-menu__item:nth-child(2)::before { transition-delay: 0.18s; }
-  .site-menu.is-open .site-menu__item:nth-child(3)::before { transition-delay: 0.25s; }
-  .site-menu.is-open .site-menu__item:nth-child(4)::before { transition-delay: 0.32s; }
-  .site-menu.is-open .site-menu__item:nth-child(5)::before { transition-delay: 0.39s; }
-  .site-menu.is-open .site-menu__item:nth-child(6)::before { transition-delay: 0.46s; }
+  .site-menu.is-open .site-menu__item + .site-menu__item::before {
+    transition-delay: calc(0.11s + var(--sm-i, 0) * 0.06s);
+  }
 }
 
 /* Mobile: safe-area nudge so the burger clears notches/rounded corners;

@@ -87,14 +87,14 @@ export default async function HubPage() {
         <AuspexPair />
         <FloatingCoord x="9%" y="30%" label="Route · Segmentvm Vltima" delay={6} />
 
-        <p className="hub-hero__over">A Fan Archive of the 41st Millennium</p>
-        <h1 className="hub-hero__heading">Chrono Lexicanum</h1>
-        <p className="hub-hero__edition">
+        <p className="lx-hero__over">A Fan Archive of the 41st Millennium</p>
+        <h1 className="lx-hero__heading">Chrono Lexicanum</h1>
+        <p className="lx-hero__edition hub-hero__edition">
           <b>Chart the eras</b>, roam the galaxy, or ask the Curator for your
           next book.
         </p>
         <RouteScrollCue
-          className="route-cue--flow hub-hero__cue"
+          className="route-cue--flow lx-hero__cue"
           label="Enter the archive"
           target=".hub-act--intro"
         />

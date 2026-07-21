@@ -184,7 +184,7 @@
 }
 .ask-opt__label {
   display: block;
-  font-size: 20px;
+  font-size: var(--fs-read-lg);
   color: var(--cl-bone);
   transition: color 0.3s;
 }
@@ -286,7 +286,7 @@
   padding: 0;
   font-family: var(--font-body);
   font-style: italic;
-  font-size: 17.5px;
+  font-size: var(--fs-read-sm);
   color: var(--cl-faint);
   cursor: pointer;
   text-decoration: none;
@@ -394,7 +394,7 @@
 .ask-prime__by {
   margin: 14px 0 0;
   font-style: italic;
-  font-size: 18.5px;
+  font-size: var(--fs-read-sm);
   color: var(--cl-dim);
 }
 .ask-prime__note {
@@ -479,7 +479,7 @@
   display: inline-block;
   margin-top: 18px;
   font-style: italic;
-  font-size: 17.5px;
+  font-size: var(--fs-read-sm);
   color: var(--cl-faint);
   text-decoration: none;
   border-bottom: 1px solid transparent;

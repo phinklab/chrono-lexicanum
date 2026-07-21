@@ -69,14 +69,13 @@
   );
 }
 
-.detail-modal__back,
-.detail-modal__close {
+.detail-modal__back {
   display: inline-flex;
   align-items: baseline;
   gap: 8px;
   padding: 6px 2px;
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: var(--fs-label-md);
   letter-spacing: var(--track-26);
   text-transform: uppercase;
   color: var(--cl-dim);
@@ -86,19 +85,12 @@
   transition: color 0.3s;
 }
 .detail-modal__back:hover,
-.detail-modal__back:focus-visible,
-.detail-modal__close:hover,
-.detail-modal__close:focus-visible {
+.detail-modal__back:focus-visible {
   color: var(--cl-gold);
 }
 .detail-modal__back-arrow {
   font-size: 14px;
   line-height: var(--lh-solid);
-}
-.detail-modal__bar-end {
-  display: flex;
-  align-items: center;
-  gap: 14px;
 }
 
 /* Scroll body — hosts <BookDetailView> / <EntityView> */
@@ -180,10 +172,9 @@
   }
 }
 
-/* S8 touch targets: the two dismiss controls (coarse pointer only). */
+/* S8 touch targets: the dismiss control (coarse pointer only). */
 @media (pointer: coarse) {
-  .detail-modal__back,
-  .detail-modal__close {
+  .detail-modal__back {
     min-height: 44px;
     align-items: center;
     padding: 6px 10px;

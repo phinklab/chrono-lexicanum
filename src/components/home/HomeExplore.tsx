@@ -91,14 +91,16 @@ const BANDS: Band[] = [
     ],
   },
   {
+    // Mirrors the primary-nav order (Session 255): Cartographer leads as the
+    // site's USP; Librarium closes the registry.
     name: "Discover More",
     rows: [
       {
         n: "VIII",
-        title: "The Curator",
-        desc: "Four questions or one chosen faction — two paths to your next book.",
-        gloss: "CVRATOR · LECTORIS",
-        href: "/ask",
+        title: "Cartographer",
+        desc: "Every novel pinned to the world it haunts.",
+        gloss: "CARTOGRAPHIA",
+        href: "/map",
       },
       {
         n: "IX",
@@ -116,10 +118,17 @@ const BANDS: Band[] = [
       },
       {
         n: "XI",
-        title: "Cartographer",
-        desc: "Every novel pinned to the world it haunts.",
-        gloss: "CARTOGRAPHIA",
-        href: "/map",
+        title: "The Curator",
+        desc: "Four questions or one chosen faction — two paths to your next book.",
+        gloss: "CVRATOR · LECTORIS",
+        href: "/ask",
+      },
+      {
+        n: "XII",
+        title: "Librarium",
+        desc: "The archive counts itself — books, authors, ratings.",
+        gloss: "CENSVS · ARCHIVI",
+        href: "/statistics",
       },
     ],
   },

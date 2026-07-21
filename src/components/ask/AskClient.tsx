@@ -178,11 +178,11 @@ export default function AskClient({
         {showLanding ? (
           <header className="curator-landing__mast">
             <AuspexPair />
-            <p className="ask-console__eyebrow">Find Your Way In</p>
-            <h1 id="ask-title" className="ask-console__title">
+            <p className="lx-hero__over">Find Your Way In</p>
+            <h1 id="ask-title" className="lx-hero__heading">
               The Curator
             </h1>
-            <p className="ask-console__sub">
+            <p className="lx-hero__edition">
               Choose how the archive should guide you. Each path leads to one
               deliberate place to begin.
             </p>

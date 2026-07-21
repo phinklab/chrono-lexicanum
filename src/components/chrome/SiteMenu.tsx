@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { NAV_GROUPS, ROMAN } from "./navEntries";
 
 /**
  * SiteMenu — global burger button + full-screen navigation overlay, mounted in
@@ -21,20 +22,19 @@ import { useEffect, useRef, useState } from "react";
 /**
  * The overlay keeps "Home" deliberately: the top-left wordmark was retired
  * 2026-07-08 with exactly this menu as the designated Home carrier, and the
- * BrandBeacon only fades in after scrolling. Otherwise the set matches the
- * desktop rail (SiteNav) — Status Imperialis between Chronicle and
- * Cartographer: time, now, space (Philipp, Session 251).
+ * BrandBeacon only fades in after scrolling. The tool set + grouping come
+ * from navEntries.ts (shared with the desktop rail, Session 255); here the
+ * groups wear their quiet labels and every entry carries its descriptive
+ * gloss. Numbering runs I (Home) through the groups.
  */
-const ENTRIES = [
-  { num: "I", label: "Home", href: "/" },
-  { num: "II", label: "Archive", href: "/archive" },
-  { num: "III", label: "Compendium", href: "/compendium" },
-  { num: "IV", label: "Curator", href: "/ask" },
-  { num: "V", label: "Chronicle", href: "/timeline" },
-  { num: "VI", label: "Status Imperialis", href: "/now" },
-  { num: "VII", label: "Cartographer", href: "/map" },
-  { num: "VIII", label: "Librarium", href: "/statistics" },
-] as const;
+const HOME_ENTRY = { label: "Home", sub: "The front door", href: "/" } as const;
+
+/** Per-item stagger index consumed by 43-site-menu.css (`--sm-i`) — replaces
+ *  the old hardcoded nth-child delay ladder, which had already fallen behind
+ *  the entry count. */
+function indexVar(i: number): CSSProperties {
+  return { "--sm-i": i } as CSSProperties;
+}
 
 export default function SiteMenu() {
   const [open, setOpen] = useState(false);
@@ -160,16 +160,47 @@ export default function SiteMenu() {
         inert={!open}
       >
         <div className="site-menu__inner">
-          <ul className="site-menu__list">
-            {ENTRIES.map((e) => (
-              <li key={e.href} className="site-menu__item">
-                <Link href={e.href} onClick={() => setOpen(false)}>
-                  <span className="site-menu__num">{e.num}</span>
-                  <span className="site-menu__name">{e.label}</span>
-                </Link>
-              </li>
-            ))}
+          <ul className="site-menu__list" aria-label="Home">
+            <li className="site-menu__item" style={indexVar(0)}>
+              <Link href={HOME_ENTRY.href} onClick={() => setOpen(false)}>
+                <span className="site-menu__num">{ROMAN[0]}</span>
+                <span className="site-menu__text">
+                  <span className="site-menu__name">{HOME_ENTRY.label}</span>
+                  <span className="site-menu__desc">{HOME_ENTRY.sub}</span>
+                </span>
+              </Link>
+            </li>
           </ul>
+          {(() => {
+            let index = 1;
+            return NAV_GROUPS.map((group) => (
+              <div key={group.name} className="site-menu__band">
+                <p className="site-menu__group" aria-hidden>
+                  {group.name}
+                </p>
+                <ul className="site-menu__list" aria-label={group.name}>
+                  {group.entries.map((e) => {
+                    const i = index++;
+                    return (
+                      <li
+                        key={e.href}
+                        className="site-menu__item"
+                        style={indexVar(i)}
+                      >
+                        <Link href={e.href} onClick={() => setOpen(false)}>
+                          <span className="site-menu__num">{ROMAN[i]}</span>
+                          <span className="site-menu__text">
+                            <span className="site-menu__name">{e.label}</span>
+                            <span className="site-menu__desc">{e.sub}</span>
+                          </span>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ));
+          })()}
           {/* Legal links: the burger is the only chrome on the immersive
               surfaces (map/timeline/entities), so on touch/narrow viewports
               this row is what keeps Imprint + Privacy + Artwork

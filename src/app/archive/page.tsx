@@ -122,13 +122,13 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
         <AuspexPair />
         <FloatingCoord x="10%" y="32%" label="Index mounted · VII eras" delay={9} />
 
-        <p className="catalogue-hero__over">The Index</p>
-        <h1 className="catalogue-hero__heading">The Archive</h1>
-        <p className="catalogue-hero__edition">
+        <p className="lx-hero__over">The Index</p>
+        <h1 className="lx-hero__heading">The Archive</h1>
+        <p className="lx-hero__edition">
           Every book and every voice of the archive, in one register.
         </p>
         <RouteScrollCue
-          className="route-cue--flow"
+          className="route-cue--flow lx-hero__cue"
           label="Choose your archive"
           target=".catalogue-body"
         />

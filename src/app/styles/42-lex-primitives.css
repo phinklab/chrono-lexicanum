@@ -16,6 +16,59 @@
    .hub-act--splash (50), .now-hero (57). A new page does NOT invent its own
    top spacing. */
 
+/* Masthead voice stack (S255) — the SHARED implementation of the house fold
+   rule above. Every fold masthead uses these three voices + the cue instead
+   of restating them (pre-S255 they existed six times with drifting sizes).
+   The act GEOMETRY (~92vh flex, justify-end, 8vh pad) stays with each
+   surface's own hero class; per-surface tuning happens ONLY through the
+   custom properties, set on the surface container (or a heading modifier):
+
+     --hero-size  heading font-size clamp (optical, by title length)
+     --hero-lh    heading line-height (default --lh-solid)
+
+   Custom properties dodge the globals.css cascade contract — no route
+   partial ever restates a property of these selectors. */
+.lx-hero__over,
+.lx-hero__heading,
+.lx-hero__edition {
+  position: relative;
+  z-index: 3;
+}
+.lx-hero__over {
+  margin: 0;
+  font-size: var(--fs-label-xl);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--cl-gold);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
+  animation: enter 1s 0.15s var(--ease) both;
+}
+.lx-hero__heading {
+  margin: 18px 0 0;
+  font-family: var(--font-display);
+  font-weight: var(--font-display-wght-hero);
+  font-size: var(--hero-size, clamp(48px, 7.4vw, 96px));
+  line-height: var(--hero-lh, var(--lh-solid));
+  letter-spacing: var(--font-display-track);
+  color: var(--cl-bone);
+  text-shadow: 0 2px 26px rgba(0, 0, 0, 0.85);
+  animation: enterTitle 1.35s 0.4s var(--ease) both;
+}
+.lx-hero__edition {
+  margin: 20px 0 0;
+  font-style: italic;
+  font-size: var(--fs-edition);
+  max-width: 58ch;
+  color: var(--cl-dim);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
+  animation: enter 1s 0.85s var(--ease) both;
+}
+/* Rides on .route-cue--flow (41-site-bg.css) — the house 5vh gap + entrance. */
+.lx-hero__cue {
+  margin-top: 5vh;
+  animation: enter 1s 1.2s var(--ease) both;
+}
+
 /* Entry stagger (stilled by the global reduced-motion kill in 10-base.css). */
 @keyframes lxRise {
   from {
@@ -71,7 +124,7 @@
   gap: 26px;
   margin: 0 0 30px;
   font-family: var(--font-body);
-  font-size: 14.5px;
+  font-size: var(--fs-label-xl);
   font-weight: var(--fw-regular);
   letter-spacing: var(--track-34);
   text-transform: uppercase;
@@ -374,7 +427,7 @@
 .lx-initial::first-line {
   letter-spacing: var(--track-14);
   text-transform: uppercase;
-  font-size: 16.5px;
+  font-size: var(--fs-read-xs);
 }
 
 /* Cogitator interstitial — the compact Sternwarte loop (shared keyframes:
@@ -444,50 +497,24 @@
   animation: cogitatorScan 2.6s ease-in-out infinite;
 }
 
-/* Imprimatur foot — the fading plumb line, the seal word, the italic
-   subline, the triad over a hairline, then the legal row. */
+/* Archive foot — the triad over its hairline, then the legal row. The
+   Imprimatur seal (plumb line + seal word + subline) was retired S255. */
 .lx-foot {
   max-width: 900px;
-  /* Generous clearance from the last content block — the imprimatur is a
+  /* Generous clearance from the last content block — the foot is a
      colophon, not a caption; it needs air above to read as one. */
   margin: clamp(130px, 22vh, 200px) auto 0;
   padding: 0 24px 40px;
   text-align: center;
 }
-.lx-foot__line {
-  display: block;
-  width: 1px;
-  height: 44px;
-  margin: 0 auto 18px;
-  background: linear-gradient(to bottom, var(--cl-gold) 0%, var(--cl-gold) 40%, transparent 100%);
-  opacity: 0.8;
-}
-.lx-foot__l1 {
-  font-family: var(--font-body);
-  font-size: var(--fs-label-lg);
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: var(--cl-gold);
-}
-.lx-foot__l2 {
-  display: block;
-  margin-top: 8px;
-  font-family: var(--font-body);
-  font-style: italic;
-  font-size: var(--fs-read-sm);
-  text-transform: none;
-  letter-spacing: 0.02em;
-  color: var(--cl-dim);
-}
 .lx-foot__triad {
   display: flex;
   justify-content: space-between;
   gap: 18px;
-  margin-top: 30px;
   border-top: 1px solid var(--cl-hair);
   padding-top: 16px;
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: var(--fs-label-md);
   letter-spacing: var(--track-24);
   text-transform: uppercase;
   color: var(--cl-faint);

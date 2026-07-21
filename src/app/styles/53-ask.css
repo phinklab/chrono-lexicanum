@@ -13,6 +13,9 @@ main.ask {
 
 /* ── Bare /ask threshold ─────────────────────────────────────────────── */
 .curator-landing__mast {
+  /* Voice stack = the shared .lx-hero__* primitives (42); only the optical
+     heading clamp is local. */
+  --hero-size: clamp(52px, 8vw, 108px);
   position: relative;
   min-height: max(96svh, 680px);
   overflow: clip;
@@ -23,43 +26,9 @@ main.ask {
   text-align: center;
   padding: clamp(150px, 18vh, 210px) 22px clamp(52px, 7vh, 84px);
 }
-.ask-console__eyebrow,
-.ask-console__title,
-.ask-console__sub,
 .curator-picker {
   position: relative;
   z-index: 3;
-}
-.ask-console__eyebrow {
-  margin: 0;
-  font-family: var(--font-mono);
-  font-size: var(--fs-label-xl);
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: var(--cl-gold);
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
-  animation: enter 1s 0.12s var(--ease) both;
-}
-.ask-console__title {
-  margin: 18px 0 0;
-  font-family: var(--font-display);
-  font-weight: var(--font-display-wght-hero);
-  font-size: clamp(52px, 8vw, 108px);
-  line-height: var(--lh-solid);
-  letter-spacing: var(--font-display-track);
-  color: var(--cl-bone);
-  text-shadow: 0 2px 26px rgba(0, 0, 0, 0.85);
-  animation: enterTitle 1.25s 0.32s var(--ease) both;
-}
-.ask-console__sub {
-  max-width: 55ch;
-  margin: 20px 0 0;
-  font-style: italic;
-  font-size: clamp(18px, 2.2vw, 20.5px);
-  line-height: 1.5;
-  color: var(--cl-dim);
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
-  animation: enter 1s 0.65s var(--ease) both;
 }
 
 /* The only large picker: two Sternwarte paths, naked on the image/void. */
@@ -207,7 +176,9 @@ main.ask {
   max-width: 50ch;
   margin: 14px auto 0;
   font-style: italic;
-  font-size: var(--fs-read-sm);
+  /* Edition-line role (S255): rides the shared token, not a local size —
+     this was the 18px outlier Philipp flagged. */
+  font-size: var(--fs-edition);
   line-height: 1.5;
   color: var(--cl-dim);
 }
@@ -225,10 +196,10 @@ main.ask {
     min-height: max(105svh, 720px);
     padding: calc(150px + env(safe-area-inset-top, 0px)) 18px max(46px, 7svh);
   }
-  .ask-console__title {
-    font-size: clamp(50px, 18vw, 78px);
+  .curator-landing__mast {
+    --hero-size: clamp(50px, 18vw, 78px);
   }
-  .ask-console__sub {
+  .curator-landing__mast .lx-hero__edition {
     max-width: 31ch;
   }
   .curator-picker {

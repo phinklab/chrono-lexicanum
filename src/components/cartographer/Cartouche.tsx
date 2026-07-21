@@ -597,10 +597,10 @@ interface CartoucheProps extends InstrumentProps {
 
 export function Cartouche(props: CartoucheProps) {
   const { payload, condensed, voyageId, voyageNote, filtered, onPick, onVoyage, children } = props;
-  // The journeys are the content door and stand open; the legend — the
-  // single layers entrance — is opt-in behind its header (its badge keeps
-  // active states visible while closed).
-  const [openSecs, setOpenSecs] = useState<ReadonlySet<SectionId>>(new Set(["courses"]));
+  // The legend — the single layers entrance — stands open on arrival
+  // (Philipp, S255); the Great Journeys are opt-in behind their header, whose
+  // badge keeps a running tour visible while collapsed.
+  const [openSecs, setOpenSecs] = useState<ReadonlySet<SectionId>>(new Set(["legend"]));
 
   const toggleSec = (id: SectionId) =>
     setOpenSecs((prev) => {

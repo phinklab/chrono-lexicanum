@@ -36,7 +36,7 @@ const ROUTES: {
     path: () => "/",
     landmark: async (page) => {
       await expect(page.locator("main#main.hub")).toBeVisible();
-      await expect(page.locator("h1.hub-hero__heading")).toHaveText(
+      await expect(page.locator("h1.lx-hero__heading")).toHaveText(
         "Chrono Lexicanum",
       );
     },
@@ -84,9 +84,12 @@ const ROUTES: {
         await page.getByRole("option", { name: /^Terra\b/ }).click();
         await expect(page.locator(".cg-pop.open")).toHaveAttribute("aria-label", "Terra");
 
-        // WM-B1: the journeys section stands open by default, but its era
-        // groups fold — the chart opens on M42, so unfold M30 to reach the
-        // Great Crusade row (era-group headers are buttons, "M30 · …").
+        // S255: the cartouche opens with the Legend unfolded and Great
+        // Journeys collapsed — open the journeys section first, then its
+        // era groups fold below it. The chart opens on M42, so unfold M30
+        // to reach the Great Crusade row (era-group headers are buttons,
+        // "M30 · …").
+        await page.getByRole("button", { name: /Great Journeys/ }).click();
         await page.getByRole("button", { name: /^M30/ }).click();
         const journey = page.getByRole("button", { name: /^The Great Crusade/ });
         await journey.focus();
@@ -118,7 +121,7 @@ const ROUTES: {
     path: () => "/archive/podcasts",
     landmark: async (page) => {
       await expect(page.locator("main#main.catalogue--vox")).toBeVisible();
-      await expect(page.locator("h1.catalogue-hero__heading")).toHaveText(
+      await expect(page.locator("h1.lx-hero__heading")).toHaveText(
         "The Archive",
       );
       // Show cards prove the snapshot payload rendered, not an empty shell.
