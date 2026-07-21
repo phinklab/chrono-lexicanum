@@ -44,7 +44,7 @@ const ROUTES: {
     path: "/archive",
     landmark: async (page) => {
       await expect(page.locator("main#main.catalogue--werke")).toBeVisible();
-      await expect(page.locator("h1.catalogue-hero__heading")).toHaveText(
+      await expect(page.locator("h1.lx-hero__heading")).toHaveText(
         "The Archive",
       );
     },
