@@ -16,7 +16,7 @@ export function coerceDate(v: unknown): Date {
 
 const DAY_MONTH = new Intl.DateTimeFormat("en", { day: "2-digit", month: "short" });
 
-/** Compact "07 Mar" stamp for episode dates; em dash when unknown. */
+/** Compact "07 Mar" stamp for episode dates; en dash when unknown. */
 export function shortDayMonth(ms: number | null): string {
-  return ms == null ? "—" : DAY_MONTH.format(new Date(ms));
+  return ms == null ? "–" : DAY_MONTH.format(new Date(ms));
 }

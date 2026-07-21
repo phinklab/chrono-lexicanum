@@ -109,7 +109,7 @@ export function buildChip(
     const epNo = w.podcastEpisodeDetails?.episode ?? null;
     return {
       kind,
-      title: show ? `${show.title} — ${w.title}` : w.title,
+      title: show ? `${show.title} · ${w.title}` : w.title,
       meta: hook.displayLabel ?? (epNo != null ? `EP. ${epNo}` : show?.title ?? ""),
       // `#ep-<id>` deep link; the episode archive resolves it on a fresh
       // document load, so target=_blank chips land highlighted.

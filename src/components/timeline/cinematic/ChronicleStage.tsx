@@ -148,7 +148,7 @@ export default function ChronicleStage({
     const ev = era.events[entry];
     if (!ev) return;
     setLiveMsg(
-      (changedEra ? `${era.m} — ${era.name}. ` : "") +
+      (changedEra ? `${era.m}, ${era.name}. ` : "") +
         `Entry ${entry + 1} of ${era.events.length}: ${ev.title}, ${ev.dateLabel}`,
     );
   }, [era, eraIdx, entry, mode]);

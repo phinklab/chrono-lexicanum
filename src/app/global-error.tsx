@@ -84,7 +84,7 @@ export default function GlobalError({
         <p style={eyebrow}>{"COGITATOR FAVLT · SHELL DOWN"}</p>
         <h1 style={heading}>TRANSMISSION INTERRUPTED</h1>
         <p style={sub}>
-          The archive shell itself failed to assemble. Re-consecrate the link —
+          The archive shell itself failed to assemble. Re-consecrate the link;
           if the fault persists, the machine spirit needs a moment.
         </p>
         <button type="button" style={button} onClick={reset}>

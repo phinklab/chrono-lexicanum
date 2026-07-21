@@ -47,13 +47,13 @@ export async function generateMetadata({
     ? {
         title: "Datenschutzerklärung",
         description:
-          "Datenschutzerklärung von Chrono · Lexicanum — Informationen nach Art. 13 DSGVO zu Hosting, Server-Logs, Cookies und Betroffenenrechten.",
+          "Datenschutzerklärung von Chrono · Lexicanum: Informationen nach Art. 13 DSGVO zu Hosting, Server-Logs, Cookies und Betroffenenrechten.",
         alternates: { canonical: "/privacy" },
       }
     : {
         title: "Privacy Policy",
         description:
-          "Privacy Policy for Chrono · Lexicanum — information under Article 13 GDPR about hosting, server logs, cookies and data-subject rights.",
+          "Privacy Policy for Chrono · Lexicanum: information under Article 13 GDPR about hosting, server logs, cookies and data-subject rights.",
         alternates: { canonical: "/privacy" },
       };
 }
@@ -62,7 +62,7 @@ function PrivacyGermanPage() {
   return (
     <main id="main" tabIndex={-1} className="legal" lang="de">
       <header className="legal__head">
-        <p className="legal__eyebrow">Chrono · Lexicanum — Rechtliches</p>
+        <p className="legal__eyebrow">Chrono · Lexicanum: Rechtliches</p>
         <h1 className="legal__title">Datenschutzerklärung</h1>
         <div className="legal__rule" aria-hidden />
         <LegalLanguageToggle language="de" pathname="/privacy" />
@@ -167,7 +167,7 @@ function PrivacyGermanPage() {
             Einzige Ausnahme: Wird ein persönlicher Vorschau-Einladungslink
             eingelöst, wird vermerkt, <em>dass</em> dieser Link aktiviert wurde
             (technische Kennung des Links, Zeitpunkt der ersten und letzten
-            Aktivierung, Zähler) — ohne IP-Adresse, ohne Gerätedaten, ohne
+            Aktivierung, Zähler) – ohne IP-Adresse, ohne Gerätedaten, ohne
             Namen. Zweck ist die Missbrauchskontrolle der ausgegebenen
             Einladungen; Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Die
             Einträge werden mit dem Ende der Vorschau-Phase gelöscht.
@@ -370,7 +370,7 @@ function PrivacyEnglishPage() {
   return (
     <main id="main" tabIndex={-1} className="legal" lang="en">
       <header className="legal__head">
-        <p className="legal__eyebrow">Chrono · Lexicanum — Legal</p>
+        <p className="legal__eyebrow">Chrono · Lexicanum: Legal</p>
         <h1 className="legal__title">Privacy Policy</h1>
         <div className="legal__rule" aria-hidden />
         <LegalLanguageToggle language="en" pathname="/privacy" />
@@ -473,7 +473,7 @@ function PrivacyEnglishPage() {
             The sole exception is the redemption of a personal preview
             invitation link. In that case, a record is kept that the link was
             activated (the link&apos;s technical identifier, the time of first and
-            latest activation, and a counter) — without an IP address, device
+            latest activation, and a counter), without an IP address, device
             data or a name. This serves to prevent misuse of issued
             invitations; the legal basis is Article 6(1)(f) GDPR. These records
             will be deleted when the preview phase ends.

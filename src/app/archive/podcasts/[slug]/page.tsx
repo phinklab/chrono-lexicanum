@@ -62,7 +62,7 @@ export async function generateMetadata({
   const show = await getShow(slug);
   if (!show) return { title: "Podcast" };
   const span = yearSpan(show.firstPubYear, show.lastPubYear);
-  const description = `Every episode of ${show.title} — ${show.episodeCount} episodes${
+  const description = `Every episode of ${show.title}: ${show.episodeCount} episodes${
     span ? `, ${span}` : ""
   }, entity-tagged and newest first. Play in place, download, or open in your app.`;
   return {

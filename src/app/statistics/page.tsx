@@ -35,11 +35,11 @@ const LIBRARIUM_DESCRIPTION =
   "The archive counts itself: three and a half decades of Black Library publishing, the busiest authors, protagonist and antagonist factions, the most-chronicled characters and worlds of Warhammer 40,000, and what the lore podcasts talk about.";
 
 export const metadata: Metadata = {
-  title: "Librarium — The Archive in Numbers",
+  title: "Librarium: The Archive in Numbers",
   description: LIBRARIUM_DESCRIPTION,
   alternates: { canonical: "/statistics" },
   openGraph: routeOg({
-    title: "Librarium — The Archive in Numbers",
+    title: "Librarium: The Archive in Numbers",
     description: LIBRARIUM_DESCRIPTION,
   }),
 };

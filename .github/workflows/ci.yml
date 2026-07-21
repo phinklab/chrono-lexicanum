@@ -41,6 +41,12 @@ jobs:
 
       - run: npm run typecheck
 
+      # Em-dash ban in rendered site text (Session 257): string literals,
+      # template text and JSX text under src/ must not contain U+2014 (the
+      # tell of LLM-generated copy). Comments are exempt (never render);
+      # seed-data/synopses follow in the step-2 content pass.
+      - run: npm run text:lint
+
       # DB-free assertion suites (~29 test-*.ts, Brief 180). Folded into this
       # existing required check so it gates PRs immediately without touching
       # branch-protection settings; the runner strips DATABASE_URL so no suite

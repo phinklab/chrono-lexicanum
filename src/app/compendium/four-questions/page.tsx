@@ -27,7 +27,7 @@ const FOUR_QUESTIONS_DESCRIPTION =
 // Answer/`deeper` queries are steps of the one questionnaire — canonical
 // stays the bare route (URL matrix A.3).
 export const metadata: Metadata = {
-  title: "Four Questions — Compendium",
+  title: "Four Questions · Compendium",
   description: FOUR_QUESTIONS_DESCRIPTION,
   alternates: { canonical: "/compendium/four-questions" },
   openGraph: routeOg({

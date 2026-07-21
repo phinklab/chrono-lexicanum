@@ -77,8 +77,8 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
         {mode === "expired" && (
           <div className="login-expired">
             <p className="login-sub">
-              This invitation cannot be read — its seal is broken or its term has
-              lapsed. The archive stays sealed.
+              This invitation cannot be read: its seal is broken or its term
+              has lapsed. The archive stays sealed.
             </p>
             <p className="login-expired-contact">
               If you need a fresh preview link,{" "}

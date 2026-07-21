@@ -109,7 +109,7 @@ export default function PodcastsSearch() {
       onSubmit={onSubmit}
       onClear={() => setQ("")}
       pending={pendingVisible}
-      placeholder="Search the archive — a book, podcast or faction…"
+      placeholder="Search the archive: a book, podcast or faction…"
       ariaLabel="Search books and podcasts"
     />
   );

@@ -250,7 +250,7 @@ async function fetchLibrariumStats(): Promise<LibrariumStats> {
         (SELECT coalesce(sum(duration_sec), 0)
            FROM podcast_episode_details) AS episode_seconds,
         -- Same criterion as the /compendium/worlds directory the tile links
-        -- to (F3 round 3 — the tile said 446 raw location rows, the target
+        -- to (F3 round 3: the tile said 446 raw location rows, the target
         -- page 219): a place counts once the archive returns to it.
         (SELECT count(*) FROM (
            SELECT location_id FROM work_locations

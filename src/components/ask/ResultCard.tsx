@@ -298,7 +298,7 @@ export default function ResultCard({
       )}
 
       <p className="ask-responsa" aria-label="Selected answers">
-        Your answers —{" "}
+        Your answers:{" "}
         <b>{questions.map((question) => answerLabel(question, answers)).join(" · ")}</b>
       </p>
 

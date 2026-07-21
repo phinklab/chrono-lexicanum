@@ -206,8 +206,8 @@ export default function BrowseSearch({
 
   const indexReady = index !== null;
   const emptyHint = indexFailed
-    ? "Suggestions unavailable — press Enter to search every field."
-    : "No quick matches — press Enter to search every field.";
+    ? "Suggestions unavailable. Press Enter to search every field."
+    : "No quick matches. Press Enter to search every field.";
 
   // Announced to assistive tech when the suggestion set changes (WCAG 4.1.3):
   // sighted users read the dropdown; SR users get the count via this live node.
@@ -215,10 +215,10 @@ export default function BrowseSearch({
     ? ""
     : !indexReady
       ? indexFailed
-        ? "Suggestions unavailable — press Enter to search every field."
+        ? "Suggestions unavailable. Press Enter to search every field."
         : "Consulting the index…"
       : suggestions.length === 0
-        ? "No quick matches — press Enter to search every field."
+        ? "No quick matches. Press Enter to search every field."
         : `${suggestions.length} suggestion${suggestions.length === 1 ? "" : "s"}`;
 
   return (
@@ -277,7 +277,7 @@ export default function BrowseSearch({
             <p className="browse-suggest__empty">
               {indexFailed ? (
                 <>
-                  Suggestions unavailable — press <kbd>Enter</kbd> to search
+                  Suggestions unavailable. Press <kbd>Enter</kbd> to search
                   every field.
                 </>
               ) : (
@@ -286,7 +286,7 @@ export default function BrowseSearch({
             </p>
           ) : suggestions.length === 0 ? (
             <p className="browse-suggest__empty">
-              No quick matches — press <kbd>Enter</kbd> to search every field.
+              No quick matches. Press <kbd>Enter</kbd> to search every field.
             </p>
           ) : (
             <>
@@ -341,7 +341,7 @@ export default function BrowseSearch({
                 })}
               </ul>
               <p className="browse-suggest__foot">
-                <kbd>Enter</kbd> — search every field for “{value.trim()}”
+                <kbd>Enter</kbd>: search every field for “{value.trim()}”
               </p>
             </>
           )}

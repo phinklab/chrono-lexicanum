@@ -47,7 +47,7 @@ function readSnapshotFile<T>(relPath: string): T {
     raw = readFileSync(abs, "utf8");
   } catch (err) {
     throw new Error(
-      `[snapshot] build-time read of ${relPath} failed — the committed snapshot ` +
+      `[snapshot] build-time read of ${relPath} failed; the committed snapshot ` +
         `under ${SNAPSHOT_DIR}/ is the build's ONLY data source (regenerate via ` +
         `scripts/runbooks/content-release-runbook.md): ${String(err)}`,
     );

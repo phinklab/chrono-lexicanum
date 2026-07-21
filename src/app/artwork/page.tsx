@@ -22,7 +22,7 @@ import "@/app/styles/71-legal.css";
 export const metadata: Metadata = {
   title: "Artwork",
   description:
-    "Original background artwork of Chrono · Lexicanum — free to download.",
+    "Original background artwork of Chrono · Lexicanum, free to download.",
   alternates: { canonical: "/artwork" },
 };
 

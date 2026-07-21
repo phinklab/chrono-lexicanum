@@ -86,7 +86,7 @@ export default function CompendiumControls({
           type="search"
           className="browse-search__input"
           placeholder={`Find a ${noun}…`}
-          aria-label={`Search ${noun}s by name — press Enter to apply`}
+          aria-label={`Search ${noun}s by name, press Enter to apply`}
           value={q}
           onChange={(e) => setQ(e.target.value)}
         />

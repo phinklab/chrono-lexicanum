@@ -234,7 +234,7 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
       : byId.get(stop.world);
     if (!w) {
       devWarn(
-        `${voyage.id}: station "${isChartPoint(stop) ? stop.name : stop.world}" not on the chart — dropped`,
+        `${voyage.id}: station "${isChartPoint(stop) ? stop.name : stop.world}" not on the chart; dropped`,
       );
       return;
     }
@@ -303,7 +303,7 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
     const d = legIdx >= 0 && legIdx < legs.length ? legs[legIdx] : null;
     const pt = d ? pointOnLeg(d, Math.min(0.97, Math.max(0.03, stop.via))) : null;
     if (!pt) {
-      devWarn(`${voyage.id}: waypoint "${stop.name}" has no leg to ride — dropped`);
+      devWarn(`${voyage.id}: waypoint "${stop.name}" has no leg to ride; dropped`);
       return;
     }
     const st: ResolvedStation = {
@@ -351,7 +351,7 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
       if (missing) {
         const targetName =
           "world" in missing.authored ? missing.authored.world : missing.authored.name;
-        devWarn(`${voyage.id}: arm ${arm.legion} target "${targetName}" not on the chart — dropped`);
+        devWarn(`${voyage.id}: arm ${arm.legion} target "${targetName}" not on the chart; dropped`);
         continue;
       }
 
@@ -423,7 +423,7 @@ export function resolveVoyage(voyage: Voyage, chart: VoyageChart): ResolvedVoyag
           const targetName =
             "world" in missingBranchTarget ? missingBranchTarget.world : missingBranchTarget.name;
           devWarn(
-            `${voyage.id}: arm ${arm.legion} branch "${branch.name}" target "${targetName}" not on the chart — dropped`,
+            `${voyage.id}: arm ${arm.legion} branch "${branch.name}" target "${targetName}" not on the chart; dropped`,
           );
           continue;
         }

@@ -46,7 +46,7 @@ export async function generateMetadata({
   const { category } = await params;
   const c = findCategory(category);
   if (!c) return { title: "Compendium" };
-  const title = `${c.label} — Compendium`;
+  const title = `${c.label} · Compendium`;
   return {
     title,
     description: c.blurb,
@@ -136,8 +136,8 @@ export default async function CompendiumCategoryPage({
           <p className="cmp-empty__lead">This doorway is being curated.</p>
           <p>
             The {c.label.toLowerCase()} roster isn’t catalogued yet. Once it is,
-            every entry will appear here as a doorway into its books and podcasts —
-            the page is already in place, waiting for the data.
+            every entry will appear here as a doorway into its books and
+            podcasts; the page is already in place, waiting for the data.
           </p>
         </div>
       ) : all.length === 0 ? (
@@ -239,7 +239,7 @@ function CompendiumRow({
         <span className="cmp-row__kicker">{item.kicker}</span>
       ) : (
         <span className="cmp-row__kicker cmp-row__kicker--empty" aria-hidden>
-          —
+          –
         </span>
       )}
       {item.meta ? <span className="cmp-row__meta">{item.meta}</span> : (

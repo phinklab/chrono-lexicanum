@@ -176,7 +176,7 @@ export function VoyageButtons({
   return (
     <div className="routes">
       <p className="rt-intro">
-        Guided voyages over the chart — choose one and follow its story across
+        Guided voyages over the chart: choose one and follow its story across
         the stars, station by station.
       </p>
       {VOYAGE_GROUPS.map(({ era: groupEra, voyages }) => {
@@ -345,7 +345,7 @@ export function LegendOverlays(props: InstrumentProps) {
         <span className="sym">{SYM_NIHILUS}</span>
         <span className="lab">
           Imperium Nihilus
-          {nihilusLocked && <i className="hint">not yet charted — an M42 instrument</i>}
+          {nihilusLocked && <i className="hint">not yet charted: an M42 instrument</i>}
         </span>
       </button>
       {zoneCount > 0 && (
@@ -354,7 +354,7 @@ export function LegendOverlays(props: InstrumentProps) {
           onClick={onCycleZones}
           aria-label={`Zones & warp storms: ${
             zones === "on" ? "shown" : zones === "dim" ? "dimmed" : "hidden"
-          } — cycle`}
+          }; cycle`}
         >
           <span className="pad" />
           <span className="sym">{SYM_ZONES}</span>
@@ -367,7 +367,7 @@ export function LegendOverlays(props: InstrumentProps) {
         onClick={onCycleNames}
         aria-label={`World names: ${
           names === "auto" ? "by magnification" : names === "all" ? "all shown" : "hidden"
-        } — cycle`}
+        }; cycle`}
       >
         <span className="pad" />
         <span className="sym">{SYM_NAMES}</span>
@@ -499,7 +499,7 @@ export function SeekPanel({
             ))}
           </div>
           {hits.length > SEEK_CAP && (
-            <p className="skmore">… {fmt(hits.length - SEEK_CAP)} more — keep typing</p>
+            <p className="skmore">… {fmt(hits.length - SEEK_CAP)} more, keep typing</p>
           )}
         </div>
       )}
@@ -564,7 +564,7 @@ export function SeekHead({
             // Only while the index exists — a dangling id reference is an
             // axe violation (aria-valid-attr-value).
             aria-controls={indexOpen ? indexId : undefined}
-            aria-label="World index — every recorded world, A to Z"
+            aria-label="World index: every recorded world, A to Z"
             onClick={() => setIndexOpen((o) => !o)}
           >
             A–Z

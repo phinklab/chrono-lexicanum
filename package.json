@@ -10,6 +10,7 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
+    "text:lint": "tsx scripts/text-lint.ts",
     "test": "tsx scripts/run-tests.ts",
     "test:map-renderer": "tsx scripts/test-map-renderer.ts",
     "test:smoke": "playwright test --project=static --project=degraded",

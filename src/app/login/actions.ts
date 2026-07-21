@@ -69,7 +69,7 @@ export async function acceptInvite(formData: FormData): Promise<void> {
   if (!payload) {
     if (!secret) {
       console.error(
-        "[preview-invites] invite redemption attempted while PREVIEW_INVITE_SECRET is unset — disabled.",
+        "[preview-invites] invite redemption attempted while PREVIEW_INVITE_SECRET is unset; disabled.",
       );
     }
     redirect(`/login?invite=${encodeURIComponent(token)}`);

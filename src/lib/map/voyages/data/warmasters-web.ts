@@ -188,7 +188,7 @@ export const WARMASTER_WEB: Voyage = {
   name: "March of the Legions",
   tag: "M31 · Horus Heresy",
   mapState: "hh",
-  blurb: "Eighteen Legions, eighteen roads: follow each main force from Horus' opening disposition to Terra—or to the point where its road to the Siege ended.",
+  blurb: "Eighteen Legions, eighteen roads: follow each main force from Horus' opening disposition to Terra, or to the point where its road to the Siege ended.",
   cartography: {
     label: "Legion movements",
     note: "Each step reveals one Primarch or main-fleet route. Fainter strands are sourced detachments that separate and stop; they are not followed as second journeys.",
@@ -307,7 +307,7 @@ export const WARMASTER_WEB: Voyage = {
           name: "Space Wolves",
           color: "#7890a2",
           role: "LOYALIST · ROAD ENDS AT YARANT",
-          text: "After burning Prospero and surviving Alaxxes, Russ brings the Wolves to Terra—then rejects Dorn's defensive war. His strike wounds Horus at Trisolian but leaves the Legion broken at Yarant, where Corax extracts the survivors far from the Siege.",
+          text: "After burning Prospero and surviving Alaxxes, Russ brings the Wolves to Terra, then rejects Dorn's defensive war. His strike wounds Horus at Trisolian but leaves the Legion broken at Yarant, where Corax extracts the survivors far from the Siege.",
           via: [via(ALAXXES), via(TERRA), via(TRISOLIAN)],
           target: YARANT,
           source: "https://www.warhammer-community.com/en-gb/articles/nzoeiud5/legions-of-the-horus-heresy-the-space-wolves-are-the-best-boys-yes-they-are/",

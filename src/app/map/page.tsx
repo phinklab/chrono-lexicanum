@@ -9,7 +9,7 @@ import { buildMapPayload } from "@/lib/map/payload";
 import "@/app/styles/55-map.css";
 
 const MAP_DESCRIPTION =
-  "The galaxy chart of the archive — sectors, worlds and the Warhammer 40,000 novels anchored to them, filterable by era.";
+  "The galaxy chart of the archive: sectors, worlds and the Warhammer 40,000 novels anchored to them, filterable by era.";
 
 export const metadata: Metadata = {
   title: "Cartographer",

@@ -38,7 +38,7 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { runId } = await params;
   return {
-    title: `Run ${runId} — Ingestion runs`,
+    title: `Run ${runId} · Ingestion runs`,
     robots: { index: false, follow: false },
   };
 }
@@ -77,7 +77,7 @@ export default async function IngestRunPage({ params }: DetailParams) {
         <RunMeta diff={diff} />
         {!diff.llmModel ? (
           <p className="ingest-detail-no-llm">
-            This run was executed without LLM enrichment — no synopsis paraphrase, no
+            This run was executed without LLM enrichment: no synopsis paraphrase, no
             soft facets, no plausibility flags.
           </p>
         ) : null}
@@ -201,7 +201,7 @@ function RunMeta({ diff }: { diff: DiffFile }) {
     <dl className="ingest-detail-meta">
       <MetaBlock label="ranAt" value={formatTimestamp(diff.ranAt)} />
       <MetaBlock label="discovery" value={`${diff.discoverySource} · ${diff.discovered} discovered`} />
-      <MetaBlock label="discoveryPages" value={diff.discoveryPages.join(", ") || "—"} />
+      <MetaBlock label="discoveryPages" value={diff.discoveryPages.join(", ") || "–"} />
       <MetaBlock label="activeSources" value={diff.activeSources.join(", ")} />
       {diff.llmModel ? (
         <MetaBlock label="llmModel" value={diff.llmModel} variant="model" />
@@ -436,7 +436,7 @@ function FieldOriginsTable({
                     formatValue(value)
                   )}
                 </td>
-                <td className="ingest-fields-source">{origin ?? "—"}</td>
+                <td className="ingest-fields-source">{origin ?? "–"}</td>
               </tr>
             );
           })}
@@ -447,7 +447,7 @@ function FieldOriginsTable({
 }
 
 function FacetPills({ ids }: { ids: string[] }) {
-  if (ids.length === 0) return <span className="ingest-mono">—</span>;
+  if (ids.length === 0) return <span className="ingest-mono">–</span>;
   return (
     <ul className="ingest-pill-list">
       {ids.map((id) => (
@@ -660,7 +660,7 @@ function groupConflictsBySlug(
 }
 
 function formatValue(v: unknown): string {
-  if (v === null || v === undefined) return "—";
+  if (v === null || v === undefined) return "–";
   if (typeof v === "string") return v;
   if (typeof v === "number" || typeof v === "boolean") return String(v);
   if (Array.isArray(v)) {
@@ -679,7 +679,7 @@ function formatNumber(n: number): string {
 }
 
 function formatTimestamp(iso: string): string {
-  if (!iso) return "—";
+  if (!iso) return "–";
   const d = new Date(iso);
   if (Number.isNaN(d.getTime())) return iso;
   const dd = String(d.getUTCDate()).padStart(2, "0");

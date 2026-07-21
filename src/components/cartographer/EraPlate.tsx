@@ -56,7 +56,7 @@ export default function EraPlate({
             className="ep-seg"
             role="radio"
             aria-checked={state === era}
-            aria-label={`${ERA_LABELS[state].m} — ${ERA_LABELS[state].name}`}
+            aria-label={`${ERA_LABELS[state].m}, ${ERA_LABELS[state].name}`}
             tabIndex={state === era ? 0 : -1}
             onClick={() => onSetEra(state)}
             onKeyDown={(e) => {

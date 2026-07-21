@@ -40,7 +40,7 @@ export default function RootError({
       <div className="syspage__rule" aria-hidden />
       <p className="syspage__sub">
         The machine spirit faltered while assembling this folio. Nothing is
-        lost — re-consecrate the link, or fall back to the archive gate.
+        lost: re-consecrate the link, or fall back to the archive gate.
       </p>
       {error.digest ? (
         <p className="syspage__digest">{`REF · ${error.digest}`}</p>

@@ -38,7 +38,7 @@ export async function entityPageMetadata(
   if (!view) return { title: unknownTitle };
   const description = view.blurb
     ? capDescription(view.blurb.text)
-    : `${view.name} — every Warhammer 40,000 novel and lore podcast in the Chrono Lexicanum archive featuring this ${TYPE_NOUN[type]}.`;
+    : `${view.name}: every Warhammer 40,000 novel and lore podcast in the Chrono Lexicanum archive featuring this ${TYPE_NOUN[type]}.`;
   return {
     title: view.name,
     description,

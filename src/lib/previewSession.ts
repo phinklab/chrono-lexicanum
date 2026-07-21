@@ -81,7 +81,7 @@ export async function recordActivation(jti: string): Promise<void> {
       });
   } catch (err) {
     console.error(
-      "[preview-invites] activation upsert failed — access still granted:",
+      "[preview-invites] activation upsert failed; access still granted:",
       err,
     );
   }

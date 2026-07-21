@@ -24,7 +24,7 @@ function joinNames(names: string[], max = 3): string {
 export default function AudioCredit({ credit }: { credit: AudioCreditData }) {
   const text =
     credit.kind === "cast"
-      ? `Full-cast drama — ${joinNames(credit.names)}`
+      ? `Full-cast drama: ${joinNames(credit.names)}`
       : `Narrated by ${joinNames(credit.names)}`;
 
   return (

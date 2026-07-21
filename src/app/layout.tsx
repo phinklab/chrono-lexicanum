@@ -50,7 +50,7 @@ const fragmentMono = Fragment_Mono({
 // from `@/lib/seo` so type/siteName/default image survive.
 export const metadata: Metadata = {
   title: {
-    default: "Chrono Lexicanum — The 41st Millennium Novel Archive",
+    default: "Chrono Lexicanum: The 41st Millennium Novel Archive",
     template: "%s · Chrono Lexicanum",
   },
   description:

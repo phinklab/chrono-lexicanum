@@ -61,7 +61,7 @@ export async function generateMetadata({
     ? synopsis.length > 240
       ? `${synopsis.slice(0, 240).trimEnd()}…`
       : synopsis
-    : `${book.title}${authors.length > 0 ? ` by ${authors.join(", ")}` : ""} — a Warhammer 40,000 novel in the Chrono Lexicanum archive.`;
+    : `${book.title}${authors.length > 0 ? ` by ${authors.join(", ")}` : ""}, a Warhammer 40,000 novel in the Chrono Lexicanum archive.`;
   return {
     title: book.title,
     description,
