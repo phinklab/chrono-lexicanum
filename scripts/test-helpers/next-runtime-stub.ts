@@ -52,7 +52,7 @@ interface FakeCacheEntry {
 }
 
 export interface FakeIncrementalCache {
-  /** Raw entry store, keyed by the key `generateCacheKey` produced. */
+  /** Raw entry store, keyed by the key `generateSimpleCacheKey` produced. */
   store: Map<string, FakeCacheEntry>;
   /** How often `get` / `set` were called (set-count == successful fills). */
   gets: number;
@@ -68,7 +68,7 @@ export interface FakeIncrementalCache {
 /**
  * Install a fresh fake `__incrementalCache` and return its control handle.
  * Mirrors exactly the surface `unstable_cache` touches in the no-request-store
- * code path: `isOnDemandRevalidate`, `generateCacheKey`, `get`, `set`.
+ * code path: `isOnDemandRevalidate`, `generateSimpleCacheKey`, `get`, `set`.
  */
 export function installFakeIncrementalCache(): FakeIncrementalCache {
   const store = new Map<string, FakeCacheEntry>();
@@ -87,7 +87,7 @@ export function installFakeIncrementalCache(): FakeIncrementalCache {
 
   (globalThis as { __incrementalCache?: unknown }).__incrementalCache = {
     isOnDemandRevalidate: false,
-    async generateCacheKey(invocationKey: string): Promise<string> {
+    async generateSimpleCacheKey(invocationKey: string): Promise<string> {
       return invocationKey;
     },
     async get(key: string): Promise<FakeCacheEntry | null> {
@@ -121,7 +121,7 @@ export function installSeededIncrementalCache(body: unknown): void {
   };
   (globalThis as { __incrementalCache?: unknown }).__incrementalCache = {
     isOnDemandRevalidate: false,
-    async generateCacheKey(invocationKey: string): Promise<string> {
+    async generateSimpleCacheKey(invocationKey: string): Promise<string> {
       return invocationKey;
     },
     async get(): Promise<FakeCacheEntry> {
