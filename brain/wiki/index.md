@@ -2,7 +2,7 @@
 title: Wiki index — master catalog
 type: reference
 created: 2026-05-09
-updated: 2026-07-22
+updated: 2026-07-23
 sources: []
 related:
   - ../CLAUDE.md
@@ -20,7 +20,7 @@ confidence: high
 
 | Page | Description | Updated |
 |---|---|---|
-| [project-state.md](./project-state.md) | Workshop construction complete through Session 257/PR #288; current IA, Cartographer time states, Archive facets, `/now`, statistics and text lint; only S7b/S11 + launch endgame remain. | 2026-07-22 |
+| [project-state.md](./project-state.md) | Workshop construction complete through Session 257/PR #288; dependency-audit baseline current through Session 259/PR #291; only S7b/S11 + launch endgame remain. | 2026-07-23 |
 | [worklist.md](./worklist.md) | Canonical open-work queue: S7b, S11 code, readiness/gate-off/quiet window; decided backlog is explicitly outside the pre-launch line. | 2026-07-22 |
 | [open-questions.md](./open-questions.md) | Queue empty; W3a-B1 is backlog, not an open launch decision. | 2026-07-22 |
 | [deferred-questions.md](./deferred-questions.md) | Post-launch/dormant work: preview removal, i18n, Atlas events, measured code splitting, secondary Eras, redirect and dependency triggers. | 2026-07-10 |
@@ -35,8 +35,8 @@ confidence: high
 | [book-data-overview.md](./book-data-overview.md) | High-level corpus numbers and canonical shape; no per-book lore. | 2026-07-10 |
 | [glossary.md](./glossary.md) | Active project terminology: schema, per-book operations, Cartographer/Great Journeys, preview/snapshot and memory model. | 2026-07-10 |
 | [onboarding.md](./onboarding.md) | First-time local/Supabase/Vercel/Atlas setup, including full-corpus `db:sync`. | 2026-07-10 |
-| [log.md](./log.md) | Append-only Brain operation history. | 2026-07-22 |
-| (this file) | Complete wiki catalog. | 2026-07-22 |
+| [log.md](./log.md) | Append-only Brain operation history. | 2026-07-23 |
+| (this file) | Complete wiki catalog. | 2026-07-23 |
 
 ## Decisions
 

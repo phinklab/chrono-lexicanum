@@ -2,11 +2,12 @@
 title: Project state
 type: overview
 created: 2026-05-09
-updated: 2026-07-22
+updated: 2026-07-23
 sources:
   - ../../sessions/README.md
   - ../../docs/launch-master-plan.md
   - ../../docs/werkstatt-roadmap.md
+  - ../../sessions/2026-07-23-259-impl-dependency-audit-fix.md
   - ../../sessions/2026-07-21-257-impl-text-delint-emdash.md
   - ../../sessions/2026-07-21-256-impl-nav-curator-compendium.md
   - ../../sessions/2026-07-21-255-impl-sitewide-ui-nav-typography.md
@@ -31,7 +32,7 @@ related:
 confidence: high
 ---
 
-# Project state — 2026-07-22
+# Project state — 2026-07-23
 
 > Current-state anchor. History lives in [`log.md`](./log.md), git and the session reports.
 
@@ -43,6 +44,7 @@ Chrono · Lexicanum is at the end of the **pre-launch workshop phase**. The mand
 - The selected construction work is merged through Sessions 245–254 / PRs #275–#280 and #282–#285: Cartographer rendering and time states, task-oriented Map UI, M42 dating, `/now`, `/statistics`, Archive facets and the Arthas Moloch pin.
 - **W3a-B1 character connections moved to the post-launch backlog on 2026-07-22.** Its co-occurrence-v1 cut is still decision-ready in the workshop roadmap, but it is no longer a pre-launch task.
 - Sessions 255–257 / PRs #286–#288 added the current site-wide navigation and typography system, folded the Curator tools into the Compendium, and introduced the required rendered-text Em-dash lint.
+- Session 259 / PR #291 restored the production dependency audit after new PostCSS/Sharp advisories: Next and its ESLint preset are on 16.2.11, and narrow overrides deduplicate Next onto the patched direct dependencies.
 
 The only pre-launch implementation work left is **S7b**, then the pixel-identical **S11 code PR**, followed by the fixed launch endgame. Release still waits for the complete artist artwork; there is no launch-date pressure.
 
@@ -75,7 +77,7 @@ The only pre-launch implementation work left is **S7b**, then the pixel-identica
 - **Books:** 896 canonical per-book files (599 W40K + 297 HH), 196 collection edges; `apply:book --all` remains the corpus materializer inside `db:sync`.
 - **Podcasts:** four shows, 1,114 episodes at the last recorded weekly state; maintenance uses the additive delta/weekly-refresh path.
 - **Era truth:** 25 additional M42 setting dates support Status Imperialis. The blanket `time_ending` stamp remains removed; `primary_era_id` is mechanically bucketed from setting dates or left `NULL`.
-- **CI:** lint, typecheck, `brain:lint`, the DB-free test/build gates, smoke tests and the new rendered-text lint are required.
+- **CI:** lint, typecheck, `brain:lint`, the DB-free test/build gates, smoke tests, rendered-text lint and the production dependency audit are required. The audit baseline is green on Next 16.2.11 with PostCSS 8.5.16 and Sharp 0.35.3.
 - **Database:** runtime uses `RUNTIME_DATABASE_URL`; migration `0015` production evidence remains launch-readiness point 1.
 
 ## Open now

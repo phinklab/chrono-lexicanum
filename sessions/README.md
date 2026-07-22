@@ -15,11 +15,11 @@ For naming, lifecycle and archiving, see [`brain/wiki/workflows/sessions-format.
 - **Cosmetic UI polish:** [`docs/ui-backlog.md`](../docs/ui-backlog.md)
 - **Archive:** closed sessions normally move to [`archive/YYYY-MM/`](./archive/); the July root cleanup stays deferred until the launch campaign wraps because the tracked prompt collection and workshop roadmap still reference root reports.
 
-## Current head — 2026-07-22
+## Current head — 2026-07-23
 
-`main` is at `8595558` (Text-Delint merged, PR #288). The preview-gated product has completed the workshop evaluation and construction wave; only S7b, the S11 code pass and the fixed launch endgame remain.
+`main` is at `603e9e1` (dependency-audit hardening merged, PR #291). The preview-gated product has completed the workshop evaluation and construction wave; only S7b, the S11 code pass and the fixed launch endgame remain.
 
-- **Numbering authority:** PR #268 resolved the July collision. Great-Journey audit reports are **Sessions 220–234** (not 219–233); workshop evaluation rounds are **235–241**. Rounds 242–244 and build reports 245+ follow that corrected sequence. Session 257 is the merged Text-Delint report, so this coordination rollup uses Report 258 even though its requested branch name contains 257.
+- **Numbering authority:** PR #268 resolved the July collision. Great-Journey audit reports are **Sessions 220–234** (not 219–233); workshop evaluation rounds are **235–241**. Rounds 242–244 and build reports 245+ follow that corrected sequence. Session 257 is the merged Text-Delint report, this coordination rollup is Report 258, and the merged dependency-audit follow-up is Session 259. The next free number is 260.
 - **Launch foundation:** S0 + S1a–S10a remain fully merged (Sessions 194–209, PRs #240–#256). S10b is moot after the Session-213 Android device acceptance. Preview gate/invite infrastructure stays until gate-off.
 - **Journey audit wave (220–234, PR #265):** Great Crusade + the independent 18-Legion Warmaster's Web, then Horus, Guilliman, Garro, Abaddon, Eisenhorn, Ghazghkull, Yvraine and Indomitus were fully re-audited; PR #268 assigned the final report numbers.
 - **Workshop verdict wave (235–244, PRs #267/#268/#273/#274):** every wish-list, appendix and perfection candidate received build/backlog/drop treatment in [`docs/werkstatt-roadmap.md`](../docs/werkstatt-roadmap.md). These evaluation rounds intentionally have no per-round report files; the versioned ledger + git history are the record.
@@ -32,6 +32,7 @@ For naming, lifecycle and archiving, see [`brain/wiki/workflows/sessions-format.
 
 | Session | Role | Status | Topic |
 |---|---|---|---|
+| [259-impl-dependency-audit-fix](./2026-07-23-259-impl-dependency-audit-fix.md) | implementer | complete | Next 16.2.11 plus narrow PostCSS/Sharp overrides; production audit restored (PR #291). |
 | [258-impl-brain-rollup](./2026-07-22-258-impl-brain-rollup.md) | implementer | complete | Coordination rollup through PR #288; #268 number reconcile; W3a backlog; queue reduced to S7b/S11 + launch endgame. |
 | [257-impl-text-delint-emdash](./2026-07-21-257-impl-text-delint-emdash.md) | implementer | complete | Required rendered-text Em-dash lint + editorial sweep (PR #288); broader anti-slop/content pass remains an unapproved proposal. |
 | [256-impl-nav-curator-compendium](./2026-07-21-256-impl-nav-curator-compendium.md) | implementer | complete | Library-first unnumbered nav; Curator dissolved into Compendium Guided Picks; `/ask` 308s (PR #287). |

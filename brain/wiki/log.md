@@ -1766,3 +1766,11 @@ Von Philipp beauftragter „wir sind von der Doku gerade nicht auf dem aktuellen
 **Queue:** Keine offene Architekturfrage. Vor dem Launch bleiben nur **S7b**, danach der pixelgleiche **S11-Code-PR**, dann Artwork-Bedingung + Content-Freeze → 12-Punkte-Readiness → Gate-off/Deploy → stilles Fenster (PL1, finale S7b-Live-Messung, S11-Doku-Rollup) → Reddit. Alle anderen Ideen sind explizites Backlog/Drop, nicht Teil der Launch-Queue.
 
 **Wiki-Ingest:** `project-state.md`, `worklist.md`, `roadmap.md`, `open-questions.md`, `index.md`, `sessions/README.md` und `docs/werkstatt-roadmap.md` auf 2026-07-22 nachgezogen; dieser Eintrag protokolliert die Synthese. Die einzige vorgefundene unkommittete Doc-Änderung war der W3a-Backlog-Edit in der Werkstatt-Roadmap; er wurde inhaltlich bestätigt und in den Rollup integriert. Die ungetrackte `zones-draft-backup-2026-07-18.json` blieb unangetastet.
+
+---
+
+## 2026-07-23 · Coordination · Post-#291 Security-Sync in Rollup-PR #290
+
+**Basis:** Session 259 / PR #291 ist gemergt (`main` `603e9e1`). Der neue Sharp-Advisory hatte den unveränderten Produktionsbaum von PR #290 im Audit rot gemacht; der eigenständige Product/Platform-PR hob Next + ESLint-Preset auf 16.2.11, deduplizierte Next per engen npm-Overrides auf PostCSS 8.5.16 und Sharp 0.35.3 und zog den DB-freien Cache-Test-Stub auf `generateSimpleCacheKey` nach. GitHub-Audit, Linux-Smokes und Vercel waren grün.
+
+**Coordination-Nachzug:** `origin/main` wurde konfliktfrei in `codex/session-257-brain-rollup` gemergt. `sessions/README.md` nennt jetzt `603e9e1` / PR #291 als Head und führt Session 259; `docs/werkstatt-roadmap.md` nennt 260 als nächste freie Nummer; `project-state.md` und `index.md` dokumentieren die wieder grüne Dependency-Audit-Baseline. Die Launch-Queue bleibt unverändert: S7b → S11 → Launch-Endspiel. Das ungetrackte `zones-draft-backup-2026-07-18.json` blieb unangetastet.

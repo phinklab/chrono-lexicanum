@@ -5,7 +5,7 @@
 ## Spielregeln (jede Session)
 
 - **Eine Session pro Posten.** Frische CC-Session, Prompt aus dem passenden Block unten einfügen.
-- Koordinations-Worktree (`C:\Users\Phil\chrono-lexicanum`, E8), frischer Branch von `origin/main`; Branch-Name steht im Prompt (`NNN` = nächste freie Session-Nummer — vorher `sessions/` auf die höchste Nummer prüfen, Lehre aus der Kollision, die PR #268 auflösen musste; Stand 2026-07-22: nächste freie Nummer **259**).
+- Koordinations-Worktree (`C:\Users\Phil\chrono-lexicanum`, E8), frischer Branch von `origin/main`; Branch-Name steht im Prompt (`NNN` = nächste freie Session-Nummer — vorher `sessions/` auf die höchste Nummer prüfen, Lehre aus der Kollision, die PR #268 auflösen musste; Stand 2026-07-23: nächste freie Nummer **260**).
 - **Kein Commit/PR, bis Philipp „fertig" sagt.** Philipp merged selbst; „ist gemerged" → Standard-Cleanup (Merge verifizieren, `fetch --prune`, zurück auf `main`, Task-Branch löschen).
 - Bewertungsrunden fassen keinen Produktcode an. Bei Urteil **bauen** wird der Zuschnitt in der Runde besprochen; sehr kleine Posten dürfen nach Absprache direkt in derselben Session umgesetzt werden, wenn sie strang-rein bleiben.
 - UI-Abnahme durch Philipp im Browser, keine Headless-Loops. Gates pro PR: `typecheck`, `lint`, `test`, `next build`; `brain:lint` wenn `brain/**` berührt.
