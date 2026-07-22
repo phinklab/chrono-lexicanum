@@ -107,7 +107,7 @@
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "drizzle-orm": "^0.45.2",
-    "next": "16.2.10",
+    "next": "16.2.11",
     "postgres": "^3.4.9",
     "react": "19.2.7",
     "react-dom": "19.2.7"
@@ -124,7 +124,7 @@
     "dotenv": "^17.4.2",
     "drizzle-kit": "^0.31.10",
     "eslint": "^9.39.4",
-    "eslint-config-next": "16.2.10",
+    "eslint-config-next": "16.2.11",
     "fast-xml-parser": "^5.9.3",
     "postcss": "^8.5.1",
     "read-excel-file": "^9.3.1",
@@ -134,5 +134,11 @@
     "typescript": "^6.0.3",
     "write-excel-file": "^4.1.1",
     "zod": "^4.4.3"
+  },
+  "overrides": {
+    "next": {
+      "postcss": "$postcss",
+      "sharp": "$sharp"
+    }
   }
 }
