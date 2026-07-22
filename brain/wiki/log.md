@@ -1752,3 +1752,17 @@ Von Philipp beauftragter „wir sind von der Doku gerade nicht auf dem aktuellen
 **Artefakt-Hygiene:** Session-212-Report + Diff und die map-flicker-Handover-Dateien existieren nirgends mehr (nie committet; Suche über Tree/Stashes/Worktrees/lokale Ordner ergebnislos) — als klar gekennzeichneter Tombstone `sessions/2026-07-13-212-impl-map-render-pipeline.md` rekonstruiert. Das frühere git-status-Rauschen (~115 modified, CRLF/Mount-Verdacht) war zum Session-Start nicht reproduzierbar (Tree sauber); nichts committet.
 
 **Wiki-Ingest:** `project-state` (Werkstatt-Phase, Muss-Strecke, Map-/Curator-Stand), `worklist` (§A Pfad zum Launch, §§C/D Perfektions-Kandidaten, §F Auflösungen), `roadmap` (Werkstatt-Pfad + Ideas-Backlog 3a/5/6), `open-questions` (Next-Zeile), `index`, `sessions/README.md` (Head `55a8ea7`, Threads 210–219), dieser Log-Eintrag.
+
+---
+
+## 2026-07-22 · Coordination · Werkstatt-Rollup bis Session 257 (Session 258)
+
+**Basis:** Branch `codex/session-257-brain-rollup` von `origin/main` (`8595558`, PR #288 gemerged). Die Branch-Nummer war im Maintainer-Prompt vorgegeben; der höchste vorhandene Report ist bereits **Session 257** (Text-Delint), daher ist der kollisionsfreie Rollup-Report Session **258**.
+
+**Nummern-Reconcile:** PR #268 ist die Autorität für die im Juli kollidierte Folge: die Great-Journey-Reports aus PR #265 heißen final **220–234**, die Werkstatt-Bewertungsrunden aus PR #267 **235–241**. Die Runden 242–244 und die Bauten ab 245 folgen dieser bereinigten Sequenz; `sessions/README.md` verweist nicht mehr auf die vor-#268-Nummern.
+
+**Werkstatt geschlossen:** Die komplette Wunschliste wurde bewertet; die Bau-/Triage-Welle durch Fahrplan-Posten 11b ist abgeschlossen. Gemergte Hauptstände seit dem letzten Rollup: Map-Flicker-Fix, drei Zeitkarten, Journey-/Hash-Kopplung und task-orientiertes Map-UI (245–249, PRs #275–#279); M42-Datierung, `/now`, `/statistics`, Archive-Facetten und Arthas Moloch (250–254, PRs #280/#282–#285); seitenweite Nav/Typografie, Curator→Compendium und gerendertes Em-dash-Lint (255–257, PRs #286–#288). **W3a-B1** wurde per Maintainer-Entscheid am 2026-07-22 ins Post-Launch-Backlog verschoben; sein entscheidungsreifer Zuschnitt bleibt in `docs/werkstatt-roadmap.md` erhalten.
+
+**Queue:** Keine offene Architekturfrage. Vor dem Launch bleiben nur **S7b**, danach der pixelgleiche **S11-Code-PR**, dann Artwork-Bedingung + Content-Freeze → 12-Punkte-Readiness → Gate-off/Deploy → stilles Fenster (PL1, finale S7b-Live-Messung, S11-Doku-Rollup) → Reddit. Alle anderen Ideen sind explizites Backlog/Drop, nicht Teil der Launch-Queue.
+
+**Wiki-Ingest:** `project-state.md`, `worklist.md`, `roadmap.md`, `open-questions.md`, `index.md`, `sessions/README.md` und `docs/werkstatt-roadmap.md` auf 2026-07-22 nachgezogen; dieser Eintrag protokolliert die Synthese. Die einzige vorgefundene unkommittete Doc-Änderung war der W3a-Backlog-Edit in der Werkstatt-Roadmap; er wurde inhaltlich bestätigt und in den Rollup integriert. Die ungetrackte `zones-draft-backup-2026-07-18.json` blieb unangetastet.
