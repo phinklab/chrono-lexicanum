@@ -5,7 +5,7 @@
 ## Spielregeln (jede Session)
 
 - **Eine Session pro Posten.** Frische CC-Session, Prompt aus dem passenden Block unten einfügen.
-- Koordinations-Worktree (`C:\Users\Phil\chrono-lexicanum`, E8), frischer Branch von `origin/main`; Branch-Name steht im Prompt (`NNN` = nächste freie Session-Nummer — vorher `sessions/` auf die höchste Nummer prüfen, Lehre aus der Kollision, die PR #268 auflösen musste; Stand 2026-07-20: nächste freie Nummer **252**).
+- Koordinations-Worktree (`C:\Users\Phil\chrono-lexicanum`, E8), frischer Branch von `origin/main`; Branch-Name steht im Prompt (`NNN` = nächste freie Session-Nummer — vorher `sessions/` auf die höchste Nummer prüfen, Lehre aus der Kollision, die PR #268 auflösen musste; Stand 2026-07-23: nächste freie Nummer **260**).
 - **Kein Commit/PR, bis Philipp „fertig" sagt.** Philipp merged selbst; „ist gemerged" → Standard-Cleanup (Merge verifizieren, `fetch --prune`, zurück auf `main`, Task-Branch löschen).
 - Bewertungsrunden fassen keinen Produktcode an. Bei Urteil **bauen** wird der Zuschnitt in der Runde besprochen; sehr kleine Posten dürfen nach Absprache direkt in derselben Session umgesetzt werden, wenn sie strang-rein bleiben.
 - UI-Abnahme durch Philipp im Browser, keine Headless-Loops. Gates pro PR: `typecheck`, `lint`, `test`, `next build`; `brain:lint` wenn `brain/**` berührt.
@@ -25,10 +25,10 @@
 | 7 | **F1-B1** — M42-Nachdatierung | Bau (Batches, S–M) | — | ✔ 250 |
 | 8 | **F1-B2** — `/now` Status Imperialis | Bau (Product, M) | F1-B1 empfohlen | ✔ 251 |
 | 9 | **F3-B1** — `/statistics` Librarium-Statistiken | Bau (Product, M) | — | ✔ 252 |
-| 10 | **W3a-B1** — Charakter-Verbindungen (Ko-Okkurrenz) | Bau (Product, S–M) | — | ☐ |
+| 10 | **W3a-B1** — Charakter-Verbindungen (Ko-Okkurrenz) | ~~Bau~~ → Backlog | — | ⊘ Backlog (2026-07-22) |
 | 11 | **WA-B1** — Archiv-Facetten-Filter | Bau (Product, M) | — | ✔ 253 |
 | 11b | **WP-B1** — Arthas-Moloch-Kartenlink (+ Pin-Name) | Bau (Batches, XS–S) | Excel-Zeile Philipp | ✔ 254 |
-| 12 | **Koordinations-Rollup** — Brain + sessions/README | Doku | jederzeit möglich, spätestens vor 13 | ☐ |
+| 12 | **Koordinations-Rollup** — Brain + sessions/README | Doku | jederzeit möglich, spätestens vor 13 | ✔ 258 |
 | 13 | **S7b** — Player/Chrome/Assets | Qualitätspass | 1–11b abgeschlossen | ☐ |
 | 14 | **S11-Code-PR** (pixelgleich) | Qualitätspass | S7b | ☐ |
 | 15 | **Launch-Readiness** → Gate-off → stilles Fenster → Reddit | Endspiel | W1-Gate (Artwork + Liste besucht) | ☐ |
@@ -43,7 +43,7 @@ Posten 13–15 laufen über [`launch-session-prompts.md`](./launch-session-promp
 | F1 (236) | Status Imperialis | **bauen** | Eigene Route `/now`, hybrid DB-Module + kuratierte Prosa; vorher M42-Nachdatierung (Batches). |
 | F3 (237) | Statistiken | **bauen** | Eigene statische Route `/statistics`, 7 handgerollte SVG-Charts, keine Dependency. `pageCount` 0/896 und `series_id` 8/896 sind aus dem Scope. |
 | W4 (238) | Provenienz-Badges | **Backlog** | F1-B2/F3-B1 definieren ihr H/M/L-Wording lokal; wird W4 je gebaut, konsolidiert es diese Stellen. |
-| W3a (239) | Charakter-Graph | **bauen** | Ko-Okkurrenz-v1 ohne Schema als „Verbindungen"-Modul auf `/character/[slug]`; kuratierte `character_relations` bleibt v2-Option (bräuchte Brief). |
+| W3a (239) | Charakter-Graph | **bauen → Backlog (2026-07-22)** | Vor Launch zurückgestellt (Maintainer): zu wenig Nutzen für zu viel Arbeit vor dem Rollout. Der Ko-Okkurrenz-v1-Zuschnitt (Modul auf `/character/[slug]`, ohne Schema; kuratierte `character_relations` als v2) liegt entscheidungsreif im Prompt § 10 — Revisit post-launch. |
 | W3b (240) | Timeline auf der Map | **bauen (umgeplant)** | Drei diskrete Zeitkarten (M30/M31/M41-42) + Karten-Timeline; kein Schema, kein Jahr-Scrub (Datenlage: `work_locations.atY` leer, Buch-Datierungen 97/896). |
 | W5 (240) | Podcasts auf Buchseite | **Backlog** | Post-launch-Revisit; dann Abdeckung beider Wege zählen (Event-Ableitung vs. `episode_covers_work`). |
 | W6 (240) | Size Comparison | **Backlog** | Post-launch; Schema-Neubau → zuerst Brief. |
@@ -222,6 +222,8 @@ UI-Abnahme durch Philipp im Browser, keine Headless-Loops. Branch: codex/product
 ```
 
 ### 10 · W3a-B1 — Charakter-Verbindungen (Product, S–M)
+
+> **Backlog seit 2026-07-22 (Maintainer), Revisit post-launch.** Der folgende Prompt bleibt als entscheidungsreifer Zuschnitt erhalten, gehört aber nicht mehr in die Vor-Launch-Queue.
 
 ```text
 Werkstatt-Bau W3a-B1 — Charakter-Verbindungen (Ko-Okkurrenz-v1) (Product, S–M).
