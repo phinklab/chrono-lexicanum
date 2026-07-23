@@ -8,6 +8,7 @@ parent: null
 links: []
 commits:
   - 43ac988edca08f332ca0153ef7b651880d068ecb
+  - afd278521ee19736dfbd82e4d67440c29399d6fb
 ---
 
 # Qualitätspass S7b — MediaPlayer-Split, Chrome, Asset-Cleanup
@@ -58,12 +59,14 @@ den Git-/PR-Abschluss freigegeben.
 
 ## Decisions I made
 
-- **Die erste `next/dynamic`-Fassung wurde verworfen.** Sie sparte zwar auf
-  `/login`, erhöhte aber den gemessenen rohen Home-Chrome-Graphen von 35.236
-  auf 43.848 Bytes. `React.lazy` reduziert die finale Home-Mehrlast auf 5.482
-  Bytes und spart auf der Zielroute `/login` 21.824 Bytes. Der verbleibende
-  Trade-off ist bewusst: Chrome, der auf `/login` nichts rendert, wird dort
-  tatsächlich nicht mehr geladen.
+- **Die erste, vollständig auf `next/dynamic` basierende Fassung wurde
+  verworfen; die sichtbare Navigation bleibt gezielt im Next-Preload-Pfad.**
+  Reines `React.lazy` reduzierte die Home-Mehrlast zunächst auf 5.482 Bytes,
+  ließ auf einem kalten CI-Load aber ein kurzes Fenster, in dem der schon
+  sichtbare Burger noch nicht hydratisiert war und den ersten Klick verlor.
+  Die finale Mischform lädt nur die sofort bedienbare Navigation über
+  `next/dynamic`; Player und Brand-Deko bleiben lazy. Damit beträgt die
+  Home-Mehrlast 8.487 Bytes, während `/login` weiterhin 18.848 Bytes spart.
 - **Öffentliche Assets bekommen keinen `immutable`-Browservertrag.** Ihre URLs
   sind lesbar, aber nicht content-gehasht und können sich zwischen Deployments
   ändern. Vier Stunden Browser-Cache plus Revalidierung begrenzen Stale-Risiko;
@@ -91,15 +94,15 @@ den Git-/PR-Abschluss freigegeben.
 | Home RSC | 67.453 B | 66.887 B | −566 B / −0,8 % |
 | Inline-SVGs Home | 8 | 8 | unverändert |
 | SVG-Markup Home | 40.862 B / 28,51 % HTML | 40.862 B / 29,01 % HTML | unverändert; +0,50 pp durch kleineres Gesamt-HTML |
-| Root-/Chrome-Graph Home | 35.236 B | 40.718 B | +5.482 B / +15,6 % |
-| Root-/Chrome-Graph `/login` | 35.236 B | 13.412 B | −21.824 B / −61,9 % |
+| Root-/Chrome-Graph Home | 35.236 B | 43.723 B | +8.487 B / +24,1 % |
+| Root-/Chrome-Graph `/login` | 35.236 B | 16.388 B | −18.848 B / −53,5 % |
 | Player Advanced-UI | Teil des Monolithen | eigener 2.032-B-Chunk | bis Erstinteraktion zurückgestellt |
 | Player Transport-Shell | Teil des Monolithen | eigener 8.187-B-Chunk | dauerhaft verfügbar |
 | Tote Bildassets | 186.481 B | 0 B | −186.481 B |
 | Live Asset-Header | `public, max-age=0, must-revalidate` | lokal: `max-age=14400`; Edge: `max-age=31536000` | final live nach Deployment offen |
 
 Der Home-Chrome-Wert ist absichtlich als Summe der rohen, route-relevanten
-Chunks ausgewiesen: Route-Shell 13.412 B, Navigation 11.574 B, Brand-Beacon
+Chunks ausgewiesen: Route-Shell 16.388 B, Navigation 11.603 B, Brand-Beacon
 7.545 B und Player-Transport 8.187 B. Der Advanced-Chunk von 2.032 B ist darin
 nicht enthalten, weil er beim initialen Home-Render weder im DOM noch im
 Initialgraphen liegt.
@@ -113,6 +116,11 @@ Initialgraphen liegt.
   DB-/Netzwerk-Suite planmäßig ausgelassen.
 - `npm run build` — pass auf dem finalen Stand; 1.293 statische Seiten. Zwei
   bestehende Turbopack-Warnungen zur Snapshot-Dateisuche/NFT-Liste bleiben.
+- `npm run test:smoke -- --grep "site menu"` — die zuvor in CI fehlgeschlagene
+  kalte Mobile-Menü-Interaktion ist mit dem gezielten Navigation-Preload grün.
+  Der lokale Windows-Runner blieb nach der erfolgreichen Assertion beim
+  Webserver-Cleanup hängen; der Pull-Request-Runner ist die maßgebliche
+  vollständige Wiederholung.
 - `npm run brain:lint -- --no-write` — pass; 0 Blocking Findings,
   20 bestehende Warnings.
 - `git diff --check` — pass.
