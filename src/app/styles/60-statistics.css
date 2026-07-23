@@ -369,10 +369,6 @@
   letter-spacing: var(--track-10);
   color: var(--cl-faint);
 }
-.libr-foot--center {
-  text-align: center;
-}
-
 /* ---- The Holdings — linked tiles --------------------------------------- */
 
 .libr-tiles {

@@ -1,25 +1,12 @@
 "use client";
 
 /**
- * Cinematic mode — the 3D rail + dossier view as a React island.
+ * Cinematic rail island. A hidden snap-scroller drives target `t`; displayed
+ * `vt` eases toward it while frame styles update imperatively and React owns
+ * only discrete UI state.
  *
- *   - a hidden scroll proxy (one snap section per event + terminus +
- *     overshoot) drives a target position `t`; a displayed position `vt`
- *     eases toward it so bg/rail motion stays smooth under scroll-snap jumps
- *   - per-frame styles (rail transforms, segment geometry, terminus
- *     crossfade) are written imperatively through refs — React state only
- *     carries the discrete bits (active entry, intro, wake, hint)
- *   - the era intro dolly (`enterTimeline`) sweeps the rail in from the
- *     horizon while CSS `.wake` draws the chrome
- *
- * Keyboard model (S9): the SECTION is the focusable stage (tabIndex 0) and
- * owns the keydown handler — nothing listens on window anymore, so controls
- * outside the stage (the media player's volume slider, any input) keep their
- * arrow keys structurally. Focus follows era navigation: the keyed remount
- * would otherwise drop focus to <body> and strand keyboard users.
- *
- * The component is REMOUNTED per era (keyed by the stage), so `era`/`N` are
- * mount constants.
+ * The focusable stage—not `window`—owns arrow keys, and focus is restored
+ * across the keyed per-era remount so unrelated controls retain their keys.
  */
 import {
   useCallback,

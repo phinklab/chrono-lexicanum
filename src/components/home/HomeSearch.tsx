@@ -12,24 +12,9 @@ import {
 } from "@/app/archive/filters";
 
 /**
- * Home search — the real archive search
- * console, wired in NAVIGATE mode: the box does not filter a
- * list on the page (Home has none), it *arrives at the archive with the query*.
- *
- *   - book              → /book/[slug]          (open the book directly)
- *   - podcast              → /archive/podcasts/[slug](#ep-…)  (show page or episode deep link)
- *   - faction              → /compendium/factions?focus=[id]  (faction directory + popup)
- *   - primarch             → /compendium/primarchs?focus=[id] (primarch directory + popup)
- *   - character            → /compendium/characters?focus=[id] (character directory + popup)
- *   - world                → /compendium/worlds?focus=[id] (world directory + popup)
- *   - facet/format         → /archive?<param>=…   (land in the archive, pre-filtered)
- *   - author / raw Enter   → /archive?q=…          (land in the archive, searched)
- *   - empty Enter          → /archive              (open the unfiltered archive)
- *
- * The grouped typeahead is fed by the same lazily-fetched index /archive uses
- * (books + podcasts, via /api/search-index), so the suggestions are live and
- * identical. The combobox mechanics (and the index fetch) live in the shared
- * console; this wrapper only supplies the routing.
+ * Home's archive-wide search. `BrowseSearch` owns the shared lazy typeahead;
+ * this wrapper maps books/podcasts to detail routes, entities to Compendium,
+ * facets/formats to filtered Archive views and free text to `?q=`.
  */
 export default function HomeSearch() {
   // Every pick navigates through the shared transition so the click→stream gap

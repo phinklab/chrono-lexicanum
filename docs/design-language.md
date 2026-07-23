@@ -219,15 +219,10 @@ Load-bearing values (identical on `/werke` `.catalogue-hero` and `/ask` `.ask-co
 
   | variant | photo | used by |
   |---|---|---|
-  | `hub` | `/img/hub.webp` | Home `/` |
-  | `vista` | `/img/vista.webp` | Books hero, book detail, entity pages |
-  | `oracle` | `/img/oracle.webp` | Ask `/ask` |
-  | `librarium` | `/img/librarium.webp` | Podcasts |
-  | `chronicle` | `/img/chronicle-hall.webp` | Timeline |
-  | `cartog-holo` | `/img/cartog-holo.webp` | Map |
+  | `main` | `/img/main-bg.webp` | Home, Archive, Compendium, Statistics, Now |
+  | `vista` | `/img/vista.webp` | Entity detail pages |
+  | `login` | `/img/login.webp` | Login (removed for launch) |
   | `none` | — | vignette + grain over void only |
-
-  (`/werke` paints its own fixed `.catalogue-hero__photo` = `/img/books.webp` instead of a variant.)
 - **`BottomConsole`** (`.bottom-console`) — fixed bottom telemetry strip + optional 3 doorway cards
   (`ORACVLVM → /ask`, `BIBLIOTHECA → /werke`, `CARTOGRAPHIA → /map`), each a `.c-glass .c-corners`
   Link. Props: `withCards`, `compactCards`, `novelCountText`, `doorways`. The strip shows a pulsing
@@ -373,12 +368,12 @@ The accent is a property of the **page**, inherited by everything inside it.
 
 | Route | `<main>` class | `SiteBackground` | Accent | Status |
 |---|---|---|---|---|
-| `/werke` Works / Archive | `catalogue catalogue--werke` | own `books.webp` | **Gold** | ✅ canonical |
-| `/buecher` (maintainer catalogue) | `catalogue` | `vista` | **Gold** | redesigned |
-| `/ask` Oracle | `ask` | `oracle` | **Cyan** | ✅ canonical |
-| `/` Home | `hub` | `hub` | **Cyan** | ← P1 redesign target |
-| `/fraktionen` Factions | (cyan default) | `vista` | **Cyan** | house default |
-| `/timeline`, `/podcasts`, `/buch/*`, `/map` | — | per §4 map | **Cyan** unless under `main.catalogue` | not yet on this system |
+| `/archive` Works / Archive | `catalogue catalogue--werke` | `main` | **Gold** | ✅ canonical |
+| `/` Home | `hub` | `main` | **Cyan** | canonical |
+| `/character/*`, `/faction/*`, `/person/*`, `/world/*` | `entity-page` | `vista` | **Cyan** | house default |
+| `/statistics`, `/now`, `/archive/podcasts/*` | route-specific | `main` | **Cyan/Gold by domain** | current |
+| `/book/*` | `book-page` | `none` | **Gold** | current |
+| `/map`, `/timeline` | route-specific | own flat/stage surface | **Cyan/Gold by domain** | current |
 
 Rule of thumb: **gold = the catalogue/archive**; **cyan = everything else** (the default). A page
 goes gold *only* by living under `main.catalogue`.
@@ -401,12 +396,12 @@ goes gold *only* by living under `main.catalogue`.
 
 ## 8. Applying it to Home (`/`, P1)
 
-**Today:** `main.hub` is a full-bleed `hub.webp` vista with offset dual `MainAuspex`, a centered
+**Today:** `main.hub` is a full-bleed `main-bg.webp` vista with offset dual `MainAuspex`, a centered
 Cinzel title, a cyan `GhostReadout`, a *simpler* `hub-search` bar (`HomeSearch.tsx` → routes to
 `/werke?q=`), a `ToolsAccordion`, and the `BottomConsole`. It predates the `/werke` + `/ask` system.
 
 **Target:** bring Home onto the §3 media-page skeleton and §5 element vocabulary, **keeping cyan**
-(domain map §6) and the `hub.webp` background. Specifically:
+(domain map §6) and the shared `main-bg.webp` background. Specifically:
 
 1. **Adopt the search console verbatim** (§5.2) as the Home hero search, in its **cyan** skin, with
    the **full live typeahead** (grouped `BOOKS / FACTIONS / FACETS / FORMATS / AUTHORS` dropdown).

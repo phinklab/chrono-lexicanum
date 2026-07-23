@@ -20,7 +20,7 @@ export default function HubScrollReset() {
     // a bare scrollTo would animate a visible "scroll up" on load; force instant.
     const pin = () => window.scrollTo({ top: 0, left: 0, behavior: "instant" });
     pin();
-    // The large hub.webp can make the browser restore the prior offset on the
+    // The large hero background can make the browser restore the prior offset on the
     // *late* `load` event — after this effect already ran. Re-pin once then so
     // the restore can't win the race and leave the page parked mid-act.
     window.addEventListener("load", pin, { once: true });

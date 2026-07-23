@@ -1,22 +1,8 @@
 /**
- * LumenNihilus — the two chart instruments:
- * Lumen Astronomican (Terra's light, devoured by the warp — a soft mask
- * cuts the disc at the storm band, beyond lies blackness) and the Imperium
- * Nihilus shade. Shadow edges run as RAYS from Terra through both band ends
- * and close on a far circle r=2600 — no overlay edge ever pans into view.
- *
- * The band spines (RIFT_D / nihilusPath / ruinstormShadow) are derived in
- * chart-geometry.ts from the hand-drawn zones, so the shadows follow
- * wherever the zone editor moves them.
- *
- * Chart editions: on "now" the Cicatrix cuts the light and everything east
- * of the rift lies dark; on "hh" the Ruinstorm wall does the same for the
- * galactic east (the Imperium Secundus premise); on "pre" the Lumen stands
- * whole. The devoured-light labels and the Nihilus shade group remain
- * instruments of the present chart only (the Nihilus toggle is disabled
- * off-"now").
- *
- * Both groups mount hidden; `svg.lumen` / `svg.nihilus` display them (CSS).
+ * Astronomican light and Nihilus shade. Zone-derived rift/Ruinstorm spines
+ * keep shadows aligned with editor changes; rays close far outside the chart.
+ * Current and Heresy editions cut the light at their storm, pre-Heresy stays
+ * whole. Both groups mount hidden and CSS instrument classes reveal them.
  */
 
 import { memo } from "react";

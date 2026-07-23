@@ -247,10 +247,7 @@ body:has(main.podcasts) .site-bg::after {
   color: var(--cl-gold);
 }
 
-/* Platform link chip (shared: index block + detail plate) */
-/* Rest in the neutral link register (bone + hairline) — a show carries up to
- * five of these, and the house law (31-catalogue.css .catalogue-tag) keeps the
- * accent for interaction, not a resting wall of gold. */
+/* Platform link chip: neutral at rest, gold only on interaction. */
 .pod-platform {
   display: inline-flex;
   align-items: center;
@@ -746,8 +743,7 @@ body:has(main.podcasts) .site-bg::after {
   flex-wrap: wrap;
   gap: 6px;
 }
-/* Faction chip = .catalogue-tag--faction: gold-tinted hairline, bone text,
- * gold on hover. */
+/* Faction chip: gold-tinted hairline, bone text, gold on hover. */
 .pod-tag {
   display: inline-flex;
   align-items: center;

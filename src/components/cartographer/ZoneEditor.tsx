@@ -1,25 +1,11 @@
 "use client";
 
 /**
- * ZoneEditor — the hand-curation tool for chart zones.
- *
- * Opened via /map?zones=edit. Every zone is shaped by hand: drag a vertex,
- * click a mid-handle to add a point, double-click (or Delete) to remove one,
- * create new zones from scratch. The tool NEVER derives geometry from
- * reference images.
- *
- * The working copy autosaves to localStorage (survives reloads); "Copy JSON" /
- * "Download" export a drop-in replacement for src/lib/map/zones.json — that
- * commit is how a curated shape becomes part of the chart.
- *
- * Pointer mechanics: vertex/midpoint handles stopPropagation on pointerdown
- * so ChartStage never starts a pan; the drag captures on the persistent
- * editor <g> (not the handle — a mid-insert re-keys the handles mid-gesture).
- *
- * Z-order: the zone faces render via portal into #cg-fields (below
- * dust/pins, as on the built chart) — planets sit above the zones in the
- * editor too and stay clickable. Only the wireframe and the handles of the
- * active zone render as the topmost layer above everything.
+ * Hand-curation tool at `/map?zones=edit`; drafts persist in localStorage and
+ * export as a replacement for `zones.json`. Handles stop chart panning and
+ * capture drag on the persistent editor group because midpoint insertion
+ * re-keys handles. Faces portal below pins; active wireframe/handles stay on
+ * top.
  */
 
 import { useCallback, useEffect, useRef, useState } from "react";

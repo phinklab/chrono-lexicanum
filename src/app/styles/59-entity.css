@@ -471,9 +471,7 @@ main.entity::before {
   display: flex;
 }
 
-/* Hairline pill — the .lx-tag idiom (tags deliberately keep their hairline
-   frames): transparent ground, faint frame, gold answer on hover/focus for
-   the linked chips. */
+/* Linked chips keep a neutral hairline and turn gold on interaction. */
 .entity-view__chip {
   display: inline-flex;
   align-items: center;
@@ -501,10 +499,6 @@ main.entity::before {
 .entity-view__chip--mute {
   color: var(--cl-dim);
   border-color: color-mix(in oklch, var(--cl-faint-deco) 60%, transparent);
-}
-
-.entity-view__chip-role {
-  color: var(--cl-faint);
 }
 
 /* Rail footnote */

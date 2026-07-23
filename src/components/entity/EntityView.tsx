@@ -1,22 +1,8 @@
 /**
- * EntityView — the frame-agnostic body of every entity-hub surface.
- *
- * TWO SEAM RULES (do not break — they are what let every frame reuse this):
- *   1. **db-free.** This component and its section modules import nothing from
- *      `@/db` and nothing server-only. The page (`/character`, `/faction`,
- *      `/world`) owns `<main>` + `SiteBackground` + decor + scrim and feeds in
- *      the already-loaded `EntityView` object; the overlay panel mounts this
- *      same component with the same payload — zero fork.
- *   2. **owns the single `<h1>`.** The frame contributes no heading, so this is
- *      the page's one `<h1>` (the entity name, in EntityHeader). Section
- *      headings are `<h2>`/`<h3>`; decorative rules are `aria-hidden`; empty
- *      sections render nothing.
- *
- * Layout: a full-width header (`<h1>` → tagline → 1–3-fact
- * meta-line) over a two-column body — a main column (dossier + works cards) and
- * a right "CONNECTIONS" rail. `.entity-view` is a query container, so the rail
- * reflows under the main column whenever the *container* is narrow — on a small
- * viewport and, for free, inside the narrow overlay panel.
+ * Frame-agnostic entity body shared by full pages and overlays. Keep it DB- and
+ * server-only-free; frames provide chrome but no heading, so `EntityHeader`
+ * owns the single h1. Empty sections disappear and the container-query rail
+ * reflows under the dossier in narrow pages or panels.
  */
 import type {
   EntityView as EntityViewData,

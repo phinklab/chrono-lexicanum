@@ -3,21 +3,9 @@ import ArchiveFooter from "@/components/chrome/ArchiveFooter";
 // Route-scoped stylesheet (S7a), shared by the three legal document pages.
 import "@/app/styles/71-legal.css";
 
-/* /artwork — the site's own background paintings, offered as downloads.
-   Third point of the legal row (Impressum · Datenschutz · Artwork) and,
-   like those two, excluded from the preview-gate matcher so it stays
-   reachable from the public /login surface; the image files under
-   public/img/ are outside the gate anyway. These originals replaced the
-   on-page ArtCreditTag for self-made backgrounds (src/lib/art-credits.ts
-   keeps an empty registry for future third-party art). Chronicle era/event
-   artwork by third parties is NOT offered here — it stays credit-only.
-
-   Two formats per piece: the site's own WebP (same-origin, `download`
-   attribute) and a high-res JPEG from the PUBLIC Supabase Storage bucket
-   `artwork` — public, so unlike the signed `Audio` URLs these never expire;
-   `?download=` makes Storage serve them as attachments (the `download`
-   attribute is ignored cross-origin). The JPEGs are too large for the repo/
-   Vercel build, hence Storage. */
+/* Original site backgrounds offered as same-origin WebP and public Storage
+   JPEG downloads. Third-party Chronicle art remains credit-only. Storage uses
+   `?download=` because the HTML download attribute is ignored cross-origin. */
 
 export const metadata: Metadata = {
   title: "Artwork",

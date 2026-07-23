@@ -1,23 +1,9 @@
 "use client";
 
 /**
- * RouteMotionCanvas — raster rendering for Great Journeys, all viewports.
- *
- * WebKit/Blink repaint SVG stroke-dashoffset animations in software; on a
- * transformed map that can flash the SVG backing store. Phones hit this
- * first (cured 2026-07-13); the strategic journeys brought the same
- * intermittent whole-chart flash to desktop Chromium, so since 2026-07-17
- * the canvas draws the route line everywhere and the SVG journey layer
- * carries no paint animation on any viewport. The route stays
- * vector-authored, but its line is sampled into this small Canvas surface.
- *
- * The standing line is STATIC — normal course legs use the preferred plain
- * dashes while chronology-preserving jumps use compact dots. A perpetual
- * dash drift would keep invalidating a fullscreen layer (the drag flicker).
- * The canvas repaints only (a) on camera frames (the route must track the
- * chart) and (b) during the bounded draw-in window when the tour enters a
- * new leg. Idle = zero repaints. Static SVG rings/labels remain in
- * RoutesLayer.
+ * Raster journey lines avoid transformed SVG repaint flicker in Blink/WebKit.
+ * Routes stay vector-authored; Canvas paints only during bounded reveals and
+ * camera frames. Idle or hidden documents perform no repaint work.
  */
 
 import { useEffect, useRef } from "react";
@@ -67,6 +53,14 @@ export default function RouteMotionCanvas({
     let pendingFrame = 0;
     let lastPaint = -Infinity;
     const startedAt = performance.now();
+    let pausedAt = document.hidden ? startedAt : null;
+    let pausedFor = 0;
+
+    const activeElapsed = (now: number) =>
+      now -
+      startedAt -
+      pausedFor -
+      (pausedAt === null ? 0 : now - pausedAt);
 
     const sizeCanvas = () => {
       const rect = canvas.getBoundingClientRect();
@@ -152,7 +146,7 @@ export default function RouteMotionCanvas({
       ctx.lineCap = "round";
       ctx.lineDashOffset = 0;
 
-      const elapsed = now - startedAt;
+      const elapsed = activeElapsed(now);
       resolved.legs.forEach((leg, legIndex) => {
         const arm = armByLeg.get(legIndex);
         if (arm && hiddenArmLegions.has(arm.legion)) return;
@@ -185,7 +179,7 @@ export default function RouteMotionCanvas({
     /* Camera frames: one coalesced repaint per frame event — the only
        repaint source once the draw-in window is over. */
     const requestPaint = () => {
-      if (pendingFrame) return;
+      if (document.hidden || pendingFrame) return;
       pendingFrame = requestAnimationFrame((now) => {
         pendingFrame = 0;
         paint(now);
@@ -196,7 +190,8 @@ export default function RouteMotionCanvas({
     /* Bounded reveal ticker (30 fps) — runs only through the draw-in window,
        then paints one final full state and stops. */
     const tick = (now: number) => {
-      const done = now - startedAt > animEnd + 80;
+      if (document.hidden) return;
+      const done = activeElapsed(now) > animEnd + 80;
       if (!done) raf = requestAnimationFrame(tick);
       if (!done && now - lastPaint < FRAME_MS) return;
       lastPaint = now;
@@ -206,17 +201,38 @@ export default function RouteMotionCanvas({
     /* First paint may precede the chart driver — retry until it lands, then
        hand over to the reveal ticker (if anything animates at all). */
     const drawWhenReady = (now: number) => {
+      if (document.hidden) return;
       if (!paint(now)) {
         raf = requestAnimationFrame(drawWhenReady);
         return;
       }
       if (animEnd > 0) raf = requestAnimationFrame(tick);
     };
-    raf = requestAnimationFrame(drawWhenReady);
+    const onVisibilityChange = () => {
+      const now = performance.now();
+      if (document.hidden) {
+        if (pausedAt === null) pausedAt = now;
+        cancelAnimationFrame(raf);
+        cancelAnimationFrame(pendingFrame);
+        raf = 0;
+        pendingFrame = 0;
+        return;
+      }
+
+      if (pausedAt !== null) {
+        pausedFor += now - pausedAt;
+        pausedAt = null;
+      }
+      raf = requestAnimationFrame(drawWhenReady);
+    };
+
+    document.addEventListener("visibilitychange", onVisibilityChange);
+    if (!document.hidden) raf = requestAnimationFrame(drawWhenReady);
 
     return () => {
       cancelAnimationFrame(raf);
       cancelAnimationFrame(pendingFrame);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
       unsubscribe();
       clear();
     };

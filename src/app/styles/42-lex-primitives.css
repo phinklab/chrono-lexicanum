@@ -171,37 +171,6 @@
   color: var(--cl-dim);
 }
 
-/* Tag / pill — hairline frame, gold answer. */
-.lx-tag {
-  display: inline-flex;
-  align-items: center;
-  appearance: none;
-  background: transparent;
-  border: 1px solid var(--cl-hair);
-  color: var(--cl-dim);
-  padding: 6px 12px;
-  font-family: var(--font-mono);
-  font-size: var(--fs-label);
-  letter-spacing: var(--track-18);
-  text-transform: uppercase;
-  text-decoration: none;
-  cursor: pointer;
-  transition: color 180ms, border-color 180ms;
-}
-.lx-tag:hover {
-  color: var(--cl-bone);
-  border-color: var(--cl-gold-dim);
-}
-.lx-tag--on {
-  color: var(--cl-gold);
-  border-color: color-mix(in srgb, var(--cl-gold) 55%, transparent);
-}
-.lx-tag--sm {
-  padding: 2px 7px;
-  font-size: var(--fs-label-xs);
-  letter-spacing: var(--track-14);
-}
-
 /* Button — the Sternwarte. No frame; the dot before the label is the
    origin. On hover the dot expands, hairline rings bloom out of it (BtnFx.tsx
    supplies the SVG; two planets ride the turning rings) and three survey

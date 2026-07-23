@@ -1,22 +1,8 @@
 /**
- * Public faction-guide data layer. SERVER-ONLY (imports `@/db`).
- *
- * The faction guide (served at /compendium/factions; the old /fraktionen URL
- * 308s there via next.config) is a *guide* index, not lore: each faction is a
- * doorway labelled
- * with how much of the archive sits behind it (books, podcast episodes, key
- * characters, sub-factions). We compute those four counts with grouped
- * aggregates rather than per-faction fan-out: one row per faction, one grouped
- * count over `work_factions × works.kind`, one over `characters`, one over the
- * self-parent edge. Index contract (S2, see `src/lib/db-cache.ts`): an array
- * — DB errors THROW into the caller's error boundary (this loader is only
- * reached at request time; the build reads the committed snapshot).
- *
- * The module stays under `src/app/fraktionen/` although the route itself was
- * removed in Launch S4 (the folder has no page.tsx, so it is not routable):
- * the snapshot exporter + its contract tests (`scripts/build-snapshot.ts`,
- * Batches strand) import `FactionGuide`/`loadFactionGuide` from exactly this
- * path. Moving it is a cross-strand rename — S4b can take it along if wanted.
+ * Server-only faction guide loader. Grouped aggregates compute book, podcast,
+ * character and sub-faction counts without per-faction fan-out; DB failures
+ * throw. The retired `/fraktionen` folder remains because snapshot tooling
+ * imports this contract by path—moving it requires a cross-strand rename.
  */
 import "server-only";
 import { count, eq, isNotNull } from "drizzle-orm";

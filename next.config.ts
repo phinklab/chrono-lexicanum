@@ -1,31 +1,10 @@
 import type { NextConfig } from "next";
 
-// Simple static Content-Security-Policy (Board 121-P11, Entscheid 2026-06-12).
-// Deliberately the *baseline* form, not the nonce-per-request form the
-// next.config comment below flagged as the bigger step: a nonce forces every
-// page into dynamic rendering, which we do not want for the ISR/SSG catalogue.
-// The cost of going nonce-free is `'unsafe-inline'` on script-src — so this
-// policy does NOT defend against inline-script XSS. What it *does* buy,
-// statically and for free: no external script/object origin can be injected,
-// clickjacking is closed (`frame-ancestors 'self'`, matching the existing
-// X-Frame-Options), and `base-uri`/`form-action` hijacking is blocked.
-// Nonce-based script-src hardening stays a future, separate step (see report).
-//
-// `img-src`/`media-src` allow `https:` because /archive + /archive/podcasts
-// render DB-sourced cover/art URLs as plain <img> from open-ended external
-// hosts (Open Library, podcast CDNs, …). `http:` is intentionally omitted —
-// on the https production origin those would already be mixed-content-blocked.
-//
-// E6 observability contract (fixed here in S3b — S5 only activates, it never
-// touches this policy again):
-//  - Vercel Web Analytics + Speed Insights ship SAME-ORIGIN in production
-//    (script under /_vercel/insights/ + /_vercel/speed-insights/, beacons POST
-//    to the same paths) — covered by 'self'. Only dev loads their debug
-//    scripts from https://va.vercel-scripts.com (script-src, dev-gated below).
-//  - The error-only tracker (package picked in S5) MUST be bundled (script-src
-//    'self') and report through a same-origin tunnel route (e.g. Sentry
-//    `tunnelRoute`) — no third-party ingest origin is ever added to
-//    connect-src. A tracker that can't tunnel same-origin is off the table.
+// Static CSP preserves ISR/SSG. It blocks third-party scripts/objects, framing
+// and base/form hijacks, but `'unsafe-inline'` means it is not a full inline-XSS
+// defense. DB-sourced art/audio requires https:; production telemetry and the
+// error tracker stay same-origin. Dev alone permits HMR eval/websockets and the
+// Vercel telemetry debug scripts.
 const isDev = process.env.NODE_ENV !== "production";
 const contentSecurityPolicy = [
   "default-src 'self'",
@@ -49,6 +28,22 @@ const contentSecurityPolicy = [
   "worker-src 'self' blob:",
   "manifest-src 'self'",
 ].join("; ");
+
+// Public assets keep stable, human-readable URLs because artwork can be
+// replaced between deployments. Browsers may therefore reuse them for four
+// hours, then must revalidate; Vercel can retain each deployment's copy at the
+// edge for a year. The Vercel-specific header is consumed by the CDN and is
+// not forwarded to browsers.
+const publicAssetCacheHeaders = [
+  {
+    key: "Cache-Control",
+    value: "public, max-age=14400, must-revalidate",
+  },
+  {
+    key: "Vercel-CDN-Cache-Control",
+    value: "public, max-age=31536000",
+  },
+];
 
 const nextConfig: NextConfig = {
   // Strict mode catches common bugs early; keep on in dev.
@@ -111,6 +106,18 @@ const nextConfig: NextConfig = {
             value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
           },
         ],
+      },
+      {
+        source: "/img/:path*",
+        headers: publicAssetCacheHeaders,
+      },
+      {
+        source: "/audio/:path*",
+        headers: publicAssetCacheHeaders,
+      },
+      {
+        source: "/timeline/bg/:path*",
+        headers: publicAssetCacheHeaders,
       },
     ];
   },

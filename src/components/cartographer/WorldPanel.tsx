@@ -1,38 +1,12 @@
 "use client";
 
 /**
- * WorldPanel — the click popup at the pin, in the live-site surface language
- * (frameless near-opaque glass, drop shadow + bone light edge, NO border
- * stroke). Shows primary + secondary/tertiary classification and the work
- * list with role + rollup provenance (`via`). SSOT coordinates are curation
- * internals and deliberately NOT rendered.
- * Dust worlds (n=0) open the same panel: blurb (or filler) + a quiet
- * "no records" line instead of the works toggle.
+ * Non-modal pin popup. The shell renders from the map payload; blurb and works
+ * load lazily through `source.detail()`. Opening preserves seek focus, closing
+ * restores focus when needed, and hidden content is inert.
  *
- * Links: books soft-navigate to /book/{slug} — the @modal Kapelle intercept
- * opens over the chart; episodes deep-link into the show's archive hall
- * (`#ep-<slug>` — the island scrolls to and highlights the row); the footer
- * opens /world/{locationId} when the world is linked.
- *
- * Layout: under the header sits the curated one-sentence blurb
- * (location-blurbs.json — the same text the big entity view opens with;
- * "empty. add later" when none is curated yet), then a collapsed
- * "Literature & podcasts" row that expands to the first five records;
- * "All N records →" opens the big view (/world/{loc} — the @modal intercept
- * renders it over the chart).
- *
- * Data: the panel shell (name, class, count) renders synchronously from the
- * payload skeleton; blurb + work list arrive per world via
- * `source.detail()` (S10a — one small fetch per first open, cached).
- *
- * A11y: non-modal dialog. Opening never steals focus (the S8 smoke pins
- * "seek keeps focus while the panel opens" — deliberate: seek world after
- * world without re-tabbing); the root announces the selection in its status
- * region and restores focus to the invoker when the panel closes while
- * focus was inside it. `inert` parks the hidden panel out of the tab order.
- *
- * Positioning is imperative (bus frame subscription) — panning never
- * re-renders React. The last world stays rendered through the fade-out.
+ * Position follows bus frames without React re-renders; the last world remains
+ * mounted through its fade-out.
  */
 
 import Link from "next/link";

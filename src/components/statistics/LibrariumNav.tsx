@@ -1,28 +1,12 @@
 "use client";
 
 /**
- * LibrariumNav — the Librarium's chapter navigation (F3 build review round 4).
+ * Responsive chapter navigation: desktop marginalia, mobile native-details
+ * running head, with one rAF-throttled scroll spy.
  *
- * Two garments, one component:
- *   · ≥1180px — the chapter MARGINALIA: a fixed rail on the right edge that
- *     mirrors the site rail on the left (46-site-nav.css) — the site's rooms
- *     to the left of the page, this book's chapters to its right, same hand:
- *     numeral + running title, gold rubric plumb on the current chapter.
- *   · below — a RUNNING HEAD: a slim sticky glass line naming the current
- *     chapter, unfolding into the full table of contents (dotted leaders, the
- *     title-page idiom) on tap. Native <details>, so it works without JS.
- *
- * A scroll-spy (rAF-throttled reading line at ~1/3 viewport) lights the
- * current chapter in both garments.
- *
- * Chapter jumps deliberately touch NO history: native `#anchor` clicks push
- * history entries that carry no App Router state, and `router.back()` onto
- * such an entry strands the detail-overlay slot — the popup stays while only
- * the scroll unwinds (the maintainer's "Return/Close leaves the popup open"
- * bug; these TOC anchors were the app's only same-page hash links). So jumps
- * scroll programmatically and rewrite the hash via `history.replaceState`
- * WITH the current router state — shareable `#chapter` URLs, zero extra
- * history entries. The plain `href` stays as the no-JS/crawler fallback.
+ * Jumps use `history.replaceState` with current App Router state. Native hash
+ * history entries can strand an open detail slot on Back; the plain `href`
+ * remains the no-JS/crawler fallback.
  */
 import { useEffect, useRef, useState } from "react";
 

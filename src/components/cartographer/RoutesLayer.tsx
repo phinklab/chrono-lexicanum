@@ -1,28 +1,10 @@
 /**
- * RoutesLayer — the active journey's chart geometry, in two modes.
+ * Active journey geometry. `progress === null` uses time-staggered ambient
+ * drawing; guided playback reveals legs by station step and the final survey
+ * shows all. Repeated stations share their first ring; waypoints sit on legs.
  *
- * Ambient (`progress === null`, reached via "skip tour"): the pre-voyage
- * choreography — RouteMotionCanvas draws the legs in on a time-stagger; the
- * SVG's rings/dots/label stand static from the first frame.
- *
- * Tour (`progress >= -1`, the guided playback): reveal is STEP-gated, not
- * time-gated, keyed off each stop's `legIndex`. A leg draws (in canvas) when
- * the tour FIRST enters it — arriving at a waypoint riding it, or directly
- * at its end station — and stands drawn thereafter. Later legs, rings and
- * waypoint dots hold at opacity 0 via `rt-pending`. Several strategic
- * epilogue arms may share the same reveal step and draw together. A
- * `legion-steps` journey is the focused exception: each step replaces the
- * prior Legion route, and its own segments draw in travel order.
- * `progress === stations.length` (the post-tour survey) shows everything
- * statically.
- *
- * World stations render as rings (deduped by id — repeat visits share one
- * ring at the FIRST visit's step); waypoints render as small dashed dots ON
- * their leg. The SVG never paints the route line itself: its `cg-rtFly`
- * paths stand hidden on every viewport and RouteMotionCanvas draws the line
- * (static dashes + step draw-in) — animated SVG stroke paint rasters on the
- * main thread and intermittently flashed the whole chart on desktop Chromium
- * just as it did on phones. Mounted only while a journey is active.
+ * Route lines stay canvas-only because animated SVG strokes caused full-chart
+ * Chromium flashes. The SVG supplies static rings, dots and labels.
  */
 
 import type { CSSProperties } from "react";
