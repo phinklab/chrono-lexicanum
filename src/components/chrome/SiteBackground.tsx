@@ -8,7 +8,6 @@
  *
  * Variants:
  *   - "main"       — shared library-nave backdrop (Hub, Archive, Compendium, Ask)
- *   - "hub"        — Hub (gothic cathedral-city, cosmic rings overhead)
  *   - "vista"      — Books hero, book detail, entity pages (cathedral light)
  *   - "scriptorium" — Compendium (grand cathedral-library, scribe at a lectern)
  *   - "librarium"  — (legacy) library/scriptorium interior
@@ -27,7 +26,6 @@ import { backgroundArtCredit } from "@/lib/art-credits";
 
 export type SiteBgVariant =
   | "main"
-  | "hub"
   | "vista"
   | "scriptorium"
   | "librarium"
@@ -41,7 +39,6 @@ export type SiteBgVariant =
 
 const PHOTOS: Record<SiteBgVariant, string | null> = {
   main: "/img/main-bg.webp",
-  hub: "/img/hub.webp",
   vista: "/img/vista.webp",
   scriptorium: "/img/scriptorium.webp",
   librarium: "/img/librarium.webp",

@@ -67,6 +67,14 @@ export default function RouteMotionCanvas({
     let pendingFrame = 0;
     let lastPaint = -Infinity;
     const startedAt = performance.now();
+    let pausedAt = document.hidden ? startedAt : null;
+    let pausedFor = 0;
+
+    const activeElapsed = (now: number) =>
+      now -
+      startedAt -
+      pausedFor -
+      (pausedAt === null ? 0 : now - pausedAt);
 
     const sizeCanvas = () => {
       const rect = canvas.getBoundingClientRect();
@@ -152,7 +160,7 @@ export default function RouteMotionCanvas({
       ctx.lineCap = "round";
       ctx.lineDashOffset = 0;
 
-      const elapsed = now - startedAt;
+      const elapsed = activeElapsed(now);
       resolved.legs.forEach((leg, legIndex) => {
         const arm = armByLeg.get(legIndex);
         if (arm && hiddenArmLegions.has(arm.legion)) return;
@@ -185,7 +193,7 @@ export default function RouteMotionCanvas({
     /* Camera frames: one coalesced repaint per frame event — the only
        repaint source once the draw-in window is over. */
     const requestPaint = () => {
-      if (pendingFrame) return;
+      if (document.hidden || pendingFrame) return;
       pendingFrame = requestAnimationFrame((now) => {
         pendingFrame = 0;
         paint(now);
@@ -196,7 +204,8 @@ export default function RouteMotionCanvas({
     /* Bounded reveal ticker (30 fps) — runs only through the draw-in window,
        then paints one final full state and stops. */
     const tick = (now: number) => {
-      const done = now - startedAt > animEnd + 80;
+      if (document.hidden) return;
+      const done = activeElapsed(now) > animEnd + 80;
       if (!done) raf = requestAnimationFrame(tick);
       if (!done && now - lastPaint < FRAME_MS) return;
       lastPaint = now;
@@ -206,17 +215,38 @@ export default function RouteMotionCanvas({
     /* First paint may precede the chart driver — retry until it lands, then
        hand over to the reveal ticker (if anything animates at all). */
     const drawWhenReady = (now: number) => {
+      if (document.hidden) return;
       if (!paint(now)) {
         raf = requestAnimationFrame(drawWhenReady);
         return;
       }
       if (animEnd > 0) raf = requestAnimationFrame(tick);
     };
-    raf = requestAnimationFrame(drawWhenReady);
+    const onVisibilityChange = () => {
+      const now = performance.now();
+      if (document.hidden) {
+        if (pausedAt === null) pausedAt = now;
+        cancelAnimationFrame(raf);
+        cancelAnimationFrame(pendingFrame);
+        raf = 0;
+        pendingFrame = 0;
+        return;
+      }
+
+      if (pausedAt !== null) {
+        pausedFor += now - pausedAt;
+        pausedAt = null;
+      }
+      raf = requestAnimationFrame(drawWhenReady);
+    };
+
+    document.addEventListener("visibilitychange", onVisibilityChange);
+    if (!document.hidden) raf = requestAnimationFrame(drawWhenReady);
 
     return () => {
       cancelAnimationFrame(raf);
       cancelAnimationFrame(pendingFrame);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
       unsubscribe();
       clear();
     };

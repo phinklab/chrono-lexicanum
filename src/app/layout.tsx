@@ -3,13 +3,11 @@ import { Cardo, Cormorant_SC, Fragment_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { siteIndexable, siteOrigin } from "@/lib/site-url";
-import SiteMenu from "@/components/chrome/SiteMenu";
-import SiteNav from "@/components/chrome/SiteNav";
 import SkipLink from "@/components/chrome/SkipLink";
-import SiteBrand from "@/components/chrome/SiteBrand";
-import BrandBeacon from "@/components/chrome/BrandBeacon";
-import RevealObserver from "@/components/shared/RevealObserver";
-import MediaPlayer from "@/components/chrome/MediaPlayer";
+import {
+  MediaPlayerGate,
+  NavigationChromeGate,
+} from "@/components/chrome/RouteChrome";
 import { NavProgressProvider } from "@/components/chrono/RouteProgress";
 import "./globals.css";
 
@@ -104,22 +102,9 @@ export default function RootLayout({
         {/* Skip link: first tabbable element on every route. A client island
             (no native hash-history entry — see SkipLink.tsx). */}
         <SkipLink />
-        {/* Primary navigation: the left-edge SiteNav rail on hover-capable wide
-            screens; the SiteMenu burger overlay takes over on touch / narrow
-            viewports. The CSS breakpoint in 46-site-nav.css owns the hand-off,
-            so both mount unconditionally and only one is ever visible. */}
-        <SiteNav />
-        <SiteMenu />
-        {/* Fixed wordmark, top-left — hidden on the Hub (the hero IS the
-            wordmark), the login gate and the map (own chrome). */}
-        <SiteBrand />
-        {/* Scrolled-in brand anchor: the observatory dot fades in top-left
-            once a page is scrolled (all scrollable surfaces; map/timeline/
-            login excluded inside the component). */}
-        <BrandBeacon />
-        {/* One app-wide scroll-reveal observer (survives navigations and
-            catches Suspense-streamed content). */}
-        <RevealObserver />
+        {/* Route-aware boundary: /login does not download archive chrome;
+            map/timeline load only the brand marker that can render there. */}
+        <NavigationChromeGate />
         {/* The shared route-transition provider owns the one `useTransition`
             that drives the global pending beam + the inline search affordance.
             Both `children` and the `@modal` slot sit inside it so in-context
@@ -130,7 +115,7 @@ export default function RootLayout({
           {children}
           {modal}
         </NavProgressProvider>
-        <MediaPlayer />
+        <MediaPlayerGate />
         {/* The fixed Imprint/Privacy corner row (SiteLegal) was retired S255:
             the links live in the ArchiveFooter on content pages and in the
             burger overlay on touch/narrow viewports; footerless desktop

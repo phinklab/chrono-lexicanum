@@ -219,7 +219,7 @@ Load-bearing values (identical on `/werke` `.catalogue-hero` and `/ask` `.ask-co
 
   | variant | photo | used by |
   |---|---|---|
-  | `hub` | `/img/hub.webp` | Home `/` |
+  | `main` | `/img/main-bg.webp` | Home `/`, Archive, Compendium |
   | `vista` | `/img/vista.webp` | Books hero, book detail, entity pages |
   | `oracle` | `/img/oracle.webp` | Ask `/ask` |
   | `librarium` | `/img/librarium.webp` | Podcasts |
@@ -401,12 +401,12 @@ goes gold *only* by living under `main.catalogue`.
 
 ## 8. Applying it to Home (`/`, P1)
 
-**Today:** `main.hub` is a full-bleed `hub.webp` vista with offset dual `MainAuspex`, a centered
+**Today:** `main.hub` is a full-bleed `main-bg.webp` vista with offset dual `MainAuspex`, a centered
 Cinzel title, a cyan `GhostReadout`, a *simpler* `hub-search` bar (`HomeSearch.tsx` → routes to
 `/werke?q=`), a `ToolsAccordion`, and the `BottomConsole`. It predates the `/werke` + `/ask` system.
 
 **Target:** bring Home onto the §3 media-page skeleton and §5 element vocabulary, **keeping cyan**
-(domain map §6) and the `hub.webp` background. Specifically:
+(domain map §6) and the shared `main-bg.webp` background. Specifically:
 
 1. **Adopt the search console verbatim** (§5.2) as the Home hero search, in its **cyan** skin, with
    the **full live typeahead** (grouped `BOOKS / FACTIONS / FACETS / FORMATS / AUTHORS` dropdown).

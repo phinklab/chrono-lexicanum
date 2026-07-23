@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
 
 import SternwarteRings from "@/components/shared/SternwarteRings";
@@ -19,18 +18,9 @@ import SternwarteRings from "@/components/shared/SternwarteRings";
  * rAF (ScrollScrim's pattern) — no React state, no re-render per scroll.
  */
 export default function BrandBeacon() {
-  const pathname = usePathname();
   const ref = useRef<HTMLAnchorElement>(null);
 
-  const hidden =
-    pathname === "/login" ||
-    pathname === "/map" ||
-    pathname.startsWith("/map/") ||
-    pathname === "/timeline" ||
-    pathname.startsWith("/timeline/");
-
   useEffect(() => {
-    if (hidden) return;
     let frame = 0;
     const apply = () => {
       frame = 0;
@@ -47,9 +37,7 @@ export default function BrandBeacon() {
       window.removeEventListener("scroll", onScroll);
       if (frame) cancelAnimationFrame(frame);
     };
-  }, [hidden, pathname]);
-
-  if (hidden) return null;
+  }, []);
 
   return (
     <Link

@@ -30,7 +30,7 @@
 | 11b | **WP-B1** — Arthas-Moloch-Kartenlink (+ Pin-Name) | Bau (Batches, XS–S) | Excel-Zeile Philipp | ✔ 254 |
 | 12 | **Koordinations-Rollup** — Brain + sessions/README | Doku | jederzeit möglich, spätestens vor 13 | ✔ 258 |
 | 12b | **W4-B1** — Preview-Gate vereinfachen (Invite-Maschinerie raus, Shared Login bleibt) | Bau (Product, S) | Maintainer-Entscheid 2026-07-23 | ✔ 260 |
-| 13 | **S7b** — Player/Chrome/Assets | Qualitätspass | 1–12b abgeschlossen | ☐ |
+| 13 | **S7b** — Player/Chrome/Assets | Qualitätspass | 1–12b abgeschlossen | ✔ 261 |
 | 14 | **S11-Code-PR** (pixelgleich) | Qualitätspass | S7b | ☐ |
 | 15 | **Launch-Readiness** → Gate-off → stilles Fenster → Reddit | Endspiel | W1-Gate (Artwork + Liste besucht) | ☐ |
 

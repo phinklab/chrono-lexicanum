@@ -1,7 +1,25 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
-import { ARTIST_YOUTUBE_URL, TRACKS, type AudioTrack } from "@/lib/audio-tracks";
+import {
+  lazy,
+  Suspense,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import { TRACKS, type AudioTrack } from "@/lib/audio-tracks";
+
+const VolumePopover = lazy(() =>
+  import("./MediaPlayerAdvanced").then((module) => ({
+    default: module.VolumePopover,
+  })),
+);
+const PlaylistPanel = lazy(() =>
+  import("./MediaPlayerAdvanced").then((module) => ({
+    default: module.PlaylistPanel,
+  })),
+);
 
 /**
  * MediaPlayer — sitewide ambient strip, anchored bottom-left, no box.
@@ -53,6 +71,7 @@ export default function MediaPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isVolOpen, setIsVolOpen] = useState(false);
+  const [advancedMounted, setAdvancedMounted] = useState(false);
   // Mobile only: the collapsed stud ⇄ expanded card state. Desktop CSS hides
   // the stud and shows the strip permanently, so this stays false there.
   const [miniOpen, setMiniOpen] = useState(false);
@@ -410,6 +429,7 @@ export default function MediaPlayer() {
               className={`media-player__vol${isVolOpen ? " is-open" : ""}`}
               onClick={(e) => {
                 e.stopPropagation();
+                setAdvancedMounted(true);
                 setIsOpen(false);
                 setIsVolOpen((v) => !v);
               }}
@@ -447,25 +467,15 @@ export default function MediaPlayer() {
                 />
               </svg>
             </button>
-            {/* Disclosure popover, not a dialog: a single labelled slider
-                behind an aria-expanded trigger. role="dialog" would promise
-                modal focus handling this popover deliberately doesn't have. */}
-            <div
-              className={`media-player__vol-popover${isVolOpen ? " is-open" : ""}`}
-              aria-hidden={!isVolOpen}
-            >
-              <input
-                type="range"
-                className="media-player__volume"
-                min={0}
-                max={1}
-                step={0.01}
-                value={volume}
-                onChange={(e) => setVolume(parseFloat(e.target.value))}
-                tabIndex={isVolOpen ? 0 : -1}
-                aria-label="Volume"
-              />
-            </div>
+            {advancedMounted && (
+              <Suspense fallback={null}>
+                <VolumePopover
+                  isOpen={isVolOpen}
+                  volume={volume}
+                  onVolumeChange={setVolume}
+                />
+              </Suspense>
+            )}
           </div>
           <div className="media-player__title">
             <span className="media-player__title-name">{trackName}</span>
@@ -479,6 +489,7 @@ export default function MediaPlayer() {
             className="media-player__disclose"
             onClick={(e) => {
               e.stopPropagation();
+              setAdvancedMounted(true);
               setIsVolOpen(false);
               setIsOpen((o) => !o);
             }}
@@ -494,56 +505,16 @@ export default function MediaPlayer() {
       </div>
       </div>
 
-      <div className="media-player__panel-wrap" aria-hidden={!isOpen}>
-        <div className="media-player__panel-wrap-inner">
-          {/* Disclosure panel, not a dialog (same rationale as the volume
-              popover): trigger carries aria-expanded, Escape closes. */}
-          <div
-            className="media-player__panel"
-            role="group"
-            aria-label="Playlist"
-          >
-            <div className="media-player__panel-head">
-              <span className="media-player__panel-kicker">PLAYLIST</span>
-              <span className="c-hairline media-player__panel-rule" />
-              <a
-                className="media-player__panel-link"
-                href={ARTIST_YOUTUBE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                tabIndex={isOpen ? 0 : -1}
-              >
-                Artist YouTube
-                <span className="media-player__panel-link-arrow" aria-hidden>↗</span>
-              </a>
-            </div>
-            <ul className="media-player__panel-list">
-              {TRACKS.map((t, i) => {
-                const active = i === trackIndex;
-                const rowCls = `media-player__panel-track${active ? " is-active" : ""}${active && isPlaying ? " is-playing" : ""}`;
-                return (
-                  <li key={t.id}>
-                    <button
-                      type="button"
-                      className={rowCls}
-                      onClick={() => playTrack(i)}
-                      tabIndex={isOpen ? 0 : -1}
-                      aria-current={active}
-                      aria-label={`${t.title}, ${active && isPlaying ? "pause" : "play"}`}
-                    >
-                      <span className="media-player__panel-track-mark" aria-hidden>
-                        {active ? (isPlaying ? "❚❚" : "▶") : String(i + 1).padStart(2, "0")}
-                      </span>
-                      <span className="media-player__panel-track-title">{t.title}</span>
-                      <span className="media-player__panel-track-tail" aria-hidden />
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        </div>
-      </div>
+      {advancedMounted && (
+        <Suspense fallback={null}>
+          <PlaylistPanel
+            isOpen={isOpen}
+            isPlaying={isPlaying}
+            trackIndex={trackIndex}
+            onPlayTrack={playTrack}
+          />
+        </Suspense>
+      )}
 
       {/* Mobile stud — collapsed entry point for the card above. Hidden on
           desktop; hidden entirely when no tracks are loaded. */}

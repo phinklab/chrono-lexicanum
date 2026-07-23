@@ -127,10 +127,6 @@ export default function SiteMenu() {
     };
   }, [open]);
 
-  // The login gate stands outside the archive — no burger/overlay there. Placed
-  // after the hooks above so the early return doesn't break the rules of hooks.
-  if (pathname === "/login") return null;
-
   return (
     <>
       <button

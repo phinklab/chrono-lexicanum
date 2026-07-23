@@ -50,6 +50,22 @@ const contentSecurityPolicy = [
   "manifest-src 'self'",
 ].join("; ");
 
+// Public assets keep stable, human-readable URLs because artwork can be
+// replaced between deployments. Browsers may therefore reuse them for four
+// hours, then must revalidate; Vercel can retain each immutable deployment's
+// copy at the edge for a year. The Vercel-specific header is consumed by the
+// CDN and is not forwarded to browsers.
+const publicAssetCacheHeaders = [
+  {
+    key: "Cache-Control",
+    value: "public, max-age=14400, must-revalidate",
+  },
+  {
+    key: "Vercel-CDN-Cache-Control",
+    value: "public, max-age=31536000",
+  },
+];
+
 const nextConfig: NextConfig = {
   // Strict mode catches common bugs early; keep on in dev.
   reactStrictMode: true,
@@ -111,6 +127,18 @@ const nextConfig: NextConfig = {
             value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
           },
         ],
+      },
+      {
+        source: "/img/:path*",
+        headers: publicAssetCacheHeaders,
+      },
+      {
+        source: "/audio/:path*",
+        headers: publicAssetCacheHeaders,
+      },
+      {
+        source: "/timeline/bg/:path*",
+        headers: publicAssetCacheHeaders,
       },
     ];
   },

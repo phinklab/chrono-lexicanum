@@ -27,9 +27,6 @@ function isActive(pathname: string, href: string): boolean {
 export default function SiteNav() {
   const pathname = usePathname();
 
-  // The login gate stands outside the archive — no primary navigation there.
-  if (pathname === "/login") return null;
-
   return (
     <nav className="site-nav" aria-label="Primary">
       <ul className="site-nav__list">
