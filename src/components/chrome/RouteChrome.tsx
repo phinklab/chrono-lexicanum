@@ -1,9 +1,16 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 import { lazy, Suspense } from "react";
 
-const NavigationChrome = lazy(() => import("./NavigationChrome"));
+// The menu trigger is visible immediately in server HTML, so its client code
+// must be part of Next's initial preload graph as well. Plain React.lazy left
+// a cold-load window where the visible burger accepted a click before it was
+// hydrated (caught by the required mobile smoke test).
+const NavigationChrome = dynamic(() => import("./NavigationChrome"), {
+  loading: () => null,
+});
 const SiteBrand = lazy(() => import("./SiteBrand"));
 const BrandBeacon = lazy(() => import("./BrandBeacon"));
 const MediaPlayer = lazy(() => import("./MediaPlayer"));
@@ -30,11 +37,13 @@ export function NavigationChromeGate() {
   const showBeacon = !onMap && !isTimelineRoute(pathname);
 
   return (
-    <Suspense fallback={null}>
+    <>
       <NavigationChrome />
-      {onMap && <SiteBrand />}
-      {showBeacon && <BrandBeacon />}
-    </Suspense>
+      <Suspense fallback={null}>
+        {onMap && <SiteBrand />}
+        {showBeacon && <BrandBeacon />}
+      </Suspense>
+    </>
   );
 }
 
