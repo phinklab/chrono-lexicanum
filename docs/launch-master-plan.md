@@ -1,6 +1,6 @@
 # Launch-Master-Plan — Chrono Lexicanum (v2, nach Codex-Gegenreview)
 
-**Stand:** 2026-07-10 · **Basis:** `main` @ `9977cd3` · **Quellen:** CC-Deep-Review (adversarial verifiziert) + Codex-Review (Build-/Bundle-Zahlen) + Codex-Gegenreview des v1-Plans (2026-07-10), Einarbeitung Punkt für Punkt gegen den Code verifiziert (Änderungslog am Ende).
+**Stand:** 2026-07-23 · **Basis:** `main` @ `9977cd3` · **Quellen:** CC-Deep-Review (adversarial verifiziert) + Codex-Review (Build-/Bundle-Zahlen) + Codex-Gegenreview des v1-Plans (2026-07-10), Einarbeitung Punkt für Punkt gegen den Code verifiziert (Änderungslog am Ende).
 
 **Kanonischer Ort ab S0:** `docs/launch-master-plan.md` auf `main`. Bis dahin ist jede Kopie außerhalb des Repos/eines PR eine Arbeitskopie.
 
@@ -35,7 +35,7 @@
 - **W1 — Kein Launch-Zeitdruck.** Released wird erst, wenn (i) das Artist-Artwork vollständig ist **und** (ii) die gesamte Feature-Wunschliste ([`docs/post-launch-feature-ideas.md`](./post-launch-feature-ideas.md)) **besucht** wurde. „Besucht" heißt: jede Idee bekommt eine Bewertungsrunde und ein Maintainer-Urteil **„bauen / Backlog / verwerfen"** — nicht zwingend eine Umsetzung.
 - **W2 — Werkstatt-Phase vor dem Gate.** Einstieg in der Reihenfolge **F2 → F1 → F3** (Idee 2 Doppelkauf-Warner → Idee 1 Status Imperialis → Idee 3c Statistiken), danach die übrigen Hauptideen (**4, 3a, 3b, 5, 6**) und der Anhang der Ideenliste als Kurz-Triage. Die „Perfektions-Kandidaten" aus der Worklist (Chronicle-Desktop-Restyle, BrandBeacon, Cartographer-Tails, Drukhari-Starter, Podcast-Aliasse, Galaspar/Myr, `arthas_moloch`, Charakter-Long-Tail) laufen durch dieselbe Triage mit demselben Urteils-Schema. Schema-Änderungen sind in dieser Phase zulässig; die Konvention „erst Ideas-Backlog (`brain/wiki/roadmap.md`), dann Brief" bleibt. Reihenfolge, Urteils-Ledger und Kickoff-Prompts: [`docs/werkstatt-roadmap.md`](./werkstatt-roadmap.md).
 - **W3 — Qualitätspässe VOR dem Launch.** **S7b** wird vorgezogen (hinter dem Gate messbar; **eine finale Live-Messung wiederholt sich nach Gate-off**) und der **S11-Code-PR** läuft nach der Feature-Welle, pixelgleich wie spezifiziert. Der S11-Doku-Rollup bleibt hinter dem Gate-off (W5).
-- **W4 — Preview-Gate bleibt an; Invite-Maschinerie ist tragende Infrastruktur.** Bis zum Launch laufen Artist-Previews über die preview-console mit einzeln widerrufbaren Codes. **PL1 (Preview-Abbau) läuft NICHT vor dem Launch.**
+- **W4 — geändert am 2026-07-23: Preview-Gate bleibt an, Invite-Maschinerie ist entfernt.** Artist-Previews laufen bis zum Launch über genau ein geteiltes Nutzer/Passwort-Duo aus `PREVIEW_USER` / `PREVIEW_PASS`; der Zugang setzt weiterhin einen signierten Session-Cookie. `PREVIEW_SESSION_SECRET` ist der kanonische Signaturschlüssel (mit Übergangs-Fallback auf `PREVIEW_INVITE_SECRET`) und seine Rotation widerruft alle Sessions. Die Code-/Console-/API-/Aktivierungsdaten-Pfade für einzelne Invite-Codes werden bereits in der Werkstatt entfernt. **PL1 bleibt nach Gate-off und schrumpft auf den dann verbliebenen Proxy-/Gate-/Login-Abbau ohne Migration.**
 - **W5 — Release-Endspiel fix:** Content-Freeze → Launch-Readiness (12 Punkte, unverändert) → Gate-off als minimaler Flag-Flip → **stilles Fenster** (unangekündigt öffentlich: PL1, finale S7b-Live-Messung, S11-Doku-Rollup) → erst dann der Reddit-Post.
 - **W6 — E8-Ausnahme verlängert** bis einschließlich Launch-Readiness (Single-Worktree-Betrieb im Koordinations-Worktree, PR-Inhalte bleiben strand-rein).
 
@@ -134,7 +134,7 @@ Der v1-Plan lag untracked in einem via `.git/info/exclude` ignorierten Ephemeral
 
 **Umfang:**
 
-1. **Explizite Allowlist statt Default-Grants:** die Runtime-Rolle bekommt SELECT nur auf die **aufgezählten öffentlichen Katalogtabellen** plus die tatsächlich nötigen INSERT/UPDATE auf `preview_invite_activations`. **Kein** pauschales SELECT auf künftige Tabellen (keine `ALTER DEFAULT PRIVILEGES`-Grants Richtung Runtime; Default-REVOKE von PUBLIC) — `submissions` enthält bereits E-Mail, Freitext und Review-Daten (`schema.ts:826-839`). Jede neue Tabelle wird bewusst freigegeben.
+1. **Explizite Allowlist statt Default-Grants:** die Runtime-Rolle bekommt SELECT nur auf die **aufgezählten öffentlichen Katalogtabellen** und keine Schreibrechte. **Kein** pauschales SELECT auf künftige Tabellen (keine `ALTER DEFAULT PRIVILEGES`-Grants Richtung Runtime; Default-REVOKE von PUBLIC) — `submissions` enthält bereits E-Mail, Freitext und Review-Daten (`schema.ts`). Jede neue Tabelle wird bewusst freigegeben. Der frühere Upsert-Grant auf `preview_invite_activations` entfiel mit der W4-Vereinfachung vom 2026-07-23.
 2. **Negativtests:** die Runtime-Rolle kann `submissions` nicht lesen und kein Katalog-DML/DDL ausführen.
 3. **Credential-Trennung (Zielbild):** Vercel besitzt am Ende nur `RUNTIME_DATABASE_URL`; der Migrations-Workflow besitzt `MIGRATION_DATABASE_URL`; lokale Apply-/Ingest-Skripte nutzen weiterhin bewusst das privilegierte Credential. **S3a liefert Rolle, Grants, Credential und Doku — der Runtime-Consumer-Wechsel gehört ausdrücklich zu S3b (B2, OQ-19-Punkt 3):** `src/db/client.ts:18` liest heute `process.env.DATABASE_URL` und wirft beim Import ohne Wert; ein scripts-only Batches-PR kann den Cutover nicht abschließen. Übergangs- und Cutover-Reihenfolge stehen in § S3b.
 4. **migrate.yml:** GitHub Environment mit Approval, `timeout-minutes`, minimale `permissions`; **CI-Rehearsal gegen frisches Postgres + zweiter idempotenter Lauf.** Dafür `scripts/migrate.ts` (erzwingt hart `ssl: "require"`, migrate.ts:26-30) um ein explizites TLS-Opt-out **nur für den CI-Service-Container** erweitern (`sslmode=disable` ausschließlich dort); Supabase bleibt TLS-required — `verify-full` bleibt der in `client.ts` dokumentierte, bewusst vertagte Follow-up.
@@ -277,7 +277,7 @@ Viele grüne Einzel-PRs beweisen nicht, dass die Produktionszustände **gleichze
 3. Runtime-Rollen-Negativtests gegen die **Prod**-Rolle wiederholt (submissions unlesbar, kein DDL/DML).
 4. Supabase Data-API-/RLS-Exposition geprüft.
 5. Finaler Snapshot: Manifest, Counts, Hashes, Stichprobe der Hot-IDs (E4-Ablauf unter Content-Freeze).
-6. Vercel-Env vollständig (`SITE_URL`, `RUNTIME_DATABASE_URL`, `REVALIDATE_TOKEN`, …) **und Produktion besitzt nur noch das Runtime-Credential** (das privilegierte `DATABASE_URL` ist nach dem S3b-Cutover entfernt); Deployment Protection, Preview-Gate-Zustand.
+6. Vercel-Env vollständig (`SITE_URL`, `RUNTIME_DATABASE_URL`, `REVALIDATE_TOKEN`, `PREVIEW_USER`, `PREVIEW_PASS`, `PREVIEW_SESSION_SECRET`, …) **und Produktion besitzt nur noch das Runtime-Credential** (das privilegierte `DATABASE_URL` ist nach dem S3b-Cutover entfernt); Deployment Protection, Preview-Gate-Zustand.
 7. Custom Domain, DNS, kanonischer Host live.
 8. Audio: 200/206, Range, MIME, CORS, echtes Browser-Playback.
 9. Production-Smoke mit kaltem und warmem Cache.
@@ -289,9 +289,9 @@ Viele grüne Einzel-PRs beweisen nicht, dass die Produktionszustände **gleichze
 
 ## Nach Gate-off (stilles Fenster, W5)
 
-### Session PL1 — Preview-Abbau  — Größe M · Strang: Product (+ eine Migration) — **läuft NIE vor dem Launch (W4)**
+### Session PL1 — Preview-Gate-Abbau  — Größe XS–S · Strang: Product — **läuft nach Gate-off (W4)**
 
-Bis zum Launch ist die Invite-Maschinerie **tragende Infrastruktur** (Artist-Previews via preview-console, einzeln widerrufbare Codes — W4). Erst im stillen Fenster nach Gate-off wird sie laut bestehender Entscheidung **entfernt, nicht nur deaktiviert:** Preview-Proxy/Gate-Branching raus; Login-/Invite-Code + lokale Console/API raus; Aktivierungsdaten löschen; `preview_invite_activations` per Migration entfernen; Env-Dokumentation und Datenschutzerklärung an den neuen Zustand anpassen.
+Die Invite-Maschinerie, Aktivierungsdaten und ihre DB-/Rollen-Pfade sind seit dem W4-Entscheid vom 2026-07-23 bereits entfernt. Im stillen Fenster nach Gate-off bleibt nur der endgültige Rückbau des Preview-Gates: Proxy-/Gate-Branching und Matcher bereinigen; `/login`, Shared-Credential-Action, Session-Cookie-Helfer und Token-Code entfernen; die verbleibenden Preview-Env-Hinweise und den Cookie-Abschnitt der Datenschutzerklärung an den öffentlichen Zustand anpassen. Keine Preview-Migration mehr.
 
 ### Finale S7b-Live-Messung (s. § S7b — der Pass selbst läuft vor dem Launch)
 
@@ -320,7 +320,7 @@ Strukturelle Refactors, die stattfinden, bleiben **pixelgleich** und decken kano
 
 ## Reihenfolge & Launch-Gate (Reddit)
 
-**Sequenz (aktualisiert per Nachtrag 2026-07-15):** S0 → S1a → S1a-Snapshot → S1b → S2 → S3a → S3b → S4 → S4b → S5 → S6 → S7a → S8 → S9 → S10a **(alles gemerged, PRs #240–#256; S10b per Session-213-Geräteabnahme erledigt)** → **Werkstatt-Phase** (F2 → F1 → F3, übrige Hauptideen, Anhang- + Perfektions-Triage; W1/W2) → **S7b** (vorgezogen, W3) → **S11-Code-PR** (pixelgleich, W3) → Content-Freeze → **Launch-Readiness** (12 Punkte) → Gate-off (Flag-Flip) → **stilles Fenster** (PL1, finale S7b-Live-Messung, S11-Doku-Rollup; W5) → Reddit-Post.
+**Sequenz (aktualisiert per Nachtrag 2026-07-23):** S0 → S1a → S1a-Snapshot → S1b → S2 → S3a → S3b → S4 → S4b → S5 → S6 → S7a → S8 → S9 → S10a **(alles gemerged, PRs #240–#256; S10b per Session-213-Geräteabnahme erledigt)** → **Werkstatt-Phase** (F2 → F1 → F3, übrige Hauptideen, Anhang- + Perfektions-Triage; W1/W2; Invite-Vereinfachung gemäß W4) → **S7b** (vorgezogen, W3) → **S11-Code-PR** (pixelgleich, W3) → Content-Freeze → **Launch-Readiness** (12 Punkte) → Gate-off (Flag-Flip) → **stilles Fenster** (verschlanktes PL1, finale S7b-Live-Messung, S11-Doku-Rollup; W5) → Reddit-Post.
 
 | Stufe | Schritte |
 |---|---|
@@ -330,7 +330,7 @@ Strukturelle Refactors, die stattfinden, bleiben **pixelgleich** und decken kano
 | **Werkstatt-Phase (Nachtrag 2026-07-15)** | Feature-Wunschliste besuchen (F2 → F1 → F3, dann 4, 3a, 3b, 5, 6, Anhang-Triage) + Perfektions-Kandidaten-Triage; Urteil je Idee: bauen / Backlog / verwerfen |
 | **Qualitätspässe vor Launch** | S7b (vorgezogen; finale Live-Messung nach Gate-off) · S11-Code-PR (nach der Feature-Welle, pixelgleich) |
 | **Finales Gate** | Content-Freeze → Launch-Readiness: Belegpaket → Gate-off (Flag-Flip) → Live-Crawl → Rollback-Beleg |
-| **Stilles Fenster (nach Gate-off, vor dem Reddit-Post)** | PL1 (Preview-Abbau), finale S7b-Live-Messung, S11-Doku-Rollup |
+| **Stilles Fenster (nach Gate-off, vor dem Reddit-Post)** | PL1 (nur verbliebenen Preview-Gate-/Login-Code abbauen), finale S7b-Live-Messung, S11-Doku-Rollup |
 
 Das sind formal mehr, aber kleinere und eindeutig besitzbare PRs; die Codebasis wird dadurch nicht komplizierter. Die Erweiterung des Muss-Gates (E5) verschiebt den frühestmöglichen Launch bewusst nach hinten — Qualität der drei Kernwerkzeuge vor Launchdatum.
 
@@ -397,7 +397,7 @@ Vertragsbasis für S4 (Umsetzung) und S5 (Sitemap/Canonicals). Grundsatz: die Si
 
 **Modal-Intercepts** folgen 1:1: `@modal/(.)book · (.)character · (.)faction · (.)world · (.)person` (+ catchAll/default unverändert). Intercepts erzeugen keine eigenen URLs — Adresse ist immer die kanonische Detailroute; kein eigener Sitemap-/Canonical-Eintrag.
 
-**Admin-/Audit-/Maschinenpfade** (unverändert, alle noindex + nie in der Sitemap): `/ingest`, `/ingest/[runId]`, `/book/[slug]/audit` (wandert mit dem Buch-Pfad; `isAdminPath`-Regex in `src/proxy.ts` zieht S4 nach), `/login` (bis PL1), `/healthz`, `/api/revalidate`, `/api/preview-invites`.
+**Admin-/Audit-/Maschinenpfade** (alle noindex + nie in der Sitemap): `/ingest`, `/ingest/[runId]`, `/book/[slug]/audit` (wandert mit dem Buch-Pfad; `isAdminPath`-Regex in `src/proxy.ts` zieht S4 nach), `/login` (bis PL1), `/healthz`, `/api/revalidate`.
 
 ### A.2 Redirect-Tabelle
 

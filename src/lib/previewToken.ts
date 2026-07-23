@@ -1,57 +1,42 @@
 /**
- * Preview invite/session token — a custom HMAC-SHA256 scheme over a tiny
- * canonical payload. Used by three independent call sites that MUST agree
- * byte-for-byte:
- *   1. the local management console (browser, Web Crypto) — mints invite links;
- *   2. the redemption server action (`/login` Accept) — verifies invite tokens
- *      and mints the signed session cookie;
- *   3. the gate (`src/proxy.ts`) — verifies the session cookie on every request.
+ * Preview-session token — a custom HMAC-SHA256 scheme over a tiny canonical
+ * payload. The password-login action signs the cookie and the proxy verifies
+ * it on every gated request.
  *
- * No JWT library: the payload is three fields, so a hand-rolled HMAC over a
- * documented canonical encoding is honest and dependency-free (CLAUDE.md "no
- * new dependency without a session-log justification"). The cost — we own the
- * crypto correctness — is contained by (a) this written-down canonical spec and
- * (b) the round-trip regression test `scripts/test-preview-token.ts`.
+ * No JWT library: the payload is two fixed fields, so a hand-rolled HMAC over a
+ * documented canonical encoding stays honest and dependency-free. The
+ * regression guard is `scripts/test-preview-token.ts`.
  *
- * CANONICAL TOKEN FORMAT (the single source of truth both implementations
- * target):
+ * CANONICAL TOKEN FORMAT:
  *
- *   payloadJson  = JSON.stringify({ typ, exp, jti })   // keys in THIS order
+ *   payloadJson  = JSON.stringify({ typ: "session", exp })
  *   headerB64    = base64url( utf8(payloadJson) )       // RFC 4648 §5, NO '='
  *   sigBytes     = HMAC_SHA256( key = utf8(secret), msg = utf8(headerB64) )
  *   sigB64       = base64url( sigBytes )                // RFC 4648 §5, NO '='
  *   token        = headerB64 + "." + sigB64
  *
+ *   - `typ` is fixed by the signer, not supplied by callers. Keeping this
+ *     domain tag rejects previously issued invite tokens while the old env
+ *     secret remains available as a deployment-migration fallback.
  *   - `exp` is an absolute expiry in epoch SECONDS (integer).
- *   - `typ` is part of the SIGNED bytes (domain separation): an invite token
- *     ("invite") and a session cookie ("session") share the one key but are
- *     non-interchangeable — the gate accepts only "session", redemption only
- *     "invite". A recipient cannot paste their invite token into the cookie.
- *   - `jti` is a short, non-secret unique id — the join key between a minted
- *     link and its server-side activation row. (The human label is deliberately
- *     kept OUT of the token; it lives only in the local console.)
  *   - The HMAC is computed over the ASCII bytes of `headerB64` (NOT a
  *     re-serialization of the payload), so verification re-signs the received
- *     header bytes verbatim — any token whose two halves agree under the key
- *     verifies, which is exactly what makes browser↔server round-trip robust.
+ *     header bytes verbatim.
  *
- * Runtime: uses only `crypto.subtle`, `btoa`/`atob`, `TextEncoder`/`Decoder`
- * and `crypto.getRandomValues` — all globals in BOTH the proxy (edge) runtime
- * and Node route handlers (`src/lib/timingSafeEqual.ts` relies on exactly the
- * same primitive). This module imports nothing server-only, so the gate can
+ * Runtime: uses only `crypto.subtle`, `btoa`/`atob` and
+ * `TextEncoder`/`TextDecoder` — globals in both the proxy runtime and Node
+ * route handlers. This module imports nothing server-only, so the gate can
  * import it directly.
  */
 import { timingSafeEqualStr } from "./timingSafeEqual";
 
-export type PreviewTokenType = "invite" | "session";
-
-export interface PreviewTokenPayload {
-  /** Domain tag — signed, so invite tokens and session cookies don't cross over. */
-  typ: PreviewTokenType;
+export interface PreviewSessionPayload {
   /** Absolute expiry, epoch SECONDS. */
   exp: number;
-  /** Short non-secret unique id; the activation-row join key. */
-  jti: string;
+}
+
+interface SignedPreviewSessionPayload extends PreviewSessionPayload {
+  typ: "session";
 }
 
 const enc = new TextEncoder();
@@ -77,9 +62,9 @@ function base64UrlToBytes(value: string): Uint8Array {
   return bytes;
 }
 
-/** Canonical payload serialization — keys in the fixed order typ, exp, jti. */
-function serializePayload(payload: PreviewTokenPayload): string {
-  return JSON.stringify({ typ: payload.typ, exp: payload.exp, jti: payload.jti });
+/** Canonical payload serialization. */
+function serializePayload(payload: PreviewSessionPayload): string {
+  return JSON.stringify({ typ: "session", exp: payload.exp });
 }
 
 async function hmacSha256(secret: string, message: string): Promise<Uint8Array> {
@@ -94,19 +79,15 @@ async function hmacSha256(secret: string, message: string): Promise<Uint8Array> 
   return new Uint8Array(sig);
 }
 
-function isPayload(value: unknown): value is PreviewTokenPayload {
+function isPayload(value: unknown): value is SignedPreviewSessionPayload {
   if (typeof value !== "object" || value === null) return false;
   const o = value as Record<string, unknown>;
-  return (
-    (o.typ === "invite" || o.typ === "session") &&
-    typeof o.exp === "number" &&
-    typeof o.jti === "string"
-  );
+  return o.typ === "session" && typeof o.exp === "number";
 }
 
 /** Mint a signed token per the canonical spec above. */
-export async function signPreviewToken(
-  payload: PreviewTokenPayload,
+export async function signPreviewSessionToken(
+  payload: PreviewSessionPayload,
   secret: string,
 ): Promise<string> {
   const headerB64 = bytesToBase64Url(enc.encode(serializePayload(payload)));
@@ -115,16 +96,15 @@ export async function signPreviewToken(
 }
 
 /**
- * Verify a token. Returns the payload iff (signature valid) AND (typ matches
- * the expected domain) AND (exp is strictly in the future); otherwise null.
- * Fails closed — a malformed, tampered, expired or wrong-`typ` token is null,
- * never a thrown error and never a pass.
+ * Verify a session token. Returns the payload iff the signature is valid and
+ * `exp` is strictly in the future; otherwise null.
+ * Fails closed — a malformed, tampered or expired token is null, never a
+ * thrown error and never a pass.
  */
-export async function verifyPreviewToken(
+export async function verifyPreviewSessionToken(
   token: string | undefined | null,
   secret: string | undefined | null,
-  expectedType: PreviewTokenType,
-): Promise<PreviewTokenPayload | null> {
+): Promise<PreviewSessionPayload | null> {
   if (!token || !secret) return null;
 
   const dot = token.indexOf(".");
@@ -147,17 +127,7 @@ export async function verifyPreviewToken(
     return null;
   }
   if (!isPayload(payload)) return null;
-  if (payload.typ !== expectedType) return null;
   if (!Number.isFinite(payload.exp) || payload.exp <= nowSeconds()) return null;
 
-  return payload;
-}
-
-/** A short, non-secret unique id (16 hex chars from 8 random bytes). */
-export function newJti(): string {
-  const bytes = new Uint8Array(8);
-  crypto.getRandomValues(bytes);
-  let hex = "";
-  for (let i = 0; i < bytes.length; i++) hex += bytes[i].toString(16).padStart(2, "0");
-  return hex;
+  return { exp: payload.exp };
 }

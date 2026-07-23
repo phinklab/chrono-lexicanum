@@ -1,0 +1,1 @@
+DROP TABLE "preview_invite_activations" CASCADE;

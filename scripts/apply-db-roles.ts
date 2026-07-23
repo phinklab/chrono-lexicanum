@@ -39,7 +39,6 @@ import {
   RUNTIME_ROLE,
   RUNTIME_SELECT_TABLES,
   RUNTIME_STATEMENT_TIMEOUT,
-  RUNTIME_UPSERT_TABLES,
 } from "./runtime-role";
 
 interface Stmt {
@@ -75,12 +74,6 @@ function grantStatements(): Stmt[] {
 
   stmts.push({
     sql: `GRANT SELECT ON ${RUNTIME_SELECT_TABLES.map((t) => `public.${t}`).join(", ")} TO ${RUNTIME_ROLE}`,
-  });
-
-  // INSERT … ON CONFLICT DO UPDATE needs INSERT + UPDATE + SELECT (arbiter and
-  // SET-expression columns are read). Deliberately NO DELETE.
-  stmts.push({
-    sql: `GRANT SELECT, INSERT, UPDATE ON ${RUNTIME_UPSERT_TABLES.map((t) => `public.${t}`).join(", ")} TO ${RUNTIME_ROLE}`,
   });
 
   // RUNTIME_DENIED_TABLES (submissions): deliberately NO grant — the
@@ -231,7 +224,7 @@ async function main(): Promise<void> {
   }
   console.log(
     `[db-roles] done — ${RUNTIME_ROLE}: SELECT on ${RUNTIME_SELECT_TABLES.length} catalogue tables, ` +
-      `upsert on ${RUNTIME_UPSERT_TABLES.join(", ")}, denied: ${RUNTIME_DENIED_TABLES.join(", ")}, ` +
+      `no runtime writes, denied: ${RUNTIME_DENIED_TABLES.join(", ")}, ` +
       `statement_timeout ${RUNTIME_STATEMENT_TIMEOUT}.`,
   );
 }

@@ -95,9 +95,7 @@
     "test:roster-extension": "tsx scripts/test-roster-extension.ts",
     "test:book-review": "tsx scripts/test-book-review.ts",
     "test:book-enrich": "tsx scripts/test-book-enrich.ts",
-    "test:preview-token": "tsx scripts/test-preview-token.ts",
-    "preview:console": "node scripts/preview-console/serve.mjs",
-    "preview:console:build": "node scripts/preview-console/build.mjs"
+    "test:preview-token": "tsx scripts/test-preview-token.ts"
   },
   "engines": {
     "node": ">=22"

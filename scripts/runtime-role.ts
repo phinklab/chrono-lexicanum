@@ -8,16 +8,14 @@
  *    deliberately NO `ALTER DEFAULT PRIVILEGES` grants towards this role: a
  *    table created by a future migration is invisible to the runtime until it
  *    is consciously added here and `npm run db:roles` is re-run.
- *  - The only write surface is the upsert on `preview_invite_activations`
- *    (src/lib/previewSession.ts `recordActivation` — INSERT … ON CONFLICT DO
- *    UPDATE, which needs INSERT + UPDATE + SELECT on the arbiter/SET columns).
+ *  - The deployed runtime is read-only. There is no runtime write allowlist.
  *  - `submissions` is DENIED entirely — it carries PII (email, free text,
  *    review data; schema.ts). The future community-submission write path gets
  *    its own conscious INSERT-only grant when it actually ships.
  *
  * Enforcement: scripts/test-runtime-role-contract.ts (runs in `npm test`)
  * asserts that every pgTable in src/db/schema.ts is classified in exactly one
- * of the three lists — adding a table to the schema without deciding its
+ * of the two lists — adding a table to the schema without deciding its
  * runtime visibility fails CI.
  *
  * Consumers: scripts/apply-db-roles.ts (turns this into GRANT/REVOKE SQL),
@@ -70,9 +68,6 @@ export const RUNTIME_SELECT_TABLES = [
   "events",
   "event_works",
 ] as const;
-
-/** Observability upsert surface — SELECT + INSERT + UPDATE (no DELETE). */
-export const RUNTIME_UPSERT_TABLES = ["preview_invite_activations"] as const;
 
 /** Explicitly denied — no privileges whatsoever (PII). */
 export const RUNTIME_DENIED_TABLES = ["submissions"] as const;

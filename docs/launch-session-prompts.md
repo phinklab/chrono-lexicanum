@@ -173,7 +173,7 @@ Worktree: C:\Users\Phil\chrono-lexicanum (E8-Ausnahme laut docs/launch-master-pl
 Verbindliche Spec: docs/launch-master-plan.md § „Session 3a". PR-Inhalt: Batches + .github (scripts/**, migrate.yml, .env.example) — keine src/-Edits.
 
 Kernpunkte:
-1. Runtime-Rolle mit expliziter Allowlist (Katalog-SELECT + preview_invite_activations-Upsert); KEIN Default-Grant auf künftige Tabellen; submissions bleibt unlesbar. Grants als nachvollziehbare Migration bzw. dokumentiertes SQL-Skript.
+1. Runtime-Rolle mit expliziter Allowlist (Katalog-SELECT, keine Runtime-Schreibrechte); KEIN Default-Grant auf künftige Tabellen; submissions bleibt unlesbar. Grants als nachvollziehbare Migration bzw. dokumentiertes SQL-Skript. Der frühere preview_invite_activations-Upsert entfiel mit W4 am 2026-07-23.
 2. Negativtests als Skript: submissions-Read und Katalog-DML/DDL müssen mit der Runtime-Rolle scheitern.
 3. Credential-Trennung: Runtime-Rolle + RUNTIME_DATABASE_URL-Credential anlegen und dokumentieren; MIGRATION_DATABASE_URL für den Migrations-Workflow; lokale Apply-/Ingest-Skripte behalten bewusst das privilegierte Credential. Der Consumer-Wechsel in src/db/client.ts und der Vercel-Cutover sind ausdrücklich S3b (B2) — hier KEINE src/**-Änderung.
 4. migrate.yml: Environment + Approval, timeout-minutes, minimale permissions; CI-Rehearsal gegen frisches Postgres + zweiter idempotenter Lauf; TLS-Opt-out in scripts/migrate.ts NUR für den CI-Service-Container.
@@ -433,20 +433,20 @@ Abschluss: vollständiges Protokoll als Session-Report; Koordinations-PR mit dem
 
 ---
 
-## PL1 — Preview-Abbau (Post-Launch)
+## PL1 — Preview-Gate-Abbau (Post-Launch)
 
-**Ziel:** Preview-Maschinerie entfernen, nicht nur deaktivieren.
+**Ziel:** Den nach W4 noch verbliebenen Preview-Gate-/Login-Code nach Gate-off entfernen.
 
 ```text
-Post-Launch-Session PL1 — Preview-Abbau.
+Post-Launch-Session PL1 — Preview-Gate-Abbau.
 
 Worktree: C:\Users\Phil\chrono-lexicanum (E8, sofern die Ausnahme noch gilt — sonst Product-Worktree). Frischer Branch codex/product-preview-removal von origin/main. Voraussetzung: Launch stabil + mein explizites Go.
 
 Verbindliche Spec: docs/launch-master-plan.md § „Session PL1".
 
-Kernpunkte: Preview-Proxy/Gate-Branching entfernen; Login-/Invite-Code + lokale Console/API entfernen; Aktivierungsdaten löschen; preview_invite_activations per Migration droppen; Grant-Cleanup der S3a-Rolle; .env.example + Datenschutzerklärung anpassen.
+Kernpunkte: Preview-Proxy/Gate-Branching und Matcher bereinigen; /login, Shared-Credential-Action, signierten Session-Cookie-/Token-Code und die verbleibenden Preview-Env-Hinweise entfernen; Cookie-Abschnitt der Datenschutzerklärung an den öffentlichen Zustand anpassen. Invite-Console/API/Aktivierungsdaten, Drop-Migration und Grant-Cleanup sind bereits in Werkstatt-Session 260 erledigt und ausdrücklich nicht Teil von PL1.
 
-Verifikation: Prod-Build grün, keine toten Imports; Migration idempotent im Rehearsal; die vier PR-Gates.
+Verifikation: Prod-Build grün, keine toten Imports; die vier PR-Gates.
 Abschluss: Impl-Report unter sessions/. Kein Commit/PR, bis ich „fertig" sage.
 ```
 

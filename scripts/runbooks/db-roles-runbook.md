@@ -15,10 +15,10 @@
 |---|---|---|---|
 | `DATABASE_URL` (lokal, `.env.local`) | `postgres.<ref>` (privilegiert, Owner) | alles | lokale Apply-/Ingest-/Migrations-Skripte — **bewusst** privilegiert |
 | `MIGRATION_DATABASE_URL` (GitHub-Environment-Secret `production-db`) | `postgres.<ref>` | alles | ausschließlich `.github/workflows/migrate.yml` (manueller Dispatch + Approval) |
-| `RUNTIME_DATABASE_URL` (Vercel + `.env.local`) | `chrono_runtime` | SELECT auf die Katalog-Allowlist · SELECT/INSERT/UPDATE auf `preview_invite_activations` (kein DELETE) · sonst nichts | die Next.js-Runtime — **Consumer-Wechsel in `src/db/client.ts` + Vercel-Cutover sind S3b** |
+| `RUNTIME_DATABASE_URL` (Vercel + `.env.local`) | `chrono_runtime` | SELECT auf die Katalog-Allowlist · keine Schreibrechte · sonst nichts | die Next.js-Runtime — **Consumer-Wechsel in `src/db/client.ts` + Vercel-Cutover sind S3b** |
 
 Der maschinenlesbare Vertrag ist **`scripts/runtime-role.ts`** (Allowlist,
-Upsert-Fläche, Denied-Liste, `statement_timeout`). Drei Consumer:
+Denied-Liste, `statement_timeout`). Drei Consumer:
 
 - `scripts/apply-db-roles.ts` (`npm run db:roles`) — erzeugt daraus die
   GRANT/REVOKE-Statements und wendet sie an (idempotent, konvergierend:
@@ -28,7 +28,7 @@ Upsert-Fläche, Denied-Liste, `statement_timeout`). Drei Consumer:
   UND Negativ-Proben gegen die echte Rolle (siehe unten).
 - `scripts/test-runtime-role-contract.ts` (läuft in `npm test`) — der
   Drift-Gate: **jede** in `src/db/schema.ts` definierte Tabelle muss in genau
-  einer der drei Listen klassifiziert sein. Eine neue Tabelle ohne bewusste
+  einer der zwei Listen klassifiziert sein. Eine neue Tabelle ohne bewusste
   Entscheidung macht CI rot.
 
 **Keine `ALTER DEFAULT PRIVILEGES` Richtung Runtime** — das ist der Kern der
@@ -71,9 +71,8 @@ sind unberührt. Ändern: Wert in `scripts/runtime-role.ts` anpassen →
 5. **Verifizieren:** `npm run db:verify-runtime-role` — verbindet als
    `chrono_runtime` (Identitäts-Guard: mit einem privilegierten Credential
    bricht das Skript sofort ab) und prüft: alle Allowlist-Tabellen lesbar ·
-   `preview_invite_activations`-Upsert funktioniert (in `BEGIN…ROLLBACK`,
-   hinterlässt nichts) · `statement_timeout` greift · `submissions` weder
-   les- noch schreibbar · Katalog-DML (INSERT/UPDATE/DELETE) verweigert ·
+   `statement_timeout` greift · `submissions` weder les- noch schreibbar ·
+   Katalog-DML (INSERT/UPDATE/DELETE) verweigert ·
    DDL (CREATE/ALTER/DROP/TRUNCATE) verweigert. Jede Probe, die bei
    fälschlich vorhandenem Recht etwas ändern könnte, läuft in einer
    zurückgerollten Transaktion. **Launch-Readiness Punkt 3 wiederholt genau
@@ -90,8 +89,9 @@ improvisieren, sondern klären.
 1. Migration/Schema wie üblich (`npm run db:generate`, …).
 2. `npm test` wird rot: `test-runtime-role-contract` verlangt eine
    Klassifikation. In `scripts/runtime-role.ts` bewusst eintragen:
-   `RUNTIME_SELECT_TABLES` (öffentlicher Katalog) · `RUNTIME_UPSERT_TABLES`
-   (Runtime-Schreibfläche) · `RUNTIME_DENIED_TABLES` (kein Zugriff).
+   `RUNTIME_SELECT_TABLES` (öffentlicher Katalog) oder
+   `RUNTIME_DENIED_TABLES` (kein Zugriff). Eine neue Runtime-Schreibfläche
+   braucht eine neue, ausdrücklich reviewte Vertragskategorie.
 3. Nach dem Merge + Produktions-Migration: `npm run db:roles` erneut laufen
    lassen (Grants konvergieren).
 

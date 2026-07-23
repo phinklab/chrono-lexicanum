@@ -5,7 +5,7 @@
 ## Spielregeln (jede Session)
 
 - **Eine Session pro Posten.** Frische CC-Session, Prompt aus dem passenden Block unten einfügen.
-- Koordinations-Worktree (`C:\Users\Phil\chrono-lexicanum`, E8), frischer Branch von `origin/main`; Branch-Name steht im Prompt (`NNN` = nächste freie Session-Nummer — vorher `sessions/` auf die höchste Nummer prüfen, Lehre aus der Kollision, die PR #268 auflösen musste; Stand 2026-07-23: nächste freie Nummer **260**).
+- Koordinations-Worktree (`C:\Users\Phil\chrono-lexicanum`, E8), frischer Branch von `origin/main`; Branch-Name steht im Prompt (`NNN` = nächste freie Session-Nummer — vorher `sessions/` auf die höchste Nummer prüfen, Lehre aus der Kollision, die PR #268 auflösen musste; Stand 2026-07-23: nächste freie Nummer **261**).
 - **Kein Commit/PR, bis Philipp „fertig" sagt.** Philipp merged selbst; „ist gemerged" → Standard-Cleanup (Merge verifizieren, `fetch --prune`, zurück auf `main`, Task-Branch löschen).
 - Bewertungsrunden fassen keinen Produktcode an. Bei Urteil **bauen** wird der Zuschnitt in der Runde besprochen; sehr kleine Posten dürfen nach Absprache direkt in derselben Session umgesetzt werden, wenn sie strang-rein bleiben.
 - UI-Abnahme durch Philipp im Browser, keine Headless-Loops. Gates pro PR: `typecheck`, `lint`, `test`, `next build`; `brain:lint` wenn `brain/**` berührt.
@@ -29,7 +29,8 @@
 | 11 | **WA-B1** — Archiv-Facetten-Filter | Bau (Product, M) | — | ✔ 253 |
 | 11b | **WP-B1** — Arthas-Moloch-Kartenlink (+ Pin-Name) | Bau (Batches, XS–S) | Excel-Zeile Philipp | ✔ 254 |
 | 12 | **Koordinations-Rollup** — Brain + sessions/README | Doku | jederzeit möglich, spätestens vor 13 | ✔ 258 |
-| 13 | **S7b** — Player/Chrome/Assets | Qualitätspass | 1–11b abgeschlossen | ☐ |
+| 12b | **W4-B1** — Preview-Gate vereinfachen (Invite-Maschinerie raus, Shared Login bleibt) | Bau (Product, S) | Maintainer-Entscheid 2026-07-23 | ✔ 260 |
+| 13 | **S7b** — Player/Chrome/Assets | Qualitätspass | 1–12b abgeschlossen | ☐ |
 | 14 | **S11-Code-PR** (pixelgleich) | Qualitätspass | S7b | ☐ |
 | 15 | **Launch-Readiness** → Gate-off → stilles Fenster → Reddit | Endspiel | W1-Gate (Artwork + Liste besucht) | ☐ |
 

@@ -8,8 +8,6 @@
  * Asserts, connected AS `chrono_runtime` (never the privileged credential —
  * the script hard-fails if `current_user` is not the runtime role):
  *  - every allowlisted catalogue table is SELECTable,
- *  - the preview_invite_activations upsert works (probed inside
- *    BEGIN…ROLLBACK — zero residue, safe against prod),
  *  - statement_timeout is the role-level value from scripts/runtime-role.ts,
  *  - submissions is unreadable and unwritable,
  *  - catalogue DML (INSERT/UPDATE/DELETE) is denied,
@@ -123,17 +121,6 @@ async function main(): Promise<void> {
       }
     }
 
-    // --- positive: preview_invite_activations upsert (rolled back) --------
-    {
-      const upsert =
-        `INSERT INTO public.preview_invite_activations (jti) VALUES ('verify-runtime-role-probe') ` +
-        `ON CONFLICT (jti) DO UPDATE SET last_activated_at = now(), ` +
-        `count = preview_invite_activations.count + 1`;
-      const err = await probe(upsert);
-      if (err === null) ok("UPSERT preview_invite_activations (rolled back)");
-      else fail("UPSERT preview_invite_activations (rolled back)", err);
-    }
-
     // --- negative: submissions is a black box ------------------------------
     await expectDenied("DENIED: SELECT submissions", "SELECT * FROM public.submissions LIMIT 1");
     await expectDenied(
@@ -151,10 +138,7 @@ async function main(): Promise<void> {
     );
     await expectDenied("DENIED: UPDATE works", "UPDATE public.works SET id = id WHERE false");
     await expectDenied("DENIED: DELETE works", "DELETE FROM public.works WHERE false");
-    await expectDenied(
-      "DENIED: DELETE preview_invite_activations",
-      "DELETE FROM public.preview_invite_activations WHERE false",
-    );
+    await expectDenied("DENIED: TRUNCATE works", "TRUNCATE public.works");
 
     // --- negative: DDL ------------------------------------------------------
     await expectDenied(
@@ -166,10 +150,6 @@ async function main(): Promise<void> {
       "ALTER TABLE public.submissions ADD COLUMN __runtime_role_probe int",
     );
     await expectDenied("DENIED: DROP TABLE submissions", "DROP TABLE public.submissions");
-    await expectDenied(
-      "DENIED: TRUNCATE preview_invite_activations",
-      "TRUNCATE public.preview_invite_activations",
-    );
   } finally {
     await sql.end({ timeout: 5 }).catch(() => {});
   }

@@ -22,7 +22,7 @@
 |---|---|---|
 | 1 | Launch-Readiness-Belegpaket vollständig protokolliert | launch-master-plan § Launch-Readiness |
 | 2 | Finaler Content-Release durch (Snapshot-PR = Deploy, Revalidation gelaufen) | content-release-runbook |
-| 3 | Vercel-Env **Production**: `SITE_URL=https://www.chrono-lexicanum.com` (seit dem S5-Merge zwingend — ohne den Wert scheitert jeder Prod-Build), `RUNTIME_DATABASE_URL` (nur noch dieses DB-Credential), `REVALIDATE_TOKEN`, `PREVIEW_INVITE_SECRET`, `ATLAS_PASS` | S3a/S3b/S5 |
+| 3 | Vercel-Env **Production**: `SITE_URL=https://www.chrono-lexicanum.com` (seit dem S5-Merge zwingend — ohne den Wert scheitert jeder Prod-Build), `RUNTIME_DATABASE_URL` (nur noch dieses DB-Credential), `REVALIDATE_TOKEN`, `PREVIEW_USER`, `PREVIEW_PASS`, `PREVIEW_SESSION_SECRET`, `ATLAS_PASS` | S3a/S3b/S5/W4 |
 | 4 | `NEXT_PUBLIC_SENTRY_DSN` in Vercel gesetzt und der Error-Tracker end-to-end belegt (erzwungener Server- + Client-Fehler sichtbar im Sentry-Dashboard) | S5-Report bzw. dieser Schritt |
 | 5 | Vercel-Dashboard-Toggles **Web Analytics** und **Speed Insights** aktiviert (Project → Analytics / Speed Insights → Enable) | S5 |
 | 6 | Search-Console-Zugang zu `chrono-lexicanum.com` vorbereitet (Google-Konto) | — |
