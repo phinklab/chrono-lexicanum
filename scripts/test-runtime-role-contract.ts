@@ -2,8 +2,8 @@
  * test-runtime-role-contract.ts — DB-free drift gate (Launch S3a Punkt 1).
  *
  * Enforces "every new table is granted CONSCIOUSLY": each pgTable exported
- * from src/db/schema.ts must be classified in exactly one of the three lists
- * in scripts/runtime-role.ts (SELECT-allowlist, upsert surface, denied). A
+ * from src/db/schema.ts must be classified in exactly one of the two lists
+ * in scripts/runtime-role.ts (SELECT allowlist or denied). A
  * migration that adds a table without deciding its runtime visibility turns
  * `npm test` red — the fail-closed counterpart to having NO default
  * privileges towards the runtime role.
@@ -18,7 +18,6 @@ import * as schema from "../src/db/schema";
 import {
   RUNTIME_DENIED_TABLES,
   RUNTIME_SELECT_TABLES,
-  RUNTIME_UPSERT_TABLES,
 } from "./runtime-role";
 
 let passed = 0;
@@ -43,11 +42,10 @@ const schemaTables: string[] = Object.values(schema as Record<string, unknown>)
 
 const contractTables: string[] = [
   ...RUNTIME_SELECT_TABLES,
-  ...RUNTIME_UPSERT_TABLES,
   ...RUNTIME_DENIED_TABLES,
 ].sort();
 
-test("the three contract lists are disjoint", () => {
+test("the two contract lists are disjoint", () => {
   assert.equal(
     new Set(contractTables).size,
     contractTables.length,
@@ -62,7 +60,7 @@ test("every schema table is classified in scripts/runtime-role.ts", () => {
     [],
     `new table(s) in src/db/schema.ts without a runtime-role decision: ` +
       `${unclassified.join(", ")} — add each to RUNTIME_SELECT_TABLES (public catalogue), ` +
-      `RUNTIME_UPSERT_TABLES (runtime write surface) or RUNTIME_DENIED_TABLES (no access) ` +
+      `or RUNTIME_DENIED_TABLES (no access) ` +
       `in scripts/runtime-role.ts, then re-run \`npm run db:roles\` after merge.`,
   );
 });

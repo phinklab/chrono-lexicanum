@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { PREVIEW_COOKIE, previewGateEnabled, previewSecret } from "@/lib/previewGate";
-import { verifyPreviewToken } from "@/lib/previewToken";
+import { verifyPreviewSessionToken } from "@/lib/previewToken";
 import { timingSafeEqualStr } from "@/lib/timingSafeEqual";
 
 // Next.js 16 file convention: `proxy.ts` is the middleware entry point.
@@ -8,14 +8,11 @@ import { timingSafeEqualStr } from "@/lib/timingSafeEqual";
 // itself, the legal pages /imprint + /privacy (§ 5 DDG / Art. 13 DSGVO
 // information must be reachable from the public /login surface, i.e. without
 // a preview cookie) plus /artwork (third point of the same legal row, linked
-// from /login too), Next internals, the public/ asset folders, and three
+// from /login too), Next internals, the public/ asset folders, and two
 // machine endpoints that must answer without the preview cookie: /healthz
-// (uptime probe), /api/revalidate (token-authed cache webhook), and
-// /api/preview-invites (admin-gated activation read for the local console;
-// it self-checks the admin credential in its own handler precisely BECAUSE
-// the proxy is bypassed for it). Without that exclusion the preview gate
-// would 307-redirect them to /login, breaking the probe, the apply-script
-// webhook, and the console's cross-origin read. /monitoring is the Sentry
+// (uptime probe) and /api/revalidate (token-authed cache webhook). Without
+// those exclusions the preview gate would 307-redirect them to /login,
+// breaking the probe and the apply-script webhook. /monitoring is the Sentry
 // tunnel (S5): error beacons must land even from the pre-auth /login surface
 // (a 307 would silently eat them); the handler only relays envelopes for the
 // configured DSN. manifest.webmanifest + the app-dir icon files are metadata
@@ -24,7 +21,7 @@ import { timingSafeEqualStr } from "@/lib/timingSafeEqual";
 // admin detection.
 export const config = {
   matcher: [
-    "/((?!_next/|login|imprint|privacy|artwork|healthz|api/revalidate|api/preview-invites|monitoring|img/|audio/|timeline/|aquila\\.png|favicon\\.ico|icon\\.png|apple-icon\\.png|manifest\\.webmanifest|robots\\.txt|sitemap\\.xml).*)",
+    "/((?!_next/|login|imprint|privacy|artwork|healthz|api/revalidate|monitoring|img/|audio/|timeline/|aquila\\.png|favicon\\.ico|icon\\.png|apple-icon\\.png|manifest\\.webmanifest|robots\\.txt|sitemap\\.xml).*)",
   ],
 };
 
@@ -70,21 +67,14 @@ export async function proxy(req: NextRequest): Promise<NextResponse> {
   // change. Runs before the Basic-Auth block because that block early-returns
   // on non-prod (which includes Vercel previews).
   //
-  // When PREVIEW_INVITE_SECRET is SET, the gate is the enforcement point — it
-  // verifies the cookie's HMAC signature, that `typ === "session"`, and that
-  // `exp` is in the future; a tampered, expired, absent or wrong-`typ` cookie
-  // fails closed → /login. This is what evicts expired sessions and rejects
-  // pasted invite tokens. When the secret is UNSET the feature degrades to the
-  // legacy presence check (`cl-preview === "1"`) — NOT fail-open to everyone,
-  // and NOT a signature loop it has no key for (so the public site never
-  // crashes or locks out over a missing secret, matching the
-  // ATLAS_PASS-missing posture).
+  // The gate verifies the cookie's HMAC signature and future `exp`. A tampered,
+  // expired or absent cookie fails closed → /login. A missing signing secret
+  // likewise fails closed; the login action will not issue an unsigned cookie.
+  // Rotating the secret invalidates every active session.
   if (previewGateEnabled()) {
     const cookie = req.cookies.get(PREVIEW_COOKIE)?.value;
-    const secret = previewSecret();
-    const authed = secret
-      ? (await verifyPreviewToken(cookie, secret, "session")) !== null
-      : cookie === "1";
+    const authed =
+      (await verifyPreviewSessionToken(cookie, previewSecret())) !== null;
     if (!authed) {
       return NextResponse.redirect(new URL("/login", req.url));
     }

@@ -16,8 +16,6 @@ import "@/app/styles/71-legal.css";
        (Frankfurt; DATABASE_URL pooler host).
      - No user accounts; the only cookie is the HMAC-signed preview session
        (`cl-preview`) — technically required, § 25 Abs. 2 Nr. 2 TDDDG.
-     - The only app write is the PII-free invite-activation upsert
-       (jti + timestamps + count; schema.ts `previewInviteActivations`).
      - Covers are hotlinked from external hosts; podcast audio streams from
        the feed host on user-initiated play; site music comes from the
        project's own Supabase storage; fonts are self-hosted via next/font.
@@ -66,7 +64,7 @@ function PrivacyGermanPage() {
         <h1 className="legal__title">Datenschutzerklärung</h1>
         <div className="legal__rule" aria-hidden />
         <LegalLanguageToggle language="de" pathname="/privacy" />
-        <p className="legal__stand">Stand · 12. Juli 2026</p>
+        <p className="legal__stand">Stand · 23. Juli 2026</p>
       </header>
 
       <div className="legal__doc">
@@ -162,15 +160,6 @@ function PrivacyGermanPage() {
             <strong>Supabase</strong>, gehostet in der EU (AWS-Region
             eu-central-1, Frankfurt am Main). Die Datenbank enthält
             Katalogdaten, keine Besucherdaten.
-          </p>
-          <p className="legal__p">
-            Einzige Ausnahme: Wird ein persönlicher Vorschau-Einladungslink
-            eingelöst, wird vermerkt, <em>dass</em> dieser Link aktiviert wurde
-            (technische Kennung des Links, Zeitpunkt der ersten und letzten
-            Aktivierung, Zähler) – ohne IP-Adresse, ohne Gerätedaten, ohne
-            Namen. Zweck ist die Missbrauchskontrolle der ausgegebenen
-            Einladungen; Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Die
-            Einträge werden mit dem Ende der Vorschau-Phase gelöscht.
           </p>
         </section>
 
@@ -374,7 +363,7 @@ function PrivacyEnglishPage() {
         <h1 className="legal__title">Privacy Policy</h1>
         <div className="legal__rule" aria-hidden />
         <LegalLanguageToggle language="en" pathname="/privacy" />
-        <p className="legal__stand">Last updated · 12 July 2026</p>
+        <p className="legal__stand">Last updated · 23 July 2026</p>
       </header>
 
       <div className="legal__doc">
@@ -468,15 +457,6 @@ function PrivacyEnglishPage() {
             <strong>Supabase</strong> and hosted in the EU (AWS region
             eu-central-1, Frankfurt am Main). The database contains catalogue
             data, not visitor data.
-          </p>
-          <p className="legal__p">
-            The sole exception is the redemption of a personal preview
-            invitation link. In that case, a record is kept that the link was
-            activated (the link&apos;s technical identifier, the time of first and
-            latest activation, and a counter), without an IP address, device
-            data or a name. This serves to prevent misuse of issued
-            invitations; the legal basis is Article 6(1)(f) GDPR. These records
-            will be deleted when the preview phase ends.
           </p>
         </section>
 
