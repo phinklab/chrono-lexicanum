@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 /**
  * SiteBrand — the "Chrono Lexicanum" wordmark centred on the Cartographer's
@@ -13,6 +14,9 @@ import Link from "next/link";
  * in 55-map.css (body.cg-on-map).
  */
 export default function SiteBrand() {
+  const pathname = usePathname();
+  const onMap = pathname === "/map" || pathname.startsWith("/map/");
+  if (!onMap) return null;
   return (
     <Link href="/" className="site-brand">
       Chrono Lexicanum

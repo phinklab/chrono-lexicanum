@@ -1,10 +1,16 @@
 /* 68-login.css
    Preview gate (/login) — the librarium artwork with only a whisper of
    bottom darkening (the lit marble floor stays visible), a single credential
-   column, and no page chrome (the route gate does not load it). Desktop
+   column, and no page chrome (burger/menu/media player hidden). Desktop
    shows the artwork uncropped (contain, anchored bottom-right) with the
    console on the left over the void / dark shelf column; small screens
    keep the centered full-bleed. */
+
+body:has(main.login) .site-burger,
+body:has(main.login) .site-menu,
+body:has(main.login) .media-player {
+  display: none;
+}
 
 body:has(main.login) .site-bg::after {
   content: "";
