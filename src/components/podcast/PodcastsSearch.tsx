@@ -12,26 +12,10 @@ import {
 } from "@/app/archive/filters";
 
 /**
- * Podcast-page search — the same archive-wide console Home and
- * /werke mount, here on /podcasts in its gold skin and wired in NAVIGATE mode.
- * The index is the unified book + podcast set, so a query surfaces books first,
- * then a "Podcasts" group (episodes + shows). Routing:
- *
- *   - book                 → /book/[slug]          (opens the book modal here)
- *   - podcast              → s.href                 (show page, or #ep-<id> deep link)
- *   - faction              → /compendium/factions?focus=[id]  (faction directory + popup)
- *   - primarch             → /compendium/primarchs?focus=[id] (primarch directory + popup)
- *   - character            → /compendium/characters?focus=[id] (character directory + popup)
- *   - world                → /compendium/worlds?focus=[id] (world directory + popup)
- *   - facet/format         → /archive?<param>=…     (land in the archive, pre-filtered)
- *   - author / raw Enter   → /archive?q=…           (land in the archive, searched)
- *   - empty Enter          → /archive               (open the unfiltered archive)
- *
- * The combobox mechanics live in the shared `<BrowseSearch>`; this wrapper only
- * supplies the routing. It renders the bare `<BrowseSearch>` so it drops into the
- * archive's `.browse-filters` console and inherits the exact `.catalogue--vox`
- * skin the books view uses — the podcasts index shares /archive's shell so
- * toggling WORKS↔PODCASTS shifts nothing.
+ * Archive-wide search on podcast pages. `BrowseSearch` owns the combobox and
+ * unified book/podcast index; this wrapper only maps results to book, podcast,
+ * compendium or filtered Archive routes. It renders bare inside the shared
+ * Archive console so Works/Podcasts toggling keeps the same geometry.
  */
 export default function PodcastsSearch() {
   // Shared nav transition (see HomeSearch) so a pick lights the global beam +

@@ -19,33 +19,10 @@ import {
 type Option = { value: string; label: string };
 
 /**
- * Public browse controls for `/werke`. Every control writes to the
- * URL (`router.replace`, scroll preserved) so a filtered view is a shareable
- * link and the server re-renders the list. This island only reads/writes
- * params — the server owns the actual filtering (`applyWorksFilters`).
- *
- * The search itself is the shared `<BrowseSearch>` console:
- * a grouped typeahead over the lazily-fetched index (/api/search-index) of
- * books, podcasts, factions, facets, formats and authors. Here it mostly
- * filters IN PLACE —
- * picking a facet/format applies that filter, an author or raw Enter sets `q`, a
- * book opens it; entity and podcast picks navigate to their canonical surfaces.
- * (Home renders the same console in navigate-mode.) The console owns the
- * combobox mechanics; this island owns the routing semantics.
- *
- * Under the console sits ONE constant control line — the sort pills (a second
- * click on the active pill flips its direction) and a "Filters" disclosure.
- * Its composition never changes with state ("Clear all" is a server link in
- * the census line, the trigger's count numeral has a reserved slot), so
- * toggling a filter never shifts the layout above the register and the line
- * stays exactly centred. The disclosure opens the filter ledger (WA-B1):
- * hairline rows in
- * the register's own language — Faction, Format, then the v1 facet categories
- * as chip rows (`buildFacetPanel`; OR within a row, AND across rows; active
- * chips carry × and a re-click deselects). Selections made elsewhere (search
- * picks from off-panel categories, old links) get a removable chip row of
- * their own inside the ledger; the closed trigger sums everything as a gold
- * count, so no active filter is ever invisible.
+ * URL-backed Archive controls: the server owns filtering, this island owns
+ * routing. Search delegates mechanics to `BrowseSearch`; sort and the filter
+ * ledger preserve scroll and shareability. Facets are OR within a category and
+ * AND across categories, with every active selection visible/removable.
  */
 export default function WerkeFilters({
   factions,

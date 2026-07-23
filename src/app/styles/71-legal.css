@@ -8,9 +8,7 @@
    voice: these pages must read as plain paperwork inside the house frame.
    /imprint and /privacy are English-first with a route-local EN/DE switch;
    their selected reading column carries the matching lang attribute.
-   Route-scoped since S7a: imported by the three document pages, not by
-   globals.css. (The fixed .site-legal corner row was retired S255 — the
-   links live in the ArchiveFooter and the burger overlay.) */
+   Route-scoped since S7a: imported by the three document pages, not globally. */
 
 .legal {
   min-height: 100vh;

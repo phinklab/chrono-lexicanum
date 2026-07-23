@@ -1,23 +1,11 @@
 "use client";
 
 /**
- * VoyageTour — the guided playback of a Great Journey: one bottom-docked
- * card on BOTH breakpoints (the mobile dock grammar promoted to desktop).
- *
- * step −1 is the overture (title card: one "Begin journey" action — the old
- * "Skip tour" read as an unwanted autoplay and went 2026-07-13; ✕ leaves the
- * journey); steps 0…n−1 fly the camera station to station while RoutesLayer
- * draws the arriving leg; the last station offers "Show the full route",
- * which hands over to the free-explore tableau (CourseCards + fully drawn
- * route).
- *
- * The camera zoom adapts to leg length (short hops magnify, galaxy-spanning
- * reunions pull back) and the chart stays freely pannable throughout — Next
- * simply re-flies. ArrowRight/ArrowLeft page the tour — window-bound so the
- * arrows work without focusing the card, but behind the S9 target guard:
- * fields, sliders and the seek combobox keep their own arrows. Escape is
- * handled by the root (popup → tour precedence). Mount keyed by voyage id
- * (parent) — switching journeys restarts the tour.
+ * Bottom-docked guided journey. Step −1 is the overture, station steps fly and
+ * reveal arriving legs, and the final action hands off to free exploration.
+ * Zoom follows leg length while panning remains available. Guarded global arrow
+ * keys page the tour without stealing input/slider/combobox keys; the root owns
+ * Escape precedence and voyage-keyed remounts restart playback.
  */
 
 import { useCallback, useEffect, useRef } from "react";

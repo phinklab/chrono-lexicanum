@@ -19,30 +19,9 @@ import {
 } from "@/app/archive/filters";
 
 /**
- * BrowseSearch — the canonical "search everything we can filter" combobox,
- * shared by /werke and Home as
- * one console rather than two copies. It owns all the combobox MECHANICS — the
- * grouped typeahead, keyboard model (↑/↓/Enter/Esc), active-descendant, the live
- * status region, click-outside and scroll-into-view — and renders the exact
- * `.browse-search` + `.browse-suggest` markup the CSS already styles.
- *
- * The suggestion index is NOT a prop (Launch S6): serialized into the page it
- * cost every route ~470 KB of initial HTML/RSC. The console fetches
- * `/api/search-index` lazily on the visitor's first focus/keystroke; the
- * resolved index is module-cached, so all consoles (Home, /archive,
- * /archive/podcasts) share one fetch per session. Until it arrives — or if it
- * fails — the free-text path (`Enter` → onSubmit) works regardless; the
- * dropdown says so instead of faking an empty result.
- *
- * It owns NO routing. The query value is fully controlled (`value` /
- * `onValueChange`) so /werke can mirror it from the URL `q`, and every commit is
- * delegated to the parent:
- *   - onPick(s)    — a chosen suggestion (book / faction / facet / format / author)
- *   - onSubmit(q)  — the broadened free-text search (Enter with nothing highlighted)
- *   - onClear()    — the custom × button
- * /werke wires these to filter-in-place (`router.replace`, scroll preserved);
- * Home wires them to navigate into the archive (`router.push` to /book or /archive).
- * The filter/rank contract stays the single pure source in `werke/filters.ts`.
+ * Shared accessible search combobox. It owns typeahead/keyboard mechanics but
+ * delegates routing to the parent. Suggestions load on first interaction and
+ * are module-cached; free-text submit still works while loading or on failure.
  */
 
 /** Module-scoped index cache: one fetch per SPA session shared by every

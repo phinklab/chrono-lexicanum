@@ -1,26 +1,12 @@
 "use client";
 
 /**
- * Cartouche + Overture: "The Cartographer" opens as a large cartouche over
- * the chart and condenses into the corner cartouche on first interaction.
- * Both surfaces speak the live-site glass language — no border strokes.
+ * The full overture condenses into the top-left chart cartouche. Seek ranks
+ * prefix before substring and recorded worlds before dust; its A–Z index is
+ * the keyboard/AT path parallel to pointer-only pins.
  *
- * Seek: live list while typing — every one of the 1054 contacts is in the
- * payload (featured + dust), ranked prefix > substring and recorded > dust.
- * Click or RET selects and flies; arrows move the cursor. The small "A–Z"
- * opener at the seek's edge unfolds the recorded-worlds index — the
- * keyboard/AT parallel path to the pointer-only pins (S10a).
- *
- * The corner cartouche is what a cartouche is on a historical chart: title
- * + legend. It sits TOP-left (bottom-left is the media player's dock) and
- * carries two sections under the seek: the Great Journeys (content, the
- * chart's own door, open by default) and ONE interactive legend — overlays
- * + census merged into the single layers entrance, opt-in behind its
- * header. Collapsed sections carry a gold state badge ("active",
- * "filtered", the lit overlays), so nothing active can hide silently.
- *
- * SeekHead / SectionHead / VoyageButtons / LegendOverlays are shared with
- * the mobile drawer (CartoucheSheet) so both surfaces render one vocabulary.
+ * Journeys and the combined overlay/census legend expose badges while
+ * collapsed. Their control primitives are shared with `CartoucheSheet`.
  */
 
 import { Fragment, useId, useMemo, useState } from "react";

@@ -339,14 +339,6 @@
   transform: translateX(2px);
 }
 
-/* Curation note (overview). */
-.cmp-note {
-  margin-top: clamp(34px, 6vh, 54px);
-}
-.cmp-note__text {
-  font-style: italic;
-}
-
 @media (max-width: 720px) {
   .cmp-row {
     grid-template-columns: 34px 16px minmax(0, 1fr) 16px;

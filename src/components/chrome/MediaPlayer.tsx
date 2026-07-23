@@ -4,33 +4,9 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { ARTIST_YOUTUBE_URL, TRACKS, type AudioTrack } from "@/lib/audio-tracks";
 
 /**
- * MediaPlayer — sitewide ambient strip, anchored bottom-left, no box.
- *
- * Structure (DOM top-to-bottom = visual top-to-bottom in the fixed block):
- *   - Wave — always visible, hairline-thin 1px-bar sine wave (~24px CSS
- *     height). Idle breathing while paused; FFT mid-band reactive during
- *     playback. Floats above the header.
- *   - Header (always visible) — ONE row, horizontally aligned:
- *     play glyph (borderless) + "VOL" toggle + track title (flex:1) +
- *     "▴ PLAYLIST" disclose (right-aligned via the flex:1 title).
- *   - Vol popover (absolute above the VOL button) — narrow hairline slider
- *     with mute glyph. Mutually exclusive with the playlist panel.
- *   - Panel wrap (absolute, bottom: 100% of the player) — floats up over
- *     the wave when `--open`. Grid-template-rows 0fr → 1fr for a smooth
- *     height-auto animation. Wave + header stay anchored; nothing shifts up.
- *
- * Wave rendering: 96 vertical 1px strokes (non-scaling-stroke), height from
- * a double sine carrier × smoothed amplitude (FFT mid-band RMS during
- * playback, a breathing sine while idle). Per-bar texture from the FFT bins
- * lays a fine modulation on top, smoothed to avoid per-sample jitter.
- *
- * Interaction:
- *   - Play glyph (left) = togglePlay.
- *   - VOL = toggleVol (popover with slider).
- *   - Disclose "▴ PLAYLIST" (right) = togglePanel.
- *   - Vol popover and playlist panel are mutually exclusive.
- *   - Clicking outside closes both.
- *   - No hover trigger.
+ * Sitewide ambient strip with a fixed header and FFT-reactive wave. Volume
+ * and playlist overlays are mutually exclusive and close on outside clicks;
+ * playback remains available without hover-only interaction.
  */
 
 const FFT_SIZE = 256;

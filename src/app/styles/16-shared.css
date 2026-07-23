@@ -1,13 +1,7 @@
 /* 16-shared.css
-   Shared cross-bracket corners + alpha mask: `.mt-corner` is the four-span
-   L-shape used by /ingest's cards (and by the Timeline overview as a
-   focus-ring vocabulary echo); `.aquila` enforces alpha masking for the
-   shared Aquila component. */
-
-.aquila {
-  -webkit-mask-mode: alpha;
-  mask-mode: alpha;
-}
+   Shared cross-bracket corners: `.mt-corner` is the four-span L-shape used by
+   /ingest's cards (and by the Timeline overview as a focus-ring vocabulary
+   echo). */
 
 .mt-corner {
   position: absolute;

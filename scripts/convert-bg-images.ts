@@ -1,19 +1,6 @@
 /**
- * Convert the Warhammer-optics handoff PNGs to size-optimised WebPs under
- * public/img/. Idempotent — re-running re-emits the same outputs from the
- * source PNGs. Source folder defaults to the local download path; override
- * with the WARHAMMER_OPTICS env var.
- *
- * Targets (each ≤ ~350 KB):
- *   - public/img/vista.webp         (Books hero + entity pages)
- *   - public/img/librarium.webp     (Podcasts)
- *   - public/img/cartog-hall.webp   (future /map)
- *
- * Background images sourced outside this optics handoff — hub.webp,
- * chronicle-hall.webp, cartog-holo.webp, and oracle.webp (Ask the Archive) —
- * are generated separately and committed directly; they are not processed here.
- *
- * The accompanying `logo_cl_v2.svg` is copied verbatim alongside.
+ * Rebuild the live `vista.webp` and logo master from the local optics handoff.
+ * Override the default source folder with `WARHAMMER_OPTICS`.
  */
 import { copyFile, mkdir } from "node:fs/promises";
 import { join, resolve } from "node:path";
@@ -25,8 +12,6 @@ const DEST = resolve(process.cwd(), "public/img");
 
 const PNGS: Array<{ in: string; out: string; width: number; quality: number }> = [
   { in: "vista.png",       out: "vista.webp",       width: 2400, quality: 78 },
-  { in: "librarium.png",   out: "librarium.webp",   width: 2400, quality: 78 },
-  { in: "cartog-hall.png", out: "cartog-hall.webp", width: 2400, quality: 78 },
 ];
 
 async function main() {

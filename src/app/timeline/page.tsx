@@ -25,34 +25,15 @@ export const metadata: Metadata = {
 };
 
 /**
- * Timeline route — the Cinematic/Index chronicle.
- *
- * DATA SOURCE: the hand-curated events spine (`eras` +
- * `events` + `event_works` in Postgres), loaded server-side by
- * `loadChronicleTimeline()` and handed to the client island in one payload.
- * The legacy roster overlay (`@/lib/chronicle/roster`) is not read here.
- *
- * URL contract: `?era=<era id>` selects the chapter, `?view=index` opens the
- * index view, `?view=cine` explicitly opens the cinematic stage. Without a
- * `?view=` the cinematic stage opens on every device (Philipp's S9 call,
- * overriding the plan's coarse-pointer index default) and the URL stays
- * bare. Legacy values keep working:
- *   - legacy `?era=M30|M31|M42` → mapped era id
- *   - era ids absent from the 8-era map: `age_rebirth` →
- *     `horus_heresy` (the Scouring lives in M31), `long_war` → `the_forging`
- *     (its M32–34 majority); the remaining old ids exist in the current map
- *     and pass through unchanged.
- *   - unknown values render chapter I (no 404), the client then canonicalizes
- *     the URL via history.replaceState.
- *   - `?book=<slug>` (legacy detail-panel deep link) → that book's page.
+ * Chronicle route backed only by the curated eras/events/event_works spine.
+ * `?era` selects a chapter; `?view=index|cine` selects presentation; bare URLs
+ * default to cinematic on every device. Legacy M30/M31/M42 and retired era ids
+ * are mapped, unknown eras fall back to chapter I, and legacy `?book` links
+ * redirect to the canonical book page.
  */
 
-// Waypoint voice (--font-unicase): the Chronicle's era-band stop labels — the
-// only surface that speaks it, so the face loads with this segment instead of
-// site-wide (S7a). The token pointing at it lives in 67-chronicle-cinematic.css
-// scoped to .chron-shell: a custom property referencing this variable must be
-// declared at or below the element that carries the class, or it would resolve
-// (to invalid) at :root. Upright only — the face ships no italic.
+// Chronicle-only waypoint face. Its CSS variable must be declared at or below
+// `.chron-shell`; resolving the segment-scoped Next variable at :root fails.
 const cormorantUnicase = Cormorant_Unicase({
   subsets: ["latin"],
   weight: ["400", "500"],

@@ -1,21 +1,8 @@
 /**
- * Compact wire shape for the browse catalogue's persistent Data-Cache entry
- * (Launch S6). PURE — no `@/db`, no `server-only` — so the DB-free tests can
- * exercise the round-trip against the committed snapshot artifact.
- *
- * Why this exists: the straight `BrowseData` blob repeats every faction and
- * facet object on every book that carries it — measured 2.05 MB minified at
- * 896 books, over Next's hard 2 MB per-cache-entry limit (and still 1.73 MB
- * after the S6 dead-field cut, too close to the cap for a growing catalogue).
- * Normalising factions/facets into per-catalogue dictionaries with per-book id
- * references brings the same data to ~0.5 MB — a 4× safety margin. The wire
- * shape lives ONLY inside the cache entry; `inflateBrowse` reconstructs the
- * exact `BrowseData` the filter/search contract consumes, so no consumer
- * changes.
- *
- * Inflate is fail-loud: a wire entry referencing an unknown faction/facet id
- * throws (S2 contract — a corrupt cache entry must surface, not render a
- * silently wrong catalogue).
+ * Pure normalized wire shape for the persistent browse cache. Dictionaries
+ * keep the growing payload safely below Next's 2 MB entry limit (~0.5 MB vs
+ * 2.05 MB measured flat), while `inflateBrowse` restores the exact consumer
+ * shape. Unknown dictionary ids throw instead of rendering corrupt data.
  */
 import type {
   BrowseBook,

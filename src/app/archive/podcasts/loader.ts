@@ -1,34 +1,11 @@
 /**
- * Public podcast data layer — DB-FREE façade (Launch S1b Loader-Weiche).
+ * DB-free podcast façade. Shows own episodes through
+ * `podcastEpisodeDetails.podcastWorkId`; index/search use the committed snapshot
+ * during builds and lazy-load live DB code at runtime. Do not statically import
+ * `@/db` here.
  *
- * Podcasts are the second media pillar next to books. A `kind='podcast'` show
- * work (→ `podcastDetails`) owns many `kind='podcast_episode'` works
- * (→ `podcastEpisodeDetails.podcastWorkId`). There is deliberately no `show`
- * relation on the episode self-link, so the show→episodes hop runs through an
- * explicit `podcastWorkId` filter, not a relation.
- *
- * Two reader projections:
- *   - `loadPodcastIndex()`   → the /podcasts hall: one row per show + platform
- *     links + a 3-episode teaser, busiest show first.
- *   - `loadPodcastShow(slug)` → /podcasts/[slug]: one show + ALL its episodes,
- *     entity-tagged, newest first, shaped for the client archive island.
- *
- * Source switch: the prerender-relevant projections (index + search) read the
- * committed snapshot at build time and lazy-import `./loader-live` (the
- * Postgres bodies) at request time; show details render on demand only and go
- * straight to the live module. This module must never statically import
- * `@/db` — the DB-free CI build depends on it. Episode `pubDate` crosses into
- * a client component, so it is exposed as epoch-ms (`pubDateMs`), never a `Date`.
- *
- * Note on the episode URL — two shapes:
- *   - RSS shows: one per-episode `external_links(listen)`, its url the same MP3
- *     enclosure as `podcast_episode_details.audio_url` (1:1). The reader exposes
- *     `audioUrl`, which drives both inline play and download.
- *   - YouTube shows (e.g. luetin09): `audio_url` is NULL — there is no MP3 — and
- *     the episode carries `external_links(kind='watch', serviceId='youtube')`
- *     pointing at the video. The reader exposes that as `watchUrl`; the archive
- *     row renders a "View ↗" out-link instead of "Listen ↗" + inline player.
- * "Listen in your app" stays served by the show-level `platformLinks`.
+ * RSS episodes expose MP3 `audioUrl`; video-only episodes expose `watchUrl`.
+ * Client-facing publication dates cross the boundary as epoch milliseconds.
  */
 import "server-only";
 import { cache } from "react";

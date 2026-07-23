@@ -1,43 +1,12 @@
 "use client";
 
 /**
- * DetailModal — the ONE in-context detail overlay, shared by the book and the
- * four entity intercepts. A single shell: a LARGE
- * CENTERED card with a prominent "← Back" as the primary close affordance. The
- * `@modal/(.)*` intercepts are Server Components that call the same `loadBook` /
- * `loadEntity` and render the same db-free `<BookDetailView>` / `<EntityView>`
- * into `children`, so the overlay and the canonical full page show the identical
- * body — zero fork.
+ * Shared intercept shell: modal and canonical routes render the same detail
+ * components. Close uses history back; entity-to-entity hops replace in-shell,
+ * book hops push one entry, and non-detail links leave the overlay.
  *
- * Interaction model:
- *   - Open: any in-app `<Link>` to a single-segment detail URL (`/book/[slug]`,
- *     `/faction/[id]`, `/character/[id]`, `/world/[id]`, `/person/[id]`)
- *     soft-navigates and the matching `@modal` intercept mounts this shell over
- *     the current context (e.g. the /werke table, the compendium). A hard nav /
- *     refresh / shared link skips the intercept and renders the canonical full
- *     page (SEO + deep links unaffected).
- *   - Close (Return button / Escape / backdrop) → `router.back()`, unwinding
- *     the push so it lands on the origin context.
- *   - Flat model: an in-modal click on another ENTITY detail link (a faction chip
- *     inside a book, a character inside a world, …) is rewritten to
- *     `router.replace`, so the body swaps IN THE SAME SHELL without stacking
- *     history — one Back still closes to the origin.
- *   - Books swap IN-SHELL: a `/book/<slug>` link clicked from inside the popup
- *     `router.push`-es (one new history entry) so the book body mounts in THIS
- *     SAME shell and "← Back" returns to the origin (usually entity) popup.
- *     Unlike the entity-to-entity replace above, the book hop DOES stack one
- *     history step — that single Back is what walks the reader back to where
- *     they came from.
- *   - Two-segment links (`/book/[slug]/audit`), external/new-tab and non-detail
- *     links (e.g. a `/podcasts/…#ep-…` related-work) pass through and navigate
- *     away, clearing the overlay via the catch-all slot.
- *   - A11y to the WAI-ARIA APG "Dialog (Modal)" pattern: focus moves in on open,
- *     Tab is trapped, Escape closes, focus returns to the trigger, the page
- *     behind the dialog is made `inert` while it is open (`aria-modal` only
- *     *claims* the background is unreachable; `inert` enforces it for clicks
- *     and AT, the SiteMenu counterpart pattern), body scroll is
- *     locked. `prefers-reduced-motion` is honoured by the global cascade in
- *     10-base.css.
+ * Implements the APG modal contract: focus entry/trap/restore, Escape/backdrop
+ * close, inert background and body scroll lock.
  */
 
 import { useEffect, useRef } from "react";
@@ -48,9 +17,7 @@ import { TYPE_TO_ROUTE } from "@/lib/entity/types";
 // @modal intercept mounts it (also imported by DetailModalSkeleton).
 import "@/app/styles/64-detail-modal.css";
 
-/** Single-segment detail links the panel keeps in-shell (→ in-panel replace-nav).
- *  `/book/<slug>` plus every entity route; a trailing query/hash is allowed, but
- *  a second path segment (e.g. `/book/<slug>/audit`) is NOT — it must leave. */
+/** Single-segment detail links stay in-shell; deeper paths leave the modal. */
 const DETAIL_PREFIXES = ["/book", ...Object.values(TYPE_TO_ROUTE)];
 const DETAIL_HREF = new RegExp(
   `^(?:${DETAIL_PREFIXES.join("|")})/[^/?#]+(?:[?#].*)?$`,

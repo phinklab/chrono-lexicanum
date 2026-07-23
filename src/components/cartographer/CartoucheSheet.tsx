@@ -1,29 +1,12 @@
 "use client";
 
 /**
- * CartoucheSheet — the chart drawer, the cartouche's mobile counterpart.
- * Rendered alongside the desktop cartouche and CSS-gated to ≤900px, where the
- * corner cartouche has no room: a slim dock pinned to the bottom edge (grip,
- * seek pill, state badges) that expands into a bottom sheet carrying the same
- * vocabulary — SeekHead, the Great Journeys and the interactive legend
- * (overlays + census, the children). Opening the sheet is the ONE disclosure
- * level; journeys and legend stand under static captions, and only the
- * journeys' era groups, the census's type groups and the seek's A–Z index
- * still unfold — never more than two levels deep (NN/g progressive
- * disclosure, WM-B1).
+ * Mobile counterpart to the desktop cartouche: a dock expands into shared
+ * seek, journey and legend controls. The root owns open state for back-button
+ * dismissal; this component owns drag and closes after a seek/course pick.
  *
- * State flows through the same reducer dispatches as the desktop cartouche;
- * "is the sheet open" lives in the root (the phone back-guard needs to close
- * it), this component owns only the drag. Picking a seek hit or a course
- * collapses the sheet so the camera flight stays visible.
- *
- * Drag: a small Pointer-Events follow on the grip with a distance threshold
- * on release — from open the sheet follows via transform; from closed the
- * sheet's HEIGHT follows the finger (class `dragging` reveals the body), so
- * the panel content genuinely rises from the bottom edge instead of the dock
- * bar just sliding up over the chart. Deliberately not a scroll-snap sheet,
- * which would fight the census's inner scrolling and the chart's
- * touch-action:none.
+ * Closed drag changes height so content rises with the grip; open drag uses
+ * transform. Scroll-snap is avoided because the census scrolls internally.
  */
 
 import { useEffect, useRef } from "react";

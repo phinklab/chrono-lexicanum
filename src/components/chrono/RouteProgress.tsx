@@ -14,28 +14,11 @@ import { useRouter } from "next/navigation";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 
 /**
- * The ONE shared perceived-latency mechanic. A single `useTransition` lives
- * here, at the root, and every server-bound programmatic navigation routes
- * through it so React marks the click→stream gap as "pending" the instant it
- * starts — instead of the UI sitting dead until the target paints. The
- * reference shape is `AskClient` (`startTransition(() => router.push(…))`);
- * this provider generalizes it so the three search consoles (Home / Browse /
- * Podcasts) and the in-modal hops share it, and any future navigator
- * inherits the behaviour by calling `useRouteNav()`.
- *
- * Two layers stack: this drives the global top beam + the inline search
- * affordance (click→stream); `loading.tsx` boundaries cover stream→paint.
- *
- * Split into two contexts on purpose:
- *   - NavActionsContext — `{ navigate, replace }`, identity-stable, so a
- *     component that only navigates never re-renders when pending toggles.
- *   - NavStateContext — `{ isPending, pendingVisible }`, read only by the few
- *     bits that render a pending affordance.
- *
- * `isPending` is raw (drives `aria-busy` — AT learns immediately). The VISIBLE
- * indicator follows `pendingVisible`, which only flips true after the nav has
- * stayed pending past the anti-flash threshold, so an instant or cached
- * navigation resolves first and never paints a flash.
+ * Shared transition for programmatic server-bound navigation. Action and state
+ * contexts are split so action-only consumers do not re-render on pending
+ * changes. Raw `isPending` drives accessibility immediately; delayed
+ * `pendingVisible` prevents visual flashes on instant/cached navigation.
+ * Route loading boundaries cover the later stream-to-paint phase.
  */
 
 type NavOptions = { scroll?: boolean };
