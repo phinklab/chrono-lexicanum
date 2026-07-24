@@ -2,8 +2,9 @@
 title: Deferred questions (dormant)
 type: overview
 created: 2026-05-09
-updated: 2026-07-10
+updated: 2026-07-24
 sources:
+  - ../../sessions/2026-07-24-265-impl-dependabot-endspurt.md
   - ../../sessions/2026-07-10-193-impl-brain-launch-rollup.md
   - ../../sessions/2026-07-08-187-impl-artwork-footer-mobile-i18n.md
   - ../../sessions/2026-07-03-180-impl-ci-test-gate-wartung.md
@@ -75,7 +76,8 @@ Some streamed `redirect()` paths can emit a meta refresh after the loading shell
 
 **Owner:** maintenance triggers, no standing brief.
 
-- **ESLint 10:** remain on ESLint 9 until the Next-bundled plugins support ESLint 10 and the Dependabot PR's lint job is green. Plain-close incompatible PRs; do not issue a permanent ignore.
+- **ESLint 10:** remain on ESLint 9 until the Next-bundled plugins support ESLint 10 and the Dependabot PR's lint job is green. Plain-close incompatible PRs; do not issue a permanent ignore. Applied 2026-07-24 to PR #272 (ESLint 10.7 hard-crashes; `eslint-config-next` plugins peer-pin `eslint ^9`); the next green-lint ESLint-10 PR is the re-evaluation trigger.
+- **Freeze note:** until launch a general dependency freeze holds (Session 265, 2026-07-24) — only critical security fixes land; all other Dependabot PRs wait or get closed.
 - **Node types:** keep `@types/node` aligned with the actual Node 22 runtime. Upgrade runtime, `.nvmrc`, `engines`, Vercel setting and types together (next sensible target: an active LTS), never types alone.
 
 ## Promoted out of deferred on 2026-07-10

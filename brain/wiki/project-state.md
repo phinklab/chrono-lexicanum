@@ -2,11 +2,12 @@
 title: Project state
 type: overview
 created: 2026-05-09
-updated: 2026-07-23
+updated: 2026-07-24
 sources:
   - ../../sessions/README.md
   - ../../docs/launch-master-plan.md
   - ../../docs/werkstatt-roadmap.md
+  - ../../sessions/2026-07-24-265-impl-dependabot-endspurt.md
   - ../../sessions/2026-07-23-259-impl-dependency-audit-fix.md
   - ../../sessions/2026-07-21-257-impl-text-delint-emdash.md
   - ../../sessions/2026-07-21-256-impl-nav-curator-compendium.md
@@ -32,7 +33,7 @@ related:
 confidence: high
 ---
 
-# Project state — 2026-07-23
+# Project state — 2026-07-24
 
 > Current-state anchor. History lives in [`log.md`](./log.md), git and the session reports.
 
@@ -45,6 +46,7 @@ Chrono · Lexicanum is at the end of the **pre-launch workshop phase**. The mand
 - **W3a-B1 character connections moved to the post-launch backlog on 2026-07-22.** Its co-occurrence-v1 cut is still decision-ready in the workshop roadmap, but it is no longer a pre-launch task.
 - Sessions 255–257 / PRs #286–#288 added the current site-wide navigation and typography system, folded the Curator tools into the Compendium, and introduced the required rendered-text Em-dash lint.
 - Session 259 / PR #291 restored the production dependency audit after new PostCSS/Sharp advisories: Next and its ESLint preset are on 16.2.11, and narrow overrides deduplicate Next onto the patched direct dependencies.
+- Session 265 closed the Dependabot backlog (2026-07-24): PRs #292 (npm minor/patch group), #269 (setup-node 7) and #270 (actions/cache 6) merged with verified/observed green CI; #272 (ESLint 10) plain-closed per the deferred-questions policy. A **dependency freeze holds until launch** (critical security fixes excepted).
 
 The only pre-launch implementation work left is **S7b**, then the pixel-identical **S11 code PR**, followed by the fixed launch endgame. Release still waits for the complete artist artwork; there is no launch-date pressure.
 
@@ -53,6 +55,7 @@ The only pre-launch implementation work left is **S7b**, then the pixel-identica
 - `main` is read-only; every durable change reaches it through a task branch and PR.
 - Launch/workshop sessions run serially from the **coordination worktree** under the temporary E8 exception. PR contents remain strand-pure; `brain/**` and `sessions/README.md` remain coordination-only.
 - The preview gate and individually revocable invite machinery remain load-bearing until gate-off. PL1 never runs before launch.
+- **Dependency freeze until launch** (Session 265, 2026-07-24): no dependency updates land before launch except critical security fixes; incoming Dependabot PRs are closed or left unmerged meanwhile.
 
 ## Product now
 
