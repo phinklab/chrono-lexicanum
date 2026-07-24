@@ -5,12 +5,14 @@
 ## Spielregeln (jede Session)
 
 - **Eine Session pro Posten.** Frische CC-Session, Prompt aus dem passenden Block unten einfügen.
-- Koordinations-Worktree (`C:\Users\Phil\chrono-lexicanum`, E8), frischer Branch von `origin/main`; Branch-Name steht im Prompt (`NNN` = nächste freie Session-Nummer — vorher `sessions/` auf die höchste Nummer prüfen, Lehre aus der Kollision, die PR #268 auflösen musste; Stand 2026-07-24: höchste vergebene **263** (261 blieb unbelegt und wird nicht rückwirkend vergeben), nächste freie **264**).
+- Koordinations-Worktree (`C:\Users\Phil\chrono-lexicanum`, E8), frischer Branch von `origin/main`; Branch-Name steht im Prompt (`NNN` = nächste freie Session-Nummer — vorher `sessions/` auf die höchste Nummer prüfen, Lehre aus der Kollision, die PR #268 auflösen musste; Stand 2026-07-24: höchste vergebene **266** (261 blieb unbelegt und wird nicht rückwirkend vergeben), nächste freie **267**).
 - **Kein Commit/PR, bis Philipp „fertig" sagt.** Philipp merged selbst; „ist gemerged" → Standard-Cleanup (Merge verifizieren, `fetch --prune`, zurück auf `main`, Task-Branch löschen).
 - Bewertungsrunden fassen keinen Produktcode an. Bei Urteil **bauen** wird der Zuschnitt in der Runde besprochen; sehr kleine Posten dürfen nach Absprache direkt in derselben Session umgesetzt werden, wenn sie strang-rein bleiben.
 - UI-Abnahme durch Philipp im Browser, keine Headless-Loops. Gates pro PR: `typecheck`, `lint`, `test`, `next build`; `brain:lint` wenn `brain/**` berührt.
 - Parallele Strang-Arbeit ist ok, solange die Pfade disjunkt bleiben; ein Dev-Server pro Worktree, bei zwei Worktrees Ports trennen (Koordination z. B. `PORT=3001`).
 - **Nach jeder Session diese Datei nachführen** (Status-Haken im Fahrplan, neue Urteile/Backlog-Zeilen, ggf. neue Prompts) — die Änderung fährt im Session-PR mit. Erledigte Posten samt Prompt wandern beim nächsten Schnitt ins Archiv-File, nicht hierher zurück.
+- **Der Haken wird im PR gesetzt, nicht nach dem Merge.** Ein Posten gilt erst als fertig, wenn `☐` → `☑` im Fahrplan **Teil desselben PR** ist — nicht als Nachtrag hinterher. Wer „fertig" sagt, hat den Haken schon im Diff. So kann `main` nie einen erledigten Posten als offen führen.
+- **Erledigte Prompts unsichtbar machen.** Beim Haken bekommt die zugehörige Prompt-Sektion unten (a) eine durchgestrichene Überschrift `### ~~NN · CODE — Titel~~ ✅` und (b) ihren `text`-Fence in einem `<details><summary>Prompt (erledigt)</summary>`-Block. Etwaige `>`-Statusnotizen bleiben *außerhalb* des Blocks stehen. Damit steht beim Runterscrollen nur noch offen da, was auch wirklich noch laufen soll.
 - Ab Posten 15 (H1) gilt **Dependency-Freeze** bis zum Launch (Ausnahme: kritische Security-Fixes).
 
 ## Fahrplan (Reihenfolge = Wahrheit)
@@ -23,7 +25,7 @@
 | 15 | **H1** — Dependabot-Endspurt (#292/#269/#270 mergen, #272 schließen) | Wartung | — | ☑ |
 | 16 | **H2** — Weekly Refresh W30 (#281) kuratieren | Batches (Delta-Pfad) | H1 empfohlen | ☑ |
 | 17 | **B1** — Era-Anker-Backfill (`primary_era_id` 97 → 896) | Bau (Batches, M) | — | ☐ |
-| 18 | **K1** — Karten-Geometrie: Ruinstorm + Ultramar | Bau (Product, S) | — | ☐ |
+| 18 | **K1** — Karten-Geometrie: Ruinstorm + Ultramar | Bau (Product, S) | — | ☑ |
 | 19 | **K2** — Journey-Flicker-Check (bes. Terra) | Diagnose | Gate vor K3 | ☐ |
 | 20 | **K3** — Journey-Routen: Warp-Linien + Kontinuität + Sol-Texte | Bau (Product, S–M) | K2 | ☐ |
 | 21 | **K4** — „Zum Buch"-Links neu lösen | Bau (Product, M) | — | ☐ |
@@ -60,7 +62,9 @@ Volle Urteils-Begründungen im [Archiv](./werkstatt-roadmap-archive.md) § Urtei
 
 ## Prompts — Endspurt (Posten 14–32)
 
-> Kurz-Prompts für Plan-Mode-Sessions. Die Spielregeln oben gelten für jede davon (Koordinations-Worktree, frischer Branch von `origin/main`, kein Commit/PR bis „fertig", UI-Abnahme im Browser, danach Fahrplan-Haken hier). Der Kürze halber wiederholen die Prompts das nicht.
+> Kurz-Prompts für Plan-Mode-Sessions. Die Spielregeln oben gelten für jede davon (Koordinations-Worktree, frischer Branch von `origin/main`, kein Commit/PR bis „fertig", UI-Abnahme im Browser, Fahrplan-Haken noch im selben PR). Der Kürze halber wiederholen die Prompts das nicht.
+>
+> **Lesehilfe:** ~~Durchgestrichene~~ Überschriften mit ✅ sind erledigt, ihr Prompt steckt eingeklappt in einem `<details>`-Block. Was hier aufgeklappt steht, soll noch laufen.
 
 ### 14 · A0 — Timeline-Artwork-Akquise
 
@@ -71,19 +75,27 @@ Plan-Mode: Timeline-Artwork-Akquise (W1-Gate-Blocker, längster externer Vorlauf
 Inventarisiere benötigte Era-/Event-Bilder gegen vorhandene Assets + Credits (Timeline-Seeds, Era-Credits, Event-Art-Overrides), priorisiere die anzuschreibenden Künstler und formuliere versandfertige Kurz-Anfragen (Rechte, Credit, Format, Deadline) + sauberen No-Response-Fallback. Noch nichts integrieren. Branch: codex/session-NNN-artwork-akquise.
 ```
 
-### 15 · H1 — Dependabot-Endspurt
+### ~~15 · H1 — Dependabot-Endspurt~~ ✅
+
+<details><summary>Prompt (erledigt)</summary>
 
 ```text
 Dependabot-Endspurt (Stand 2026-07-24: alle vier offen und mergeable): #292 Minor/Patch-Gruppe (React/Sentry — vorher Build, Tests, Smoke auf aktuellem main), danach #269 setup-node 7 und #270 actions/cache 6 einzeln und nacheinander (je einen echten CI-Lauf beobachten), #272 ESLint 10 mit dokumentierter Begründung schließen (Lint rot, Next-/Plugin-Stack inkompatibel — kein Dauer-Ignore, post-launch neu bewerten). Erst Triage-Plan mit Merge-Empfehlung je PR vorlegen; gemergt wird erst nach meinem Go. Danach gilt Dependency-Freeze bis zum Launch (Ausnahme: kritische Security-Fixes). Branch: codex/session-NNN-dependabot-endspurt.
 ```
 
-### 16 · H2 — Weekly Refresh W30 (#281)
+</details>
+
+### ~~16 · H2 — Weekly Refresh W30 (#281)~~ ✅
 
 > Erledigt 2026-07-24 (Detection-PR #281 + Kuratierungs-PR #299). Merke fürs nächste Mal: #281 ließ sich nur mit `--admin` mergen — GitHub startet auf Action-erstellten PRs keine Workflows, der required Check `lint-and-typecheck` läuft dort also nie. Inhalt: `W40K-0600` *Ghosts of Cadia* promoviert (per-Book-SSOT, neuer Schauplatz Parrescum, noch **ohne** Setting-Datum → `primary_era_id` NULL, fällt damit an Posten 17), *Flames of Betrayal* als Duplikat von `HH-0069` ignoriert, je 2 Episoden für `the-40k-lorecast` + `adeptus-ridiculous` über den Delta-Pfad, Cursors gestempelt. Equivalence-Gate gelockert (`extraPerBook` zählt nicht mehr als Fehler — es hätte jede künftige Neuerscheinung blockiert). Vier unaufgelöste Surface-Formen + die Longshot-Facette laufen in Posten **28a (B2)** mit. Produktions-Apply bleibt bei Posten 30.
+
+<details><summary>Prompt (erledigt)</summary>
 
 ```text
 Weekly Refresh W30 (#281) vollständig verarbeiten (Weekly-Refresh-Konventionen): Detection-PR nach Review mergen (mein Go), dann kuratieren — „Ghosts of Cadia" und die Flames-of-Betrayal-Kollision entscheiden, die zwei neuen Podcast-Episoden über den Delta-Pfad, anschließend refresh:mark-reviewed -- --books (erst mergen, dann marken). Source-first — kein Produktions-Apply; der landet im finalen Content-Release (Posten 30). Branch: codex/ingest-batches-weekly-w30.
 ```
+
+</details>
 
 ### 17 · B1 — Era-Anker-Backfill
 
@@ -94,7 +106,11 @@ Weg (SSOT, nie direkt in die DB): (1) Feldnamen in scripts/seed-data/books/ an e
 Abnahme-Hinweis für den Report: Nach dem Merge kann das Librarium den Recurring-Cast-Ära-Toggle bauen (Heresy vs. 41st Millennium, Radio-Toggle wie „Banners on the Shelves") — post-launch.
 ```
 
-### 18 · K1 — Karten-Geometrie: Ruinstorm + Ultramar
+### ~~18 · K1 — Karten-Geometrie: Ruinstorm + Ultramar~~ ✅
+
+> Erledigt 2026-07-24 (Session 266, Branch `codex/product-map-zone-fixes`). Nur `src/lib/map/zones.json` angefasst — Renderer, Weltkoordinaten und Nachbarzonen blieben unberührt. Gemessen wurde gegen den *gerenderten* Bézier-Umriss, nicht gegen das Kontrollpolygon: die Glättung (Chaikin + Catmull-Rom) zieht die Kurve nach innen, weshalb Calth im Rohpolygon „drin" lag und trotzdem draußen gezeichnet wurde. **Ruinstorm** (`zone-22`): Westflanke bis x≈509 vorgezogen, Davin liegt jetzt 35 Einheiten innen statt 81 draußen; Ostseite unverändert. **Ultramar** (`zone-3`): Südost-Flanke ausgebeult — Calth (8,2), Latona (18,0), Saramanth (15,8) und Sotha (5,7) drin, Espandor von 1,1 auf 6,4 Puffer. Drei Befunde für später: der Davin-Pin liegt im Maelstrom-Umriss (`zone-6` wird zu 96 % vom neuen Sturm überdeckt — bewusst so entschieden, Pin liegt in Batches-Gebiet); Magniat kommt als einzige ungewollte Zugabe mit (9 Einheiten von Espandor, nicht trennbar); die Ruinstorm-**Ost**kante umschließt Ultramar weiterhin nicht (Macragge 85 draußen) — kanonisch diskutabel, war nicht Auftrag. Details im Impl-Report `sessions/2026-07-24-266-impl-product-map-zone-fixes.md`.
+
+<details><summary>Prompt (erledigt)</summary>
 
 ```text
 Cartographer-Geometrie-Korrektur (Product, S):
@@ -102,6 +118,8 @@ Cartographer-Geometrie-Korrektur (Product, S):
 (b) Ultramar nachziehen — Calth (aktuell draußen), Latona und Saramanth müssen in allen relevanten Zeitständen innerhalb der Zone liegen.
 Erst Weltkoordinaten + Zonengeometrie verifizieren (src/lib/map/zones.json, Zone-Editor /map?zones=edit; im Repo-Root liegt ein möglicher Zwischenstand zones-draft-backup-2026-07-18.json — vor Beginn klären, ob der einfließen soll), dann nur die nötige Kuration ändern. SVG-/Canvas-Parität + Nachbarzonen prüfen; Formen-Abnahme durch mich im Browser. Branch: codex/product-map-zone-fixes.
 ```
+
+</details>
 
 ### 19 · K2 — Journey-Flicker-Check
 
