@@ -21,7 +21,7 @@
 |---|---|---|---|---|
 | 14 | **A0** — Timeline-Artwork-Akquise (extern, sofort anstoßen) — Dossier + Versandvorlagen: [`artwork-akquise.md`](./artwork-akquise.md) (Session 264); offen ist der menschliche Versand | Koordination + Mensch | — (längster Vorlauf, W1-Gate) | ☐ |
 | 15 | **H1** — Dependabot-Endspurt (#292/#269/#270 mergen, #272 schließen) | Wartung | — | ☐ |
-| 16 | **H2** — Weekly Refresh W30 (#281) kuratieren | Batches (Delta-Pfad) | H1 empfohlen | ☐ |
+| 16 | **H2** — Weekly Refresh W30 (#281) kuratieren | Batches (Delta-Pfad) | H1 empfohlen | ☑ PR #299 offen |
 | 17 | **B1** — Era-Anker-Backfill (`primary_era_id` 97 → 896) | Bau (Batches, M) | — | ☐ |
 | 18 | **K1** — Karten-Geometrie: Ruinstorm + Ultramar | Bau (Product, S) | — | ☐ |
 | 19 | **K2** — Journey-Flicker-Check (bes. Terra) | Diagnose | Gate vor K3 | ☐ |
@@ -53,7 +53,8 @@ Volle Urteils-Begründungen im [Archiv](./werkstatt-roadmap-archive.md) § Urtei
 - **W4 Provenienz-Badges** — konsolidiert die lokalen H/M/L-Wordings von `/now` + `/statistics`, falls je gebaut.
 - **W5 Podcasts auf Buchseite · W6 Size Comparison** — post-launch; W6 braucht zuerst einen Brief (Schema).
 - **WA-Reste:** Series-Status-Board (nach `seriesHint`-Promotion, eigener Batches-Posten), Verpasst-Generator (als `/now`-Erweiterung), Charakter-Dossiers (nach W3a-Bau), Spoiler-Graph (fern, Serien-Granularität).
-- **WP-Reste:** Galaspar-Pin (sobald Philipp Koordinaten abgelesen hat — XS, alles andere liegt bereit), Podcast-Aliasse (175 Formen vorsortiert in `scripts/seed-data/podcast-aliases.review.md`).
+- **WP-Reste:** Galaspar-Pin (sobald Philipp Koordinaten abgelesen hat — XS, alles andere liegt bereit), Podcast-Aliasse (175 Formen vorsortiert in `scripts/seed-data/podcast-aliases.review.md`) — dazu die vier unaufgelösten Formen aus Weekly W30: „Layak", „Sanguinor" (beide Charakter), „Shieldworlds", „Arx Angelicum" (beide Location). *Revisit-Trigger:* nächster Resolver-/Alias-Pass, oder sobald der Review-Stapel groß genug für eine eigene Batches-Session ist. Reine Datenpflege, kein Launch-Blocker (unaufgelöste Formen landen im Audit-Bucket, nichts geht kaputt).
+- **Entry-Point-Facetten des Longshot-Paars** — *Longshot* (`W40K-0132`) ist noch `standalone` getaggt, obwohl *Ghosts of Cadia* (`W40K-0600`, Weekly W30) es zur direkten Fortsetzung macht; sauber wäre `series_start` für Longshot bei `mid_series` für Ghosts (letzteres ist schon so getaggt). XS, zwei per-Book-Dateien. *Revisit-Trigger:* nächste Batches-Session, die ohnehin `scripts/seed-data/books/**` anfasst — z. B. Posten 17 (B1). Ohne Fix filtert „Einstiegspunkt" das Paar leicht irreführend.
 
 ---
 
@@ -77,6 +78,8 @@ Dependabot-Endspurt (Stand 2026-07-24: alle vier offen und mergeable): #292 Mino
 ```
 
 ### 16 · H2 — Weekly Refresh W30 (#281)
+
+> Stand 2026-07-24: Detection-PR #281 gemerged (nur mit `--admin` — GitHub startet auf Action-erstellten PRs keine Workflows, der required Check `lint-and-typecheck` läuft dort nie), Kuratierung in **PR #299**: `W40K-0600` *Ghosts of Cadia* promoviert (per-Book-SSOT, neuer Schauplatz Parrescum, noch **ohne** Setting-Datum → `primary_era_id` NULL, fällt damit an Posten 17), *Flames of Betrayal* als Duplikat von `HH-0069` ignoriert, je 2 Episoden für `the-40k-lorecast` + `adeptus-ridiculous` über den Delta-Pfad, Cursors gestempelt. Equivalence-Gate gelockert (`extraPerBook` zählt nicht mehr als Fehler — es hätte jede künftige Neuerscheinung blockiert). Zwei Datenpflege-Reste sind im Backlog vermerkt. Produktions-Apply bleibt bei Posten 30.
 
 ```text
 Weekly Refresh W30 (#281) vollständig verarbeiten (Weekly-Refresh-Konventionen): Detection-PR nach Review mergen (mein Go), dann kuratieren — „Ghosts of Cadia" und die Flames-of-Betrayal-Kollision entscheiden, die zwei neuen Podcast-Episoden über den Delta-Pfad, anschließend refresh:mark-reviewed -- --books (erst mergen, dann marken). Source-first — kein Produktions-Apply; der landet im finalen Content-Release (Posten 30). Branch: codex/ingest-batches-weekly-w30.
