@@ -19,7 +19,7 @@
 
 | # | Posten | Art | Abhängigkeit | Status |
 |---|---|---|---|---|
-| 14 | **A0** — Timeline-Artwork-Akquise (extern, sofort anstoßen) | Koordination + Mensch | — (längster Vorlauf, W1-Gate) | ☐ |
+| 14 | **A0** — Timeline-Artwork-Akquise (extern, sofort anstoßen) — Dossier + Versandvorlagen: [`artwork-akquise.md`](./artwork-akquise.md) (Session 264); offen ist der menschliche Versand | Koordination + Mensch | — (längster Vorlauf, W1-Gate) | ☐ |
 | 15 | **H1** — Dependabot-Endspurt (#292/#269/#270 mergen, #272 schließen) | Wartung | — | ☐ |
 | 16 | **H2** — Weekly Refresh W30 (#281) kuratieren | Batches (Delta-Pfad) | H1 empfohlen | ☐ |
 | 17 | **B1** — Era-Anker-Backfill (`primary_era_id` 97 → 896) | Bau (Batches, M) | — | ☐ |
@@ -62,6 +62,8 @@ Volle Urteils-Begründungen im [Archiv](./werkstatt-roadmap-archive.md) § Urtei
 > Kurz-Prompts für Plan-Mode-Sessions. Die Spielregeln oben gelten für jede davon (Koordinations-Worktree, frischer Branch von `origin/main`, kein Commit/PR bis „fertig", UI-Abnahme im Browser, danach Fahrplan-Haken hier). Der Kürze halber wiederholen die Prompts das nicht.
 
 ### 14 · A0 — Timeline-Artwork-Akquise
+
+> Stand Session 264 (2026-07-24): Inventar, priorisierte Kontaktliste und versandfertige Briefe (EN) liegen in [`artwork-akquise.md`](./artwork-akquise.md) — Herkunfts-Klärung mit Philipp: 6 Era-Cover KI → ersetzen, Bagnall lizenziert, Javelin05 retroaktiv anfragen, nur kostenlose Nutzungsanfragen (keine Kommissionen). Offen: Versand + Antworten (Tracking im Dossier § 5), danach A1.
 
 ```text
 Plan-Mode: Timeline-Artwork-Akquise (W1-Gate-Blocker, längster externer Vorlauf — sofort anstoßen, läuft menschlich parallel weiter).
