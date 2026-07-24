@@ -177,11 +177,24 @@ export async function runProjectionDiff(): Promise<ProjectionDiffResult> {
   };
 }
 
+/**
+ * Gate verdict. `extraPerBook` is deliberately NOT part of it (2026-W30):
+ * post-retirement, a per-book file with no legacy counterpart is the ADDITIVE
+ * case the path exists for — every book promoted from the weekly refresh
+ * (`add-book-runbook.md`) is one, and Legacy (`book-roster*.json`,
+ * `manual-overrides-ssot-*.json`, the Excel SSOT) stays frozen by design. Held
+ * against zero, the gate would reject every new release forever.
+ *
+ * What still proves the migration was lossless: `rowDeltas` (every legacy book
+ * projects to identical rows from its per-book file), `missingPerBook` (no
+ * legacy book lost its file), the file-validation issues, and the collection
+ * edge sets. Extras are still counted and listed in the report — visible, not
+ * failing.
+ */
 export function isClean(r: ProjectionDiffResult): boolean {
   return (
     r.rowDeltas.length === 0 &&
     r.missingPerBook.length === 0 &&
-    r.extraPerBook.length === 0 &&
     r.perBookFileIssues.length === 0 &&
     r.collectionsOnlyInLegacy.length === 0 &&
     r.collectionsOnlyInPerBook.length === 0
@@ -200,7 +213,7 @@ function writeProjectionReport(r: ProjectionDiffResult): string {
     `- books compared: ${r.total}`,
     `- corpus-owned row deltas (works + book_details + persons + facets + factions + locations + characters): ${r.rowDeltas.length}`,
     `- per-book files missing for a legacy book: ${r.missingPerBook.length}`,
-    `- per-book files with no legacy counterpart: ${r.extraPerBook.length}`,
+    `- per-book files with no legacy counterpart (additive, informational): ${r.extraPerBook.length}`,
     `- per-book file validation issues: ${r.perBookFileIssues.length}`,
     `- work_collections edges: legacy=${r.legacyCollectionCount} per-book=${r.perBookCollectionCount}; only-legacy=${r.collectionsOnlyInLegacy.length}, only-per-book=${r.collectionsOnlyInPerBook.length}`,
     "",
@@ -213,7 +226,7 @@ function writeProjectionReport(r: ProjectionDiffResult): string {
     lines.push("");
   };
   dump("Missing per-book files", r.missingPerBook);
-  dump("Extra per-book files", r.extraPerBook);
+  dump("Additive per-book files (no legacy counterpart — informational)", r.extraPerBook);
   dump("Per-book file validation issues", r.perBookFileIssues);
   dump("Collection edges only in legacy", r.collectionsOnlyInLegacy);
   dump("Collection edges only in per-book", r.collectionsOnlyInPerBook);

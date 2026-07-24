@@ -56,6 +56,10 @@
       "title": "First Founding",
       "reason": "already in the roster under another title / edition / reissue"
     },
+    "flames-of-betrayal": {
+      "title": "Flames of Betrayal",
+      "reason": "duplicate of an existing roster book: HH-0069 Flames of Betrayal (James Swallow omnibus, Garro: Knight of Grey + Era of Ruin); the tracker credits the omnibus to Various"
+    },
     "fulgrim-the-perfect-son": {
       "title": "Fulgrim: The Perfect Son",
       "reason": "duplicate of an existing roster book (title-slug collision)"

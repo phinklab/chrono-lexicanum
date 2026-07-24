@@ -7,15 +7,15 @@ Reproducible via: `PODCAST_LLM_MODEL=claude-sonnet-4-6 npm run ingest:podcast --
 - **Show:** The 40k Lorecast (slug `the-40k-lorecast`)
 - **Feed:** https://feeds.redcircle.com/cc233adb-de43-49be-bb76-9720292ddc98
 - **Apple id:** 1709093251
-- **Episodes:** 155
+- **Episodes:** 157
 - **Extraction model:** `claude-sonnet-4-6` (prompt version `3f6a5ff87efa`)
-- **Resolved coverage:** 145/155 episodes (93.5%) carry ≥1 resolved tag
-- **Resolved tags:** 553 total — 398 subject, 155 mentioned
-  - by type: 164 character, 284 faction, 105 location
-- **Episode kinds:** 145 lore, 1 news_recap, 0 interview, 9 other
+- **Resolved coverage:** 147/157 episodes (93.6%) carry ≥1 resolved tag
+- **Resolved tags:** 561 total — 403 subject, 158 mentioned
+  - by type: 169 character, 286 faction, 106 location
+- **Episode kinds:** 147 lore, 1 news_recap, 0 interview, 9 other
 - **Show links:** 5 (apple_podcasts, official_website, rss, spotify, youtube)
-- **Episode links:** 155/155 episodes carry an RSS audio link (`listen`/`rss`/`podcast_rss`)
-- **Distinct unresolved surface-forms:** 114
+- **Episode links:** 157/157 episodes carry an RSS audio link (`listen`/`rss`/`podcast_rss`)
+- **Distinct unresolved surface-forms:** 115
 
 ## Method (resolution reuse)
 
@@ -66,6 +66,7 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | character | Inquisitor Thrax | 1 |
 | character | Jurten | 1 |
 | character | Kaldor Draigo | 1 |
+| character | Layak | 1 |
 | character | Navigators | 1 |
 | character | Ortan Cassius | 1 |
 | character | Perigno | 1 |
@@ -163,39 +164,40 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 - **Date / kind:** 2024-04-29 · lore
 - **Tags:** `faction:adeptus_astartes` (subject, alias, “Space Marines”)
 
-### Episode 47 - Eldar pt 4 - Eldar Weapons, Vehicles, Wraithhosts, and a little bit of Ynnari
+### Episode 48 - The Talons of the Emperor pt 1 - Adeptus Custodes
 
-- **Date / kind:** 2024-08-12 · lore
-- **Tags:** `faction:eldar` (subject, alias, “Aeldari”); `faction:ynnari` (subject, name)
+- **Date / kind:** 2024-08-19 · lore
+- **Tags:** `character:trajann_valoris` (subject, name, “Trajann Valoris”); `character:abaddon_the_despoiler` (mentioned, alias, “Abaddon”); `faction:custodes` (subject, name, “Adeptus Custodes”)
+- **Unresolved:** “Valdor” (character)
 
 ### Episode 63 - "Where are they now" Primarch edition - the Traitors.
 
 - **Date / kind:** 2024-12-03 · lore
 - **Tags:** `character:alpharius` (subject, name); `character:angron` (subject, name); `character:horus` (subject, name); `character:konrad_curze` (subject, name, “Konrad Curze”); `character:lorgar` (subject, name); `character:magnus_the_red` (subject, name, “Magnus the Red”); `character:mortarion` (subject, name); `character:perturabo` (subject, name); `character:ahzek_ahriman` (mentioned, alias, “Ahriman”); `character:typhus` (mentioned, name)
 
-### Episode 78 - The Ynnari pt 1 - Ynnead, Yvraine, and the battle of Biel Tan
+### Episode 79 - Ynnari pt 2 - Yvraine grows her forces and Slaanesh realizes the threat that is Ynnead.
 
-- **Date / kind:** 2025-03-17 · lore
-- **Tags:** `character:the_yncarne` (subject, name, “The Yncarne”); `character:yvraine` (subject, name); `faction:eldar` (subject, alias, “Biel-Tan”); `faction:ynnari` (subject, alias, “Ynnead”); `location:commorragh` (mentioned, name)
-- **Unresolved:** “Skarbrand” (character); “Ursulia” (character)
+- **Date / kind:** 2025-03-24 · lore
+- **Tags:** `character:yvraine` (subject, name); `faction:eldar` (subject, alias, “Iyanden”); `faction:ynnari` (subject, name); `faction:slaanesh` (mentioned, name); `location:iyanden` (subject, name); `location:ulthwe` (subject, name)
+- **Unresolved:** “Eldrad” (character); “Belial IV” (location)
 
-### Bonus Episode - History of 40k - Episode 0 - How we started and what the show is all about
+### Episode 93 - The War of The Beast pt2. Terra is saved but the galaxy is still in danger
 
-- **Date / kind:** 2025-06-27 · other
-- **Tags:** _none resolved_
+- **Date / kind:** 2025-06-30 · lore
+- **Tags:** `faction:harlequins` (subject, name); `faction:orks` (subject, name); `faction:imperium` (mentioned, alias, “Imperium of Man”); `location:mars` (subject, name); `location:terra` (subject, name); `location:imperial_palace` (mentioned, name, “Imperial Palace”)
 
-### Episode 105 - The Ultramarines, from the start of the Heresy to the fall of Guilliman
+### Episode 106 - The Ultramarines, their epic characters!
 
-- **Date / kind:** 2025-09-22 · lore
-- **Tags:** `character:roboute_guilliman` (subject, name, “Roboute Guilliman”); `character:alpharius` (mentioned, name); `character:fulgrim` (mentioned, name); `faction:ultramarines` (subject, name); `faction:alpha_legion` (mentioned, name, “Alpha Legion”); `faction:emperors_children` (mentioned, name, “Emperor's Children”); `faction:word_bearers` (mentioned, name, “Word Bearers”); `location:calth` (subject, name); `location:monarchia` (subject, name)
+- **Date / kind:** 2025-09-29 · lore
+- **Tags:** `character:cato_sicarius` (subject, name, “Cato Sicarius”); `character:marneus_calgar` (subject, name, “Marneus Calgar”); `character:uriel_ventris` (subject, name, “Uriel Ventris”); `faction:ultramarines` (subject, name)
+- **Unresolved:** “Antaro Chronus” (character); “Ortan Cassius” (character); “Torias Telion” (character)
 
-### Episode 119 - Demetrian Titus - lead up to, events of, and post of Space Marine 2.
+### Episode 120 - 1st (ish) War of Armageddon - The Battle for Armageddon
 
-- **Date / kind:** 2025-12-30 · lore
-- **Tags:** `faction:ultramarines` (subject, name); `faction:deathwatch` (mentioned, name); `faction:inquisition` (mentioned, name)
-- **Unresolved:** “Demetrian Titus” (character); “Inquisitor Thrax” (character); “Kaduku” (location)
+- **Date / kind:** 2026-01-06 · lore
+- **Tags:** `character:angron` (subject, name); `faction:grey_knights` (subject, name, “Grey Knights”); `faction:inquisition` (subject, name); `faction:space_wolves` (subject, name, “Space Wolves”); `faction:mechanicus` (mentioned, name, “Adeptus Mechanicus”); `location:armageddon` (subject, name)
 
-### Bonus Episode - Adepticon Recap
+### Episode 134 - The Siege of Vraks pt 2 - The arrival of Chaos and escalation of Vraks
 
-- **Date / kind:** 2026-03-31 · other
-- **Tags:** _none resolved_
+- **Date / kind:** 2026-04-13 · lore
+- **Tags:** `faction:astra_militarum` (subject, alias, “Astra Militarum”); `faction:heretic_astartes` (subject, alias, “Chaos Space Marines”); `faction:adeptus_astartes` (mentioned, alias, “Space Marines”); `location:vraks_prime` (subject, alias, “Vraks”)
