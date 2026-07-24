@@ -20,8 +20,8 @@
 | # | Posten | Art | Abhängigkeit | Status |
 |---|---|---|---|---|
 | 14 | **A0** — Timeline-Artwork-Akquise (extern, sofort anstoßen) — Dossier + Versandvorlagen: [`artwork-akquise.md`](./artwork-akquise.md) (Session 264); offen ist der menschliche Versand | Koordination + Mensch | — (längster Vorlauf, W1-Gate) | ☐ |
-| 15 | **H1** — Dependabot-Endspurt (#292/#269/#270 mergen, #272 schließen) | Wartung | — | ☐ |
-| 16 | **H2** — Weekly Refresh W30 (#281) kuratieren | Batches (Delta-Pfad) | H1 empfohlen | ☑ PR #299 offen |
+| 15 | **H1** — Dependabot-Endspurt (#292/#269/#270 mergen, #272 schließen) | Wartung | — | ☑ |
+| 16 | **H2** — Weekly Refresh W30 (#281) kuratieren | Batches (Delta-Pfad) | H1 empfohlen | ☑ |
 | 17 | **B1** — Era-Anker-Backfill (`primary_era_id` 97 → 896) | Bau (Batches, M) | — | ☐ |
 | 18 | **K1** — Karten-Geometrie: Ruinstorm + Ultramar | Bau (Product, S) | — | ☐ |
 | 19 | **K2** — Journey-Flicker-Check (bes. Terra) | Diagnose | Gate vor K3 | ☐ |
@@ -79,7 +79,7 @@ Dependabot-Endspurt (Stand 2026-07-24: alle vier offen und mergeable): #292 Mino
 
 ### 16 · H2 — Weekly Refresh W30 (#281)
 
-> Stand 2026-07-24: Detection-PR #281 gemerged (nur mit `--admin` — GitHub startet auf Action-erstellten PRs keine Workflows, der required Check `lint-and-typecheck` läuft dort nie), Kuratierung in **PR #299**: `W40K-0600` *Ghosts of Cadia* promoviert (per-Book-SSOT, neuer Schauplatz Parrescum, noch **ohne** Setting-Datum → `primary_era_id` NULL, fällt damit an Posten 17), *Flames of Betrayal* als Duplikat von `HH-0069` ignoriert, je 2 Episoden für `the-40k-lorecast` + `adeptus-ridiculous` über den Delta-Pfad, Cursors gestempelt. Equivalence-Gate gelockert (`extraPerBook` zählt nicht mehr als Fehler — es hätte jede künftige Neuerscheinung blockiert). Zwei Datenpflege-Reste sind im Backlog vermerkt. Produktions-Apply bleibt bei Posten 30.
+> Erledigt 2026-07-24 (Detection-PR #281 + Kuratierungs-PR #299). Merke fürs nächste Mal: #281 ließ sich nur mit `--admin` mergen — GitHub startet auf Action-erstellten PRs keine Workflows, der required Check `lint-and-typecheck` läuft dort also nie. Inhalt: `W40K-0600` *Ghosts of Cadia* promoviert (per-Book-SSOT, neuer Schauplatz Parrescum, noch **ohne** Setting-Datum → `primary_era_id` NULL, fällt damit an Posten 17), *Flames of Betrayal* als Duplikat von `HH-0069` ignoriert, je 2 Episoden für `the-40k-lorecast` + `adeptus-ridiculous` über den Delta-Pfad, Cursors gestempelt. Equivalence-Gate gelockert (`extraPerBook` zählt nicht mehr als Fehler — es hätte jede künftige Neuerscheinung blockiert). Zwei Datenpflege-Reste sind im Backlog vermerkt. Produktions-Apply bleibt bei Posten 30.
 
 ```text
 Weekly Refresh W30 (#281) vollständig verarbeiten (Weekly-Refresh-Konventionen): Detection-PR nach Review mergen (mein Go), dann kuratieren — „Ghosts of Cadia" und die Flames-of-Betrayal-Kollision entscheiden, die zwei neuen Podcast-Episoden über den Delta-Pfad, anschließend refresh:mark-reviewed -- --books (erst mergen, dann marken). Source-first — kein Produktions-Apply; der landet im finalen Content-Release (Posten 30). Branch: codex/ingest-batches-weekly-w30.
