@@ -1774,3 +1774,11 @@ Von Philipp beauftragter „wir sind von der Doku gerade nicht auf dem aktuellen
 **Basis:** Session 259 / PR #291 ist gemergt (`main` `603e9e1`). Der neue Sharp-Advisory hatte den unveränderten Produktionsbaum von PR #290 im Audit rot gemacht; der eigenständige Product/Platform-PR hob Next + ESLint-Preset auf 16.2.11, deduplizierte Next per engen npm-Overrides auf PostCSS 8.5.16 und Sharp 0.35.3 und zog den DB-freien Cache-Test-Stub auf `generateSimpleCacheKey` nach. GitHub-Audit, Linux-Smokes und Vercel waren grün.
 
 **Coordination-Nachzug:** `origin/main` wurde konfliktfrei in `codex/session-257-brain-rollup` gemergt. `sessions/README.md` nennt jetzt `603e9e1` / PR #291 als Head und führt Session 259; `docs/werkstatt-roadmap.md` nennt 260 als nächste freie Nummer; `project-state.md` und `index.md` dokumentieren die wieder grüne Dependency-Audit-Baseline. Die Launch-Queue bleibt unverändert: S7b → S11 → Launch-Endspiel. Das ungetrackte `zones-draft-backup-2026-07-18.json` blieb unangetastet.
+
+---
+
+## 2026-07-24 · Ingest · Session 265 Dependabot-Endspurt + Dependency-Freeze
+
+**Basis:** Session 265 (maintainer-prompted, Coordination-Worktree, serieller Launch-Modus). Die vier offenen Dependabot-PRs wurden abgeräumt: #292 (npm Minor/Patch-Gruppe, u. a. React 19.2.8, Sentry Browser 10.67, Anthropic SDK 0.114) nach lokaler Voll-Verifikation auf Merge-Stand gemerged; #269 (setup-node 7) und #270 (actions/cache 6) einzeln gemerged mit je einem beobachteten grünen CI-Lauf auf main; #272 (ESLint 10) per dokumentiertem Plain-Close geschlossen (harter Crash `scopeManager.addGlobals`, `eslint-config-next`-Plugins peer-pinnen `eslint ^9`) — exakt nach der bestehenden Policy in `deferred-questions.md` § Dependency major bumps, ohne `@dependabot ignore`.
+
+**Wiki-Ingest:** `project-state.md` (Phase-Bullet Session 265 + Freeze-Bullet im Working mode, `updated` 2026-07-24) und `deferred-questions.md` (ESLint-Eintrag um den Anwendungsfall #272 ergänzt, Freeze-Note) nachgezogen. **Dependency-Freeze bis Launch** (Ausnahme: kritische Security-Fixes) ist ab 2026-07-24 verbindlich. Das ungetrackte `zones-draft-backup-2026-07-18.json` blieb unangetastet.

@@ -20,10 +20,10 @@ confidence: high
 
 | Page | Description | Updated |
 |---|---|---|
-| [project-state.md](./project-state.md) | Workshop construction complete through Session 257/PR #288; dependency-audit baseline current through Session 259/PR #291; only S7b/S11 + launch endgame remain. | 2026-07-23 |
+| [project-state.md](./project-state.md) | Workshop construction complete through Session 257/PR #288; Dependabot backlog cleared and dependency freeze active through Session 265; only S7b/S11 + launch endgame remain. | 2026-07-24 |
 | [worklist.md](./worklist.md) | Canonical open-work queue: S7b, S11 code, readiness/gate-off/quiet window; decided backlog is explicitly outside the pre-launch line. | 2026-07-22 |
 | [open-questions.md](./open-questions.md) | Queue empty; W3a-B1 is backlog, not an open launch decision. | 2026-07-22 |
-| [deferred-questions.md](./deferred-questions.md) | Post-launch/dormant work: preview removal, i18n, Atlas events, measured code splitting, secondary Eras, redirect and dependency triggers. | 2026-07-10 |
+| [deferred-questions.md](./deferred-questions.md) | Post-launch/dormant work: preview removal, i18n, Atlas events, measured code splitting, secondary Eras, redirect and dependency triggers incl. ESLint-10 re-evaluation. | 2026-07-24 |
 | [roadmap.md](./roadmap.md) | Phase-level status: workshop complete, quality passes current, fixed launch endgame and decided post-launch backlog. | 2026-07-22 |
 
 ## System pages
