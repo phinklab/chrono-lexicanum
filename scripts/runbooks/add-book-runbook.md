@@ -208,6 +208,12 @@ it (§ weekly-refresh-runbook).
 - **Weekly refresh detection** — corpus-aware: a promoted per-book file is
   projected into the effective roster, so the book is never re-proposed as "new"
   and its id is never re-handed-out (`scripts/refresh/effective-corpus.ts`).
+- **Equivalence gate** (`npm run equiv:diff` / `test-migration-equivalence.ts`) —
+  a genuinely-new book has **no** legacy counterpart, and that is fine: since
+  2026-W30 the gate counts such files (`extra=N`, listed in the report) without
+  failing. It still enforces the migration proof — every *legacy* book must
+  project to identical rows from its per-book file, and none may lose its file.
+  A red gate after adding a book means a real delta, not the additive-ness.
 
 ---
 

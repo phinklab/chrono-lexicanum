@@ -7,7 +7,7 @@
     "appleId": "1679817767",
     "podcastGuid": "7402e137-e25b-5a58-8cc6-252e308fd905",
     "imageUrl": "https://storage.buzzsprout.com/q6of4by1uqpz2q5d9mmcz5ymepfb?.jpg",
-    "episodeCount": 368,
+    "episodeCount": 370,
     "links": [
       {
         "serviceId": "apple_podcasts",
@@ -15903,6 +15903,187 @@
           "serviceId": "rss",
           "kind": "listen",
           "url": "https://www.buzzsprout.com/1497970/episodes/19463596-cypher-the-fallen-angel-who-walked-to-the-golden-throne-warhammer-40k-lore.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "Buzzsprout-19497377",
+      "title": "Devastation of Baal Part 1: Fall of the Shieldworlds | Warhammer 40k Lore",
+      "pubDate": "2026-07-15T16:00:00.000Z",
+      "durationSec": 6380,
+      "audioUrl": "https://www.buzzsprout.com/1497970/episodes/19497377-devastation-of-baal-part-1-fall-of-the-shieldworlds-warhammer-40k-lore.mp3",
+      "link": null,
+      "season": 1,
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "character",
+          "canonicalId": "commander_dante",
+          "rawName": "Commander Dante",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "blood_angels",
+          "rawName": "Blood Angels",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "hive_fleet_leviathan",
+          "rawName": "Hive Fleet Leviathan",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "tyranids",
+          "rawName": "Tyranids",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "astra_militarum",
+          "rawName": "Astra Militarum",
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "necrons",
+          "rawName": "Necrons",
+          "role": "mentioned",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "location",
+          "canonicalId": "baal",
+          "rawName": "Baal",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [
+        {
+          "rawName": "Sanguinor",
+          "axisGuess": "character",
+          "role": "subject"
+        },
+        {
+          "rawName": "Shieldworlds",
+          "axisGuess": "location",
+          "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://www.buzzsprout.com/1497970/episodes/19497377-devastation-of-baal-part-1-fall-of-the-shieldworlds-warhammer-40k-lore.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "Buzzsprout-19531716",
+      "title": "Devastation of Baal: Oh, so that's why they call it that | Warhammer 40k Lore",
+      "pubDate": "2026-07-22T16:00:00.000Z",
+      "durationSec": 6639,
+      "audioUrl": "https://www.buzzsprout.com/1497970/episodes/19531716-devastation-of-baal-oh-so-that-s-why-they-call-it-that-warhammer-40k-lore.mp3",
+      "link": null,
+      "season": 1,
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "character",
+          "canonicalId": "commander_dante",
+          "rawName": "Commander Dante",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "character",
+          "canonicalId": "gabriel_seth",
+          "rawName": "Gabriel Seth",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "character",
+          "canonicalId": "ka_bandha",
+          "rawName": "Ka'Bandha",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "character",
+          "canonicalId": "sanguinius",
+          "rawName": "Sanguinius",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "blood_angels",
+          "rawName": "Blood Angels",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "hive_fleet_leviathan",
+          "rawName": "Hive Fleet Leviathan",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "tyranids",
+          "rawName": "Tyranids",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "location",
+          "canonicalId": "baal",
+          "rawName": "Baal",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [
+        {
+          "rawName": "Arx Angelicum",
+          "axisGuess": "location",
+          "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://www.buzzsprout.com/1497970/episodes/19531716-devastation-of-baal-oh-so-that-s-why-they-call-it-that-warhammer-40k-lore.mp3",
           "sourceKind": "podcast_rss",
           "confidence": 1
         }

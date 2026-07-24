@@ -7,15 +7,15 @@ Reproducible via: `PODCAST_LLM_MODEL=claude-sonnet-4-6 npm run ingest:podcast --
 - **Show:** Adeptus Ridiculous (slug `adeptus-ridiculous`)
 - **Feed:** https://rss.buzzsprout.com/1497970.rss
 - **Apple id:** 1679817767
-- **Episodes:** 368
+- **Episodes:** 370
 - **Extraction model:** `claude-sonnet-4-6` (prompt version `3f6a5ff87efa`)
-- **Resolved coverage:** 292/368 episodes (79.3%) carry ≥1 resolved tag
-- **Resolved tags:** 837 total — 570 subject, 267 mentioned
-  - by type: 204 character, 499 faction, 134 location
-- **Episode kinds:** 309 lore, 2 news_recap, 6 interview, 51 other
+- **Resolved coverage:** 294/370 episodes (79.5%) carry ≥1 resolved tag
+- **Resolved tags:** 852 total — 583 subject, 269 mentioned
+  - by type: 209 character, 507 faction, 136 location
+- **Episode kinds:** 311 lore, 2 news_recap, 6 interview, 51 other
 - **Show links:** 5 (apple_podcasts, official_website, rss, spotify, youtube)
-- **Episode links:** 368/368 episodes carry an RSS audio link (`listen`/`rss`/`podcast_rss`)
-- **Distinct unresolved surface-forms:** 164
+- **Episode links:** 370/370 episodes carry an RSS audio link (`listen`/`rss`/`podcast_rss`)
+- **Distinct unresolved surface-forms:** 167
 
 ## Method (resolution reuse)
 
@@ -99,6 +99,7 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | character | Prisca | 1 |
 | character | Rho-1 Lux | 1 |
 | character | Saint Basillius | 1 |
+| character | Sanguinor | 1 |
 | character | Sevastus Kranon | 1 |
 | character | Shas'ui'T'au'Kais | 1 |
 | character | Sister Iolanth | 1 |
@@ -163,6 +164,7 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | faction | XI Legion | 1 |
 | location | 500 Worlds of Ultramar | 1 |
 | location | Agripinaa | 1 |
+| location | Arx Angelicum | 1 |
 | location | Ash Wastes | 1 |
 | location | Bubonicus | 1 |
 | location | Cadian Gate | 1 |
@@ -187,6 +189,7 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | location | Scitalyss | 1 |
 | location | Segmentum Solar | 1 |
 | location | Segmentum Ultima | 1 |
+| location | Shieldworlds | 1 |
 | location | Sortiarius | 1 |
 | location | Steelmound | 1 |
 | location | Taos 3 | 1 |
@@ -203,49 +206,48 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 - **Date / kind:** 2020-11-27 · lore
 - **Tags:** `faction:death_korps_of_krieg` (subject, name, “Death Korps of Krieg”)
 
-### SQUIG TIER LIST | Warhammer 40k Lore
+### OFFICIO ASSASSINORUM: THE INSTRUMENTS OF THE EMPEROR'S VENGEANCE | Warhammer 40k Lore
 
-- **Date / kind:** 2021-07-21 · lore
-- **Tags:** `faction:orks` (subject, name)
+- **Date / kind:** 2021-07-28 · lore
+- **Tags:** `faction:officio_assassinorum` (subject, name, “Officio Assassinorum”)
 
-### Interview with Richard Reed, Necron & Tomb King voice actor extraordinaire
+### CARCHARODONS: HUNTERS FROM THE OUTER VOID | Warhammer 40k Lore
 
-- **Date / kind:** 2022-02-13 · interview
-- **Tags:** `faction:necrons` (subject, name)
+- **Date / kind:** 2022-02-16 · lore
+- **Tags:** `faction:carcharodons` (subject, name)
 
-### Duperrault Family Massacre | Detective Ridiculous
+### SAINT CELESTINE: PURE AS RIGHTEOUS DESTRUCTION | Warhammer 40k Lore
 
-- **Date / kind:** 2022-09-03 · other
+- **Date / kind:** 2022-09-06 · lore
+- **Tags:** `character:saint_celestine` (subject, name, “Saint Celestine”); `faction:sisters_of_battle` (subject, alias, “Adepta Sororitas”)
+
+### KILLER SQUIRRELS, FLYING SNAKES & MECHA-INSECTS: HORRORS OF THE BLACKSTONE FORTRESS! | Warhammer 40k
+
+- **Date / kind:** 2023-03-15 · lore
+- **Tags:** `character:janus_draik` (subject, name, “Janus Draik”); `faction:imperium` (mentioned, alias); `location:blackstone_fortress` (subject, name, “Blackstone Fortress”); `location:precipice` (mentioned, name); `location:terra` (mentioned, name)
+
+### NECRONS: FROM RIP-OFF TERMINATORS TO SPACE EGYPTIANS  | Warhammer 40k Lore feat Zee
+
+- **Date / kind:** 2023-09-27 · lore
+- **Tags:** `faction:necrons` (subject, name); `faction:eldar` (mentioned, alias)
+- **Unresolved:** “Necrontyr” (faction)
+
+### MAGNUS: THE CRIMSON KING | Warhammer 40k Lore
+
+- **Date / kind:** 2024-04-17 · lore
+- **Tags:** `character:magnus_the_red` (subject, name, “Magnus the Red”); `character:horus` (mentioned, name); `character:the_emperor` (mentioned, alias, “Emperor of Mankind”); `faction:thousand_sons` (subject, name, “Thousand Sons”); `faction:heretic_astartes` (mentioned, alias, “Chaos Space Marines”); `location:planet_of_the_sorcerers` (subject, name, “Planet of the Sorcerers”)
+
+### TOMB KINGS: SUCH IS THE POWER OF NAGASH | Warhammer Fantasy Lore
+
+- **Date / kind:** 2024-10-20 · other
 - **Tags:** _none resolved_
 
-### BIZARRE ABHUMANS & THE HORRORS OF THE SUMP | Warhammer 40k Lore
+### THE IRON SULTANATE | Trench Crusade Lore
 
-- **Date / kind:** 2023-03-08 · lore
-- **Tags:** _none resolved_
-- **Unresolved:** “Abhumans” (faction)
-
-### One of the West's Most Mysterious Outlaws: the Ballarat Bandit | Detective Ridiculous
-
-- **Date / kind:** 2023-09-24 · other
+- **Date / kind:** 2025-04-30 · other
 - **Tags:** _none resolved_
 
-### FABIUS BILE: GODS ARE FOR THE WEAK. I AM NOT WEAK. | Warhammer 40k Lore
+### Grand Cathay Deep Dive | Warhammer Fantasy Lore
 
-- **Date / kind:** 2024-04-03 · lore
-- **Tags:** `character:fabius_bile` (subject, name, “Fabius Bile”); `faction:emperors_children` (subject, name, “Emperor's Children”); `faction:heretic_astartes` (mentioned, alias, “Chaos Space Marines”)
-
-### ADEPTUS ARBITES: I AM THE LAW! | Warhammer 40k Lore
-
-- **Date / kind:** 2024-10-09 · lore
-- **Tags:** `faction:adeptus_arbites` (subject, name, “Adeptus Arbites”); `faction:inquisition` (mentioned, name)
-- **Unresolved:** “Adeptus Terra” (faction); “Priesthood of Terra” (faction)
-
-### THE OGRE KINGDOMS | Warhammer Fantasy Lore
-
-- **Date / kind:** 2025-04-20 · other
+- **Date / kind:** 2025-11-30 · other
 - **Tags:** _none resolved_
-
-### THE MOST HORRIFYING ORK IN THE GALAXY (It's not Ghaz) | Warhammer 40k Lore
-
-- **Date / kind:** 2025-11-19 · lore
-- **Tags:** `character:ghazghkull_thraka` (mentioned, name, “Ghazghkull Thraka”); `faction:orks` (subject, name)

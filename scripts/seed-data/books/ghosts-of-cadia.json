@@ -1,0 +1,93 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0600",
+  "slug": "ghosts-of-cadia",
+  "title": "Ghosts of Cadia",
+  "authors": [
+    "Rob Young"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2026,
+  "format": "novel",
+  "seriesHint": "40k - Imperial Guard",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Direct sequel to Longshot; same protagonist (Sergeant Darya Nevic of the Cadian 217th).",
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "Sergeant Darya Nevic cheated death at the hands of the T'au, and the Cadian 217th's sniper is sent next to Parrescum, a world that has to be pried back from the heretic hordes holding it. The liberation is a grinding, street-by-street campaign against the servants of Chaos, and a chance encounter hands Nevic something a war like this rarely offers: the opportunity to settle a debt she never expected to repay. Luck and marksmanship have carried her this far, but Parrescum asks for both at once and keeps the odds for itself. A follow-up to Longshot that puts the same soldier in a dirtier war, seen from the scope end of it.",
+    "facetIds": [
+      "book",
+      "female",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "loyalty",
+      "redemption",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Cadian Shock Troops",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium of Man",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "T'au Empire",
+        "role": "mentioned"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Parrescum",
+        "role": "primary"
+      },
+      {
+        "name": "Cadia",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Darya Nevic",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "unrated",
+      "source": "goodreads",
+      "reason": "Weekly-refresh promotion (2026-W30) — release date 2026-07-25, no Goodreads aggregation at detection time; left explicitly unrated."
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

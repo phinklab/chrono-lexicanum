@@ -137,6 +137,25 @@
         ]
       }
     },
+    "075eda06-3cc4-470c-9e25-e3586d3fd106": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Titan Legions"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Mars"
+        ],
+        "mentioned": []
+      }
+    },
     "0884cb37-b56c-4440-86f8-679892c27842": {
       "episodeKind": "lore",
       "characters": {
@@ -204,6 +223,31 @@
           "Terra",
           "Ullanor"
         ],
+        "mentioned": []
+      }
+    },
+    "1246717b-ba0b-4971-a97f-936e69c417c9": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Erebus",
+          "Lorgar"
+        ],
+        "mentioned": [
+          "Layak",
+          "Sanguinius",
+          "Fulgrim",
+          "Horus"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Word Bearers"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
         "mentioned": []
       }
     },

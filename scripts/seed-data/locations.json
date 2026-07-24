@@ -1082,6 +1082,14 @@
     "tags": ["era_frame"]
   },
   {
+    "id": "parrescum",
+    "name": "Parrescum",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["era_frame"]
+  },
+  {
     "id": "stalinvast",
     "name": "Stalinvast",
     "sector": null,

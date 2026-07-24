@@ -5992,6 +5992,61 @@
         "mentioned": []
       }
     },
+    "Buzzsprout-19497377": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Commander Dante",
+          "Sanguinor"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Blood Angels",
+          "Tyranids",
+          "Hive Fleet Leviathan"
+        ],
+        "mentioned": [
+          "Necrons",
+          "Astra Militarum"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "Baal",
+          "Shieldworlds"
+        ],
+        "mentioned": []
+      }
+    },
+    "Buzzsprout-19531716": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Commander Dante",
+          "Sanguinius",
+          "Gabriel Seth",
+          "Ka'Bandha"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Blood Angels",
+          "Tyranids",
+          "Hive Fleet Leviathan"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Baal",
+          "Arx Angelicum"
+        ],
+        "mentioned": []
+      }
+    },
     "Buzzsprout-6575773": {
       "episodeKind": "lore",
       "characters": {

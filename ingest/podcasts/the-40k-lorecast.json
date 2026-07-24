@@ -7,7 +7,7 @@
     "appleId": "1709093251",
     "podcastGuid": "cc233adb-de43-49be-bb76-9720292ddc98",
     "imageUrl": "https://media.redcircle.com/images/2025/5/13/20/27c7ddbc-c7eb-4d15-b305-ce9e8834f144_-535dda26d00f_da4230511c4076e9ed53cb4872e8cabe.jpg",
-    "episodeCount": 155,
+    "episodeCount": 157,
     "links": [
       {
         "serviceId": "apple_podcasts",
@@ -8601,6 +8601,120 @@
           "serviceId": "rss",
           "kind": "listen",
           "url": "https://audio4.redcircle.com/episodes/4bc916b6-7e6b-475a-b4e5-f9f999ef2a0d/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "1246717b-ba0b-4971-a97f-936e69c417c9",
+      "title": "Episode 147 -  Word Bearers pt 4 - Erebus loses his face, Lorgar loses his legion, but then things get better",
+      "pubDate": "2026-07-13T23:00:14.000Z",
+      "durationSec": 3715,
+      "audioUrl": "https://audio4.redcircle.com/episodes/b5ad7e41-e1b0-40a1-9dc0-ad399fe73fc2/stream.mp3",
+      "link": "https://the40klorecast.com/",
+      "episode": 147,
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "character",
+          "canonicalId": "erebus",
+          "rawName": "Erebus",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "character",
+          "canonicalId": "lorgar",
+          "rawName": "Lorgar",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "character",
+          "canonicalId": "fulgrim",
+          "rawName": "Fulgrim",
+          "role": "mentioned",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "character",
+          "canonicalId": "horus",
+          "rawName": "Horus",
+          "role": "mentioned",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "character",
+          "canonicalId": "sanguinius",
+          "rawName": "Sanguinius",
+          "role": "mentioned",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "word_bearers",
+          "rawName": "Word Bearers",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [
+        {
+          "rawName": "Layak",
+          "axisGuess": "character",
+          "role": "mentioned"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/b5ad7e41-e1b0-40a1-9dc0-ad399fe73fc2/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "075eda06-3cc4-470c-9e25-e3586d3fd106",
+      "title": "Episode 148 - Titan Legions pt 1 - The origins of Mars, creation of the first titans, and the hilarity that is titans themselves",
+      "pubDate": "2026-07-20T23:00:02.000Z",
+      "durationSec": 3952,
+      "audioUrl": "https://audio4.redcircle.com/episodes/dd0aaa16-b3a6-4b25-8b8b-ab47c91dc5fe/stream.mp3",
+      "link": "https://the40klorecast.com/",
+      "episode": 148,
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "faction",
+          "canonicalId": "adeptus_titanicus",
+          "rawName": "Titan Legions",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "location",
+          "canonicalId": "mars",
+          "rawName": "Mars",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/dd0aaa16-b3a6-4b25-8b8b-ab47c91dc5fe/stream.mp3",
           "sourceKind": "podcast_rss",
           "confidence": 1
         }
