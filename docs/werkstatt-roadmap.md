@@ -34,14 +34,15 @@
 | 26 | **L1** — Logo-Einbau (BrandBeacon, Icons, OG) | Bau (Product, XS–S) | Logo von Philipp | ☐ |
 | 27 | **A1** — Timeline-Artwork-Integration | Bau (Product, S–M) | A0-Assets + schriftliche Freigaben | ☐ |
 | 28 | **S11-Code-PR** (pixelgleich) | Qualitätspass | 15–25 gemerged | ☐ |
+| 28a | **B2** — Entity-/Alias-Konsolidierung vor dem Content-Freeze | Bau (Batches, M) | letzter Weekly-Refresh + B1 + K-Daten | ☐ |
 | 29 | **R1** — Migration 0016 → Produktion | Release (Batches) | — | ☐ |
-| 30 | **R2** — Content-Freeze + finaler Snapshot | Release (Batches) | H2, B1, K1/K3-Daten, R1 | ☐ |
+| 30 | **R2** — Content-Freeze + finaler Snapshot | Release (Batches) | H2, B1, B2, K1/K3-Daten, R1 | ☐ |
 | 31 | **R3** — Launch-Readiness (12 Punkte) → Gate-off | Endspiel | alles davor inkl. L1 + A1 | ☐ |
 | 32 | **Stilles Fenster** (PL1, S7b-Live-Messung, S11-Doku-Rollup) → Reddit | Endspiel | R3 | ☐ |
 
 **Kritischer Pfad (Launch bleibt blockiert, solange offen):** Artwork + Nutzungsfreigaben (A0/A1) · Store-Links laufen sichtbar ins Leere (K4) · Journey-Flicker reproduzierbar (K2) · Migration 0016 nicht produktiv belegt (R1) · finaler Content-Snapshot fehlt (R2) · 12-Punkte-Gate nicht vollständig grün (R3). SEO-/Mobile-/DB-Optimierung sind **keine** eigenen Feature-Wellen mehr — sie sind messbare Abnahmen im Gate (R3). Größtes Scope-Risiko ist N1/N1-B1 (Nav-Rework): strikt Bewertung → Urteil → begrenzter Bau, sonst driftet der Endspurt.
 
-Posten 28–32 laufen über [`launch-session-prompts.md`](./launch-session-prompts.md) bzw. das Launch-Readiness-Kapitel des Plans — die Kurz-Prompts unten verweisen dorthin.
+Posten 28–32 laufen über [`launch-session-prompts.md`](./launch-session-prompts.md) bzw. das Launch-Readiness-Kapitel des Plans — die Kurz-Prompts unten verweisen dorthin. Ausnahme: **28a (B2)** ist ein Batches-Datenposten mit eigenem Prompt unten; die Nummer ist bewusst suffigiert, damit 14–32 stabil bleiben und die Reihenfolge trotzdem stimmt.
 
 ## Backlog (post-launch, mit Revisit-Trigger)
 
@@ -53,8 +54,7 @@ Volle Urteils-Begründungen im [Archiv](./werkstatt-roadmap-archive.md) § Urtei
 - **W4 Provenienz-Badges** — konsolidiert die lokalen H/M/L-Wordings von `/now` + `/statistics`, falls je gebaut.
 - **W5 Podcasts auf Buchseite · W6 Size Comparison** — post-launch; W6 braucht zuerst einen Brief (Schema).
 - **WA-Reste:** Series-Status-Board (nach `seriesHint`-Promotion, eigener Batches-Posten), Verpasst-Generator (als `/now`-Erweiterung), Charakter-Dossiers (nach W3a-Bau), Spoiler-Graph (fern, Serien-Granularität).
-- **WP-Reste:** Galaspar-Pin (sobald Philipp Koordinaten abgelesen hat — XS, alles andere liegt bereit), Podcast-Aliasse (175 Formen vorsortiert in `scripts/seed-data/podcast-aliases.review.md`) — dazu die vier unaufgelösten Formen aus Weekly W30: „Layak", „Sanguinor" (beide Charakter), „Shieldworlds", „Arx Angelicum" (beide Location). *Revisit-Trigger:* nächster Resolver-/Alias-Pass, oder sobald der Review-Stapel groß genug für eine eigene Batches-Session ist. Reine Datenpflege, kein Launch-Blocker (unaufgelöste Formen landen im Audit-Bucket, nichts geht kaputt).
-- **Entry-Point-Facetten des Longshot-Paars** — *Longshot* (`W40K-0132`) ist noch `standalone` getaggt, obwohl *Ghosts of Cadia* (`W40K-0600`, Weekly W30) es zur direkten Fortsetzung macht; sauber wäre `series_start` für Longshot bei `mid_series` für Ghosts (letzteres ist schon so getaggt). XS, zwei per-Book-Dateien. *Revisit-Trigger:* nächste Batches-Session, die ohnehin `scripts/seed-data/books/**` anfasst — z. B. Posten 17 (B1). Ohne Fix filtert „Einstiegspunkt" das Paar leicht irreführend.
+- **WP-Reste:** Galaspar-Pin (sobald Philipp Koordinaten abgelesen hat — XS, alles andere liegt bereit). *Podcast-Aliasse sind hier raus* — sie sind jetzt Teil von Posten **28a (B2)** vor dem Content-Freeze.
 
 ---
 
@@ -79,7 +79,7 @@ Dependabot-Endspurt (Stand 2026-07-24: alle vier offen und mergeable): #292 Mino
 
 ### 16 · H2 — Weekly Refresh W30 (#281)
 
-> Erledigt 2026-07-24 (Detection-PR #281 + Kuratierungs-PR #299). Merke fürs nächste Mal: #281 ließ sich nur mit `--admin` mergen — GitHub startet auf Action-erstellten PRs keine Workflows, der required Check `lint-and-typecheck` läuft dort also nie. Inhalt: `W40K-0600` *Ghosts of Cadia* promoviert (per-Book-SSOT, neuer Schauplatz Parrescum, noch **ohne** Setting-Datum → `primary_era_id` NULL, fällt damit an Posten 17), *Flames of Betrayal* als Duplikat von `HH-0069` ignoriert, je 2 Episoden für `the-40k-lorecast` + `adeptus-ridiculous` über den Delta-Pfad, Cursors gestempelt. Equivalence-Gate gelockert (`extraPerBook` zählt nicht mehr als Fehler — es hätte jede künftige Neuerscheinung blockiert). Zwei Datenpflege-Reste sind im Backlog vermerkt. Produktions-Apply bleibt bei Posten 30.
+> Erledigt 2026-07-24 (Detection-PR #281 + Kuratierungs-PR #299). Merke fürs nächste Mal: #281 ließ sich nur mit `--admin` mergen — GitHub startet auf Action-erstellten PRs keine Workflows, der required Check `lint-and-typecheck` läuft dort also nie. Inhalt: `W40K-0600` *Ghosts of Cadia* promoviert (per-Book-SSOT, neuer Schauplatz Parrescum, noch **ohne** Setting-Datum → `primary_era_id` NULL, fällt damit an Posten 17), *Flames of Betrayal* als Duplikat von `HH-0069` ignoriert, je 2 Episoden für `the-40k-lorecast` + `adeptus-ridiculous` über den Delta-Pfad, Cursors gestempelt. Equivalence-Gate gelockert (`extraPerBook` zählt nicht mehr als Fehler — es hätte jede künftige Neuerscheinung blockiert). Vier unaufgelöste Surface-Formen + die Longshot-Facette laufen in Posten **28a (B2)** mit. Produktions-Apply bleibt bei Posten 30.
 
 ```text
 Weekly Refresh W30 (#281) vollständig verarbeiten (Weekly-Refresh-Konventionen): Detection-PR nach Review mergen (mein Go), dann kuratieren — „Ghosts of Cadia" und die Flames-of-Betrayal-Kollision entscheiden, die zwei neuen Podcast-Episoden über den Delta-Pfad, anschließend refresh:mark-reviewed -- --books (erst mergen, dann marken). Source-first — kein Produktions-Apply; der landet im finalen Content-Release (Posten 30). Branch: codex/ingest-batches-weekly-w30.
@@ -168,6 +168,22 @@ Timeline-Artwork-Integration (Product, S–M; blockiert bis Assets + schriftlich
 
 ```text
 S11-Code-PR (pixelgleich) nach docs/launch-master-plan.md § Session 11: Masterplan-Liste auf aktuellem main re-baselinen (vieles ist seit dem Schnitt erledigt), Scope nur belegte Reste — echte Hydration-Ursache statt suppressHydrationWarning, gemeinsame Roman-/Motion-Helfer, stale Kommentare, nachweislich toter Code. Keine neuen Abstraktionen, keine spekulativen Perf-Refactors. Der S11-Doku-Rollup bleibt im stillen Fenster (Posten 32). Branch: codex/product-s11-cleanup.
+```
+
+### 28a · B2 — Entity-/Alias-Konsolidierung vor dem Content-Freeze
+
+> Muss **vor** R2 laufen: bis zum Freeze wachsen die unaufgelösten Surface-Formen weiter (jeder Weekly-Refresh bringt Episoden + Bücher, B1 fasst den ganzen Korpus an), und der eine `db:sync` in R2 trägt genau den Stand, der dann in `seed-data/` steht. Danach kostet jede Korrektur einen weiteren Content-Release.
+>
+> **Achtung, Namensfalle:** der klassische *Resolver-Pass* (`scripts/runbooks/resolver-pass-runbook.md`, Wellen über `run-resolver-loop.sh`) ist seit Brief 171 **stillgelegt** — er lief auf der Batch-Welt, `db:apply-override` verweigert. Die Resolver-*Logik* (`src/lib/resolver`, `resolve-book-edges.ts`) ist weiter produktiv und kristallisiert die Kanten bei jedem `apply:book`. Was hier läuft, ist deshalb kein Wellen-Lauf, sondern Kuration der Referenz-JSONs.
+
+```text
+Werkstatt-Batch B2 — Entity-/Alias-Konsolidierung vor dem Content-Freeze. Logischer Strang Batch/Ingestion, physisch aus dem Koordinations-Worktree (Launch-Ausnahme). Branch: codex/ingest-batches-entity-alias-konsolidierung.
+Kein Resolver-Wellen-Lauf — das Runbook scripts/runbooks/resolver-pass-runbook.md ist LEGACY (Brief 171). Gearbeitet wird direkt an den Referenz-JSONs.
+Ziel: den aufgelaufenen Stapel unaufgelöster Surface-Formen abarbeiten, damit der finale Snapshot (Posten 30) sie als echte Entities trägt statt als Audit-Bucket-Einträge.
+Scope: (1) die 175 Restformen (166 distinkt) aus scripts/seed-data/podcast-aliases.review.md — je Zeile: neue Entity in characters/factions/locations.json, Alias auf bestehende Entity in den *-aliases.json, oder bewusst unaufgelöst (Zeile streichen). (2) Alles, was seit dem 2026-07-03er Stand dazugekommen ist — u. a. aus Weekly W30: „Layak", „Sanguinor" (Charakter), „Shieldworlds", „Arx Angelicum" (Location), plus die Formen aus jedem Weekly-Refresh bis zum Freeze. (3) Buch-seitige unaufgelöste Formen aus neu promovierten per-Book-Dateien.
+Rider (XS, gehört in denselben PR): Longshot (W40K-0132) ist noch entry_point standalone, obwohl Ghosts of Cadia (W40K-0600) es zur direkten Fortsetzung macht — sauber wäre series_start für Longshot bei mid_series für Ghosts (letzteres ist schon so getaggt).
+Pflicht nach jeder Alias-/Entity-Kuration: betroffene Podcast-Shows re-assemblen (npm run ingest:podcast -- --tagging=cc-direct --stage=assemble --out <slug>), sonst driftet test:podcast-cc-direct. Gates: npm test (insb. test:aliases, test:resolver-data, test:podcast-cc-direct), lint, typecheck.
+Source-first, kein Produktions-Apply — der läuft gebündelt in Posten 30. Kein brain/**, kein sessions/README.md; Impl-Report als frische Session-Datei.
 ```
 
 ### 29 · R1 — Migration 0016 → Produktion
